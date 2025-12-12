@@ -1,141 +1,158 @@
-"""Prediction Market AMM (CPMM) for a binary event.
+"""Refactored Prediction Market AMM (CPMM) into two conceptual parts:
 
-We model a Constant Product Market Maker with two outcome share pools:
-- x = pool inventory of 'YES' shares
-- y = pool inventory of 'NO' shares
+1) State Manager (Simulated Redis):
+   - A global dictionary `MARKET_STATE` holds the persistent market state.
+   - `get_market_state()` reads it.
+   - `update_market_state(new_yes, new_no)` writes it.
 
-The invariant is:
+2) Trade Processor (Core logic):
+   - `calculate_price_from_state()` computes prices from the current state.
+   - `execute_trade(outcome, amount)` performs a CPMM trade and persists updates
+     through `update_market_state(...)`.
+
+CPMM invariant:
     x * y = k
+where:
+    x = YES_Shares in the pool
+    y = NO_Shares in the pool
+    k = constant product invariant
 
-A trader who buys shares of one outcome *removes* those shares from the pool.
-To preserve x*y=k, the pool must gain shares on the other side; we interpret
-that required increase as the trade's *cost in currency units*.
-
-This is a simplified educational model.
+Trade interpretation (educational):
+When a trader buys outcome shares, they remove that outcome from the pool.
+To preserve x*y=k, the opposite side must increase; we interpret that increase
+as the trader's cost in currency units.
 """
 
 from __future__ import annotations
 
 
-class PredictionMarket:
-    """A CPMM-based binary prediction market ('YES'/'NO')."""
+# ---------------------------------------------------------------------------
+# 1) State Manager (simulated Redis)
+# ---------------------------------------------------------------------------
 
-    def __init__(self, initial_liquidity: float):
-        """Initialize the pool with symmetric liquidity on both sides.
+MARKET_STATE: dict[str, float] = {
+    "YES_Shares": 1000.0,
+    "NO_Shares": 1000.0,
+    "k_invariant": 1000.0 * 1000.0,
+}
 
-        Args:
-            initial_liquidity: starting shares for each side (x=y=initial_liquidity)
-        """
-        if initial_liquidity <= 0:
-            raise ValueError("initial_liquidity must be positive")
 
-        x = float(initial_liquidity)
-        y = float(initial_liquidity)
-        self.shares = {"YES": x, "NO": y}
-        self.k = x * y
+def get_market_state() -> dict[str, float]:
+    """Return the current market state (a copy, like reading from Redis)."""
+    return dict(MARKET_STATE)
 
-    def calculate_price(self, outcome: str) -> float:
-        """Return a probability-like price in [0, 1] for the given outcome.
 
-        We normalize the pool balances to get complementary prices:
-            p(YES) = y / (x + y)
-            p(NO)  = x / (x + y)
+def update_market_state(new_yes: float, new_no: float) -> None:
+    """Update the share balances in the global state (like writing to Redis)."""
+    if new_yes <= 0 or new_no <= 0:
+        raise ValueError("new_yes and new_no must remain positive")
+    MARKET_STATE["YES_Shares"] = float(new_yes)
+    MARKET_STATE["NO_Shares"] = float(new_no)
 
-        This stays within [0,1] and ensures p(YES)+p(NO)=1.
-        """
-        outcome = outcome.upper()
-        if outcome not in self.shares:
-            raise ValueError("outcome must be 'YES' or 'NO'")
 
-        x = self.shares["YES"]
-        y = self.shares["NO"]
-        denom = x + y
-        if denom <= 0:
-            raise RuntimeError("invalid pool state: x + y must be positive")
+# ---------------------------------------------------------------------------
+# 2) Trade Processor (core CPMM logic)
+# ---------------------------------------------------------------------------
 
-        if outcome == "YES":
-            return y / denom
-        return x / denom
+def calculate_price_from_state() -> dict[str, float]:
+    """Compute current prices for YES/NO from the persisted state.
 
-    def buy_shares(self, outcome: str, amount: float) -> tuple[float, float]:
-        """Buy `amount` shares of `outcome`, returning (cost, new_price).
+    We use a simple normalized pricing rule to obtain complementary prices:
+        p(YES) = y / (x + y)
+        p(NO)  = x / (x + y)
 
-        Trade math (CPMM invariant x*y=k):
+    This guarantees:
+    - each price is in [0, 1]
+    - p(YES) + p(NO) = 1
+    """
+    state = get_market_state()
+    x = state["YES_Shares"]
+    y = state["NO_Shares"]
+    denom = x + y
+    if denom <= 0:
+        raise RuntimeError("invalid pool state: YES_Shares + NO_Shares must be positive")
+    return {"YES": y / denom, "NO": x / denom}
 
-        Suppose buying 'YES' shares:
-        - Pool's YES inventory decreases: x_new = x - amount
-        - To keep x_new * y_new = k, we solve:
-              y_new = k / x_new
-        - The pool must *gain* (y_new - y) units of NO-side inventory.
 
-        We interpret this required increase in the opposite side as the
-        currency cost paid by the trader:
-              cost = y_new - y
+def execute_trade(outcome: str, amount: float) -> dict[str, float | str]:
+    """Execute a CPMM trade and persist results via `update_market_state`.
 
-        The same logic applies symmetrically for buying 'NO'.
+    Core CPMM math (x*y = k):
+    - Let x be the pool balance of the outcome being purchased.
+    - Let y be the pool balance of the opposite outcome.
 
-        Notes:
-        - This model treats the opposite-side increase as "cost in currency".
-        - amount must be smaller than the pool's current inventory of that outcome.
-        """
-        outcome = outcome.upper()
-        if outcome not in self.shares:
-            raise ValueError("outcome must be 'YES' or 'NO'")
-        if amount <= 0:
-            raise ValueError("amount must be positive")
+    Buying `amount` shares removes them from that side of the pool:
+        x_new = x - amount
 
-        yes = self.shares["YES"]
-        no = self.shares["NO"]
+    To keep the invariant:
+        x_new * y_new = k  =>  y_new = k / x_new
 
-        if outcome == "YES":
-            x = yes
-            y = no
-            if amount >= x:
-                raise ValueError("amount too large: would exhaust YES liquidity")
+    The pool's opposite-side balance increases by:
+        cost = y_new - y
 
-            # Remove YES from pool.
-            x_new = x - amount
-            # Keep invariant: x_new * y_new = k  =>  y_new = k / x_new
-            y_new = self.k / x_new
-            # Trader must add the difference on the other side.
-            cost = y_new - y
+    We interpret `cost` as the currency paid by the trader.
+    """
+    outcome = outcome.upper()
+    if outcome not in ("YES", "NO"):
+        raise ValueError("outcome must be 'YES' or 'NO'")
+    if amount <= 0:
+        raise ValueError("amount must be positive")
 
-            self.shares["YES"] = x_new
-            self.shares["NO"] = y_new
+    state = get_market_state()
+    yes = state["YES_Shares"]
+    no = state["NO_Shares"]
+    k = state["k_invariant"]
 
-        else:  # outcome == "NO"
-            x = no
-            y = yes
-            if amount >= x:
-                raise ValueError("amount too large: would exhaust NO liquidity")
+    if outcome == "YES":
+        x = yes
+        y = no
+        if amount >= x:
+            raise ValueError("amount too large: would exhaust YES liquidity")
 
-            x_new = x - amount
-            y_new = self.k / x_new
-            cost = y_new - y
+        x_new = x - amount
+        y_new = k / x_new
+        cost = y_new - y
 
-            self.shares["NO"] = x_new
-            self.shares["YES"] = y_new
+        # Persist (simulate Redis write).
+        update_market_state(new_yes=x_new, new_no=y_new)
+    else:
+        x = no
+        y = yes
+        if amount >= x:
+            raise ValueError("amount too large: would exhaust NO liquidity")
 
-        new_price = self.calculate_price(outcome)
-        return cost, new_price
+        x_new = x - amount
+        y_new = k / x_new
+        cost = y_new - y
 
+        # Persist (simulate Redis write).
+        update_market_state(new_yes=y_new, new_no=x_new)
+
+    prices = calculate_price_from_state()
+    return {
+        "Outcome": outcome,
+        "Shares Purchased": float(amount),
+        "Cost": float(cost),
+        "New Price": float(prices[outcome]),
+    }
+
+
+# ---------------------------------------------------------------------------
+# 3) Demonstration
+# ---------------------------------------------------------------------------
 
 if __name__ == "__main__":
-    market = PredictionMarket(initial_liquidity=1000)
-
-    print("Initial pool shares:", market.shares)
-    print("Initial prices:")
-    print("  YES:", round(market.calculate_price("YES"), 6))
-    print("  NO :", round(market.calculate_price("NO"), 6))
+    print("Initial MARKET_STATE:", get_market_state())
+    print("Initial prices:", {k: round(v, 6) for k, v in calculate_price_from_state().items()})
     print()
 
-    trades = [("YES", 100), ("NO", 50), ("YES", 200)]
+    result_1 = execute_trade("YES", 100)
+    print("Trade 1 result:", {k: (round(v, 6) if isinstance(v, float) else v) for k, v in result_1.items()})
+    print("State after trade 1:", get_market_state())
+    print("Prices after trade 1:", {k: round(v, 6) for k, v in calculate_price_from_state().items()})
+    print()
 
-    for i, (outcome, amount) in enumerate(trades, start=1):
-        cost, new_price = market.buy_shares(outcome, amount)
-        print(f"Trade {i}: buy {amount} {outcome}")
-        print("  Cost (currency units):", round(cost, 6))
-        print("  New pool shares:", {k: round(v, 6) for k, v in market.shares.items()})
-        print(f"  New price({outcome}):", round(new_price, 6))
-        print("  Prices now: YES=", round(market.calculate_price("YES"), 6), ", NO=", round(market.calculate_price("NO"), 6))
-        print()
+    result_2 = execute_trade("NO", 50)
+    print("Trade 2 result:", {k: (round(v, 6) if isinstance(v, float) else v) for k, v in result_2.items()})
+    print("State after trade 2:", get_market_state())
+    print("Prices after trade 2:", {k: round(v, 6) for k, v in calculate_price_from_state().items()})
