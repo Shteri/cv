@@ -2,20 +2,18 @@
   "make": "Kia",
   "make_he": "קיה",
   "importer": "טלקאר",
-  "id": "kia-picanto-2017-2025",
-  "model": "Picanto",
-  "model_he": "פיקנטו",
-  "generation": "JA",
+  "id": "kia-niro-2016-2022-1.6-hybrid",
+  "model": "Niro",
+  "model_he": "נירו",
+  "generation": "DE",
   "years": [
-    2017,
-    2025
+    2016,
+    2022
   ],
   "engines": [
-    "1.0 MPI (Kappa)",
-    "1.2 MPI (Kappa)",
-    "1.0 T-GDI (Kappa)"
+    "1.6 GDI hybrid (Kappa)"
   ],
-  "fuel": "petrol",
+  "fuel": "hybrid",
   "interval": {
     "km": 15000,
     "months": 12
@@ -34,12 +32,15 @@
           "action": "replace"
         },
         {
-          "item": "intercooler_pipes",
-          "action": "inspect",
-          "note": "מנוע 1.0 T-GDI בלבד"
+          "item": "vacuum_hose",
+          "action": "inspect"
         },
         {
-          "item": "exhaust",
+          "item": "clutch_actuator_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
           "action": "inspect"
         },
         {
@@ -48,14 +49,6 @@
         },
         {
           "item": "ac_system",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_discs",
           "action": "inspect"
         },
         {
@@ -71,16 +64,29 @@
           "action": "inspect"
         },
         {
-          "item": "suspension",
+          "item": "tires",
           "action": "inspect"
         },
         {
-          "item": "tires",
+          "item": "suspension",
           "action": "inspect"
         },
         {
           "item": "battery_12v",
           "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "hsg_belt",
+          "action": "inspect",
+          "note": "בדיקה בכל טיפול; בספר 2019+ החלפה ב-105,000. בספר 2016-2018 בדיקה בלבד (החלפה כל 45,000 בתנאים קשים)"
         }
       ]
     },
@@ -96,21 +102,20 @@
           "action": "replace"
         },
         {
-          "item": "air_filter",
+          "item": "vacuum_hose",
           "action": "inspect"
         },
         {
-          "item": "vacuum_hose",
-          "action": "inspect"
+          "item": "clutch_actuator_fluid",
+          "action": "replace"
         },
         {
           "item": "cv_boots",
           "action": "inspect"
         },
         {
-          "item": "intercooler_pipes",
-          "action": "inspect",
-          "note": "מנוע 1.0 T-GDI בלבד"
+          "item": "air_filter",
+          "action": "inspect"
         },
         {
           "item": "exhaust",
@@ -129,18 +134,6 @@
           "action": "replace"
         },
         {
-          "item": "brake_pads",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_discs",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_drums",
-          "action": "inspect"
-        },
-        {
           "item": "brake_lines",
           "action": "inspect"
         },
@@ -157,16 +150,29 @@
           "action": "inspect"
         },
         {
-          "item": "suspension",
+          "item": "tires",
           "action": "inspect"
         },
         {
-          "item": "tires",
+          "item": "suspension",
           "action": "inspect"
         },
         {
           "item": "battery_12v",
           "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "hsg_belt",
+          "action": "inspect",
+          "note": "בדיקה בכל טיפול; בספר 2019+ החלפה ב-105,000. בספר 2016-2018 בדיקה בלבד (החלפה כל 45,000 בתנאים קשים)"
         }
       ]
     },
@@ -182,13 +188,16 @@
           "action": "replace"
         },
         {
-          "item": "intercooler_pipes",
-          "action": "inspect",
-          "note": "מנוע 1.0 T-GDI בלבד"
+          "item": "vacuum_hose",
+          "action": "inspect"
         },
         {
-          "item": "exhaust",
+          "item": "clutch_actuator_fluid",
           "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
         },
         {
           "item": "ac_refrigerant",
@@ -196,14 +205,6 @@
         },
         {
           "item": "ac_system",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_discs",
           "action": "inspect"
         },
         {
@@ -219,16 +220,29 @@
           "action": "inspect"
         },
         {
-          "item": "suspension",
+          "item": "tires",
           "action": "inspect"
         },
         {
-          "item": "tires",
+          "item": "suspension",
           "action": "inspect"
         },
         {
           "item": "battery_12v",
           "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "hsg_belt",
+          "action": "inspect",
+          "note": "בדיקה בכל טיפול; בספר 2019+ החלפה ב-105,000. בספר 2016-2018 בדיקה בלבד (החלפה כל 45,000 בתנאים קשים)"
         }
       ]
     },
@@ -244,32 +258,19 @@
           "action": "replace"
         },
         {
-          "item": "air_filter",
-          "action": "replace"
-        },
-        {
           "item": "vacuum_hose",
           "action": "inspect"
         },
         {
-          "item": "transmission_oil",
+          "item": "dct_oil",
           "action": "inspect"
         },
         {
-          "item": "manual_gearbox_oil",
-          "action": "inspect",
-          "note": "להחליף אחרי נסיעה במים עמוקים"
+          "item": "clutch_actuator_fluid",
+          "action": "replace"
         },
         {
           "item": "cv_boots",
-          "action": "inspect"
-        },
-        {
-          "item": "evap_system",
-          "action": "inspect"
-        },
-        {
-          "item": "fuel_tank_air_filter",
           "action": "inspect"
         },
         {
@@ -277,9 +278,16 @@
           "action": "inspect"
         },
         {
-          "item": "intercooler_pipes",
-          "action": "inspect",
-          "note": "מנוע 1.0 T-GDI בלבד"
+          "item": "fuel_tank_air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
         },
         {
           "item": "exhaust",
@@ -298,18 +306,6 @@
           "action": "replace"
         },
         {
-          "item": "brake_pads",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_discs",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_drums",
-          "action": "inspect"
-        },
-        {
           "item": "brake_lines",
           "action": "inspect"
         },
@@ -326,16 +322,29 @@
           "action": "inspect"
         },
         {
-          "item": "suspension",
+          "item": "tires",
           "action": "inspect"
         },
         {
-          "item": "tires",
+          "item": "suspension",
           "action": "inspect"
         },
         {
           "item": "battery_12v",
           "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "hsg_belt",
+          "action": "inspect",
+          "note": "בדיקה בכל טיפול; בספר 2019+ החלפה ב-105,000. בספר 2016-2018 בדיקה בלבד (החלפה כל 45,000 בתנאים קשים)"
         }
       ]
     },
@@ -351,12 +360,15 @@
           "action": "replace"
         },
         {
-          "item": "intercooler_pipes",
-          "action": "inspect",
-          "note": "מנוע 1.0 T-GDI בלבד"
+          "item": "vacuum_hose",
+          "action": "inspect"
         },
         {
-          "item": "exhaust",
+          "item": "clutch_actuator_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
           "action": "inspect"
         },
         {
@@ -365,14 +377,6 @@
         },
         {
           "item": "ac_system",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_discs",
           "action": "inspect"
         },
         {
@@ -388,16 +392,29 @@
           "action": "inspect"
         },
         {
-          "item": "suspension",
+          "item": "tires",
           "action": "inspect"
         },
         {
-          "item": "tires",
+          "item": "suspension",
           "action": "inspect"
         },
         {
           "item": "battery_12v",
           "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "hsg_belt",
+          "action": "inspect",
+          "note": "בדיקה בכל טיפול; בספר 2019+ החלפה ב-105,000. בספר 2016-2018 בדיקה בלבד (החלפה כל 45,000 בתנאים קשים)"
         }
       ]
     },
@@ -413,26 +430,20 @@
           "action": "replace"
         },
         {
-          "item": "air_filter",
-          "action": "inspect"
-        },
-        {
           "item": "vacuum_hose",
           "action": "inspect"
         },
         {
-          "item": "valve_clearance",
-          "action": "inspect",
-          "note": "מנועי 1.0 בלבד"
+          "item": "clutch_actuator_fluid",
+          "action": "replace"
         },
         {
           "item": "cv_boots",
           "action": "inspect"
         },
         {
-          "item": "intercooler_pipes",
-          "action": "inspect",
-          "note": "מנוע 1.0 T-GDI בלבד"
+          "item": "air_filter",
+          "action": "replace"
         },
         {
           "item": "exhaust",
@@ -451,18 +462,6 @@
           "action": "replace"
         },
         {
-          "item": "brake_pads",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_discs",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_drums",
-          "action": "inspect"
-        },
-        {
           "item": "brake_lines",
           "action": "inspect"
         },
@@ -479,16 +478,29 @@
           "action": "inspect"
         },
         {
-          "item": "suspension",
+          "item": "tires",
           "action": "inspect"
         },
         {
-          "item": "tires",
+          "item": "suspension",
           "action": "inspect"
         },
         {
           "item": "battery_12v",
           "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "hsg_belt",
+          "action": "inspect",
+          "note": "בדיקה בכל טיפול; בספר 2019+ החלפה ב-105,000. בספר 2016-2018 בדיקה בלבד (החלפה כל 45,000 בתנאים קשים)"
         }
       ]
     },
@@ -504,12 +516,15 @@
           "action": "replace"
         },
         {
-          "item": "intercooler_pipes",
-          "action": "inspect",
-          "note": "מנוע 1.0 T-GDI בלבד"
+          "item": "vacuum_hose",
+          "action": "inspect"
         },
         {
-          "item": "exhaust",
+          "item": "clutch_actuator_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
           "action": "inspect"
         },
         {
@@ -518,14 +533,6 @@
         },
         {
           "item": "ac_system",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_discs",
           "action": "inspect"
         },
         {
@@ -541,16 +548,29 @@
           "action": "inspect"
         },
         {
-          "item": "suspension",
+          "item": "tires",
           "action": "inspect"
         },
         {
-          "item": "tires",
+          "item": "suspension",
           "action": "inspect"
         },
         {
           "item": "battery_12v",
           "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "hsg_belt",
+          "action": "replace",
+          "note": "בדיקה בכל טיפול; בספר 2019+ החלפה ב-105,000. בספר 2016-2018 בדיקה בלבד (החלפה כל 45,000 בתנאים קשים)"
         }
       ]
     },
@@ -566,32 +586,19 @@
           "action": "replace"
         },
         {
-          "item": "air_filter",
-          "action": "replace"
-        },
-        {
           "item": "vacuum_hose",
           "action": "inspect"
         },
         {
-          "item": "transmission_oil",
+          "item": "dct_oil",
           "action": "inspect"
         },
         {
-          "item": "manual_gearbox_oil",
-          "action": "inspect",
-          "note": "להחליף אחרי נסיעה במים עמוקים"
+          "item": "clutch_actuator_fluid",
+          "action": "replace"
         },
         {
           "item": "cv_boots",
-          "action": "inspect"
-        },
-        {
-          "item": "evap_system",
-          "action": "inspect"
-        },
-        {
-          "item": "fuel_tank_air_filter",
           "action": "inspect"
         },
         {
@@ -599,9 +606,16 @@
           "action": "inspect"
         },
         {
-          "item": "intercooler_pipes",
-          "action": "inspect",
-          "note": "מנוע 1.0 T-GDI בלבד"
+          "item": "fuel_tank_air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
         },
         {
           "item": "exhaust",
@@ -620,18 +634,6 @@
           "action": "replace"
         },
         {
-          "item": "brake_pads",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_discs",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_drums",
-          "action": "inspect"
-        },
-        {
           "item": "brake_lines",
           "action": "inspect"
         },
@@ -648,16 +650,29 @@
           "action": "inspect"
         },
         {
-          "item": "suspension",
+          "item": "tires",
           "action": "inspect"
         },
         {
-          "item": "tires",
+          "item": "suspension",
           "action": "inspect"
         },
         {
           "item": "battery_12v",
           "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "hsg_belt",
+          "action": "inspect",
+          "note": "בדיקה בכל טיפול; בספר 2019+ החלפה ב-105,000. בספר 2016-2018 בדיקה בלבד (החלפה כל 45,000 בתנאים קשים)"
         }
       ]
     }
@@ -669,22 +684,14 @@
       "first_km": 210000,
       "first_months": 120,
       "then_every_km": 30000,
-      "then_every_months": 24
-    },
-    {
-      "item": "drive_belt",
-      "action": "replace",
-      "first_km": 90000,
-      "first_months": 72,
-      "then_every_km": 30000,
       "then_every_months": 24,
-      "note": "לפי הספר: החלפה ראשונה ב-90,000, אחר כך כל 30,000; בפועל בדיקה והחלפה לפי מצב"
+      "note": "נוזל קירור מנוע ומערכת היברידית"
     },
     {
       "item": "spark_plugs",
       "action": "replace",
       "every_km": 150000,
-      "note": "מנועי 1.0 MPI ו-1.2 MPI. מנוע 1.0 T-GDI: כל 75,000 ק\"מ"
+      "every_months": 120
     },
     {
       "item": "cooling_system",
@@ -698,19 +705,19 @@
   "time_based": [],
   "sources": [
     {
-      "url": "https://kia-israel.co.il/wp-content/uploads/2020/11/ספר-רכב-Picanto_OM_2017-.pdf",
+      "url": "https://cdnmedia.kia-israel.co.il/www/cars-book/Niro-2016-2018.pdf",
       "kind": "importer",
-      "note": "ספר רכב פיקנטו 2017+ של קיה ישראל, פרק 8 עמ' 11-17"
+      "note": "ספר רכב נירו 2016-2018 של קיה ישראל, פרק 8 עמ' 10-15"
     },
     {
-      "url": "https://cdnmedia.kia-israel.co.il/www/cars-book/Picanto-JA-2017-2020.pdf",
+      "url": "https://cdnmedia.kia-israel.co.il/www/cars-book/Niro-2019.pdf",
       "kind": "importer",
-      "note": "אותו ספר בספריית cars-book"
+      "note": "ספר רכב נירו 2019+ (פייסליפט), פרק 7 עמ' 12-16"
     },
     {
-      "url": "https://cdnmedia.kia-israel.co.il/www/cars-book/Picanto-AMT-2021.pdf",
+      "url": "https://kia-israel.co.il/wp-content/uploads/2020/11/ספר-רכב-Kia_Niro_Facelift.pdf",
       "kind": "importer",
-      "note": "ספר רכב פיקנטו 2021+ (גיר AMT)"
+      "note": "אותו ספר פייסליפט"
     },
     {
       "url": "https://kia-israel.co.il/קבל-ספר-רכב-למייל",
@@ -719,5 +726,5 @@
     }
   ],
   "status": "reviewed",
-  "notes": "מסנן תא נוסעים ונוזל בלמים כל 30,000 לפי הספר (מוסכים בישראל נוהגים להחליף מסנן מזגן בכל טיפול בגלל אבק). מסנן אוויר: בדיקה ב-30, החלפה ב-60. תוסף דלק כל 15,000 אם הבנזין בלי תוספים."
+  "notes": "היברידי בלבד (לא פלאג-אין/חשמלי). נוזל בלמים ונוזל מפעיל מצמד כל 30,000. מסנן אוויר כל 45,000. מסנן תא נוסעים כל 30,000. רצועת HSG (מתנע-גנרטור) נבדקת בכל טיפול. תוסף דלק כל 15,000 אם הבנזין בלי תוספים."
 }

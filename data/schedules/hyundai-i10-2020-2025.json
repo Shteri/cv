@@ -1,19 +1,18 @@
 {
-  "make": "Kia",
-  "make_he": "קיה",
-  "importer": "טלקאר",
-  "id": "kia-picanto-2017-2025",
-  "model": "Picanto",
-  "model_he": "פיקנטו",
-  "generation": "JA",
+  "make": "Hyundai",
+  "make_he": "יונדאי",
+  "importer": "כלמוביל",
+  "id": "hyundai-i10-2020-2025",
+  "model": "i10",
+  "model_he": "i10",
+  "generation": "AC3",
   "years": [
-    2017,
+    2020,
     2025
   ],
   "engines": [
-    "1.0 MPI (Kappa)",
-    "1.2 MPI (Kappa)",
-    "1.0 T-GDI (Kappa)"
+    "1.0 petrol (Kappa)",
+    "1.2 petrol (Kappa MPI)"
   ],
   "fuel": "petrol",
   "interval": {
@@ -34,28 +33,15 @@
           "action": "replace"
         },
         {
-          "item": "intercooler_pipes",
-          "action": "inspect",
-          "note": "מנוע 1.0 T-GDI בלבד"
-        },
-        {
-          "item": "exhaust",
+          "item": "air_filter",
           "action": "inspect"
         },
         {
-          "item": "ac_refrigerant",
+          "item": "vacuum_hose",
           "action": "inspect"
         },
         {
-          "item": "ac_system",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_discs",
+          "item": "battery_12v",
           "action": "inspect"
         },
         {
@@ -67,11 +53,15 @@
           "action": "inspect"
         },
         {
-          "item": "steering",
+          "item": "brake_pads",
           "action": "inspect"
         },
         {
-          "item": "suspension",
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
           "action": "inspect"
         },
         {
@@ -79,8 +69,24 @@
           "action": "inspect"
         },
         {
-          "item": "battery_12v",
+          "item": "suspension",
           "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
         }
       ]
     },
@@ -104,28 +110,27 @@
           "action": "inspect"
         },
         {
-          "item": "cv_boots",
+          "item": "battery_12v",
           "action": "inspect"
         },
         {
-          "item": "intercooler_pipes",
-          "action": "inspect",
-          "note": "מנוע 1.0 T-GDI בלבד"
-        },
-        {
-          "item": "exhaust",
+          "item": "electrical_system",
           "action": "inspect"
         },
         {
-          "item": "ac_refrigerant",
+          "item": "brake_lines",
           "action": "inspect"
         },
         {
-          "item": "ac_system",
+          "item": "pedals",
           "action": "inspect"
         },
         {
-          "item": "cabin_filter",
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
           "action": "replace"
         },
         {
@@ -141,23 +146,11 @@
           "action": "inspect"
         },
         {
-          "item": "brake_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_fluid",
-          "action": "replace"
-        },
-        {
-          "item": "parking_brake",
-          "action": "inspect"
-        },
-        {
           "item": "steering",
           "action": "inspect"
         },
         {
-          "item": "suspension",
+          "item": "cv_boots",
           "action": "inspect"
         },
         {
@@ -165,7 +158,27 @@
           "action": "inspect"
         },
         {
-          "item": "battery_12v",
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "exhaust",
           "action": "inspect"
         }
       ]
@@ -182,28 +195,15 @@
           "action": "replace"
         },
         {
-          "item": "intercooler_pipes",
-          "action": "inspect",
-          "note": "מנוע 1.0 T-GDI בלבד"
+          "item": "air_filter",
+          "action": "replace"
         },
         {
-          "item": "exhaust",
+          "item": "vacuum_hose",
           "action": "inspect"
         },
         {
-          "item": "ac_refrigerant",
-          "action": "inspect"
-        },
-        {
-          "item": "ac_system",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_discs",
+          "item": "battery_12v",
           "action": "inspect"
         },
         {
@@ -215,11 +215,15 @@
           "action": "inspect"
         },
         {
-          "item": "steering",
+          "item": "brake_pads",
           "action": "inspect"
         },
         {
-          "item": "suspension",
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
           "action": "inspect"
         },
         {
@@ -227,8 +231,24 @@
           "action": "inspect"
         },
         {
-          "item": "battery_12v",
+          "item": "suspension",
           "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
         }
       ]
     },
@@ -245,23 +265,6 @@
         },
         {
           "item": "air_filter",
-          "action": "replace"
-        },
-        {
-          "item": "vacuum_hose",
-          "action": "inspect"
-        },
-        {
-          "item": "transmission_oil",
-          "action": "inspect"
-        },
-        {
-          "item": "manual_gearbox_oil",
-          "action": "inspect",
-          "note": "להחליף אחרי נסיעה במים עמוקים"
-        },
-        {
-          "item": "cv_boots",
           "action": "inspect"
         },
         {
@@ -269,32 +272,44 @@
           "action": "inspect"
         },
         {
+          "item": "vacuum_hose",
+          "action": "inspect"
+        },
+        {
           "item": "fuel_tank_air_filter",
           "action": "inspect"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "inspect",
+          "note": "פריט ללא תחזוקה לפי הספר; בדיקה בלבד"
         },
         {
           "item": "fuel_lines",
           "action": "inspect"
         },
         {
-          "item": "intercooler_pipes",
-          "action": "inspect",
-          "note": "מנוע 1.0 T-GDI בלבד"
-        },
-        {
-          "item": "exhaust",
+          "item": "battery_12v",
           "action": "inspect"
         },
         {
-          "item": "ac_refrigerant",
+          "item": "electrical_system",
           "action": "inspect"
         },
         {
-          "item": "ac_system",
+          "item": "brake_lines",
           "action": "inspect"
         },
         {
-          "item": "cabin_filter",
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
           "action": "replace"
         },
         {
@@ -310,23 +325,11 @@
           "action": "inspect"
         },
         {
-          "item": "brake_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_fluid",
-          "action": "replace"
-        },
-        {
-          "item": "parking_brake",
-          "action": "inspect"
-        },
-        {
           "item": "steering",
           "action": "inspect"
         },
         {
-          "item": "suspension",
+          "item": "cv_boots",
           "action": "inspect"
         },
         {
@@ -334,7 +337,32 @@
           "action": "inspect"
         },
         {
-          "item": "battery_12v",
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect",
+          "note": "גם לגיר AMT; להחליף אחרי נסיעה במים עמוקים"
+        },
+        {
+          "item": "exhaust",
           "action": "inspect"
         }
       ]
@@ -351,28 +379,15 @@
           "action": "replace"
         },
         {
-          "item": "intercooler_pipes",
-          "action": "inspect",
-          "note": "מנוע 1.0 T-GDI בלבד"
-        },
-        {
-          "item": "exhaust",
+          "item": "air_filter",
           "action": "inspect"
         },
         {
-          "item": "ac_refrigerant",
+          "item": "vacuum_hose",
           "action": "inspect"
         },
         {
-          "item": "ac_system",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_discs",
+          "item": "battery_12v",
           "action": "inspect"
         },
         {
@@ -384,11 +399,15 @@
           "action": "inspect"
         },
         {
-          "item": "steering",
+          "item": "brake_pads",
           "action": "inspect"
         },
         {
-          "item": "suspension",
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
           "action": "inspect"
         },
         {
@@ -396,8 +415,24 @@
           "action": "inspect"
         },
         {
-          "item": "battery_12v",
+          "item": "suspension",
           "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
         }
       ]
     },
@@ -414,40 +449,34 @@
         },
         {
           "item": "air_filter",
-          "action": "inspect"
+          "action": "replace"
         },
         {
           "item": "vacuum_hose",
           "action": "inspect"
         },
         {
-          "item": "valve_clearance",
-          "action": "inspect",
-          "note": "מנועי 1.0 בלבד"
-        },
-        {
-          "item": "cv_boots",
+          "item": "battery_12v",
           "action": "inspect"
         },
         {
-          "item": "intercooler_pipes",
-          "action": "inspect",
-          "note": "מנוע 1.0 T-GDI בלבד"
-        },
-        {
-          "item": "exhaust",
+          "item": "electrical_system",
           "action": "inspect"
         },
         {
-          "item": "ac_refrigerant",
+          "item": "brake_lines",
           "action": "inspect"
         },
         {
-          "item": "ac_system",
+          "item": "pedals",
           "action": "inspect"
         },
         {
-          "item": "cabin_filter",
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
           "action": "replace"
         },
         {
@@ -463,23 +492,11 @@
           "action": "inspect"
         },
         {
-          "item": "brake_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_fluid",
-          "action": "replace"
-        },
-        {
-          "item": "parking_brake",
-          "action": "inspect"
-        },
-        {
           "item": "steering",
           "action": "inspect"
         },
         {
-          "item": "suspension",
+          "item": "cv_boots",
           "action": "inspect"
         },
         {
@@ -487,7 +504,27 @@
           "action": "inspect"
         },
         {
-          "item": "battery_12v",
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "exhaust",
           "action": "inspect"
         }
       ]
@@ -504,28 +541,15 @@
           "action": "replace"
         },
         {
-          "item": "intercooler_pipes",
-          "action": "inspect",
-          "note": "מנוע 1.0 T-GDI בלבד"
-        },
-        {
-          "item": "exhaust",
+          "item": "air_filter",
           "action": "inspect"
         },
         {
-          "item": "ac_refrigerant",
+          "item": "vacuum_hose",
           "action": "inspect"
         },
         {
-          "item": "ac_system",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_discs",
+          "item": "battery_12v",
           "action": "inspect"
         },
         {
@@ -537,11 +561,15 @@
           "action": "inspect"
         },
         {
-          "item": "steering",
+          "item": "brake_pads",
           "action": "inspect"
         },
         {
-          "item": "suspension",
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
           "action": "inspect"
         },
         {
@@ -549,8 +577,24 @@
           "action": "inspect"
         },
         {
-          "item": "battery_12v",
+          "item": "suspension",
           "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
         }
       ]
     },
@@ -567,23 +611,6 @@
         },
         {
           "item": "air_filter",
-          "action": "replace"
-        },
-        {
-          "item": "vacuum_hose",
-          "action": "inspect"
-        },
-        {
-          "item": "transmission_oil",
-          "action": "inspect"
-        },
-        {
-          "item": "manual_gearbox_oil",
-          "action": "inspect",
-          "note": "להחליף אחרי נסיעה במים עמוקים"
-        },
-        {
-          "item": "cv_boots",
           "action": "inspect"
         },
         {
@@ -591,32 +618,44 @@
           "action": "inspect"
         },
         {
+          "item": "vacuum_hose",
+          "action": "inspect"
+        },
+        {
           "item": "fuel_tank_air_filter",
           "action": "inspect"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "inspect",
+          "note": "פריט ללא תחזוקה לפי הספר; בדיקה בלבד"
         },
         {
           "item": "fuel_lines",
           "action": "inspect"
         },
         {
-          "item": "intercooler_pipes",
-          "action": "inspect",
-          "note": "מנוע 1.0 T-GDI בלבד"
-        },
-        {
-          "item": "exhaust",
+          "item": "battery_12v",
           "action": "inspect"
         },
         {
-          "item": "ac_refrigerant",
+          "item": "electrical_system",
           "action": "inspect"
         },
         {
-          "item": "ac_system",
+          "item": "brake_lines",
           "action": "inspect"
         },
         {
-          "item": "cabin_filter",
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
           "action": "replace"
         },
         {
@@ -632,23 +671,11 @@
           "action": "inspect"
         },
         {
-          "item": "brake_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_fluid",
-          "action": "replace"
-        },
-        {
-          "item": "parking_brake",
-          "action": "inspect"
-        },
-        {
           "item": "steering",
           "action": "inspect"
         },
         {
-          "item": "suspension",
+          "item": "cv_boots",
           "action": "inspect"
         },
         {
@@ -656,7 +683,32 @@
           "action": "inspect"
         },
         {
-          "item": "battery_12v",
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect",
+          "note": "גם לגיר AMT; להחליף אחרי נסיעה במים עמוקים"
+        },
+        {
+          "item": "exhaust",
           "action": "inspect"
         }
       ]
@@ -664,27 +716,19 @@
   ],
   "long_interval": [
     {
-      "item": "coolant",
-      "action": "replace",
-      "first_km": 210000,
-      "first_months": 120,
-      "then_every_km": 30000,
-      "then_every_months": 24
-    },
-    {
       "item": "drive_belt",
-      "action": "replace",
+      "action": "inspect",
       "first_km": 90000,
       "first_months": 72,
       "then_every_km": 30000,
-      "then_every_months": 24,
-      "note": "לפי הספר: החלפה ראשונה ב-90,000, אחר כך כל 30,000; בפועל בדיקה והחלפה לפי מצב"
+      "then_every_months": 24
     },
     {
       "item": "spark_plugs",
       "action": "replace",
       "every_km": 150000,
-      "note": "מנועי 1.0 MPI ו-1.2 MPI. מנוע 1.0 T-GDI: כל 75,000 ק\"מ"
+      "every_months": 120,
+      "note": "מנוע 1.2 MPI"
     },
     {
       "item": "cooling_system",
@@ -693,31 +737,36 @@
       "first_months": 48,
       "then_every_km": 30000,
       "then_every_months": 24
+    },
+    {
+      "item": "coolant",
+      "action": "replace",
+      "first_km": 210000,
+      "first_months": 120,
+      "then_every_km": 30000,
+      "then_every_months": 24
     }
   ],
-  "time_based": [],
+  "time_based": [
+    {
+      "item": "ecall_battery",
+      "action": "replace",
+      "months": 36,
+      "note": "סוללת מערכת eCall, אם מותקנת"
+    }
+  ],
   "sources": [
     {
-      "url": "https://kia-israel.co.il/wp-content/uploads/2020/11/ספר-רכב-Picanto_OM_2017-.pdf",
+      "url": "https://res.cloudinary.com/colmobil/images/v1716388493/ספר-רכב-יונדאי-i10-2020-2021_533471256/ספר-רכב-יונדאי-i10-2020-2021_533471256.pdf",
       "kind": "importer",
-      "note": "ספר רכב פיקנטו 2017+ של קיה ישראל, פרק 8 עמ' 11-17"
+      "note": "ספר רכב i10 2020-2021 של כלמוביל, פרק 8 עמ' 9-13"
     },
     {
-      "url": "https://cdnmedia.kia-israel.co.il/www/cars-book/Picanto-JA-2017-2020.pdf",
+      "url": "https://www.hyundaimotors.co.il/maintenance/",
       "kind": "importer",
-      "note": "אותו ספר בספריית cars-book"
-    },
-    {
-      "url": "https://cdnmedia.kia-israel.co.il/www/cars-book/Picanto-AMT-2021.pdf",
-      "kind": "importer",
-      "note": "ספר רכב פיקנטו 2021+ (גיר AMT)"
-    },
-    {
-      "url": "https://kia-israel.co.il/קבל-ספר-רכב-למייל",
-      "kind": "importer",
-      "note": "ספריית ספרי הרכב של קיה ישראל (cdnmedia.kia-israel.co.il/www/cars-book/)"
+      "note": "מרכז ספרי הרכב של כלמוביל, קישורי PDF לפי דגם ושנה"
     }
   ],
   "status": "reviewed",
-  "notes": "מסנן תא נוסעים ונוזל בלמים כל 30,000 לפי הספר (מוסכים בישראל נוהגים להחליף מסנן מזגן בכל טיפול בגלל אבק). מסנן אוויר: בדיקה ב-30, החלפה ב-60. תוסף דלק כל 15,000 אם הבנזין בלי תוספים."
+  "notes": "דור AC3. מרווח 15,000 ק\"מ או שנה. מסנן אוויר מוחלף כל 45,000 (בדיקה בשאר). נוזל בלמים כל 30,000. מסנן תא נוסעים בכל טיפול."
 }
