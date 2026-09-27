@@ -1,0 +1,54 @@
+{
+  "id": "toyota-yaris-2011-2020",
+  "make": "Toyota", "make_he": "טויוטה",
+  "model": "Yaris", "model_he": "יאריס",
+  "generation": "XP130",
+  "years": [2011, 2020],
+  "engines": ["1.33 petrol", "1.5 petrol", "1.5 hybrid (1NZ-FXE)"],
+  "fuel": "petrol",
+  "importer": "יוניון מוטורס",
+  "interval": { "km": 15000, "months": 12, "note": "מרווח היבואן זהה ללוח האירופי (15,000 ק\"מ / 12 חודשים)." },
+  "cycle_km": 90000,
+  "services": [
+    { "km": 15000, "items": [
+      { "item": "engine_oil", "action": "replace" }, { "item": "oil_filter", "action": "replace" },
+      { "item": "brake_pads", "action": "inspect" }, { "item": "tire_rotation", "action": "rotate" },
+      { "item": "wipers", "action": "inspect" }, { "item": "battery_12v", "action": "inspect" },
+      { "item": "hybrid_battery_filter", "action": "clean", "note": "בגרסה ההיברידית בלבד" }, { "item": "hybrid_system", "action": "inspect", "note": "בגרסה ההיברידית בלבד" } ] },
+    { "km": 30000, "items": [
+      { "item": "engine_oil", "action": "replace" }, { "item": "oil_filter", "action": "replace" },
+      { "item": "air_filter", "action": "replace" }, { "item": "cabin_filter", "action": "replace" }, { "item": "brake_fluid", "action": "replace" },
+      { "item": "hybrid_battery_filter", "action": "replace", "note": "בגרסה ההיברידית בלבד" },
+      { "item": "brake_pads", "action": "inspect" }, { "item": "tire_rotation", "action": "rotate" }, { "item": "battery_12v", "action": "inspect" } ] },
+    { "km": 45000, "items": [
+      { "item": "engine_oil", "action": "replace" }, { "item": "oil_filter", "action": "replace" },
+      { "item": "brake_pads", "action": "inspect" }, { "item": "tire_rotation", "action": "rotate" }, { "item": "battery_12v", "action": "inspect" } ] },
+    { "km": 60000, "items": [
+      { "item": "engine_oil", "action": "replace" }, { "item": "oil_filter", "action": "replace" },
+      { "item": "air_filter", "action": "replace" }, { "item": "cabin_filter", "action": "replace" }, { "item": "brake_fluid", "action": "replace" },
+      { "item": "drive_belt", "action": "inspect" }, { "item": "cvt_oil", "action": "inspect" },
+      { "item": "hybrid_battery_filter", "action": "replace", "note": "בגרסה ההיברידית בלבד" },
+      { "item": "brake_pads", "action": "inspect" }, { "item": "tire_rotation", "action": "rotate" }, { "item": "battery_12v", "action": "inspect" } ] },
+    { "km": 75000, "items": [
+      { "item": "engine_oil", "action": "replace" }, { "item": "oil_filter", "action": "replace" },
+      { "item": "drive_belt", "action": "inspect" },
+      { "item": "brake_pads", "action": "inspect" }, { "item": "tire_rotation", "action": "rotate" }, { "item": "battery_12v", "action": "inspect" } ] },
+    { "km": 90000, "items": [
+      { "item": "engine_oil", "action": "replace" }, { "item": "oil_filter", "action": "replace" },
+      { "item": "air_filter", "action": "replace" }, { "item": "cabin_filter", "action": "replace" }, { "item": "brake_fluid", "action": "replace" },
+      { "item": "drive_belt", "action": "inspect" },
+      { "item": "hybrid_battery_filter", "action": "replace", "note": "בגרסה ההיברידית בלבד" },
+      { "item": "brake_pads", "action": "inspect" }, { "item": "tire_rotation", "action": "rotate" }, { "item": "battery_12v", "action": "inspect" } ] }
+  ],
+  "time_based": [
+    { "item": "coolant", "action": "replace", "months": 96, "note": "לפי המסמך האירופי הישן: החלפה ראשונה ב-120 אלף ק\"מ או 8 שנים. מסמכים חדשים: 160 אלף / 10 שנים." },
+    { "item": "spark_plugs", "action": "replace", "months": 0, "note": "הנתון לא אומת למקור אירופי או ישראלי." }
+  ],
+  "sources": [
+    { "url": "https://www.toyota.co.il/company/news/service-and-maintenance", "kind": "importer", "note": "מרווח 15,000 ק\"מ / 12 חודשים" },
+    { "url": "https://www.gerritspeek.nl/auto/diversen/yaris_maintenance_schedule.pdf", "kind": "manufacturer", "note": "לוח טיפולים אירופי של טויוטה ליאריס, 15,000 ק\"מ. המחזור מתועד עד 90 אלף וחוזר." },
+    { "url": "https://www.musahcarol.co.il/", "kind": "garage", "note": "מוסך היברידי ברחובות: טיפולים ליאריס/אוריס היברידית 2011-2019 כל 15 אלף עד 150 אלף" }
+  ],
+  "status": "draft",
+  "notes": "מבוסס על לוח אירופי של טויוטה לדגמי בנזין ישנים, עם תוספות היברידיות מדגמים דומים. הלוח הישראלי הרשמי לא נקרא."
+}
