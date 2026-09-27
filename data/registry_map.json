@@ -1,0 +1,26 @@
+{
+  "_note": "Maps a data.gov.il registry record to a schedule id. Match order: make, then commercial name (kinuy_mishari, upper-case), then year range, then optional engine codes (degem_manoa) and fuel. First rule that matches wins; rules with engine_codes are checked before rules without. Engine codes seen in the registry: Hyundai/Kia G3LA=1.0 Kappa MPI, G4LA=1.25 Kappa, G4LF=1.2 Kappa MPI, G3LC=1.0 T-GDI, G4LE=1.6 GDI hybrid, G4FG=1.6 Gamma MPI, G4FD=1.6 Gamma GDI, G4FJ=1.6 T-GDI, G4NA=2.0 Nu; Toyota 1ZR=1.6, 2ZR=1.8 (hybrid on E210), 1NR/1KR=Yaris; Skoda CBZ/CJZ=1.2 TSI, CZD/CZE/DAD=1.4-1.5 TSI.",
+  "rules": [
+    { "make": "Toyota", "names": ["COROLLA"], "years": [2019, 2026], "fuel": ["חשמל/בנזין", "היברידי"], "schedule": "toyota-corolla-2019-2025-1.8-hybrid" },
+    { "make": "Toyota", "names": ["COROLLA"], "years": [2013, 2019], "schedule": "toyota-corolla-2013-2019-1.6" },
+    { "make": "Toyota", "names": ["YARIS"], "years": [2011, 2020], "schedule": "toyota-yaris-2011-2020" },
+
+    { "make": "Hyundai", "names": ["I10"], "years": [2014, 2019], "schedule": "hyundai-i10-2014-2019" },
+    { "make": "Hyundai", "names": ["I10"], "years": [2020, 2026], "schedule": "hyundai-i10-2020-2025" },
+    { "make": "Hyundai", "names": ["I20"], "years": [2015, 2017], "schedule": "hyundai-i20-2015-2017" },
+    { "make": "Hyundai", "names": ["I20"], "years": [2018, 2021], "schedule": "hyundai-i20-2018-2021" },
+    { "make": "Hyundai", "names": ["I25", "ACCENT"], "years": [2011, 2018], "schedule": "hyundai-i25-2011-2018" },
+    { "make": "Hyundai", "names": ["I35", "ELANTRA"], "years": [2011, 2015], "schedule": "hyundai-elantra-2011-2015-1.6" },
+    { "make": "Hyundai", "names": ["ELANTRA"], "years": [2016, 2018], "fuel": ["בנזין"], "schedule": "hyundai-elantra-2016-2018-1.6" },
+    { "make": "Hyundai", "names": ["ELANTRA"], "years": [2019, 2020], "fuel": ["בנזין"], "schedule": "hyundai-elantra-2019-2020-1.6" },
+    { "make": "Hyundai", "names": ["IONIQ"], "years": [2016, 2022], "fuel": ["חשמל/בנזין", "היברידי"], "engine_codes": ["G4LE"], "schedule": "hyundai-ioniq-2016-2022-1.6-hybrid" },
+
+    { "make": "Kia", "names": ["PICANTO"], "years": [2017, 2026], "schedule": "kia-picanto-2017-2025" },
+    { "make": "Kia", "names": ["SPORTAGE"], "years": [2016, 2018], "fuel": ["בנזין"], "schedule": "kia-sportage-2016-2018" },
+    { "make": "Kia", "names": ["SPORTAGE"], "years": [2019, 2021], "fuel": ["בנזין"], "schedule": "kia-sportage-2019-2021" },
+    { "make": "Kia", "names": ["NIRO"], "years": [2016, 2022], "fuel": ["חשמל/בנזין", "היברידי"], "engine_codes": ["G4LE"], "schedule": "kia-niro-2016-2022-1.6-hybrid" },
+
+    { "make": "Mazda", "names": ["3", "MAZDA3", "MAZDA 3"], "years": [2013, 2026], "schedule": "mazda-3-2013-2025" },
+    { "make": "Skoda", "names": ["OCTAVIA"], "years": [2013, 2026], "fuel": ["בנזין"], "schedule": "skoda-octavia-2013-2025" }
+  ]
+}
