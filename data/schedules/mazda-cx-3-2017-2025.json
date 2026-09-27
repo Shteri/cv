@@ -1,0 +1,221 @@
+{
+  "make": "Mazda",
+  "make_he": "מאזדה",
+  "importer": "דלק מוטורס",
+  "id": "mazda-cx-3-2017-2025",
+  "model": "CX-3",
+  "model_he": "CX-3",
+  "generation": "DK",
+  "years": [
+    2017,
+    2025
+  ],
+  "engines": [
+    "2.0 Skyactiv-G"
+  ],
+  "fuel": "petrol",
+  "interval": {
+    "km": 15000,
+    "months": 12,
+    "note": "התראה בלוח המחוונים, 15,000 ק\"מ או 12 חודשים, המוקדם"
+  },
+  "cycle_km": 120000,
+  "services": [
+    {
+      "km": 15000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 45000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 75000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 105000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "coolant",
+      "action": "replace",
+      "first_km": 195000,
+      "first_months": 120,
+      "then_every_km": 90000,
+      "then_every_months": 60
+    },
+    {
+      "item": "spark_plugs",
+      "action": "replace",
+      "every_km": 120000,
+      "every_months": 72
+    },
+    {
+      "item": "fuel_filter",
+      "action": "replace",
+      "every_km": 135000
+    }
+  ],
+  "time_based": [],
+  "sources": [
+    {
+      "url": "https://delekmotorscoil.sharepoint.com/:b:/s/Techtrain/ESf1wJ_qhjZJt0RLzivAgHYBkr5k4bDwTvwspkHFBK515w?download=1",
+      "kind": "importer",
+      "note": "PDF תוכנית טיפול '38646 _Mazda_CX-3_2017_And_Above.pdf' (שנת ייצור 2017 ומעלה) של דלק מוטורס, קישור SharePoint מתוך הדף"
+    },
+    {
+      "url": "https://www.mazda.co.il/service-plans",
+      "kind": "importer",
+      "note": "טופס 'תוכנית טיפול' של דלק מוטורס; הקישורים ל-PDF לפי דגם ושנה מוטמעים בדף (modelList). טיפול כשמופיעה התראה בלוח, אחרי 15,000 ק\"מ או אחרי שנה, המוקדם"
+    }
+  ],
+  "status": "reviewed",
+  "notes": "תוכנית היבואן מפרטת רק חלקים להחלפה ומרווחיהם (אין שורות בדיקה), ולכן הקובץ מכיל החלפות בלבד. בכל טיפול המוסך בודק בלמים, צמיגים, נוזלים ותאורה כמקובל. שמן מנוע 5W-30; נוזל קירור Mazda FL22; נוזל בלמים DOT4. זהה לתוכנית CX-5: מסנן מזגן בכל טיפול, נוזל בלמים כל שנתיים, מסנן אוויר 60,000 או 4 שנים, מצתים 120,000/6 שנים, מסנן דלק 135,000."
+}

@@ -97,8 +97,15 @@ https://kia-israel.co.il/טיפול-ותחזוקה/טיפולים-לרכב
   links `https://delekmotorscoil.sharepoint.com/:b:/s/Techtrain/...?download=1`.
   Variants: Mazda2 2007-2014 / 2015+; Mazda3 2003-2012 / 2013-2019 /
   2020-2025 / 2025+; Mazda6; CX-3; CX-30; CX-5 2012-2025 / 2025+ (with and
-  without turbo) / 2026+; CX-90; MX-5; BT-50. Index saved during the
-  session; see HANDOFF for status.
+  without turbo) / 2026+; CX-90; MX-5; BT-50.
+- Download needs two steps with a cookie jar: GET the share link (saves a
+  `FedAuth` cookie, answers 302 to
+  `/sites/Techtrain/Shared Documents/.../mazda/<file>.pdf`), then GET that
+  location with the cookie. A plain `curl -L` gets a 13-byte "403 FORBIDDEN".
+- Transcribed (one page each, parts and intervals only): Mazda3 2003-2012,
+  2013-2019, 2020+; Mazda2 2007-2014, 2015+; CX-5 2012-2025; CX-3 2017+;
+  CX-30 2020+. Not yet: Mazda3 2025+ (2.5, turbo plugs 64,000), CX-5 2025+,
+  Mazda6, MX-5, CX-90, BT-50.
 
 ## Skoda / Seat / VW (צ'מפיון מוטורס)
 

@@ -511,4 +511,78 @@ write({
              "רצועת HSG (מתנע-גנרטור) נבדקת בכל טיפול. תוסף דלק כל 15,000 אם הבנזין בלי תוספים.",
 })
 
+# ---------------------------------------------------------------------------
+# Mazda (דלק מוטורס). Plans: https://www.mazda.co.il/service-plans
+# Each plan is a one-page PDF (SharePoint) listing the parts replaced and
+# their interval. It lists parts only, no inspection rows, so these files
+# carry replacements only.
+# ---------------------------------------------------------------------------
+MZ = {"make": "Mazda", "make_he": "מאזדה", "importer": "דלק מוטורס"}
+MZ_PAGE = {"url": "https://www.mazda.co.il/service-plans", "kind": "importer",
+           "note": "טופס 'תוכנית טיפול' של דלק מוטורס; הקישורים ל-PDF לפי דגם ושנה מוטמעים בדף (modelList). טיפול כשמופיעה התראה בלוח, אחרי 15,000 ק\"מ או אחרי שנה, המוקדם"}
+MZ_NOTE = ("תוכנית היבואן מפרטת רק חלקים להחלפה ומרווחיהם (אין שורות בדיקה), ולכן הקובץ מכיל החלפות בלבד. "
+           "בכל טיפול המוסך בודק בלמים, צמיגים, נוזלים ותאורה כמקובל. שמן מנוע 5W-30; נוזל קירור Mazda FL22; נוזל בלמים DOT4.")
+LONG_MZ = [
+    long_("coolant", "replace", first_km=195000, first_months=120, then_every_km=90000, then_every_months=60),
+    long_("spark_plugs", "replace", every_km=120000, every_months=72),
+    long_("fuel_filter", "replace", every_km=135000),
+]
+def mazda(id_, model, model_he, gen, years, engines, cabin, brake, air, url, fname, extra_note="", plan_years=""):
+    write({
+        **MZ, "id": id_, "model": model, "model_he": model_he, "generation": gen, "years": years,
+        "engines": engines, "fuel": "petrol",
+        "interval": {"km": 15000, "months": 12, "note": "התראה בלוח המחוונים, 15,000 ק\"מ או 12 חודשים, המוקדם"},
+        "cycle_km": 120000,
+        "services": grid(GRID_15, [
+            ("engine_oil", R_ALL), ("oil_filter", R_ALL),
+            ("cabin_filter", cabin),
+            ("brake_fluid", brake),
+            ("air_filter", air),
+        ]),
+        "long_interval": LONG_MZ,
+        "time_based": [],
+        "sources": [
+            {"url": url, "kind": "importer", "note": f"PDF תוכנית טיפול '{fname}' ({plan_years}) של דלק מוטורס, קישור SharePoint מתוך הדף"},
+            MZ_PAGE,
+        ],
+        "status": "reviewed",
+        "notes": MZ_NOTE + extra_note,
+    })
+
+SP = "https://delekmotorscoil.sharepoint.com/:b:/s/Techtrain/"
+mazda("mazda-3-2013-2019", "3", "3", "BM/BN", [2013, 2019], ["1.5 Skyactiv-G", "2.0 Skyactiv-G"],
+      cabin=R_ALL, brake="-R-R-R-R", air="---R---R",
+      url=SP + "EaVNAnCBgNRHlc6acl9we6UBhHGiBOrgZKCJuGT5jIYjrA?download=1", fname="38646 _Mazda3_2013_2019.pdf", plan_years="שנות ייצור 2013-2019",
+      extra_note=" מסנן מזגן בכל טיפול; נוזל בלמים כל שנתיים; מסנן אוויר כל 60,000; מצתים 120,000 או 6 שנים; מסנן דלק 135,000; נוזל קירור ראשון 195,000/10 שנים ואז כל 90,000/5 שנים.")
+mazda("mazda-3-2020-2025", "3", "3", "BP", [2020, 2025], ["2.0 Skyactiv-G"],
+      cabin="-R-R-R-R", brake="-R-R-R-R", air="---R---R",
+      url=SP + "ESEJodI9CZ5IkBMfgv7OUsIB7ne1Z6AmFG4vtGtILgSoSQ?download=1", fname="38646 _Mazda3_2020_And_Above.pdf", plan_years="שנת ייצור 2020 ומעלה",
+      extra_note=" בתוכנית 2020+: מסנן מזגן ונוזל בלמים כל טיפול שני, מסנן אוויר כל טיפול רביעי, מצתים 120,000, מסנן דלק 135,000. שמן API-SN Plus.")
+mazda("mazda-2-2015-2025", "2", "2", "DJ", [2015, 2025], ["1.5 Skyactiv-G"],
+      cabin=R_ALL, brake="-R-R-R-R", air="---R---R",
+      url=SP + "EcGRp40i_QdGg50djwMw1zQBj5GjoZJHYnwUncbxuAJGHg?download=1", fname="38646 _Mazda2_2015_And_Up.pdf", plan_years="שנת ייצור 2015 ומעלה",
+      extra_note=" זהה לתוכנית מאזדה 3 2013-2019: מסנן מזגן בכל טיפול, נוזל בלמים כל שנתיים, מסנן אוויר 60,000, מצתים 120,000/6 שנים, מסנן דלק 135,000.")
+mazda("mazda-cx-5-2012-2025", "CX-5", "CX-5", "KE/KF", [2012, 2025], ["2.0 Skyactiv-G", "2.5 Skyactiv-G"],
+      cabin=R_ALL, brake="-R-R-R-R", air="---R---R",
+      url=SP + "EZE5m_k2Q69HldzGWxQc_DkBm9IFQTI7GQXksJJcxKBIFw?download=1", fname="38646 _Mazda_CX-5_2012_And_Above.pdf", plan_years="שנות ייצור 2012-2025",
+      extra_note=" מסנן מזגן בכל טיפול, נוזל בלמים כל שנתיים, מסנן אוויר 60,000 או 4 שנים, מצתים 120,000/6 שנים, מסנן דלק 135,000. ב-AWD: שמן תיבת העברה וסרן אחורי 80W-90 GL-5 (ללא מרווח בתוכנית).")
+
+mazda("mazda-3-2006-2012", "3", "3", "BK/BL", [2006, 2012], ["1.6 MZR", "2.0 MZR"],
+      cabin="-R-R-R-R", brake="-R-R-R-R", air="---R---R",
+      url=SP + "EUWjI7QSL4VFvtiiMXDoVX8B12h7-TbHYd1PAXx2mEhOwA?download=1", fname="38646 _Mazda3_2003_2012.pdf", plan_years="שנות ייצור 2003-2012",
+      extra_note=" תוכנית 2003-2012: מסנן מזגן ונוזל בלמים כל 30,000 או שנתיים, מסנן אוויר 60,000. מצתים רגילים 45,000, מצתי אירידיום 120,000. "
+                 "מסנן דלק: 75,000 עד שלדה 133398, 45,000 משלדה 1333399 (כך בתוכנית). שמן גיר Mazda V, שמן הגה Dexron III.")
+mazda("mazda-2-2007-2014", "2", "2", "DE", [2007, 2014], ["1.3 MZR", "1.5 MZR"],
+      cabin="-R-R-R-R", brake="-R-R-R-R", air="---R---R",
+      url=SP + "EUleFfkd1mlPn3fX15es5HcBszPOYXuLiARcad4pgYFKjA?download=1", fname="38646 _Mazda2_2007_2014.pdf", plan_years="שנות ייצור 2007-2014",
+      extra_note=" תוכנית 2007-2014: מסנן מזגן ונוזל בלמים כל 30,000 או שנתיים, מסנן אוויר 60,000, מצתי אירידיום 120,000 או 3 שנים, מסנן דלק 135,000.")
+mazda("mazda-cx-3-2017-2025", "CX-3", "CX-3", "DK", [2017, 2025], ["2.0 Skyactiv-G"],
+      cabin=R_ALL, brake="-R-R-R-R", air="---R---R",
+      url=SP + "ESf1wJ_qhjZJt0RLzivAgHYBkr5k4bDwTvwspkHFBK515w?download=1", fname="38646 _Mazda_CX-3_2017_And_Above.pdf", plan_years="שנת ייצור 2017 ומעלה",
+      extra_note=" זהה לתוכנית CX-5: מסנן מזגן בכל טיפול, נוזל בלמים כל שנתיים, מסנן אוויר 60,000 או 4 שנים, מצתים 120,000/6 שנים, מסנן דלק 135,000.")
+mazda("mazda-cx-30-2020-2025", "CX-30", "CX-30", "DM", [2020, 2025], ["2.0 Skyactiv-G"],
+      cabin="-R-R-R-R", brake="-R-R-R-R", air="---R---R",
+      url=SP + "Eb5FcNyL7vlApQPossE106MBq2aV1oBzzVXKBrqC9_tuSA?download=1", fname="38646 _Mazda_CX-30_2020_And_Above.pdf", plan_years="שנת ייצור 2020 ומעלה",
+      extra_note=" זהה לתוכנית מאזדה 3 2020+: מסנן מזגן ונוזל בלמים כל טיפול שני, מסנן אוויר כל טיפול רביעי, מצתים 120,000, מסנן דלק 135,000. שמן API-SN Plus.")
+
 print("done")
