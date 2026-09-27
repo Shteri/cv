@@ -211,6 +211,13 @@
         }
       }
     },
+    "specs": {
+      "type": "object",
+      "description": "Useful facts from the owner's book, one line each, Hebrew. Keys: engine_oil, oil_capacity, coolant, brake_fluid, fuel, tires, tire_pressure, battery, timing, spare, wipers, warranty, _note. _note says whether the values are a draft or were checked against the importer's book.",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
     "sources": {
       "type": "array",
       "minItems": 1,

@@ -61,7 +61,108 @@ def long_(item, action, **kw):
     return d
 
 
+# ---------------------------------------------------------------------------
+# specs: one-line facts from the book's "מפרטים" chapter (oil grade and
+# capacity, coolant, brake fluid, tires, battery, timing, warranty). Values
+# marked in _note as checked were read in the Israeli book; the rest are
+# general knowledge carried over from the product session's draft.
+# ---------------------------------------------------------------------------
+CHECKED = "שמן, נוזל קירור, נוזל בלמים, דלק וצמיגים אומתו מול ספר היבואן; מצבר, תזמון ואחריות: ידע כללי, לאימות"
+CHECKED_NO_TIRES = "שמן, נוזל קירור, נוזל בלמים ודלק אומתו מול ספר היבואן; צמיגים, מצבר, תזמון ואחריות: ידע כללי, לאימות"
+HY_WARRANTY = "כלמוביל: 3 שנים או 100,000 ק\"מ (המוקדם), מצבר 24 חודשים, צבע 12 חודשים או 20,000 ק\"מ"
+KIA_WARRANTY = "טלקאר: 3 שנים או 100,000 ק\"מ (המוקדם), הרחבה בתשלום"
+MZ_WARRANTY = "דלק מוטורס: 3 שנים או 100,000 ק\"מ (ידע כללי, לאימות)"
+SPECS = {
+ "hyundai-i10-2014-2019": {"_note": CHECKED,
+   "engine_oil": "API SM / ACEA A5 ומעלה, 5W-30 (מותר 5W-20)", "oil_capacity": "1.0: 3.0 ליטר; 1.25: 3.6 ליטר (ריקון ומילוי כולל מסנן)",
+   "coolant": "אתילן גליקול למקרן אלומיניום; 1.0: 4.8-4.9 ליטר, 1.25: 5.2-5.3 ליטר", "brake_fluid": "DOT 4 (FMVSS116), 0.7-0.8 ליטר",
+   "fuel": "בנזין 95 אוקטן, מיכל 40 ליטר", "tires": "155/70 R13, 175/65 R14 או 185/55 R15; חלופי T115/70 D15", "tire_pressure": "14-15 אינץ': 32 psi (2.2 בר) קדמי ואחורי, בעומס מלא 33/34; 13 אינץ': 36 psi; חלופי 60 psi",
+   "battery": "מצבר רגיל 12V, לוודא מידה מול הקיים", "timing": "שרשרת, ללא החלפה מתוכננת", "spare": "גלגל חלופי צר או ערכת תיקון, לפי רמת גימור", "warranty": HY_WARRANTY},
+ "hyundai-i10-2020-2025": {"_note": "טיוטה, לאימות מול ספר הרכב (פרק 9)",
+   "engine_oil": "5W-30 לפי תקן API עדכני / ACEA A5", "oil_capacity": "כ-3.6 ליטר", "coolant": "אתילן גליקול למקרן אלומיניום, לא לערבב",
+   "brake_fluid": "DOT 4", "fuel": "בנזין 95 אוקטן", "tires": "175/65 R14 או 185/55 R15 (טיוטה)", "tire_pressure": "לפי המדבקה בעמוד הדלת",
+   "battery": "מצבר רגיל 12V; ברכב עם Start-Stop (ISG) מצבר AGM/EFB בלבד", "timing": "שרשרת, ללא החלפה מתוכננת", "spare": "ערכת תיקון או גלגל חלופי צר", "warranty": HY_WARRANTY},
+ "hyundai-i20-2015-2017": {"_note": CHECKED_NO_TIRES,
+   "engine_oil": "API SM + ILSAC GF-4 או ACEA A5 ומעלה, 5W-30", "oil_capacity": "3.5 ליטר (ריקון ומילוי כולל מסנן)",
+   "coolant": "אתילן גליקול למקרן אלומיניום, 4.3 ליטר", "brake_fluid": "DOT 4 (FMVSS116), 0.7-0.8 ליטר",
+   "fuel": "בנזין 95 אוקטן, מיכל 50 ליטר", "tires": "185/65 R15 או 195/55 R16 (טיוטה)", "tire_pressure": "לפי המדבקה בעמוד הדלת",
+   "battery": "מצבר רגיל 12V, לוודא מידה מול הקיים", "timing": "שרשרת, ללא החלפה מתוכננת", "spare": "גלגל חלופי צר", "warranty": HY_WARRANTY},
+ "hyundai-i20-2018-2021": {"_note": CHECKED,
+   "engine_oil": "MPI: 5W-30 ACEA A5/B5 (Shell Helix Ultra A5/B5); 1.0 T-GDI: 5W-40 ACEA A3/B4", "oil_capacity": "1.0 T-GDI: 3.6 ליטר; 1.25 ו-1.4: 3.5 ליטר",
+   "coolant": "אתילן גליקול למקרן אלומיניום; 1.0: 6.4 ליטר, 1.25/1.4: 4.3 ליטר", "brake_fluid": "DOT 4 (FMVSS116), 0.7-0.8 ליטר",
+   "fuel": "בנזין 95 אוקטן, מיכל 50 ליטר", "tires": "185/65 R15, 195/55 R16 או 205/45 R17; חלופי T125/80 D15",
+   "tire_pressure": "185/65 R15: 34 psi קדמי, 31 אחורי (עומס רגיל); 16-17 אינץ' זהה; חלופי 60 psi. לפי המדבקה בעמוד הדלת",
+   "battery": "מצבר רגיל 12V; עם Start-Stop (ISG): AGM/EFB בלבד", "timing": "שרשרת, ללא החלפה מתוכננת", "spare": "גלגל חלופי צר T125/80 D15 או ערכת תיקון", "warranty": HY_WARRANTY},
+ "hyundai-elantra-2011-2015-1.6": {"_note": CHECKED,
+   "engine_oil": "API SL/SM, ILSAC GF-3 או ACEA A3 ומעלה, 5W-30 (מותר 5W-20)", "oil_capacity": "3.3 ליטר (ריקון ומילוי)",
+   "coolant": "אתילן גליקול למקרן אלומיניום, 6.4 ליטר", "brake_fluid": "DOT 3 או DOT 4 (FMVSS116), 0.7-0.8 ליטר",
+   "fuel": "בנזין 95 אוקטן, מיכל 48 ליטר", "tires": "195/65 R15 או 205/55 R16; חלופי T125/80 D15",
+   "tire_pressure": "2.2 בר (32 psi) קדמי ואחורי; חלופי 4.2 בר (60 psi)", "battery": "מצבר רגיל 12V, לוודא מידה מול הקיים",
+   "timing": "שרשרת, ללא החלפה מתוכננת", "spare": "גלגל חלופי צר T125/80 D15", "warranty": HY_WARRANTY},
+ "hyundai-elantra-2016-2018-1.6": {"_note": CHECKED,
+   "engine_oil": "ACEA A5 ומעלה (בישראל מותר גם ACEA A3 או ILSAC GF-3), 5W-30", "oil_capacity": "3.6 ליטר (Gamma 1.6 MPI)",
+   "coolant": "אתילן גליקול פוספטי למקרן אלומיניום, 5.6 ליטר", "brake_fluid": "DOT 3 או DOT 4 (FMVSS116), 0.7-0.8 ליטר",
+   "fuel": "בנזין 95 אוקטן, מיכל 50 ליטר", "tires": "195/65 R15, 205/55 R16 או 225/45 R17; חלופי T125/80 D15/D16",
+   "tire_pressure": "2.3 בר (33 psi) קדמי ואחורי; חלופי 4.2 בר", "battery": "מצבר רגיל 12V, לוודא מידה מול הקיים",
+   "timing": "שרשרת, ללא החלפה מתוכננת", "spare": "גלגל חלופי צר", "warranty": HY_WARRANTY},
+ "hyundai-ioniq-2016-2022-1.6-hybrid": {"_note": CHECKED,
+   "engine_oil": "ACEA A5/B5 (בישראל מותר גם A3/B3), 0W-20 או 5W-30", "oil_capacity": "3.8 ליטר",
+   "coolant": "שני מעגלים: נוזל קירור מנוע 6.7 ליטר ונוזל קירור ממיר 3.2 ליטר, אתילן גליקול פוספטי", "brake_fluid": "DOT 3 או DOT 4, 0.7-0.8 ליטר; נוזל מפעיל מצמד DOT 3",
+   "fuel": "בנזין 95 אוקטן, מיכל 45 ליטר", "tires": "195/65 R15 או 225/45 R17; חלופי T125/80 D15",
+   "tire_pressure": "2.5 בר (36 psi) קדמי ואחורי; חלופי 4.2 בר", "battery": "מצבר עזר 12V (AGM) בתא המטען, לא מצבר רגיל; סוללה היברידית ליתיום-יון",
+   "timing": "שרשרת, ללא החלפה מתוכננת; רצועת HSG נבדקת בכל טיפול", "spare": "גלגל חלופי צר או ערכת תיקון", "warranty": HY_WARRANTY + "; סוללה היברידית 8 שנים או 160,000 ק\"מ (לאימות)"},
+ "kia-picanto-2017-2025": {"_note": CHECKED,
+   "engine_oil": "API SN / ACEA C2; לחיסכון בדלק מומלץ 0W-20, מותר גם 5W-30 ו-5W-40 (T-GDI: 5W-30/5W-40)", "oil_capacity": "1.0 MPI: 3.0 ליטר; 1.2 MPI: 3.5 ליטר; 1.0 T-GDI: 3.6 ליטר",
+   "coolant": "אתילן גליקול למקרן אלומיניום, לא לערבב", "brake_fluid": "DOT 3 או DOT 4",
+   "fuel": "בנזין 95 אוקטן", "tires": "155/80 R13, 175/65 R14, 185/55 R15 או 195/45 R16; חלופי T115/70 D15", "tire_pressure": "2.3 בר (33 psi) קדמי, 2.1 בר (30 psi) אחורי; בעומס מלא 2.3/2.5; Eco Pack 2.5 בכל הגלגלים; חלופי 4.2 בר",
+   "battery": "מצבר רגיל 12V; עם Start-Stop (ISG): AGM/EFB בלבד", "timing": "שרשרת, ללא החלפה מתוכננת", "spare": "גלגל חלופי צר T115/70 D15 או ערכת תיקון, לפי רמת גימור", "warranty": KIA_WARRANTY},
+ "kia-sportage-2016-2018": {"_note": CHECKED,
+   "engine_oil": "1.6 GDI / 1.6 T-GDI / 2.4 GDI: 5W-30 ACEA A5 ומעלה; 2.0 MPI: 5W-20 API SM/ILSAC GF-4 או 5W-30 ACEA A5",
+   "oil_capacity": "1.6 GDI: 3.6; 1.6 T-GDI: 4.5; 2.0 MPI: 4.0; 2.4 GDI: 4.8 ליטר", "coolant": "אתילן גליקול למקרן אלומיניום; 1.6 GDI: 7.3 (אוט') / 7.5 (ידני); 1.6 T-GDI: 7.3; 2.0: 6.9-7.1; 2.4: 7.1 ליטר",
+   "brake_fluid": "DOT 3 או DOT 4 (FMVSS116)", "fuel": "בנזין 95 אוקטן, מיכל 62 ליטר", "tires": "215/70 R16, 225/60 R17 או 245/45 R19", "tire_pressure": "2.4 בר (35 psi) בכל הגלגלים, גם בעומס מלא",
+   "battery": "מצבר רגיל 12V; עם Start-Stop (ISG): AGM/EFB בלבד", "timing": "שרשרת, ללא החלפה מתוכננת", "spare": "גלגל חלופי צר או ערכת תיקון", "warranty": KIA_WARRANTY},
+ "kia-sportage-2019-2021": {"_note": CHECKED,
+   "engine_oil": "1.6 GDI / 1.6 T-GDI: 5W-30 ACEA A5/B5/C2/C3; 2.0 MPI: 5W-20 API/ILSAC עדכני או 5W-30 ACEA A5/B5; 2.4 GDI: 5W-30",
+   "oil_capacity": "1.6 GDI: 3.6; 1.6 T-GDI: 4.5; 2.0 MPI: 4.0; 2.4 GDI: 4.8 ליטר", "coolant": "אתילן גליקול למקרן אלומיניום (כמויות כמו 2016-2018)",
+   "brake_fluid": "DOT 3 או DOT 4 (FMVSS116)", "fuel": "בנזין 95 אוקטן, מיכל 62 ליטר", "tires": "215/70 R16, 225/60 R17 או 245/45 R19; חלופי T135/90 R17", "tire_pressure": "2.4 בר (35 psi) בכל הגלגלים; בעומס מלא אחורי 2.75 בר (40 psi); חלופי 4.2 בר",
+   "battery": "מצבר רגיל 12V; עם Start-Stop (ISG): AGM/EFB בלבד", "timing": "שרשרת, ללא החלפה מתוכננת", "spare": "גלגל חלופי רגיל, צר T135/90 R17 או ערכת תיקון לפי רמת גימור (נפח תא מטען 466/491/503 ליטר)", "warranty": KIA_WARRANTY},
+ "kia-niro-2016-2022-1.6-hybrid": {"_note": CHECKED,
+   "engine_oil": "API עדכני או ACEA A5/B5, 0W-20 או 5W-30", "oil_capacity": "3.8 ליטר",
+   "coolant": "שני מעגלים: נוזל קירור מנוע 5.98 ליטר ונוזל קירור מערכת היברידית 2.43 ליטר, אתילן גליקול", "brake_fluid": "DOT 3 או DOT 4, כ-400 סמ\"ק; נוזל מפעיל מצמד DOT 3/4, 100 סמ\"ק",
+   "fuel": "בנזין 95 אוקטן, מיכל 45 ליטר", "tires": "205/60 R16 או 225/45 R18; חלופי T125/80 D16", "tire_pressure": "2.5 בר (36 psi) קדמי ואחורי; חלופי 4.2 בר",
+   "battery": "מצבר עזר 12V (AGM), לא מצבר רגיל; סוללה היברידית ליתיום-יון", "timing": "שרשרת; רצועת HSG נבדקת בכל טיפול", "spare": "גלגל חלופי צר T125/80 D16 או ערכת תיקון, לפי רמת גימור", "warranty": KIA_WARRANTY + "; סוללה היברידית 7 שנים או 150,000 ק\"מ (לאימות)"},
+}
+SPECS['hyundai-elantra-2019-2020-1.6'] = SPECS['hyundai-elantra-2016-2018-1.6']
+MZ_SPECS_BASE = {"engine_oil": "5W-30 לפי ACEA A3/A5 או API SL/SM", "coolant": "Mazda FL22 מקורי (ירוק) בלבד", "brake_fluid": "DOT 4",
+   "fuel": "בנזין 95 אוקטן", "tire_pressure": "לפי המדבקה בעמוד הדלת", "timing": "שרשרת, ללא החלפה מתוכננת",
+   "_note": "שמן, נוזל קירור ונוזל בלמים מתוך תוכנית הטיפול של היבואן; נפח שמן, צמיגים, מצבר ואחריות: ידע כללי, לאימות"}
+def mz_specs(**kw):
+    d=dict(MZ_SPECS_BASE); d.update(kw); return d
+SPECS.update({
+ "mazda-3-2006-2012": mz_specs(oil_capacity="כ-4.3 ליטר (1.6) / 4.3 ליטר (2.0)", tires="195/65 R15 או 205/55 R16", battery="מצבר רגיל 12V", spare="גלגל חלופי צר", warranty=MZ_WARRANTY,
+     brake_fluid="DOT 4 Super", engine_oil="5W-30 לפי ACEA A3/A5 או API SL/SM; שמן גיר Mazda V (אדום), שמן הגה Dexron III"),
+ "mazda-3-2013-2019": mz_specs(oil_capacity="כ-4.2 ליטר (2.0) / 4.0 ליטר (1.5)", tires="205/60 R16 או 215/45 R18", battery="מצבר רגיל 12V; בדגמי i-Stop: EFB/AGM בלבד (Q-85)", spare="ערכת תיקון או גלגל חלופי צר, לפי רמת גימור", warranty=MZ_WARRANTY,
+     engine_oil="5W-30 לפי ACEA A3/A5 או API SL/SM; שמן גיר אוטומטי Mazda FZ (כחול)"),
+ "mazda-3-2020-2025": mz_specs(oil_capacity="כ-4.2 ליטר", tires="205/60 R16 או 215/45 R18", battery="i-Stop: EFB/AGM בלבד", spare="ערכת תיקון", warranty=MZ_WARRANTY,
+     engine_oil="5W-30 API SN Plus; שמן גיר אוטומטי Mazda FZ (כחול)"),
+ "mazda-2-2007-2014": mz_specs(oil_capacity="כ-3.9 ליטר", tires="185/55 R15", battery="מצבר רגיל 12V", spare="גלגל חלופי צר", warranty=MZ_WARRANTY,
+     engine_oil="5W-30 לפי ACEA A3/A5 או API SL/SM; שמן גיר Mazda V (אדום)"),
+ "mazda-2-2015-2025": mz_specs(oil_capacity="כ-4.0 ליטר (1.5)", tires="185/65 R15 או 185/60 R16", battery="בדגמי i-Stop: EFB/AGM בלבד", spare="ערכת תיקון או גלגל חלופי צר", warranty=MZ_WARRANTY,
+     engine_oil="5W-30 לפי ACEA A3/A5 או API SL/SM; שמן גיר אוטומטי Mazda FZ (כחול)"),
+ "mazda-cx-5-2012-2025": mz_specs(oil_capacity="כ-4.2 ליטר (2.0) / 4.5 ליטר (2.5)", tires="225/65 R17 או 225/55 R19", battery="בדגמי i-Stop: EFB/AGM בלבד", spare="גלגל חלופי צר או ערכת תיקון", warranty=MZ_WARRANTY,
+     engine_oil="5W-30 לפי ACEA A3/A5 או API SL/SM; גיר אוטומטי Mazda FZ; ב-AWD תיבת העברה וסרן אחורי 80W-90 GL-5"),
+ "mazda-cx-3-2017-2025": mz_specs(oil_capacity="כ-4.2 ליטר (2.0)", tires="215/60 R16 או 215/50 R18", battery="בדגמי i-Stop: EFB/AGM בלבד", spare="ערכת תיקון", warranty=MZ_WARRANTY,
+     engine_oil="5W-30 לפי ACEA A3/A5 או API SL/SM; שמן גיר אוטומטי Mazda FZ (כחול)"),
+ "mazda-cx-30-2020-2025": mz_specs(oil_capacity="כ-4.2 ליטר", tires="215/55 R18", battery="i-Stop: EFB/AGM בלבד", spare="ערכת תיקון", warranty=MZ_WARRANTY,
+     engine_oil="5W-30 API SN Plus; שמן גיר אוטומטי Mazda FZ (כחול)"),
+})
+
+
 def write(s):
+    if s["id"] in SPECS and "specs" not in s:
+        # keep key order: specs before sources
+        items = list(s.items()); idx = [k for k, _ in items].index("sources")
+        items.insert(idx, ("specs", SPECS[s["id"]])); s = dict(items)
     path = os.path.join(OUT, s["id"] + ".json")
     with open(path, "w", encoding="utf-8") as f:
         json.dump(s, f, ensure_ascii=False, indent=2)

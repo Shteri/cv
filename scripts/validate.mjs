@@ -8,6 +8,7 @@ const dir = join(root, "schedules");
 const required = ["id","make","model","years","engines","importer","interval","cycle_km","services","sources","status"];
 const actions = new Set(["replace","inspect","adjust","clean","rotate"]);
 const statuses = new Set(["draft","reviewed","verified"]);
+const specKeys = new Set(["engine_oil","oil_capacity","coolant","brake_fluid","fuel","tires","tire_pressure","battery","timing","spare","wipers","warranty","_note"]);
 let errors = 0;
 const counts = { draft: 0, reviewed: 0, verified: 0 };
 
@@ -33,6 +34,10 @@ for (const file of readdirSync(dir).filter(f => f.endsWith(".json"))) {
   }
   if (prevKm && s.cycle_km && prevKm > s.cycle_km) fail(`last service ${prevKm} exceeds cycle_km ${s.cycle_km}`);
   for (const t of s.time_based ?? []) if (!items[t.item]) fail(`unknown time_based item '${t.item}'`);
+  for (const [k, v] of Object.entries(s.specs ?? {})) {
+    if (!specKeys.has(k)) fail(`unknown specs key '${k}'`);
+    if (typeof v !== "string" || !v.trim()) fail(`specs.${k} must be a non-empty string`);
+  }
   for (const l of s.long_interval ?? []) {
     if (!items[l.item]) fail(`unknown long_interval item '${l.item}'`);
     if (!actions.has(l.action)) fail(`bad action '${l.action}' in long_interval ${l.item}`);
