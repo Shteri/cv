@@ -4,44 +4,130 @@
   "title": "Vehicle maintenance schedule (Israel)",
   "description": "One file per make + model + generation + engine family. Written in our own words from importer/manufacturer books. Never paste book text verbatim.",
   "type": "object",
-  "required": ["id", "make", "model", "years", "engines", "importer", "interval", "cycle_km", "services", "sources", "status"],
+  "required": [
+    "id",
+    "make",
+    "model",
+    "years",
+    "engines",
+    "importer",
+    "interval",
+    "cycle_km",
+    "services",
+    "sources",
+    "status"
+  ],
   "properties": {
-    "id": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9.]+)*$", "description": "e.g. toyota-corolla-2019-2025-1.8-hybrid" },
-    "make": { "type": "string" },
-    "make_he": { "type": "string" },
-    "model": { "type": "string" },
-    "model_he": { "type": "string" },
-    "generation": { "type": "string", "description": "Manufacturer code if known, e.g. E210" },
-    "years": { "type": "array", "items": { "type": "integer" }, "minItems": 2, "maxItems": 2, "description": "[first_year, last_year] sold in Israel" },
-    "engines": { "type": "array", "items": { "type": "string" }, "description": "Engine families this file covers, e.g. '1.8 hybrid'" },
-    "fuel": { "type": "string", "enum": ["petrol", "diesel", "hybrid", "plug-in-hybrid"] },
-    "importer": { "type": "string", "description": "Israeli importer, Hebrew" },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9.]+)*$",
+      "description": "e.g. toyota-corolla-2019-2025-1.8-hybrid"
+    },
+    "make": {
+      "type": "string"
+    },
+    "make_he": {
+      "type": "string"
+    },
+    "model": {
+      "type": "string"
+    },
+    "model_he": {
+      "type": "string"
+    },
+    "generation": {
+      "type": "string",
+      "description": "Manufacturer code if known, e.g. E210"
+    },
+    "years": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      },
+      "minItems": 2,
+      "maxItems": 2,
+      "description": "[first_year, last_year] sold in Israel"
+    },
+    "engines": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Engine families this file covers, e.g. '1.8 hybrid'"
+    },
+    "fuel": {
+      "type": "string",
+      "enum": [
+        "petrol",
+        "diesel",
+        "hybrid",
+        "plug-in-hybrid"
+      ]
+    },
+    "importer": {
+      "type": "string",
+      "description": "Israeli importer, Hebrew"
+    },
     "interval": {
       "type": "object",
-      "required": ["km", "months"],
+      "required": [
+        "km",
+        "months"
+      ],
       "properties": {
-        "km": { "type": "integer" },
-        "months": { "type": "integer" },
-        "note": { "type": "string" }
+        "km": {
+          "type": "integer"
+        },
+        "months": {
+          "type": "integer"
+        },
+        "note": {
+          "type": "string"
+        }
       }
     },
-    "cycle_km": { "type": "integer", "description": "After this km the schedule repeats from the start" },
+    "cycle_km": {
+      "type": "integer",
+      "description": "After this km the schedule repeats from the start"
+    },
     "services": {
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["km", "items"],
+        "required": [
+          "km",
+          "items"
+        ],
         "properties": {
-          "km": { "type": "integer" },
+          "km": {
+            "type": "integer"
+          },
           "items": {
             "type": "array",
             "items": {
               "type": "object",
-              "required": ["item", "action"],
+              "required": [
+                "item",
+                "action"
+              ],
               "properties": {
-                "item": { "type": "string", "description": "Key from data/items.json" },
-                "action": { "type": "string", "enum": ["replace", "inspect", "adjust", "clean", "rotate"] },
-                "note": { "type": "string" }
+                "item": {
+                  "type": "string",
+                  "description": "Key from data/items.json"
+                },
+                "action": {
+                  "type": "string",
+                  "enum": [
+                    "replace",
+                    "inspect",
+                    "adjust",
+                    "clean",
+                    "rotate"
+                  ]
+                },
+                "note": {
+                  "type": "string"
+                }
               }
             }
           }
@@ -53,12 +139,24 @@
       "description": "Items that are due by age regardless of km",
       "items": {
         "type": "object",
-        "required": ["item", "action", "months"],
+        "required": [
+          "item",
+          "action",
+          "months"
+        ],
         "properties": {
-          "item": { "type": "string" },
-          "action": { "type": "string" },
-          "months": { "type": "integer" },
-          "note": { "type": "string" }
+          "item": {
+            "type": "string"
+          },
+          "action": {
+            "type": "string"
+          },
+          "months": {
+            "type": "integer"
+          },
+          "note": {
+            "type": "string"
+          }
         }
       }
     },
@@ -67,15 +165,48 @@
       "minItems": 1,
       "items": {
         "type": "object",
-        "required": ["url", "kind"],
+        "required": [
+          "url",
+          "kind"
+        ],
         "properties": {
-          "url": { "type": "string" },
-          "kind": { "type": "string", "enum": ["importer", "manufacturer", "garage", "forum", "other"] },
-          "note": { "type": "string" }
+          "url": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "importer",
+              "manufacturer",
+              "garage",
+              "forum",
+              "other"
+            ]
+          },
+          "note": {
+            "type": "string"
+          }
         }
       }
     },
-    "status": { "type": "string", "enum": ["draft", "reviewed", "verified"], "description": "draft = collected from web; reviewed = we read it; verified = checked against importer book" },
-    "notes": { "type": "string" }
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "reviewed",
+        "verified"
+      ],
+      "description": "draft = collected from web; reviewed = we read it; verified = checked against importer book"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "specs": {
+      "type": "object",
+      "description": "Useful facts from the owner's book, one line each, Hebrew. Keys: engine_oil, oil_capacity, coolant, brake_fluid, fuel, tires, tire_pressure, battery, timing, spare, wipers, warranty, _note",
+      "additionalProperties": {
+        "type": "string"
+      }
+    }
   }
 }

@@ -310,30 +310,6 @@
     <div class="card stack" id="tl-time"></div>
   </section>
 
-  <!-- GARAGE CHECKLIST -->
-  <section class="screen" id="s-garage" hidden>
-    <div class="topbar">
-      <div class="stack" style="gap:2px"><p class="eyebrow">לקחת למוסך</p><h1 id="g-title"></h1></div>
-      <button class="btn ghost" id="g-back" style="width:auto">חזרה</button>
-    </div>
-    <p class="muted small" id="g-sub"></p>
-    <div class="card stack" style="gap:6px">
-      <div class="row between"><h3>לבקש שיחליפו</h3><span class="small muted">לפי לוח היבואן</span></div>
-      <div id="g-replace"></div>
-    </div>
-    <div class="card stack" style="gap:6px">
-      <h3>לבקש שיבדקו</h3>
-      <div id="g-inspect"></div>
-    </div>
-    <div class="card stack" style="gap:6px">
-      <h3>לוודא לפני שמשלמים</h3>
-      <div id="g-tips"></div>
-    </div>
-    <div class="card stack" style="gap:6px" id="g-price"></div>
-    <button class="btn secondary" id="g-copy">העתק את הרשימה (לוואטסאפ או להדפסה)</button>
-    <button class="btn primary" id="g-done">סיימתי במוסך, רשום את הטיפול</button>
-  </section>
-
   <!-- PROFILE / SETTINGS -->
   <section class="screen" id="s-me" hidden>
     <h1>הפרופיל שלי</h1>
@@ -430,7 +406,7 @@
   };
   const show = id => {
     $$(".screen").forEach(s => s.hidden = s.id !== id);
-    const main = ["s-home", "s-tl", "s-me", "s-garage"].includes(id);
+    const main = ["s-home", "s-tl", "s-me"].includes(id);
     $("#nav").hidden = !main;
     $$("#nav button").forEach(b => b.classList.toggle("on", "s-" + b.dataset.go === id));
     window.scrollTo(0, 0);
@@ -630,6 +606,12 @@
       </div>`).join("")}
     </div>`; };
 
+  // ---------- useful specs from the owner's book ----------
+  const specLabels = { engine_oil: "שמן מנוע", oil_capacity: "כמות שמן עם מסנן", coolant: "נוזל קירור", brake_fluid: "נוזל בלמים", fuel: "דלק", tires: "מידת צמיגים", tire_pressure: "לחץ אוויר", battery: "מצבר", timing: "תזמון", spare: "גלגל חלופי", wipers: "מגבים", warranty: "אחריות יבואן" };
+  const specsHTML = s => { if (!s.specs) return ""; const keys = Object.keys(specLabels).filter(k => s.specs[k]); return `
+    <div class="card stack" style="gap:8px"><div class="row between"><p class="eyebrow">מהספר, בשורה אחת</p><span class="small muted">${s.specs._note || ""}</span></div>
+      <div class="list small">${keys.map(k => `<div class="row between" style="align-items:flex-start"><span class="muted" style="flex:none">${specLabels[k]}</span><b style="text-align:left">${s.specs[k]}</b></div>`).join("")}</div></div>`; };
+
   // ---------- home ----------
   function renderHome() {
     const car = S.cars[S.active]; if (!car) return;
@@ -675,13 +657,14 @@
       </div>
       ${historyHTML(car)}
       ${n.s.status === "draft" ? `<div class="banner">הלוח של הדגם הזה עדיין בטיוטה. המרווח לפי היבואן, תכולת הטיפולים בהמתנה לאימות מול ספר הרכב.</div>` : ""}
+      ${specsHTML(n.s)}
       <div class="card stack" style="gap:8px">
         <p class="eyebrow">טוב לדעת</p>
         <p class="small">המרווח של ${n.s.importer} לדגם הזה: <b class="num">${fmt(n.s.interval.km)} ק"מ או ${n.s.interval.months} חודשים</b>, המוקדם מביניהם.</p>
         ${n.s.interval.note ? `<p class="small muted">${n.s.interval.note}</p>` : ""}
       </div>`;
     $("#upd-km").onclick = openSheet;
-    $("#to-garage").onclick = () => { renderGarage(n.nextKm, n.svc); show("s-garage"); };
+    $("#to-garage").onclick = () => { show("s-tl"); const el = $(".tl-item.next"); if (el) el.scrollIntoView({ block: "start" }); };
     $("#done-svc").onclick = () => openLog();
     $$("[data-go]", $("#home-body")).forEach(b => b.onclick = () => show("s-" + b.dataset.go));
   }
@@ -691,7 +674,7 @@
     const car = S.cars[S.active]; if (!car) return;
     const n = computeNext(car); const s = n.s;
     const laps = Math.floor(car.km / s.cycle_km);
-    $("#tl-sub").textContent = `${carName(car)} · לוח ${s.importer} · המחזור חוזר כל ${fmt(s.cycle_km)} ק"מ`;
+    $("#tl-sub").textContent = `${carName(car)} · לוח ${s.importer} · המחזור חוזר כל ${fmt(s.cycle_km)} ק"מ. הטיפול הבא פתוח: סמן תוך כדי במוסך.`;
     const rows = [];
     for (let lap = laps; lap <= laps + 1; lap++) for (const svc of s.services) {
       const km = lap * s.cycle_km + svc.km;
@@ -706,54 +689,48 @@
         <div class="tl-dot">${r.state === "done" ? "✓" : ""}</div>
         <div class="tl-card">
           <button class="tl-head"><span><span class="km num">${fmt(r.km)} ק"מ</span>${r.state === "next" ? ` <span class="status good" style="margin-right:6px">הבא</span>` : ""}<br><span class="summary">${summarize(r.svc.items)}</span></span><span class="chev">⌄</span></button>
-          <div class="tl-body stack">${itemsHTML(r.svc.items)}${priceHTML(s, r.svc)}${r.state !== "done" ? `<div class="row" style="gap:8px"><button class="btn secondary" data-garage="${r.km}" style="padding:10px">לקחת למוסך</button><button class="btn secondary" data-log="${r.km}" style="padding:10px">עשיתי את הטיפול</button></div>` : ""}</div>
+          <div class="tl-body stack">${r.state === "done" ? itemsHTML(r.svc.items) : checklistHTML(s, r.svc, r.km)}</div>
         </div>
       </div>`).join("");
     $$(".tl-head").forEach(b => b.onclick = () => b.closest(".tl-item").classList.toggle("open"));
     $$("[data-log]").forEach(b => b.onclick = () => openLog(+b.dataset.log));
-    $$("[data-garage]").forEach(b => b.onclick = () => { const km = +b.dataset.garage; renderGarage(km, s.services.find(x => x.km === km % s.cycle_km || (km % s.cycle_km === 0 && x.km === s.cycle_km))); show("s-garage"); });
+    $$("[data-copy]").forEach(b => b.onclick = () => copyChecklist(s, s.services.find(x => x.km === +b.dataset.svc), +b.dataset.copy));
     const tb = s.time_based || [];
     $("#tl-time").innerHTML = `<h3>לפי זמן, לא לפי ק"מ</h3>${tb.length ? tb.map(t => `<div class="item"><span class="act ${t.action}">${actName[t.action]}</span><div><div>${itemName(t.item)}${t.months ? ` · כל ${t.months / 12} שנים` : ""}</div>${t.note ? `<div class="note">${t.note}</div>` : ""}</div></div>`).join("") : `<p class="small muted">אין פריטים תלויי זמן בלוח הזה.</p>`}`;
   }
 
-  // ---------- garage checklist ----------
-  let garageKm = 0, garageSvc = null;
+  // ---------- garage checklist (inside the timeline) ----------
   const gTips = s => [
     ["חשבונית מפורטת", "כל פריט בשורה נפרדת: חלק, כמות, מחיר, שעות עבודה. בלי \"טיפול תקופתי\" בשורה אחת."],
-    ["איזה שמן נכנס", `לוודא שהסוג והצמיגות לפי ספר היבואן (${s.importer}) ולא \"מה שיש\". שיירשם בחשבונית.`],
-    ["חלקים מקוריים או תחליפיים", "לשאול מראש. תחליפי באיכות טובה לגיטימי, אבל זה צריך להיות בחירה שלך ולהשתקף במחיר."],
-    ["לא לאשר תוספות בטלפון בלי הסבר", "\"מצאנו עוד משהו\" זה בסדר, אבל לבקש תמונה, מחיר, והאם זה דחוף או אפשר לחכות לטיפול הבא."],
-    ["לבקש את החלקים הישנים", "מסננים ורפידות שהוחלפו. זו הדרך הפשוטה לוודא שההחלפה בוצעה."],
-    ["רישום הטיפול", "חותמת בספר הטיפולים או רישום דיגיטלי אצל היבואן, כולל ק\"מ ותאריך. חשוב לאחריות ולמכירה עתידית."],
-    ["אחריות יצרן", "לפי חוק רישוי שירותים ומקצועות בענף הרכב (2016), היבואן לא יכול להתנות אחריות בטיפול במוסך שלו. כל מוסך עם רישיון משרד התחבורה שומר על האחריות, כל עוד הטיפול לפי הוראות היצרן. לשמור חשבונית עם תאריך וק\"מ."],
-    ["שעת עבודה", "המוסך חייב להציג שלט עם מחיר שעת עבודה ומספר רישיון. אם לא רואים, לשאול. פערים בין מוסכים מגיעים לפי 2."]
+    ["איזה שמן נכנס", `הסוג והצמיגות לפי ספר היבואן (${s.importer}), לא \"מה שיש\". שיירשם בחשבונית.`],
+    ["חלקים מקוריים או תחליפיים", "לשאול מראש. תחליפי באיכות טובה לגיטימי, אבל זו בחירה שלך וזה צריך להשתקף במחיר."],
+    ["תוספות באמצע", "\"מצאנו עוד משהו\" זה בסדר, אבל לבקש תמונה, מחיר, והאם זה דחוף או יכול לחכות לטיפול הבא."],
+    ["החלקים הישנים", "לבקש את המסננים והרפידות שהוחלפו. הדרך הפשוטה לוודא שההחלפה בוצעה."],
+    ["רישום הטיפול", "חותמת בספר או רישום דיגיטלי אצל היבואן, עם ק\"מ ותאריך. חשוב לאחריות ולמכירה."],
+    ["אחריות", "לפי חוק רישוי שירותים ומקצועות בענף הרכב (2016), כל מוסך מורשה משרד התחבורה שומר על האחריות, כל עוד הטיפול לפי הוראות היצרן. לשמור חשבונית."],
+    ["שעת עבודה", "המוסך חייב שלט עם מחיר שעת עבודה ומספר רישיון. אם לא רואים, לשאול."]
   ];
-  function renderGarage(km, svc) {
-    garageKm = km; garageSvc = svc;
-    const car = S.cars[S.active], s = schedById(car.schedule);
-    $("#g-title").textContent = `טיפול ${fmt(km)} ק"מ`;
-    $("#g-sub").textContent = `${carName(car)} · לוח ${s.importer} · מרווח ${fmt(s.interval.km)} ק"מ / ${s.interval.months} חודשים. סמן תוך כדי, כדי לא לשכוח כלום.`;
-    const rowHTML = (it, i, pre) => `<label class="chk"><input type="checkbox" id="${pre}-${i}"><span class="t">${itemName(it.item)}${it.action !== "replace" && it.action !== "inspect" ? ` <span class="act ${it.action}">${actName[it.action]}</span>` : ""}${it.note ? `<div class="note">${it.note}</div>` : ""}</span></label>`;
+  function checklistHTML(s, svc, km) {
+    const row = (it, i) => `<label class="chk"><input type="checkbox" id="c-${km}-${i}"><span class="t">${itemName(it.item)}${it.action === "clean" || it.action === "adjust" ? ` <span class="act ${it.action}">${actName[it.action]}</span>` : ""}${it.note ? `<div class="note">${it.note}</div>` : ""}</span></label>`;
     const rep = svc.items.filter(i => i.action === "replace"), insp = svc.items.filter(i => i.action !== "replace");
-    $("#g-replace").innerHTML = rep.map((it, i) => rowHTML(it, i, "gr")).join("");
-    $("#g-inspect").innerHTML = insp.map((it, i) => rowHTML(it, i, "gi")).join("");
-    $("#g-tips").innerHTML = gTips(s).map(([t, x], i) => `<div class="tip"><span class="i">${i + 1}</span><span><b>${t}</b><br><span class="muted">${x}</span></span></div>`).join("");
-    const c = communityPrice(s, svc);
-    $("#g-price").innerHTML = `<h3>מחיר סביר לטיפול הזה</h3><p class="small muted">לפי דיווחי נהגים (נתוני דוגמה). אם המחיר גבוה מהטווח, לשאול מה נוסף ולמה.</p>
-      <div class="price"><div class="p"><span class="small muted">מוסך יבואן</span><b class="num">₪${fmt(c.importer.lo)} עד ₪${fmt(c.importer.hi)}</b></div><div class="p"><span class="small muted">מוסך פרטי</span><b class="num">₪${fmt(c.independent.lo)} עד ₪${fmt(c.independent.hi)}</b></div></div>`;
+    return `
+      <div class="stack" style="gap:2px"><div class="row between"><b>לבקש שיחליפו</b><span class="small muted">לפי לוח ${s.importer}</span></div>${rep.map((it, i) => row(it, "r" + i)).join("")}</div>
+      <div class="stack" style="gap:2px"><b>לבקש שיבדקו</b>${insp.map((it, i) => row(it, "i" + i)).join("")}</div>
+      <div class="stack" style="gap:0"><b>לוודא לפני שמשלמים</b>${gTips(s).map(([t, x], i) => `<div class="tip"><span class="i">${i + 1}</span><span><b>${t}</b><br><span class="muted">${x}</span></span></div>`).join("")}</div>
+      ${priceHTML(s, svc)}
+      <div class="row" style="gap:8px"><button class="btn secondary" data-copy="${km}" data-svc="${svc.km}" style="padding:10px">העתק רשימה</button><button class="btn primary" data-log="${km}" style="padding:10px">עשיתי את הטיפול</button></div>`;
   }
-  $("#g-back").onclick = () => show("s-home");
-  $("#g-done").onclick = () => { show("s-home"); openLog(garageKm); };
-  $("#g-copy").onclick = () => {
-    const car = S.cars[S.active], s = schedById(car.schedule), c = communityPrice(s, garageSvc);
-    const txt = [`טיפול ${fmt(garageKm)} ק"מ · ${carName(car)} · לפי לוח ${s.importer}`, "",
-      "להחליף:", ...garageSvc.items.filter(i => i.action === "replace").map(i => "☐ " + itemName(i.item)), "",
-      "לבדוק:", ...garageSvc.items.filter(i => i.action !== "replace").map(i => "☐ " + itemName(i.item)), "",
+  function copyChecklist(s, svc, km) {
+    const car = S.cars[S.active], c = communityPrice(s, svc);
+    const txt = [`טיפול ${fmt(km)} ק"מ · ${carName(car)} · לפי לוח ${s.importer}`, "",
+      "להחליף:", ...svc.items.filter(i => i.action === "replace").map(i => "☐ " + itemName(i.item)), "",
+      "לבדוק:", ...svc.items.filter(i => i.action !== "replace").map(i => "☐ " + itemName(i.item)), "",
       `מחיר סביר: יבואן ₪${fmt(c.importer.lo)}-${fmt(c.importer.hi)}, פרטי ₪${fmt(c.independent.lo)}-${fmt(c.independent.hi)}`, "",
       "לוודא: חשבונית מפורטת, סוג שמן לפי ספר, חלקים מקוריים/תחליפיים, חלקים ישנים, רישום הטיפול.", "", "נוצר בטיפולית"].join("\n");
     const done = () => toast("הרשימה הועתקה");
-    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(txt).then(done).catch(() => { const ta = document.createElement("textarea"); ta.value = txt; document.body.appendChild(ta); ta.select(); try { document.execCommand("copy"); done(); } catch (e) {} ta.remove(); });
-  };
+    const fallback = () => { const ta = document.createElement("textarea"); ta.value = txt; document.body.appendChild(ta); ta.select(); try { document.execCommand("copy"); done(); } catch (e) {} ta.remove(); };
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(txt).then(done).catch(fallback); else fallback();
+  }
 
   // ---------- profile ----------
   function renderMe() {
@@ -782,7 +759,7 @@
   $("#sheet-save").onclick = () => { const v = +$("#sheet-km").value.replace(/\D/g, ""); if (v) { S.cars[S.active].km = v; save(); renderAll(); toast("הקילומטראז' עודכן"); } $("#sheet").classList.remove("show"); };
 
   // ---------- nav / boot ----------
-  $$("#nav button").forEach(b => b.onclick = () => show("s-" + b.dataset.go));
+  $$("#nav button").forEach(b => b.onclick = () => { show("s-" + b.dataset.go); if (b.dataset.go === "tl") { const el = $(".tl-item.next"); if (el) el.scrollIntoView({ block: "start" }); } });
   $("#home-avatar").onclick = () => show("s-me");
   function renderAll() { renderHome(); renderTL(); renderMe(); }
   if (!S.onboarded) { renderOnb(); show("s-onb"); }
