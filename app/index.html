@@ -278,7 +278,7 @@
     <div class="brand"><span class="mark">ט</span> טיפולית</div>
     <div class="stack" style="flex:1; justify-content:center; gap:8px">
       <h1>ברוך הבא</h1>
-      <p class="muted">חשבון שומר את הרכבים והתזכורות שלך בין מכשירים. אפשר גם להתחיל כאורח ולהתחבר אחר כך.</p>
+      <p class="muted">הרכבים והרשומות שלך נשמרים בין מכשירים.</p>
     </div>
     <div class="stack">
       <button class="btn secondary" id="auth-google" data-busy="מסיים התחברות…">
@@ -287,7 +287,6 @@
       </button>
       <p class="err" id="auth-err" hidden></p>
       <button class="btn primary" id="auth-guest">המשך כאורח</button>
-      <p class="small muted" style="text-align:center">בהמשך: התחברות עם Apple ומספר טלפון</p>
     </div>
   </section>
 
@@ -301,7 +300,7 @@
     <div class="stack" id="add-step-plate">
       <div class="stack" style="gap:6px">
         <h1>מה מספר הרכב?</h1>
-        <p class="muted">נזהה את היצרן, הדגם, השנה והמנוע ממאגר הרכב הממשלתי.</p>
+        <p class="muted">נזהה יצרן, דגם, שנה ומנוע.</p>
       </div>
       <div class="plate-input">
         <span class="il">IL</span>
@@ -310,7 +309,6 @@
       <p class="err" id="plate-err" hidden>מספר רכב הוא 7 או 8 ספרות</p>
       <button class="btn primary" id="plate-go" data-busy="מזהה מול מאגר הרכב…" disabled>זהה את הרכב</button>
       <button class="btn ghost" id="plate-manual">אין לי את המספר, אבחר ידנית</button>
-      <p class="small muted">באב-טיפוס הזה הזיהוי מדומה: כל מספר יקבל דגם מתוך הדגמים שכבר יש להם לוח טיפולים.</p>
     </div>
 
     <div class="stack" id="add-step-confirm" hidden>
@@ -326,7 +324,7 @@
     <div class="stack" id="add-step-manual" hidden>
       <div class="stack" style="gap:6px">
         <h1>בחר את הרכב</h1>
-        <p class="muted">רק דגמים שיש להם לוח טיפולים מוכן מופיעים כאן.</p>
+        <p class="muted">רק דגמים עם לוח טיפולים מוכן.</p>
       </div>
       <div class="field"><label for="m-make">יצרן</label><select id="m-make"></select></div>
       <div class="field"><label for="m-model">דגם ודור</label><select id="m-model"></select></div>
@@ -337,7 +335,7 @@
     <div class="stack" id="add-step-km" hidden>
       <div class="stack" style="gap:6px">
         <h1>כמה קילומטרים על השעון?</h1>
-        <p class="muted">ואיך אתה נוסע. מזה נחשב מתי הטיפול הבא.</p>
+        <p class="muted">מזה נחשב מתי הטיפול הבא.</p>
       </div>
       <div class="field">
         <label for="km">קילומטראז' נוכחי</label>
@@ -355,7 +353,6 @@
       <div class="field">
         <label for="last">מתי היה הטיפול האחרון? <span class="muted">(לא חובה)</span></label>
         <input id="last" name="last-service" type="month" autocomplete="off">
-        <span class="hint">אם לא זוכר, נחשב לפי ק"מ בלבד.</span>
       </div>
       <button class="btn primary" id="km-go" disabled>סיום</button>
     </div>
@@ -380,11 +377,10 @@
     </div>
     <div class="card stack" style="gap:8px">
       <div class="row between"><h3>המסמכים שלך</h3><span class="small muted" id="car-docs-n"></span></div>
-      <p class="small muted">קנית רכב יד שנייה ויש לך ערימת חשבוניות? העלה אותן פעם אחת. כל חשבונית הופכת לרשומה, ומצב הרכב מתעדכן לפי מה שבאמת הוחלף.</p>
+      <p class="small muted">חשבוניות ישנות? העלה אותן. כל אחת הופכת לרשומה.</p>
       <div class="docs" id="car-docs"></div>
-      <label class="btn secondary" for="car-upload" style="cursor:pointer">העלה חשבוניות (אפשר כמה בבת אחת)</label>
+      <label class="btn secondary" for="car-upload" style="cursor:pointer">העלה חשבוניות</label>
       <input id="car-upload" type="file" accept="image/*" multiple style="display:none">
-      <p class="small muted">זיהוי אוטומטי של תאריך, ק"מ, מחיר ופריטים מתוך הצילום יגיע עם השרת. עד אז מאשרים את הפרטים ידנית לכל מסמך, כחצי דקה למסמך.</p>
     </div>
     <div class="card stack" style="gap:6px">
       <div class="row between"><h3>תקלות ותיקונים</h3><button class="btn ghost" id="car-add-repair" style="width:auto;padding:0">הוסף</button></div>
@@ -406,7 +402,7 @@
   <!-- GARAGES -->
   <section class="screen" id="s-garages" hidden>
     <div class="topbar">
-      <div class="stack" style="gap:2px"><p class="eyebrow">מוסכים</p><h1 id="gr-title">מוסכים לרכב שלך</h1></div>
+      <div class="stack" style="gap:2px"><p class="eyebrow">המלצות נהגים</p><h1 id="gr-title">מוסכים לרכב שלך</h1></div>
       <button class="btn ghost" id="gr-back" style="width:auto">חזרה</button>
     </div>
     <p class="muted small" id="gr-sub"></p>
@@ -414,7 +410,7 @@
       <button class="chip on" data-v="all">הכל</button><button class="chip" data-v="importer">מוסך יבואן</button><button class="chip" data-v="independent">מוסך פרטי</button>
     </div>
     <div class="card" id="gr-list"></div>
-    <p class="small muted">לפני שנכנסים למוסך חדש: לוודא שיש לו רישיון משרד התחבורה. <a href="https://www.gov.il/he/departments/dynamiccollectors/garages-and-licensing-institutes" target="_blank" rel="noopener" style="color:var(--accent)">חיפוש במאגר המוסכים המורשים</a>.</p>
+    <div class="card stack" style="gap:6px" id="gr-links"></div>
   </section>
 
   <!-- PROFILE / SETTINGS -->
@@ -435,7 +431,7 @@
       </div>
     </div>
     <div class="card stack" id="me-sources"></div>
-    <button class="btn ghost" id="me-reset">איפוס האפליקציה (מוחק הכל במכשיר הזה)</button>
+    <button class="btn ghost" id="me-reset">איפוס האפליקציה</button>
   </section>
 
   </main>
@@ -459,7 +455,7 @@
       </div>
       <div class="field" id="log-svc-row"><label for="log-svc">איזה טיפול</label><select id="log-svc"></select></div>
       <div class="field" id="log-text-row" hidden><label for="log-text">מה נעשה</label><input id="log-text" name="what" autocomplete="off" placeholder="למשל החלפת מצבר, תיקון מזגן"><p class="err" id="log-text-err" hidden>כתוב בקצרה מה נעשה.</p></div>
-      <div class="field"><label>מה הוחלף בפועל <span class="muted">(סמן, זה מה שמעדכן את מצב הרכב)</span></label><div class="items-pick" id="log-items"></div></div>
+      <div class="field"><label>מה הוחלף <span class="muted">(מעדכן את מצב הרכב)</span></label><div class="items-pick" id="log-items"></div></div>
       <div class="row" style="gap:10px">
         <div class="field" style="flex:1"><label for="log-date">מתי</label><input id="log-date" name="service-date" type="month" autocomplete="off"></div>
         <div class="field" style="flex:1"><label for="log-km">ק"מ בטיפול</label><input id="log-km" name="service-km" inputmode="numeric" autocomplete="off" class="num"></div>
@@ -473,15 +469,15 @@
         <div class="field" style="flex:1.4"><label for="log-garage">שם המוסך <span class="muted">(לא חובה)</span></label><input id="log-garage" name="garage" autocomplete="off" placeholder="למשל טויוטה ראשל"צ"></div>
         <div class="field" style="flex:1"><label for="log-city">עיר</label><input id="log-city" name="city" autocomplete="off" placeholder="ראשון לציון"></div>
       </div>
-      <div class="field"><label for="log-price">כמה שילמת (₪)</label><input id="log-price" name="price" inputmode="numeric" autocomplete="off" class="num" placeholder="למשל 890"><p class="err" id="log-price-err" hidden>כדי לשתף מחיר צריך להזין כמה שילמת, או לכבות את השיתוף.</p></div>
+      <div class="field"><label for="log-price">כמה שילמת (₪)</label><input id="log-price" name="price" inputmode="numeric" autocomplete="off" class="num" placeholder="למשל 890"><p class="err" id="log-price-err" hidden>כדי לשתף מחיר צריך להזין כמה שילמת.</p></div>
       <div class="field"><label>היית חוזר למוסך הזה?</label>
         <div class="seg" id="log-back"><button data-v="yes">כן</button><button data-v="no">לא</button><button data-v="" class="on">לא בטוח</button></div>
       </div>
       <div class="field"><label for="log-extra">הערות <span class="muted">(לא חובה)</span></label><textarea id="log-extra" name="extras" rows="2" autocomplete="off" placeholder="למשל הוחלפו גם רפידות קדמיות"></textarea></div>
-      <div class="field"><label>צילום חשבונית <span class="muted">(לא חובה, עוזר לאמת מחירים)</span></label>
+      <div class="field"><label>צילום חשבונית <span class="muted">(לא חובה)</span></label>
         <div class="receipt"><img id="log-thumb" alt="" hidden><label for="log-file" id="log-file-lbl">הוסף צילום</label><input id="log-file" type="file" accept="image/*" multiple></div>
       </div>
-      <div class="row between"><span class="small">שתף את המחיר אנונימית עם נהגים אחרים<br><span class="muted">בלי שם, בלי מספר רכב. רק דגם, טיפול, סוג מוסך, עיר ומחיר.</span></span><button class="toggle on" id="log-share" aria-label="שיתוף מחיר"></button></div>
+      <div class="row between"><span class="small">שתף מחיר ומוסך אנונימית<br><span class="muted">בלי שם ובלי מספר רכב.</span></span><button class="toggle on" id="log-share" aria-label="שיתוף מחיר"></button></div>
       <button class="btn primary" id="log-save">שמור</button>
     </div>
   </div>
@@ -592,13 +588,13 @@
 
   // ---------- onboarding ----------
   const onb = [
-    { t: "כל טיפול, בזמן הנכון", x: "טיפולית מחשבת מתי הטיפול הבא לפי הקילומטראז' והזמן, ומזכירה לך לפני שמאחרים.",
+    { t: "כל טיפול, בזמן הנכון", x: "לפי הק\"מ והזמן, עם תזכורת לפני.",
       art: `<svg viewBox="0 0 320 220"><rect x="40" y="70" width="240" height="90" rx="16" fill="var(--surface)"/><rect x="60" y="92" width="200" height="12" rx="6" fill="var(--line)"/><rect x="60" y="92" width="130" height="12" rx="6" fill="var(--accent)"/><circle cx="190" cy="98" r="10" fill="var(--accent)"/><circle cx="190" cy="98" r="18" fill="var(--accent)" opacity=".2"/><text x="60" y="140" font-family="Rubik" font-weight="600" font-size="20" fill="var(--ink)">45,000</text><text x="230" y="140" font-family="Heebo" font-size="12" fill="var(--muted)" text-anchor="end">60,000</text></svg>` },
-    { t: "לפי ספר היבואן, לא לפי ניחוש", x: "מה מחליפים, מה בודקים ומתי. הכל מלוחות הטיפולים של היבואנים בישראל, דגם אחר דגם.",
+    { t: "לפי ספר היבואן, לא לפי ניחוש", x: "מה מחליפים ומה בודקים, מלוח הטיפולים של היבואן.",
       art: `<svg viewBox="0 0 320 220"><rect x="70" y="40" width="180" height="140" rx="12" fill="var(--surface)"/><rect x="90" y="64" width="80" height="10" rx="5" fill="var(--ink)"/><rect x="90" y="88" width="140" height="8" rx="4" fill="var(--line)"/><rect x="90" y="106" width="120" height="8" rx="4" fill="var(--line)"/><rect x="90" y="124" width="140" height="8" rx="4" fill="var(--line)"/><rect x="90" y="142" width="100" height="8" rx="4" fill="var(--line)"/><rect x="210" y="84" width="24" height="16" rx="4" fill="var(--accent-soft)"/><rect x="210" y="120" width="24" height="16" rx="4" fill="var(--accent-soft)"/></svg>` },
-    { t: "מספר רכב, וזהו", x: "מקלידים מספר רכב, אנחנו מזהים את הדגם, השנה והמנוע. בלי טפסים ובלי לחפש את ספר הרכב במגירה.",
+    { t: "מספר רכב, וזהו", x: "מזהים דגם, שנה ומנוע ממאגר הרכב.",
       art: `<svg viewBox="0 0 320 220"><rect x="70" y="85" width="180" height="50" rx="8" fill="#F7C948" stroke="#1A1A1A" stroke-width="3"/><rect x="70" y="85" width="26" height="50" rx="6" fill="#1747A8"/><text x="170" y="120" font-family="Rubik" font-weight="700" font-size="26" fill="#1A1A1A" text-anchor="middle" letter-spacing="3">12-345-67</text></svg>` }
-    ,{ t: "כמה זה עולה? הקהילה יודעת", x: "אחרי כל טיפול אפשר לשתף אנונימית כמה שילמת ואיפה. ככה כולם רואים מחיר הוגן לפני שנכנסים למוסך.",
+    ,{ t: "מחירים ומוסכים מנהגים כמוך", x: "כמה שילמו ואיפה, מנהגים עם אותו דגם. אנונימי.",
       art: `<svg viewBox="0 0 320 220"><rect x="50" y="60" width="100" height="100" rx="14" fill="var(--surface)"/><rect x="170" y="60" width="100" height="100" rx="14" fill="var(--surface)"/><text x="100" y="105" font-family="Rubik" font-weight="700" font-size="22" fill="var(--ink)" text-anchor="middle">₪1,150</text><text x="220" y="105" font-family="Rubik" font-weight="700" font-size="22" fill="var(--accent)" text-anchor="middle">₪780</text><text x="100" y="135" font-family="Heebo" font-size="12" fill="var(--muted)" text-anchor="middle">מוסך יבואן</text><text x="220" y="135" font-family="Heebo" font-size="12" fill="var(--muted)" text-anchor="middle">מוסך פרטי</text></svg>` }
   ];
   let onbI = 0;
@@ -754,7 +750,7 @@
     <div class="stack" style="gap:6px">
       <div class="row between"><p class="eyebrow">כמה זה עולה לאחרים</p><span class="small muted">${c.loading ? "טוען…" : "דיווחי נהגים"}</span></div>
       <div class="price">${priceTile("מוסך יבואן", c.importer)}${priceTile("מוסך פרטי", c.independent)}</div>
-      ${!c.importer && !c.independent && !c.loading ? `<p class="small muted">היה הראשון: אחרי הטיפול לחץ "עשיתי טיפול" ושתף את המחיר.</p>` : ""}
+      ${!c.importer && !c.independent && !c.loading ? `<p class="small muted">היה הראשון לשתף מחיר.</p>` : ""}
     </div>`; return `
     <div class="stack" style="gap:6px">
       <div class="row between"><p class="eyebrow">כמה זה עולה לאחרים</p><span class="small muted">נתוני דוגמה</span></div>
@@ -916,22 +912,22 @@
     $("#car-counts").innerHTML = `<div class="c overdue"><b class="num">${n("overdue")}</b><span>באיחור</span></div><div class="c soon"><b class="num">${n("soon")}</b><span>מתקרב</span></div><div class="c ok"><b class="num">${n("ok")}</b><span>בסדר</span></div><div class="c"><b class="num">${n("unknown")}</b><span>לא ידוע</span></div>`;
     const attention = rows.filter(r => r.status !== "ok" && r.status !== "done"), fine = rows.filter(r => r.status === "ok" || r.status === "done");
     $("#car-state").innerHTML = (attention.map(stateRow).join("") || `<p class="small muted">הכל ידוע ובסדר.</p>`) + (fine.length ? `<details class="fold"><summary><span>בסדר (${fine.length})</span></summary>${fine.map(stateRow).join("")}</details>` : "") +
-      (n("unknown") ? `<p class="small muted" style="margin-top:8px">"לא ידוע" = אין רשומה שמראה מתי הפריט הוחלף. אם יש לך חשבונית, העלה אותה למטה; אם אתה זוכר, הוסף רשומה ידנית.</p>` : "");
+      (n("unknown") ? `<p class="small muted" style="margin-top:8px">"לא ידוע" = אין רשומה. העלה חשבונית או הוסף רשומה.</p>` : "");
     const docs = recs.flatMap(r => (r.receipts || (r.receipt ? [r.receipt] : [])).map(t => ({ t, r })));
     $("#car-docs-n").textContent = docs.length ? `${docs.length} מסמכים` : "";
     $("#car-docs").innerHTML = docs.map(d => `<button title="${d.r.kind === "service" ? "טיפול " + fmt(d.r.svcKm || d.r.km) : d.r.text}"><img src="${d.t}" alt="חשבונית"><span class="lb num">${d.r.date || fmt(d.r.km)}</span></button>`).join("");
     const reps = recs.filter(r => r.kind === "repair" || r.kind === "other").sort((a, b) => b.km - a.km);
-    $("#car-repairs").innerHTML = reps.length ? reps.map(r => `<div class="hist"><div><b>${r.text || kindName[r.kind]}</b> <span class="small muted num">· ${fmt(r.km)} ק"מ${r.date ? " · " + monthName(new Date(r.date + "-01")) : ""}</span><br><span class="small muted">${(r.items || []).map(itemName).join(", ")}${r.garage ? " · " + r.garage : ""}</span></div><span class="amt num">${r.price ? "₪" + fmt(r.price) : ""}</span></div>`).join("") : `<p class="small muted">אין תיקונים רשומים. תקלות ותיקונים חד-פעמיים נכנסים לכאן ומעדכנים את מצב הפריטים, בלי לבלבל את לוח הטיפולים.</p>`;
+    $("#car-repairs").innerHTML = reps.length ? reps.map(r => `<div class="hist"><div><b>${r.text || kindName[r.kind]}</b> <span class="small muted num">· ${fmt(r.km)} ק"מ${r.date ? " · " + monthName(new Date(r.date + "-01")) : ""}</span><br><span class="small muted">${(r.items || []).map(itemName).join(", ")}${r.garage ? " · " + r.garage : ""}</span></div><span class="amt num">${r.price ? "₪" + fmt(r.price) : ""}</span></div>`).join("") : `<p class="small muted">אין תיקונים רשומים.</p>`;
     $("#car-history").innerHTML = historyHTML(car);
   }
   const carSummaryHTML = car => { const rows = carState(car); const c = k => rows.filter(r => r.status === k).length; const unknown = c("unknown"), known = rows.length - unknown; return `
     <div class="card stack" style="gap:10px">
       <div class="row between"><p class="eyebrow">מצב הרכב</p><button class="btn ghost" id="to-car" style="width:auto;padding:0">לפרטים</button></div>
       <div class="counts"><div class="c overdue"><b class="num">${c("overdue")}</b><span>באיחור</span></div><div class="c soon"><b class="num">${c("soon")}</b><span>מתקרב</span></div><div class="c ok"><b class="num">${rows.filter(r => r.status === "ok" || r.status === "done").length}</b><span>בסדר</span></div><div class="c"><b class="num">${unknown}</b><span>לא ידוע</span></div></div>
-      ${known === 0 ? `<p class="small muted">עדיין לא ידוע מה הוחלף ברכב. העלה חשבוניות ישנות או רשום טיפול, וכל פריט יקבל תאריך וק"מ.</p>` : ""}
+      ${known === 0 ? `<p class="small muted">עדיין לא ידוע מה הוחלף. העלה חשבוניות או רשום טיפול.</p>` : ""}
     </div>`; };
 
-  const historyHTML = car => { const h = (car.history || []).slice().sort((a, b) => b.km - a.km || b.at - a.at); if (!h.length) return `<p class="small muted" style="padding:0 4px">עוד אין רשומות. אחרי הביקור הבא במוסך, לחץ "עשיתי טיפול", או העלה חשבוניות ישנות במסך "הרכב".</p>`; return `
+  const historyHTML = car => { const h = (car.history || []).slice().sort((a, b) => b.km - a.km || b.at - a.at); if (!h.length) return `<p class="small muted" style="padding:0 4px">עוד אין רשומות.</p>`; return `
     <div class="card stack"><p class="eyebrow">כל הרשומות</p>
       ${h.map(e => `<div class="hist">
         <div><b class="num">${e.kind === "service" || !e.kind ? "טיפול " + fmt(e.svcKm || e.km) : e.text || kindName[e.kind]}</b> <span class="small muted num">· ${fmt(e.km)} ק"מ${e.date ? " · " + monthName(new Date(e.date + "-01")) : ""}</span><br>
@@ -943,8 +939,9 @@
   // ---------- useful specs from the owner's book ----------
   const specLabels = { engine_oil: "שמן מנוע", oil_capacity: "כמות שמן עם מסנן", coolant: "נוזל קירור", brake_fluid: "נוזל בלמים", fuel: "דלק", tires: "מידת צמיגים", tire_pressure: "לחץ אוויר", battery: "מצבר", timing: "תזמון", spare: "גלגל חלופי", wipers: "מגבים", warranty: "אחריות יבואן" };
   const specsHTML = s => { if (!s.specs) return ""; const keys = Object.keys(specLabels).filter(k => s.specs[k]); return `
-    <div class="card stack" style="gap:8px"><div class="row between"><p class="eyebrow">מהספר, בשורה אחת</p><span class="small muted">${s.specs._note || ""}</span></div>
-      <div class="list small">${keys.map(k => `<div class="row between" style="align-items:flex-start"><span class="muted" style="flex:none">${specLabels[k]}</span><b style="text-align:left">${s.specs[k]}</b></div>`).join("")}</div></div>`; };
+    <details class="card fold"><summary><span>מהספר, בשורה אחת</span></summary>
+      <div class="list small" style="padding-top:6px">${keys.map(k => `<div class="row between" style="align-items:flex-start"><span class="muted" style="flex:none">${specLabels[k]}</span><b style="text-align:left">${s.specs[k]}</b></div>`).join("")}</div>
+      ${s.specs._note ? `<p class="small muted" style="margin-top:8px">${s.specs._note}</p>` : ""}</details>`; };
 
   // ---------- home ----------
   function renderHome() {
@@ -954,7 +951,7 @@
     const statusText = n.level === "crit" ? "הגיע הזמן לטיפול" : n.level === "warn" ? "מתקרב" : "הכל בסדר";
     const timeLine = n.byTime && n.byTime <= n.dueDate
       ? `לפי הזמן: עד ${monthName(n.byTime)} (${n.s.interval.months} חודשים מהטיפול האחרון)`
-      : `לפי הקצב שלך (${fmt(car.kmMonth)} ק"מ בחודש): בערך ${monthName(n.dueDate)}`;
+      : `בערך ${monthName(n.dueDate)}, לפי ${fmt(car.kmMonth)} ק"מ בחודש`;
     const hello = S.user && S.user.via === "google" ? `היי ${S.user.name}` : "היי";
     $("#home-avatar").textContent = (S.user && S.user.name[0]) || "א";
     $("#home-body").innerHTML = `
@@ -987,22 +984,17 @@
           <button class="btn ghost" data-go="tl" style="width:auto; align-self:flex-start; padding-right:0">לכל הפריטים והבדיקות</button>
         </div>
         ${priceHTML(n.s, n.svc)}
-        <button class="btn primary" id="to-garage">לקחת למוסך: מה לוודא בטיפול ${fmt(n.svc.km)}</button>
+        <button class="btn primary" id="to-garage">מה לוודא במוסך</button>
       </div>
-      ${carSummaryHTML(car)}
       ${(n.s.long_interval || []).filter(l => { const x = longNext(l, car.km); return x && x - car.km <= 15000; }).map(l => `<div class="banner">בקרוב גם: ${itemName(l.item)} (${longText(l)})</div>`).join("")}
-      ${n.s.status === "draft" ? `<div class="banner">הלוח של הדגם הזה עדיין בטיוטה. המרווח לפי היבואן, תכולת הטיפולים בהמתנה לאימות מול ספר הרכב.</div>` : ""}
+      ${n.s.status === "draft" ? `<div class="banner">לוח בטיוטה: המרווח לפי היבואן, התכולה עדיין באימות.</div>` : ""}
       ${garagesHomeHTML(car)}
-      ${specsHTML(n.s)}
-      <div class="card stack" style="gap:8px">
-        <p class="eyebrow">טוב לדעת</p>
-        <p class="small">המרווח של ${n.s.importer} לדגם הזה: <b class="num">${fmt(n.s.interval.km)} ק"מ או ${n.s.interval.months} חודשים</b>, המוקדם מביניהם.</p>
-        ${n.s.interval.note ? `<p class="small muted">${n.s.interval.note}</p>` : ""}
-      </div>`;
+      ${carSummaryHTML(car)}
+      ${specsHTML(n.s)}`;
     $("#upd-km").onclick = openSheet;
     const tc = $("#to-car"); if (tc) tc.onclick = () => show("s-car");
     const tg = $("#to-garages"); if (tg) tg.onclick = () => { renderGarages(); show("s-garages"); };
-    const gl = $("#gr-log"); if (gl) gl.onclick = () => openLog();
+    const gl = $("#home-body #gr-log"); if (gl) gl.onclick = () => openLog();
     $("#to-garage").onclick = () => { show("s-tl"); const el = $(".tl-item.next"); if (el) el.scrollIntoView({ block: "start" }); };
     $("#done-svc").onclick = () => openLog();
     $$("[data-go]", $("#home-body")).forEach(b => b.onclick = () => show("s-" + b.dataset.go));
@@ -1014,7 +1006,7 @@
     const n = computeNext(car); const s = n.s;
     const shift = gridShift(s);
     const laps = Math.floor(Math.max(0, car.km - shift) / s.cycle_km);
-    $("#tl-sub").textContent = `${carName(car)} · לוח ${s.importer} · המחזור חוזר כל ${fmt(s.cycle_km)} ק"מ. הטיפול הבא פתוח: סמן תוך כדי במוסך.`;
+    $("#tl-sub").textContent = `${carName(car)} · לוח ${s.importer}`;
     const rows = [];
     for (let lap = laps; lap <= laps + 1; lap++) for (const svc of s.services) {
       const km = lap * s.cycle_km + svc.km;
@@ -1038,7 +1030,7 @@
     const tb = s.time_based || [], li = s.long_interval || [];
     const liRows = li.map(l => { const n = longNext(l, car.km); const soon = n && n - car.km <= 15000; return `<div class="item"><span class="act ${l.action}">${actName[l.action]}</span><div><div>${itemName(l.item)}${n ? ` · <b class="num" style="color:${soon ? "var(--warn)" : "inherit"}">בסביבות ${fmt(n)} ק"מ</b>` : ""}</div><div class="note">${longText(l)}${l.note ? " · " + l.note : ""}</div></div></div>`; }).join("");
     const tbRows = tb.map(t => `<div class="item"><span class="act ${t.action}">${actName[t.action]}</span><div><div>${itemName(t.item)}${t.months ? ` · כל ${t.months / 12} שנים` : ""}</div>${t.note ? `<div class="note">${t.note}</div>` : ""}</div></div>`).join("");
-    $("#tl-time").innerHTML = `<h3>מרווחים ארוכים ולפי זמן</h3><p class="small muted">פריטים שלא יושבים על רשת הטיפולים הרגילה. מסומנים בכתום כשהם בטווח 15,000 ק"מ.</p>${liRows + tbRows || `<p class="small muted">אין פריטים כאלה בלוח הזה.</p>`}`;
+    $("#tl-time").innerHTML = `<h3>מרווחים ארוכים ולפי זמן</h3>${liRows + tbRows || `<p class="small muted">אין פריטים כאלה בלוח הזה.</p>`}`;
   }
 
   // ---------- garage checklist (inside the timeline) ----------
@@ -1058,7 +1050,7 @@
     return `
       <div class="stack" style="gap:2px"><div class="row between"><b>לבקש שיחליפו</b><span class="small muted">לפי לוח ${s.importer}</span></div>${rep.map((it, i) => row(it, "r" + i)).join("")}</div>
       <div class="stack" style="gap:2px"><b>לבקש שיבדקו</b>${insp.map((it, i) => row(it, "i" + i)).join("")}</div>
-      <div class="stack" style="gap:0"><b>לוודא לפני שמשלמים</b>${gTips(s).map(([t, x], i) => `<div class="tip"><span class="i">${i + 1}</span><span><b>${t}</b><br><span class="muted">${x}</span></span></div>`).join("")}</div>
+      <details class="fold"><summary><span>לוודא לפני שמשלמים</span></summary>${gTips(s).map(([t, x], i) => `<div class="tip"><span class="i">${i + 1}</span><span><b>${t}</b><br><span class="muted">${x}</span></span></div>`).join("")}</details>
       ${priceHTML(s, svc)}
       <div class="row" style="gap:8px"><button class="btn secondary" data-copy="${km}" data-svc="${svc.km}" style="padding:10px">העתק רשימה</button><button class="btn primary" data-log="${km}" style="padding:10px">עשיתי את הטיפול</button></div>`;
   }
@@ -1099,23 +1091,29 @@
       <div><div class="nm">${g.name}${g.mine ? ` <span class="tag mine">דיווחת</span>` : ""}</div>
         <div class="meta"><span>${whereName[g.type] || ""}</span>${g.city ? `<span>${g.city}</span>` : ""}<span class="num">${g.n} ${g.n === 1 ? "דיווח" : "דיווחים"}</span>${g.backPct !== null ? `<span class="num">${g.backPct}% היו חוזרים</span>` : ""}</div></div>
       <div class="amt num">${g.avg ? "₪" + fmt(g.avg) : ""}</div></div>`;
+  // Importer service-centre pages, as a fallback until drivers report garages.
+  const importerLinks = { Toyota: "https://www.toyota.co.il/agencies", Hyundai: "https://www.colmobil.co.il/service-centers/hyundai/", Mitsubishi: "https://www.colmobil.co.il/service-centers/", Kia: "https://kia-israel.co.il/מוסך-מרכזי", Mazda: "https://www.mazda.co.il/services-centers", Skoda: "https://www.championmotors.co.il/service-centers/", Seat: "https://www.championmotors.co.il/service-centers/", Volkswagen: "https://www.championmotors.co.il/service-centers/", "Alfa Romeo": "https://www.alfaromeo.co.il/dealer-locator" };
+  const MOT_GARAGES = "https://www.gov.il/he/departments/dynamiccollectors/garages-and-licensing-institutes";
+  const linkRow = (href, t, sub) => `<a class="row between" href="${href}" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;padding:8px 0"><span><b>${t}</b>${sub ? `<br><span class="small muted">${sub}</span>` : ""}</span><span class="muted" aria-hidden="true">↗</span></a>`;
+  const garagesLinksHTML = s => (importerLinks[s.make] ? linkRow(importerLinks[s.make], `מרכזי שירות ${s.importer}`, "מוסכי היבואן") : "") + linkRow(MOT_GARAGES, "מוסכים מורשים", "מאגר משרד התחבורה");
   const garagesEmptyHTML = car => `<div class="empty">
-      <b>עוד אין דיווחים על מוסכים ל${schedById(car.schedule).model_he}</b>
-      <p class="small muted">המוסכים כאן מגיעים מנהגים עם אותו דגם שרשמו טיפול ושיתפו איפה עשו אותו. אתה יכול להיות הראשון: אחרי הביקור הבא לחץ "עשיתי טיפול" ורשום את שם המוסך.</p>
+      <b>עוד אין המלצות ל${schedById(car.schedule).model_he}</b>
+      <p class="small muted">ההמלצות מגיעות מנהגים עם אותו דגם. היה הראשון.</p>
       <button class="btn secondary" id="gr-log" style="padding:10px">רשום טיפול ומוסך</button></div>`;
-  const garagesHomeHTML = car => { const gs = garagesFor(car); return `
+  const garagesHomeHTML = car => { const gs = garagesFor(car), s = schedById(car.schedule); return `
     <div class="card stack" style="gap:8px">
-      <div class="row between"><p class="eyebrow">מוסכים לרכב שלך</p>${gs.length ? `<button class="btn ghost" id="to-garages" style="width:auto;padding:0">לכולם</button>` : ""}</div>
-      ${gs.length ? `<div>${gs.slice(0, 3).map(garageRow).join("")}</div>` : garagesEmptyHTML(car)}
+      <div class="row between"><p class="eyebrow">מוסכים מומלצים לרכב שלך</p><button class="btn ghost" id="to-garages" style="width:auto;padding:0">${gs.length ? "לכולם" : "עוד"}</button></div>
+      ${gs.length ? `<div>${gs.slice(0, 3).map(garageRow).join("")}</div>` : garagesEmptyHTML(car) + `<div class="list small" style="margin-top:4px">${garagesLinksHTML(s)}</div>`}
     </div>`; };
   let grFilter = "all";
   function renderGarages() {
     const car = S.cars[S.active]; if (!car) return;
     const s = schedById(car.schedule);
-    $("#gr-sub").textContent = `${carName(car)} · לפי דיווחים של נהגים עם ${s.make_he} ${s.model_he} ${s.years[0]}-${s.years[1]}`;
+    $("#gr-sub").textContent = `לפי נהגים עם ${s.make_he} ${s.model_he} ${s.years[0]}-${s.years[1]}`;
     const gs = garagesFor(car).filter(g => grFilter === "all" || g.type === grFilter);
     $("#gr-list").innerHTML = gs.length ? gs.map(garageRow).join("") : garagesEmptyHTML(car);
-    const b = $("#gr-log"); if (b) b.onclick = () => openLog();
+    $("#gr-links").innerHTML = `<p class="eyebrow">עוד אפשרויות</p><div class="list small">${garagesLinksHTML(s)}</div>`;
+    const b = $("#s-garages #gr-log"); if (b) b.onclick = () => openLog();
   }
   $$("#gr-filter .chip").forEach(c => c.onclick = () => { $$("#gr-filter .chip").forEach(x => x.classList.remove("on")); c.classList.add("on"); grFilter = c.dataset.v; renderGarages(); });
   $("#gr-back").onclick = () => history.length > 1 ? history.back() : show("s-home");
@@ -1123,9 +1121,8 @@
   // ---------- profile ----------
   function renderMe() {
     const u = S.user || { name: "אורח", via: "guest" };
-    $("#me-body").innerHTML = `<div class="row"><span class="avatar">${u.name[0]}</span><div><b>${u.name}</b><br><span class="small muted">${u.via === "google" ? u.email + " · מחובר עם Google" : "לא מחובר. הנתונים שמורים רק במכשיר הזה."}</span></div></div>
-      ${u.via === "guest" ? `<button class="btn secondary" id="me-google">התחבר עם Google לגיבוי בין מכשירים${Cloud.enabled ? "" : " (דמו)"}</button>` : `<button class="btn ghost" id="me-logout">התנתק</button>`}
-      <p class="small muted">${Cloud.enabled ? "מחובר לשרת: סנכרון, דיווחי קהילה וקריאת חשבוניות פעילים." : "ללא שרת כרגע: הכל נשמר במכשיר הזה בלבד. דיווחי הקהילה הם נתוני דוגמה."}</p>`;
+    $("#me-body").innerHTML = `<div class="row"><span class="avatar">${u.name[0]}</span><div><b>${u.name}</b><br><span class="small muted">${u.via === "google" ? u.email : "לא מחובר. נשמר במכשיר הזה בלבד."}</span></div></div>
+      ${u.via === "guest" ? `<button class="btn secondary" id="me-google">התחבר עם Google${Cloud.enabled ? "" : " (דמו)"}</button>` : `<button class="btn ghost" id="me-logout">התנתק</button>`}${Cloud.enabled ? "" : `<p class="small muted">ללא שרת: דיווחי הקהילה הם נתוני דוגמה.</p>`}`;
     const g = $("#me-google"); if (g) g.onclick = () => Cloud.enabled ? Cloud.signInWithGoogle().catch(e => toast("ההתחברות נכשלה: " + e.message)) : (S.user = { name: "מקס", email: "max@gmail.com", via: "google", demo: true }, save(), renderAll(), toast("התחברות לדוגמה. שרת עדיין לא מחובר"));
     const lo = $("#me-logout"); if (lo) lo.onclick = async () => { if (Cloud.enabled) { try { await Cloud.signOut(); } catch (e) {} } S.user = { name: "אורח", via: "guest" }; save(); renderAll(); };
     $("#me-cars").innerHTML = S.cars.map((c, i) => `<button class="row between" style="width:100%; text-align:right" data-i="${i}">
@@ -1133,16 +1130,16 @@
     $$("#me-cars button").forEach(b => b.onclick = () => { S.active = +b.dataset.i; save(); renderAll(); show("s-home"); });
     const s = schedById(S.cars[S.active].schedule);
     const st = { draft: ["טיוטה", "warn"], reviewed: ["נבדק", "good"], verified: ["מאומת", "good"] }[s.status];
-    $("#me-sources").innerHTML = `<div class="row between"><h3>מקור הנתונים לרכב שלך</h3><span class="status ${st[1]}">${st[0]}</span></div>
-      <p class="small muted">${s.notes || ""}</p>
-      <div class="list small">${s.sources.map(x => `<div><a href="${x.url}" target="_blank" rel="noopener" style="color:var(--accent)">${new URL(x.url).hostname}</a><br><span class="muted">${x.note || x.kind}</span></div>`).join("")}</div>`;
+    $("#me-sources").innerHTML = `<details class="fold"><summary><span>מקור הנתונים <span class="status ${st[1]}" style="margin-right:6px">${st[0]}</span></span></summary>
+      ${s.notes ? `<p class="small muted">${s.notes}</p>` : ""}
+      <div class="list small">${s.sources.map(x => `<div><a href="${x.url}" target="_blank" rel="noopener" style="color:var(--accent)">${new URL(x.url).hostname}</a><br><span class="muted">${x.note || x.kind}</span></div>`).join("")}</div></details>`;
   }
   $("#me-add").onclick = startAdd;
   $$(".toggle").forEach(t => t.onclick = () => { t.classList.toggle("on"); toast(t.classList.contains("on") ? "התראה הופעלה" : "התראה כבויה"); });
   let resetArmed = null;
   $("#me-reset").onclick = () => {
-    if (!resetArmed) { resetArmed = setTimeout(() => { resetArmed = null; $("#me-reset").textContent = "איפוס האפליקציה (מוחק הכל במכשיר הזה)"; }, 5000); $("#me-reset").textContent = "בטוח? לחיצה נוספת תמחק את כל הנתונים במכשיר"; return; }
-    clearTimeout(resetArmed); resetArmed = null; $("#me-reset").textContent = "איפוס האפליקציה (מוחק הכל במכשיר הזה)";
+    if (!resetArmed) { resetArmed = setTimeout(() => { resetArmed = null; $("#me-reset").textContent = "איפוס האפליקציה"; }, 5000); $("#me-reset").textContent = "בטוח? לחיצה נוספת מוחקת הכל במכשיר"; return; }
+    clearTimeout(resetArmed); resetArmed = null; $("#me-reset").textContent = "איפוס האפליקציה";
     store.clear(); S = { onboarded: false, user: null, cars: [], active: 0 }; onbI = 0; renderOnb(); show("s-onb"); };
 
   // ---------- km sheet ----------
@@ -1160,7 +1157,7 @@
   // ---------- nav / boot ----------
   $$("#nav button").forEach(b => b.onclick = () => { show("s-" + b.dataset.go); if (b.dataset.go === "tl") { const el = $(".tl-item.next"); if (el) el.scrollIntoView({ block: "start" }); } });
   $("#home-avatar").onclick = () => show("s-me");
-  function renderAll() { renderHome(); renderTL(); renderMe(); if (!$("#s-car").hidden) renderCar(); }
+  function renderAll() { renderHome(); renderTL(); renderMe(); if (!$("#s-car").hidden) renderCar(); if (!$("#s-garages").hidden) renderGarages(); }
   // Migrate cars saved with a schedule id that no longer exists (ids are renamed as data improves).
   function migrateCars() {
     let changed = false;
