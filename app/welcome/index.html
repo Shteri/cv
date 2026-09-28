@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>טיפולית: הטיפול הבא לרכב שלך</title>
+<meta name="description" content="מקלידים מספר רכב ומקבלים מה הטיפול הבא, מה הוא כולל ומה לבקש במוסך. לפי לוחות הטיפולים של היבואנים בישראל.">
+<meta name="theme-color" content="#F3F5F8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0E141B" media="(prefers-color-scheme: dark)">
+<meta property="og:title" content="טיפולית: הטיפול הבא לרכב שלך">
+<meta property="og:description" content="מקלידים מספר רכב ומקבלים מה הטיפול הבא, מה הוא כולל ומה לבקש במוסך.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="home.png">
+<link rel="icon" href="../icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../icon-192.png">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="home.png">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&family=Rubik:wght@500;600;700&display=swap">
+<style>
+  /* Tokens mirror DESIGN.md and app/index.html. One accent (blue), plate yellow only on the plate. */
+  :root {
+    color-scheme: light;
+    --ground: #F3F5F8; --surface: #FFFFFF; --surface-2: #EAF0F7;
+    --ink: #15202B; --muted: #5E6B78; --line: #D9E0E8;
+    --accent: #215FBA; --accent-ink: #FFFFFF; --accent-soft: #E4ECF8; --accent-deep: #1A4C95;
+    --plate: #F7C948; --plate-ink: #1A1A1A; --plate-tab: #1747A8;
+    --crit: #C4383A;
+    --shadow: 0 10px 28px rgba(33, 95, 186, .10), 0 1px 2px rgba(33, 95, 186, .06);
+    --shadow-phone: 0 30px 60px -20px rgba(33, 95, 186, .30), 0 8px 20px rgba(33, 95, 186, .10);
+    --ease: cubic-bezier(.16, 1, .3, 1);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --ground: #0E141B; --surface: #172029; --surface-2: #1F2A35;
+      --ink: #EDF2F7; --muted: #9AA8B6; --line: #2B3844;
+      --accent: #6FA3EA; --accent-ink: #0B1420; --accent-soft: #1B2D45; --accent-deep: #8CB6F0;
+      --crit: #F07173;
+      --shadow: 0 10px 28px rgba(0, 0, 0, .35), 0 1px 2px rgba(0, 0, 0, .3);
+      --shadow-phone: 0 30px 60px -20px rgba(0, 0, 0, .6), 0 8px 20px rgba(0, 0, 0, .35);
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --ground: #0E141B; --surface: #172029; --surface-2: #1F2A35;
+    --ink: #EDF2F7; --muted: #9AA8B6; --line: #2B3844;
+    --accent: #6FA3EA; --accent-ink: #0B1420; --accent-soft: #1B2D45; --accent-deep: #8CB6F0;
+    --crit: #F07173;
+    --shadow: 0 10px 28px rgba(0, 0, 0, .35), 0 1px 2px rgba(0, 0, 0, .3);
+    --shadow-phone: 0 30px 60px -20px rgba(0, 0, 0, .6), 0 8px 20px rgba(0, 0, 0, .35);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--ground); color: var(--ink);
+    font-family: "Heebo", "Segoe UI", Arial, sans-serif; font-size: 16px; line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3 { font-family: "Rubik", "Heebo", Arial, sans-serif; font-weight: 600; margin: 0; text-wrap: balance; line-height: 1.2; }
+  p { margin: 0; }
+  a { color: inherit; }
+  img { display: block; max-width: 100%; height: auto; }
+  button, input { font: inherit; color: inherit; }
+  :focus-visible { outline: 2.5px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+  .num { font-variant-numeric: tabular-nums; }
+  .ltr { direction: ltr; unicode-bidi: isolate; }
+  .muted { color: var(--muted); }
+  .wrap { width: 100%; max-width: 1120px; margin-inline: auto; padding-inline: 16px; }
+  @media (min-width: 768px) { .wrap { padding-inline: 32px; } }
+  .skip { position: absolute; inset-inline-start: 16px; top: -60px; background: var(--accent); color: var(--accent-ink); padding: 10px 14px; border-radius: 10px; z-index: 30; text-decoration: none; }
+  .skip:focus { top: 12px; }
+
+  /* ---------- nav ---------- */
+  .nav { position: sticky; top: 0; z-index: 20; background: color-mix(in srgb, var(--ground) 88%, transparent); border-bottom: 1px solid transparent; transition: border-color .2s ease, background-color .2s ease; }
+  @supports (backdrop-filter: blur(8px)) { .nav { backdrop-filter: saturate(160%) blur(10px); -webkit-backdrop-filter: saturate(160%) blur(10px); } }
+  .nav.scrolled { border-bottom-color: var(--line); }
+  .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 16px; }
+  .brand { display: flex; align-items: center; gap: 10px; font-family: "Rubik", sans-serif; font-weight: 700; font-size: 1.15rem; text-decoration: none; }
+  .brand .mark { width: 34px; height: 34px; border-radius: 10px; background: var(--accent); color: var(--accent-ink); display: grid; place-items: center; font-size: 1rem; }
+  .nav-links { display: none; gap: 28px; font-size: .95rem; }
+  .nav-links a { text-decoration: none; color: var(--muted); transition: color .15s ease; }
+  .nav-links a:hover { color: var(--ink); }
+  @media (min-width: 768px) { .nav-links { display: flex; } }
+
+  /* ---------- buttons ---------- */
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; white-space: nowrap; padding: 14px 22px; border-radius: 14px; border: 0; font-weight: 600; font-size: 1rem; text-decoration: none; cursor: pointer; transition: transform .12s ease, background-color .2s ease, border-color .2s ease, box-shadow .2s ease; }
+  .btn:active { transform: scale(.985) translateY(1px); }
+  .btn.primary { background: var(--accent); color: var(--accent-ink); box-shadow: 0 2px 6px rgba(33, 95, 186, .18); }
+  .btn.secondary { background: var(--surface); color: var(--ink); border: 1.5px solid var(--line); padding: 10px 16px; font-size: .95rem; }
+  @media (hover: hover) {
+    .btn.primary:hover { background: var(--accent-deep); box-shadow: 0 6px 16px rgba(33, 95, 186, .25); }
+    .btn.secondary:hover { background: var(--surface-2); border-color: var(--muted); }
+  }
+
+  /* ---------- plate form ---------- */
+  .plate-form { display: grid; gap: 8px; max-width: 440px; }
+  .plate-form label { font-weight: 500; font-size: .95rem; }
+  .plate-row { display: flex; gap: 10px; align-items: stretch; }
+  .plate-input { flex: 1; min-width: 0; display: flex; align-items: center; background: var(--plate); border: 2px solid #1A1A1A; border-radius: 10px; overflow: hidden; direction: ltr; transition: box-shadow .2s ease; }
+  .plate-input:focus-within { box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 35%, transparent); }
+  .plate-input .il { background: var(--plate-tab); color: #fff; font-size: .7rem; font-weight: 600; padding: 0 8px; align-self: stretch; display: grid; place-items: center; }
+  .plate-input input { flex: 1; min-width: 0; width: 100%; background: transparent; border: 0; outline: 0; padding: 12px 10px; font-family: "Rubik", sans-serif; font-weight: 700; font-size: 1.5rem; letter-spacing: .1em; color: var(--plate-ink); text-align: center; }
+  .plate-input input::placeholder { color: rgba(26, 26, 26, .55); }
+  .plate-form .hint { font-size: .875rem; color: var(--muted); }
+  .plate-form .err { font-size: .875rem; color: var(--crit); font-weight: 500; }
+  .plate-form.invalid .plate-input { box-shadow: 0 0 0 3px color-mix(in srgb, var(--crit) 45%, transparent); }
+  @media (max-width: 420px) { .plate-row { flex-direction: column; } .plate-row .btn { width: 100%; } }
+
+  /* ---------- hero ---------- */
+  .hero { padding-block: 32px 64px; overflow-x: clip; }
+  .hero .wrap { display: grid; grid-template-columns: minmax(0, 1fr); gap: 40px; align-items: center; }
+  .hero-copy { display: grid; gap: 20px; min-width: 0; }
+  .hero h1 { font-size: clamp(2rem, 4.6vw, 3.25rem); font-weight: 700; letter-spacing: -.02em; line-height: 1.12; }
+  .hero h1 em { font-style: normal; color: var(--accent); }
+  .hero .lede { font-size: 1.125rem; color: var(--muted); max-width: 34ch; }
+  .hero-copy .plate-form { margin-top: 8px; }
+  .hero-art { position: relative; justify-self: center; }
+  .hero-art::before { content: ""; position: absolute; inset: 8% -18% 4% -18%; background: var(--accent-soft); border-radius: 40px; z-index: -1; }
+  @media (min-width: 900px) {
+    .hero { padding-block: 56px 96px; }
+    .hero .wrap { grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: 56px; }
+  }
+
+  /* phone frame around a real app screenshot */
+  .phone { width: min(300px, 78vw); padding: 9px; border-radius: 42px; background: #15202B; box-shadow: var(--shadow-phone); }
+  .phone .screen { border-radius: 33px; overflow: hidden; background: #F3F5F8; aspect-ratio: 800 / 1300; }
+  .phone img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+  :root[data-theme="dark"] .phone, :root:not([data-theme="light"]) .phone { background: #15202B; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .phone { outline: 1px solid #2B3844; } }
+
+  /* ---------- sections ---------- */
+  section.block { padding-block: 72px; scroll-margin-top: 64px; }
+  @media (min-width: 900px) { section.block { padding-block: 104px; } }
+  .h2 { font-size: clamp(1.6rem, 3.2vw, 2.25rem); letter-spacing: -.015em; }
+  .sub { color: var(--muted); font-size: 1.05rem; max-width: 60ch; margin-top: 12px; }
+
+  /* how it works: steps + screenshot */
+  .how { background: var(--surface); border-block: 1px solid var(--line); }
+  .how .wrap { display: grid; gap: 48px; align-items: center; }
+  .steps { list-style: none; margin: 32px 0 0; padding: 0; display: grid; gap: 0; }
+  .steps li { display: grid; grid-template-columns: 44px 1fr; gap: 16px; padding-block: 20px; position: relative; }
+  .steps li + li { border-top: 1px solid var(--line); }
+  .steps .ic { width: 44px; height: 44px; border-radius: 12px; background: var(--accent-soft); color: var(--accent); display: grid; place-items: center; font-size: 22px; }
+  .steps h3 { font-size: 1.2rem; margin-bottom: 4px; }
+  .steps p { color: var(--muted); max-width: 46ch; }
+  .how .shot { justify-self: center; }
+  .how .phone .screen { aspect-ratio: 800 / 1150; }
+  @media (min-width: 900px) { .how .wrap { grid-template-columns: .8fr 1.2fr; gap: 72px; } .how .shot { order: 2; } }
+  @media (min-width: 900px) { .how .copy { order: 1; } }
+
+  /* coverage: makes with model chips */
+  .cover-head { display: grid; gap: 4px; }
+  .cover-head .big { font-family: "Rubik", sans-serif; font-weight: 700; font-size: clamp(3rem, 8vw, 5rem); line-height: 1; color: var(--accent); letter-spacing: -.03em; }
+  /* flex-wrap with grow: rows always fill, no empty cells whatever the make count */
+  .makes { margin-top: 40px; display: flex; flex-wrap: wrap; gap: 12px; }
+  .make { flex: 1 1 260px; background: var(--surface); border-radius: 18px; padding: 18px; box-shadow: var(--shadow); display: grid; gap: 12px; align-content: start; }
+  .make.lead { flex-basis: 100%; background: var(--accent); color: var(--accent-ink); box-shadow: 0 10px 28px rgba(33, 95, 186, .22); }
+  .make h3 { font-size: 1.15rem; display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+  .make h3 span { font-family: "Heebo", sans-serif; font-weight: 400; font-size: .875rem; color: var(--muted); }
+  .make.lead h3 span { color: color-mix(in srgb, var(--accent-ink) 80%, transparent); }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip { display: inline-flex; align-items: center; min-height: 36px; padding: 6px 14px; border-radius: 999px; background: var(--surface-2); font-size: .95rem; font-weight: 500; }
+  .make.lead .chip { background: color-mix(in srgb, var(--accent-ink) 16%, transparent); }
+  .cover-note { margin-top: 24px; font-size: .95rem; }
+
+  /* principle: one statement */
+  .principle { background: var(--surface-2); }
+  .principle .wrap { display: grid; gap: 24px; }
+  .principle blockquote { margin: 0; font-family: "Rubik", sans-serif; font-weight: 600; font-size: clamp(1.5rem, 3.4vw, 2.4rem); line-height: 1.3; letter-spacing: -.01em; max-width: 26ch; text-wrap: balance; }
+  .principle blockquote em { font-style: normal; color: var(--accent); }
+  .facts { display: grid; gap: 20px; grid-template-columns: 1fr; max-width: 820px; }
+  @media (min-width: 720px) { .facts { grid-template-columns: repeat(2, 1fr); gap: 32px; } }
+  .facts div { border-top: 2px solid var(--ink); padding-top: 14px; }
+  .facts b { display: block; font-family: "Rubik", sans-serif; font-weight: 600; font-size: 1.05rem; margin-bottom: 4px; }
+  .facts p { color: var(--muted); }
+
+  /* faq */
+  .faq .wrap { display: grid; gap: 32px; }
+  @media (min-width: 900px) { .faq .wrap { grid-template-columns: .7fr 1.3fr; gap: 64px; align-items: start; } .faq .h2 { position: sticky; top: 96px; } }
+  .qa { display: grid; gap: 10px; }
+  details { background: var(--surface); border-radius: 14px; border: 1.5px solid var(--line); transition: border-color .2s ease; }
+  details[open] { border-color: var(--accent); }
+  summary { list-style: none; cursor: pointer; padding: 18px 20px; font-weight: 600; font-size: 1.05rem; display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 44px; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: ""; flex: none; width: 10px; height: 10px; border-right: 2px solid var(--muted); border-bottom: 2px solid var(--muted); transform: rotate(45deg); transition: transform .2s var(--ease); margin-top: -4px; }
+  details[open] summary::after { transform: rotate(-135deg); margin-top: 4px; }
+  details p { padding: 0 20px 18px; color: var(--muted); max-width: 62ch; }
+
+  /* closing */
+  .closing { padding-block: 24px 88px; }
+  .closing .panel { background: var(--surface); border-radius: 18px; box-shadow: var(--shadow); padding: 32px 20px; display: grid; gap: 20px; justify-items: start; }
+  @media (min-width: 900px) { .closing .panel { padding: 48px 56px; grid-template-columns: 1fr auto; align-items: end; gap: 40px; } .closing .plate-form { width: 440px; } }
+  .closing .h2 + p { margin-top: 8px; }
+
+  footer { border-top: 1px solid var(--line); padding-block: 28px 40px; font-size: .9rem; color: var(--muted); }
+  footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 32px; justify-content: space-between; align-items: center; }
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--ink); }
+
+  /* ---------- motion: entrance and reveal (transform + opacity only) ---------- */
+  @media (prefers-reduced-motion: no-preference) {
+    .rise { opacity: 0; transform: translateY(14px); animation: rise .7s var(--ease) forwards; animation-delay: calc(var(--i, 0) * 80ms); }
+    .hero-art.rise { animation-duration: .9s; animation-delay: 180ms; }
+    @keyframes rise { to { opacity: 1; transform: none; } }
+    .js .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s var(--ease), transform .6s var(--ease); transition-delay: calc(var(--i, 0) * 70ms); }
+    .js .reveal.in { opacity: 1; transform: none; }
+  }
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; } }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">דלג לתוכן</a>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="brand" href="./" aria-label="טיפולית, דף הבית"><span class="mark" aria-hidden="true">ט</span> טיפולית</a>
+    <nav class="nav-links" aria-label="ניווט ראשי">
+      <a href="#how">איך זה עובד</a>
+      <a href="#models">דגמים</a>
+      <a href="#faq">שאלות</a>
+    </nav>
+    <a class="btn secondary" href="../">לאפליקציה</a>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-copy">
+        <h1 class="rise" style="--i:0">הטיפול הבא של הרכב שלך, <em>לפי ספר היבואן</em></h1>
+        <p class="lede rise" style="--i:1">מקלידים מספר רכב ומקבלים מה הטיפול הבא, מה הוא כולל ומה לבקש במוסך.</p>
+        <form class="plate-form rise" style="--i:2" action="../" method="get" novalidate data-plate-form>
+          <label for="plate-hero">מספר רכב</label>
+          <div class="plate-row">
+            <div class="plate-input"><span class="il" aria-hidden="true">IL</span><input id="plate-hero" name="plate" inputmode="numeric" autocomplete="off" spellcheck="false" placeholder="12-345-67" maxlength="10" aria-describedby="plate-hero-hint plate-hero-err"></div>
+            <button class="btn primary" type="submit">זהה את הרכב</button>
+          </div>
+          <p class="hint" id="plate-hero-hint">7 או 8 ספרות. הזיהוי מול מאגר הרכב הממשלתי.</p>
+          <p class="err" id="plate-hero-err" role="alert" hidden>מספר רכב הוא 7 או 8 ספרות</p>
+        </form>
+      </div>
+      <div class="hero-art rise">
+        <div class="phone">
+          <div class="screen"><img src="home.png" width="800" height="1800" alt="מסך הבית של טיפולית עבור טויוטה קורולה 2021: הטיפול הבא ב-60,000 ק״מ, עוד 7,700 ק״מ, ורשימת מה מחליפים בו" fetchpriority="high"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block how" id="how" aria-labelledby="how-title">
+    <div class="wrap">
+      <div class="shot reveal">
+        <div class="phone">
+          <div class="screen"><img src="timeline.png" width="800" height="1800" loading="lazy" alt="ציר הטיפולים של יונדאי i10: טיפול 55,000 ק״מ עם רשימת סימון של מה לבקש שיחליפו ומה לבקש שיבדקו"></div>
+        </div>
+      </div>
+      <div class="copy">
+        <h2 class="h2 reveal" id="how-title">ממספר הרכב ועד המוסך</h2>
+        <ol class="steps">
+          <li class="reveal" style="--i:1">
+            <span class="ic" aria-hidden="true"><i class="ph ph-magnifying-glass"></i></span>
+            <div><h3>מזהים את הרכב</h3><p>לפי מספר הרישוי, ממאגר הרכב הממשלתי: יצרן, דגם, שנת ייצור ומנוע.</p></div>
+          </li>
+          <li class="reveal" style="--i:2">
+            <span class="ic" aria-hidden="true"><i class="ph ph-gauge"></i></span>
+            <div><h3>מחשבים את הטיפול הבא</h3><p>לפי הקילומטראז' והזמן שעבר, מול לוח הטיפולים של היבואן בישראל.</p></div>
+          </li>
+          <li class="reveal" style="--i:3">
+            <span class="ic" aria-hidden="true"><i class="ph ph-list-checks"></i></span>
+            <div><h3>מגיעים למוסך עם רשימה</h3><p>מה להחליף ומה לבדוק בטיפול הזה, עם תיבות סימון שאפשר לעבור עליהן מול המכונאי.</p></div>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="models" aria-labelledby="models-title">
+    <div class="wrap">
+      <div class="cover-head reveal">
+        <span class="big num">{{MODEL_COUNT}}</span>
+        <h2 class="h2" id="models-title">דגמים עם לוח טיפולים</h2>
+        <p class="sub">רכבי בנזין והיברידיים עד גיל 20. מתחילים מהדגמים הנפוצים בכבישים בישראל ומוסיפים בהדרגה.</p>
+      </div>
+      <div class="makes">
+{{MAKES}}
+      </div>
+      <p class="cover-note muted reveal">הדגם שלך לא ברשימה? אפשר לבחור באפליקציה דגם דומה באופן ידני.</p>
+    </div>
+  </section>
+
+  <section class="block principle" aria-label="על הנתונים">
+    <div class="wrap">
+      <blockquote class="reveal">כשהמרווח של היבואן בישראל שונה מהמרווח העולמי, <em>אנחנו הולכים לפי היבואן.</em></blockquote>
+      <div class="facts">
+        <div class="reveal" style="--i:1"><b>לוח לכל דגם ודור</b><p>מה מחליפים ומה בודקים בכל טיפול, לפי ק"מ ולפי זמן, כמו בגיליון האחזקה של היבואן.</p></div>
+        <div class="reveal" style="--i:2"><b>נבדק מול המקור</b><p>כל לוח נבנה מהגיליון ומושווה אליו שורה אחר שורה. לוחות שעוד לא נבדקו מסומנים באפליקציה.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block faq" id="faq" aria-labelledby="faq-title">
+    <div class="wrap">
+      <h2 class="h2 reveal" id="faq-title">שאלות שחוזרות</h2>
+      <div class="qa">
+        <details class="reveal"><summary>צריך להירשם?</summary><p>לא. אפשר להמשיך כאורח והרכבים נשמרים במכשיר. התחברות עם Google שומרת אותם גם בענן, כדי שלא ילכו לאיבוד כשמחליפים טלפון.</p></details>
+        <details class="reveal"><summary>מאיפה מגיעים הנתונים?</summary><p>זיהוי הרכב נעשה מול מאגר כלי הרכב של משרד התחבורה באתר data.gov.il. לוחות הטיפולים נבנים לפי גיליונות האחזקה של היבואנים בישראל, ונכתבים במילים שלנו.</p></details>
+        <details class="reveal"><summary>הרכב שלי לא נתמך. מה עכשיו?</summary><p>אם הדגם זוהה אבל עוד אין לו לוח, אפשר לבחור ידנית דגם קרוב. דגמים חדשים נכנסים לפי כמה הם נפוצים בכביש.</p></details>
+        <details class="reveal"><summary>יש תמיכה ברכב חשמלי?</summary><p>עדיין לא. בשלב הזה טיפולית תומכת ברכבי בנזין והיברידיים בלבד.</p></details>
+        <details class="reveal"><summary>זה מחליף את המוסך?</summary><p>לא. טיפולית עוזרת לדעת מה לבקש ומה לוודא. את העבודה עצמה עושה המוסך, ואת ההחלטה עושים אתם.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="closing" aria-labelledby="closing-title">
+    <div class="wrap">
+      <div class="panel reveal">
+        <div>
+          <h2 class="h2" id="closing-title">מה הטיפול הבא שלך?</h2>
+          <p class="muted">מספר רכב אחד, ורואים את כל הציר.</p>
+        </div>
+        <form class="plate-form" action="../" method="get" novalidate data-plate-form>
+          <label for="plate-end">מספר רכב</label>
+          <div class="plate-row">
+            <div class="plate-input"><span class="il" aria-hidden="true">IL</span><input id="plate-end" name="plate" inputmode="numeric" autocomplete="off" spellcheck="false" placeholder="12-345-67" maxlength="10" aria-describedby="plate-end-err"></div>
+            <button class="btn primary" type="submit">זהה את הרכב</button>
+          </div>
+          <p class="err" id="plate-end-err" role="alert" hidden>מספר רכב הוא 7 או 8 ספרות</p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="./"><span class="mark" aria-hidden="true">ט</span> טיפולית</a>
+    <span>זיהוי רכב לפי <a href="https://data.gov.il" rel="noopener">data.gov.il</a>. לוחות טיפולים לפי גיליונות היבואנים.</span>
+    <a href="../">לאפליקציה</a>
+  </div>
+</footer>
+
+<script>
+(() => {
+  document.documentElement.classList.add("js");
+
+  // Plate forms: format as the app does, validate 7/8 digits, hand off to the app with ?plate=
+  const fmtPlate = raw => {
+    const d = raw.replace(/\D/g, "").slice(0, 8);
+    if (d.length <= 7) return d.replace(/(\d{2})(\d{0,3})(\d{0,2})/, (m, a, b, c) => [a, b, c].filter(Boolean).join("-"));
+    return d.replace(/(\d{3})(\d{2})(\d{3})/, "$1-$2-$3");
+  };
+  document.querySelectorAll("[data-plate-form]").forEach(form => {
+    const input = form.querySelector("input"), err = form.querySelector(".err");
+    const setInvalid = on => { form.classList.toggle("invalid", on); err.hidden = !on; input.setAttribute("aria-invalid", on ? "true" : "false"); };
+    input.addEventListener("input", () => { input.value = fmtPlate(input.value); setInvalid(false); });
+    form.addEventListener("submit", e => {
+      e.preventDefault();
+      const d = input.value.replace(/\D/g, "");
+      if (d.length !== 7 && d.length !== 8) { setInvalid(true); input.focus(); return; }
+      location.href = "../?plate=" + d;
+    });
+  });
+
+  // Nav hairline once the page has scrolled (sentinel, no scroll listener)
+  const nav = document.getElementById("nav");
+  const sentinel = document.createElement("div");
+  sentinel.style.cssText = "position:absolute;top:0;height:1px;width:1px";
+  document.body.prepend(sentinel);
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(([e]) => nav.classList.toggle("scrolled", !e.isIntersecting)).observe(sentinel);
+    const io = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { rootMargin: "0px 0px -8% 0px", threshold: .12 });
+    document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+  } else document.querySelectorAll(".reveal").forEach(el => el.classList.add("in"));
+})();
+</script>
+</body>
+</html>

@@ -514,6 +514,13 @@
     clear() { try { localStorage.removeItem("tipulit"); } catch (e) {} }
   };
   let S = store.get() || { onboarded: false, user: null, cars: [], active: 0 };
+  // Plate handed over from the landing page (/welcome/ -> ?plate=1234567). Kept for the session so it
+  // survives onboarding and the OAuth round trip, and used once when the add-car step opens.
+  try {
+    const q = new URLSearchParams(location.search), p = q.get("plate");
+    if (p && /^\d{7,8}$/.test(p)) sessionStorage.setItem("tipulit-plate", p);
+    if (p !== null) { q.delete("plate"); const rest = q.toString(); history.replaceState(history.state, "", location.pathname + (rest ? "?" + rest : "") + location.hash); }
+  } catch (e) {}
   const Cloud = window.TipulitCloud || { enabled: false };
   let syncT = null;
   const save = () => { store.set(S); if (Cloud.enabled && S.user && S.user.via === "google") { clearTimeout(syncT); syncT = setTimeout(() => Promise.all(S.cars.map(c => Cloud.saveCar(c))).then(() => store.set(S)).catch(e => console.warn("sync failed", e)), 800); } };
@@ -644,6 +651,7 @@
   let draft = {};
   function startAdd() {
     draft = {}; $("#plate").value = ""; $("#plate-go").disabled = true;
+    try { const p = sessionStorage.getItem("tipulit-plate"); if (p) { sessionStorage.removeItem("tipulit-plate"); $("#plate").value = fmtPlate(p); $("#plate-go").disabled = false; } } catch (e) {}
     ["plate", "confirm", "manual", "km"].forEach(k => $("#add-step-" + k).hidden = k !== "plate");
     $("#add-back").hidden = S.cars.length === 0;
     show("s-add");

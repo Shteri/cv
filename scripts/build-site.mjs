@@ -1,7 +1,7 @@
 // Builds the deployable static site into the repository ROOT (served by GitHub Pages from main).
 // app/index.html is written for the claude.ai artifact wrapper (no <html>/<head>),
 // so here we wrap it in a full document, add PWA files, and copy the data bundle.
-import { mkdirSync, readFileSync, writeFileSync, copyFileSync } from "node:fs";
+import { mkdirSync, readFileSync, writeFileSync, copyFileSync, readdirSync } from "node:fs";
 import { createHash } from "node:crypto";
 const root = new URL("../", import.meta.url).pathname;
 const src = readFileSync(root + "app/index.html", "utf8");
@@ -49,6 +49,29 @@ copyFileSync(root + "app/lookup.js", out + "lookup.js");
 copyFileSync(root + "app/config.js", out + "config.js");
 copyFileSync(root + "app/cloud.js", out + "cloud.js");
 for (const f of ["icon-192.png", "icon-512.png"]) copyFileSync(root + "app/" + f, out + "" + f);
+
+// Landing page at /welcome/: model coverage is generated from the schedules, so the page never overstates it.
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+const makes = new Map();
+for (const f of readdirSync(root + "data/schedules").filter(f => f.endsWith(".json")).sort()) {
+  const s = JSON.parse(readFileSync(root + "data/schedules/" + f, "utf8"));
+  if (!makes.has(s.make_he)) makes.set(s.make_he, { importer: s.importer, models: new Set() });
+  makes.get(s.make_he).models.add(s.model_he);
+}
+const makeList = [...makes].sort((a, b) => b[1].models.size - a[1].models.size || a[0].localeCompare(b[0], "he"));
+const modelCount = makeList.reduce((n, [, m]) => n + m.models.size, 0);
+const makesHTML = makeList.map(([make, m], i) => {
+  const models = [...m.models].sort((a, b) => a.localeCompare(b, "he"));
+  return `        <div class="make reveal${i === 0 ? " lead" : ""}" style="--i:${i % 3}">
+          <h3>${esc(make)} <span>${esc(m.importer || "")}</span></h3>
+          <div class="chips">${models.map(x => `<span class="chip">${esc(x)}</span>`).join("")}</div>
+        </div>`;
+}).join("\n");
+const welcomeSrc = root + "app/welcome/";
+mkdirSync(out + "welcome", { recursive: true });
+writeFileSync(out + "welcome/index.html", readFileSync(welcomeSrc + "index.html", "utf8")
+  .replace("{{MODEL_COUNT}}", String(modelCount)).replace("{{MAKES}}", makesHTML));
+for (const f of ["home.png", "timeline.png"]) copyFileSync(welcomeSrc + f, out + "welcome/" + f);
 writeFileSync(out + "manifest.webmanifest", JSON.stringify({
   name: "טיפולית", short_name: "טיפולית", lang: "he", dir: "rtl", start_url: "./", scope: "./", display: "standalone",
   background_color: "#f3f5f8", theme_color: "#0E5FD8",
