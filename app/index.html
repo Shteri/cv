@@ -228,6 +228,20 @@
   .garage .amt { font-family: "Rubik", sans-serif; font-weight: 600; text-align: left; }
   .tag { display: inline-block; font-size: .72rem; font-weight: 600; padding: 2px 8px; border-radius: 6px; background: var(--surface-2); color: var(--muted); }
   .tag.mine { background: var(--accent-soft); color: var(--accent); }
+  .tag.rec { background: var(--good-soft, #E3F4E8); color: var(--good, #1E7A3E); }
+  .chip.loc { display: inline-flex; align-items: center; gap: 6px; border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+  .chip.loc svg { width: 16px; height: 16px; }
+  .chips.scroll { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin: 0 -16px; padding: 0 16px; }
+  .chips.scroll::-webkit-scrollbar { display: none; }
+  .chips.scroll .chip { flex: none; }
+  .search { display: flex; align-items: center; gap: 8px; padding: 0 14px; border: 1.5px solid var(--line); border-radius: 12px; background: var(--surface); }
+  .search svg { width: 18px; height: 18px; color: var(--muted); flex: none; }
+  .search input { flex: 1; min-width: 0; border: 0; background: none; padding: 12px 0; outline: none; }
+  .garage .acts { display: flex; gap: 8px; }
+  .garage .ib { width: 40px; height: 40px; border-radius: 12px; background: var(--accent-soft); color: var(--accent); display: grid; place-items: center; text-decoration: none; }
+  .garage .ib svg { width: 20px; height: 20px; }
+  .garage .comm { font-size: .8rem; color: var(--good, #1E7A3E); font-weight: 500; }
+  #city-list button { width: 100%; text-align: right; display: flex; justify-content: space-between; padding: 12px 0; }
   .empty { display: flex; flex-direction: column; gap: 8px; padding: 14px; border: 1.5px dashed var(--line); border-radius: 14px; }
   .state { display: grid; grid-template-columns: 10px 1fr auto; gap: 4px 10px; align-items: center; padding: 10px 0; border-top: 1px solid var(--line); }
   .state:first-child { border-top: 0; }
@@ -399,18 +413,20 @@
     <div class="card stack" id="tl-time"></div>
   </section>
 
-  <!-- GARAGES -->
+  <!-- GARAGES: licensed-garage finder (MoT registry) + community recommendations -->
   <section class="screen" id="s-garages" hidden>
     <div class="topbar">
-      <div class="stack" style="gap:2px"><p class="eyebrow">המלצות נהגים</p><h1 id="gr-title">מוסכים לרכב שלך</h1></div>
+      <div class="stack" style="gap:2px"><p class="eyebrow">מוסכים מורשים</p><h1>מוסך ליד הבית</h1></div>
       <button class="btn ghost" id="gr-back" style="width:auto">חזרה</button>
     </div>
-    <p class="muted small" id="gr-sub"></p>
-    <div class="chips" id="gr-filter">
-      <button class="chip on" data-v="all">הכל</button><button class="chip" data-v="importer">מוסך יבואן</button><button class="chip" data-v="independent">מוסך פרטי</button>
+    <div class="row" style="gap:8px">
+      <button class="chip loc" id="gr-city"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-7.1 7-12a7 7 0 0 0-14 0c0 4.9 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg><span id="gr-city-name">בחר עיר</span></button>
+      <button class="chip" id="gr-near" data-busy="מאתר…">לפי המיקום שלי</button>
     </div>
+    <div class="search"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><input id="gr-q" type="search" autocomplete="off" placeholder="שם מוסך או רחוב" aria-label="חיפוש מוסך"></div>
+    <div class="chips scroll" id="gr-filter"></div>
+    <p class="small muted" id="gr-sub"></p>
     <div class="card" id="gr-list"></div>
-    <div class="card stack" style="gap:6px" id="gr-links"></div>
   </section>
 
   <!-- PROFILE / SETTINGS -->
@@ -466,7 +482,7 @@
         </div>
       </div>
       <div class="row" style="gap:10px" id="log-garage-row">
-        <div class="field" style="flex:1.4"><label for="log-garage">שם המוסך <span class="muted">(לא חובה)</span></label><input id="log-garage" name="garage" autocomplete="off" placeholder="למשל טויוטה ראשל"צ"></div>
+        <div class="field" style="flex:1.4"><label for="log-garage">שם המוסך <span class="muted">(לא חובה)</span></label><input id="log-garage" name="garage" autocomplete="off" list="garage-dl" placeholder="למשל טויוטה ראשל"צ"><datalist id="garage-dl"></datalist></div>
         <div class="field" style="flex:1"><label for="log-city">עיר</label><input id="log-city" name="city" autocomplete="off" placeholder="ראשון לציון"></div>
       </div>
       <div class="field"><label for="log-price">כמה שילמת (₪)</label><input id="log-price" name="price" inputmode="numeric" autocomplete="off" class="num" placeholder="למשל 890"><p class="err" id="log-price-err" hidden>כדי לשתף מחיר צריך להזין כמה שילמת.</p></div>
@@ -488,6 +504,14 @@
       <div class="field"><label for="sheet-km">מה על השעון עכשיו?</label><input id="sheet-km" name="odometer" inputmode="numeric" autocomplete="off" class="num"></div>
       <button class="btn primary" id="sheet-save">שמור</button>
       <button class="btn ghost" id="sheet-close">ביטול</button>
+    </div>
+  </div>
+
+  <div class="sheet" id="citysheet">
+    <div class="panel stack" style="gap:10px">
+      <div class="row between"><h2>באיזו עיר?</h2><button class="btn ghost" id="city-close" style="width:auto">סגור</button></div>
+      <div class="search"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><input id="city-q" type="search" autocomplete="off" placeholder="הקלד עיר" aria-label="חיפוש עיר"></div>
+      <div class="list" id="city-list"></div>
     </div>
   </div>
 </div>
@@ -802,6 +826,7 @@
     logBack = ""; $$("#log-back button").forEach(x => x.classList.toggle("on", x.dataset.v === ""));
     logThumbs = opts.thumbs ? opts.thumbs.slice() : []; renderThumbs(); $("#log-file").value = "";
     setKind(opts.kind || "service");
+    $("#garage-dl").innerHTML = ""; loadGarageDir().catch(() => {});
     $("#log").classList.add("show"); $("#log .panel").scrollTop = 0;
   }
   function renderThumbs() {
@@ -993,8 +1018,8 @@
       ${specsHTML(n.s)}`;
     $("#upd-km").onclick = openSheet;
     const tc = $("#to-car"); if (tc) tc.onclick = () => show("s-car");
-    const tg = $("#to-garages"); if (tg) tg.onclick = () => { renderGarages(); show("s-garages"); };
-    const gl = $("#home-body #gr-log"); if (gl) gl.onclick = () => openLog();
+    const tg = $("#to-garages"); if (tg) tg.onclick = () => { renderGarages(); show("s-garages"); if (!S.city) openCitySheet(); };
+    const gp = $("#gr-pick"); if (gp) gp.onclick = () => { renderGarages(); show("s-garages"); openCitySheet(); };
     $("#to-garage").onclick = () => { show("s-tl"); const el = $(".tl-item.next"); if (el) el.scrollIntoView({ block: "start" }); };
     $("#done-svc").onclick = () => openLog();
     $$("[data-go]", $("#home-body")).forEach(b => b.onclick = () => show("s-" + b.dataset.go));
@@ -1087,36 +1112,102 @@
     return [...byKey.values()].map(g => ({ ...g, avg: g.prices.length ? g.prices.reduce((a, b) => a + b, 0) / g.prices.length : null, backPct: g.back.length ? Math.round(100 * g.back.filter(Boolean).length / g.back.length) : null }))
       .sort((a, b) => (b.backPct ?? -1) - (a.backPct ?? -1) || b.n - a.n);
   }
-  const garageRow = g => `<div class="garage">
-      <div><div class="nm">${g.name}${g.mine ? ` <span class="tag mine">דיווחת</span>` : ""}</div>
-        <div class="meta"><span>${whereName[g.type] || ""}</span>${g.city ? `<span>${g.city}</span>` : ""}<span class="num">${g.n} ${g.n === 1 ? "דיווח" : "דיווחים"}</span>${g.backPct !== null ? `<span class="num">${g.backPct}% היו חוזרים</span>` : ""}</div></div>
-      <div class="amt num">${g.avg ? "₪" + fmt(g.avg) : ""}</div></div>`;
-  // Importer service-centre pages, as a fallback until drivers report garages.
-  const importerLinks = { Toyota: "https://www.toyota.co.il/agencies", Hyundai: "https://www.colmobil.co.il/service-centers/hyundai/", Mitsubishi: "https://www.colmobil.co.il/service-centers/", Kia: "https://kia-israel.co.il/מוסך-מרכזי", Mazda: "https://www.mazda.co.il/services-centers", Skoda: "https://www.championmotors.co.il/service-centers/", Seat: "https://www.championmotors.co.il/service-centers/", Volkswagen: "https://www.championmotors.co.il/service-centers/", "Alfa Romeo": "https://www.alfaromeo.co.il/dealer-locator" };
-  const MOT_GARAGES = "https://www.gov.il/he/departments/dynamiccollectors/garages-and-licensing-institutes";
-  const linkRow = (href, t, sub) => `<a class="row between" href="${href}" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;padding:8px 0"><span><b>${t}</b>${sub ? `<br><span class="small muted">${sub}</span>` : ""}</span><span class="muted" aria-hidden="true">↗</span></a>`;
-  const garagesLinksHTML = s => (importerLinks[s.make] ? linkRow(importerLinks[s.make], `מרכזי שירות ${s.importer}`, "מוסכי היבואן") : "") + linkRow(MOT_GARAGES, "מוסכים מורשים", "מאגר משרד התחבורה");
-  const garagesEmptyHTML = car => `<div class="empty">
-      <b>עוד אין המלצות ל${schedById(car.schedule).model_he}</b>
-      <p class="small muted">ההמלצות מגיעות מנהגים עם אותו דגם. היה הראשון.</p>
-      <button class="btn secondary" id="gr-log" style="padding:10px">רשום טיפול ומוסך</button></div>`;
-  const garagesHomeHTML = car => { const gs = garagesFor(car), s = schedById(car.schedule); return `
+  // ---------- licensed-garage directory (Ministry of Transport registry, bundled at build time as garages.json) ----------
+  // Rows: [id, name, city, address, phone, type, [profession codes]]. Loaded on demand, once.
+  let GD = null, gdLoading = null;
+  const loadGarageDir = () => gdLoading || (gdLoading = fetch("garages.json").then(r => { if (!r.ok) throw new Error(r.status); return r.json(); }).then(d => { GD = d; return d; }).catch(e => { gdLoading = null; throw e; }));
+  const gCat = { mech: [10, 15, 20, 22, 23], elec: [30, 142], ac: [205], body: [70, 100, 175, 177, 80], tires: [130, 135], test: [181, 180] };
+  const gCatName = { mech: "מכונאות", elec: "חשמל", ac: "מיזוג", body: "פחחות וצבע", tires: "צמיגים", test: "טסט ובדיקות" };
+  const gCats = codes => Object.keys(gCat).filter(c => gCat[c].some(k => codes.includes(k)));
+  const dirRow = r => ({ id: r[0], name: r[1], city: r[2], addr: r[3], phone: r[4], type: r[5], cats: gCats(r[6]), hybrid: r[6].includes(23) });
+  const normName = x => (x || "").replace(/בע["'\s]*מ/g, "").replace(/[\s"'.\-]+/g, "").toLowerCase();
+  const cityNorm = x => (x || "").replace(/[\s\-"'.]+/g, "").replace(/יפו$/, "");
+  const findCity = q => { if (!GD || !q) return null; const n = cityNorm(q); return (GD.cities.find(([c]) => cityNorm(c) === n) || GD.cities.find(([c]) => cityNorm(c).startsWith(n) || n.startsWith(cityNorm(c))) || [null])[0]; };
+  const esc = x => String(x ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
+  const telHref = p => "tel:" + p.replace(/[^\d+]/g, "");
+  const wazeHref = g => "https://waze.com/ul?q=" + encodeURIComponent(g.addr + " " + g.city) + "&navigate=yes";
+  const icoPhone = `<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>`;
+  const icoNav = `<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l18-8-8 18-2-8z"/></svg>`;
+  // Community reports (this device + other drivers of the same model) keyed by normalized name|city.
+  const communityMap = car => { const m = new Map(); for (const g of garagesFor(car)) m.set(normName(g.name) + "|" + cityNorm(g.city), g); return m; };
+  const commLine = (g, s) => `<div class="comm">${g.n} ${g.n === 1 ? "נהג" : "נהגי"} ${s.model_he}${g.backPct !== null ? ` · ${g.backPct}% היו חוזרים` : ""}${g.avg ? ` · ממוצע ₪${fmt(g.avg)}` : ""}</div>`;
+  const garageRow = (g, comm, s) => `<div class="garage">
+      <div><div class="nm">${esc(g.name)}${comm ? ` <span class="tag rec">מומלץ</span>` : ""}${comm && comm.mine ? ` <span class="tag mine">דיווחת</span>` : ""}</div>
+        <div class="meta">${g.addr ? `<span>${esc(g.addr)}${g.city && g.city !== (S.city || "") ? ", " + g.city : ""}</span>` : ""}${g.cats.map(c => `<span>${gCatName[c]}</span>`).join("")}</div>
+        ${comm ? commLine(comm, s) : ""}</div>
+      <div class="acts">${g.phone ? `<a class="ib" href="${telHref(g.phone)}" aria-label="התקשר">${icoPhone}</a>` : ""}${g.addr ? `<a class="ib" href="${wazeHref(g)}" target="_blank" rel="noopener" aria-label="ניווט">${icoNav}</a>` : ""}</div></div>`;
+  // A community report that isn't in the registry (free-text name) still gets a row.
+  const commOnlyRow = (g, s) => `<div class="garage"><div><div class="nm">${g.name} <span class="tag rec">מומלץ</span>${g.mine ? ` <span class="tag mine">דיווחת</span>` : ""}</div>
+      <div class="meta"><span>${whereName[g.type] || ""}</span>${g.city ? `<span>${g.city}</span>` : ""}</div>${commLine(g, s)}</div><div class="acts"></div></div>`;
+  // Rows for a city: registry garages with community data attached, recommended first.
+  function cityGarages(car, city) {
+    if (!GD) return { rows: [], extra: [] };
+    const s = schedById(car.schedule), cm = communityMap(car), used = new Set();
+    const rows = GD.garages.filter(r => r[2] === city).map(dirRow).map(g => { const k = normName(g.name) + "|" + cityNorm(g.city); const comm = cm.get(k) || null; if (comm) used.add(k); return { g, comm }; });
+    const extra = [...cm.entries()].filter(([k, g]) => !used.has(k) && (!city || cityNorm(g.city) === cityNorm(city) || !g.city)).map(([, g]) => g);
+    rows.sort((a, b) => (b.comm ? 1 : 0) - (a.comm ? 1 : 0) || ((b.comm?.backPct ?? -1) - (a.comm?.backPct ?? -1)) || (b.g.cats.includes("mech") ? 1 : 0) - (a.g.cats.includes("mech") ? 1 : 0) || a.g.name.localeCompare(b.g.name, "he"));
+    return { rows, extra, s };
+  }
+  const garagesEmptyHTML = () => `<div class="empty"><b>אין עדיין המלצות לדגם שלך</b><p class="small muted">אחרי הטיפול הבא, רשום איפה היית. נהגים עם אותו דגם יראו את זה.</p></div>`;
+  const garagesHomeHTML = car => { const s = schedById(car.schedule), comm = garagesFor(car); const city = S.city; const dir = city && GD ? cityGarages(car, city) : null; return `
     <div class="card stack" style="gap:8px">
-      <div class="row between"><p class="eyebrow">מוסכים מומלצים לרכב שלך</p><button class="btn ghost" id="to-garages" style="width:auto;padding:0">${gs.length ? "לכולם" : "עוד"}</button></div>
-      ${gs.length ? `<div>${gs.slice(0, 3).map(garageRow).join("")}</div>` : garagesEmptyHTML(car) + `<div class="list small" style="margin-top:4px">${garagesLinksHTML(s)}</div>`}
+      <div class="row between"><p class="eyebrow">מוסכים לרכב שלך</p><button class="btn ghost" id="to-garages" style="width:auto;padding:0">${city ? "לכולם" : "בחר עיר"}</button></div>
+      ${comm.length ? `<div>${(dir ? dir.rows.filter(r => r.comm).slice(0, 3).map(r => garageRow(r.g, r.comm, s)) : comm.slice(0, 3).map(g => commOnlyRow(g, s))).join("")}</div>`
+        : dir && dir.rows.length ? `<p class="small muted">${dir.rows.length} מוסכים מורשים ב${city}. עדיין אין המלצות לדגם שלך.</p><div>${dir.rows.filter(r => r.g.cats.includes("mech")).slice(0, 3).map(r => garageRow(r.g, null, s)).join("")}</div>`
+        : `<p class="small muted">מוסכים מורשים ליד הבית, עם המלצות של נהגים עם אותו דגם.</p><button class="btn secondary" id="gr-pick" style="padding:10px">מצא מוסך ליד הבית</button>`}
     </div>`; };
   let grFilter = "all";
+  const grChips = () => [["all", "הכל"], ["rec", "מומלצים לדגם"], ...Object.entries(gCatName)];
   function renderGarages() {
     const car = S.cars[S.active]; if (!car) return;
-    const s = schedById(car.schedule);
-    $("#gr-sub").textContent = `לפי נהגים עם ${s.make_he} ${s.model_he} ${s.years[0]}-${s.years[1]}`;
-    const gs = garagesFor(car).filter(g => grFilter === "all" || g.type === grFilter);
-    $("#gr-list").innerHTML = gs.length ? gs.map(garageRow).join("") : garagesEmptyHTML(car);
-    $("#gr-links").innerHTML = `<p class="eyebrow">עוד אפשרויות</p><div class="list small">${garagesLinksHTML(s)}</div>`;
-    const b = $("#s-garages #gr-log"); if (b) b.onclick = () => openLog();
+    $("#gr-city-name").textContent = S.city || "בחר עיר";
+    $("#gr-filter").innerHTML = grChips().map(([v, t]) => `<button class="chip ${grFilter === v ? "on" : ""}" data-v="${v}">${t}</button>`).join("");
+    $$("#gr-filter .chip").forEach(c => c.onclick = () => { grFilter = c.dataset.v; renderGarages(); });
+    if (!GD) { $("#gr-sub").textContent = ""; $("#gr-list").innerHTML = `<p class="small muted">טוען את מאגר המוסכים…</p>`; loadGarageDir().then(() => renderGarages()).catch(() => { $("#gr-list").innerHTML = `<p class="small muted">מאגר המוסכים לא נטען. בדוק חיבור ונסה שוב.</p>`; }); return; }
+    if (!S.city) { $("#gr-sub").textContent = ""; $("#gr-list").innerHTML = `<div class="empty"><b>באיזו עיר לחפש?</b><p class="small muted">${GD.garages.length.toLocaleString("he")} מוסכים מורשים ב-${GD.cities.length} יישובים.</p><button class="btn secondary" id="gr-pick2" style="padding:10px">בחר עיר</button></div>`; $("#gr-pick2").onclick = openCitySheet; return; }
+    const { rows, extra, s } = cityGarages(car, S.city);
+    const q = normName($("#gr-q").value);
+    let list = rows.filter(r => grFilter === "all" ? r.g.type !== 2 || r.comm : grFilter === "rec" ? r.comm : r.g.cats.includes(grFilter));
+    if (q) list = list.filter(r => normName(r.g.name).includes(q) || normName(r.g.addr).includes(q));
+    const ex = grFilter === "all" || grFilter === "rec" ? extra.filter(g => !q || normName(g.name).includes(q)) : [];
+    const recN = rows.filter(r => r.comm).length + extra.length;
+    $("#gr-sub").textContent = `${rows.length} מוסכים מורשים ב${S.city}${recN ? ` · ${recN} עם המלצות לדגם שלך` : ""}`;
+    $("#gr-list").innerHTML = ex.map(g => commOnlyRow(g, s)).join("") + list.map(r => garageRow(r.g, r.comm, s)).join("") || (grFilter === "rec" ? garagesEmptyHTML() : `<p class="small muted">לא נמצא מוסך מתאים ב${S.city}.</p>`);
   }
-  $$("#gr-filter .chip").forEach(c => c.onclick = () => { $$("#gr-filter .chip").forEach(x => x.classList.remove("on")); c.classList.add("on"); grFilter = c.dataset.v; renderGarages(); });
+  $("#gr-q").oninput = () => renderGarages();
   $("#gr-back").onclick = () => history.length > 1 ? history.back() : show("s-home");
+  // City picker
+  function openCitySheet() { loadGarageDir().then(() => { $("#city-q").value = ""; renderCityList(); $("#citysheet").classList.add("show"); setTimeout(() => $("#city-q").focus(), 50); }).catch(() => toast("מאגר המוסכים לא נטען")); }
+  function renderCityList() { const q = cityNorm($("#city-q").value); const cs = GD.cities.filter(([c]) => !q || cityNorm(c).includes(q)).slice(0, q ? 30 : 15);
+    $("#city-list").innerHTML = cs.map(([c, n]) => `<button data-c="${esc(c)}"><span>${c}</span><span class="small muted num">${n}</span></button>`).join("") || `<p class="small muted">לא נמצא יישוב כזה במאגר.</p>`;
+    $$("#city-list button").forEach(b => b.onclick = () => setCity(b.dataset.c)); }
+  function setCity(c) { S.city = c; save(); $("#citysheet").classList.remove("show"); grFilter = "all"; renderGarages(); renderHome(); }
+  $("#city-q").oninput = renderCityList;
+  $("#city-close").onclick = () => $("#citysheet").classList.remove("show");
+  $("#citysheet").onclick = e => { if (e.target.id === "citysheet") $("#citysheet").classList.remove("show"); };
+  $("#gr-city").onclick = openCitySheet;
+  // "Near me": browser location -> OpenStreetMap reverse geocoding -> registry city name.
+  $("#gr-near").onclick = () => {
+    if (!navigator.geolocation) return toast("הדפדפן לא תומך במיקום");
+    const b = $("#gr-near"); b.disabled = true; b.classList.add("busy");
+    const done = () => { b.disabled = false; b.classList.remove("busy"); };
+    navigator.geolocation.getCurrentPosition(async pos => {
+      try {
+        await loadGarageDir();
+        const r = await fetch(`https://nominatim.openstreetmap.org/reverse?lat=${pos.coords.latitude}&lon=${pos.coords.longitude}&format=json&zoom=10&accept-language=he`).then(x => x.json());
+        const a = r.address || {}; const cand = [a.city, a.town, a.village, a.municipality, a.county].filter(Boolean);
+        const c = cand.map(findCity).find(Boolean);
+        if (c) setCity(c); else { toast("לא זיהינו את היישוב, בחר ידנית"); openCitySheet(); }
+      } catch (e) { toast("איתור המיקום נכשל, בחר עיר ידנית"); }
+      done();
+    }, () => { done(); toast("אין הרשאת מיקום. בחר עיר ידנית"); openCitySheet(); }, { timeout: 8000, maximumAge: 300000 });
+  };
+  // Garage suggestions in the log sheet come from the registry (so reports match the directory).
+  const fillGarageDL = () => { if (!GD) return; const q = normName($("#log-garage").value), city = findCity($("#log-city").value) || S.city; if (!q || q.length < 2) return;
+    const hits = GD.garages.filter(r => (!city || r[2] === city) && normName(r[1]).includes(q)).slice(0, 12);
+    $("#garage-dl").innerHTML = hits.map(r => `<option value="${esc(r[1])}">${esc(r[3] ? r[3] + ", " : "")}${esc(r[2])}</option>`).join(""); };
+  $("#log-garage").oninput = fillGarageDL;
+  $("#log-garage").onchange = () => { if (!GD) return; const r = GD.garages.find(r => r[1] === $("#log-garage").value); if (r && !$("#log-city").value) $("#log-city").value = r[2]; };
 
   // ---------- profile ----------
   function renderMe() {
@@ -1157,7 +1248,7 @@
   // ---------- nav / boot ----------
   $$("#nav button").forEach(b => b.onclick = () => { show("s-" + b.dataset.go); if (b.dataset.go === "tl") { const el = $(".tl-item.next"); if (el) el.scrollIntoView({ block: "start" }); } });
   $("#home-avatar").onclick = () => show("s-me");
-  function renderAll() { renderHome(); renderTL(); renderMe(); if (!$("#s-car").hidden) renderCar(); if (!$("#s-garages").hidden) renderGarages(); }
+  function renderAll() { if (S.city && !GD) loadGarageDir().then(() => renderHome()).catch(() => {}); renderHome(); renderTL(); renderMe(); if (!$("#s-car").hidden) renderCar(); if (!$("#s-garages").hidden) renderGarages(); }
   // Migrate cars saved with a schedule id that no longer exists (ids are renamed as data improves).
   function migrateCars() {
     let changed = false;

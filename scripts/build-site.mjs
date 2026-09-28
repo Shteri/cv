@@ -49,6 +49,7 @@ copyFileSync(root + "app/data.js", out + "data.js");
 copyFileSync(root + "app/lookup.js", out + "lookup.js");
 copyFileSync(root + "app/config.js", out + "config.js");
 copyFileSync(root + "app/cloud.js", out + "cloud.js");
+copyFileSync(root + "data/garages.json", out + "garages.json");
 for (const f of ["icon-192.png", "icon-512.png"]) copyFileSync(root + "app/" + f, out + "" + f);
 writeFileSync(out + "manifest.webmanifest", JSON.stringify({
   name: "טיפולית", short_name: "טיפולית", lang: "he", dir: "rtl", start_url: "./", scope: "./", display: "standalone",
