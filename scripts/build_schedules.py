@@ -1523,10 +1523,13 @@ FORD_MAP = [
     (r"מסנן אוויר למזגן", ["cabin_filter"]), (r"נוזל קירור", ["coolant"]), (r"נוזל בלמים", ["brake_fluid"]),
     (r"מסנן או?ויר למנוע", ["air_filter"]), (r"מצתים", ["spark_plugs"]), (r"כיוון שסתומים|מרווח שסתומים", ["valve_clearance"]),
     (r"מסנן דלק|מסנן סולר", ["fuel_filter"]), (r"רצועת תזמון ורצועת אביזרים", ["timing_belt", "drive_belt"]), (r"רצועת תזמון", ["timing_belt"]),
-    (r"רצועת אביזרים", ["drive_belt"]), (r"תיבת הילוכים רובוטית", ["dct_oil"]), (r"שמן תיבת הילוכים", ["transmission_oil"]),
+    (r"רצועת אביזרים", ["drive_belt"]), (r"תיבת הילוכים רובוטית", ["dct_oil"]), (r"תיבת הילוכים ידנית", ["manual_gearbox_oil"]), (r"שמן תיבת הילוכים", ["transmission_oil"]),
+    (r"שמן סרן", ["differential_oil"]), (r"שמן תיבת העברה", ["transfer_case_oil"]), (r"ניקוז מים ממסנן סולר", ["fuel_filter"]), (r"גירוז", ["propshaft"]), (r"ניקוי מסנן אוויר", ["air_filter"]),
 ]
-def ford(id_, plan_file, model, model_he, gen, years, engines, fuel, url=None, extra_notes="", specs=None, status="reviewed", skip=()):
-    plan = FORD_PLANS[plan_file]
+def ford(id_, plan_file, model, model_he, gen, years, engines, fuel, url=None, extra_notes="", specs=None, status="reviewed", skip=(), brand=None, plans=None, page=None):
+    """Delek Motors one-page service plan -> schedule (Ford by default; Mazda plans share the layout)."""
+    brand = brand or FORD; plans = plans or FORD_PLANS; page = page or FORD_PAGE
+    plan = plans[plan_file]
     url = plan.get("url") or url
     cols = [15000 * i for i in range(1, 9)]
     rows = []; longs = []; notes = []
@@ -1540,7 +1543,14 @@ def ford(id_, plan_file, model, model_he, gen, years, engines, fuel, url=None, e
         qual = re.search(r"ליטר\s*[\d./]+|[\d./]+\s*ליטר|בנזין|דיזל|03/12", lab)
         note = (f"{lab}: {it['interval_text']}".strip()) if qual else None
         km, mo, ev = it["km"], it["months"], it["every_service"]
-        act = "adjust" if items == ["valve_clearance"] else "replace"
+        act = "adjust" if items == ["valve_clearance"] else ("inspect" if re.search(r"^ניקוז|^ניקוי|^גירוז", lab) else "replace")
+        if "ואז" in it["interval_text"]:  # "195,000 ק\"מ או 10 שנים ואז כל 90,000 ק\"מ או 5 שנים"
+            kms = sorted(int(x) * 1000 for x in re.findall(r"(\d{2,3}),000", it["interval_text"]))
+            yrs = sorted(int(x) * 12 for x in re.findall(r"(?<![\d,])(\d{1,2})(?![\d,])", it["interval_text"]) if 1 <= int(x) <= 20)
+            if len(kms) >= 2:
+                for k in items:
+                    longs.append(long_(k, "replace", first_km=kms[-1], first_months=(yrs[-1] if yrs else None), then_every_km=kms[0], then_every_months=(yrs[0] if yrs else None)))
+                continue
         if ev == 1 or (km == 15000):
             pat = "R" * 8
         elif ev == 2 or (km is None and mo == 24) or km == 30000:
@@ -1558,6 +1568,8 @@ def ford(id_, plan_file, model, model_he, gen, years, engines, fuel, url=None, e
             continue
         if act == "adjust":
             pat = pat.replace("R", "A")
+        elif act == "inspect":
+            pat = pat.replace("R", "I")
         for k in items:
             rows.append((k, pat, note) if note else (k, pat))
     services = grid(cols, rows)
@@ -1568,11 +1580,11 @@ def ford(id_, plan_file, model, model_he, gen, years, engines, fuel, url=None, e
         svc["items"] = list(dd.values())
     fl = "; ".join(plan["fluids"][:8])
     write({
-        **FORD, "id": id_, "model": model, "model_he": model_he, "generation": gen, "years": years, "engines": engines, "fuel": fuel,
+        **brand, "id": id_, "model": model, "model_he": model_he, "generation": gen, "years": years, "engines": engines, "fuel": fuel,
         "interval": {"km": 15000, "months": 12, "note": "לפי תוכנית הטיפול של דלק מוטורס: התראה בלוח המחוונים, 15,000 ק\"מ או 12 חודשים, המוקדם"},
         "cycle_km": 120000, "services": services, "long_interval": longs, "time_based": [],
         "specs": dict({"_note": "מפרטי הנוזלים מתוך תוכנית הטיפול (מק\"טי Ford WSS): " + fl}, **(specs or {})),
-        "sources": [{"url": url, "kind": "importer", "note": f"PDF תוכנית טיפול '{plan_file.replace('ford-plan-', '')}' של דלק מוטורס (קישור SharePoint מתוך הדף; {plan['header'][:80]})"}, FORD_PAGE],
+        "sources": [{"url": url, "kind": "importer", "note": f"PDF תוכנית טיפול '{plan_file.replace('ford-plan-', '').replace('mazda-plan-', '')}' של דלק מוטורס (קישור SharePoint מתוך הדף; {plan['header'][:80]})"}, page],
         "status": status,
         "notes": ("הועתק מתוכנית הטיפול (עמוד אחד: פריט ומרווח). הלוח מציג 8 טיפולים של 15,000 ק\"מ; פריטים עם מרווח ארוך יותר ב-long_interval. "
                   + (" ".join(notes) + " " if notes else "") + extra_notes).strip(),
@@ -1602,3 +1614,23 @@ ford("ford-puma-2020-2026-1.0", "ford-plan-Ford_Puma_2020_And_Up.pdf", "Puma", "
 ford("ford-s-max-galaxy-2007-2011-2.0-2.3", "ford-plan-Ford_Smax_Galaxy_2007_2011.pdf", "S-Max / Galaxy", "אס-מקס / גלקסי", "WA6", [2007, 2011], ["2.0 Duratec", "2.3 Duratec", "2.0 TDCi"], "petrol/diesel",
      None, extra_notes="דיזל: מסנן דלק 45,000/3 שנים, רצועת תזמון 135,000/6 שנים; 2.3 בנזין: מסנן דלק 135,000/6 שנים.")
 print("done ford")
+
+# ---- more Mazda plans through the same generator ----
+MAZDA_PLANS = json.load(open(os.path.join(ROOT, "sources", "mazda-plans.json"), encoding="utf-8"))
+def mazda_plan(id_, plan_file, model, model_he, gen, years, engines, fuel="petrol", extra_notes="", skip=()):
+    ford(id_, plan_file, model, model_he, gen, years, engines, fuel, brand=MZ, plans=MAZDA_PLANS, page=MZ_PAGE, extra_notes=extra_notes, skip=skip)
+mazda_plan("mazda-5-2005-2015", "mazda-plan-38646_Mazda5_2005_And_Up.pdf", "5", "5", "CR/CW", [2005, 2015], ["1.8 MZR", "2.0 MZR (LF)"],
+           extra_notes="מסנן מזגן בכל טיפול; מצתים 120,000 או 3 שנים; מסנן דלק 105,000.")
+mazda_plan("mazda-6-2002-2012", "mazda-plan-38646_Mazda6_2002_2013.pdf", "6", "6", "GG/GH", [2002, 2012], ["1.8 / 2.0 / 2.3 MZR (L5, LF, L3)"],
+           extra_notes="מסנן מזגן: כל טיפול, וממודל 2008 כל 30,000 או שנתיים; מצתים 90,000; מסנן דלק 135,000.")
+mazda_plan("mazda-6-2013-2025", "mazda-plan-38646_Mazda6_2014_And_Up.pdf", "6", "6", "GJ/GL", [2013, 2025], ["2.0 Skyactiv-G (PE)", "2.5 Skyactiv-G (PY)"],
+           extra_notes="מסנן מזגן בכל טיפול; מצתים 120,000 או 6 שנים; מסנן דלק 135,000.")
+mazda_plan("mazda-cx-90-2022-2026-3.3", "mazda-plan-38646_Mazda_CX-90_2022_And_Above.pdf", "CX-90", "CX-90", "KK", [2022, 2026], ["3.3 e-Skyactiv G turbo mild hybrid"],
+           extra_notes="מצתים כל 64,000 (מנוע טורבו).")
+mazda_plan("mazda-mx-5-2007-2014-1.8-2.0", "mazda-plan-38646_Mazda_MX-5_2007_2014.pdf", "MX-5", "MX-5", "NC", [2007, 2014], ["1.8 MZR", "2.0 MZR"],
+           extra_notes="גיר ידני: שמן 90,000; סרן אחורי 75,000; מצתים 90,000 או 3 שנים; מסנן דלק 105,000.")
+mazda_plan("mazda-mx-5-2015-2026-1.5-2.0", "mazda-plan-38646_Mazda_MX-5_2015_And_Up.pdf", "MX-5", "MX-5", "ND", [2015, 2026], ["1.5 Skyactiv-G", "2.0 Skyactiv-G"],
+           extra_notes="גיר ידני: שמן 90,000; מצתים 120,000 או 6 שנים; מסנן דלק 105,000.")
+mazda_plan("mazda-bt-50-2007-2026-diesel", "mazda-plan-38646_Mazda_BT-50_2007_And_Above.pdf", "BT-50", "BT-50", "J97M / UP / TF", [2007, 2026], ["2.5 / 3.0 / 3.2 turbo diesel"], fuel="diesel",
+           extra_notes="טנדר דיזל: ניקוז מים ממסנן הסולר, גירוז מפרקים וניקוי מסנן אוויר בכל טיפול; מסנן סולר 30,000; רצועת תזמון 120,000; כיוון שסתומים 120,000 או 8 שנים; ב-4x4 שמן סרנים 30,000.")
+print("done mazda plans")
