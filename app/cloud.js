@@ -5,7 +5,7 @@
   const cfg = g.TIPULIT_CONFIG || {};
   const lib = g.supabase;
   const enabled = !!(cfg.SUPABASE_URL && cfg.SUPABASE_ANON_KEY && lib && lib.createClient);
-  const sb = enabled ? lib.createClient(cfg.SUPABASE_URL, cfg.SUPABASE_ANON_KEY, { auth: { flowType: "pkce", detectSessionInUrl: true, persistSession: true, autoRefreshToken: true } }) : null;
+  const sb = enabled ? lib.createClient(cfg.SUPABASE_URL, cfg.SUPABASE_ANON_KEY, { auth: { flowType: "implicit", detectSessionInUrl: true, persistSession: true, autoRefreshToken: true } }) : null;
   // OAuth errors come back in the URL (?error=... or #error=...). Expose them so the app can show them.
   const authError = (() => { const q = new URLSearchParams(location.search), h = new URLSearchParams(location.hash.replace(/^#/, "")); return q.get("error_description") || h.get("error_description") || q.get("error") || h.get("error") || null; })();
   const hasAuthParams = /[?&#](code|access_token|error)=/.test(location.href);
@@ -14,14 +14,37 @@
   const dataUrlToBase64 = d => d.split(",")[1];
   const mediaOf = d => (d.match(/^data:([^;]+);/) || [, "image/jpeg"])[1];
 
-  async function currentUser() { if (!sb) return null; const { data } = await sb.auth.getUser(); return data.user || null; }
-  function onAuth(cb) { if (!sb) return; sb.auth.onAuthStateChange((_e, session) => cb(session ? session.user : null)); }
+  // getSession reads the stored session (no network) and is safe to call from anywhere.
+  async function currentUser() { if (!sb) return null; const { data } = await sb.auth.getSession(); return data.session ? data.session.user : null; }
+  // supabase-js deadlocks if other auth calls run inside the onAuthStateChange callback, so defer the app's handler.
+  function onAuth(cb) { if (!sb) return; sb.auth.onAuthStateChange((event, session) => { if (event === "TOKEN_REFRESHED") return; setTimeout(() => cb(session ? session.user : null, event), 0); }); }
   async function signInWithGoogle() {
     const redirectTo = location.origin + location.pathname;
     const { error } = await sb.auth.signInWithOAuth({ provider: "google", options: { redirectTo } });
     if (error) throw error;
   }
   async function signOut() { await sb.auth.signOut(); }
+  // Finish the OAuth round trip ourselves so failures are visible (supabase-js swallows them when it auto-detects).
+  // Implicit flow: tokens come back in the URL hash and supabase-js stores them on load (no stored verifier
+  // needed, which some mobile browsers drop between the redirect out and back). We wait for the session and
+  // report a readable error if it never arrives.
+  async function handleRedirect() {
+    if (authError) return { handled: true, error: new Error(authError) };
+    const h = new URLSearchParams(location.hash.replace(/^#/, ""));
+    const q = new URLSearchParams(location.search);
+    if (h.get("access_token")) {
+      for (let i = 0; i < 20; i++) { const { data } = await sb.auth.getSession(); if (data.session) return { handled: true, error: null, user: data.session.user }; await new Promise(r => setTimeout(r, 250)); }
+      // fall back to setting it ourselves from the hash
+      const { data, error } = await sb.auth.setSession({ access_token: h.get("access_token"), refresh_token: h.get("refresh_token") });
+      return { handled: true, error, user: data && data.session ? data.session.user : null };
+    }
+    if (q.get("code")) {
+      const { data, error } = await sb.auth.exchangeCodeForSession(q.get("code"));
+      if (error && /code verifier/i.test(error.message)) error.hint = "הדפדפן לא שמר את תחילת ההתחברות. נסה שוב, ואם זה חוזר נסה מדפדפן אחר (ספארי או כרום).";
+      return { handled: true, error, user: data && data.session ? data.session.user : null };
+    }
+    return { handled: false, error: null };
+  }
 
   // ---------- cars and records ----------
   // App car -> row
@@ -77,6 +100,50 @@
     return data.map(r => ({ name: r.garage, city: r.city || "", type: r.where, n: +r.n, prices: r.avg_price ? [+r.avg_price] : [], back: r.back_pct === null ? [] : [r.back_pct >= 50], backPctRaw: r.back_pct }));
   }
 
+  // ---------- garage profiles (owners claim a licensed garage) ----------
+  // Rows are plain objects mirroring the table; see supabase/migrations/0002_garage_profiles.sql.
+  async function myGarageProfiles() {
+    const uid = (await currentUser())?.id; if (!uid) return [];
+    const { data, error } = await sb.from("garage_profiles").select("*").eq("owner_id", uid).order("created_at");
+    if (error) { if (/relation|does not exist|schema cache/i.test(error.message)) return []; throw error; }
+    return data || [];
+  }
+  async function garageProfiles(city) {
+    const { data, error } = await sb.from("garage_profiles").select("id, garage_id, name, city, address, phone, whatsapp, booking_url, about, makes, services, hours, prices, photos, status, verified_via").eq("city", city).eq("status", "verified");
+    if (error) return [];
+    return data || [];
+  }
+  async function saveGarageProfile(p) {
+    const uid = (await currentUser())?.id; if (!uid) throw new Error("not signed in");
+    const photos = [];
+    for (let i = 0; i < (p.photos || []).length; i++) {
+      const d = p.photos[i];
+      if (!d.startsWith("data:")) { photos.push(d); continue; }
+      const path = `${uid}/${p.garage_id}/${Date.now()}-${i}.jpg`;
+      const { error } = await sb.storage.from("garage-photos").upload(path, await dataUrlToBlob(d), { contentType: "image/jpeg", upsert: true });
+      if (!error) photos.push(path);
+    }
+    const row = { id: p.id || undefined, garage_id: p.garage_id, owner_id: uid, name: p.name, city: p.city, address: p.address || null, phone: p.phone || null, registry_phone: p.registry_phone || null, whatsapp: p.whatsapp || null, booking_url: p.booking_url || null, about: p.about || null, makes: p.makes || [], services: p.services || [], hours: p.hours || {}, prices: p.prices || [], photos };
+    const { data, error } = await sb.from("garage_profiles").upsert(row, { onConflict: "garage_id,owner_id" }).select("*").single();
+    if (error) throw error;
+    return data;
+  }
+  async function deleteGarageProfile(id) { const { error } = await sb.from("garage_profiles").delete().eq("id", id); if (error) throw error; }
+  const photoUrl = path => path && path.startsWith("data:") ? path : sb.storage.from("garage-photos").getPublicUrl(path).data.publicUrl;
+  // Phone verification: links the registry phone to the signed-in account via SMS OTP (needs an SMS provider in
+  // Supabase Auth). Then claim-garage (Edge Function) compares it with the registry and flips the status.
+  async function startPhoneVerify(phone) { const { error } = await sb.auth.updateUser({ phone: toE164(phone) }); if (error) throw error; }
+  async function confirmPhoneVerify(phone, token) { const { error } = await sb.auth.verifyOtp({ phone: toE164(phone), token, type: "phone_change" }); if (error) throw error; }
+  const toE164 = p => { const d = p.replace(/\D/g, ""); return d.startsWith("972") ? "+" + d : "+972" + d.replace(/^0/, ""); };
+  async function claimGarage(profileId) {
+    const { data, error } = await sb.functions.invoke("claim-garage", { body: { profile_id: profileId } });
+    if (error) throw error;
+    if (data && data.error) throw new Error(data.error);
+    return data;
+  }
+  async function pendingGarageClaims() { const { data, error } = await sb.rpc("pending_garage_claims"); if (error) throw error; return data || []; }
+  async function setGarageStatus(id, status) { const { error } = await sb.rpc("set_garage_status", { p_id: id, p_status: status }); if (error) throw error; }
+
   // ---------- receipt extraction (Edge Function -> Claude vision) ----------
   async function extractReceipt(dataUrl, context) {
     const { data, error } = await sb.functions.invoke("extract-receipt", { body: { image_base64: dataUrlToBase64(dataUrl), media_type: mediaOf(dataUrl), context } });
@@ -85,5 +152,5 @@
     return data;
   }
 
-  g.TipulitCloud = { enabled, authError, hasAuthParams, currentUser, onAuth, signInWithGoogle, signOut, loadCars, saveCar, deleteCar, communityPrices, communityGarages, extractReceipt };
+  g.TipulitCloud = { enabled, authError, hasAuthParams, currentUser, onAuth, signInWithGoogle, signOut, handleRedirect, loadCars, saveCar, deleteCar, communityPrices, communityGarages, extractReceipt, myGarageProfiles, garageProfiles, saveGarageProfile, deleteGarageProfile, photoUrl, startPhoneVerify, confirmPhoneVerify, claimGarage, pendingGarageClaims, setGarageStatus };
 })(window);

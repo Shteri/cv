@@ -295,3 +295,40 @@ label.btn { cursor: pointer; }
 .mt-8 { margin-top: 8px; } .ms-6 { margin-inline-start: 6px; } .px-4 { padding-inline: 4px; }
 .g-0 { gap: 0; } .g-2 { gap: 2px; } .g-4 { gap: 4px; } .g-6 { gap: 6px; } .g-8 { gap: 8px; } .g-10 { gap: 10px; } .g-12 { gap: 12px; } .g-14 { gap: 14px; } .g-16 { gap: 16px; }
 .btn.fit { width: auto; } .btn.bare { padding: 0; } .btn.compact { padding: 10px; } .btn.flush-start { padding-inline-start: 0; }
+
+/* garages: finder, profiles, owner forms (ported from main's garage work into the token system) */
+.tag.ver { background: var(--accent-soft); color: var(--accent-text); }
+.tag.rec { background: var(--good-soft); color: var(--good); }
+.garage .hrs { font-size: .8rem; color: var(--muted); }
+.garage .hrs.open { color: var(--good); }
+.garage .claim { grid-column: 1 / -1; font-size: .8rem; color: var(--accent-text); padding: 0; text-align: start; }
+.garage .more { grid-column: 1 / -1; font-size: .85rem; }
+.garage .more summary { padding: 4px 0; font-size: .85rem; font-weight: 500; cursor: pointer; }
+.garage .more .photos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-top: 6px; }
+.garage .more .photos img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: var(--r-plate); }
+.garage .acts { display: flex; gap: 8px; }
+.garage .ib { width: 40px; height: 40px; border-radius: var(--r-field); background: var(--accent-soft); color: var(--accent-text); display: grid; place-items: center; text-decoration: none; transition: transform .3s var(--spring); }
+.garage .ib:active { transform: scale(.92); }
+.garage .ib svg { width: 20px; height: 20px; }
+.garage .comm { font-size: .8rem; color: var(--good); font-weight: 500; }
+.hours-row { display: grid; grid-template-columns: 42px 44px 1fr; align-items: center; gap: 8px; }
+.hours-row .row { gap: 4px; }
+.hours-row input[type="time"] { padding: 6px 4px; width: 100%; min-width: 0; font-size: .85rem; }
+.hours-row .closed { color: var(--muted); font-size: .85rem; }
+.price-row { display: grid; grid-template-columns: 1fr 96px 32px; gap: 8px; align-items: center; }
+.price-row .x { color: var(--muted); font-size: 1.1rem; text-align: center; }
+.chip.loc { display: inline-flex; align-items: center; gap: 6px; border-color: var(--accent); background: var(--accent-soft); color: var(--accent-text); }
+.chip.loc svg { width: 16px; height: 16px; }
+.chips.scroll { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin-inline: -16px; padding-inline: 16px; scroll-snap-type: x proximity; }
+.chips.scroll::-webkit-scrollbar { display: none; }
+.chips.scroll .chip { flex: none; scroll-snap-align: start; }
+.search { display: flex; align-items: center; gap: 10px; padding-inline: 14px; border: 1.5px solid var(--line); border-radius: var(--r-control); background: var(--surface); box-shadow: var(--edge); transition: border-color .2s ease, box-shadow .2s ease; }
+.search:focus-within { border-color: var(--accent); box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 22%, transparent); }
+.search svg { width: 18px; height: 18px; color: var(--muted); flex: none; }
+.search input { flex: 1; min-width: 0; border: 0; background: none; padding: 13px 0; outline: none; }
+#city-list button { width: 100%; text-align: start; display: flex; justify-content: space-between; padding: 12px 0; }
+.mt-6 { margin-top: 6px; } .mt-12 { margin-top: 12px; } .pt-6 { padding-top: 6px; }
+.btn.tight { padding: 8px; } .btn.slim { padding: 4px 0; }
+.title-sm { font-size: 1.4rem; }
+.thumbs button { position: relative; padding: 0; border-radius: var(--r-field); overflow: hidden; }
+.thumbs .lb { position: absolute; bottom: 0; left: 0; right: 0; font-size: .65rem; background: color-mix(in srgb, var(--shade) 72%, transparent); color: var(--white); text-align: center; padding: 2px 4px; }
