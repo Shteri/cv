@@ -341,3 +341,14 @@ label.btn { cursor: pointer; }
 .recall .acts { display: flex; gap: 8px; margin-top: 8px; flex-wrap: wrap; }
 .recall .acts .btn { width: auto; padding: 8px 14px; font-size: .9rem; }
 .ok-text { color: var(--good); }
+/* fixes from the walkthrough audit */
+/* sheet content must scroll, never shrink: flex children keep their natural height */
+.sheet .panel > * { flex-shrink: 0; }
+/* text-style buttons still get a 44px hit area */
+.btn.bare { min-height: 44px; padding-block: 10px; }
+/* button labels never wrap; paired buttons share the row evenly */
+.btn { white-space: nowrap; }
+.row > .btn { flex: 1 1 0; min-width: 0; }
+.row > .btn.fit { flex: none; }
+/* cold-start card: the first thing a new user should do, in the accent */
+.card.start { border-color: color-mix(in srgb, var(--accent) 45%, var(--line)); background: radial-gradient(120% 90% at 100% 0%, color-mix(in srgb, var(--accent) 12%, transparent), transparent 60%), var(--surface); }
