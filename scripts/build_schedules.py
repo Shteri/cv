@@ -1380,10 +1380,11 @@ hk("kia-sorento-2015-2020-2.4-2.2", KIA, "kia-Sorento-UMPE-2019-2020.pdf", [151,
    extra_notes="הספר הוא לשנתונים 2019-2020 (פייסליפט UM); הדור UM נמכר מ-2015.", specs=KIA_SPECS)
 hk("kia-niro-2023-2024-1.6-plug-in-hybrid", KIA, "kia-NIRO_PHEV_General_Heb_01_פלאגאין.pdf", [459], "Niro", "נירו", "SG2 PHEV", [2023, 2024],
    ["1.6 GDI plug-in hybrid (Smartstream G1.6, G4LL)"], "plug-in-hybrid", 15, KB + "NIRO_PHEV_General_Heb_01_%D7%A4%D7%9C%D7%90%D7%92%D7%90%D7%99%D7%9F.pdf", "ספר רכב נירו פלאג-אין 2023+ (קיה ישראל)",
-   long=[COOL_KIA_180, long_("coolant", "replace", first_km=180000, first_months=120, then_every_km=30000, then_every_months=24, note="נוזל קירור המערכת ההיברידית/סוללה"),
+   long=[COOL_KIA_180, long_("coolant", "replace", every_km=60000, every_months=36, note="נוזל קירור ממיר/מערכת היברידית (PHEV): כל 60,000 ק\"מ או 36 חודשים לפי הספר"),
          long_("clutch_actuator_fluid", "replace", every_km=40000), long_("hsg_belt", "inspect", every_km=15000, every_months=12), long_("hsg_belt", "replace", every_km=105000),
          long_("spark_plugs", "replace", every_km=150000), long_("dct_oil", "replace", every_km=120000, note="בתנאי הפעלה קשים בלבד")],
-   extra_notes="ספר גלובלי עם כמה טבלאות אזוריות; נעשה שימוש בטבלה בעמודות 15,000 ק\"מ (עמ' 460 ב-PDF).", specs=dict(KIA_SPECS, battery="מצבר עזר 12V + סוללת מתח גבוה"))
+   status="draft",
+   extra_notes="ספר גלובלי עם כמה טבלאות אזוריות. בדיקה חוזרת (סבב 2) מצאה שייתכן שהטבלה שנבחרה (עמ' 460 ב-PDF) היא של אוסטרליה/ניו זילנד ולא 'except Europe' (עמ' 457-458); לאמת לפני סימון reviewed.", specs=dict(KIA_SPECS, battery="מצבר עזר 12V + סוללת מתח גבוה"))
 hk("kia-niro-plus-2022-2024-1.6-hybrid", KIA, "kia-Niro-Plus-HEV-PHEV-OM-2022.pdf", [342, 343], "Niro Plus", "נירו פלוס", "DE (Niro Plus) HEV/PHEV", [2022, 2024],
    ["1.6 GDI hybrid / plug-in hybrid (Kappa, G4LE)"], "hybrid", 15, KB + "Niro-Plus-HEV-PHEV-OM-2022.pdf", "ספר רכב נירו פלוס היברידי/פלאג-אין 2022 (קיה ישראל)",
    long=[COOL_KIA_180, long_("clutch_actuator_fluid", "replace", every_km=40000, every_months=24), long_("hsg_belt", "inspect", every_km=15000, every_months=12), long_("hsg_belt", "replace", every_km=105000, every_months=48),

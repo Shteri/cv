@@ -1,25 +1,85 @@
 {
   "make": "Kia",
   "make_he": "קיה",
-  "importer": "טלקאר",
-  "id": "kia-niro-2023-2024-1.6-plug-in-hybrid",
-  "model": "Niro",
-  "model_he": "נירו",
-  "generation": "SG2 PHEV",
+  "model": "Niro HEV",
+  "model_he": "נירו היברידי",
+  "generation": "SG2",
+  "id": "kia-niro-2024-2026-1.6-hybrid",
   "years": [
-    2023,
-    2024
+    2024,
+    2026
   ],
   "engines": [
-    "1.6 GDI plug-in hybrid (Smartstream G1.6, G4LL)"
+    "1.6 GDI hybrid (Smartstream G1.6, G4LL)"
   ],
-  "fuel": "plug-in-hybrid",
+  "fuel": "hybrid",
+  "importer": "טלקאר",
   "interval": {
     "km": 15000,
     "months": 12,
-    "note": "לפי ספר הרכב של היבואן: 15,000 ק\"מ או 12 חודשים, המוקדם מביניהם; בתנאי הפעלה קשים שמן ומסנן כל 7,500 ק\"מ או 6 חודשים"
+    "note": "לפי טבלת \"למעט אירופה\" בספר היבואן: 15,000 ק\"מ או 12 חודשים (המוקדם). לאזור המזרח התיכון הספר מציין שמן ומסנן כל 10,000 ק\"מ או 12 חודשים; בתנאי הפעלה קשים כל 7,500 ק\"מ או 6 חודשים"
   },
   "cycle_km": 120000,
+  "long_interval": [
+    {
+      "item": "coolant",
+      "action": "replace",
+      "first_km": 180000,
+      "first_months": 120,
+      "then_every_km": 30000,
+      "then_every_months": 24,
+      "note": "נוזל קירור מנוע"
+    },
+    {
+      "item": "coolant",
+      "action": "replace",
+      "first_km": 180000,
+      "first_months": 120,
+      "then_every_km": 30000,
+      "then_every_months": 24,
+      "note": "נוזל קירור ממיר המתח (HEV)"
+    },
+    {
+      "item": "hsg_belt",
+      "action": "inspect",
+      "every_km": 15000,
+      "every_months": 12,
+      "note": "במזרח התיכון לפי הספר: בדיקה כל 10,000 ק\"מ"
+    },
+    {
+      "item": "hsg_belt",
+      "action": "replace",
+      "every_km": 105000,
+      "every_months": 48,
+      "note": "במזרח התיכון לפי הספר: החלפה כל 100,000 ק\"מ או 48 חודשים"
+    },
+    {
+      "item": "spark_plugs",
+      "action": "replace",
+      "every_km": 150000
+    },
+    {
+      "item": "clutch_actuator_fluid",
+      "action": "replace",
+      "every_km": 40000,
+      "every_months": 24
+    }
+  ],
+  "specs": {
+    "fuel": "בנזין נטול עופרת RON 91 ומעלה (מחוץ לאירופה)",
+    "brake_fluid": "DOT 4",
+    "battery": "מצבר עזר 12V וסוללת מתח גבוה",
+    "_note": "לפי ספר הרכב של היבואן"
+  },
+  "sources": [
+    {
+      "url": "https://cdnmedia.kia-israel.co.il/www/cars-book/NIRO_PHEV_General_Heb_01_%D7%A4%D7%9C%D7%90%D7%92%D7%90%D7%99%D7%9F.pdf",
+      "kind": "importer",
+      "note": "ספר הרכב העברי של קיה ישראל 'נירו הייבריד/פלאג-אין' (ספר משותף ל-HEV ול-PHEV), טבלת 'למעט באירופה - תוכנית תחזוקה רגילה', עמודי PDF 456-458"
+    }
+  ],
+  "status": "reviewed",
+  "notes": "הספר העברי של נירו החדשה משותף לגרסה ההיברידית ולפלאג-אין; השורות הייחודיות ל-HEV נלקחו ממנו. נבחרה טבלת 'למעט אירופה' בעמודות 15,000 ק\"מ. מסנן אוויר מוחלף ב-45,000 וב-90,000 (במזרח התיכון, הודו וסין: בכל טיפול). מסנן מזגן בכל טיפול. נוזל בלמים מוחלף ב-45,000 וב-90,000. נוזל מפעיל מצמד המנוע כל 40,000 ק\"מ או 24 חודשים. גיר DCT ללא טיפול (בתנאים קשים החלפה כל 120,000). תוסף דלק כל 15,000 ק\"מ (במזרח התיכון כל 10,000). מסנן דלק רק לסין וברזיל.",
   "services": [
     {
       "km": 15000,
@@ -33,8 +93,9 @@
           "action": "replace"
         },
         {
-          "item": "clutch",
-          "action": "inspect"
+          "item": "clutch_actuator_fluid",
+          "action": "inspect",
+          "note": "בדיקת צינור וקו מפעיל המצמד"
         },
         {
           "item": "air_filter",
@@ -45,12 +106,16 @@
           "action": "inspect"
         },
         {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
           "item": "ac_system",
           "action": "inspect"
         },
         {
           "item": "cabin_filter",
-          "action": "inspect"
+          "action": "replace"
         },
         {
           "item": "brake_fluid",
@@ -70,6 +135,10 @@
         },
         {
           "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "hsg_belt",
           "action": "inspect"
         }
       ]
@@ -86,8 +155,9 @@
           "action": "replace"
         },
         {
-          "item": "clutch",
-          "action": "inspect"
+          "item": "clutch_actuator_fluid",
+          "action": "inspect",
+          "note": "בדיקת צינור וקו מפעיל המצמד"
         },
         {
           "item": "cv_boots",
@@ -107,6 +177,10 @@
         },
         {
           "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_refrigerant",
           "action": "inspect"
         },
         {
@@ -131,7 +205,7 @@
         },
         {
           "item": "brake_fluid",
-          "action": "replace"
+          "action": "inspect"
         },
         {
           "item": "steering",
@@ -147,6 +221,10 @@
         },
         {
           "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "hsg_belt",
           "action": "inspect"
         }
       ]
@@ -163,8 +241,9 @@
           "action": "replace"
         },
         {
-          "item": "clutch",
-          "action": "inspect"
+          "item": "clutch_actuator_fluid",
+          "action": "inspect",
+          "note": "בדיקת צינור וקו מפעיל המצמד"
         },
         {
           "item": "air_filter",
@@ -175,16 +254,20 @@
           "action": "inspect"
         },
         {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
           "item": "ac_system",
           "action": "inspect"
         },
         {
           "item": "cabin_filter",
-          "action": "inspect"
+          "action": "replace"
         },
         {
           "item": "brake_fluid",
-          "action": "inspect"
+          "action": "replace"
         },
         {
           "item": "steering",
@@ -200,6 +283,10 @@
         },
         {
           "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "hsg_belt",
           "action": "inspect"
         }
       ]
@@ -216,8 +303,9 @@
           "action": "replace"
         },
         {
-          "item": "clutch",
-          "action": "inspect"
+          "item": "clutch_actuator_fluid",
+          "action": "inspect",
+          "note": "בדיקת צינור וקו מפעיל המצמד"
         },
         {
           "item": "cv_boots",
@@ -248,6 +336,10 @@
           "action": "inspect"
         },
         {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
           "item": "ac_system",
           "action": "inspect"
         },
@@ -269,7 +361,7 @@
         },
         {
           "item": "brake_fluid",
-          "action": "replace"
+          "action": "inspect"
         },
         {
           "item": "steering",
@@ -285,6 +377,10 @@
         },
         {
           "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "hsg_belt",
           "action": "inspect"
         }
       ]
@@ -301,8 +397,9 @@
           "action": "replace"
         },
         {
-          "item": "clutch",
-          "action": "inspect"
+          "item": "clutch_actuator_fluid",
+          "action": "inspect",
+          "note": "בדיקת צינור וקו מפעיל המצמד"
         },
         {
           "item": "air_filter",
@@ -313,12 +410,16 @@
           "action": "inspect"
         },
         {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
           "item": "ac_system",
           "action": "inspect"
         },
         {
           "item": "cabin_filter",
-          "action": "inspect"
+          "action": "replace"
         },
         {
           "item": "brake_fluid",
@@ -339,6 +440,10 @@
         {
           "item": "battery_12v",
           "action": "inspect"
+        },
+        {
+          "item": "hsg_belt",
+          "action": "inspect"
         }
       ]
     },
@@ -354,8 +459,9 @@
           "action": "replace"
         },
         {
-          "item": "clutch",
-          "action": "inspect"
+          "item": "clutch_actuator_fluid",
+          "action": "inspect",
+          "note": "בדיקת צינור וקו מפעיל המצמד"
         },
         {
           "item": "cv_boots",
@@ -375,6 +481,10 @@
         },
         {
           "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_refrigerant",
           "action": "inspect"
         },
         {
@@ -416,6 +526,10 @@
         {
           "item": "battery_12v",
           "action": "inspect"
+        },
+        {
+          "item": "hsg_belt",
+          "action": "inspect"
         }
       ]
     },
@@ -431,8 +545,9 @@
           "action": "replace"
         },
         {
-          "item": "clutch",
-          "action": "inspect"
+          "item": "clutch_actuator_fluid",
+          "action": "inspect",
+          "note": "בדיקת צינור וקו מפעיל המצמד"
         },
         {
           "item": "air_filter",
@@ -443,12 +558,16 @@
           "action": "inspect"
         },
         {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
           "item": "ac_system",
           "action": "inspect"
         },
         {
           "item": "cabin_filter",
-          "action": "inspect"
+          "action": "replace"
         },
         {
           "item": "brake_fluid",
@@ -469,6 +588,10 @@
         {
           "item": "battery_12v",
           "action": "inspect"
+        },
+        {
+          "item": "hsg_belt",
+          "action": "inspect"
         }
       ]
     },
@@ -484,8 +607,9 @@
           "action": "replace"
         },
         {
-          "item": "clutch",
-          "action": "inspect"
+          "item": "clutch_actuator_fluid",
+          "action": "inspect",
+          "note": "בדיקת צינור וקו מפעיל המצמד"
         },
         {
           "item": "cv_boots",
@@ -516,6 +640,10 @@
           "action": "inspect"
         },
         {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
           "item": "ac_system",
           "action": "inspect"
         },
@@ -537,7 +665,7 @@
         },
         {
           "item": "brake_fluid",
-          "action": "replace"
+          "action": "inspect"
         },
         {
           "item": "steering",
@@ -554,76 +682,13 @@
         {
           "item": "battery_12v",
           "action": "inspect"
+        },
+        {
+          "item": "hsg_belt",
+          "action": "inspect"
         }
       ]
     }
   ],
-  "long_interval": [
-    {
-      "item": "coolant",
-      "action": "replace",
-      "first_km": 180000,
-      "first_months": 120,
-      "then_every_km": 30000,
-      "then_every_months": 24
-    },
-    {
-      "item": "coolant",
-      "action": "replace",
-      "every_km": 60000,
-      "every_months": 36,
-      "note": "נוזל קירור ממיר/מערכת היברידית (PHEV): כל 60,000 ק\"מ או 36 חודשים לפי הספר"
-    },
-    {
-      "item": "clutch_actuator_fluid",
-      "action": "replace",
-      "every_km": 40000
-    },
-    {
-      "item": "hsg_belt",
-      "action": "inspect",
-      "every_km": 15000,
-      "every_months": 12
-    },
-    {
-      "item": "hsg_belt",
-      "action": "replace",
-      "every_km": 105000
-    },
-    {
-      "item": "spark_plugs",
-      "action": "replace",
-      "every_km": 150000
-    },
-    {
-      "item": "dct_oil",
-      "action": "replace",
-      "every_km": 120000,
-      "note": "בתנאי הפעלה קשים בלבד"
-    }
-  ],
-  "time_based": [],
-  "specs": {
-    "_note": "לפי ספר הרכב; לאימות נפחים",
-    "engine_oil": "לפי הספר: שמן מנוע העונה למפרט ACEA A5/B5 או API SN לפי המנוע (בנזין); 0W-20/5W-30",
-    "coolant": "נוזל קירור מבוסס אתילן-גליקול לפי קיה (פוספט), מדולל 50%",
-    "brake_fluid": "DOT 4",
-    "fuel": "בנזין 95 אוקטן",
-    "tire_pressure": "לפי המדבקה בעמוד דלת הנהג",
-    "battery": "מצבר עזר 12V + סוללת מתח גבוה"
-  },
-  "sources": [
-    {
-      "url": "https://cdnmedia.kia-israel.co.il/www/cars-book/NIRO_PHEV_General_Heb_01_%D7%A4%D7%9C%D7%90%D7%92%D7%90%D7%99%D7%9F.pdf",
-      "kind": "importer",
-      "note": "ספר רכב נירו פלאג-אין 2023+ (קיה ישראל) (טבלת התחזוקה בעמודי PDF 460-460)"
-    },
-    {
-      "url": "https://kia-israel.co.il/טיפול-ותחזוקה/טיפולים-לרכב",
-      "kind": "importer",
-      "note": "הצהרת קיה ישראל: טיפול תקופתי כל 15,000 ק\"מ או שנה"
-    }
-  ],
-  "status": "draft",
-  "notes": "הועתק מטבלת 'תכנית תחזוקה רגילה' בספר הרכב בעברית של היבואן. טבלת הספר בנויה בעמודות של 15,000 ק\"מ. I בדיקה, R החלפה. ספר גלובלי עם כמה טבלאות אזוריות. בדיקה חוזרת (סבב 2) מצאה שייתכן שהטבלה שנבחרה (עמ' 460 ב-PDF) היא של אוסטרליה/ניו זילנד ולא 'except Europe' (עמ' 457-458); לאמת לפני סימון reviewed."
+  "time_based": []
 }
