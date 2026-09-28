@@ -1,5 +1,5 @@
-// Minimal offline cache for the app shell. Version: mul28rud
-const CACHE = "tipulit-mul28rud";
+// Minimal offline cache for the app shell. Version: mul2ak6q
+const CACHE = "tipulit-mul2ak6q";
 const ASSETS = ["./", "./index.html", "./data.js", "./lookup.js", "./manifest.webmanifest", "./icon.svg", "./icon-192.png", "./icon-512.png"];
 self.addEventListener("install", e => { e.waitUntil(caches.open(CACHE).then(c => c.addAll(ASSETS)).then(() => self.skipWaiting())); });
 self.addEventListener("activate", e => { e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k !== CACHE).map(k => caches.delete(k)))).then(() => self.clients.claim())); });
