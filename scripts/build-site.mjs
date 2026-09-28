@@ -79,8 +79,9 @@ const welcomeSrc = root + "app/welcome/";
 mkdirSync(out + "welcome", { recursive: true });
 writeFileSync(out + "welcome/index.html", readFileSync(welcomeSrc + "index.html", "utf8")
   .replaceAll("{{MODEL_COUNT}}", String(modelCount)).replace("{{MAKE_COUNT}}", String(makeList.length))
-  .replace("{{MAKES}}", makesHTML).replace("{{MARQUEE}}", marqueeHTML));
-for (const f of ["home.png", "timeline.png"]) copyFileSync(welcomeSrc + f, out + "welcome/" + f);
+  .replace("{{MAKES}}", makesHTML).replace("{{MARQUEE}}", marqueeHTML)
+  .replace(/\{\{ICON:([a-z-]+)\}\}/g, (m, n) => readFileSync(welcomeSrc + "icons/" + n + ".svg", "utf8").replace("<svg ", '<svg aria-hidden="true" focusable="false" ')));
+for (const f of ["home.png", "timeline.png", "condition.png"]) copyFileSync(welcomeSrc + f, out + "welcome/" + f);
 writeFileSync(out + "manifest.webmanifest", JSON.stringify({
   name: "טיפולית", short_name: "טיפולית", lang: "he", dir: "rtl", start_url: "./", scope: "./", display: "standalone",
   background_color: "#f3f5f8", theme_color: "#0E5FD8",
