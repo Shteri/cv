@@ -1020,6 +1020,10 @@ def ty_long(fid):
     m = (re.search(r"שמן ה?מנוע.{0,60}?(?:נורת התראה|אחד מהתנאים).{0,80}?(\d{2}),000 ק\"מ.{0,30}?(\d{2})\s*חודשים", t)
          or re.search(r"שמן ה?מנוע.{0,60}?(?:נורת התראה|אחד מהתנאים).{0,40}?(\d{2}),000 ק\"מ.{0,20}?(שנתיים)", t)
          or re.search(r"שמן ה?מנוע.{0,60}?(?:נורת התראה|אחד מהתנאים).{0,60}?(שנתיים).{0,25}?(\d{2}),000 ק\"מ", t))
+    if not m:  # Hilux 2026 (sheet 368): merged cell "replace every 30,000 km, two years or by the service light"
+        mm = re.search(r"שנתיים או נורת התראה,?\s*מ\"\s*ק\s*(\d{2}),000\s*החלפה כל", t)
+        if mm:
+            m = type("M", (), {"group": (lambda self, i, a=mm.group(1): a if i == 1 else "24")})()
     if not m:
         mm = re.search(r"נורת התראה או כל\s*(\d{2}),000 ק\"מ.{0,15}?(\d{2})\s*חודשים", t)  # Hilux 2015+: oil & filter by indicator or 30,000 / 24 months
         if mm and not re.search(r"בהופעת התראת החלפת שמן|לפי מנורת התראה", t):
