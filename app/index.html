@@ -119,11 +119,8 @@
   <section class="screen" id="s-car" hidden>
     <div class="stack g-4"><h1>מצב הרכב</h1><p class="muted small" id="car-sub"></p></div>
     <div id="car-start"></div>
-    <div class="counts" id="car-counts"></div>
-    <div class="card stack g-6">
-      <div class="row between"><h3>לפי פריט</h3><span class="small muted">מה הוחלף, מתי, ומתי הבא</span></div>
-      <div id="car-state"></div>
-    </div>
+    <div class="tabs" id="car-counts" role="group" aria-label="סינון לפי מצב"></div>
+    <div id="car-state"></div>
     <div class="card stack g-8">
       <div class="row between"><h3>המסמכים שלך</h3><span class="small muted" id="car-docs-n"></span></div>
       <p class="small muted">חשבוניות ישנות? העלה אותן. כל אחת הופכת לרשומה.</p>
@@ -220,6 +217,7 @@
     </div>
   </nav>
 
+  <template id="ic-wrench">{{ICON:wrench}}</template><template id="ic-gauge">{{ICON:gauge}}</template><template id="ic-receipt">{{ICON:receipt}}</template><template id="ic-garage">{{ICON:garage}}</template><template id="ic-check">{{ICON:check}}</template><template id="ic-caret-left">{{ICON:caret-left}}</template>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <div class="sheet" id="log">
@@ -698,22 +696,28 @@
       <div><div>${itemName(r.item)} <span class="small muted">· ${catName[r.cat] || ""}</span></div>
         <div class="sub">${r.done ? `הוחלף ב-${fmt(r.done.km)} ק"מ${r.done.date ? ", " + monthName(new Date(r.done.date + "-01")) : ""}` : `לא ידוע${r.gridNext ? ` · לפי הלוח: ${fmt(r.gridNext)} ק"מ` : ""}`}</div></div>
       <div class="due num">${r.status === "unknown" ? "?" : r.nextKm ? (r.status === "overdue" ? "באיחור · " : "") + fmt(r.nextKm) : r.nextDate ? monthName(r.nextDate) : "✓"}</div></div>`;
+  let carFilter = "all";
   function renderCar() {
     const car = S.cars[S.active]; if (!car) return;
     const s = schedById(car.schedule), rows = carState(car), recs = (car.history || []);
     $("#car-sub").textContent = `${carName(car)} · ${fmt(car.km)} ק"מ${car.gov && car.gov.test_expiry ? ` · טסט עד ${fmtDate(car.gov.test_expiry)}` : ""}`;
     const n = k => rows.filter(r => r.status === k || (k === "ok" && r.status === "done")).length;
-    $("#car-counts").innerHTML = `<div class="c overdue"><b class="num">${n("overdue")}</b><span>באיחור</span></div><div class="c soon"><b class="num">${n("soon")}</b><span>מתקרב</span></div><div class="c ok"><b class="num">${n("ok")}</b><span>בסדר</span></div><div class="c"><b class="num">${n("unknown")}</b><span>לא ידוע</span></div>`;
     // Cold start: nothing is known yet, so lead with how to fill the picture instead of a wall of "?"
     const known = rows.length - n("unknown");
     $("#car-start").innerHTML = known ? "" : startCardHTML();
-    $("#car-counts").hidden = !known;
-    if (!known) { $("#car-state").innerHTML = `<details class="fold"><summary><span>הפריטים שנעקוב אחריהם (${rows.length})</span></summary>${rows.map(stateRow).join("")}</details>`; wireStart($("#car-start")); }
-    else {
-    const attention = rows.filter(r => r.status !== "ok" && r.status !== "done"), fine = rows.filter(r => r.status === "ok" || r.status === "done");
-    $("#car-state").innerHTML = (attention.map(stateRow).join("") || `<p class="small muted">הכל ידוע ובסדר.</p>`) + (fine.length ? `<details class="fold"><summary><span>בסדר (${fine.length})</span></summary>${fine.map(stateRow).join("")}</details>` : "") +
-      (n("unknown") ? `<p class="small muted mt-8">"לא ידוע" = אין רשומה. העלה חשבונית או הוסף רשומה.</p>` : "");
-    }
+    if (!known) wireStart($("#car-start"));
+    // filter tabs with counts; tiles in status order (overdue, soon, unknown, fine)
+    const tabs = [["all", "הכל", rows.length], ["overdue", "באיחור", n("overdue")], ["soon", "מתקרב", n("soon")], ["ok", "בסדר", n("ok")], ["unknown", "לא ידוע", n("unknown")]];
+    const f = carFilter;
+    $("#car-counts").innerHTML = tabs.map(([k, label, c]) => `<button class="tab ${k}" data-f="${k}" aria-pressed="${f === k}"${c || k === "all" ? "" : " disabled"}>${label}<b class="num">${c}</b></button>`).join("");
+    const shown = rows.filter(r => f === "all" || (f === "ok" ? r.status === "ok" || r.status === "done" : r.status === f));
+    $("#car-state").innerHTML = `<div class="tiles">${shown.map(r => { const st = r.status === "done" ? "ok" : r.status; return `<article class="tile ${st}">
+        <span class="t-cat">${catName[r.cat] || ""}</span>
+        <b class="t-name">${itemName(r.item)}</b>
+        <span class="t-due num">${dueText(r)}</span>
+        ${st === "unknown" ? `<span class="t-sub">${r.gridNext ? `לפי הלוח: ${fmt(r.gridNext)} ק"מ` : "אין רשומה"}</span>` : gaugeHTML(lifeLeft(r, car)) || `<span class="t-sub">${r.done ? "הוחלף ב-" + fmt(r.done.km) : ""}</span>`}
+      </article>`; }).join("")}</div>` + (n("unknown") && f !== "ok" ? `<p class="small muted mt-8">"לא ידוע" = אין רשומה. העלה חשבונית או רשום טיפול, והפריט יתעדכן.</p>` : "");
+    $$("#car-counts .tab").forEach(t => t.onclick = () => { carFilter = t.dataset.f; renderCar(); });
     const docs = recs.flatMap(r => (r.receipts || (r.receipt ? [r.receipt] : [])).map(t => ({ t, r })));
     $("#car-docs-n").textContent = docs.length ? `${docs.length} מסמכים` : "";
     $("#car-docs").innerHTML = docs.map(d => `<button title="${d.r.kind === "service" ? "טיפול " + fmt(d.r.svcKm || d.r.km) : d.r.text}"><img src="${d.t}" alt="חשבונית"><span class="lb num">${d.r.date || fmt(d.r.km)}</span></button>`).join("");
@@ -752,57 +756,94 @@
       ${s.specs._note ? `<p class="small muted mt-8">${s.specs._note}</p>` : ""}</details>`; };
 
   // ---------- home ----------
+  // ---------- home: an instrument cluster, then what needs attention, then the next service ----------
+  const icon = n => ($("#ic-" + n) || { innerHTML: "" }).innerHTML;
+  // share of an item's interval still left (0..1), from km or from time; null when unknown
+  const lifeLeft = (r, car) => {
+    if (!r.done) return null;
+    if (r.p.km && r.nextKm) return Math.max(0, Math.min(1, (r.nextKm - car.km) / r.p.km));
+    if (r.p.months && r.nextDate) { const d0 = new Date(r.done.date + "-01"), span = r.nextDate - d0; return span > 0 ? Math.max(0, Math.min(1, (r.nextDate - new Date()) / span)) : 0; }
+    return null;
+  };
+  const gaugeHTML = f => f === null ? "" : `<span class="life" aria-hidden="true">${Array.from({ length: 10 }, (_, i) => `<i class="${i < Math.round(f * 10) ? "on" : ""}"></i>`).join("")}</span>`;
+  const dueText = r => r.status === "unknown" ? "לא ידוע" : r.nextKm ? `${r.status === "overdue" ? "היה ב-" : ""}${fmt(r.nextKm)} ק"מ` : r.nextDate ? `${r.status === "overdue" ? "באיחור מ" : ""}${monthName(r.nextDate)}` : "הוחלף";
+  // a ring split into status arcs; geometry is data, colours come from CSS classes
+  const condRingHTML = (counts, total) => { const R = 46, C = 2 * Math.PI * R, gap = total > 1 ? 3 : 0; let at = 0;
+    return `<svg viewBox="0 0 108 108" aria-hidden="true"><circle class="ring-track" cx="54" cy="54" r="${R}"/>${["overdue", "soon", "ok", "unknown"].map(k => { const len = C * (counts[k] || 0) / total; const seg = len > gap ? `<circle class="seg ${k}" cx="54" cy="54" r="${R}" stroke-dasharray="${len - gap} ${C}" stroke-dashoffset="${-at}"/>` : ""; at += len; return seg; }).join("")}</svg>`; };
   function renderHome() {
     const car = S.cars[S.active]; if (!car) return;
-    const n = computeNext(car);
-    const r = 46, c = 2 * Math.PI * r;
-    const statusText = n.level === "crit" ? "הגיע הזמן לטיפול" : n.level === "warn" ? "מתקרב" : "בזמן";
-    const timeLine = n.byTime && n.byTime <= n.dueDate
-      ? `לפי הזמן: עד ${monthName(n.byTime)} (${n.s.interval.months} חודשים מהטיפול האחרון)`
-      : `בערך ${monthName(n.dueDate)}, לפי ${fmt(car.kmMonth)} ק"מ בחודש`;
+    const n = computeNext(car), rows = carState(car);
+    const cnt = { overdue: 0, soon: 0, ok: 0, unknown: 0 }; rows.forEach(r => cnt[r.status === "done" ? "ok" : r.status]++);
+    const known = rows.length - cnt.unknown, attn = rows.filter(r => r.status === "overdue" || r.status === "soon");
+    const R = 46, C = 2 * Math.PI * R;
+    const statusText = n.level === "crit" ? "הגיע הזמן" : n.level === "warn" ? "מתקרב" : "בזמן";
+    const when = n.byTime && n.byTime <= n.dueDate ? `עד ${monthName(n.byTime)}` : `בערך ב${monthName(n.dueDate)}`;
     const hello = S.user && S.user.via === "google" ? `היי ${S.user.name}` : "היי";
+    const rep = n.svc.items.filter(i => i.action === "replace"), chk = n.svc.items.length - rep.length;
     $("#home-avatar").textContent = (S.user && S.user.name[0]) || "א";
     $("#home-body").innerHTML = `
-      <div class="car-head"><div class="stack g-2"><p class="eyebrow">${hello}</p><h1 class="car-title">${carName(car)}</h1></div>${car.plate ? plateHTML(car.plate) : ""}</div>
-      <div class="card car-card">
-        ${car.gov && car.gov.test_expiry ? `<div class="row between small"><span class="muted">טסט בתוקף עד</span><b class="num">${fmtDate(car.gov.test_expiry)}</b></div>` : ""}
-        <div class="row between wraps g-10"><div class="stack g-2"><span class="eyebrow">על השעון</span>${odoHTML(car.km)}</div>${car.gov && car.gov.km_last_test ? `<span class="small muted num">בטסט האחרון: ${fmt(car.gov.km_last_test)}</span>` : ""}</div>
-        <div class="row g-8">
-          <button class="btn secondary compact" id="upd-km">עדכן ק"מ</button>
-          <button class="btn secondary compact" id="done-svc">עשיתי טיפול</button>
-        </div>
+      <div class="car-hero">
+        <div class="stack g-4"><p class="eyebrow">${hello}</p><h1 class="car-title">${carName(car)}</h1></div>
+        ${car.plate ? plateHTML(car.plate) : ""}
       </div>
-      ${carSummaryHTML(car)}
-      <div class="card ink stack g-14">
-        <div class="row between"><p class="eyebrow">הטיפול הבא</p><span class="status ${n.level}">${statusText}</span></div>
-        <div class="hero">
-          <div class="stack g-6">
-            <div><span class="big num">${fmt(n.nextKm)}</span> <span class="muted">ק"מ</span></div>
-            <p class="small"><b class="num">${n.remainKm > 0 ? "עוד " + fmt(n.remainKm) : "באיחור של " + fmt(-n.remainKm)}</b> ק"מ</p>
-            <p class="small muted">${timeLine}</p>
-          </div>
-          <div class="ring" aria-hidden="true">
-            <svg viewBox="0 0 108 108"><circle class="ring-track" cx="54" cy="54" r="${r}"/>
-              <circle class="ring-fill ${n.level}" cx="54" cy="54" r="${r}" stroke-dasharray="${c}" stroke-dashoffset="${c * (1 - n.progress)}"/></svg>
-            <div class="lbl"><div><b class="num">${Math.round(n.progress * 100)}%</b><br><span class="small muted">מהדרך</span></div></div>
-          </div>
+
+      <section class="cluster" aria-label="לוח מחוונים">
+        <button class="dial" data-go="tl" aria-label="הטיפול הבא: ${fmt(n.nextKm)} קילומטר, ${statusText}">
+          <span class="ring dial-ring">
+            <svg viewBox="0 0 108 108" aria-hidden="true"><circle class="ring-track" cx="54" cy="54" r="${R}"/><circle class="ring-fill ${n.level}" cx="54" cy="54" r="${R}" stroke-dasharray="${C}" stroke-dashoffset="${C * (1 - n.progress)}"/></svg>
+            <span class="dial-c"><b class="num">${n.remainKm > 0 ? fmt(n.remainKm) : fmt(-n.remainKm)}</b><small>${n.remainKm > 0 ? 'ק"מ לטיפול' : 'ק"מ באיחור'}</small></span>
+          </span>
+          <span class="dial-t">טיפול <b class="num">${fmt(n.nextKm)}</b></span>
+          <span class="status ${n.level}">${statusText}</span>
+        </button>
+        <button class="dial" id="to-car" aria-label="מצב הרכב">
+          <span class="ring dial-ring">${known ? condRingHTML(cnt, rows.length) : `<svg viewBox="0 0 108 108" aria-hidden="true"><circle class="ring-track dashed" cx="54" cy="54" r="${R}"/></svg>`}
+            <span class="dial-c"><b class="num">${!known ? "?" : attn.length || "✓"}</b><small>${!known ? "עוד לא ידוע" : attn.length ? (attn.length === 1 ? "דורש טיפול" : "דורשים טיפול") : "הכל מעודכן"}</small></span>
+          </span>
+          <span class="dial-t">מצב הרכב</span>
+          <span class="legend">${known ? `<i class="overdue">${cnt.overdue}</i><i class="soon">${cnt.soon}</i><i class="ok">${cnt.ok}</i><i class="unknown">${cnt.unknown}</i>` : `<i class="unknown">${rows.length} פריטים</i>`}</span>
+        </button>
+        <div class="cluster-foot">
+          <span><span class="lbl">על השעון</span>${odoHTML(car.km)}</span>
+          ${car.gov && car.gov.test_expiry ? `<span class="test-line"><span class="lbl">טסט עד</span><b class="num">${fmtDate(car.gov.test_expiry)}</b></span>` : `<span class="test-line"><span class="lbl">${when}</span></span>`}
         </div>
-        <div class="stack g-6">
-          <p class="small"><b>מה כולל טיפול ${fmt(n.svc.km)}:</b></p>
-          ${itemsHTML(n.svc.items.filter(i => i.action === "replace"))}
-          <button class="btn ghost fit self-start flush-start" data-go="tl">לכל הפריטים והבדיקות</button>
-        </div>
-        ${priceHTML(n.s, n.svc)}
-        <button class="btn primary" id="to-garage">מה לוודא במוסך</button>
-      </div>
+      </section>
+
+      <nav class="dock" aria-label="פעולות מהירות">
+        <button id="done-svc">${icon("wrench")}<span>עשיתי טיפול</span></button>
+        <button id="upd-km">${icon("gauge")}<span>עדכן ק"מ</span></button>
+        <label for="car-upload" tabindex="0">${icon("receipt")}<span>חשבונית</span></label>
+        <button id="dock-garages">${icon("garage")}<span>מוסך</span></button>
+      </nav>
+
+      ${!known ? startCardHTML() : attn.length ? `
+      <section class="stack g-10" aria-label="דורש טיפול">
+        <div class="row between"><h2>דורש טיפול</h2><button class="btn ghost fit bare" data-go="car">כל הפריטים</button></div>
+        <div class="attn-rail">${attn.map(r => `<article class="attn-card ${r.status}">
+            <span class="st">${r.status === "overdue" ? "באיחור" : "מתקרב"}</span>
+            <b>${itemName(r.item)}</b>
+            <span class="due num">${dueText(r)}</span>
+            ${gaugeHTML(lifeLeft(r, car))}
+          </article>`).join("")}</div>
+      </section>` : `<p class="all-good">${icon("check")}<span>אין פריטים באיחור או שמתקרבים.</span></p>`}
+
+      <section class="card next-card stack g-12" aria-label="הטיפול הבא">
+        <div class="row between"><div class="stack g-2"><p class="eyebrow">הטיפול הבא · ${when}</p><h2 class="num">${fmt(n.nextKm)} ק"מ</h2></div><span class="status ${n.level}">${statusText}</span></div>
+        <div class="item-chips">${rep.map(i => `<span>${itemName(i.item)}</span>`).join("")}${chk ? `<span class="more-chip">+ ${chk} בדיקות</span>` : ""}</div>
+        <details class="fold price-fold"><summary><span>כמה זה עולה</span></summary>${priceHTML(n.s, n.svc)}</details>
+        <div class="row g-8"><button class="btn primary" id="to-garage">מה לוודא במוסך</button><button class="btn secondary fit" data-go="tl">כל הטיפולים</button></div>
+      </section>
+
       ${(n.s.long_interval || []).filter(l => { const x = longNext(l, car.km); return x && x - car.km <= 15000; }).map(l => `<div class="banner">בקרוב גם: ${itemName(l.item)} (${longText(l)})</div>`).join("")}
       ${n.s.status === "draft" ? `<div class="banner">לוח בטיוטה: המרווח לפי היבואן, התכולה עדיין באימות.</div>` : ""}
       ${garagesHomeHTML(car)}
       ${specsHTML(n.s)}`;
     $("#upd-km").onclick = openSheet;
-    const tc = $("#to-car"); if (tc) tc.onclick = () => show("s-car");
+    $("#to-car").onclick = () => show("s-car");
     wireStart($("#home-body"));
-    const tg = $("#to-garages"); if (tg) tg.onclick = () => { renderGarages(); show("s-garages"); if (!S.city) openCitySheet(); };
+    const toGarages = () => { renderGarages(); show("s-garages"); if (!S.city) openCitySheet(); };
+    $("#dock-garages").onclick = toGarages;
+    const tg = $("#to-garages"); if (tg) tg.onclick = toGarages;
     const gp = $("#gr-pick"); if (gp) gp.onclick = () => { renderGarages(); show("s-garages"); openCitySheet(); };
     if (GD) wireClaims($("#home-body"));
     $("#to-garage").onclick = () => { show("s-tl"); const el = $(".tl-item.next"); if (el) el.scrollIntoView({ block: "start" }); };

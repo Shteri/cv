@@ -87,6 +87,11 @@ Numbers use `font-variant-numeric: tabular-nums` and `Intl.NumberFormat("he-IL")
 | `{radius.plate}` | 8px (mini) / 10px (input) | licence plate |
 
 ## Components
+- **Instrument cluster** (home, `.cluster`): a graphite panel, the same in both themes, with two dials. The next-service dial is a progress ring with km to go in the centre. The condition dial is a ring split into status arcs (overdue, approaching, fine, unknown) with the number of items that need attention in the centre. The odometer and test expiry sit in its footer. Both dials are buttons: next service opens the timeline, condition opens the car screen.
+- **Dock** (`.dock`): four quick actions (log a service, update km, invoice, garage) as equal tiles with a Phosphor icon on a yellow square.
+- **Attention rail** (`.attn-rail`, `.attn-card`): swipeable cards for overdue and approaching items, with a status strip, the due km or month and a remaining-life bar. When nothing needs attention, a green `.all-good` line replaces it; with no records at all, the start card does.
+- **Next-service card** (`.next-card`): km and status, the items to replace as chips, the price folded away, then "מה לוודא במוסך".
+- **Car screen**: sticky filter tabs with counts (`.tabs`, `.tab`), then a two-column tile grid (`.tiles`, `.tile`), one tile per item, with a top strip in the status colour, the due value and a remaining-life bar.
 - **Bottom nav**: a floating glass bar 12px from the edges; four tabs (בית, הרכב, ציר טיפולים, אני); the active tab gets a surface-2 pill and its icon sits on a yellow rounded square.
 - **Condition summary** (home, above the next-service card): four count tiles (באיחור, מתקרב, בסדר, לא ידוע) and up to three rows that need attention. The overdue tile turns crit-soft when above zero.
 - **Condition row**: 10px status dot, item name with category, one-line history, due km or month on the left in Rubik.

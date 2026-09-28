@@ -1,6 +1,6 @@
 # Tipulit: notes for agents
 
-Hebrew RTL PWA that tracks a car's condition and maintenance schedule in Israel. Read `HANDOFF.md` for product context and `DESIGN.md` for the design system before changing UI.
+Hebrew RTL PWA that tracks a car's condition and maintenance schedule in Israel. Read `HANDOFF.md` (section 0 is the current design state and rules, kept up to date by the design agent) and `DESIGN.md` before changing UI.
 
 ## Keep content and design apart
 - Visual rules live only in `app/styles/tokens.css` (all literals), `app/styles/app.css` (app) and `app/welcome/welcome.css` (landing).

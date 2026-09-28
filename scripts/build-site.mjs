@@ -8,7 +8,9 @@ const src = readFileSync(root + "app/index.html", "utf8");
 const title = (src.match(/<title>(.*?)<\/title>/) || [, "Tipulit"])[1];
 // Stylesheet links in the fragment move to <head> so tokens and components load before first paint.
 const headLinks = (src.match(/<link [^>]*>/g) || []).join("\n");
-const body = src.replace(/<title>.*?<\/title>\s*/, "").replace(/<link [^>]*>\s*/g, "");
+// {{ICON:name}} placeholders inline Phosphor icons from app/icons/ (colour comes from CSS via currentColor)
+const inlineIcon = n => readFileSync(root + "app/icons/" + n + ".svg", "utf8").replace("<svg ", '<svg aria-hidden="true" focusable="false" ');
+const body = src.replace(/<title>.*?<\/title>\s*/, "").replace(/<link [^>]*>\s*/g, "").replace(/\{\{ICON:([a-z-]+)\}\}/g, (m, n) => inlineIcon(n));
 const html = `<!doctype html>
 <html lang="he" dir="rtl">
 <head>

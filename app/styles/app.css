@@ -117,7 +117,7 @@ input, select, textarea { font: inherit; color: var(--ink); }
 .big { font-family: var(--font-display); font-weight: 800; font-size: 2.8rem; line-height: 1; letter-spacing: -.04em; }
 .ring { width: 112px; height: 112px; position: relative; }
 .ring svg { width: 100%; height: 100%; transform: rotate(-90deg); }
-.ring circle + circle { transition: stroke-dashoffset 1.2s var(--ease); filter: drop-shadow(0 0 6px color-mix(in srgb, var(--accent) 35%, transparent)); }
+.ring circle + circle { transition: stroke-dashoffset 1.2s var(--ease); }
 .ring .lbl { position: absolute; inset: 0; display: grid; place-items: center; text-align: center; line-height: 1.1; }
 .ring .lbl b { font-family: var(--font-display); font-size: 1.35rem; }
 .status { display: inline-flex; align-items: center; gap: 6px; padding: 5px 11px; border-radius: 999px; font-size: .8rem; font-weight: 600; white-space: nowrap; }
@@ -344,3 +344,84 @@ label.btn { cursor: pointer; }
 .row > .btn.fit { flex: none; }
 /* cold-start card: the first thing a new user should do, in the accent */
 .card.start { border-color: color-mix(in srgb, var(--accent) 45%, var(--line)); background: radial-gradient(120% 90% at 100% 0%, color-mix(in srgb, var(--accent) 12%, transparent), transparent 60%), var(--surface); }
+
+/* ======================= home: instrument cluster ======================= */
+.car-hero { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; padding-top: 4px; }
+.cluster { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 6px 10px; padding: 18px 12px 14px; border-radius: var(--r-panel); color: var(--hero-ink); overflow: hidden;
+  background: radial-gradient(90% 70% at 50% 0%, color-mix(in srgb, var(--accent) 16%, transparent), transparent 65%), var(--hero-bg);
+  border: 1px solid color-mix(in srgb, var(--white) 8%, transparent);
+  box-shadow: 0 30px 60px -30px color-mix(in srgb, var(--shade) 70%, transparent), inset 0 1px 0 color-mix(in srgb, var(--white) 8%, transparent); }
+.dial { display: grid; justify-items: center; gap: 6px; padding: 6px 4px 8px; border-radius: 20px; color: inherit; transition: background-color .25s ease, transform .35s var(--spring); }
+.dial:active { transform: scale(.96); }
+@media (hover: hover) { .dial:hover { background: color-mix(in srgb, var(--white) 5%, transparent); } }
+.ring.dial-ring { width: min(132px, 36vw); height: min(132px, 36vw); }
+.ring .seg { fill: none; stroke-width: 10; }
+.ring .seg.overdue { stroke: var(--ring-crit); } .ring .seg.soon { stroke: var(--ring-warn); } .ring .seg.ok { stroke: var(--hero-good); } .ring .seg.unknown { stroke: color-mix(in srgb, var(--white) 22%, transparent); }
+.ring .ring-track.dashed { stroke-dasharray: 3 7; stroke: color-mix(in srgb, var(--white) 25%, transparent); }
+.dial-c { position: absolute; inset: 0; display: grid; place-content: center; text-align: center; gap: 2px; }
+.dial-c b { font: 800 1.55rem/1 var(--font-display); letter-spacing: -.03em; color: var(--hero-ink); }
+.dial-c small { font-size: .7rem; color: color-mix(in srgb, var(--hero-ink) 62%, transparent); }
+.dial-t { font-size: .9rem; color: color-mix(in srgb, var(--hero-ink) 75%, transparent); }
+.dial-t b { font-family: var(--font-display); color: var(--hero-ink); }
+.cluster .status.good { background: color-mix(in srgb, var(--hero-good) 16%, transparent); color: var(--hero-good); }
+.cluster .status.warn { background: color-mix(in srgb, var(--ring-warn) 18%, transparent); color: var(--hero-warn); }
+.cluster .status.crit { background: color-mix(in srgb, var(--ring-crit) 18%, transparent); color: var(--hero-crit); }
+.legend { display: flex; gap: 10px; font: 600 .82rem/1 var(--font-display); color: color-mix(in srgb, var(--hero-ink) 80%, transparent); min-height: 26px; align-items: center; }
+.legend i { font-style: normal; display: inline-flex; align-items: center; gap: 5px; }
+.legend i::before { content: ""; width: 7px; height: 7px; border-radius: 2px; background: currentColor; }
+.legend .overdue::before { background: var(--ring-crit); } .legend .soon::before { background: var(--ring-warn); } .legend .ok::before { background: var(--hero-good); } .legend .unknown::before { background: color-mix(in srgb, var(--white) 30%, transparent); }
+.cluster-foot { grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; padding: 12px 6px 0; margin-top: 4px; border-top: 1px solid color-mix(in srgb, var(--white) 9%, transparent); }
+.cluster-foot .lbl { display: block; font-size: .72rem; color: color-mix(in srgb, var(--hero-ink) 55%, transparent); margin-bottom: 4px; }
+.cluster-foot b { font-family: var(--font-display); }
+.cluster .odometer span { background: color-mix(in srgb, var(--white) 7%, transparent); color: var(--hero-ink); border-color: color-mix(in srgb, var(--white) 10%, transparent); box-shadow: none; }
+.test-line { text-align: end; }
+
+/* quick actions */
+.dock { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+.dock > button, .dock > label { display: grid; justify-items: center; gap: 6px; padding: 14px 4px 12px; border-radius: 18px; background: var(--surface); border: 1px solid var(--line); box-shadow: var(--edge); font-size: clamp(.7rem, 3.2vw, .8rem); white-space: nowrap; font-weight: 600; cursor: pointer; text-align: center; transition: transform .35s var(--spring), border-color .2s ease; }
+.dock > :active { transform: scale(.94); }
+@media (hover: hover) { .dock > :hover { border-color: var(--line-strong); } }
+.dock svg { width: 26px; height: 26px; padding: 4px; border-radius: 10px; background: var(--accent); color: var(--accent-ink); box-sizing: content-box; }
+
+/* what needs attention: a swipe rail */
+.attn-rail { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(200px, 72%); gap: 10px; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; scrollbar-width: none; margin-inline: -16px; padding: 2px 16px 6px; scroll-padding-inline: 16px; }
+.attn-rail::-webkit-scrollbar { display: none; }
+.attn-card { scroll-snap-align: start; display: grid; gap: 6px; align-content: start; padding: 14px 16px; border-radius: 18px; background: var(--surface); border: 1px solid var(--line); box-shadow: var(--edge), inset 0 3px 0 var(--c, var(--line)); }
+.attn-card.overdue { --c: var(--crit); } .attn-card.soon { --c: var(--warn); }
+.attn-card .st { justify-self: start; font-size: .72rem; font-weight: 700; padding: 3px 9px; border-radius: var(--r-pill); color: var(--c); background: color-mix(in srgb, var(--c) 14%, transparent); }
+.attn-card b { font: 700 1.1rem/1.2 var(--font-display); }
+.attn-card .due { font-size: .88rem; color: var(--muted); }
+.life { display: flex; gap: 3px; margin-top: 2px; }
+.life i { width: 12px; height: 5px; border-radius: 2px; background: var(--line); }
+.life i.on { background: var(--good); }
+.attn-card.soon .life i.on { background: var(--warn); }
+.all-good { display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-radius: 16px; background: var(--good-soft); color: var(--good); font-weight: 600; font-size: .92rem; }
+.all-good svg { width: 20px; height: 20px; flex: none; }
+
+/* next service, compact */
+.next-card h2 { font-size: 1.6rem; letter-spacing: -.03em; }
+.item-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.item-chips span { font-size: .85rem; font-weight: 500; padding: 6px 12px; border-radius: var(--r-pill); background: var(--accent-soft); color: var(--accent-text); }
+.item-chips .more-chip { background: var(--surface-2); color: var(--muted); }
+.price-fold > summary { font-size: .92rem; }
+
+/* ======================= car: filter tabs + tiles ======================= */
+.tabs { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; margin-inline: -16px; padding: 2px 16px; position: sticky; top: 0; z-index: 2; background: var(--ground); padding-block: 8px; }
+.tabs::-webkit-scrollbar { display: none; }
+.tab { flex: none; display: inline-flex; align-items: center; gap: 7px; min-height: 40px; padding: 8px 14px; border-radius: var(--r-pill); border: 1.5px solid var(--line); background: var(--surface); font-weight: 600; font-size: .9rem; transition: background-color .2s ease, border-color .2s ease, transform .3s var(--spring); }
+.tab b { font: 700 .8rem/1 var(--font-display); padding: 3px 7px; border-radius: var(--r-pill); background: var(--surface-2); }
+.tab.overdue b { color: var(--crit); } .tab.soon b { color: var(--warn); } .tab.ok b { color: var(--good); } .tab.unknown b { color: var(--faint); }
+.tab:active { transform: scale(.94); }
+.tab[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--ground); }
+.tab[aria-pressed="true"] b { background: color-mix(in srgb, var(--ground) 18%, transparent); }
+.tab:disabled { opacity: .45; }
+.tiles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.tile { position: relative; display: grid; gap: 4px; align-content: start; min-height: 128px; padding: 14px; border-radius: 18px; background: var(--surface); border: 1px solid var(--line); box-shadow: var(--edge), inset 0 3px 0 var(--c, transparent); overflow-wrap: anywhere; animation: tile-in .4s var(--ease) backwards; }
+@keyframes tile-in { from { opacity: 0; transform: translateY(6px); } }
+.tile.overdue { --c: var(--crit); } .tile.soon { --c: var(--warn); } .tile.ok { --c: var(--good); } .tile.unknown { --c: var(--line); }
+.tile .t-cat { font-size: .72rem; color: var(--faint); }
+.tile .t-name { font: 600 1rem/1.25 var(--font-display); }
+.tile .t-due { margin-top: auto; font: 700 1rem/1.2 var(--font-display); color: var(--c); }
+.tile.unknown .t-due { color: var(--faint); font-weight: 600; }
+.tile .t-sub { font-size: .78rem; color: var(--muted); }
+.tile.overdue { background: color-mix(in srgb, var(--crit) 7%, var(--surface)); }
