@@ -6,6 +6,10 @@
 <meta name="theme-color" content="#0E5FD8">
 <meta name="description" content="הטיפול הבא לרכב שלך לפי ספר היבואן, ומה לוודא במוסך.">
 <title>טיפולית</title>
+<meta property="og:title" content="טיפולית">
+<meta property="og:description" content="הטיפול הבא לרכב שלך לפי ספר היבואן, ומה לוודא במוסך.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="icon-512.png">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="icon-192.png">
@@ -24,12 +28,12 @@
   :root {
     --ground: #F3F5F8; --surface: #FFFFFF; --surface-2: #EAF0F7;
     --ink: #15202B; --muted: #5E6B78; --line: #D9E0E8;
-    --accent: #0E5FD8; --accent-ink: #FFFFFF; --accent-soft: #E3EDFC;
+    --accent: #215FBA; --accent-ink: #FFFFFF; --accent-soft: #E4ECF8; --accent-deep: #1A4C95;
     --plate: #F7C948; --plate-ink: #1A1A1A;
     --good: #1E8A55; --good-soft: #DFF3E8;
     --warn: #B96E00; --warn-soft: #FBEFD6;
     --crit: #C4383A; --crit-soft: #FBE3E3;
-    --shadow: 0 8px 24px rgba(21, 32, 43, .08);
+    --shadow: 0 10px 28px rgba(33, 95, 186, .10), 0 1px 2px rgba(33, 95, 186, .06);
     --radius: 18px;
   }
   @media (prefers-color-scheme: dark) {
@@ -37,22 +41,22 @@
       color-scheme: dark;
       --ground: #0E141B; --surface: #172029; --surface-2: #1F2A35;
       --ink: #EDF2F7; --muted: #9AA8B6; --line: #2B3844;
-      --accent: #5C9EFF; --accent-ink: #0B1420; --accent-soft: #1B2D45;
+      --accent: #6FA3EA; --accent-ink: #0B1420; --accent-soft: #1B2D45; --accent-deep: #8CB6F0;
       --good: #4CC183; --good-soft: #163526;
       --warn: #F0B04A; --warn-soft: #3A2C10;
       --crit: #F07173; --crit-soft: #3F1D1E;
-      --shadow: 0 8px 24px rgba(0, 0, 0, .35);
+      --shadow: 0 10px 28px rgba(0, 0, 0, .35), 0 1px 2px rgba(0, 0, 0, .3);
     }
   }
   :root[data-theme="dark"] {
     color-scheme: dark;
     --ground: #0E141B; --surface: #172029; --surface-2: #1F2A35;
     --ink: #EDF2F7; --muted: #9AA8B6; --line: #2B3844;
-    --accent: #5C9EFF; --accent-ink: #0B1420; --accent-soft: #1B2D45;
+    --accent: #6FA3EA; --accent-ink: #0B1420; --accent-soft: #1B2D45; --accent-deep: #8CB6F0;
     --good: #4CC183; --good-soft: #163526;
     --warn: #F0B04A; --warn-soft: #3A2C10;
     --crit: #F07173; --crit-soft: #3F1D1E;
-    --shadow: 0 8px 24px rgba(0, 0, 0, .35);
+    --shadow: 0 10px 28px rgba(0, 0, 0, .35), 0 1px 2px rgba(0, 0, 0, .3);
   }
   html, body { height: 100%; }
   body {
@@ -62,10 +66,12 @@
   }
   * { box-sizing: border-box; }
   h1, h2, h3 { font-family: "Rubik", "Heebo", Arial, sans-serif; font-weight: 600; margin: 0; text-wrap: balance; line-height: 1.25; }
-  h1 { font-size: 1.7rem; } h2 { font-size: 1.25rem; } h3 { font-size: 1.05rem; }
+  h1 { font-size: 1.75rem; letter-spacing: -0.015em; } h2 { font-size: 1.25rem; } h3 { font-size: 1.05rem; }
   p { margin: 0; }
   button { font: inherit; color: inherit; cursor: pointer; border: 0; background: none; }
-  button:focus-visible, input:focus-visible, select:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+  button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+  .skip { position: absolute; top: -48px; right: 16px; background: var(--accent); color: var(--accent-ink); padding: 8px 12px; border-radius: 8px; z-index: 20; }
+  .skip:focus { top: 8px; }
   input, select { font: inherit; color: var(--ink); }
   .num { font-variant-numeric: tabular-nums; }
 
@@ -76,9 +82,14 @@
   .brand { display: flex; align-items: center; gap: 10px; font-family: "Rubik", sans-serif; font-weight: 700; font-size: 1.15rem; }
   .brand .mark { width: 34px; height: 34px; border-radius: 10px; background: var(--accent); color: var(--accent-ink); display: grid; place-items: center; font-size: 1rem; }
 
-  .btn { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 14px 18px; border-radius: 14px; font-weight: 600; font-size: 1rem; transition: transform .08s ease, opacity .15s ease; }
-  .btn:active { transform: scale(.985); }
-  .btn.primary { background: var(--accent); color: var(--accent-ink); }
+  .btn { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 14px 18px; border-radius: 14px; font-weight: 600; font-size: 1rem; transition: transform .12s ease, background-color .2s ease, border-color .2s ease, box-shadow .2s ease, opacity .15s ease; }
+  .btn:active { transform: scale(.985) translateY(1px); }
+  @media (hover: hover) { .btn.primary:hover { background: var(--accent-deep); box-shadow: 0 6px 16px rgba(33, 95, 186, .25); } .btn.secondary:hover { background: var(--surface-2); border-color: var(--muted); } .btn.ghost:hover { color: var(--ink); } .chip:hover { border-color: var(--accent); } .tl-head:hover .km { color: var(--accent); } }
+  .btn.primary { background: var(--accent); color: var(--accent-ink); box-shadow: 0 2px 6px rgba(33, 95, 186, .18); }
+  .btn.busy { position: relative; color: transparent; }
+  .btn.busy::after { content: attr(data-busy); position: absolute; inset: 0; display: grid; place-items: center; color: var(--accent-ink); animation: pulse 1.2s ease-in-out infinite; }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .55; } }
+  .err { color: var(--crit); font-size: .85rem; }
   .btn.secondary { background: var(--surface); color: var(--ink); border: 1.5px solid var(--line); }
   .btn.ghost { color: var(--muted); padding: 10px; }
   .btn:disabled { opacity: .45; cursor: not-allowed; }
@@ -93,7 +104,7 @@
   .eyebrow { font-size: .75rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
 
   /* Onboarding */
-  .onb-art { height: 220px; border-radius: 24px; background: var(--surface-2); display: grid; place-items: center; overflow: hidden; }
+  .onb-art { height: 220px; border-radius: 24px; background: radial-gradient(120% 90% at 20% 0%, var(--accent-soft) 0%, var(--surface-2) 60%); display: grid; place-items: center; overflow: hidden; }
   .onb-art svg { width: 100%; height: 100%; }
   .dots { display: flex; gap: 6px; justify-content: center; }
   .dots span { width: 8px; height: 8px; border-radius: 50%; background: var(--line); transition: width .2s; }
@@ -113,7 +124,7 @@
   .field input, .field select { padding: 13px 14px; border: 1.5px solid var(--line); border-radius: 12px; background: var(--surface); width: 100%; }
   .field .hint { font-size: .8rem; color: var(--muted); }
   .chips { display: flex; flex-wrap: wrap; gap: 8px; }
-  .chip { padding: 8px 14px; border-radius: 999px; border: 1.5px solid var(--line); background: var(--surface); font-size: .9rem; font-weight: 500; }
+  .chip { padding: 8px 14px; border-radius: 999px; border: 1.5px solid var(--line); background: var(--surface); font-size: .9rem; font-weight: 500; transition: border-color .2s ease, background-color .2s ease; }
   .chip.on { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
 
   /* Car card */
@@ -128,7 +139,7 @@
   .ring svg { width: 100%; height: 100%; transform: rotate(-90deg); }
   .ring .lbl { position: absolute; inset: 0; display: grid; place-items: center; text-align: center; line-height: 1.1; }
   .ring .lbl b { font-family: "Rubik", sans-serif; font-size: 1.3rem; }
-  .big { font-family: "Rubik", sans-serif; font-weight: 700; font-size: 2rem; line-height: 1; }
+  .big { font-family: "Rubik", sans-serif; font-weight: 700; font-size: 2.25rem; line-height: 1; letter-spacing: -0.02em; }
   .status { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px; font-size: .8rem; font-weight: 600; }
   .status.good { background: var(--good-soft); color: var(--good); }
   .status.warn { background: var(--warn-soft); color: var(--warn); }
@@ -171,7 +182,7 @@
   .nav svg { width: 24px; height: 24px; }
 
   .topbar { display: flex; justify-content: space-between; align-items: center; }
-  .avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--accent-soft); color: var(--accent); display: grid; place-items: center; font-weight: 700; font-family: "Rubik", sans-serif; }
+  .avatar { width: 38px; height: 38px; border-radius: 12px; background: var(--accent-soft); color: var(--accent); display: grid; place-items: center; font-weight: 700; font-family: "Rubik", sans-serif; }
   .toggle { width: 46px; height: 26px; border-radius: 999px; background: var(--line); position: relative; transition: background .2s; flex: none; }
   .toggle::after { content: ""; position: absolute; top: 3px; right: 3px; width: 20px; height: 20px; border-radius: 50%; background: var(--surface); transition: transform .2s; box-shadow: 0 1px 3px rgba(0,0,0,.25); }
   .toggle.on { background: var(--good); }
@@ -211,6 +222,8 @@
 </style>
 
 <div id="app">
+  <a class="skip" href="#main">דלג לתוכן</a>
+  <main id="main" style="display:contents">
 
   <!-- ONBOARDING -->
   <section class="screen no-nav" id="s-onb" hidden>
@@ -258,7 +271,8 @@
         <span class="il">IL</span>
         <input id="plate" inputmode="numeric" autocomplete="off" placeholder="12-345-67" maxlength="10" aria-label="מספר רכב">
       </div>
-      <button class="btn primary" id="plate-go" disabled>זהה את הרכב</button>
+      <p class="err" id="plate-err" hidden>מספר רכב הוא 7 או 8 ספרות</p>
+      <button class="btn primary" id="plate-go" data-busy="מזהה מול מאגר הרכב…" disabled>זהה את הרכב</button>
       <button class="btn ghost" id="plate-manual">אין לי את המספר, אבחר ידנית</button>
       <p class="small muted">באב-טיפוס הזה הזיהוי מדומה: כל מספר יקבל דגם מתוך הדגמים שכבר יש להם לוח טיפולים.</p>
     </div>
@@ -351,6 +365,7 @@
     <button class="btn ghost" id="me-reset">איפוס האפליקציה (מוחק הכל במכשיר הזה)</button>
   </section>
 
+  </main>
   <nav class="nav" id="nav" hidden>
     <div class="inner">
       <button data-go="home" class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>בית</button>
@@ -378,7 +393,7 @@
         <div class="field" style="flex:1.4"><label for="log-garage">שם המוסך <span class="muted">(לא חובה)</span></label><input id="log-garage" placeholder="למשל טויוטה ראשל"צ"></div>
         <div class="field" style="flex:1"><label for="log-city">עיר</label><input id="log-city" placeholder="ראשון לציון"></div>
       </div>
-      <div class="field"><label for="log-price">כמה שילמת (₪)</label><input id="log-price" inputmode="numeric" class="num" placeholder="למשל 890"></div>
+      <div class="field"><label for="log-price">כמה שילמת (₪)</label><input id="log-price" inputmode="numeric" class="num" placeholder="למשל 890"><p class="err" id="log-price-err" hidden>כדי לשתף מחיר צריך להזין כמה שילמת, או לכבות את השיתוף.</p></div>
       <div class="field"><label for="log-extra">מה עוד נעשה מעבר לטיפול הרגיל? <span class="muted">(לא חובה)</span></label><textarea id="log-extra" rows="2" placeholder="למשל רפידות קדמיות, מצבר"></textarea></div>
       <div class="field"><label>צילום חשבונית <span class="muted">(לא חובה, עוזר לאמת מחירים)</span></label>
         <div class="receipt"><img id="log-thumb" alt="" hidden><label for="log-file" id="log-file-lbl">הוסף צילום</label><input id="log-file" type="file" accept="image/*"></div>
@@ -515,6 +530,7 @@
     e.target.value = fmtPlate(e.target.value);
     const n = e.target.value.replace(/\D/g, "").length;
     $("#plate-go").disabled = !(n === 7 || n === 8);
+    $("#plate-err").hidden = true;
   });
   const confirmCardHTML = (s, v) => `<div class="row between"><span class="name">${s.make_he} ${s.model_he}</span>${plateHTML(draft.plate)}</div>
       <div class="list small">
@@ -529,12 +545,13 @@
       <p class="small muted">${v ? "לפי מאגר הרכב של משרד התחבורה" : "זיהוי מדומה: המאגר הממשלתי לא זמין מכאן"}</p>`;
   // Real lookup: data.gov.il vehicle registry, matched to a schedule by data/gov-match.json.
   // Falls back to a simulated pick when the registry can't be reached (offline, or the artifact sandbox).
+  $("#plate").addEventListener("blur", e => { const n = e.target.value.replace(/\D/g, "").length; $("#plate-err").hidden = !(n > 0 && n !== 7 && n !== 8); });
   $("#plate-go").onclick = async () => {
-    const btn = $("#plate-go"); btn.disabled = true; btn.textContent = "מזהה...";
+    const btn = $("#plate-go"); btn.disabled = true; btn.classList.add("busy");
     const digits = $("#plate").value.replace(/\D/g, "");
     let v = null, resolved = null;
     try { v = await window.TipulitLookup.fetchVehicle(digits); resolved = window.TipulitLookup.resolveSchedule(v, D.govMatch); } catch (e) { v = null; }
-    btn.disabled = false; btn.textContent = "זהה את הרכב";
+    btn.disabled = false; btn.classList.remove("busy");
     if (v && resolved && resolved.status === "matched") {
       const s = schedById(resolved.schedule);
       draft = { plate: $("#plate").value, schedule: s.id, year: v.year || s.years[1], gov: v };
@@ -635,6 +652,9 @@
   $("#log-share").onclick = () => $("#log-share").classList.toggle("on");
   $("#log-save").onclick = () => {
     const car = S.cars[S.active];
+    const priceVal = +$("#log-price").value.replace(/\D/g, "");
+    if ($("#log-share").classList.contains("on") && !priceVal) { $("#log-price-err").hidden = false; $("#log-price").focus(); return; }
+    $("#log-price-err").hidden = true;
     const e = { svcKm: +$("#log-svc").value, date: $("#log-date").value, km: +$("#log-km").value.replace(/\D/g, "") || car.km, where: logWhere,
       garage: $("#log-garage").value.trim(), city: $("#log-city").value.trim(), price: +$("#log-price").value.replace(/\D/g, "") || null,
       extra: $("#log-extra").value.trim(), receipt: logThumb, share: $("#log-share").classList.contains("on"), at: Date.now() };
@@ -643,7 +663,7 @@
     save(); $("#log").classList.remove("show"); renderAll();
     toast(e.share && e.price ? "נשמר. תודה שעזרת לנהגים אחרים" : "הטיפול נשמר");
   };
-  const historyHTML = car => { const h = (car.history || []).slice().sort((a, b) => b.svcKm - a.svcKm); if (!h.length) return ""; return `
+  const historyHTML = car => { const h = (car.history || []).slice().sort((a, b) => b.svcKm - a.svcKm); if (!h.length) return `<p class="small muted" style="padding:0 4px">עוד אין טיפולים רשומים. אחרי הביקור הבא במוסך, לחץ "עשיתי טיפול" כדי לשמור מחיר וחשבונית.</p>`; return `
     <div class="card stack"><p class="eyebrow">היסטוריית הטיפולים שלך</p>
       ${h.map(e => `<div class="hist">
         <div><b class="num">טיפול ${fmt(e.svcKm)}</b> <span class="small muted">· ${e.date ? monthName(new Date(e.date + "-01")) : ""}</span><br>

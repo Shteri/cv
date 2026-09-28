@@ -14,6 +14,10 @@ const html = `<!doctype html>
 <meta name="theme-color" content="#0E5FD8">
 <meta name="description" content="הטיפול הבא לרכב שלך לפי ספר היבואן, ומה לוודא במוסך.">
 <title>${title}</title>
+<meta property="og:title" content="${title}">
+<meta property="og:description" content="הטיפול הבא לרכב שלך לפי ספר היבואן, ומה לוודא במוסך.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="icon-512.png">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="icon-192.png">
