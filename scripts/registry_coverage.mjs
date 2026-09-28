@@ -13,9 +13,12 @@ const fuel = {}, eng = {};
 for (const r of agg.model_fuel) { const k = r.make + "|" + r.model; fuel[k] ??= r.fuel; }
 for (const r of agg.model_engine) { const k = r.make + "|" + r.model; eng[k] ??= r.engine; }
 const byModel = {}; let covered = 0, total = 0;
-for (const r of agg.model_year) {
+// exact rows (make, model, year, fuel, engine) when available; else model_year with the model's most common fuel/engine
+const exact = agg.model_year_fuel_engine;
+const rowsIn = exact ?? agg.model_year;
+for (const r of rowsIn) {
   const mk = normalizeMake(r.make), k = r.make + "|" + r.model;
-  const s = matchSchedule({ make: mk, model_name: r.model, year: r.year, fuel: fuel[k], engine_code: eng[k] });
+  const s = matchSchedule({ make: mk, model_name: r.model, year: r.year, fuel: exact ? r.fuel : fuel[k], engine_code: exact ? r.engine : eng[k] });
   const e = byModel[mk + " | " + r.model] ??= { n: 0, covered: 0, years: {}, fuel: fuel[k], eng: eng[k] };
   e.n += r.n; total += r.n;
   if (s) { e.covered += r.n; covered += r.n; } else e.years[r.year] = (e.years[r.year] || 0) + r.n;
