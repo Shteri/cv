@@ -1,0 +1,796 @@
+{
+  "make": "Hyundai",
+  "make_he": "יונדאי",
+  "importer": "כלמוביל",
+  "id": "hyundai-ioniq-2016-2022-1.6-hybrid",
+  "model": "Ioniq",
+  "model_he": "איוניק",
+  "generation": "AE",
+  "years": [
+    2016,
+    2022
+  ],
+  "engines": [
+    "1.6 GDI hybrid (Kappa)"
+  ],
+  "fuel": "hybrid",
+  "interval": {
+    "km": 15000,
+    "months": 12
+  },
+  "cycle_km": 120000,
+  "services": [
+    {
+      "km": 15000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "hsg_belt",
+          "action": "inspect",
+          "note": "בדיקה בכל טיפול, החלפה כל 105,000 ק\"מ או 48 חודשים"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect"
+        },
+        {
+          "item": "clutch_actuator_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "hsg_belt",
+          "action": "inspect",
+          "note": "בדיקה בכל טיפול, החלפה כל 105,000 ק\"מ או 48 חודשים"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect"
+        },
+        {
+          "item": "clutch_actuator_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 45000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "hsg_belt",
+          "action": "inspect",
+          "note": "בדיקה בכל טיפול, החלפה כל 105,000 ק\"מ או 48 חודשים"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect"
+        },
+        {
+          "item": "clutch_actuator_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "hsg_belt",
+          "action": "inspect",
+          "note": "בדיקה בכל טיפול, החלפה כל 105,000 ק\"מ או 48 חודשים"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_tank_air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "inspect",
+          "note": "פריט ללא תחזוקה לפי הספר; בדיקה בלבד"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "dct_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "clutch_actuator_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 75000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "hsg_belt",
+          "action": "inspect",
+          "note": "בדיקה בכל טיפול, החלפה כל 105,000 ק\"מ או 48 חודשים"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect"
+        },
+        {
+          "item": "clutch_actuator_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "hsg_belt",
+          "action": "inspect",
+          "note": "בדיקה בכל טיפול, החלפה כל 105,000 ק\"מ או 48 חודשים"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect"
+        },
+        {
+          "item": "clutch_actuator_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 105000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "hsg_belt",
+          "action": "replace",
+          "note": "בדיקה בכל טיפול, החלפה כל 105,000 ק\"מ או 48 חודשים"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect"
+        },
+        {
+          "item": "clutch_actuator_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "hsg_belt",
+          "action": "inspect",
+          "note": "בדיקה בכל טיפול, החלפה כל 105,000 ק\"מ או 48 חודשים"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_tank_air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "inspect",
+          "note": "פריט ללא תחזוקה לפי הספר; בדיקה בלבד"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "dct_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "clutch_actuator_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "spark_plugs",
+      "action": "replace",
+      "every_km": 165000
+    },
+    {
+      "item": "cooling_system",
+      "action": "inspect",
+      "first_km": 60000,
+      "first_months": 48,
+      "then_every_km": 30000,
+      "then_every_months": 24
+    },
+    {
+      "item": "coolant",
+      "action": "replace",
+      "first_km": 210000,
+      "first_months": 120,
+      "then_every_km": 30000,
+      "then_every_months": 24,
+      "note": "נוזל קירור מנוע ונוזל קירור ממיר (אינוורטר)"
+    }
+  ],
+  "time_based": [],
+  "specs": {
+    "_note": "שמן, נוזל קירור, נוזל בלמים, דלק וצמיגים אומתו מול ספר היבואן; מצבר, תזמון ואחריות: ידע כללי, לאימות",
+    "engine_oil": "ACEA A5/B5 (בישראל מותר גם A3/B3), 0W-20 או 5W-30",
+    "oil_capacity": "3.8 ליטר",
+    "coolant": "שני מעגלים: נוזל קירור מנוע 6.7 ליטר ונוזל קירור ממיר 3.2 ליטר, אתילן גליקול פוספטי",
+    "brake_fluid": "DOT 3 או DOT 4, 0.7-0.8 ליטר; נוזל מפעיל מצמד DOT 3",
+    "fuel": "בנזין 95 אוקטן, מיכל 45 ליטר",
+    "tires": "195/65 R15 או 225/45 R17; חלופי T125/80 D15",
+    "tire_pressure": "2.5 בר (36 psi) קדמי ואחורי; חלופי 4.2 בר",
+    "battery": "מצבר עזר 12V (AGM) בתא המטען, לא מצבר רגיל; סוללה היברידית ליתיום-יון",
+    "timing": "שרשרת, ללא החלפה מתוכננת; רצועת HSG נבדקת בכל טיפול",
+    "spare": "גלגל חלופי צר או ערכת תיקון",
+    "warranty": "כלמוביל: 3 שנים או 100,000 ק\"מ (המוקדם), מצבר 24 חודשים, צבע 12 חודשים או 20,000 ק\"מ; סוללה היברידית 8 שנים או 160,000 ק\"מ (לאימות)"
+  },
+  "sources": [
+    {
+      "url": "https://res.cloudinary.com/colmobil/images/v1738680462/IONIQ_2016-2018_heb/IONIQ_2016-2018_heb.pdf",
+      "kind": "importer",
+      "note": "ספר רכב איוניק 2016-2018 של כלמוביל, פרק 6 עמ' 8-12"
+    },
+    {
+      "url": "https://res.cloudinary.com/colmobil/images/v1738680477/IONIQ_2019-heb/IONIQ_2019-heb.pdf",
+      "kind": "importer",
+      "note": "ספר רכב איוניק 2019: אותה טבלה"
+    },
+    {
+      "url": "https://www.hyundaimotors.co.il/maintenance/",
+      "kind": "importer",
+      "note": "מרכז ספרי הרכב של כלמוביל, קישורי PDF לפי דגם ושנה"
+    }
+  ],
+  "status": "reviewed",
+  "notes": "היברידי בלבד (לא פלאג-אין ולא חשמלי). רצועת HSG (מתנע-גנרטור) היא הפריט הייחודי. נוזל בלמים ונוזל מפעיל מצמד כל 30,000. מסנן אוויר כל 45,000. מסנן תא נוסעים כל 30,000."
+}

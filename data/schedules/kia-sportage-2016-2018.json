@@ -1,0 +1,948 @@
+{
+  "make": "Kia",
+  "make_he": "קיה",
+  "importer": "טלקאר",
+  "id": "kia-sportage-2016-2018",
+  "model": "Sportage",
+  "model_he": "ספורטאז'",
+  "generation": "QL",
+  "years": [
+    2016,
+    2018
+  ],
+  "engines": [
+    "1.6 GDI (Gamma)",
+    "1.6 T-GDI (Gamma)",
+    "2.0 MPI (Nu)",
+    "2.4 GDI (Theta II)"
+  ],
+  "fuel": "petrol",
+  "interval": {
+    "km": 15000,
+    "months": 12,
+    "note": "רשת 15,000 של היבואן; בספר עמודות של 30,000, ראה notes"
+  },
+  "cycle_km": 240000,
+  "services": [
+    {
+      "km": 15000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 45000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "AWD בלבד"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect",
+          "note": "AWD בלבד"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "dct_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_tank_air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 75000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect"
+        },
+        {
+          "item": "valve_clearance",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 105000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "AWD בלבד"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect",
+          "note": "AWD בלבד"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "dct_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_tank_air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 135000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 150000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 165000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 180000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "AWD בלבד"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect",
+          "note": "AWD בלבד"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "dct_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_tank_air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect"
+        },
+        {
+          "item": "valve_clearance",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 195000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 210000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 225000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 240000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "AWD בלבד"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect",
+          "note": "AWD בלבד"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "dct_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_tank_air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "coolant",
+      "action": "replace",
+      "first_km": 210000,
+      "first_months": 120,
+      "then_every_km": 30000,
+      "then_every_months": 24
+    },
+    {
+      "item": "cooling_system",
+      "action": "inspect",
+      "first_km": 60000,
+      "first_months": 48,
+      "then_every_km": 30000,
+      "then_every_months": 24
+    },
+    {
+      "item": "spark_plugs",
+      "action": "replace",
+      "every_km": 150000,
+      "every_months": 120,
+      "note": "מנועי 1.6 GDI, 2.0 MPI, 2.4 GDI. מנוע 1.6 T-GDI: כל 75,000 ק\"מ או 60 חודשים"
+    },
+    {
+      "item": "transmission_oil",
+      "action": "inspect",
+      "every_km": 90000,
+      "note": "לפי הספר אין צורך בטיפול בתנאים רגילים; בתנאי הפעלה קשים החלפה כל 90,000"
+    }
+  ],
+  "time_based": [],
+  "specs": {
+    "_note": "שמן, נוזל קירור, נוזל בלמים, דלק וצמיגים אומתו מול ספר היבואן; מצבר, תזמון ואחריות: ידע כללי, לאימות",
+    "engine_oil": "1.6 GDI / 1.6 T-GDI / 2.4 GDI: 5W-30 ACEA A5 ומעלה; 2.0 MPI: 5W-20 API SM/ILSAC GF-4 או 5W-30 ACEA A5",
+    "oil_capacity": "1.6 GDI: 3.6; 1.6 T-GDI: 4.5; 2.0 MPI: 4.0; 2.4 GDI: 4.8 ליטר",
+    "coolant": "אתילן גליקול למקרן אלומיניום; 1.6 GDI: 7.3 (אוט') / 7.5 (ידני); 1.6 T-GDI: 7.3; 2.0: 6.9-7.1; 2.4: 7.1 ליטר",
+    "brake_fluid": "DOT 3 או DOT 4 (FMVSS116)",
+    "fuel": "בנזין 95 אוקטן, מיכל 62 ליטר",
+    "tires": "215/70 R16, 225/60 R17 או 245/45 R19",
+    "tire_pressure": "2.4 בר (35 psi) בכל הגלגלים, גם בעומס מלא",
+    "battery": "מצבר רגיל 12V; עם Start-Stop (ISG): AGM/EFB בלבד",
+    "timing": "שרשרת, ללא החלפה מתוכננת",
+    "spare": "גלגל חלופי צר או ערכת תיקון",
+    "warranty": "טלקאר: 3 שנים או 100,000 ק\"מ (המוקדם), הרחבה בתשלום"
+  },
+  "sources": [
+    {
+      "url": "https://cdnmedia.kia-israel.co.il/www/cars-book/Sportage-QLe-2016-2018.pdf",
+      "kind": "importer",
+      "note": "ספר רכב ספורטאז' 2016-2018 של קיה ישראל, פרק 8 עמ' 11-18"
+    },
+    {
+      "url": "https://kia-israel.co.il/קבל-ספר-רכב-למייל",
+      "kind": "importer",
+      "note": "ספריית ספרי הרכב של קיה ישראל (cdnmedia.kia-israel.co.il/www/cars-book/)"
+    }
+  ],
+  "status": "reviewed",
+  "notes": "הטבלה בספר בנויה בעמודות של 30,000 ק\"מ / 24 חודשים (תוכנית אירופית). למנוע 1.6 GDI הספר עצמו קובע 15,000 ק\"מ או 12 חודשים בתנאי הפעלה קשים (אבק, חום, עצור-וסע), ולמנועי T-GDI/2.0/2.4 15,000 גם בטבלה הרגילה. היבואן מטפל כל 15,000 או שנה. לכן הקובץ בנוי על רשת 15,000: בטיפולי הביניים שמן ומסנן בלבד, והפריטים מהטבלה נופלים על הטיפולים הזוגיים. בספר 2016-2018: מסנן תא נוסעים ונוזל בלמים בדיקה ב-30 והחלפה ב-60 (כל 60,000). רצועת הינע: בדיקה ראשונה ב-90,000, אחר כך כל 60,000."
+}

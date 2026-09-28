@@ -49,33 +49,45 @@
     } finally { if (t) clearTimeout(t); }
   }
 
-  const isHybrid = v => /חשמל\/בנזין|היבריד|hybrid/i.test(v.fuel || "");
-  const isPetrol = v => /בנזין/.test(v.fuel || "") && !isHybrid(v);
+  // The registry writes the maker with its country ("טויוטה יפן", "יונדאי קוריאה", "מזדה יפן").
+  // Strip it and map to the English make names used in data/registry_map.json and data/models.json.
+  const MAKES = [
+    ["טויוטה", "Toyota"], ["אלפא", "Alfa Romeo"], ["יונדאי", "Hyundai"], ["קיה", "Kia"], ["סקודה", "Skoda"],
+    ["מאזדה", "Mazda"], ["מזדה", "Mazda"], ["מיצובישי", "Mitsubishi"], ["פורד", "Ford"], ["סיאט", "Seat"],
+    ["פולקסווגן", "Volkswagen"], ["סוזוקי", "Suzuki"], ["ניסאן", "Nissan"], ["הונדה", "Honda"],
+    ["שברולט", "Chevrolet"], ["סובארו", "Subaru"], ["רנו", "Renault"], ["פיג'ו", "Peugeot"],
+    ["סיטרואן", "Citroen"], ["אופל", "Opel"], ["צ'רי", "Chery"], ["ב.מ.וו", "BMW"], ["מרצדס", "Mercedes-Benz"],
+    ["אאודי", "Audi"], ["וולוו", "Volvo"], ["לקסוס", "Lexus"], ["דאציה", "Dacia"], ["פיאט", "Fiat"], ["טסלה", "Tesla"]
+  ];
+  function normalizeMake(raw) {
+    if (!raw) return null;
+    for (const [he, en] of MAKES) if (raw.startsWith(he)) return en;
+    return raw.split(" ")[0];
+  }
   const isElectric = v => /^חשמל$/.test((v.fuel || "").trim());
 
-  // Match a vehicle to a schedule using rules in data/gov-match.json.
-  // Rules: { schedule, make: regex on make_raw, model: regex on commercial_name or model_raw,
-  //          not_model?: regex, years: [from, to], fuel?: "petrol"|"hybrid"|"any", cc?: [min, max] }
+  // Match a vehicle to a schedule using data/registry_map.json rules:
+  // { make, names: [exact upper-case commercial names], years: [from, to], fuel?: [..], engine_codes?: [..], schedule }.
+  // Rules with engine codes are preferred over rules without, then rules with fuel.
   function resolveSchedule(vehicle, rules) {
     if (!vehicle) return { status: "unknown" };
     if (isElectric(vehicle)) return { status: "electric" };
-    const name = `${vehicle.commercial_name} ${vehicle.model_raw}`;
-    const hits = rules.filter(r => {
-      if (!new RegExp(r.make, "i").test(vehicle.make_raw)) return false;
-      if (!new RegExp(r.model, "i").test(name)) return false;
-      if (r.not_model && new RegExp(r.not_model, "i").test(name)) return false;
-      if (vehicle.year && (vehicle.year < r.years[0] || vehicle.year > r.years[1])) return false;
-      if (r.fuel === "hybrid" && !isHybrid(vehicle)) return false;
-      if (r.fuel === "petrol" && !isPetrol(vehicle)) return false;
-      if (r.cc && vehicle.engine_cc && (vehicle.engine_cc < r.cc[0] || vehicle.engine_cc > r.cc[1])) return false;
-      return true;
-    });
-    if (hits.length === 1) return { status: "matched", schedule: hits[0].schedule };
-    if (hits.length > 1) return { status: "matched", schedule: hits[0].schedule, ambiguous: hits.map(h => h.schedule) };
-    // Recognized make and model but no schedule for that generation/engine yet
-    const makeOnly = rules.some(r => new RegExp(r.make, "i").test(vehicle.make_raw));
-    return { status: makeOnly ? "unsupported_model" : "unsupported_make" };
+    const make = normalizeMake(vehicle.make_raw);
+    const name = (vehicle.commercial_name || "").toUpperCase().trim();
+    const year = Number(vehicle.year);
+    const hits = rules.filter(r =>
+      r.make === make &&
+      r.names.some(n => n === name) &&
+      (!year || (year >= r.years[0] && year <= r.years[1])) &&
+      (!r.fuel || r.fuel.includes(vehicle.fuel)) &&
+      (!r.engine_codes || r.engine_codes.includes(vehicle.engine_code)));
+    const score = r => (r.engine_codes ? 2 : 0) + (r.fuel ? 1 : 0);
+    hits.sort((a, b) => score(b) - score(a));
+    if (hits.length) return { status: "matched", schedule: hits[0].schedule, make };
+    const makeKnown = rules.some(r => r.make === make);
+    const nameKnown = makeKnown && rules.some(r => r.make === make && r.names.includes(name));
+    return { status: makeKnown ? (nameKnown ? "unsupported_year" : "unsupported_model") : "unsupported_make", make };
   }
 
-  global.TipulitLookup = { normalizePlate, normalizeRecord, fetchVehicle, resolveSchedule, VEHICLES };
+  global.TipulitLookup = { normalizePlate, normalizeRecord, normalizeMake, fetchVehicle, resolveSchedule, VEHICLES };
 })(typeof window !== "undefined" ? window : globalThis);

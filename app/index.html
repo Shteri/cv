@@ -416,7 +416,8 @@
     if (d.length <= 7) return d.replace(/(\d{2})(\d{0,3})(\d{0,2})/, (m, a, b, c) => [a, b, c].filter(Boolean).join("-"));
     return d.replace(/(\d{3})(\d{2})(\d{3})/, "$1-$2-$3");
   };
-  const show = id => {
+  const show = (id, fromHistory) => {
+    if (!fromHistory && (!history.state || history.state.screen !== id)) { try { history.pushState({ screen: id }, "", "#" + id.replace(/^s-/, "")); } catch (e) {} }
     $$(".screen").forEach(s => s.hidden = s.id !== id);
     const main = ["s-home", "s-tl", "s-me"].includes(id);
     $("#nav").hidden = !main;
@@ -427,12 +428,15 @@
   const toast = msg => { const t = $("#toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove("show"), 2200); };
 
   // Maintenance engine: given a schedule and a car, compute the next service.
+  // Schedules may start at a different km than the interval (Hyundai i10/i20: first 15,000, then every 20,000).
+  // We shift the odometer by (first - interval) so the grid becomes regular, then map back to real km.
+  const gridShift = s => (s.first_service_km || s.interval.km) - s.interval.km;
   function computeNext(car) {
     const s = schedById(car.schedule);
-    const cyc = s.cycle_km;
-    const rel = car.km % cyc;
-    const laps = Math.floor(car.km / cyc);
-    let svc = s.services.find(x => x.km > rel);
+    const cyc = s.cycle_km, shift = gridShift(s);
+    const k = Math.max(0, car.km - shift);
+    const rel = k % cyc, laps = Math.floor(k / cyc);
+    let svc = s.services.find(x => (x.km - shift) > rel);
     let nextKm;
     if (svc) nextKm = laps * cyc + svc.km;
     else { svc = s.services[0]; nextKm = (laps + 1) * cyc + svc.km; }
@@ -450,6 +454,14 @@
     const level = remainKm <= 0 || daysLeft <= 0 ? "crit" : (remainKm <= 1500 || daysLeft <= 30) ? "warn" : "good";
     return { s, svc, nextKm, remainKm, dueDate, byTime, progress, daysLeft, level };
   }
+  // Long-interval items (plugs every 150,000; coolant first at 210,000 then every 30,000): next due km for a car.
+  function longNext(l, km) {
+    if (l.every_km) return Math.ceil((km + 1) / l.every_km) * l.every_km;
+    if (l.first_km) { if (km < l.first_km) return l.first_km; if (!l.then_every_km) return null; return l.first_km + Math.ceil((km - l.first_km + 1) / l.then_every_km) * l.then_every_km; }
+    return null;
+  }
+  const longText = l => l.every_km ? `כל ${fmt(l.every_km)} ק"מ${l.every_months ? ` או ${l.every_months / 12} שנים` : ""}`
+    : `ראשונה ב-${fmt(l.first_km || 0)} ק"מ${l.first_months ? ` או ${l.first_months / 12} שנים` : ""}${l.then_every_km ? `, אחר כך כל ${fmt(l.then_every_km)} ק"מ` : ""}${l.then_every_months ? ` או ${l.then_every_months / 12} שנים` : ""}`;
   const monthName = d => new Intl.DateTimeFormat("he-IL", { month: "long", year: "numeric" }).format(d);
   const carName = car => { const s = schedById(car.schedule); return `${s.make_he} ${s.model_he} ${car.year}`; };
   const plateHTML = p => `<span class="plate"><span class="il">IL</span><span class="n">${p}</span></span>`;
@@ -501,7 +513,7 @@
     $("#add-back").hidden = S.cars.length === 0;
     show("s-add");
   }
-  $("#add-back").onclick = () => show("s-me");
+  $("#add-back").onclick = () => history.length > 1 ? history.back() : show("s-me");
   $("#plate").addEventListener("input", e => {
     e.target.value = fmtPlate(e.target.value);
     const n = e.target.value.replace(/\D/g, "").length;
@@ -526,7 +538,7 @@
     const btn = $("#plate-go"); btn.disabled = true; btn.classList.add("busy");
     const digits = $("#plate").value.replace(/\D/g, "");
     let v = null, resolved = null;
-    try { v = await window.TipulitLookup.fetchVehicle(digits); resolved = window.TipulitLookup.resolveSchedule(v, D.govMatch); } catch (e) { v = null; }
+    try { v = await window.TipulitLookup.fetchVehicle(digits); resolved = window.TipulitLookup.resolveSchedule(v, D.registryMap); } catch (e) { v = null; }
     btn.disabled = false; btn.classList.remove("busy");
     if (v && resolved && resolved.status === "matched") {
       const s = schedById(resolved.schedule);
@@ -538,7 +550,7 @@
       toast("רכב חשמלי. בשלב הזה טיפולית תומכת ברכבי בנזין והיברידיים בלבד"); 
     } else if (v) {
       draft = { plate: $("#plate").value, gov: v };
-      toast(`זוהה ${v.make_raw.split(" ")[0]} ${v.commercial_name} ${v.year || ""}, אבל עדיין אין לו לוח. בחר דגם דומה או המתן לעדכון`);
+      toast(resolved && resolved.status === "unsupported_year" ? `זוהה ${v.commercial_name} ${v.year || ""}, אבל אין עדיין לוח לשנתון הזה. בחר את הדור הקרוב` : `זוהה ${v.make_raw.split(" ")[0]} ${v.commercial_name} ${v.year || ""}, אבל עדיין אין לו לוח. בחר דגם דומה או המתן לעדכון`);
       fillManual(); stepTo("manual");
     } else {
       // Simulated fallback: deterministic pick from the schedules we have.
@@ -554,12 +566,12 @@
   $("#confirm-no").onclick = () => { fillManual(); stepTo("manual"); };
   $("#plate-manual").onclick = () => { draft = { plate: "" }; fillManual(); stepTo("manual"); };
   function fillManual() {
-    const makes = [...new Set(D.schedules.map(s => s.make_he))];
+    const makes = [...new Set(D.schedules.map(s => s.make_he))].sort((a, b) => a.localeCompare(b, "he"));
     $("#m-make").innerHTML = makes.map(m => `<option>${m}</option>`).join("");
     fillModels();
   }
   function fillModels() {
-    const list = D.schedules.filter(s => s.make_he === $("#m-make").value);
+    const list = D.schedules.filter(s => s.make_he === $("#m-make").value).sort((a, b) => a.model_he.localeCompare(b.model_he, "he") || a.years[0] - b.years[0]);
     $("#m-model").innerHTML = list.map(s => `<option value="${s.id}">${s.model_he} (${s.years[0]}-${s.years[1]}) · ${s.engines[0]}</option>`).join("");
     fillYears();
   }
@@ -603,7 +615,7 @@
   let logWhere = "importer", logThumb = null;
   function openLog(preKm) {
     const car = S.cars[S.active], s = schedById(car.schedule), n = computeNext(car);
-    const laps = Math.floor(car.km / s.cycle_km); const opts = [];
+    const laps = Math.floor(Math.max(0, car.km - gridShift(s)) / s.cycle_km); const opts = [];
     for (let lap = Math.max(0, laps - 1); lap <= laps; lap++) for (const svc of s.services) opts.push(lap * s.cycle_km + svc.km);
     const nearest = preKm || opts.reduce((a, b) => Math.abs(b - car.km) < Math.abs(a - car.km) ? b : a);
     $("#log-svc").innerHTML = opts.filter(k => k <= n.nextKm).map(k => `<option value="${k}" ${k === nearest ? "selected" : ""}>טיפול ${fmt(k)} ק"מ</option>`).join("");
@@ -699,6 +711,7 @@
         <button class="btn primary" id="to-garage">לקחת למוסך: מה לוודא בטיפול ${fmt(n.svc.km)}</button>
       </div>
       ${historyHTML(car)}
+      ${(n.s.long_interval || []).filter(l => { const x = longNext(l, car.km); return x && x - car.km <= 15000; }).map(l => `<div class="banner">בקרוב גם: ${itemName(l.item)} (${longText(l)})</div>`).join("")}
       ${n.s.status === "draft" ? `<div class="banner">הלוח של הדגם הזה עדיין בטיוטה. המרווח לפי היבואן, תכולת הטיפולים בהמתנה לאימות מול ספר הרכב.</div>` : ""}
       ${specsHTML(n.s)}
       <div class="card stack" style="gap:8px">
@@ -716,7 +729,8 @@
   function renderTL() {
     const car = S.cars[S.active]; if (!car) return;
     const n = computeNext(car); const s = n.s;
-    const laps = Math.floor(car.km / s.cycle_km);
+    const shift = gridShift(s);
+    const laps = Math.floor(Math.max(0, car.km - shift) / s.cycle_km);
     $("#tl-sub").textContent = `${carName(car)} · לוח ${s.importer} · המחזור חוזר כל ${fmt(s.cycle_km)} ק"מ. הטיפול הבא פתוח: סמן תוך כדי במוסך.`;
     const rows = [];
     for (let lap = laps; lap <= laps + 1; lap++) for (const svc of s.services) {
@@ -738,8 +752,10 @@
     $$(".tl-head").forEach(b => b.onclick = () => b.closest(".tl-item").classList.toggle("open"));
     $$("[data-log]").forEach(b => b.onclick = () => openLog(+b.dataset.log));
     $$("[data-copy]").forEach(b => b.onclick = () => copyChecklist(s, s.services.find(x => x.km === +b.dataset.svc), +b.dataset.copy));
-    const tb = s.time_based || [];
-    $("#tl-time").innerHTML = `<h3>לפי זמן, לא לפי ק"מ</h3>${tb.length ? tb.map(t => `<div class="item"><span class="act ${t.action}">${actName[t.action]}</span><div><div>${itemName(t.item)}${t.months ? ` · כל ${t.months / 12} שנים` : ""}</div>${t.note ? `<div class="note">${t.note}</div>` : ""}</div></div>`).join("") : `<p class="small muted">אין פריטים תלויי זמן בלוח הזה.</p>`}`;
+    const tb = s.time_based || [], li = s.long_interval || [];
+    const liRows = li.map(l => { const n = longNext(l, car.km); const soon = n && n - car.km <= 15000; return `<div class="item"><span class="act ${l.action}">${actName[l.action]}</span><div><div>${itemName(l.item)}${n ? ` · <b class="num" style="color:${soon ? "var(--warn)" : "inherit"}">בסביבות ${fmt(n)} ק"מ</b>` : ""}</div><div class="note">${longText(l)}${l.note ? " · " + l.note : ""}</div></div></div>`; }).join("");
+    const tbRows = tb.map(t => `<div class="item"><span class="act ${t.action}">${actName[t.action]}</span><div><div>${itemName(t.item)}${t.months ? ` · כל ${t.months / 12} שנים` : ""}</div>${t.note ? `<div class="note">${t.note}</div>` : ""}</div></div>`).join("");
+    $("#tl-time").innerHTML = `<h3>מרווחים ארוכים ולפי זמן</h3><p class="small muted">פריטים שלא יושבים על רשת הטיפולים הרגילה. מסומנים בכתום כשהם בטווח 15,000 ק"מ.</p>${liRows + tbRows || `<p class="small muted">אין פריטים כאלה בלוח הזה.</p>`}`;
   }
 
   // ---------- garage checklist (inside the timeline) ----------
@@ -801,13 +817,33 @@
   $("#sheet").onclick = e => { if (e.target.id === "sheet") $("#sheet").classList.remove("show"); };
   $("#sheet-save").onclick = () => { const v = +$("#sheet-km").value.replace(/\D/g, ""); if (v) { S.cars[S.active].km = v; save(); renderAll(); toast("הקילומטראז' עודכן"); } $("#sheet").classList.remove("show"); };
 
+  window.addEventListener("popstate", e => {
+    const id = (e.state && e.state.screen) || "s-home";
+    if (["s-onb", "s-auth", "s-add"].includes(id) && S.cars.length) { show("s-home", true); return; }
+    if (!$("#" + id)) { show("s-home", true); return; }
+    show(id, true);
+  });
   // ---------- nav / boot ----------
   $$("#nav button").forEach(b => b.onclick = () => { show("s-" + b.dataset.go); if (b.dataset.go === "tl") { const el = $(".tl-item.next"); if (el) el.scrollIntoView({ block: "start" }); } });
   $("#home-avatar").onclick = () => show("s-me");
   function renderAll() { renderHome(); renderTL(); renderMe(); }
-  if (!S.onboarded) { renderOnb(); show("s-onb"); }
-  else if (!S.user) show("s-auth");
-  else if (!S.cars.length) startAdd();
-  else { renderAll(); show("s-home"); }
+  // Migrate cars saved with a schedule id that no longer exists (ids are renamed as data improves).
+  function migrateCars() {
+    let changed = false;
+    S.cars = S.cars.filter(car => {
+      if (schedById(car.schedule)) return true;
+      const key = car.schedule.split("-").slice(0, 2).join("-");
+      const same = D.schedules.filter(x => x.id.startsWith(key + "-"));
+      const byYear = same.find(x => car.year >= x.years[0] && car.year <= x.years[1]);
+      const pick = byYear || same[0];
+      if (pick) { car.schedule = pick.id; changed = true; return true; }
+      changed = true; return false;
+    });
+    if (S.active >= S.cars.length) S.active = 0;
+    if (changed) save();
+  }
+  migrateCars();
+  const boot = () => { if (!S.onboarded) { renderOnb(); return "s-onb"; } if (!S.user) return "s-auth"; if (!S.cars.length) { startAdd(); return "s-add"; } renderAll(); return "s-home"; };
+  const first = boot(); try { history.replaceState({ screen: first }, "", "#" + first.replace(/^s-/, "")); } catch (e) {} show(first, true);
 })();
 </script>

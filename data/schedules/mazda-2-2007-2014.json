@@ -1,0 +1,220 @@
+{
+  "make": "Mazda",
+  "make_he": "מאזדה",
+  "importer": "דלק מוטורס",
+  "id": "mazda-2-2007-2014",
+  "model": "2",
+  "model_he": "2",
+  "generation": "DE",
+  "years": [
+    2007,
+    2014
+  ],
+  "engines": [
+    "1.3 MZR",
+    "1.5 MZR"
+  ],
+  "fuel": "petrol",
+  "interval": {
+    "km": 15000,
+    "months": 12,
+    "note": "התראה בלוח המחוונים, 15,000 ק\"מ או 12 חודשים, המוקדם"
+  },
+  "cycle_km": 120000,
+  "services": [
+    {
+      "km": 15000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 45000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 75000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 105000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "coolant",
+      "action": "replace",
+      "first_km": 195000,
+      "first_months": 120,
+      "then_every_km": 90000,
+      "then_every_months": 60
+    },
+    {
+      "item": "spark_plugs",
+      "action": "replace",
+      "every_km": 120000,
+      "every_months": 72
+    },
+    {
+      "item": "fuel_filter",
+      "action": "replace",
+      "every_km": 135000
+    }
+  ],
+  "time_based": [],
+  "specs": {
+    "engine_oil": "5W-30 לפי ACEA A3/A5 או API SL/SM; שמן גיר Mazda V (אדום)",
+    "coolant": "Mazda FL22 מקורי (ירוק) בלבד",
+    "brake_fluid": "DOT 4",
+    "fuel": "בנזין 95 אוקטן",
+    "tire_pressure": "לפי המדבקה בעמוד הדלת",
+    "timing": "שרשרת, ללא החלפה מתוכננת",
+    "_note": "שמן, נוזל קירור ונוזל בלמים מתוך תוכנית הטיפול של היבואן; נפח שמן, צמיגים, מצבר ואחריות: ידע כללי, לאימות",
+    "oil_capacity": "כ-3.9 ליטר",
+    "tires": "185/55 R15",
+    "battery": "מצבר רגיל 12V",
+    "spare": "גלגל חלופי צר",
+    "warranty": "דלק מוטורס: 3 שנים או 100,000 ק\"מ (ידע כללי, לאימות)"
+  },
+  "sources": [
+    {
+      "url": "https://delekmotorscoil.sharepoint.com/:b:/s/Techtrain/EUleFfkd1mlPn3fX15es5HcBszPOYXuLiARcad4pgYFKjA?download=1",
+      "kind": "importer",
+      "note": "PDF תוכנית טיפול '38646 _Mazda2_2007_2014.pdf' (שנות ייצור 2007-2014) של דלק מוטורס, קישור SharePoint מתוך הדף"
+    },
+    {
+      "url": "https://www.mazda.co.il/service-plans",
+      "kind": "importer",
+      "note": "טופס 'תוכנית טיפול' של דלק מוטורס; הקישורים ל-PDF לפי דגם ושנה מוטמעים בדף (modelList). טיפול כשמופיעה התראה בלוח, אחרי 15,000 ק\"מ או אחרי שנה, המוקדם"
+    }
+  ],
+  "status": "reviewed",
+  "notes": "תוכנית היבואן מפרטת רק חלקים להחלפה ומרווחיהם (אין שורות בדיקה), ולכן הקובץ מכיל החלפות בלבד. בכל טיפול המוסך בודק בלמים, צמיגים, נוזלים ותאורה כמקובל. שמן מנוע 5W-30; נוזל קירור Mazda FL22; נוזל בלמים DOT4. תוכנית 2007-2014: מסנן מזגן ונוזל בלמים כל 30,000 או שנתיים, מסנן אוויר 60,000, מצתי אירידיום 120,000 או 3 שנים, מסנן דלק 135,000."
+}

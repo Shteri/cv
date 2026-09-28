@@ -86,9 +86,13 @@
         }
       }
     },
+    "first_service_km": {
+      "type": "integer",
+      "description": "Only when the first service is not at interval.km (e.g. Hyundai i10/i20 2014-2017: first at 15,000, then every 20,000). services[].km must equal first_service_km + n*interval.km."
+    },
     "cycle_km": {
       "type": "integer",
-      "description": "After this km the schedule repeats from the start"
+      "description": "After this km the plan repeats: service at km K uses the entry at ((K - first) mod cycle_km) + first. Long-interval items are handled separately."
     },
     "services": {
       "type": "array",
@@ -134,6 +138,53 @@
         }
       }
     },
+    "long_interval": {
+      "type": "array",
+      "description": "Items whose interval is longer than the grid or not aligned to it (spark plugs every 150,000; coolant first at 210,000 then every 30,000). Either every_km/every_months, or first_* then then_every_*.",
+      "items": {
+        "type": "object",
+        "required": [
+          "item",
+          "action"
+        ],
+        "properties": {
+          "item": {
+            "type": "string"
+          },
+          "action": {
+            "type": "string",
+            "enum": [
+              "replace",
+              "inspect",
+              "adjust",
+              "clean",
+              "rotate"
+            ]
+          },
+          "every_km": {
+            "type": "integer"
+          },
+          "every_months": {
+            "type": "integer"
+          },
+          "first_km": {
+            "type": "integer"
+          },
+          "first_months": {
+            "type": "integer"
+          },
+          "then_every_km": {
+            "type": "integer"
+          },
+          "then_every_months": {
+            "type": "integer"
+          },
+          "note": {
+            "type": "string"
+          }
+        }
+      }
+    },
     "time_based": {
       "type": "array",
       "description": "Items that are due by age regardless of km",
@@ -158,6 +209,13 @@
             "type": "string"
           }
         }
+      }
+    },
+    "specs": {
+      "type": "object",
+      "description": "Useful facts from the owner's book, one line each, Hebrew. Keys: engine_oil, oil_capacity, coolant, brake_fluid, fuel, tires, tire_pressure, battery, timing, spare, wipers, warranty, _note. _note says whether the values are a draft or were checked against the importer's book.",
+      "additionalProperties": {
+        "type": "string"
       }
     },
     "sources": {
@@ -196,17 +254,10 @@
         "reviewed",
         "verified"
       ],
-      "description": "draft = collected from web; reviewed = we read it; verified = checked against importer book"
+      "description": "draft = collected from the web; reviewed = transcribed from the Israeli importer's book; verified = a second person checked it line by line against the book"
     },
     "notes": {
       "type": "string"
-    },
-    "specs": {
-      "type": "object",
-      "description": "Useful facts from the owner's book, one line each, Hebrew. Keys: engine_oil, oil_capacity, coolant, brake_fluid, fuel, tires, tire_pressure, battery, timing, spare, wipers, warranty, _note",
-      "additionalProperties": {
-        "type": "string"
-      }
     }
   }
 }

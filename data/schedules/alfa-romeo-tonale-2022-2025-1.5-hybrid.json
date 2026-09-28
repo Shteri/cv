@@ -1,0 +1,656 @@
+{
+  "make": "Alfa Romeo",
+  "make_he": "אלפא רומיאו",
+  "importer": "סמלת",
+  "id": "alfa-romeo-tonale-2022-2025-1.5-hybrid",
+  "model": "Tonale",
+  "model_he": "טונאלה",
+  "generation": "965",
+  "years": [
+    2022,
+    2025
+  ],
+  "engines": [
+    "1.5 T4 160 mild hybrid 48V"
+  ],
+  "fuel": "hybrid",
+  "interval": {
+    "km": 15000,
+    "months": 12
+  },
+  "cycle_km": 150000,
+  "services": [
+    {
+      "km": 15000,
+      "items": [
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקת מפלס: קירור מנוע וקירור מערכת 48V"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מומלץ אף כל 6 חודשים"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקת מפלס: קירור מנוע וקירור מערכת 48V"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "באבק כל 15,000"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מומלץ אף כל 6 חודשים"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "כל שנתיים"
+        }
+      ]
+    },
+    {
+      "km": 45000,
+      "items": [
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקת מפלס: קירור מנוע וקירור מערכת 48V"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מומלץ אף כל 6 חודשים"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקת מפלס: קירור מנוע וקירור מערכת 48V"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "בדיקה ב-60,000; החלפה ב-120,000 או 6 שנים (בשימוש קשה 60,000 או 4 שנים)"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "באבק כל 15,000"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מומלץ אף כל 6 חודשים"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "כל שנתיים"
+        },
+        {
+          "item": "dct_oil",
+          "action": "replace",
+          "note": "שמן תיבת הילוכים (DCT 7): כל 60,000 או 6 שנים"
+        }
+      ]
+    },
+    {
+      "km": 75000,
+      "items": [
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקת מפלס: קירור מנוע וקירור מערכת 48V"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מומלץ אף כל 6 חודשים"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקת מפלס: קירור מנוע וקירור מערכת 48V"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "באבק כל 15,000"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מומלץ אף כל 6 חודשים"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "כל שנתיים"
+        }
+      ]
+    },
+    {
+      "km": 105000,
+      "items": [
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקת מפלס: קירור מנוע וקירור מערכת 48V"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מומלץ אף כל 6 חודשים"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקת מפלס: קירור מנוע וקירור מערכת 48V"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "באבק כל 15,000"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מומלץ אף כל 6 חודשים"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "כל שנתיים"
+        },
+        {
+          "item": "dct_oil",
+          "action": "replace",
+          "note": "שמן תיבת הילוכים (DCT 7): כל 60,000 או 6 שנים"
+        }
+      ]
+    },
+    {
+      "km": 135000,
+      "items": [
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקת מפלס: קירור מנוע וקירור מערכת 48V"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מומלץ אף כל 6 חודשים"
+        }
+      ]
+    },
+    {
+      "km": 150000,
+      "items": [
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקת מפלס: קירור מנוע וקירור מערכת 48V"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "באבק כל 15,000"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מומלץ אף כל 6 חודשים"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "כל שנתיים"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "drive_belt",
+      "action": "replace",
+      "every_km": 120000,
+      "every_months": 72,
+      "note": "בשימוש קשה 60,000 או 4 שנים; מותחן ב-120,000/6 שנים"
+    }
+  ],
+  "time_based": [
+    {
+      "item": "ecall_battery",
+      "action": "replace",
+      "months": 60,
+      "note": "סוללת Alfa Connect Box כל 5 שנים"
+    }
+  ],
+  "specs": {
+    "_note": "מתוך ספר היצרן באנגלית",
+    "engine_oil": "SAE 0W-20 ACEA C5 (FCA 9.55535-DM1), Selenia Eco2, למנוע 1.5 T4 48V; גיר DCT: Tutela DCT 700 H",
+    "coolant": "Paraflu UP; מעגל נפרד למערכת 48V",
+    "brake_fluid": "DOT 4",
+    "fuel": "בנזין 95 אוקטן",
+    "tires": "215/60 R17, 225/55 R18, 235/45 R19 או 235/40 R20",
+    "tire_pressure": "לפי המדבקה בעמוד הדלת",
+    "battery": "מצבר 12V AGM + סוללת 48V; לא מצבר רגיל",
+    "timing": "שרשרת, ללא החלפה מתוכננת",
+    "spare": "ערכת TireKit",
+    "warranty": "סמלת: 24 חודשים ללא הגבלת ק\"מ"
+  },
+  "sources": [
+    {
+      "url": "https://aftersales.fiat.com/eLumData/EN/83/965_TONALE/83_965_TONALE_603.93.733_EN_01_03.22_L_LG/83_965_TONALE_603.93.733_EN_01_03.22_L_LG.pdf",
+      "kind": "manufacturer",
+      "note": "Owner handbook 2022 (EN), Service Schedule, pp. 224-226 (dots read from the vector drawing)"
+    },
+    {
+      "url": "https://samelet.com/ספרות-רכב-אלפא-רומיאו/",
+      "kind": "importer",
+      "note": "עמוד ספרות הרכב של סמלת (הקישורים ל-carbook_* באתר alfaromeo.co.il חסומים מסביבת הענן)"
+    },
+    {
+      "url": "https://samelet.com/ebooks/AlfaRomeo_warranty_092022.pdf",
+      "kind": "importer",
+      "note": "חוברת אחריות ושירות של סמלת: אחריות 24 חודשים ללא הגבלת ק\"מ, חלודה 8 שנים, צבע 3 שנים; שגרת הטיפולים לפי ספר הרכב; איחור בטיפול מבטל אחריות"
+    }
+  ],
+  "status": "draft",
+  "notes": "הלוח הועתק מספר הנהג של היצרן באנגלית (eLUM). הספר העברי של סמלת הוא תרגום שלו אך לא נקרא. היבואן: טיפול כל 15,000 ק\"מ או שנה, והלוח של היצרן לבנזין בנוי על עמודות 15,000. היברידי מתון 48V. מצתים ב-60 ו-120 אלף, מסנן אוויר כל 30,000, נוזל בלמים כל שנתיים, שמן גיר כל 60,000/6 שנים, סוללת Alfa Connect כל 5 שנים."
+}
