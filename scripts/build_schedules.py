@@ -1177,8 +1177,8 @@ toyota("toyota-prius-2004-2009-1.5-hybrid", 301, "Prius", "פריוס", "XW20", 
 toyota("toyota-prius-2009-2015-1.8-hybrid", 302, "Prius", "פריוס", "XW30", [2009, 2015], ["1.8 hybrid (2ZR-FXE)"], "hybrid", specs=dict(TY_OIL_OLD, **HYB))
 toyota("toyota-prius-2016-2022-1.8-hybrid", 303, "Prius", "פריוס", "XW50", [2016, 2022], ["1.8 hybrid (2ZR-FXE)"], "hybrid", extra_sheets=(328,), specs=dict(TY_OIL_NEW, **HYB))
 toyota("toyota-prius-2023-2025-2.0-hybrid", 348, "Prius", "פריוס", "XW60", [2023, 2025], ["2.0 hybrid (M20A-FXS)"], "hybrid", specs=dict(TY_OIL_NEW, **HYB))
-toyota("toyota-prius-plug-in-2012-2017-1.8-hybrid", 304, "Prius Plug-in", "פריוס פלאג-אין", "XW35 PHV", [2012, 2017], ["1.8 plug-in hybrid (2ZR-FXE)"], "plug-in hybrid", specs=dict(TY_OIL_OLD, **HYB))
-toyota("toyota-prius-plug-in-2023-2025-2.0-hybrid", 349, "Prius Plug-in", "פריוס פלאג-אין", "XW60 PHEV", [2023, 2025], ["2.0 plug-in hybrid (M20A-FXS)"], "plug-in hybrid", specs=dict(TY_OIL_NEW, **HYB))
+toyota("toyota-prius-plug-in-2012-2017-1.8-hybrid", 304, "Prius Plug-in", "פריוס פלאג-אין", "XW35 PHV", [2012, 2017], ["1.8 plug-in hybrid (2ZR-FXE)"], "plug-in-hybrid", specs=dict(TY_OIL_OLD, **HYB))
+toyota("toyota-prius-plug-in-2023-2025-2.0-hybrid", 349, "Prius Plug-in", "פריוס פלאג-אין", "XW60 PHEV", [2023, 2025], ["2.0 plug-in hybrid (M20A-FXS)"], "plug-in-hybrid", specs=dict(TY_OIL_NEW, **HYB))
 toyota("toyota-prius-plus-2013-2021-1.8-hybrid", 305, "Prius+", "פריוס פלוס", "ZVW40", [2013, 2021], ["1.8 hybrid (2ZR-FXE)"], "hybrid", specs=dict(TY_OIL_OLD, **HYB))
 toyota("toyota-verso-2009-2018-1.6-1.8", 310, "Verso", "ורסו", "AR20", [2009, 2018], ["1.6 (1ZR-FAE)", "1.8 (2ZR-FAE)"], "petrol", specs=TY_OIL_OLD)
 toyota("toyota-verso-s-2010-2016-1.33", 309, "Verso-S (Space Verso)", "ספייס ורסו", "XP120", [2010, 2016], ["1.33 (1NR-FE)"], "petrol", specs=TY_OIL_OLD)
@@ -1360,14 +1360,14 @@ hk("kia-sportage-2025-2026-1.6-hybrid", KIA, "kia-Sportage-Hybrid-2026.pdf", [48
          long_("transmission_oil", "replace", every_km=90000, note="בתנאי הפעלה קשים בלבד"), long_("differential_oil", "replace", every_km=120000, note="AWD, בתנאי הפעלה קשים"), long_("transfer_case_oil", "replace", every_km=120000, note="AWD, בתנאי הפעלה קשים")],
    extra_notes="ספר גלובלי עם טבלאות לכמה שווקים; נעשה שימוש בטבלה הראשית (עמ' 481 ב-PDF) בעמודות של 30,000 ק\"מ, עם הערת שמן כל 15,000.", specs=dict(KIA_SPECS, battery="מצבר עזר 12V + סוללת מתח גבוה"))
 hk("kia-sorento-2021-2026-2.5-2.2", KIA, "kia-Sorento-MQ4-GSL-DSL-2021.pdf", [621, 622, 623], "Sorento", "סורנטו", "MQ4", [2021, 2026],
-   ["2.5 MPI (Smartstream G2.5)", "3.5 MPI (Smartstream G3.5)", "2.2 CRDi (Smartstream D2.2)"], "petrol/diesel", 30, KB + "Sorento-MQ4-GSL-DSL-2021.pdf", "ספר רכב סורנטו 2021+ בנזין/דיזל (קיה ישראל)",
+   ["2.5 MPI (Smartstream G2.5)", "3.5 MPI (Smartstream G3.5)", "2.2 CRDi (Smartstream D2.2)"], "petrol-or-diesel", 30, KB + "Sorento-MQ4-GSL-DSL-2021.pdf", "ספר רכב סורנטו 2021+ בנזין/דיזל (קיה ישראל)",
    long=[COOL_KIA, BELT_KIA, long_("drive_belt", "inspect", first_km=90000, first_months=48, then_every_km=30000, then_every_months=24, note="דיזל D2.2"),
          long_("spark_plugs", "replace", every_km=165000, note="מנועי בנזין"), long_("timing_belt", "inspect", every_km=120000, note="דיזל: בדיקת רצועת התזמון כל 120,000, החלפה כל 240,000 לפי הספר"),
          long_("transmission_oil", "replace", every_km=90000, note="בתנאי הפעלה קשים בלבד"), long_("dct_oil", "replace", every_km=120000, note="בתנאי הפעלה קשים בלבד"),
          long_("differential_oil", "replace", every_km=120000, note="AWD, בתנאי הפעלה קשים"), long_("transfer_case_oil", "replace", every_km=120000, note="AWD, בתנאי הפעלה קשים")],
    extra_notes="דיזל 2.2: שמן ומסנן כל 30,000 ק\"מ או 24 חודשים לפי הספר (הלוח מציג 15,000 לפי מנועי הבנזין; ברכב דיזל אפשר לדלג על הטיפולים האי-זוגיים לשמן). ההיברידי 1.6 (2022+) בספר נפרד שלא עובד.", specs=KIA_SPECS)
 hk("kia-sorento-2015-2020-2.4-2.2", KIA, "kia-Sorento-UMPE-2019-2020.pdf", [151, 152, 153, 154], "Sorento", "סורנטו", "UM", [2015, 2020],
-   ["2.4 GDI / MPI (Theta II)", "3.5 MPI (Lambda II)", "2.0 / 2.2 CRDi"], "petrol/diesel", 30, KB + "Sorento-UMPE-2019-2020.pdf", "ספר רכב סורנטו 2019-2020 (קיה ישראל)",
+   ["2.4 GDI / MPI (Theta II)", "3.5 MPI (Lambda II)", "2.0 / 2.2 CRDi"], "petrol-or-diesel", 30, KB + "Sorento-UMPE-2019-2020.pdf", "ספר רכב סורנטו 2019-2020 (קיה ישראל)",
    overrides={"בנזין מנוע II Theta 2.4 ליטר": ["engine_oil", "oil_filter"], "דיזל מנוע 2.0 ליטר": ["engine_oil", "oil_filter"], "דיזל מנוע 2.2 ליטר": ["engine_oil", "oil_filter"],
               "בנזין MPI מנוע II Theta 2.4 ליטר": ["valve_clearance"], "בנזין MPI מנוע II Lambda 3.5 ליטר": ["valve_clearance"]},
    long=[COOL_KIA, long_("spark_plugs", "replace", every_km=40000, note="2.4 MPI לפי הספר; GDI: כל 150,000"),
@@ -1375,7 +1375,7 @@ hk("kia-sorento-2015-2020-2.4-2.2", KIA, "kia-Sorento-UMPE-2019-2020.pdf", [151,
          long_("differential_oil", "replace", every_km=120000, note="AWD, בתנאי הפעלה קשים"), long_("transfer_case_oil", "replace", every_km=120000, note="AWD, בתנאי הפעלה קשים")],
    extra_notes="הספר הוא לשנתונים 2019-2020 (פייסליפט UM); הדור UM נמכר מ-2015.", specs=KIA_SPECS)
 hk("kia-niro-2023-2024-1.6-plug-in-hybrid", KIA, "kia-NIRO_PHEV_General_Heb_01_פלאגאין.pdf", [459], "Niro", "נירו", "SG2 PHEV", [2023, 2024],
-   ["1.6 GDI plug-in hybrid (Smartstream G1.6, G4LL)"], "plug-in hybrid", 15, KB + "NIRO_PHEV_General_Heb_01_%D7%A4%D7%9C%D7%90%D7%92%D7%90%D7%99%D7%9F.pdf", "ספר רכב נירו פלאג-אין 2023+ (קיה ישראל)",
+   ["1.6 GDI plug-in hybrid (Smartstream G1.6, G4LL)"], "plug-in-hybrid", 15, KB + "NIRO_PHEV_General_Heb_01_%D7%A4%D7%9C%D7%90%D7%92%D7%90%D7%99%D7%9F.pdf", "ספר רכב נירו פלאג-אין 2023+ (קיה ישראל)",
    long=[COOL_KIA_180, long_("coolant", "replace", first_km=180000, first_months=120, then_every_km=30000, then_every_months=24, note="נוזל קירור המערכת ההיברידית/סוללה"),
          long_("clutch_actuator_fluid", "replace", every_km=40000), long_("hsg_belt", "inspect", every_km=15000, every_months=12), long_("hsg_belt", "replace", every_km=105000),
          long_("spark_plugs", "replace", every_km=150000), long_("dct_oil", "replace", every_km=120000, note="בתנאי הפעלה קשים בלבד")],
@@ -1386,7 +1386,7 @@ hk("kia-niro-plus-2022-2024-1.6-hybrid", KIA, "kia-Niro-Plus-HEV-PHEV-OM-2022.pd
          long_("spark_plugs", "replace", every_km=150000), long_("dct_oil", "replace", every_km=120000, note="בתנאי הפעלה קשים בלבד")],
    specs=dict(KIA_SPECS, battery="מצבר עזר 12V + סוללת מתח גבוה"))
 hk("kia-carnival-2021-2026-2.2-3.5", KIA, "kia-Carnival-KA4-2021.pdf", [639, 640], "Carnival", "קרניבל", "KA4", [2021, 2026],
-   ["2.2 CRDi (Smartstream D2.2)", "3.5 MPI (Smartstream G3.5)"], "diesel/petrol", 30, KB + "Carnival-KA4-2021.pdf", "ספר רכב קרניבל 2021+ (קיה ישראל)",
+   ["2.2 CRDi (Smartstream D2.2)", "3.5 MPI (Smartstream G3.5)"], "petrol-or-diesel", 30, KB + "Carnival-KA4-2021.pdf", "ספר רכב קרניבל 2021+ (קיה ישראל)",
    overrides={"בנזין": "skip"},
    long=[COOL_KIA, long_("drive_belt", "inspect", first_km=80000, first_months=48, then_every_km=20000, then_every_months=12), long_("spark_plugs", "replace", every_km=165000, note="3.5 בנזין"),
          long_("timing_belt", "inspect", every_km=120000, note="דיזל: בדיקה כל 120,000, החלפה כל 240,000 לפי הספר"),
@@ -1449,14 +1449,14 @@ hk("hyundai-sonata-2024-2026-2.0-hybrid", HY, "hy-sonata-2024.pdf", [465, 466, 4
          long_("transmission_oil", "replace", every_km=100000, note="בתנאי הפעלה קשים בלבד")],
    specs=dict(HY_SPECS, battery="מצבר עזר 12V + סוללת מתח גבוה"))
 hk("hyundai-santa-fe-2019-2020-2.4-2.2", HY, "hy-santafe-2019-2020.pdf", [589, 590, 591], "Santa Fe", "סנטה פה", "TM", [2019, 2020],
-   ["2.4 GDI (Theta II, G4KJ)", "3.5 MPI", "2.2 CRDi (D4HB)"], "petrol/diesel", 15, HB + "v1716388807/ספר-רכב-סנטה-פה-2019-2020_5052df246/ספר-רכב-סנטה-פה-2019-2020_5052df246.pdf",
+   ["2.4 GDI (Theta II, G4KJ)", "3.5 MPI", "2.2 CRDi (D4HB)"], "petrol-or-diesel", 15, HB + "v1716388807/ספר-רכב-סנטה-פה-2019-2020_5052df246/ספר-רכב-סנטה-פה-2019-2020_5052df246.pdf",
    "ספר רכב יונדאי סנטה פה 2019-2020 (כלמוביל)",
    overrides={"*מסנן דלק5": ["fuel_filter"], "*9 (4WD) שמן דיפרנציאל אחורי": ["differential_oil"]},
    long=[COOL_HY_40, COOLSYS_HY, long_("spark_plugs", "replace", every_km=160000, every_months=120, note="2.4 MPI/GDI, 3.5 MPI"),
          long_("transmission_oil", "replace", every_km=90000, note="בתנאי הפעלה קשים בלבד"), long_("differential_oil", "replace", every_km=120000, note="4WD, בתנאי הפעלה קשים")],
    extra_notes="עמודי הדיזל (594-596 ב-PDF): מסנן דלק ובדיקת רצועה בתדירות שונה; הלוח מבוסס על טבלת הבנזין.", specs=HY_SPECS)
 hk("hyundai-santa-fe-2021-2023-2.5-2.2", HY, "hy-santafe-2021.pdf", [579, 580, 583, 584], "Santa Fe", "סנטה פה", "TM facelift", [2021, 2023],
-   ["2.5 GDI / 2.5 T-GDI (Smartstream)", "1.6 T-GDI hybrid", "2.2 CRDi (Smartstream D2.2)"], "petrol/diesel", 15, HB + "v1716388803/ספר-רכב-סנטה-פה-2021_505372a45/ספר-רכב-סנטה-פה-2021_505372a45.pdf",
+   ["2.5 GDI / 2.5 T-GDI (Smartstream)", "1.6 T-GDI hybrid", "2.2 CRDi (Smartstream D2.2)"], "petrol-or-diesel", 15, HB + "v1716388803/ספר-רכב-סנטה-פה-2021_505372a45/ספר-רכב-סנטה-פה-2021_505372a45.pdf",
    "ספר רכב יונדאי סנטה פה 2021 (כלמוביל)",
    overrides={"שמן מנוע ומסנן שמן2* ,1*": ["engine_oil", "oil_filter"], "חגורות הינע3*": ["drive_belt"], "*מסנן דלק8": ["fuel_filter"]},
    long=[COOL_HY, COOLSYS_HY, long_("spark_plugs", "replace", every_km=160000), long_("transmission_oil", "replace", every_km=90000, note="בתנאי הפעלה קשים בלבד"),
@@ -1597,7 +1597,7 @@ ford("ford-focus-2011-2015-1.6-2.0", "ford-plan-Ford_Focus_2011_2015.pdf", "Focu
      None, extra_notes="מסנן דלק 45,000 רק לרכבים עד ייצור 03/2012. רצועת תזמון ורצועת אביזרים 120,000 או 5 שנים.")
 ford("ford-focus-2016-2018-1.0-1.5", "ford-plan-Ford_Focus_2016_2018.pdf", "Focus", "פוקוס", "Mk3 facelift", [2016, 2018], ["1.0 EcoBoost (M1DA/M2DA)", "1.5 EcoBoost (M8DC/M9DC)"], "petrol",
      None, extra_notes="רצועת תזמון (ברטובה בשמן) 195,000 או 10 שנים; רצועת אביזרים 120,000 או 5 שנים.")
-ford("ford-focus-2019-2021-1.0-1.5", "ford-plan-Ford_Focus_2019_2021.pdf", "Focus", "פוקוס", "Mk4 (C519)", [2019, 2021], ["1.0 EcoBoost (M0DC/Y1DA)", "1.5 EcoBoost", "1.5 EcoBlue diesel"], "petrol/diesel",
+ford("ford-focus-2019-2021-1.0-1.5", "ford-plan-Ford_Focus_2019_2021.pdf", "Focus", "פוקוס", "Mk4 (C519)", [2019, 2021], ["1.0 EcoBoost (M0DC/Y1DA)", "1.5 EcoBoost", "1.5 EcoBlue diesel"], "petrol-or-diesel",
      None, extra_notes="דיזל: שמן ומסנן כל טיפול שני לפי התוכנית (בבנזין כל טיפול); מסנן סולר 60,000 או 4 שנים; רצועת תזמון דיזל 180,000 או 10 שנים.")
 ford("ford-focus-2022-2026-1.0", "ford-plan-Ford_Focus_2022_And_Up.pdf", "Focus", "פוקוס", "Mk4 facelift", [2022, 2026], ["1.0 EcoBoost mHEV (Y1DA/FYD)"], "petrol",
      None)
@@ -1607,11 +1607,11 @@ ford("ford-kuga-2013-2016-1.5-1.6", "ford-plan-Ford_Kuga_2013_2016.pdf", "Kuga",
      None, extra_notes="רצועת תזמון: 1.6 - 120,000 או 5 שנים; 1.5 - 195,000 או 10 שנים. שמן גיר אוטומטי 240,000 או 12 שנים.")
 ford("ford-kuga-2017-2026-1.5", "ford-plan-Ford_Kuga_2017_And_Up.pdf", "Kuga", "קוגה", "Mk2 facelift / Mk3", [2017, 2026], ["1.5 EcoBoost (M9MB/M8MA)"], "petrol",
      None, extra_notes="שמן גיר אוטומטי 240,000 או 12 שנים; רצועת תזמון 195,000 או 10 שנים.")
-ford("ford-mondeo-2007-2012-2.0-2.3", "ford-plan-Ford_Mondeo_2007_2012.pdf", "Mondeo", "מונדאו", "Mk4 (CD345)", [2007, 2012], ["2.0 Duratec (SEBA)", "2.3 Duratec", "2.0 TDCi"], "petrol/diesel",
+ford("ford-mondeo-2007-2012-2.0-2.3", "ford-plan-Ford_Mondeo_2007_2012.pdf", "Mondeo", "מונדאו", "Mk4 (CD345)", [2007, 2012], ["2.0 Duratec (SEBA)", "2.3 Duratec", "2.0 TDCi"], "petrol-or-diesel",
      None, extra_notes="דיזל: מסנן דלק 45,000 או 3 שנים, רצועת תזמון 135,000 או 6 שנים; בנזין: מרווח שסתומים - בדיקת רעשים ב-135,000; גיר רובוטי (PowerShift) שמן 60,000 או 3 שנים.")
 ford("ford-puma-2020-2026-1.0", "ford-plan-Ford_Puma_2020_And_Up.pdf", "Puma", "פומה", "J2K", [2020, 2026], ["1.0 EcoBoost mHEV (B7JA)"], "petrol",
      None, extra_notes="פקק אגן שמן מוחלף בכל טיפול; רצועת אביזרים 240,000.")
-ford("ford-s-max-galaxy-2007-2011-2.0-2.3", "ford-plan-Ford_Smax_Galaxy_2007_2011.pdf", "S-Max / Galaxy", "אס-מקס / גלקסי", "WA6", [2007, 2011], ["2.0 Duratec", "2.3 Duratec", "2.0 TDCi"], "petrol/diesel",
+ford("ford-s-max-galaxy-2007-2011-2.0-2.3", "ford-plan-Ford_Smax_Galaxy_2007_2011.pdf", "S-Max / Galaxy", "אס-מקס / גלקסי", "WA6", [2007, 2011], ["2.0 Duratec", "2.3 Duratec", "2.0 TDCi"], "petrol-or-diesel",
      None, extra_notes="דיזל: מסנן דלק 45,000/3 שנים, רצועת תזמון 135,000/6 שנים; 2.3 בנזין: מסנן דלק 135,000/6 שנים.")
 print("done ford")
 

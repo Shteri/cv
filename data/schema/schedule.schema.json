@@ -61,8 +61,11 @@
         "petrol",
         "diesel",
         "hybrid",
-        "plug-in-hybrid"
-      ]
+        "plug-in-hybrid",
+        "electric",
+        "petrol-or-diesel"
+      ],
+      "description": "petrol-or-diesel: one file covers both engine types (the notes say which rows apply to which)"
     },
     "importer": {
       "type": "string",

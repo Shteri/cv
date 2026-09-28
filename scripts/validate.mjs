@@ -4,10 +4,11 @@ import { join } from "node:path";
 
 const root = new URL("../data/", import.meta.url).pathname;
 const items = JSON.parse(readFileSync(join(root, "items.json"), "utf8"));
-const dir = join(root, "schedules");
+const dir = process.argv[2] ?? join(root, "schedules");  // optional: validate a staging dir
 const required = ["id","make","model","years","engines","importer","interval","cycle_km","services","sources","status"];
 const actions = new Set(["replace","inspect","adjust","clean","rotate"]);
 const statuses = new Set(["draft","reviewed","verified"]);
+const fuels = new Set(["petrol","diesel","hybrid","plug-in-hybrid","electric","petrol-or-diesel"]);
 const specKeys = new Set(["engine_oil","oil_capacity","coolant","brake_fluid","fuel","tires","tire_pressure","battery","timing","spare","wipers","warranty","_note"]);
 let errors = 0;
 const counts = { draft: 0, reviewed: 0, verified: 0 };
@@ -20,6 +21,7 @@ for (const file of readdirSync(dir).filter(f => f.endsWith(".json"))) {
   if (!Array.isArray(s.years) || s.years.length !== 2) fail("years must be [first,last]");
   if (!s.interval?.km || !s.interval?.months) fail("interval needs km and months");
   if (!Array.isArray(s.sources) || s.sources.length === 0) fail("needs at least one source");
+  if (s.fuel !== undefined && !fuels.has(s.fuel)) fail(`bad fuel '${s.fuel}'`);
   if (!statuses.has(s.status)) fail(`bad status '${s.status}'`); else counts[s.status]++;
   const first = s.first_service_km ?? s.interval?.km;
   let prevKm = 0;
