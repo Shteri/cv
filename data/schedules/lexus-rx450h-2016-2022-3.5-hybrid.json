@@ -1,0 +1,768 @@
+{
+  "id": "lexus-rx450h-2016-2022-3.5-hybrid",
+  "make": "Lexus",
+  "make_he": "לקסוס",
+  "model": "RX 450h",
+  "model_he": "RX 450h",
+  "generation": "AL20",
+  "years": [
+    2016,
+    2022
+  ],
+  "engines": [
+    "3.5 V6 hybrid (2GR-FXS)"
+  ],
+  "fuel": "hybrid",
+  "importer": "יוניון מוטורס",
+  "interval": {
+    "km": 15000,
+    "months": 12,
+    "note": "לפי לוח האחזקה בספר הרכב: שמן כשנדלקת נורית ההחלפה, ולכל המאוחר כל 15,000 ק\"מ או 12 חודשים"
+  },
+  "cycle_km": 150000,
+  "services": [
+    {
+      "km": 15000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "כאשר נדלקת נורית החלפת השמן, ולכל המאוחר כל 15,000 ק\"מ או 12 חודשים; בתנאים מחמירים כל 7,500 ק\"מ או 6 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "בדיקה כל 24 חודשים, החלפה כל 48 חודשים"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "בתנאים מחמירים כל 7,500 ק\"מ"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "כאשר נדלקת נורית החלפת השמן, ולכל המאוחר כל 15,000 ק\"מ או 12 חודשים; בתנאים מחמירים כל 7,500 ק\"מ או 6 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקת נוזל קירור המנוע"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "בדיקת נוזל קירור הממיר (Inverter)"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "צינורות דלק, חיבורים ומכסה מיכל הדלק"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "מסרק הגה, מוטות הגה וגלגל ההגה"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלים, מחברים כדוריים ומגיני אבק"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "צמיגים ולחץ ניפוח"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "אורות, צופר, מגבים ומתזים"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "בדיקת חלודה"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "בדיקה כל 24 חודשים, החלפה כל 48 חודשים"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "החלפה כל 30,000 ק\"מ או 24 חודשים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "בתנאים מחמירים כל 7,500 ק\"מ"
+        }
+      ]
+    },
+    {
+      "km": 45000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "כאשר נדלקת נורית החלפת השמן, ולכל המאוחר כל 15,000 ק\"מ או 12 חודשים; בתנאים מחמירים כל 7,500 ק\"מ או 6 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "בדיקה כל 24 חודשים, החלפה כל 48 חודשים"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect",
+          "note": "מכלול מסנן פחם"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "בתנאים מחמירים כל 7,500 ק\"מ"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "כאשר נדלקת נורית החלפת השמן, ולכל המאוחר כל 15,000 ק\"מ או 12 חודשים; בתנאים מחמירים כל 7,500 ק\"מ או 6 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקת נוזל קירור המנוע"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "בדיקת נוזל קירור הממיר (Inverter)"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "צינורות דלק, חיבורים ומכסה מיכל הדלק"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "מסרק הגה, מוטות הגה וגלגל ההגה"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלים, מחברים כדוריים ומגיני אבק"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "צמיגים ולחץ ניפוח"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "אורות, צופר, מגבים ומתזים"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "בדיקת חלודה"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "בדיקה כל 24 חודשים, החלפה כל 48 חודשים"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "החלפה כל 30,000 ק\"מ או 24 חודשים"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "בדיקה כל 60,000 ק\"מ או 48 חודשים"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "דיפרנציאל קדמי: בדיקה כל 60,000 ק\"מ; דיפרנציאל אחורי: בדיקה ב-45,000/90,000/135,000"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "בתנאים מחמירים כל 7,500 ק\"מ"
+        }
+      ]
+    },
+    {
+      "km": 75000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "כאשר נדלקת נורית החלפת השמן, ולכל המאוחר כל 15,000 ק\"מ או 12 חודשים; בתנאים מחמירים כל 7,500 ק\"מ או 6 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "בדיקה כל 24 חודשים, החלפה כל 48 חודשים"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "בתנאים מחמירים כל 7,500 ק\"מ"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "כאשר נדלקת נורית החלפת השמן, ולכל המאוחר כל 15,000 ק\"מ או 12 חודשים; בתנאים מחמירים כל 7,500 ק\"מ או 6 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקת נוזל קירור המנוע"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "בדיקת נוזל קירור הממיר (Inverter)"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "צינורות דלק, חיבורים ומכסה מיכל הדלק"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "מסרק הגה, מוטות הגה וגלגל ההגה"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלים, מחברים כדוריים ומגיני אבק"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "צמיגים ולחץ ניפוח"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "אורות, צופר, מגבים ומתזים"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "בדיקת חלודה"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "בדיקה כל 24 חודשים, החלפה כל 48 חודשים"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect",
+          "note": "מכלול מסנן פחם"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "החלפה כל 30,000 ק\"מ או 24 חודשים"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "בתנאים מחמירים כל 7,500 ק\"מ"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "מצתי אירידיום/פלטינה"
+        }
+      ]
+    },
+    {
+      "km": 105000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "כאשר נדלקת נורית החלפת השמן, ולכל המאוחר כל 15,000 ק\"מ או 12 חודשים; בתנאים מחמירים כל 7,500 ק\"מ או 6 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "בדיקה כל 24 חודשים, החלפה כל 48 חודשים"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "בתנאים מחמירים כל 7,500 ק\"מ"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "כאשר נדלקת נורית החלפת השמן, ולכל המאוחר כל 15,000 ק\"מ או 12 חודשים; בתנאים מחמירים כל 7,500 ק\"מ או 6 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקת נוזל קירור המנוע"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "בדיקת נוזל קירור הממיר (Inverter)"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "צינורות דלק, חיבורים ומכסה מיכל הדלק"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "מסרק הגה, מוטות הגה וגלגל ההגה"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלים, מחברים כדוריים ומגיני אבק"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "צמיגים ולחץ ניפוח"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "אורות, צופר, מגבים ומתזים"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "בדיקת חלודה"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "בדיקה כל 24 חודשים, החלפה כל 48 חודשים"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "החלפה כל 30,000 ק\"מ או 24 חודשים"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "בדיקה כל 60,000 ק\"מ או 48 חודשים"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "דיפרנציאל קדמי: בדיקה כל 60,000 ק\"מ; דיפרנציאל אחורי: בדיקה ב-45,000/90,000/135,000"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "בתנאים מחמירים כל 7,500 ק\"מ"
+        }
+      ]
+    },
+    {
+      "km": 135000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "כאשר נדלקת נורית החלפת השמן, ולכל המאוחר כל 15,000 ק\"מ או 12 חודשים; בתנאים מחמירים כל 7,500 ק\"מ או 6 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "בדיקה כל 24 חודשים, החלפה כל 48 חודשים"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect",
+          "note": "מכלול מסנן פחם"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "בתנאים מחמירים כל 7,500 ק\"מ"
+        }
+      ]
+    },
+    {
+      "km": 150000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "כאשר נדלקת נורית החלפת השמן, ולכל המאוחר כל 15,000 ק\"מ או 12 חודשים; בתנאים מחמירים כל 7,500 ק\"מ או 6 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקת נוזל קירור המנוע"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "בדיקת נוזל קירור הממיר (Inverter)"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "צינורות דלק, חיבורים ומכסה מיכל הדלק"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "מסרק הגה, מוטות הגה וגלגל ההגה"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלים, מחברים כדוריים ומגיני אבק"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "צמיגים ולחץ ניפוח"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "אורות, צופר, מגבים ומתזים"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "בדיקת חלודה"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "בדיקה כל 24 חודשים, החלפה כל 48 חודשים"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "החלפה כל 30,000 ק\"מ או 24 חודשים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "בתנאים מחמירים כל 7,500 ק\"מ"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "spark_plugs",
+      "action": "replace",
+      "every_km": 90000
+    },
+    {
+      "item": "coolant",
+      "action": "replace",
+      "first_km": 150000,
+      "then_every_km": 90000
+    },
+    {
+      "item": "hybrid_system",
+      "action": "replace",
+      "first_km": 240000,
+      "then_every_km": 90000,
+      "note": "נוזל קירור הממיר (Inverter)"
+    }
+  ],
+  "time_based": [],
+  "specs": {
+    "engine_oil": "0W-20 / 5W-30 / 10W-30 (API SL/SM/SN או ILSAC)",
+    "oil_capacity": "5.4 ליטר עם מסנן, 5.3 ליטר בלי",
+    "coolant": "Toyota Super Long Life Coolant; 9.8 ליטר (RX450h), 12.2 ליטר (RX450h Long); ממיר 1.9 ליטר",
+    "brake_fluid": "DOT 3 / DOT 4"
+  },
+  "sources": [
+    {
+      "url": "https://books.union-motors.co.il/LexusApp/api/files/150/download",
+      "kind": "importer",
+      "note": "ספר רכב RX450h/RX450L בעברית (2016-2019), עמוד 746: \"לוח אחזקה RX450h \\ RX450h Long 2GR-FXS\" מתאריך 26.4.18, 10 עמודות של 15,000 ק\"מ"
+    },
+    {
+      "url": "https://www.lexus.co.il/owners/maintenance/owner-books",
+      "kind": "importer",
+      "note": "דף ספרי הרכב של לקסוס ישראל"
+    }
+  ],
+  "status": "reviewed",
+  "notes": "הועתק מלוח האחזקה הישראלי של RX450h (דור AL20). בתנאים מחמירים: שמן ומסנן כל 7,500 ק\"מ, בדיקות מתלים והגה כל 15,000, נוזל גיר ושמני דיפרנציאל מוחלפים כל 90,000 ק\"מ (72 חודשים). הלוח כולל גם טבלת נוזלים: שמן 0W-20, כ-5.4 ליטר עם מסנן."
+}

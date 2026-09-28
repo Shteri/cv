@@ -1,0 +1,294 @@
+{
+  "make": "Renault",
+  "make_he": "רנו",
+  "importer": "פריסבי (קרסו)",
+  "id": "renault-trafic-2015-2026-2.0-dci",
+  "model": "Trafic",
+  "model_he": "טראפיק",
+  "generation": "III",
+  "years": [
+    2015,
+    2026
+  ],
+  "engines": [
+    "2.0 dCi (M9R)"
+  ],
+  "fuel": "diesel",
+  "interval": {
+    "km": 30000,
+    "months": 12,
+    "note": "לפי רנו אוסטרליה לטראפיק 2.0 דיזל: טיפולים כל 30,000 ק\"מ, מסננים כל שנה או 30,000"
+  },
+  "cycle_km": 120000,
+  "services": [
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace"
+        },
+        {
+          "item": "dct_oil",
+          "action": "replace",
+          "note": "רק בגיר EDC: שמן ומסנן, או כל 6 שנים"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "drive_belt",
+      "action": "replace",
+      "every_km": 120000,
+      "every_months": 48,
+      "note": "ערכת רצועת אביזרים"
+    },
+    {
+      "item": "coolant",
+      "action": "replace",
+      "every_km": 120000,
+      "every_months": 48
+    },
+    {
+      "item": "brake_fluid",
+      "action": "replace",
+      "every_km": 120000,
+      "every_months": 48
+    },
+    {
+      "item": "dct_oil",
+      "action": "replace",
+      "every_km": 90000,
+      "every_months": 72,
+      "note": "רק בגיר כפול מצמד EDC"
+    }
+  ],
+  "time_based": [],
+  "specs": {},
+  "sources": [
+    {
+      "url": "https://www.renault.com.au/capped-price-servicing/",
+      "kind": "manufacturer",
+      "note": "Renault Australia, Capped Price Servicing: טבלת \"Renault Trafic (MY23 onwards)\", Trafic 2.0L Diesel 125kW"
+    },
+    {
+      "url": "https://www.renault.co.il/",
+      "kind": "importer",
+      "note": "אתרי renault.co.il ו-dacia.co.il חסומים מסביבת הענן (Incapsula 403, גם בדפדפן Playwright); ספר עברי או לוח טיפולים של היבואן לא נמצאו"
+    }
+  ],
+  "status": "draft",
+  "notes": "לוח היבואן בישראל לא נמצא. לפי טבלת רנו אוסטרליה לטראפיק 2.0 דיזל: טיפול כל שנה או 30,000 ק\"מ עם שמן ומסנני אוויר, מזגן וסולר. ערכת רצועת אביזרים, נוזל קירור ונוזל בלמים כל 120,000 או 4 שנים. בגיר EDC: שמן ומסנן כל 90,000 או 6 שנים. רשימת הבדיקות הכלליות בכל טיפול (צמיגים, תאורה, בלמים, מפלסים, קריאת מחשב) איננה מפורטת בעמוד המקור ונוספה כבדיקות שגרה; ההחלפות והמרווחים לקוחים מהמקור. "
+}

@@ -1,0 +1,9 @@
+# china-ev research report (written by the main session from the agent's hand-back)
+
+- Geely (גיאו מוביליטי), reviewed: Hebrew maintenance tables from geely.co.il WordPress media (GE13-J2 table + warranty book pp.10-13; 2GE13-A1 update table assigned to 2026 by assumption; EX5 E245 table; Starray EM-i P145 table + warranty booklet pp.11-13).
+- BYD (שלמה מוטורס), reviewed: Hebrew "-HE" owner's books hosted by BYD Europe (byd.com/material/...), found through the byd.com/eu owners-manual picker in Playwright. ATTO 3 2022-2024 pp.135-137/156-158; ATTO 3 2024 book (SC2ES) 30k/24 interval, year split estimated; Dolphin, Seal, Seal U, Atto 2, Sealion 7, Dolphin Surf; Seal U DM-i, Sealion 5 DM-i. Draft (English LHD book only): Seal 5 DM-i, Atto 2 DM-i. Not done: ATTO 3 EVO (book mixes miles/km), Tang, Seal U DM-i 2026.
+- Jaecoo (כלמוביל), reviewed: Hebrew books from jaecoo.co.il/car-book (Playwright) on cloudinary: J7 PHEV (Jan 2026 edition; the Jan 2025 edition had coolant 30k and plugs 45k), J8 PHEV (book contradicts itself on gearbox fluid: grid 60k vs text 4 years/40k), J5 HEV (10k grid), J5 1.6T. Draft: Jaecoo 7 1.6T from the J5 petrol book (sister).
+- Chery (פריסבי), all draft: cheryisrael.co.il behind Imperva, no books published. Each model mapped to the Jaecoo Israeli book with the same registry engine code (SQRH4J15 PHEV, J5 HEV, SQRF4J16 petrol). Rejected: Chery Malaysia table (10k/6 months), Chery UK manuals (no table). Not done: Tiggo 4 Hybrid/Pro (SQRG4G15), FX EV.
+- MG (קאר איסט / לובינסקי), all draft: mg-israel.co.il/guide-books lists Hebrew books but they sit on lubinski.clearmash.com (Cloudflare 403). Used MG Europe service manuals: EHS PHEV, ZS EV, MG4, Marvel R, MG5. Not done: ZS petrol/Hybrid+, MG3 Hybrid, S9, new EHS/HS Hybrid.
+- Tesla: not done. tesla.com 403 in curl/Playwright/WebFetch. Leads: manualslib Tesla Model 3 manual p.163; hamphi.com EU text.
+- Xpeng: not attempted (xpeng.co.il 502; importer Freesbe).

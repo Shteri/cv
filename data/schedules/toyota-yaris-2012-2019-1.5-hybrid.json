@@ -30,11 +30,6 @@
           "note": "תדירות בחודשים לפי הגיליון: : 12"
         },
         {
-          "item": "oil_filter",
-          "action": "replace",
-          "note": "תדירות בחודשים לפי הגיליון: : 12"
-        },
-        {
           "item": "exhaust",
           "action": "inspect",
           "note": "תדירות בחודשים לפי הגיליון: : 12"
@@ -125,11 +120,6 @@
       "items": [
         {
           "item": "engine_oil",
-          "action": "replace",
-          "note": "תדירות בחודשים לפי הגיליון: : 12"
-        },
-        {
-          "item": "oil_filter",
           "action": "replace",
           "note": "תדירות בחודשים לפי הגיליון: : 12"
         },
@@ -252,11 +242,6 @@
           "note": "תדירות בחודשים לפי הגיליון: : 12"
         },
         {
-          "item": "oil_filter",
-          "action": "replace",
-          "note": "תדירות בחודשים לפי הגיליון: : 12"
-        },
-        {
           "item": "exhaust",
           "action": "inspect",
           "note": "תדירות בחודשים לפי הגיליון: : 12"
@@ -352,11 +337,6 @@
       "items": [
         {
           "item": "engine_oil",
-          "action": "replace",
-          "note": "תדירות בחודשים לפי הגיליון: : 12"
-        },
-        {
-          "item": "oil_filter",
           "action": "replace",
           "note": "תדירות בחודשים לפי הגיליון: : 12"
         },
@@ -479,11 +459,6 @@
           "note": "תדירות בחודשים לפי הגיליון: : 12"
         },
         {
-          "item": "oil_filter",
-          "action": "replace",
-          "note": "תדירות בחודשים לפי הגיליון: : 12"
-        },
-        {
           "item": "exhaust",
           "action": "inspect",
           "note": "תדירות בחודשים לפי הגיליון: : 12"
@@ -579,11 +554,6 @@
         },
         {
           "item": "engine_oil",
-          "action": "replace",
-          "note": "תדירות בחודשים לפי הגיליון: : 12"
-        },
-        {
-          "item": "oil_filter",
           "action": "replace",
           "note": "תדירות בחודשים לפי הגיליון: : 12"
         },
@@ -711,11 +681,6 @@
           "note": "תדירות בחודשים לפי הגיליון: : 12"
         },
         {
-          "item": "oil_filter",
-          "action": "replace",
-          "note": "תדירות בחודשים לפי הגיליון: : 12"
-        },
-        {
           "item": "exhaust",
           "action": "inspect",
           "note": "תדירות בחודשים לפי הגיליון: : 12"
@@ -806,11 +771,6 @@
       "items": [
         {
           "item": "engine_oil",
-          "action": "replace",
-          "note": "תדירות בחודשים לפי הגיליון: : 12"
-        },
-        {
-          "item": "oil_filter",
           "action": "replace",
           "note": "תדירות בחודשים לפי הגיליון: : 12"
         },
@@ -938,11 +898,6 @@
           "note": "תדירות בחודשים לפי הגיליון: : 12"
         },
         {
-          "item": "oil_filter",
-          "action": "replace",
-          "note": "תדירות בחודשים לפי הגיליון: : 12"
-        },
-        {
           "item": "exhaust",
           "action": "inspect",
           "note": "תדירות בחודשים לפי הגיליון: : 12"
@@ -1038,11 +993,6 @@
       "items": [
         {
           "item": "engine_oil",
-          "action": "replace",
-          "note": "תדירות בחודשים לפי הגיליון: : 12"
-        },
-        {
-          "item": "oil_filter",
           "action": "replace",
           "note": "תדירות בחודשים לפי הגיליון: : 12"
         },
@@ -1171,18 +1121,6 @@
       "first_km": 240000,
       "then_every_km": 75000,
       "note": "נוזל קירור מערכת היברידית/ממיר"
-    },
-    {
-      "item": "spark_plugs",
-      "action": "replace",
-      "every_km": 90000,
-      "note": "מצתי אירידיום"
-    },
-    {
-      "item": "cvt_oil",
-      "action": "replace",
-      "every_km": 60000,
-      "note": "בדיקה כל 30,000"
     }
   ],
   "time_based": [],
@@ -1201,7 +1139,7 @@
   },
   "sources": [
     {
-      "url": "https://books.union-motors.co.il/app (fileId 312, connectionId 592)",
+      "url": "https://books.union-motors.co.il/app (fileId 312, connectionId ?)",
       "kind": "importer",
       "note": "לוח אחזקה של יוניון מוטורס 'YARIS Hybrid' (דגמים Yaris Hybrid, שנים 2012-2019); דגם מנוע בגיליון: 1NZ-FXE"
     },
@@ -1212,5 +1150,5 @@
     }
   ],
   "status": "reviewed",
-  "notes": "הועתק מלוח האחזקה הישראלי של יוניון מוטורס (10 עמודות של 15,000 ק\"מ). פעולות: I בדיקה, R החלפה, C ניקוי, T הידוק. מרווח שסתומים: בדיקה ב-90,000 (72 חודשים). נוזל קירור ממיר מתח: בדיקה כל 30,000."
+  "notes": "הועתק מלוח האחזקה הישראלי של יוניון מוטורס (10 עמודות של 15,000 ק\"מ). פעולות: I בדיקה, R החלפה, C ניקוי, T הידוק, L/G גירוז (נרשם כבדיקה). מרווח שסתומים: בדיקה ב-90,000 (72 חודשים). נוזל קירור ממיר מתח: בדיקה כל 30,000."
 }

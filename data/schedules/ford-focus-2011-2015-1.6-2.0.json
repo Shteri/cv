@@ -1,0 +1,226 @@
+{
+  "make": "Ford",
+  "make_he": "פורד",
+  "importer": "דלק מוטורס",
+  "id": "ford-focus-2011-2015-1.6-2.0",
+  "model": "Focus",
+  "model_he": "פוקוס",
+  "generation": "Mk3 (C346)",
+  "years": [
+    2011,
+    2015
+  ],
+  "engines": [
+    "1.6 Ti-VCT (PNDA)",
+    "1.6 EcoBoost",
+    "2.0 GDI"
+  ],
+  "fuel": "petrol",
+  "interval": {
+    "km": 15000,
+    "months": 12,
+    "note": "לפי תוכנית הטיפול של דלק מוטורס: התראה בלוח המחוונים, 15,000 ק\"מ או 12 חודשים, המוקדם"
+  },
+  "cycle_km": 120000,
+  "services": [
+    {
+      "km": 15000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 45000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace",
+          "note": "03/12 מסנן דלק לרכבים עד ייצור: ק\"מ45,000"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 75000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace",
+          "note": "03/12 מסנן דלק לרכבים עד ייצור: ק\"מ45,000"
+        }
+      ]
+    },
+    {
+      "km": 105000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace"
+        },
+        {
+          "item": "valve_clearance",
+          "action": "adjust"
+        },
+        {
+          "item": "timing_belt",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "replace"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "coolant",
+      "action": "replace",
+      "every_months": 120
+    }
+  ],
+  "time_based": [],
+  "specs": {
+    "_note": "מפרטי הנוזלים מתוך תוכנית הטיפול (מק\"טי Ford WSS): שמן מנועWSS-M2C948-B  מפרט5W20 צמיגות; נוזל קירורWSS-M97B57-A1 גוון צהוב מפרט; הילוכים6 שמן תיבת הילוכים ידניתWSS-M2C200-D2; הילוכים5 שמן תיבת הילוכים ידניתWSS-M2C200-C; שמן הגהWSS-M2C204-A2 שמן ירוק במפרט; 08/2012 נוזל בלמים עד ייצורDOT4 Super; 09/2012 נוזל בלמים מייצורDOT4 Low Viscosity"
+  },
+  "sources": [
+    {
+      "url": "https://delekmotorscoil.sharepoint.com/:b:/s/Techtrain/EQDL0wEKw-hGmykZkg0nZ6QBEKVkENmYqP_pqEImrp12tg?download=1",
+      "kind": "importer",
+      "note": "PDF תוכנית טיפול 'Ford_Focus_2011_2015.pdf' של דלק מוטורס (קישור SharePoint מתוך הדף; מפרט טיפולים | פורד פוקוס | חודשים12  ק\"מ או15,000 טיפול כל | 2015  עד שנת ייצור)"
+    },
+    {
+      "url": "https://www.ford.co.il/תוכנית-טיפול/שירות",
+      "kind": "importer",
+      "note": "תוכנית טיפול לפי דגם ושנת עלייה לכביש: התראה בלוח המחוונים / 15,000 ק\"מ / שנה, המוקדם"
+    }
+  ],
+  "status": "reviewed",
+  "notes": "הועתק מתוכנית הטיפול (עמוד אחד: פריט ומרווח). הלוח מציג 8 טיפולים של 15,000 ק\"מ; פריטים עם מרווח ארוך יותר ב-long_interval. מסנן דלק 45,000 רק לרכבים עד ייצור 03/2012. רצועת תזמון ורצועת אביזרים 120,000 או 5 שנים."
+}

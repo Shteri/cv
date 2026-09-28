@@ -1,0 +1,478 @@
+{
+  "id": "seat-cupra-2020-2024-2.0-tsi",
+  "make": "Seat",
+  "make_he": "סיאט",
+  "model": "Cupra (Formentor / Ateca)",
+  "model_he": "קופרה (פורמנטור / אטקה)",
+  "generation": "רשום כסיאט",
+  "years": [
+    2020,
+    2024
+  ],
+  "engines": [
+    "2.0 TSI (DNF/DNU/DNN)"
+  ],
+  "fuel": "petrol",
+  "importer": "צ'מפיון מוטורס",
+  "interval": {
+    "km": 15000,
+    "months": 12,
+    "note": "לפי טבלת צ'מפיון: טיפול כל 15,000 ק\"מ; תקרת שנה לפי מרווח QI4 של היצרן"
+  },
+  "cycle_km": 120000,
+  "services": [
+    {
+      "km": 15000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "קדמיות ואחוריות, כולל מצב הדיסקים"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "קדמיות ואחוריות, כולל מצב הדיסקים"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "או כל שנתיים, המוקדם"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "או כל שנה, המוקדם"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 45000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "קדמיות ואחוריות, כולל מצב הדיסקים"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "קדמיות ואחוריות, כולל מצב הדיסקים"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "או כל שנתיים, המוקדם"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "או כל שנה, המוקדם"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "או כל 4 שנים, המוקדם"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "בטבלת ה-2.0 של היבואן מסומן ב-60,000 וב-120,000"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 75000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "קדמיות ואחוריות, כולל מצב הדיסקים"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "קדמיות ואחוריות, כולל מצב הדיסקים"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "או כל שנתיים, המוקדם"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "או כל שנה, המוקדם"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 105000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "קדמיות ואחוריות, כולל מצב הדיסקים"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "קדמיות ואחוריות, כולל מצב הדיסקים"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "או כל שנתיים, המוקדם"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "או כל שנה, המוקדם"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "או כל 4 שנים, המוקדם"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "בטבלת ה-2.0 של היבואן מסומן ב-60,000 וב-120,000"
+        },
+        {
+          "item": "dct_oil",
+          "action": "replace",
+          "note": "שמן תיבת הילוכים לפי טבלת היבואן; בטבלאות היצרן DSG רטובה 6 הילוכים (02E/0D9) ו-DQ500 (0DL/0BH) כל 60,000, DQ381 (0GC) כל 120,000"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "differential_oil",
+      "action": "replace",
+      "every_months": 36,
+      "note": "שמן מצמד ההנעה הכפולה (הלדקס), רק בגרסאות 4x4. היבואן: פולקסווגן וסקודה כל שנתיים, קופרה ואאודי כל 3 שנים"
+    },
+    {
+      "item": "differential_oil",
+      "action": "replace",
+      "every_months": 24,
+      "note": "שמן מצמד נעילת הדיפרנציאל הקדמי, רק ברכב שמצויד בה (בעיקר גרסאות ספורט)"
+    },
+    {
+      "item": "brake_fluid",
+      "action": "replace",
+      "every_months": 24,
+      "note": "טבלאות היצרן לשווקים מחוץ לאירופה במרווח קבוע: כל שנתיים"
+    },
+    {
+      "item": "cabin_filter",
+      "action": "replace",
+      "every_months": 12
+    },
+    {
+      "item": "air_filter",
+      "action": "replace",
+      "every_months": 24
+    },
+    {
+      "item": "spark_plugs",
+      "action": "replace",
+      "every_months": 48
+    }
+  ],
+  "time_based": [],
+  "sources": [
+    {
+      "url": "https://www.championmotors.co.il/service-routine/",
+      "kind": "importer",
+      "note": "שגרת טיפולים תקופתיים של צ'מפיון מוטורס, טבלאות לפי נפח וסוג מנוע (15,000 עד 120,000 ק\"מ). הדף חסום לבוטים; נקרא בדפדפן אמיתי (Playwright) ב-28.9.2026 והטבלאות פוענחו מקוד הדף"
+    },
+    {
+      "url": "https://www.manualslib.com/manual/1260581/Skoda-Kodiaq.html?page=275",
+      "kind": "manufacturer",
+      "note": "ספר נהג סקודה (קודיאק, אנגלית), פרק מרווחי שירות: במרווח קבוע QI4 החלפת שמן כל 15,000 ק\"מ או שנה; נוזל בלמים ראשון אחרי 3 שנים ואז כל שנתיים, בכפוף לשונות בין מדינות"
+    },
+    {
+      "url": "https://vwts.ru/skoda/kodiaq/skoda-kodiaq-maintenance-eng.pdf",
+      "kind": "manufacturer",
+      "note": "Skoda Kodiaq Maintenance, מהדורה 05.2019: עמ' 20-23 עבודות נוספות, עמודה 'מדינות מאובקות' (ישראל ברשימה בעמ' 28), קודי מנוע בעמ' 36-38"
+    },
+    {
+      "url": "https://vwts.ru/petrol-engine-vw-audi-skoda-repair-manual.html",
+      "kind": "other",
+      "note": "אינדקס ספרי תיקון מנועים של קבוצת פולקסווגן לפי קודי מנוע (לשיוך קוד מנוע לנפח ומשפחה, למשל CHZ/DKR/DLA/DUS = 1.0 TSI, DAD/DPC/DFY/DXD = 1.5 TSI, CBZ = 1.2 TSI EA111, CAX = 1.4 TSI EA111, CGGB = 1.4 MPI עם רצועה)"
+    }
+  ],
+  "status": "reviewed",
+  "notes": "קבוצת פולקסווגן משתמשת באותן טבלאות שירות לכל הדגמים על אותה פלטפורמה ומשפחת מנוע, ולכן הקובץ נבנה מתבנית משותפת ומשויך לרכב לפי קוד המנוע ברישיון. ברישיון הרכב הדגם רשום כ'סיאט CUPRA'. הלוח הועתק מטבלת '2.0 ל' בנזין' בשגרת הטיפולים של צ'מפיון מוטורס (מנועי 2.0 TSI/TFSI עם שרשרת תזמון; אין שורת רצועת תזמון). בטבלה זו נוזל הבלמים מסומן ב-60,000 וב-120,000; טבלאות היצרן לשוק מחוץ לאירופה קובעות גם החלפה כל שנתיים, ולכן נוספה גם שורת זמן. בטבלת ה-2.0 של היבואן אין רצועת אביזרים; בטבלאות היצרן למדינות מאובקות רצועה זו מוחלפת כל 60,000 ק\"מ, כדאי לוודא במוסך. שמן הלדקס ונעילת הדיפרנציאל רלוונטיים רק לרכב שמצויד בהם. בדיקות בכל 30,000/60,000 ק\"מ נוספו מהיקף הבדיקה במדריכי היצרן."
+}

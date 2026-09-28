@@ -1,0 +1,225 @@
+{
+  "make": "Ford",
+  "make_he": "פורד",
+  "importer": "דלק מוטורס",
+  "id": "ford-kuga-2013-2016-1.5-1.6",
+  "model": "Kuga",
+  "model_he": "קוגה",
+  "generation": "Mk2 (C520)",
+  "years": [
+    2013,
+    2016
+  ],
+  "engines": [
+    "1.6 EcoBoost",
+    "1.5 EcoBoost"
+  ],
+  "fuel": "petrol",
+  "interval": {
+    "km": 15000,
+    "months": 12,
+    "note": "לפי תוכנית הטיפול של דלק מוטורס: התראה בלוח המחוונים, 15,000 ק\"מ או 12 חודשים, המוקדם"
+  },
+  "cycle_km": 120000,
+  "services": [
+    {
+      "km": 15000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 45000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 75000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 105000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace"
+        },
+        {
+          "item": "timing_belt",
+          "action": "replace",
+          "note": "ליטר1.6 רצועת תזמון מנוע: שנים5  ק\"מ או120,000"
+        },
+        {
+          "item": "drive_belt",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "coolant",
+      "action": "replace",
+      "every_months": 120
+    },
+    {
+      "item": "transmission_oil",
+      "action": "replace",
+      "every_km": 240000,
+      "every_months": 144
+    },
+    {
+      "item": "timing_belt",
+      "action": "replace",
+      "note": "ליטר1.5 רצועת תזמון מנוע: שנים10  ק\"מ או195,000",
+      "every_km": 195000,
+      "every_months": 120
+    }
+  ],
+  "time_based": [],
+  "specs": {
+    "_note": "מפרטי הנוזלים מתוך תוכנית הטיפול (מק\"טי Ford WSS): ליטר1.6 שמן מנועWSS-M2C961-A  מפרט5W30 צמיגות; ליטר1.5 שמן מנועWSS-M2C948-B  מפרט5W20 צמיגות; נוזל קירורWSS-M97B57-A2 גוון צהוב מפרט; שמן תיבת הילוכים אוטומטיתWSS-M2C938-A; שמן תיבת העברה75W-140; שמן סרן אחורי80W-90; נוזל בלמיםDOT 4 Low Viscosety"
+  },
+  "sources": [
+    {
+      "url": "https://delekmotorscoil.sharepoint.com/:b:/s/Techtrain/EQbgEO9a00VAsgFw1RjtgVcBzU4M4t-yJ9Q08R_p_Ac6-Q?download=1",
+      "kind": "importer",
+      "note": "PDF תוכנית טיפול 'Ford_Kuga_2013_2016.pdf' של דלק מוטורס (קישור SharePoint מתוך הדף; מפרט טיפולים | פורד קוגה | חודשים12  ק\"מ או15,000 טיפול | ליטר1.5/1.6  עם מנוע20)"
+    },
+    {
+      "url": "https://www.ford.co.il/תוכנית-טיפול/שירות",
+      "kind": "importer",
+      "note": "תוכנית טיפול לפי דגם ושנת עלייה לכביש: התראה בלוח המחוונים / 15,000 ק\"מ / שנה, המוקדם"
+    }
+  ],
+  "status": "reviewed",
+  "notes": "הועתק מתוכנית הטיפול (עמוד אחד: פריט ומרווח). הלוח מציג 8 טיפולים של 15,000 ק\"מ; פריטים עם מרווח ארוך יותר ב-long_interval. רצועת תזמון: 1.6 - 120,000 או 5 שנים; 1.5 - 195,000 או 10 שנים. שמן גיר אוטומטי 240,000 או 12 שנים."
+}

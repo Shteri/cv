@@ -1,0 +1,580 @@
+{
+  "id": "suzuki-sx4-2007-2014-1.6",
+  "make": "Suzuki",
+  "make_he": "סוזוקי",
+  "model": "SX4",
+  "model_he": "SX4",
+  "generation": "GY/RW",
+  "years": [
+    2007,
+    2014
+  ],
+  "engines": [
+    "1.6 (M16A)"
+  ],
+  "fuel": "petrol",
+  "importer": "מכשירי תנועה",
+  "interval": {
+    "km": 15000,
+    "months": 12,
+    "note": "לפי טבלת השירות של היבואן: 15,000 ק\"מ או שנה, המוקדם; אחרי 90,000 חוזרים לתחילת הטבלה"
+  },
+  "cycle_km": 90000,
+  "services": [
+    {
+      "km": 15000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "בלמים קדמיים ואחוריים"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "adjust"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "כולל בולמי זעזועים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "צירי הנעה וגומיות מגן"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "סבב גלגלים מומלץ כל 10,000 ק\"מ"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
+          "item": "valve_clearance",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "כולל חיזוק ברגים"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "צינורות וחיבורים; מיכל הדלק ב-45,000 וב-90,000"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "בלמים קדמיים ואחוריים"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "parking_brake",
+          "action": "adjust"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "כולל בולמי זעזועים"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "צירי הנעה וגומיות מגן"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "סבב גלגלים מומלץ כל 10,000 ק\"מ"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 45000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "בלמים קדמיים ואחוריים"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "adjust"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "כולל בולמי זעזועים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "צירי הנעה וגומיות מגן"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "סבב גלגלים מומלץ כל 10,000 ק\"מ"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
+          "item": "valve_clearance",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "כולל חיזוק ברגים"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "צינורות וחיבורים; מיכל הדלק ב-45,000 וב-90,000"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "בלמים קדמיים ואחוריים"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "parking_brake",
+          "action": "adjust"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "כולל בולמי זעזועים"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "צירי הנעה וגומיות מגן"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "סבב גלגלים מומלץ כל 10,000 ק\"מ"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 75000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "בלמים קדמיים ואחוריים"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "adjust"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "כולל בולמי זעזועים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "צירי הנעה וגומיות מגן"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "סבב גלגלים מומלץ כל 10,000 ק\"מ"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
+          "item": "drive_belt",
+          "action": "replace"
+        },
+        {
+          "item": "valve_clearance",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "כולל חיזוק ברגים"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "צינורות וחיבורים; מיכל הדלק ב-45,000 וב-90,000"
+        },
+        {
+          "item": "pcv_valve",
+          "action": "inspect"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "בלמים קדמיים ואחוריים"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "parking_brake",
+          "action": "adjust"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "כולל בולמי זעזועים"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "צירי הנעה וגומיות מגן"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "סבב גלגלים מומלץ כל 10,000 ק\"מ"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "coolant",
+      "action": "replace",
+      "every_km": 150000,
+      "every_months": 96,
+      "note": "נוזל קירור כחול"
+    },
+    {
+      "item": "spark_plugs",
+      "action": "replace",
+      "every_km": 105000,
+      "every_months": 84,
+      "note": "מצתי אירידיום"
+    },
+    {
+      "item": "transmission_oil",
+      "action": "replace",
+      "every_km": 165000,
+      "every_months": 132,
+      "note": "גיר אוטומטי"
+    }
+  ],
+  "time_based": [],
+  "sources": [
+    {
+      "url": "https://suzuki.co.il/sites/default/files/pdf/sx4-2_1.pdf",
+      "kind": "importer",
+      "note": "ספר נהג סוזוקי SX4 (מכשירי תנועה), פרק 11 \"שירות תקופתי SX4\", עמודי PDF 238-239 (עמ' ספר 256-257)"
+    },
+    {
+      "url": "https://suzuki.co.il/content/%D7%A1%D7%A4%D7%A8%D7%99-%D7%A0%D7%94%D7%92-%D7%A1%D7%95%D7%96%D7%95%D7%A7%D7%99",
+      "kind": "importer",
+      "note": "ספריית ספרי הנהג של סוזוקי ישראל (\"SX4\")"
+    }
+  ],
+  "status": "reviewed",
+  "notes": "הועתק מטבלת השירות התקופתי בספר העברי של היבואן. הטבלה בספר היא טבלת שירות של היבואן בעמודות של 15,000 ק\"מ / שנה עד 90,000, ואחרי 90,000 חוזרים על הטבלה מההתחלה. ■ החלפה, ▼ ניקוי/בדיקה (החלפה לפי הצורך). בתנאים קשים (אבק, חום, עיר, עומס) יש לקצר מרווחים. שמן ומסנן ומפלס נוזל קירור בכל טיפול; נוזל קירור כחול מוחלף כל 150,000 או 8 שנים. רצועת הינע: בדיקה ב-45,000 והחלפה ב-90,000. כיוון שסתומים כל 30,000. מסנן אוויר ומסנן מזגן מוחלפים כל 45,000. נוזל בלמים מוחלף כל 30,000. מצתי אירידיום כל 105,000 או 7 שנים. שמן גיר אוטומטי נבדק כל 30,000 ומוחלף כל 165,000 או 11 שנים. בכל טיפול גם נסיעת מבחן."
+}

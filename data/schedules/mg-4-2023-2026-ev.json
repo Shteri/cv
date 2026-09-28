@@ -1,0 +1,496 @@
+{
+  "id": "mg-4-2023-2026-ev",
+  "make": "MG",
+  "make_he": "אם.ג'י",
+  "model": "MG4",
+  "model_he": "MG4",
+  "generation": "MG4 Electric",
+  "years": [
+    2023,
+    2026
+  ],
+  "engines": [
+    "EV (TZ180XS0951 / TZ204XS1351)"
+  ],
+  "fuel": "electric",
+  "importer": "קאר איסט (קבוצת לובינסקי)",
+  "interval": {
+    "km": 24000,
+    "months": 12,
+    "note": "לפי מסמך השירות האירופי של MG: טיפול A כל 24,000 ק\"מ או 12 חודשים, וטיפול B (מורחב) כל 48,000 ק\"מ או 24 חודשים"
+  },
+  "cycle_km": 96000,
+  "services": [
+    {
+      "km": 24000,
+      "items": [
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "פנסים, צופר ונוריות אזהרה"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "מגבים ומתזים"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "מנעולים, צירים ומעצורי דלת - ניקוי ושימון לפי הצורך"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "מפלס שמן תיבת ההינע החשמלית"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס וריכוז"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "צנרת, מצנן, מאוורר וחבקי צינורות"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת מתח גבוה: ברגי עיגון, מארז, שסתום אוורור, כבל הארקה, מחברים ורתמות מתח גבוה/נמוך; מצב איזון התאים"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מסבי גלגלים, מתלים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "שרוולי גל הינע"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "עומק חריץ, לחץ, בדיקת זוויות ורוטציה לפי הצורך"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "ברגי שלדה ותחתית"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "קריאת תקלות, איפוס מד טיפולים ועדכון תוכנה"
+        }
+      ]
+    },
+    {
+      "km": 48000,
+      "items": [
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "פנסים, צופר ונוריות אזהרה"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "מגבים ומתזים"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "מנעולים, צירים ומעצורי דלת - ניקוי ושימון לפי הצורך"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "מפלס שמן תיבת ההינע החשמלית"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס וריכוז"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "צנרת, מצנן, מאוורר וחבקי צינורות"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת מתח גבוה: ברגי עיגון, מארז, שסתום אוורור, כבל הארקה, מחברים ורתמות מתח גבוה/נמוך; מצב איזון התאים"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מסבי גלגלים, מתלים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "שרוולי גל הינע"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "עומק חריץ, לחץ, בדיקת זוויות ורוטציה לפי הצורך"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "ברגי שלדה ותחתית"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "קריאת תקלות, איפוס מד טיפולים ועדכון תוכנה"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "החלפה בטיפול B (כל 48,000 ק\"מ או 24 חודשים)"
+        }
+      ]
+    },
+    {
+      "km": 72000,
+      "items": [
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "פנסים, צופר ונוריות אזהרה"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "מגבים ומתזים"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "מנעולים, צירים ומעצורי דלת - ניקוי ושימון לפי הצורך"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "מפלס שמן תיבת ההינע החשמלית"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס וריכוז"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "צנרת, מצנן, מאוורר וחבקי צינורות"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת מתח גבוה: ברגי עיגון, מארז, שסתום אוורור, כבל הארקה, מחברים ורתמות מתח גבוה/נמוך; מצב איזון התאים"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מסבי גלגלים, מתלים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "שרוולי גל הינע"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "עומק חריץ, לחץ, בדיקת זוויות ורוטציה לפי הצורך"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "ברגי שלדה ותחתית"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "קריאת תקלות, איפוס מד טיפולים ועדכון תוכנה"
+        }
+      ]
+    },
+    {
+      "km": 96000,
+      "items": [
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "פנסים, צופר ונוריות אזהרה"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "מגבים ומתזים"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "מנעולים, צירים ומעצורי דלת - ניקוי ושימון לפי הצורך"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "מפלס שמן תיבת ההינע החשמלית"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס וריכוז"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "צנרת, מצנן, מאוורר וחבקי צינורות"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת מתח גבוה: ברגי עיגון, מארז, שסתום אוורור, כבל הארקה, מחברים ורתמות מתח גבוה/נמוך; מצב איזון התאים"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מסבי גלגלים, מתלים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "שרוולי גל הינע"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "עומק חריץ, לחץ, בדיקת זוויות ורוטציה לפי הצורך"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "ברגי שלדה ותחתית"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "קריאת תקלות, איפוס מד טיפולים ועדכון תוכנה"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "החלפה בטיפול B (כל 48,000 ק\"מ או 24 חודשים)"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "transmission_oil",
+      "action": "replace",
+      "every_km": 96000,
+      "note": "שמן תיבת ההינע החשמלית: כל 96,000 ק\"מ"
+    },
+    {
+      "item": "brake_fluid",
+      "action": "replace",
+      "every_months": 24,
+      "note": "נוזל בלמים: כל שנתיים (בנהיגה הררית/לחה: כל 40,000 ק\"מ או שנה)"
+    },
+    {
+      "item": "coolant",
+      "action": "replace",
+      "every_km": 96000,
+      "every_months": 48,
+      "note": "נוזל קירור: כל 4 שנים או 96,000 ק\"מ"
+    }
+  ],
+  "time_based": [],
+  "specs": {},
+  "sources": [
+    {
+      "url": "https://cdn.mgmotor.eu/manuals/MG4_Service_Portfolio_EN.pdf",
+      "kind": "manufacturer",
+      "note": "MG4 Service Portfolio (אירופה), עמ' 4-10"
+    },
+    {
+      "url": "https://mg-israel.co.il/guide-books/",
+      "kind": "importer",
+      "note": "עמוד ספרי הרכב של MG ישראל (ספר נהג לפי דגם ושנה); הקבצים ב-clearmash חסומים מכאן - לא נפתחו"
+    }
+  ],
+  "status": "draft",
+  "notes": "ספרי הנהג של היבואן מוצגים באתר mg-israel.co.il/guide-books דרך lubinski.clearmash.com, אבל השרת חוסם את הסביבה הזו (Cloudflare 403), ולכן זו טיוטה לפי מסמך השירות האירופי של MG (ק\"מ, אירופה). כדאי לאמת מול ספר השירות הישראלי. טיפולי A ו-B מתחלפים; שמן תיבת ההינע, נוזל בלמים ונוזל קירור ב-long_interval."
+}

@@ -1,0 +1,859 @@
+{
+  "make": "Jeep",
+  "make_he": "ג'יפ",
+  "importer": "סמלת",
+  "id": "jeep-compass-2021-2024-1.3-turbo",
+  "model": "Compass",
+  "model_he": "קומפאס",
+  "generation": "MP",
+  "years": [
+    2021,
+    2024
+  ],
+  "engines": [
+    "1.3 T4 טורבו 130/150 כ\"ס (55282328)"
+  ],
+  "fuel": "petrol",
+  "interval": {
+    "km": 15000,
+    "months": 12,
+    "note": "לפי ספר הרכב העברי: טיפול כל 15,000 ק\"מ או שנה; החלפת שמן לפי מחוון השירות ולא יאוחר משנה"
+  },
+  "cycle_km": 240000,
+  "services": [
+    {
+      "km": 15000,
+      "items": [
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "באזור מאובק - כל 15,000"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "מערכת ניהול מנוע, פליטה ובלאי שמן"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון השירות, ולא יותר משנה"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלים קדמיים, מוטות וגומיות"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "באזור מאובק - כל 15,000"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "מערכת ניהול מנוע, פליטה ובלאי שמן"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון השירות, ולא יותר משנה"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "כולל צנרת פליטה, דלק ובלמים וחלקי גומי"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "כל 24 חודשים"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "בדיקת מתיחה (דגמים בלי מותחן אוטומטי)"
+        }
+      ]
+    },
+    {
+      "km": 45000,
+      "items": [
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "באזור מאובק - כל 15,000"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "מערכת ניהול מנוע, פליטה ובלאי שמן"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון השירות, ולא יותר משנה"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלים קדמיים, מוטות וגומיות"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "באזור מאובק - כל 15,000"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "מערכת ניהול מנוע, פליטה ובלאי שמן"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון השירות, ולא יותר משנה"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "כולל צנרת פליטה, דלק ובלמים וחלקי גומי"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "כל 24 חודשים"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 75000,
+      "items": [
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "באזור מאובק - כל 15,000"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "מערכת ניהול מנוע, פליטה ובלאי שמן"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון השירות, ולא יותר משנה"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלים קדמיים, מוטות וגומיות"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "באזור מאובק - כל 15,000"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "מערכת ניהול מנוע, פליטה ובלאי שמן"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון השירות, ולא יותר משנה"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "כולל צנרת פליטה, דלק ובלמים וחלקי גומי"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "כל 24 חודשים"
+        }
+      ]
+    },
+    {
+      "km": 105000,
+      "items": [
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "באזור מאובק - כל 15,000"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "מערכת ניהול מנוע, פליטה ובלאי שמן"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון השירות, ולא יותר משנה"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלים קדמיים, מוטות וגומיות"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "באזור מאובק - כל 15,000"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "מערכת ניהול מנוע, פליטה ובלאי שמן"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון השירות, ולא יותר משנה"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "כולל צנרת פליטה, דלק ובלמים וחלקי גומי"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "כל 24 חודשים"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace"
+        },
+        {
+          "item": "dct_oil",
+          "action": "inspect",
+          "note": "מפלס שמן במפעיל האלקטרו-הידראולי (גיר כפול מצמד)"
+        }
+      ]
+    },
+    {
+      "km": 135000,
+      "items": [
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "באזור מאובק - כל 15,000"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "מערכת ניהול מנוע, פליטה ובלאי שמן"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון השירות, ולא יותר משנה"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלים קדמיים, מוטות וגומיות"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 150000,
+      "items": [
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "באזור מאובק - כל 15,000"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "מערכת ניהול מנוע, פליטה ובלאי שמן"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון השירות, ולא יותר משנה"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "כולל צנרת פליטה, דלק ובלמים וחלקי גומי"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "כל 24 חודשים"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "בדיקת מתיחה (דגמים בלי מותחן אוטומטי)"
+        }
+      ]
+    },
+    {
+      "km": 165000,
+      "items": [
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "באזור מאובק - כל 15,000"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "מערכת ניהול מנוע, פליטה ובלאי שמן"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון השירות, ולא יותר משנה"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלים קדמיים, מוטות וגומיות"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 180000,
+      "items": [
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "באזור מאובק - כל 15,000"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "מערכת ניהול מנוע, פליטה ובלאי שמן"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון השירות, ולא יותר משנה"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "כולל צנרת פליטה, דלק ובלמים וחלקי גומי"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "כל 24 חודשים"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 195000,
+      "items": [
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "באזור מאובק - כל 15,000"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "מערכת ניהול מנוע, פליטה ובלאי שמן"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון השירות, ולא יותר משנה"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלים קדמיים, מוטות וגומיות"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 210000,
+      "items": [
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "באזור מאובק - כל 15,000"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "מערכת ניהול מנוע, פליטה ובלאי שמן"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון השירות, ולא יותר משנה"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "כולל צנרת פליטה, דלק ובלמים וחלקי גומי"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "כל 24 חודשים"
+        }
+      ]
+    },
+    {
+      "km": 225000,
+      "items": [
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "באזור מאובק - כל 15,000"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "מערכת ניהול מנוע, פליטה ובלאי שמן"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון השירות, ולא יותר משנה"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלים קדמיים, מוטות וגומיות"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 240000,
+      "items": [
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "באזור מאובק - כל 15,000"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "מערכת ניהול מנוע, פליטה ובלאי שמן"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון השירות, ולא יותר משנה"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "כולל צנרת פליטה, דלק ובלמים וחלקי גומי"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "כל 24 חודשים"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace"
+        },
+        {
+          "item": "dct_oil",
+          "action": "inspect",
+          "note": "מפלס שמן במפעיל האלקטרו-הידראולי (גיר כפול מצמד)"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "drive_belt",
+      "action": "replace",
+      "every_km": 120000,
+      "every_months": 72,
+      "note": "באזור מאובק או בתנאים קשים: 60,000 ק\"מ או 4 שנים"
+    },
+    {
+      "item": "brake_fluid",
+      "action": "replace",
+      "every_months": 24
+    }
+  ],
+  "time_based": [],
+  "specs": {
+    "oil_capacity": "4.5 ליטר (1.3 T4)",
+    "coolant": "Paraflu Up מהול 50%, 7.5 ליטר",
+    "fuel": "בנזין 95, מיכל 55 ליטר",
+    "brake_fluid": "DOT 4"
+  },
+  "sources": [
+    {
+      "url": "https://samelet.com/wp-content/uploads/2023/11/Jeep_Compass_carbook_042021.pdf",
+      "kind": "importer",
+      "note": "ספר רכב עברי ג'יפ קומפאס (סמלת, 04/2021), תכנית טיפולים למנועי בנזין עמ' 211-213 (PDF 212-214), קוד מנוע 55282328 בעמ' 230"
+    }
+  ],
+  "status": "reviewed",
+  "notes": "לפי ספר הרכב העברי של סמלת לקומפאס עם מנוע 1.3 טורבו (130/150 כ\"ס). בכל טיפול (15,000 ק\"מ/שנה): שמן ומסנן לפי מחוון השירות, מסנן אוויר, סבב צמיגים וקריאת מחשב. בטיפולים האי-זוגיים (15, 45, 75...): בדיקת רפידות, מתלים ומפרקים והחלפת מסנן מזגן. בטיפולים הזוגיים (30, 60...): בדיקת גחון וצנרת והחלפת נוזל בלמים (כל שנתיים). מצתים כל 60,000. רצועת אביזרים 120,000 ק\"מ או 6 שנים. שמן מפעיל גיר כפול מצמד נבדק ב-120,000 וב-240,000."
+}

@@ -1,0 +1,1116 @@
+{
+  "make": "Jeep",
+  "make_he": "ג'יפ",
+  "importer": "סמלת",
+  "id": "jeep-wrangler-2018-2026-2.0-turbo",
+  "model": "Wrangler",
+  "model_he": "רנגלר",
+  "generation": "JL",
+  "years": [
+    2018,
+    2026
+  ],
+  "engines": [
+    "2.0 טורבו (קוד N)"
+  ],
+  "fuel": "petrol",
+  "interval": {
+    "km": 12000,
+    "months": 12,
+    "note": "לפי ספר הרכב העברי: עמודות של 12,000 ק\"מ או 12 חודשים, המוקדם; בתנאים קשים שמן ומסנן כל 7,500 ק\"מ או 6 חודשים"
+  },
+  "cycle_km": 240000,
+  "services": [
+    {
+      "km": 12000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "סיכוך בריחי הדלתות"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "באזור מאובק או בשטח: בדיקה והחלפה לפי הצורך"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "מפרקים אוניברסליים / מהירות קבועה"
+        }
+      ]
+    },
+    {
+      "km": 24000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "סיכוך בריחי הדלתות"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "באזור מאובק או בשטח: בדיקה והחלפה לפי הצורך"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "מפרקים אוניברסליים / מהירות קבועה"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "כולל צנרת פליטה, דלק ובלמים וחלקי גומי"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "כל 24 חודשים"
+        }
+      ]
+    },
+    {
+      "km": 36000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "סיכוך בריחי הדלתות"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "באזור מאובק או בשטח: בדיקה והחלפה לפי הצורך"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "מפרקים אוניברסליים / מהירות קבועה"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלה קדמי, מוטות, אטמים ומתלה אחורי"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 48000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "סיכוך בריחי הדלתות"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "באזור מאובק או בשטח: בדיקה והחלפה לפי הצורך"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "מפרקים אוניברסליים / מהירות קבועה"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "כולל צנרת פליטה, דלק ובלמים וחלקי גומי"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "כל 24 חודשים"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "החלפה בשימוש קשה (שטח, גרירה, מונית)"
+        },
+        {
+          "item": "parking_brake",
+          "action": "adjust",
+          "note": "בלמי דיסק בארבעה גלגלים"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "סיכוך בריחי הדלתות"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "באזור מאובק או בשטח: בדיקה והחלפה לפי הצורך"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "מפרקים אוניברסליים / מהירות קבועה"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "מנוע 2.0"
+        }
+      ]
+    },
+    {
+      "km": 72000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "סיכוך בריחי הדלתות"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "באזור מאובק או בשטח: בדיקה והחלפה לפי הצורך"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "מפרקים אוניברסליים / מהירות קבועה"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "כולל צנרת פליטה, דלק ובלמים וחלקי גומי"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "כל 24 חודשים"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלה קדמי, מוטות, אטמים ומתלה אחורי"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 84000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "סיכוך בריחי הדלתות"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "באזור מאובק או בשטח: בדיקה והחלפה לפי הצורך"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "מפרקים אוניברסליים / מהירות קבועה"
+        }
+      ]
+    },
+    {
+      "km": 96000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "סיכוך בריחי הדלתות"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "באזור מאובק או בשטח: בדיקה והחלפה לפי הצורך"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "מפרקים אוניברסליים / מהירות קבועה"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "כולל צנרת פליטה, דלק ובלמים וחלקי גומי"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "כל 24 חודשים"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "החלפה בשימוש קשה (שטח, גרירה, מונית)"
+        },
+        {
+          "item": "parking_brake",
+          "action": "adjust",
+          "note": "בלמי דיסק בארבעה גלגלים"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "replace",
+          "note": "רק בשימוש קשה (ניידת, מונית, גרירה תכופה)"
+        }
+      ]
+    },
+    {
+      "km": 108000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "סיכוך בריחי הדלתות"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "באזור מאובק או בשטח: בדיקה והחלפה לפי הצורך"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "מפרקים אוניברסליים / מהירות קבועה"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלה קדמי, מוטות, אטמים ומתלה אחורי"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "סיכוך בריחי הדלתות"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "באזור מאובק או בשטח: בדיקה והחלפה לפי הצורך"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "מפרקים אוניברסליים / מהירות קבועה"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "כולל צנרת פליטה, דלק ובלמים וחלקי גומי"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "כל 24 חודשים"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "מנוע 2.0"
+        }
+      ]
+    },
+    {
+      "km": 132000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "סיכוך בריחי הדלתות"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "באזור מאובק או בשטח: בדיקה והחלפה לפי הצורך"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "מפרקים אוניברסליים / מהירות קבועה"
+        }
+      ]
+    },
+    {
+      "km": 144000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "סיכוך בריחי הדלתות"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "באזור מאובק או בשטח: בדיקה והחלפה לפי הצורך"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "מפרקים אוניברסליים / מהירות קבועה"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "כולל צנרת פליטה, דלק ובלמים וחלקי גומי"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "כל 24 חודשים"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלה קדמי, מוטות, אטמים ומתלה אחורי"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "החלפה בשימוש קשה (שטח, גרירה, מונית)"
+        },
+        {
+          "item": "parking_brake",
+          "action": "adjust",
+          "note": "בלמי דיסק בארבעה גלגלים"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "pcv_valve",
+          "action": "inspect",
+          "note": "מומלץ, לא חובה"
+        }
+      ]
+    },
+    {
+      "km": 156000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "סיכוך בריחי הדלתות"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "באזור מאובק או בשטח: בדיקה והחלפה לפי הצורך"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "מפרקים אוניברסליים / מהירות קבועה"
+        }
+      ]
+    },
+    {
+      "km": 168000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "סיכוך בריחי הדלתות"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "באזור מאובק או בשטח: בדיקה והחלפה לפי הצורך"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "מפרקים אוניברסליים / מהירות קבועה"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "כולל צנרת פליטה, דלק ובלמים וחלקי גומי"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "כל 24 חודשים"
+        }
+      ]
+    },
+    {
+      "km": 180000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "סיכוך בריחי הדלתות"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "באזור מאובק או בשטח: בדיקה והחלפה לפי הצורך"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "מפרקים אוניברסליים / מהירות קבועה"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלה קדמי, מוטות, אטמים ומתלה אחורי"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "מנוע 2.0"
+        }
+      ]
+    },
+    {
+      "km": 192000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "סיכוך בריחי הדלתות"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "באזור מאובק או בשטח: בדיקה והחלפה לפי הצורך"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "מפרקים אוניברסליים / מהירות קבועה"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "כולל צנרת פליטה, דלק ובלמים וחלקי גומי"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "כל 24 חודשים"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "החלפה בשימוש קשה (שטח, גרירה, מונית)"
+        },
+        {
+          "item": "parking_brake",
+          "action": "adjust",
+          "note": "בלמי דיסק בארבעה גלגלים"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "replace"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "replace",
+          "note": "רק בשימוש קשה (ניידת, מונית, גרירה תכופה)"
+        }
+      ]
+    },
+    {
+      "km": 204000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "סיכוך בריחי הדלתות"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "באזור מאובק או בשטח: בדיקה והחלפה לפי הצורך"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "מפרקים אוניברסליים / מהירות קבועה"
+        }
+      ]
+    },
+    {
+      "km": 216000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "סיכוך בריחי הדלתות"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "באזור מאובק או בשטח: בדיקה והחלפה לפי הצורך"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "מפרקים אוניברסליים / מהירות קבועה"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "כולל צנרת פליטה, דלק ובלמים וחלקי גומי"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "כל 24 חודשים"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלה קדמי, מוטות, אטמים ומתלה אחורי"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 228000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "סיכוך בריחי הדלתות"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "באזור מאובק או בשטח: בדיקה והחלפה לפי הצורך"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "מפרקים אוניברסליים / מהירות קבועה"
+        }
+      ]
+    },
+    {
+      "km": 240000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "סיכוך בריחי הדלתות"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "באזור מאובק או בשטח: בדיקה והחלפה לפי הצורך"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "מפרקים אוניברסליים / מהירות קבועה"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "כולל צנרת פליטה, דלק ובלמים וחלקי גומי"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "כל 24 חודשים"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "החלפה בשימוש קשה (שטח, גרירה, מונית)"
+        },
+        {
+          "item": "parking_brake",
+          "action": "adjust",
+          "note": "בלמי דיסק בארבעה גלגלים"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "מנוע 2.0"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "cabin_filter",
+      "action": "replace",
+      "every_km": 19000
+    },
+    {
+      "item": "coolant",
+      "action": "replace",
+      "every_km": 240000,
+      "every_months": 120,
+      "note": "שטיפה והחלפה, כולל נוזל הקירור של היחידה החשמלית"
+    },
+    {
+      "item": "brake_fluid",
+      "action": "replace",
+      "every_months": 24
+    }
+  ],
+  "time_based": [],
+  "specs": {
+    "brake_fluid": "DOT 4"
+  },
+  "sources": [
+    {
+      "url": "https://samelet.com/wp-content/uploads/2023/11/Jeep_Wrangler_2022_-carbook_072022.pdf",
+      "kind": "importer",
+      "note": "ספר רכב עברי ג'יפ רנגלר 2022 (סמלת, 07/2022), תכנית תחזוקה עמ' 391-394 (PDF 392-395)"
+    }
+  ],
+  "status": "reviewed",
+  "notes": "לפי ספר הרכב העברי של סמלת לרנגלר JL. בכל 12,000 ק\"מ או שנה: שמן ומסנן, סבב צמיגים ובדיקת מפרקים. כל 24,000: רפידות, גחון וצנרת, ונוזל בלמים (כל שנתיים). כל 36,000: מערכת פליטה ומתלים. כל 48,000: מסנן אוויר, בדיקת שמן סרנים וכיוון בלם חניה. מסנן מזגן כל 19,000. מצתים (מנוע 2.0) כל 60,000. רצועת אביזרים ב-192,000. נוזל קירור כל 10 שנים או 240,000. בשימוש קשה (שטח, גרירה) מחליפים שמן סרנים ותיבת העברה."
+}

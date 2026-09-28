@@ -1,0 +1,474 @@
+{
+  "id": "audi-q2-2017-2018-1.4-tfsi",
+  "make": "Audi",
+  "make_he": "אאודי",
+  "model": "Q2",
+  "model_he": "Q2",
+  "generation": "GA",
+  "years": [
+    2017,
+    2018
+  ],
+  "engines": [
+    "1.4 TFSI (CZE)"
+  ],
+  "fuel": "petrol",
+  "importer": "צ'מפיון מוטורס",
+  "interval": {
+    "km": 15000,
+    "months": 12,
+    "note": "מרווח קבוע QI4 של היצרן: החלפת שמן כל 15,000 ק\"מ או שנה, בדיקה כל 30,000 ק\"מ"
+  },
+  "cycle_km": 120000,
+  "services": [
+    {
+      "km": 15000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "עובי רפידות ומצב דיסקים נבדקים בכל טיפול שמן"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "עובי רפידות ומצב דיסקים נבדקים בכל טיפול שמן"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "או כל שנתיים, המוקדם"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "או כל שנה, המוקדם"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 45000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "עובי רפידות ומצב דיסקים נבדקים בכל טיפול שמן"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "עובי רפידות ומצב דיסקים נבדקים בכל טיפול שמן"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "או כל שנתיים, המוקדם"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "או כל שנה, המוקדם"
+        },
+        {
+          "item": "drive_belt",
+          "action": "replace",
+          "note": "רצועת אביזרים"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "או כל 4 שנים, המוקדם"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 75000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "עובי רפידות ומצב דיסקים נבדקים בכל טיפול שמן"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "עובי רפידות ומצב דיסקים נבדקים בכל טיפול שמן"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "או כל שנתיים, המוקדם"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "או כל שנה, המוקדם"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 105000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "עובי רפידות ומצב דיסקים נבדקים בכל טיפול שמן"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "עובי רפידות ומצב דיסקים נבדקים בכל טיפול שמן"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "או כל שנתיים, המוקדם"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "או כל שנה, המוקדם"
+        },
+        {
+          "item": "drive_belt",
+          "action": "replace",
+          "note": "רצועת אביזרים"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "או כל 4 שנים, המוקדם"
+        },
+        {
+          "item": "timing_belt",
+          "action": "replace",
+          "note": "רצועת תזמון עם מותחן, וכן רצועת השיניים של משאבת המים אם קיימת; לפי עמודת המדינות המאובקות"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "air_filter",
+      "action": "replace",
+      "every_months": 24
+    },
+    {
+      "item": "cabin_filter",
+      "action": "replace",
+      "every_months": 12
+    },
+    {
+      "item": "brake_fluid",
+      "action": "replace",
+      "every_months": 24,
+      "note": "טבלאות היצרן לשווקים מחוץ לאירופה במרווח קבוע"
+    },
+    {
+      "item": "spark_plugs",
+      "action": "replace",
+      "every_months": 48
+    },
+    {
+      "item": "dct_oil",
+      "action": "replace",
+      "every_km": 60000,
+      "note": "רק בתיבת DSG רטובה 6 הילוכים (02E/0D9) או DQ500 (0DL/0BH); DQ381 (0GC) כל 120,000; בתיבה יבשה 7 הילוכים (0AM/0CW) אין החלפה"
+    },
+    {
+      "item": "transmission_oil",
+      "action": "replace",
+      "every_km": 60000,
+      "note": "רק בתיבה אוטומטית רגילה (09G ודומותיה): ישראל ברשימת המדינות החמות"
+    },
+    {
+      "item": "differential_oil",
+      "action": "replace",
+      "every_months": 36,
+      "note": "שמן מצמד ההנעה הכפולה (הלדקס), רק בגרסאות 4x4"
+    }
+  ],
+  "time_based": [],
+  "sources": [
+    {
+      "url": "https://vwts.ru/vw/g7/vw-golf-7-maintenance-eng.pdf",
+      "kind": "manufacturer",
+      "note": "VW Golf 7 Maintenance, מהדורה 04.2021: עמ' 25-31 טבלאות מרווחים (עמודה 'מדינות עם אבק רב' ו'שווקים מחוץ לאירופה'), עמ' 39 ו-42 ישראל ברשימות 'אקלים חם' ו'אבק רב'; טבלת מנועים עמ' 1-17 (סוג הנעת גל זיזים)"
+    },
+    {
+      "url": "https://vwts.ru/petrol-engine-vw-audi-skoda-repair-manual.html",
+      "kind": "other",
+      "note": "אינדקס ספרי תיקון מנועים של קבוצת פולקסווגן לפי קודי מנוע (לשיוך קוד מנוע לנפח ומשפחה, למשל CHZ/DKR/DLA/DUS = 1.0 TSI, DAD/DPC/DFY/DXD = 1.5 TSI, CBZ = 1.2 TSI EA111, CAX = 1.4 TSI EA111, CGGB = 1.4 MPI עם רצועה)"
+    }
+  ],
+  "status": "draft",
+  "notes": "קבוצת פולקסווגן משתמשת באותן טבלאות שירות לכל הדגמים על אותה פלטפורמה ומשפחת מנוע, ולכן הקובץ נבנה מתבנית משותפת ומשויך לרכב לפי קוד המנוע ברישיון. הערכים לפי טבלאות פולקסווגן לאותו מנוע (אין טבלת מרווחים במדריכי אאודי שנמצאו). אין לוח טיפולים ישראלי למנועים אלה (בשגרת צ'מפיון מופיעים רק מנועי 1.0/1.5/2.0 מהשנים האחרונות). הלוח נבנה מטבלאות מדריך השירות של היצרן, בעמודת 'מדינות עם אבק רב' שבה ישראל רשומה: שמן ומסנן כל 15,000 ק\"מ או שנה (QI4), מסנן אוויר כל 30,000 או שנתיים, מסנן מזגן כל 30,000 או שנה, רצועת אביזרים כל 60,000, רצועת תזמון ורצועת משאבת המים (במנוע עם רצועה) כל 120,000, מצתים כל 60,000 או 4 שנים, ונוזל בלמים כל שנתיים (שווקים מחוץ לאירופה). אותם ערכים מופיעים בשגרת צ'מפיון העדכנית למנועי 1.0/1.5. טבלאות פולקסווגן/סיאט במהדורות 2018-2021 חלות גם על דגמים ישנים (למשל Tiguan 2008 ו-Passat 2011) ולכן שימשו לכל הדגמים בקובץ. שורות ה-DSG, התיבה האוטומטית וההנעה הכפולה בלוח ארוך הטווח חלות רק על רכב שמצויד בהן. בדיקות בכל 30,000/60,000 ק\"מ לפי היקף הבדיקה (Inspection) במדריך היצרן."
+}

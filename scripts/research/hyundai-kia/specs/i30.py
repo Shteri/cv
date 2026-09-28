@@ -1,0 +1,37 @@
+import sys; sys.path.insert(0,'.')
+from gen import build, HY
+A8='IIIIIIII'; Q='.I.I.I.I'; H='...I...I'
+build(dict(HY, id="hyundai-i30-2008-2011-1.6", model="i30", model_he="i30", generation="FD",
+  years=[2008,2011], engines=["1.6 MPI (Gamma, G4FC)","1.4 MPI (Gamma, G4FA)"], fuel="petrol",
+  interval={"km":15000,"months":12,"note":"לפי הספר הבינלאומי (שווקים מחוץ לאירופה): 15,000 ק\"מ או 12 חודשים. לשווקי המזרח התיכון הספר מציין שמן כל 10,000 ק\"מ או 12 חודשים"},
+  cycle_km=120000,
+  sources=[{"url":"https://www.manualslib.com/manual/1231781/Hyundai-I30-2011.html?page=326","kind":"manufacturer","note":"ספר בעלים באנגלית של i30 (FD) 2011, מהדורה כללית עם עמודות 'אירופה' ו'מחוץ לאירופה'; עמודים 326-330 (7-9 עד 7-12). נלקחו ערכי 'מחוץ לאירופה'"},
+           {"url":"https://www.manualslib.com/manual/623622/Hyundai-I30.html?page=282","kind":"manufacturer","note":"ספר בעלים באנגלית של i30 FD (מהדורה אחרת), עמ' 282-286: אותה טבלה בעמודות 15,000"}],
+  status="draft",
+  notes="לא נמצא ספר רכב עברי של i30 דור ראשון (FD) באתר כלמוביל. הקובץ מבוסס על ספר בעלים בינלאומי באנגלית (ק\"מ), לפי עמודת 'מחוץ לאירופה'. הבדלים לפי הספר: לשווקי המזרח התיכון, סין והודו מסנן אוויר מוחלף בכל טיפול ושמן כל 10,000 ק\"מ; באירופה נוזל בלמים מוחלף כל 30,000 ומסנן מזגן כל 30,000. מצתים כל 40,000 ק\"מ. בדיקת מרווח שסתומים כל 95,000 ק\"מ או 48 חודשים. מנוע 2.0 (רצועת תזמון) אינו נפוץ בישראל: בדיקה כל 90,000 והחלפה כל 135,000 ק\"מ או 72 חודשים."),
+ [("drive_belt",A8),("engine_oil","RRRRRRRR"),("oil_filter","RRRRRRRR"),("air_filter","IIRIIRII"),
+  ("evap_system",H),("vacuum_hose",Q),("fuel_filter",".I.R.I.R"),("fuel_lines",H),
+  ("battery_12v",A8),("electrical_system",Q),("brake_lines",A8),("pedals",Q),("parking_brake",A8),("brake_fluid",A8),
+  ("brake_pads",A8),("brake_discs",A8),("steering",A8),("cv_boots",A8),("tires",A8),("suspension",A8),
+  ("body_underside",A8,"הידוק ברגים ואומים בשלדה ובמרכב"),("ac_refrigerant",A8),("ac_system",A8),("cabin_filter","RRRRRRRR"),
+  ("manual_gearbox_oil",H),("transmission_oil",H)],
+ long_interval=[{"item":"spark_plugs","action":"replace","every_km":40000},
+  {"item":"valve_clearance","action":"inspect","every_km":95000,"every_months":48},
+  {"item":"coolant","action":"replace","first_km":200000,"first_months":120,"then_every_km":40000,"then_every_months":24}])
+
+build(dict(HY, id="hyundai-i30-2012-2016-1.6", model="i30", model_he="i30", generation="GD",
+  years=[2012,2016], engines=["1.6 GDI (Gamma, G4FD)","1.6 MPI (Gamma, G4FC)"], fuel="petrol",
+  interval={"km":15000,"months":12,"note":"לפי הספר הבינלאומי (מחוץ לאירופה): מנוע MPI כל 15,000 ק\"מ או 12 חודשים. לפי אותו ספר מנוע GDI ושווקי המזרח התיכון: שמן כל 10,000 ק\"מ או 12 חודשים"},
+  cycle_km=120000,
+  sources=[{"url":"https://www.manualpdf.co.il/hyundai/i30-2014/%D7%9E%D7%93%D7%A8%D7%99%D7%9A?p=398","kind":"manufacturer","note":"ספר בעלים באנגלית של i30 GD (2014) באתר מראה, עמודים 398-406 (7-21 עד 7-29): 'Normal maintenance schedule - except Europe', רשימה לפי טיפול"}],
+  status="draft",
+  notes="לא נמצא ספר רכב עברי של i30 GD. הקובץ מבוסס על ספר בעלים בינלאומי באנגלית, תוכנית 'מחוץ לאירופה' (עמודות 15,000). חשוב: באותו ספר מנוע GDI (G4FD) ושווקי המזרח התיכון מקבלים שמן ומסנן כל 10,000 ק\"מ או 12 חודשים, ומסנן אוויר מוחלף בכל טיפול במזרח התיכון; תוסף דלק כל 5,000 ק\"מ או 6 חודשים. בתוכנית זו נוזל בלמים נבדק בכל טיפול ואינו מוחלף בטבלה. מצתים רגילים (ניקל) מוחלפים כל 60,000; מצתי אירידיום כל 160,000 ק\"מ או 120 חודשים. מרווח שסתומים: בדיקה כל 95,000 ק\"מ או 48 חודשים. גיר אוטומטי: ללא בדיקה בתנאים רגילים (בתנאים קשים החלפה כל 90,000). בתוכנית האירופית של אותו ספר הטיפולים בעמודות של 30,000 ונוזל בלמים מוחלף בכל אחת."),
+ [("engine_oil","RRRRRRRR"),("oil_filter","RRRRRRRR"),("air_filter","IIRIIRII"),("ac_refrigerant",A8),("ac_system",A8),
+  ("battery_12v",A8),("brake_lines",A8),("brake_fluid",A8),("brake_pads",A8),("brake_discs",A8),("suspension",A8),
+  ("steering",A8),("tires",A8),("cabin_filter","RRRRRRRR"),("electrical_system",Q),("pedals",Q),("drive_belt",Q),
+  ("cv_boots",Q),("exhaust",Q),("fuel_filter",".I.R.I.R"),("fuel_tank_air_filter",".I.R.I.I"),("parking_brake",".I.I.III"),
+  ("fuel_lines",H),("manual_gearbox_oil",H),("evap_system",H),("spark_plugs","...R...R","מצתי ניקל; אירידיום כל 160,000")],
+ long_interval=[{"item":"valve_clearance","action":"inspect","every_km":95000,"every_months":48},
+  {"item":"cooling_system","action":"inspect","first_km":60000,"first_months":48,"then_every_km":30000,"then_every_months":24},
+  {"item":"coolant","action":"replace","first_km":210000,"first_months":120,"then_every_km":30000,"then_every_months":24},
+  {"item":"transmission_oil","action":"replace","every_km":90000,"note":"בתנאים רגילים ללא טיפול; בתנאי נהיגה קשים החלפה כל 90,000"}])
