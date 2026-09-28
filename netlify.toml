@@ -1,0 +1,27 @@
+# Netlify build settings. The site is static: data and app files are built into site/ on every deploy.
+[build]
+  command = "node scripts/validate.mjs && node scripts/build-app-data.mjs && node scripts/test-lookup.mjs && SITE_OUT=site/ node scripts/build-site.mjs"
+  publish = "site"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# Service worker and data must never be cached stale by the CDN.
+[[headers]]
+  for = "/sw.js"
+  [headers.values]
+    Cache-Control = "no-cache"
+[[headers]]
+  for = "/data.js"
+  [headers.values]
+    Cache-Control = "no-cache"
+[[headers]]
+  for = "/config.js"
+  [headers.values]
+    Cache-Control = "no-cache"
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"

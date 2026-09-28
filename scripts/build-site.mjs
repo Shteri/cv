@@ -41,7 +41,7 @@ if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catc
 </body>
 </html>
 `;
-const out = process.env.SITE_OUT || root;
+const out = (process.env.SITE_OUT ? process.env.SITE_OUT.replace(/\/?$/, "/") : root);
 mkdirSync(out, { recursive: true });
 writeFileSync(out + "index.html", html);
 copyFileSync(root + "app/data.js", out + "data.js");
