@@ -6,7 +6,9 @@ import { createHash } from "node:crypto";
 const root = new URL("../", import.meta.url).pathname;
 const src = readFileSync(root + "app/index.html", "utf8");
 const title = (src.match(/<title>(.*?)<\/title>/) || [, "טיפולית"])[1];
-const body = src.replace(/<title>.*?<\/title>\s*/, "");
+// Stylesheet links in the fragment move to <head> so tokens and components load before first paint.
+const headLinks = (src.match(/<link [^>]*>/g) || []).join("\n");
+const body = src.replace(/<title>.*?<\/title>\s*/, "").replace(/<link [^>]*>\s*/g, "");
 const html = `<!doctype html>
 <html lang="he" dir="rtl">
 <head>
@@ -27,10 +29,10 @@ const html = `<!doctype html>
 <link rel="apple-touch-icon" href="icon-192.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
+${headLinks}
 <style>
-  :root { color-scheme: light; padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
-  body { margin: 0; font: 14px system-ui, sans-serif; background: #F1F2F4; }
-  @media (prefers-color-scheme: dark) { body { background: #08090B; } }
+  /* document-level resets only; every colour and font comes from styles/tokens.css */
+  :root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
   img { max-width: 100%; }
   [hidden] { display: none !important; }
 </style>
@@ -50,6 +52,8 @@ copyFileSync(root + "app/data.js", out + "data.js");
 copyFileSync(root + "app/lookup.js", out + "lookup.js");
 copyFileSync(root + "app/config.js", out + "config.js");
 copyFileSync(root + "app/cloud.js", out + "cloud.js");
+mkdirSync(out + "styles", { recursive: true });
+for (const f of ["tokens.css", "app.css"]) copyFileSync(root + "app/styles/" + f, out + "styles/" + f);
 for (const f of ["icon-192.png", "icon-512.png"]) copyFileSync(root + "app/" + f, out + "" + f);
 
 // Landing page at /welcome/: model coverage is generated from the schedules, so the page never overstates it.
@@ -82,7 +86,7 @@ writeFileSync(out + "welcome/index.html", readFileSync(welcomeSrc + "index.html"
   .replaceAll("{{MODEL_COUNT}}", String(modelCount)).replace("{{MAKE_COUNT}}", String(makeList.length))
   .replace("{{CATALOG}}", () => catalogJSON)
   .replace(/\{\{ICON:([a-z-]+)\}\}/g, (m, n) => readFileSync(welcomeSrc + "icons/" + n + ".svg", "utf8").replace("<svg ", '<svg aria-hidden="true" focusable="false" ')));
-for (const f of ["home.png", "timeline.png", "condition.png"]) copyFileSync(welcomeSrc + f, out + "welcome/" + f);
+for (const f of ["home.png", "timeline.png", "condition.png", "welcome.css"]) copyFileSync(welcomeSrc + f, out + "welcome/" + f);
 writeFileSync(out + "manifest.webmanifest", JSON.stringify({
   name: "טיפולית", short_name: "טיפולית", lang: "he", dir: "rtl", start_url: "./", scope: "./", display: "standalone",
   background_color: "#111418", theme_color: "#111418",
@@ -90,10 +94,10 @@ writeFileSync(out + "manifest.webmanifest", JSON.stringify({
   icons: [{ src: "icon-192.png", sizes: "192x192", type: "image/png" }, { src: "icon-512.png", sizes: "512x512", type: "image/png" }, { src: "icon.svg", sizes: "any", type: "image/svg+xml" }]
 }, null, 2));
 // Content hash, so rebuilding unchanged sources yields identical files (no churn in git or in the service worker).
-const version = createHash("sha1").update(html).update(readFileSync(root + "app/data.js")).update(readFileSync(root + "app/lookup.js")).update(readFileSync(root + "app/cloud.js")).update(readFileSync(root + "app/config.js")).digest("hex").slice(0, 10);
+const version = createHash("sha1").update(html).update(readFileSync(root + "app/data.js")).update(readFileSync(root + "app/lookup.js")).update(readFileSync(root + "app/cloud.js")).update(readFileSync(root + "app/config.js")).update(readFileSync(root + "app/styles/tokens.css")).update(readFileSync(root + "app/styles/app.css")).digest("hex").slice(0, 10);
 writeFileSync(out + "sw.js", `// Minimal offline cache for the app shell. Version: ${version}
 const CACHE = "tipulit-${version}";
-const ASSETS = ["./", "./index.html", "./data.js", "./lookup.js", "./config.js", "./cloud.js", "./manifest.webmanifest", "./icon.svg", "./icon-192.png", "./icon-512.png"];
+const ASSETS = ["./", "./index.html", "./styles/tokens.css", "./styles/app.css", "./data.js", "./lookup.js", "./config.js", "./cloud.js", "./manifest.webmanifest", "./icon.svg", "./icon-192.png", "./icon-512.png"];
 self.addEventListener("install", e => { e.waitUntil(caches.open(CACHE).then(c => c.addAll(ASSETS)).then(() => self.skipWaiting())); });
 self.addEventListener("activate", e => { e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k !== CACHE).map(k => caches.delete(k)))).then(() => self.clients.claim())); });
 self.addEventListener("fetch", e => {

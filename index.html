@@ -18,328 +18,26 @@
 <link rel="apple-touch-icon" href="icon-192.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Hebrew:wght@400;500;600&family=Rubik:wght@500;600;700;800&display=swap">
+<link rel="stylesheet" href="styles/tokens.css">
+<link rel="stylesheet" href="styles/app.css">
 <style>
-  :root { color-scheme: light; padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
-  body { margin: 0; font: 14px system-ui, sans-serif; background: #F1F2F4; }
-  @media (prefers-color-scheme: dark) { body { background: #08090B; } }
+  /* document-level resets only; every colour and font comes from styles/tokens.css */
+  :root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
   img { max-width: 100%; }
   [hidden] { display: none !important; }
 </style>
 </head>
 <body>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Hebrew:wght@400;500;600&family=Rubik:wght@500;600;700;800&display=swap">
-<style>
-  /*
-    Tipulit app, "night drive" system (shared with /welcome/). Graphite surfaces, licence-plate yellow as the one accent.
-    --accent is a fill (buttons, active states); text in the accent colour uses --accent-text, which stays readable in light mode.
-    Status colours (good / warn / crit) mark state only. Radius: cards 22, controls 14, fields 12, chips 999, plate 8.
-  */
-  :root {
-    color-scheme: light;
-    --ground: #F1F2F4; --surface: #FFFFFF; --surface-2: #ECEEF1; --surface-3: #E2E5EA;
-    --ink: #0C0F12; --muted: #555C66; --faint: #868D97; --line: #DDE0E5;
-    --accent: #F7C948; --accent-ink: #101214; --accent-soft: #FCEFC7; --accent-deep: #EDB92C; --accent-text: #7A5A00;
-    --plate: #F7C948; --plate-ink: #101214;
-    --good: #148A55; --good-soft: #DDF3E7;
-    --warn: #9A6700; --warn-soft: #FBEFD2;
-    --crit: #C8352B; --crit-soft: #FBE4E1;
-    --focus: #0C0F12;
-    --edge: inset 0 1px 0 rgba(255, 255, 255, .9);
-    --shadow: 0 1px 2px rgba(12, 15, 18, .05), 0 12px 32px -14px rgba(12, 15, 18, .18);
-    --radius: 22px;
-    --ease: cubic-bezier(.16, 1, .3, 1); --spring: cubic-bezier(.34, 1.56, .64, 1);
-  }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      color-scheme: dark;
-      --ground: #08090B; --surface: #14171C; --surface-2: #1C2027; --surface-3: #252A32;
-      --ink: #F3F4F6; --muted: #9BA2AC; --faint: #626A75; --line: #262B33;
-      --accent-soft: #3A3014; --accent-deep: #FFD866; --accent-text: #F7C948;
-      --good: #3FD58B; --good-soft: #12301F;
-      --warn: #F0B04A; --warn-soft: #352A10;
-      --crit: #FF6B5E; --crit-soft: #3A1A18;
-      --focus: #F7C948;
-      --edge: inset 0 1px 0 rgba(255, 255, 255, .06);
-      --shadow: 0 1px 0 rgba(255, 255, 255, .03), 0 20px 40px -20px rgba(0, 0, 0, .8);
-    }
-  }
-  :root[data-theme="dark"] {
-    color-scheme: dark;
-    --ground: #08090B; --surface: #14171C; --surface-2: #1C2027; --surface-3: #252A32;
-    --ink: #F3F4F6; --muted: #9BA2AC; --faint: #626A75; --line: #262B33;
-    --accent-soft: #3A3014; --accent-deep: #FFD866; --accent-text: #F7C948;
-    --good: #3FD58B; --good-soft: #12301F;
-    --warn: #F0B04A; --warn-soft: #352A10;
-    --crit: #FF6B5E; --crit-soft: #3A1A18;
-    --focus: #F7C948;
-    --edge: inset 0 1px 0 rgba(255, 255, 255, .06);
-    --shadow: 0 1px 0 rgba(255, 255, 255, .03), 0 20px 40px -20px rgba(0, 0, 0, .8);
-  }
-  html, body { height: 100%; }
-  body { margin: 0; background: var(--ground); color: var(--ink); font-family: "IBM Plex Sans Hebrew", "Segoe UI", Arial, sans-serif; font-size: 16px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
-  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-  button, input, select, textarea, label, a { touch-action: manipulation; }
-  .row > * { min-width: 0; }
-  .t, .hist > div, .summary { min-width: 0; overflow-wrap: anywhere; }
-  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-  h1, h2, h3 { font-family: "Rubik", "IBM Plex Sans Hebrew", Arial, sans-serif; font-weight: 700; margin: 0; text-wrap: balance; line-height: 1.15; }
-  h1 { font-size: 1.9rem; letter-spacing: -.03em; } h2 { font-size: 1.3rem; letter-spacing: -.015em; } h3 { font-size: 1.08rem; font-weight: 600; letter-spacing: -.01em; }
-  p { margin: 0; }
-  a { color: var(--accent-text); }
-  button { font: inherit; color: inherit; cursor: pointer; border: 0; background: none; }
-  button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, a:focus-visible, label:focus-visible { outline: 2.5px solid var(--focus); outline-offset: 3px; border-radius: 8px; }
-  .skip { position: absolute; top: -48px; right: 16px; background: var(--accent); color: var(--accent-ink); padding: 8px 12px; border-radius: 10px; z-index: 20; font-weight: 600; }
-  .skip:focus { top: 8px; }
-  input, select, textarea { font: inherit; color: var(--ink); }
-  .num { font-variant-numeric: tabular-nums; }
-
-  #app { direction: rtl; min-height: 100%; max-width: 480px; margin: 0 auto; display: flex; flex-direction: column; }
-  .screen { display: flex; flex-direction: column; flex: 1; padding: 20px 16px 112px; gap: 18px; }
-  .screen.no-nav { padding-bottom: 32px; }
-  .screen:not([hidden]) { animation: screen-in .45s var(--ease); }
-  @keyframes screen-in { from { opacity: 0; transform: translateY(10px); } }
-
-  .brand { display: flex; align-items: center; gap: 10px; font-family: "Rubik", sans-serif; font-weight: 700; font-size: 1.1rem; letter-spacing: -.01em; }
-  .brand .mark { width: 30px; height: 30px; border-radius: 9px; background: var(--accent); color: var(--accent-ink); display: grid; place-items: center; font-size: .95rem; box-shadow: inset 0 0 0 2px var(--accent-ink); }
-
-  /* buttons */
-  .btn { position: relative; display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 14px 18px; border-radius: 14px; font-weight: 600; font-size: 1rem; overflow: hidden; transition: transform .3s var(--spring), background-color .2s ease, border-color .2s ease, box-shadow .25s ease, opacity .15s ease, color .15s ease; }
-  .btn:active { transform: scale(.97); transition-duration: .08s; }
-  .btn.primary { background: var(--accent); color: var(--accent-ink); box-shadow: 0 10px 24px -12px rgba(247, 201, 72, .7), inset 0 1px 0 rgba(255, 255, 255, .45); }
-  .btn.primary::after { content: ""; position: absolute; inset: 0; background: linear-gradient(105deg, transparent 35%, rgba(255, 255, 255, .5) 50%, transparent 65%); transform: translateX(120%); transition: transform .7s var(--ease); pointer-events: none; }
-  .btn.secondary { background: var(--surface); color: var(--ink); border: 1.5px solid var(--line); box-shadow: var(--edge); }
-  .btn.ghost { color: var(--muted); padding: 10px; }
-  @media (hover: hover) {
-    .btn.primary:hover { box-shadow: 0 14px 30px -12px rgba(247, 201, 72, .85), inset 0 1px 0 rgba(255, 255, 255, .45); }
-    .btn.primary:hover::after { transform: translateX(-120%); }
-    .btn.secondary:hover { background: var(--surface-2); border-color: var(--faint); }
-    .btn.ghost:hover { color: var(--ink); }
-    .chip:hover { border-color: var(--faint); }
-    .tl-head:hover .km { color: var(--accent-text); }
-  }
-  .btn.busy { color: transparent; pointer-events: none; }
-  .btn.busy::before { content: attr(data-busy); position: absolute; inset: 0; display: grid; place-items: center; color: var(--accent-ink); animation: pulse 1.2s ease-in-out infinite; }
-  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .5; } }
-  .btn:disabled { opacity: .4; cursor: not-allowed; box-shadow: none; }
-  .btn .g { width: 20px; height: 20px; }
-  .err { color: var(--crit); font-size: .85rem; font-weight: 500; }
-
-  /* surfaces */
-  .card { background: var(--surface); border-radius: var(--radius); padding: 18px; box-shadow: var(--shadow), var(--edge); border: 1px solid var(--line); }
-  .stack { display: flex; flex-direction: column; gap: 12px; }
-  .row { display: flex; align-items: center; gap: 12px; }
-  .row.between { justify-content: space-between; }
-  .muted { color: var(--muted); }
-  .small { font-size: .875rem; }
-  .eyebrow { font-size: .8rem; color: var(--muted); font-weight: 500; }
-
-  /* onboarding */
-  .onb-art { height: 240px; border-radius: 28px; background: radial-gradient(90% 80% at 50% 100%, var(--accent-soft), transparent 70%), var(--surface-2); border: 1px solid var(--line); display: grid; place-items: center; overflow: hidden; }
-  .onb-art svg { width: 100%; height: 100%; animation: art-in .6s var(--ease); }
-  @keyframes art-in { from { opacity: 0; transform: scale(.94); } }
-  .dots { display: flex; gap: 6px; justify-content: center; }
-  .dots span { width: 8px; height: 8px; border-radius: 999px; background: var(--line); transition: width .35s var(--spring), background-color .2s ease; }
-  .dots span.on { width: 24px; background: var(--accent); }
-
-  /* plate */
-  .plate { display: inline-flex; align-items: stretch; white-space: nowrap; flex: none; background: var(--plate); color: var(--plate-ink); border-radius: 8px; border: 2px solid var(--plate-ink); overflow: hidden; font-family: "Rubik", sans-serif; font-weight: 700; letter-spacing: .06em; font-size: 1.05rem; direction: ltr; box-shadow: inset 0 1px 0 rgba(255, 255, 255, .45); }
-  .plate .il { background: #1747A8; color: #fff; font-size: .58rem; padding: 0 5px 4px; display: grid; place-items: end center; letter-spacing: 0; line-height: 1; }
-  .plate .n { padding: 5px 11px; }
-  .plate-input { display: flex; align-items: stretch; background: var(--plate); border: 3px solid var(--plate-ink); border-radius: 10px; overflow: hidden; direction: ltr; box-shadow: inset 0 1px 0 rgba(255, 255, 255, .5); transition: box-shadow .3s ease, transform .3s var(--spring); }
-  .plate-input:focus-within { box-shadow: 0 0 0 6px rgba(247, 201, 72, .3), 0 18px 40px -18px rgba(247, 201, 72, .8); transform: translateY(-2px); }
-  .plate-input .il { background: #1747A8; color: #fff; font: 600 .7rem/1 "Rubik", sans-serif; width: 32px; display: grid; place-items: end center; padding-bottom: 10px; }
-  .plate-input input { flex: 1; background: transparent; border: 0; outline: 0; padding: 14px 10px; font-family: "Rubik", sans-serif; font-weight: 700; font-size: 1.7rem; letter-spacing: .1em; color: var(--plate-ink); text-align: center; min-width: 0; }
-  .plate-input input::placeholder { color: rgba(16, 18, 20, .45); }
-
-  /* fields and chips */
-  .field { display: flex; flex-direction: column; gap: 6px; }
-  .field label { font-weight: 500; font-size: .95rem; }
-  .field input, .field select, .field textarea { padding: 13px 14px; border: 1.5px solid var(--line); border-radius: 12px; background: var(--surface); width: 100%; transition: border-color .2s ease, box-shadow .2s ease; }
-  .field input:focus, .field select:focus, .field textarea:focus { outline: 0; border-color: var(--accent); box-shadow: 0 0 0 4px rgba(247, 201, 72, .22); }
-  .field textarea { font: inherit; color: var(--ink); resize: vertical; }
-  .field .hint { font-size: .8rem; color: var(--muted); }
-  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
-  .chip { padding: 8px 15px; min-height: 38px; border-radius: 999px; border: 1.5px solid var(--line); background: var(--surface); font-size: .9rem; font-weight: 500; transition: border-color .2s ease, background-color .2s ease, color .2s ease, transform .3s var(--spring); }
-  .chip:active { transform: scale(.94); }
-  .chip.on { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); font-weight: 600; }
-  .seg { display: flex; gap: 4px; padding: 4px; background: var(--surface-2); border-radius: 14px; }
-  .seg button { flex: 1; padding: 9px 6px; font-size: .9rem; font-weight: 500; border-radius: 10px; color: var(--muted); transition: background-color .25s ease, color .2s ease, box-shadow .25s ease; }
-  .seg button.on { background: var(--surface); color: var(--ink); font-weight: 600; box-shadow: 0 2px 8px -2px rgba(0, 0, 0, .18), var(--edge); }
-
-  /* car header, odometer */
-  .car-card { display: flex; flex-direction: column; gap: 12px; }
-  .car-card .name { font-family: "Rubik", sans-serif; font-weight: 700; font-size: 1.15rem; }
-  .car-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; padding-top: 4px; }
-  .odometer { display: inline-flex; gap: 3px; direction: ltr; }
-  .odometer span { background: var(--surface-2); color: var(--ink); border: 1px solid var(--line); font-family: "Rubik", sans-serif; font-weight: 700; padding: 3px 6px; border-radius: 6px; font-size: 1rem; min-width: 22px; text-align: center; box-shadow: var(--edge); }
-
-  /* next service: the one graphite hero card, the same in both themes */
-  .card.ink { position: relative; overflow: hidden; background: radial-gradient(120% 70% at 100% 0%, rgba(247, 201, 72, .14), transparent 60%), #111418; color: #F3F4F6; border: 1px solid rgba(255, 255, 255, .08); box-shadow: 0 30px 60px -30px rgba(0, 0, 0, .6), inset 0 1px 0 rgba(255, 255, 255, .07); }
-  .card.ink .muted, .card.ink .eyebrow { color: rgba(243, 244, 246, .62); }
-  .card.ink .item { border-color: rgba(255, 255, 255, .1); }
-  .card.ink .item .note { color: rgba(243, 244, 246, .55); }
-  .card.ink .act.replace { background: rgba(247, 201, 72, .16); color: #F7C948; }
-  .card.ink .act.inspect { background: rgba(255, 255, 255, .08); color: rgba(243, 244, 246, .75); }
-  .card.ink .price .p { background: rgba(255, 255, 255, .06); }
-  .card.ink .status.good { background: rgba(63, 213, 139, .16); color: #6FE3A8; }
-  .card.ink .status.warn { background: rgba(240, 176, 74, .18); color: #F5C36E; }
-  .card.ink .status.crit { background: rgba(255, 107, 94, .18); color: #FF9C92; }
-  .card.ink .btn.ghost { color: rgba(243, 244, 246, .75); }
-  .card.ink .ring .lbl .muted { color: rgba(243, 244, 246, .6); }
-  .card.ink .banner { background: rgba(240, 176, 74, .16); color: #F5C36E; }
-  .card.ink a { color: #F7C948; }
-  .hero { display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: center; }
-  .big { font-family: "Rubik", sans-serif; font-weight: 800; font-size: 2.8rem; line-height: 1; letter-spacing: -.04em; }
-  .ring { width: 112px; height: 112px; position: relative; }
-  .ring svg { width: 100%; height: 100%; transform: rotate(-90deg); }
-  .ring circle + circle { transition: stroke-dashoffset 1.2s var(--ease); filter: drop-shadow(0 0 6px rgba(247, 201, 72, .35)); }
-  .ring .lbl { position: absolute; inset: 0; display: grid; place-items: center; text-align: center; line-height: 1.1; }
-  .ring .lbl b { font-family: "Rubik", sans-serif; font-size: 1.35rem; }
-  .status { display: inline-flex; align-items: center; gap: 6px; padding: 5px 11px; border-radius: 999px; font-size: .8rem; font-weight: 600; white-space: nowrap; }
-  .status.good { background: var(--good-soft); color: var(--good); }
-  .status.warn { background: var(--warn-soft); color: var(--warn); }
-  .status.crit { background: var(--crit-soft); color: var(--crit); }
-  .status::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
-
-  .items { display: flex; flex-direction: column; }
-  .item { display: flex; align-items: flex-start; gap: 10px; padding: 11px 0; border-top: 1px solid var(--line); }
-  .item:first-child { border-top: 0; }
-  .item .act { flex: none; font-size: .72rem; font-weight: 600; padding: 4px 9px; border-radius: 999px; margin-top: 2px; }
-  .act.replace { background: var(--accent-soft); color: var(--accent-text); }
-  .act.inspect { background: var(--surface-2); color: var(--muted); }
-  .act.clean, .act.rotate, .act.adjust { background: var(--warn-soft); color: var(--warn); }
-  .item .note { font-size: .8rem; color: var(--muted); }
-
-  /* timeline */
-  .tl { display: flex; flex-direction: column; position: relative; }
-  .tl-item { display: grid; grid-template-columns: 28px 1fr; gap: 12px; position: relative; padding-bottom: 14px; }
-  .tl-item::before { content: ""; position: absolute; right: 13px; top: 30px; bottom: 2px; width: 2px; border-radius: 2px; background: var(--line); }
-  .tl-item.done::before { background: var(--good); opacity: .5; }
-  .tl-item:last-child::before { display: none; }
-  .tl-dot { width: 28px; height: 28px; border-radius: 50%; border: 2px solid var(--line); background: var(--surface); display: grid; place-items: center; font-size: .75rem; font-weight: 700; z-index: 1; }
-  .tl-item.done .tl-dot { background: var(--good); border-color: var(--good); color: #fff; }
-  .tl-item.next .tl-dot { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); box-shadow: 0 0 0 6px var(--accent-soft); animation: halo 2.4s ease-in-out infinite; }
-  @keyframes halo { 50% { box-shadow: 0 0 0 10px transparent; } }
-  .tl-card { background: var(--surface); border-radius: 16px; padding: 12px 14px; border: 1.5px solid var(--line); box-shadow: var(--edge); transition: border-color .2s ease, box-shadow .3s ease; }
-  .tl-item.next .tl-card { border-color: var(--accent); box-shadow: 0 16px 34px -20px rgba(247, 201, 72, .6), var(--edge); }
-  .tl-item.done .tl-card { opacity: .72; }
-  .tl-head { display: flex; justify-content: space-between; align-items: center; width: 100%; text-align: right; }
-  .tl-head .km { font-family: "Rubik", sans-serif; font-weight: 700; font-size: 1.08rem; transition: color .2s ease; }
-  .tl-head .chev { transition: transform .4s var(--spring); color: var(--muted); }
-  .tl-item.open .chev { transform: rotate(180deg); }
-  .tl-body { display: none; margin-top: 8px; }
-  .tl-item.open .tl-body { display: block; animation: open-in .35s var(--ease); }
-  @keyframes open-in { from { opacity: 0; transform: translateY(-4px); } }
-  .summary { font-size: .85rem; color: var(--muted); }
-
-  /* bottom nav: a floating glass bar */
-  .nav { position: fixed; bottom: 0; left: 0; right: 0; display: flex; justify-content: center; padding: 0 12px calc(10px + env(safe-area-inset-bottom, 0px)); z-index: 5; pointer-events: none; }
-  .nav .inner { pointer-events: auto; display: flex; width: 100%; max-width: 456px; direction: rtl; padding: 6px; border-radius: 22px; background: color-mix(in srgb, var(--surface) 82%, transparent); border: 1px solid var(--line); box-shadow: 0 18px 40px -18px rgba(0, 0, 0, .45), var(--edge); }
-  @supports (backdrop-filter: blur(10px)) { .nav .inner { backdrop-filter: blur(20px) saturate(160%); -webkit-backdrop-filter: blur(20px) saturate(160%); } }
-  .nav button { position: relative; flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px; padding: 7px 4px; border-radius: 16px; font-size: .72rem; color: var(--muted); font-weight: 500; transition: color .2s ease, background-color .3s ease, transform .3s var(--spring); }
-  .nav button:active { transform: scale(.92); }
-  .nav button.on { color: var(--ink); background: var(--surface-2); font-weight: 600; }
-  .nav button.on svg { color: var(--accent-ink); background: var(--accent); border-radius: 9px; padding: 3px; width: 30px; height: 30px; margin: -3px 0; }
-  .nav svg { width: 24px; height: 24px; transition: transform .3s var(--spring); }
-
-  .topbar { display: flex; justify-content: space-between; align-items: center; }
-  .avatar { width: 38px; height: 38px; border-radius: 12px; background: var(--surface-2); border: 1px solid var(--line); color: var(--ink); display: grid; place-items: center; font-weight: 700; font-family: "Rubik", sans-serif; }
-  .toggle { width: 48px; height: 28px; border-radius: 999px; background: var(--surface-3); position: relative; transition: background-color .25s ease; flex: none; }
-  .toggle::after { content: ""; position: absolute; top: 3px; right: 3px; width: 22px; height: 22px; border-radius: 50%; background: #fff; transition: transform .35s var(--spring); box-shadow: 0 1px 3px rgba(0, 0, 0, .3); }
-  .toggle.on { background: var(--accent); }
-  .toggle.on::after { transform: translateX(-20px); }
-  .list > * { padding: 12px 0; border-top: 1px solid var(--line); }
-  .list > *:first-child { border-top: 0; padding-top: 0; }
-  .list > *:last-child { padding-bottom: 0; }
-  .banner { background: var(--warn-soft); color: var(--warn); border-radius: 14px; padding: 11px 14px; font-size: .88rem; font-weight: 500; }
-  .toast { position: fixed; bottom: 104px; left: 50%; transform: translate(-50%, 16px) scale(.96); background: var(--ink); color: var(--ground); padding: 11px 18px; border-radius: 999px; font-size: .9rem; font-weight: 500; opacity: 0; transition: opacity .2s ease, transform .4s var(--spring); pointer-events: none; z-index: 9; box-shadow: 0 16px 30px -12px rgba(0, 0, 0, .5); max-width: calc(100% - 32px); text-align: center; }
-  .toast.show { opacity: 1; transform: translate(-50%, 0); }
-
-  /* sheets: slide up, swipe down to close */
-  .sheet { position: fixed; inset: 0; background: rgba(4, 5, 6, .5); display: none; align-items: flex-end; justify-content: center; z-index: 8; }
-  .sheet.show { display: flex; animation: scrim-in .25s ease; }
-  @keyframes scrim-in { from { background: rgba(4, 5, 6, 0); } }
-  .sheet .panel { position: relative; background: var(--surface); width: 100%; max-width: 480px; border-radius: 26px 26px 0 0; padding: 26px 16px calc(20px + env(safe-area-inset-bottom, 0px)); direction: rtl; display: flex; flex-direction: column; gap: 14px; max-height: 92vh; overflow-y: auto; overscroll-behavior: contain; border: 1px solid var(--line); border-bottom: 0; box-shadow: 0 -20px 50px -20px rgba(0, 0, 0, .5); transform: translateY(var(--drag, 0px)); }
-  .sheet.show .panel { animation: sheet-up .5s var(--ease); }
-  .sheet .panel.snap { transition: transform .35s var(--ease); }
-  @keyframes sheet-up { from { transform: translateY(100%); } }
-  .sheet .panel > :first-child { touch-action: none; }
-  .sheet .panel::before { content: ""; position: absolute; top: 9px; left: 50%; width: 40px; height: 5px; margin-left: -20px; border-radius: 999px; background: var(--line); }
-  .price { display: flex; gap: 10px; }
-  .price .p { flex: 1; background: var(--surface-2); border-radius: 14px; padding: 11px 12px; }
-  .price .p b { font-family: "Rubik", sans-serif; font-size: 1.15rem; }
-  .price .p .small { display: block; }
-  .receipt { display: flex; align-items: center; gap: 12px; }
-  .receipt img { width: 56px; height: 56px; object-fit: cover; border-radius: 12px; border: 1px solid var(--line); }
-  .receipt label { flex: 1; padding: 13px; border: 1.5px dashed var(--line); border-radius: 14px; text-align: center; color: var(--muted); font-size: .9rem; cursor: pointer; transition: border-color .2s ease, color .2s ease; }
-  .receipt label:hover { border-color: var(--accent); color: var(--ink); }
-  .receipt input { display: none; }
-  .hist { display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; align-items: center; }
-  .hist .amt { font-family: "Rubik", sans-serif; font-weight: 700; font-size: 1.05rem; }
-  .chk { display: flex; align-items: flex-start; gap: 12px; padding: 11px 0; border-top: 1px solid var(--line); cursor: pointer; }
-  .chk:first-child { border-top: 0; }
-  .chk input { appearance: none; -webkit-appearance: none; width: 22px; height: 22px; margin: 1px 0 0; flex: none; border-radius: 7px; border: 2px solid var(--faint); display: grid; place-items: center; transition: background-color .15s ease, border-color .15s ease; cursor: pointer; }
-  .chk input::after { content: ""; width: 6px; height: 11px; border: solid var(--accent-ink); border-width: 0 2.5px 2.5px 0; transform: rotate(45deg) scale(0); transition: transform .3s var(--spring); margin-top: -2px; }
-  .chk input:checked { background: var(--accent); border-color: var(--accent); }
-  .chk input:checked::after { transform: rotate(45deg) scale(1); }
-  .chk input:checked ~ .t > :first-child { text-decoration: line-through; text-decoration-thickness: 1.5px; color: var(--muted); }
-  .chk .t { flex: 1; }
-  .chk .note { font-size: .8rem; color: var(--muted); }
-  .tip { display: flex; gap: 10px; padding: 8px 0; font-size: .9rem; }
-  .tip .i { flex: none; width: 24px; height: 24px; border-radius: 50%; background: var(--accent-soft); color: var(--accent-text); display: grid; place-items: center; font-weight: 700; font-size: .8rem; }
-  .garage { display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; padding: 12px 0; border-top: 1px solid var(--line); align-items: start; }
-  .garage:first-child { border-top: 0; padding-top: 0; }
-  .garage .nm { font-weight: 600; }
-  .garage .meta { font-size: .8rem; color: var(--muted); display: flex; flex-wrap: wrap; gap: 4px 10px; }
-  .garage .amt { font-family: "Rubik", sans-serif; font-weight: 700; text-align: left; }
-  .tag { display: inline-block; font-size: .72rem; font-weight: 600; padding: 3px 9px; border-radius: 999px; background: var(--surface-2); color: var(--muted); }
-  .tag.mine { background: var(--accent-soft); color: var(--accent-text); }
-  .empty { display: flex; flex-direction: column; gap: 8px; padding: 16px; border: 1.5px dashed var(--line); border-radius: 16px; }
-
-  /* car condition */
-  .state { display: grid; grid-template-columns: 10px 1fr auto; gap: 4px 12px; align-items: center; padding: 12px 0; border-top: 1px solid var(--line); }
-  .state:first-child { border-top: 0; }
-  .state .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--faint); }
-  .state.ok .dot { background: var(--good); } .state.soon .dot { background: var(--warn); } .state.unknown .dot { background: var(--faint); }
-  .state.overdue .dot { background: var(--crit); box-shadow: 0 0 0 4px var(--crit-soft); animation: beat 2s ease-in-out infinite; }
-  @keyframes beat { 50% { box-shadow: 0 0 0 7px transparent; } }
-  .state .sub { font-size: .8rem; color: var(--muted); }
-  .state .due { font-family: "Rubik", sans-serif; font-weight: 700; font-size: .95rem; text-align: left; }
-  .state.overdue .due { color: var(--crit); } .state.soon .due { color: var(--warn); } .state.unknown .due { color: var(--faint); font-weight: 500; }
-  .counts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
-  .counts .c { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 12px 6px; text-align: center; box-shadow: var(--edge); }
-  .card .counts .c { background: var(--surface-2); }
-  .counts .c b { display: block; font-family: "Rubik", sans-serif; font-weight: 700; font-size: 1.6rem; line-height: 1.1; color: var(--faint); }
-  .counts .c span { font-size: .75rem; color: var(--muted); }
-  .counts .c.overdue b { color: var(--crit); } .counts .c.soon b { color: var(--warn); } .counts .c.ok b { color: var(--good); }
-  .counts .c.overdue.hot { border-color: var(--crit); background: var(--crit-soft); }
-  .attn { display: flex; flex-direction: column; margin-top: 2px; }
-  .docs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
-  .docs button { position: relative; aspect-ratio: 1; border-radius: 12px; overflow: hidden; border: 1px solid var(--line); background: var(--surface-2); transition: transform .3s var(--spring); }
-  .docs button:active { transform: scale(.95); }
-  .docs img { width: 100%; height: 100%; object-fit: cover; }
-  .docs .lb { position: absolute; bottom: 0; left: 0; right: 0; font-size: .65rem; background: rgba(12, 15, 18, .72); color: #fff; padding: 2px 4px; text-align: center; }
-  .items-pick { display: flex; flex-wrap: wrap; gap: 6px; max-height: 190px; overflow-y: auto; padding: 4px 0; }
-  .items-pick .chip { font-size: .82rem; padding: 6px 12px; min-height: 34px; }
-  .thumbs { display: flex; gap: 8px; flex-wrap: wrap; }
-  .thumbs img { width: 56px; height: 56px; object-fit: cover; border-radius: 12px; border: 1px solid var(--line); }
-  .fold > summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; padding: 10px 0; font-weight: 600; }
-  .fold > summary::-webkit-details-marker { display: none; }
-  .fold > summary::after { content: ""; width: 8px; height: 8px; border-right: 2px solid var(--muted); border-bottom: 2px solid var(--muted); transform: rotate(45deg); transition: transform .35s var(--spring); margin-top: -4px; }
-  .fold[open] > summary::after { transform: rotate(-135deg); margin-top: 4px; }
-
-  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; } }
-</style>
-
 <div id="app">
   <a class="skip" href="#main">דלג לתוכן</a>
-  <main id="main" style="display:contents">
+  <main class="contents" id="main">
 
   <!-- ONBOARDING -->
   <section class="screen no-nav" id="s-onb" hidden>
     <div class="brand"><span class="mark">ט</span> טיפולית</div>
     <div class="onb-art" id="onb-art"></div>
-    <div class="stack" style="flex:1">
+    <div class="stack grow">
       <h1 id="onb-title"></h1>
       <p class="muted" id="onb-text"></p>
     </div>
@@ -351,17 +49,17 @@
   <!-- SIGN IN -->
   <section class="screen no-nav" id="s-auth" hidden>
     <div class="brand"><span class="mark">ט</span> טיפולית</div>
-    <div class="stack" style="flex:1; justify-content:center; gap:8px">
+    <div class="stack grow justify-center g-8">
       <h1>ברוך הבא</h1>
       <p class="muted">חשבון שומר את הרכבים והתזכורות שלך בין מכשירים. אפשר גם להתחיל כאורח ולהתחבר אחר כך.</p>
     </div>
     <div class="stack">
       <button class="btn secondary" id="auth-google">
-        <svg class="g" aria-hidden="true" viewBox="0 0 24 24"><path fill="#EA4335" d="M12 10.2v3.9h5.5c-.2 1.3-1.6 3.8-5.5 3.8-3.3 0-6-2.7-6-6.1s2.7-6.1 6-6.1c1.9 0 3.1.8 3.9 1.5l2.6-2.5C16.9 3.1 14.7 2 12 2 6.5 2 2 6.5 2 12s4.5 10 10 10c5.8 0 9.6-4 9.6-9.7 0-.7-.1-1.1-.2-1.6H12z"/></svg>
+        <svg class="g" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 10.2v3.9h5.5c-.2 1.3-1.6 3.8-5.5 3.8-3.3 0-6-2.7-6-6.1s2.7-6.1 6-6.1c1.9 0 3.1.8 3.9 1.5l2.6-2.5C16.9 3.1 14.7 2 12 2 6.5 2 2 6.5 2 12s4.5 10 10 10c5.8 0 9.6-4 9.6-9.7 0-.7-.1-1.1-.2-1.6H12z"/></svg>
         המשך עם Google
       </button>
       <button class="btn primary" id="auth-guest">המשך כאורח</button>
-      <p class="small muted" style="text-align:center">בהמשך: התחברות עם Apple ומספר טלפון</p>
+      <p class="small muted ta-center">בהמשך: התחברות עם Apple ומספר טלפון</p>
     </div>
   </section>
 
@@ -369,11 +67,11 @@
   <section class="screen no-nav" id="s-add" hidden>
     <div class="topbar">
       <div class="brand"><span class="mark">ט</span> טיפולית</div>
-      <button class="btn ghost" id="add-back" style="width:auto">חזרה</button>
+      <button class="btn ghost fit" id="add-back">חזרה</button>
     </div>
 
     <div class="stack" id="add-step-plate">
-      <div class="stack" style="gap:6px">
+      <div class="stack g-6">
         <h1>מה מספר הרכב?</h1>
         <p class="muted">נזהה את היצרן, הדגם, השנה והמנוע ממאגר הרכב הממשלתי.</p>
       </div>
@@ -388,7 +86,7 @@
     </div>
 
     <div class="stack" id="add-step-confirm" hidden>
-      <div class="stack" style="gap:6px">
+      <div class="stack g-6">
         <h1>זה הרכב שלך?</h1>
         <p class="muted">לפי מאגר הרכב הממשלתי.</p>
       </div>
@@ -398,7 +96,7 @@
     </div>
 
     <div class="stack" id="add-step-manual" hidden>
-      <div class="stack" style="gap:6px">
+      <div class="stack g-6">
         <h1>בחר את הרכב</h1>
         <p class="muted">רק דגמים שיש להם לוח טיפולים מוכן מופיעים כאן.</p>
       </div>
@@ -409,7 +107,7 @@
     </div>
 
     <div class="stack" id="add-step-km" hidden>
-      <div class="stack" style="gap:6px">
+      <div class="stack g-6">
         <h1>כמה קילומטרים על השעון?</h1>
         <p class="muted">ואיך אתה נוסע. מזה נחשב מתי הטיפול הבא.</p>
       </div>
@@ -441,27 +139,27 @@
       <div class="brand"><span class="mark">ט</span> טיפולית</div>
       <button class="avatar" id="home-avatar" aria-label="הפרופיל שלי">א</button>
     </div>
-    <div id="home-body" class="stack" style="gap:16px"></div>
+    <div id="home-body" class="stack g-16"></div>
   </section>
 
   <!-- MY CAR: condition, repairs, documents -->
   <section class="screen" id="s-car" hidden>
-    <div class="stack" style="gap:4px"><h1>מצב הרכב</h1><p class="muted small" id="car-sub"></p></div>
+    <div class="stack g-4"><h1>מצב הרכב</h1><p class="muted small" id="car-sub"></p></div>
     <div class="counts" id="car-counts"></div>
-    <div class="card stack" style="gap:6px">
+    <div class="card stack g-6">
       <div class="row between"><h3>לפי פריט</h3><span class="small muted">מה הוחלף, מתי, ומתי הבא</span></div>
       <div id="car-state"></div>
     </div>
-    <div class="card stack" style="gap:8px">
+    <div class="card stack g-8">
       <div class="row between"><h3>המסמכים שלך</h3><span class="small muted" id="car-docs-n"></span></div>
       <p class="small muted">קנית רכב יד שנייה ויש לך ערימת חשבוניות? העלה אותן פעם אחת. כל חשבונית הופכת לרשומה, ומצב הרכב מתעדכן לפי מה שבאמת הוחלף.</p>
       <div class="docs" id="car-docs"></div>
-      <label class="btn secondary" for="car-upload" style="cursor:pointer">העלה חשבוניות (אפשר כמה בבת אחת)</label>
-      <input id="car-upload" type="file" accept="image/*" multiple style="display:none">
+      <label class="btn secondary" for="car-upload">העלה חשבוניות (אפשר כמה בבת אחת)</label>
+      <input id="car-upload" type="file" accept="image/*" multiple hidden>
       <p class="small muted">זיהוי אוטומטי של תאריך, ק"מ, מחיר ופריטים מתוך הצילום יגיע עם השרת. עד אז מאשרים את הפרטים ידנית לכל מסמך, כחצי דקה למסמך.</p>
     </div>
-    <div class="card stack" style="gap:6px">
-      <div class="row between"><h3>תקלות ותיקונים</h3><button class="btn ghost" id="car-add-repair" style="width:auto;padding:0">הוסף</button></div>
+    <div class="card stack g-6">
+      <div class="row between"><h3>תקלות ותיקונים</h3><button class="btn ghost fit bare" id="car-add-repair">הוסף</button></div>
       <div id="car-repairs"></div>
     </div>
     <div id="car-history"></div>
@@ -469,7 +167,7 @@
 
   <!-- TIMELINE -->
   <section class="screen" id="s-tl" hidden>
-    <div class="stack" style="gap:4px">
+    <div class="stack g-4">
       <h1>ציר הטיפולים</h1>
       <p class="muted small" id="tl-sub"></p>
     </div>
@@ -480,15 +178,15 @@
   <!-- GARAGES -->
   <section class="screen" id="s-garages" hidden>
     <div class="topbar">
-      <div class="stack" style="gap:2px"><p class="eyebrow">מוסכים</p><h1 id="gr-title">מוסכים לרכב שלך</h1></div>
-      <button class="btn ghost" id="gr-back" style="width:auto">חזרה</button>
+      <div class="stack g-2"><p class="eyebrow">מוסכים</p><h1 id="gr-title">מוסכים לרכב שלך</h1></div>
+      <button class="btn ghost fit" id="gr-back">חזרה</button>
     </div>
     <p class="muted small" id="gr-sub"></p>
     <div class="chips" id="gr-filter">
       <button class="chip on" data-v="all">הכל</button><button class="chip" data-v="importer">מוסך יבואן</button><button class="chip" data-v="independent">מוסך פרטי</button>
     </div>
     <div class="card" id="gr-list"></div>
-    <p class="small muted">לפני שנכנסים למוסך חדש: לוודא שיש לו רישיון משרד התחבורה. <a href="https://www.gov.il/he/departments/dynamiccollectors/garages-and-licensing-institutes" target="_blank" rel="noopener" style="color:var(--accent-text)">חיפוש במאגר המוסכים המורשים</a>.</p>
+    <p class="small muted">לפני שנכנסים למוסך חדש: לוודא שיש לו רישיון משרד התחבורה. <a href="https://www.gov.il/he/departments/dynamiccollectors/garages-and-licensing-institutes" target="_blank" rel="noopener">חיפוש במאגר המוסכים המורשים</a>.</p>
   </section>
 
   <!-- PROFILE / SETTINGS -->
@@ -526,7 +224,7 @@
 
   <div class="sheet" id="log">
     <div class="panel">
-      <div class="row between"><h2 id="log-title">עשיתי טיפול</h2><button class="btn ghost" id="log-close" style="width:auto">סגור</button></div>
+      <div class="row between"><h2 id="log-title">עשיתי טיפול</h2><button class="btn ghost fit" id="log-close">סגור</button></div>
       <div class="thumbs" id="log-thumbs" hidden></div>
       <div class="field"><label>מה זה היה</label>
         <div class="seg" id="log-kind"><button data-v="service" class="on">טיפול תקופתי</button><button data-v="repair">תיקון או תקלה</button><button data-v="other">אחר</button></div>
@@ -534,18 +232,18 @@
       <div class="field" id="log-svc-row"><label for="log-svc">איזה טיפול</label><select id="log-svc"></select></div>
       <div class="field" id="log-text-row" hidden><label for="log-text">מה נעשה</label><input id="log-text" name="what" autocomplete="off" placeholder="למשל החלפת מצבר, תיקון מזגן"><p class="err" id="log-text-err" hidden>כתוב בקצרה מה נעשה.</p></div>
       <div class="field"><label>מה הוחלף בפועל <span class="muted">(סמן, זה מה שמעדכן את מצב הרכב)</span></label><div class="items-pick" id="log-items"></div></div>
-      <div class="row" style="gap:10px">
-        <div class="field" style="flex:1"><label for="log-date">מתי</label><input id="log-date" name="service-date" type="month" autocomplete="off"></div>
-        <div class="field" style="flex:1"><label for="log-km">ק"מ בטיפול</label><input id="log-km" name="service-km" inputmode="numeric" autocomplete="off" class="num"></div>
+      <div class="row g-10">
+        <div class="field grow"><label for="log-date">מתי</label><input id="log-date" name="service-date" type="month" autocomplete="off"></div>
+        <div class="field grow"><label for="log-km">ק"מ בטיפול</label><input id="log-km" name="service-km" inputmode="numeric" autocomplete="off" class="num"></div>
       </div>
       <div class="field"><label>איפה</label>
         <div class="seg" id="log-where">
           <button data-v="importer" class="on">מוסך יבואן</button><button data-v="independent">מוסך פרטי</button><button data-v="self">בעצמי</button>
         </div>
       </div>
-      <div class="row" style="gap:10px" id="log-garage-row">
-        <div class="field" style="flex:1.4"><label for="log-garage">שם המוסך <span class="muted">(לא חובה)</span></label><input id="log-garage" name="garage" autocomplete="off" placeholder="למשל טויוטה ראשל"צ"></div>
-        <div class="field" style="flex:1"><label for="log-city">עיר</label><input id="log-city" name="city" autocomplete="off" placeholder="ראשון לציון"></div>
+      <div class="row g-10" id="log-garage-row">
+        <div class="field grow-more"><label for="log-garage">שם המוסך <span class="muted">(לא חובה)</span></label><input id="log-garage" name="garage" autocomplete="off" placeholder="למשל טויוטה ראשל"צ"></div>
+        <div class="field grow"><label for="log-city">עיר</label><input id="log-city" name="city" autocomplete="off" placeholder="ראשון לציון"></div>
       </div>
       <div class="field"><label for="log-price">כמה שילמת (₪)</label><input id="log-price" name="price" inputmode="numeric" autocomplete="off" class="num" placeholder="למשל 890"><p class="err" id="log-price-err" hidden>כדי לשתף מחיר צריך להזין כמה שילמת, או לכבות את השיתוף.</p></div>
       <div class="field"><label>היית חוזר למוסך הזה?</label>
@@ -674,13 +372,13 @@
   // ---------- onboarding ----------
   const onb = [
     { t: "כל טיפול, בזמן הנכון", x: "טיפולית מחשבת מתי הטיפול הבא לפי הקילומטראז' והזמן, ומזכירה לך לפני שמאחרים.",
-      art: `<svg viewBox="0 0 320 220"><rect x="40" y="70" width="240" height="90" rx="16" fill="var(--surface)"/><rect x="60" y="92" width="200" height="12" rx="6" fill="var(--line)"/><rect x="60" y="92" width="130" height="12" rx="6" fill="var(--accent)"/><circle cx="190" cy="98" r="10" fill="var(--accent)"/><circle cx="190" cy="98" r="18" fill="var(--accent)" opacity=".2"/><text x="60" y="140" font-family="Rubik" font-weight="600" font-size="20" fill="var(--ink)">45,000</text><text x="230" y="140" font-family="Heebo" font-size="12" fill="var(--muted)" text-anchor="end">60,000</text></svg>` },
+      art: `<svg viewBox="0 0 320 220"><rect class="f-surface" x="40" y="70" width="240" height="90" rx="16"/><rect class="f-line" x="60" y="92" width="200" height="12" rx="6"/><rect class="f-accent" x="60" y="92" width="130" height="12" rx="6"/><circle class="f-accent" cx="190" cy="98" r="10"/><circle class="halo" cx="190" cy="98" r="18"/><text class="tx-num" x="60" y="140">45,000</text><text class="tx-meta" x="230" y="140" text-anchor="end">60,000</text></svg>` },
     { t: "לפי ספר היבואן, לא לפי ניחוש", x: "מה מחליפים, מה בודקים ומתי. הכל מלוחות הטיפולים של היבואנים בישראל, דגם אחר דגם.",
-      art: `<svg viewBox="0 0 320 220"><rect x="70" y="40" width="180" height="140" rx="12" fill="var(--surface)"/><rect x="90" y="64" width="80" height="10" rx="5" fill="var(--ink)"/><rect x="90" y="88" width="140" height="8" rx="4" fill="var(--line)"/><rect x="90" y="106" width="120" height="8" rx="4" fill="var(--line)"/><rect x="90" y="124" width="140" height="8" rx="4" fill="var(--line)"/><rect x="90" y="142" width="100" height="8" rx="4" fill="var(--line)"/><rect x="210" y="84" width="24" height="16" rx="4" fill="var(--accent-soft)"/><rect x="210" y="120" width="24" height="16" rx="4" fill="var(--accent-soft)"/></svg>` },
+      art: `<svg viewBox="0 0 320 220"><rect class="f-surface" x="70" y="40" width="180" height="140" rx="12"/><rect class="f-ink" x="90" y="64" width="80" height="10" rx="5"/><rect class="f-line" x="90" y="88" width="140" height="8" rx="4"/><rect class="f-line" x="90" y="106" width="120" height="8" rx="4"/><rect class="f-line" x="90" y="124" width="140" height="8" rx="4"/><rect class="f-line" x="90" y="142" width="100" height="8" rx="4"/><rect class="f-accent-soft" x="210" y="84" width="24" height="16" rx="4"/><rect class="f-accent-soft" x="210" y="120" width="24" height="16" rx="4"/></svg>` },
     { t: "מספר רכב, וזהו", x: "מקלידים מספר רכב, אנחנו מזהים את הדגם, השנה והמנוע. בלי טפסים ובלי לחפש את ספר הרכב במגירה.",
-      art: `<svg viewBox="0 0 320 220"><rect x="70" y="85" width="180" height="50" rx="8" fill="#F7C948" stroke="#1A1A1A" stroke-width="3"/><rect x="70" y="85" width="26" height="50" rx="6" fill="#1747A8"/><text x="170" y="120" font-family="Rubik" font-weight="700" font-size="26" fill="#1A1A1A" text-anchor="middle" letter-spacing="3">12-345-67</text></svg>` }
+      art: `<svg viewBox="0 0 320 220"><rect class="f-plate s-plate" x="70" y="85" width="180" height="50" rx="8"/><rect class="f-plate-tab" x="70" y="85" width="26" height="50" rx="6"/><text class="tx-plate" x="170" y="120" text-anchor="middle">12-345-67</text></svg>` }
     ,{ t: "כמה זה עולה? הקהילה יודעת", x: "אחרי כל טיפול אפשר לשתף אנונימית כמה שילמת ואיפה. ככה כולם רואים מחיר הוגן לפני שנכנסים למוסך.",
-      art: `<svg viewBox="0 0 320 220"><rect x="50" y="60" width="100" height="100" rx="14" fill="var(--surface)"/><rect x="170" y="60" width="100" height="100" rx="14" fill="var(--surface)"/><text x="100" y="105" font-family="Rubik" font-weight="700" font-size="22" fill="var(--ink)" text-anchor="middle">₪1,150</text><text x="220" y="105" font-family="Rubik" font-weight="700" font-size="22" fill="var(--accent)" text-anchor="middle">₪780</text><text x="100" y="135" font-family="Heebo" font-size="12" fill="var(--muted)" text-anchor="middle">מוסך יבואן</text><text x="220" y="135" font-family="Heebo" font-size="12" fill="var(--muted)" text-anchor="middle">מוסך פרטי</text></svg>` }
+      art: `<svg viewBox="0 0 320 220"><rect class="f-surface" x="50" y="60" width="100" height="100" rx="14"/><rect class="f-surface" x="170" y="60" width="100" height="100" rx="14"/><text class="tx-price" x="100" y="105" text-anchor="middle">₪1,150</text><text class="tx-price f-accent-text" x="220" y="105" text-anchor="middle">₪780</text><text class="tx-meta" x="100" y="135" text-anchor="middle">מוסך יבואן</text><text class="tx-meta" x="220" y="135" text-anchor="middle">מוסך פרטי</text></svg>` }
   ];
   let onbI = 0;
   function renderOnb() {
@@ -828,12 +526,12 @@
   }
   const priceTile = (label, b) => b ? `<div class="p"><span class="small muted">${label}</span><b class="num">₪${fmt(b.med)}</b><span class="small muted num">₪${fmt(b.lo)} עד ₪${fmt(b.hi)} · ${b.n} דיווחים${b.verified ? ` · ${b.verified} עם חשבונית` : ""}</span></div>` : `<div class="p"><span class="small muted">${label}</span><b class="num muted">—</b><span class="small muted">עדיין אין 3 דיווחים</span></div>`;
   const priceHTML = (s, svc) => { const c = communityPrice(s, svc); if (c.live) return `
-    <div class="stack" style="gap:6px">
+    <div class="stack g-6">
       <div class="row between"><p class="eyebrow">כמה זה עולה לאחרים</p><span class="small muted">${c.loading ? "טוען…" : "דיווחי נהגים"}</span></div>
       <div class="price">${priceTile("מוסך יבואן", c.importer)}${priceTile("מוסך פרטי", c.independent)}</div>
       ${!c.importer && !c.independent && !c.loading ? `<p class="small muted">היה הראשון: אחרי הטיפול לחץ "עשיתי טיפול" ושתף את המחיר.</p>` : ""}
     </div>`; return `
-    <div class="stack" style="gap:6px">
+    <div class="stack g-6">
       <div class="row between"><p class="eyebrow">כמה זה עולה לאחרים</p><span class="small muted">נתוני דוגמה</span></div>
       <div class="price">
         <div class="p"><span class="small muted">מוסך יבואן</span><b class="num">₪${fmt(c.importer.med)}</b><span class="small muted num">₪${fmt(c.importer.lo)} עד ₪${fmt(c.importer.hi)} · ${c.importer.n} דיווחים</span></div>
@@ -993,7 +691,7 @@
     $("#car-counts").innerHTML = `<div class="c overdue"><b class="num">${n("overdue")}</b><span>באיחור</span></div><div class="c soon"><b class="num">${n("soon")}</b><span>מתקרב</span></div><div class="c ok"><b class="num">${n("ok")}</b><span>בסדר</span></div><div class="c"><b class="num">${n("unknown")}</b><span>לא ידוע</span></div>`;
     const attention = rows.filter(r => r.status !== "ok" && r.status !== "done"), fine = rows.filter(r => r.status === "ok" || r.status === "done");
     $("#car-state").innerHTML = (attention.map(stateRow).join("") || `<p class="small muted">הכל ידוע ובסדר.</p>`) + (fine.length ? `<details class="fold"><summary><span>בסדר (${fine.length})</span></summary>${fine.map(stateRow).join("")}</details>` : "") +
-      (n("unknown") ? `<p class="small muted" style="margin-top:8px">"לא ידוע" = אין רשומה שמראה מתי הפריט הוחלף. אם יש לך חשבונית, העלה אותה למטה; אם אתה זוכר, הוסף רשומה ידנית.</p>` : "");
+      (n("unknown") ? `<p class="small muted mt-8">"לא ידוע" = אין רשומה שמראה מתי הפריט הוחלף. אם יש לך חשבונית, העלה אותה למטה; אם אתה זוכר, הוסף רשומה ידנית.</p>` : "");
     const docs = recs.flatMap(r => (r.receipts || (r.receipt ? [r.receipt] : [])).map(t => ({ t, r })));
     $("#car-docs-n").textContent = docs.length ? `${docs.length} מסמכים` : "";
     $("#car-docs").innerHTML = docs.map(d => `<button title="${d.r.kind === "service" ? "טיפול " + fmt(d.r.svcKm || d.r.km) : d.r.text}"><img src="${d.t}" alt="חשבונית"><span class="lb num">${d.r.date || fmt(d.r.km)}</span></button>`).join("");
@@ -1002,27 +700,27 @@
     $("#car-history").innerHTML = historyHTML(car);
   }
   const carSummaryHTML = car => { const rows = carState(car); const c = k => rows.filter(r => r.status === k).length; const unknown = c("unknown"), known = rows.length - unknown; const attn = rows.filter(r => r.status === "overdue" || r.status === "soon"); return `
-    <div class="card stack" style="gap:12px">
-      <div class="row between"><h3>מצב הרכב</h3><button class="btn ghost" id="to-car" style="width:auto;padding:0">לכל הפריטים</button></div>
+    <div class="card stack g-12">
+      <div class="row between"><h3>מצב הרכב</h3><button class="btn ghost fit bare" id="to-car">לכל הפריטים</button></div>
       <div class="counts"><div class="c overdue${c("overdue") ? " hot" : ""}"><b class="num">${c("overdue")}</b><span>באיחור</span></div><div class="c soon"><b class="num">${c("soon")}</b><span>מתקרב</span></div><div class="c ok"><b class="num">${rows.filter(r => r.status === "ok" || r.status === "done").length}</b><span>בסדר</span></div><div class="c"><b class="num">${unknown}</b><span>לא ידוע</span></div></div>
       ${attn.length ? `<div class="attn">${attn.slice(0, 3).map(stateRow).join("")}</div>` : known ? `<p class="small muted">אין פריטים באיחור או שמתקרבים.</p>` : ""}
       ${known === 0 ? `<p class="small muted">עדיין לא ידוע מה הוחלף ברכב. העלה חשבוניות ישנות או רשום טיפול, וכל פריט יקבל תאריך וק"מ.</p>` : ""}
     </div>`; };
 
-  const historyHTML = car => { const h = (car.history || []).slice().sort((a, b) => b.km - a.km || b.at - a.at); if (!h.length) return `<p class="small muted" style="padding:0 4px">עוד אין רשומות. אחרי הביקור הבא במוסך, לחץ "עשיתי טיפול", או העלה חשבוניות ישנות במסך "הרכב".</p>`; return `
+  const historyHTML = car => { const h = (car.history || []).slice().sort((a, b) => b.km - a.km || b.at - a.at); if (!h.length) return `<p class="small muted px-4">עוד אין רשומות. אחרי הביקור הבא במוסך, לחץ "עשיתי טיפול", או העלה חשבוניות ישנות במסך "הרכב".</p>`; return `
     <div class="card stack"><p class="eyebrow">כל הרשומות</p>
       ${h.map(e => `<div class="hist">
         <div><b class="num">${e.kind === "service" || !e.kind ? "טיפול " + fmt(e.svcKm || e.km) : e.text || kindName[e.kind]}</b> <span class="small muted num">· ${fmt(e.km)} ק"מ${e.date ? " · " + monthName(new Date(e.date + "-01")) : ""}</span><br>
           <span class="small muted">${whereName[e.where] || ""}${e.garage ? " · " + e.garage : ""}${e.city ? " · " + e.city : ""}${(e.items || []).length ? " · " + e.items.length + " פריטים" : ""}${e.extra ? " · " + e.extra : ""}</span></div>
-        <div class="row" style="gap:8px">${(e.receipts && e.receipts[0]) || e.receipt ? `<img src="${(e.receipts && e.receipts[0]) || e.receipt}" alt="חשבונית" style="width:36px;height:36px;object-fit:cover;border-radius:8px">` : ""}<span class="amt num">${e.price ? "₪" + fmt(e.price) : ""}</span></div>
+        <div class="row g-8">${(e.receipts && e.receipts[0]) || e.receipt ? `<img class="hist-thumb" src="${(e.receipts && e.receipts[0]) || e.receipt}" alt="חשבונית">` : ""}<span class="amt num">${e.price ? "₪" + fmt(e.price) : ""}</span></div>
       </div>`).join("")}
     </div>`; };
 
   // ---------- useful specs from the owner's book ----------
   const specLabels = { engine_oil: "שמן מנוע", oil_capacity: "כמות שמן עם מסנן", coolant: "נוזל קירור", brake_fluid: "נוזל בלמים", fuel: "דלק", tires: "מידת צמיגים", tire_pressure: "לחץ אוויר", battery: "מצבר", timing: "תזמון", spare: "גלגל חלופי", wipers: "מגבים", warranty: "אחריות יבואן" };
   const specsHTML = s => { if (!s.specs) return ""; const keys = Object.keys(specLabels).filter(k => s.specs[k]); return `
-    <div class="card stack" style="gap:8px"><div class="row between"><p class="eyebrow">מהספר, בשורה אחת</p><span class="small muted">${s.specs._note || ""}</span></div>
-      <div class="list small">${keys.map(k => `<div class="row between" style="align-items:flex-start"><span class="muted" style="flex:none">${specLabels[k]}</span><b style="text-align:left">${s.specs[k]}</b></div>`).join("")}</div></div>`; };
+    <div class="card stack g-8"><div class="row between"><p class="eyebrow">מהספר, בשורה אחת</p><span class="small muted">${s.specs._note || ""}</span></div>
+      <div class="list small">${keys.map(k => `<div class="row between items-start"><span class="muted fixed">${specLabels[k]}</span><b class="ta-end">${s.specs[k]}</b></div>`).join("")}</div></div>`; };
 
   // ---------- home ----------
   function renderHome() {
@@ -1036,34 +734,34 @@
     const hello = S.user && S.user.via === "google" ? `היי ${S.user.name}` : "היי";
     $("#home-avatar").textContent = (S.user && S.user.name[0]) || "א";
     $("#home-body").innerHTML = `
-      <div class="car-head"><div class="stack" style="gap:2px"><p class="eyebrow">${hello}</p><h1 style="font-size:1.5rem">${carName(car)}</h1></div>${car.plate ? plateHTML(car.plate) : ""}</div>
+      <div class="car-head"><div class="stack g-2"><p class="eyebrow">${hello}</p><h1 class="car-title">${carName(car)}</h1></div>${car.plate ? plateHTML(car.plate) : ""}</div>
       <div class="card car-card">
         ${car.gov && car.gov.test_expiry ? `<div class="row between small"><span class="muted">טסט בתוקף עד</span><b class="num">${fmtDate(car.gov.test_expiry)}</b></div>` : ""}
-        <div class="row between" style="flex-wrap:wrap; gap:10px"><div class="stack" style="gap:2px"><span class="eyebrow">על השעון</span>${odoHTML(car.km)}</div>${car.gov && car.gov.km_last_test ? `<span class="small muted num">בטסט האחרון: ${fmt(car.gov.km_last_test)}</span>` : ""}</div>
-        <div class="row" style="gap:8px">
-          <button class="btn secondary" id="upd-km" style="padding:10px">עדכן ק"מ</button>
-          <button class="btn secondary" id="done-svc" style="padding:10px">עשיתי טיפול</button>
+        <div class="row between wraps g-10"><div class="stack g-2"><span class="eyebrow">על השעון</span>${odoHTML(car.km)}</div>${car.gov && car.gov.km_last_test ? `<span class="small muted num">בטסט האחרון: ${fmt(car.gov.km_last_test)}</span>` : ""}</div>
+        <div class="row g-8">
+          <button class="btn secondary compact" id="upd-km">עדכן ק"מ</button>
+          <button class="btn secondary compact" id="done-svc">עשיתי טיפול</button>
         </div>
       </div>
       ${carSummaryHTML(car)}
-      <div class="card ink stack" style="gap:14px">
+      <div class="card ink stack g-14">
         <div class="row between"><p class="eyebrow">הטיפול הבא</p><span class="status ${n.level}">${statusText}</span></div>
         <div class="hero">
-          <div class="stack" style="gap:6px">
+          <div class="stack g-6">
             <div><span class="big num">${fmt(n.nextKm)}</span> <span class="muted">ק"מ</span></div>
             <p class="small"><b class="num">${n.remainKm > 0 ? "עוד " + fmt(n.remainKm) : "באיחור של " + fmt(-n.remainKm)}</b> ק"מ</p>
             <p class="small muted">${timeLine}</p>
           </div>
           <div class="ring" aria-hidden="true">
-            <svg viewBox="0 0 108 108"><circle cx="54" cy="54" r="${r}" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="10"/>
-              <circle cx="54" cy="54" r="${r}" fill="none" stroke="${n.level === "good" ? "#F7C948" : n.level === "warn" ? "#F0B04A" : "#FF6B5E"}" stroke-width="10" stroke-linecap="round" stroke-dasharray="${c}" stroke-dashoffset="${c * (1 - n.progress)}"/></svg>
+            <svg viewBox="0 0 108 108"><circle class="ring-track" cx="54" cy="54" r="${r}"/>
+              <circle class="ring-fill ${n.level}" cx="54" cy="54" r="${r}" stroke-dasharray="${c}" stroke-dashoffset="${c * (1 - n.progress)}"/></svg>
             <div class="lbl"><div><b class="num">${Math.round(n.progress * 100)}%</b><br><span class="small muted">מהדרך</span></div></div>
           </div>
         </div>
-        <div class="stack" style="gap:6px">
+        <div class="stack g-6">
           <p class="small"><b>מה כולל טיפול ${fmt(n.svc.km)}:</b></p>
           ${itemsHTML(n.svc.items.filter(i => i.action === "replace"))}
-          <button class="btn ghost" data-go="tl" style="width:auto; align-self:flex-start; padding-right:0">לכל הפריטים והבדיקות</button>
+          <button class="btn ghost fit self-start flush-start" data-go="tl">לכל הפריטים והבדיקות</button>
         </div>
         ${priceHTML(n.s, n.svc)}
         <button class="btn primary" id="to-garage">לקחת למוסך: מה לוודא בטיפול ${fmt(n.svc.km)}</button>
@@ -1072,7 +770,7 @@
       ${n.s.status === "draft" ? `<div class="banner">הלוח של הדגם הזה עדיין בטיוטה. המרווח לפי היבואן, תכולת הטיפולים בהמתנה לאימות מול ספר הרכב.</div>` : ""}
       ${garagesHomeHTML(car)}
       ${specsHTML(n.s)}
-      <div class="card stack" style="gap:8px">
+      <div class="card stack g-8">
         <p class="eyebrow">טוב לדעת</p>
         <p class="small">המרווח של ${n.s.importer} לדגם הזה: <b class="num">${fmt(n.s.interval.km)} ק"מ או ${n.s.interval.months} חודשים</b>, המוקדם מביניהם.</p>
         ${n.s.interval.note ? `<p class="small muted">${n.s.interval.note}</p>` : ""}
@@ -1106,7 +804,7 @@
       <div class="tl-item ${r.state} ${r.state === "next" ? "open" : ""}">
         <div class="tl-dot">${r.state === "done" ? "✓" : ""}</div>
         <div class="tl-card">
-          <button class="tl-head"><span><span class="km num">${fmt(r.km)} ק"מ</span>${r.state === "next" ? ` <span class="status good" style="margin-right:6px">הבא</span>` : ""}<br><span class="summary">${summarize(r.svc.items)}</span></span><span class="chev" aria-hidden="true">⌄</span></button>
+          <button class="tl-head"><span><span class="km num">${fmt(r.km)} ק"מ</span>${r.state === "next" ? ` <span class="status good ms-6">הבא</span>` : ""}<br><span class="summary">${summarize(r.svc.items)}</span></span><span class="chev" aria-hidden="true">⌄</span></button>
           <div class="tl-body stack">${r.state === "done" ? itemsHTML(r.svc.items) : checklistHTML(s, r.svc, r.km)}</div>
         </div>
       </div>`).join("");
@@ -1114,7 +812,7 @@
     $$("[data-log]").forEach(b => b.onclick = () => openLog(+b.dataset.log));
     $$("[data-copy]").forEach(b => b.onclick = () => copyChecklist(s, s.services.find(x => x.km === +b.dataset.svc), +b.dataset.copy));
     const tb = s.time_based || [], li = s.long_interval || [];
-    const liRows = li.map(l => { const n = longNext(l, car.km); const soon = n && n - car.km <= 15000; return `<div class="item"><span class="act ${l.action}">${actName[l.action]}</span><div><div>${itemName(l.item)}${n ? ` · <b class="num" style="color:${soon ? "var(--warn)" : "inherit"}">בסביבות ${fmt(n)} ק"מ</b>` : ""}</div><div class="note">${longText(l)}${l.note ? " · " + l.note : ""}</div></div></div>`; }).join("");
+    const liRows = li.map(l => { const n = longNext(l, car.km); const soon = n && n - car.km <= 15000; return `<div class="item"><span class="act ${l.action}">${actName[l.action]}</span><div><div>${itemName(l.item)}${n ? ` · <b class="num" class="${soon ? "is-soon" : ""}">בסביבות ${fmt(n)} ק"מ</b>` : ""}</div><div class="note">${longText(l)}${l.note ? " · " + l.note : ""}</div></div></div>`; }).join("");
     const tbRows = tb.map(t => `<div class="item"><span class="act ${t.action}">${actName[t.action]}</span><div><div>${itemName(t.item)}${t.months ? ` · כל ${t.months / 12} שנים` : ""}</div>${t.note ? `<div class="note">${t.note}</div>` : ""}</div></div>`).join("");
     $("#tl-time").innerHTML = `<h3>מרווחים ארוכים ולפי זמן</h3><p class="small muted">פריטים שלא יושבים על רשת הטיפולים הרגילה. מסומנים בכתום כשהם בטווח 15,000 ק"מ.</p>${liRows + tbRows || `<p class="small muted">אין פריטים כאלה בלוח הזה.</p>`}`;
   }
@@ -1134,11 +832,11 @@
     const row = (it, i) => `<label class="chk"><input type="checkbox" id="c-${km}-${i}"><span class="t">${itemName(it.item)}${it.action === "clean" || it.action === "adjust" ? ` <span class="act ${it.action}">${actName[it.action]}</span>` : ""}${it.note ? `<div class="note">${it.note}</div>` : ""}</span></label>`;
     const rep = svc.items.filter(i => i.action === "replace"), insp = svc.items.filter(i => i.action !== "replace");
     return `
-      <div class="stack" style="gap:2px"><div class="row between"><b>לבקש שיחליפו</b><span class="small muted">לפי לוח ${s.importer}</span></div>${rep.map((it, i) => row(it, "r" + i)).join("")}</div>
-      <div class="stack" style="gap:2px"><b>לבקש שיבדקו</b>${insp.map((it, i) => row(it, "i" + i)).join("")}</div>
-      <div class="stack" style="gap:0"><b>לוודא לפני שמשלמים</b>${gTips(s).map(([t, x], i) => `<div class="tip"><span class="i">${i + 1}</span><span><b>${t}</b><br><span class="muted">${x}</span></span></div>`).join("")}</div>
+      <div class="stack g-2"><div class="row between"><b>לבקש שיחליפו</b><span class="small muted">לפי לוח ${s.importer}</span></div>${rep.map((it, i) => row(it, "r" + i)).join("")}</div>
+      <div class="stack g-2"><b>לבקש שיבדקו</b>${insp.map((it, i) => row(it, "i" + i)).join("")}</div>
+      <div class="stack g-0"><b>לוודא לפני שמשלמים</b>${gTips(s).map(([t, x], i) => `<div class="tip"><span class="i">${i + 1}</span><span><b>${t}</b><br><span class="muted">${x}</span></span></div>`).join("")}</div>
       ${priceHTML(s, svc)}
-      <div class="row" style="gap:8px"><button class="btn secondary" data-copy="${km}" data-svc="${svc.km}" style="padding:10px">העתק רשימה</button><button class="btn primary" data-log="${km}" style="padding:10px">עשיתי את הטיפול</button></div>`;
+      <div class="row g-8"><button class="btn secondary compact" data-copy="${km}" data-svc="${svc.km}">העתק רשימה</button><button class="btn primary compact" data-log="${km}">עשיתי את הטיפול</button></div>`;
   }
   function copyChecklist(s, svc, km) {
     const car = S.cars[S.active], c = communityPrice(s, svc);
@@ -1180,10 +878,10 @@
   const garagesEmptyHTML = car => `<div class="empty">
       <b>עוד אין דיווחים על מוסכים ל${schedById(car.schedule).model_he}</b>
       <p class="small muted">המוסכים כאן מגיעים מנהגים עם אותו דגם שרשמו טיפול ושיתפו איפה עשו אותו. אתה יכול להיות הראשון: אחרי הביקור הבא לחץ "עשיתי טיפול" ורשום את שם המוסך.</p>
-      <button class="btn secondary" id="gr-log" style="padding:10px">רשום טיפול ומוסך</button></div>`;
+      <button class="btn secondary compact" id="gr-log">רשום טיפול ומוסך</button></div>`;
   const garagesHomeHTML = car => { const gs = garagesFor(car); return `
-    <div class="card stack" style="gap:8px">
-      <div class="row between"><p class="eyebrow">מוסכים לרכב שלך</p>${gs.length ? `<button class="btn ghost" id="to-garages" style="width:auto;padding:0">לכולם</button>` : ""}</div>
+    <div class="card stack g-8">
+      <div class="row between"><p class="eyebrow">מוסכים לרכב שלך</p>${gs.length ? `<button class="btn ghost fit bare" id="to-garages">לכולם</button>` : ""}</div>
       ${gs.length ? `<div>${gs.slice(0, 3).map(garageRow).join("")}</div>` : garagesEmptyHTML(car)}
     </div>`; };
   let grFilter = "all";
@@ -1206,14 +904,14 @@
       <p class="small muted">${Cloud.enabled ? "מחובר לשרת: סנכרון, דיווחי קהילה וקריאת חשבוניות פעילים." : "ללא שרת כרגע: הכל נשמר במכשיר הזה בלבד. דיווחי הקהילה הם נתוני דוגמה."}</p>`;
     const g = $("#me-google"); if (g) g.onclick = () => Cloud.enabled ? Cloud.signInWithGoogle().catch(e => toast("ההתחברות נכשלה: " + e.message)) : (S.user = { name: "מקס", email: "max@gmail.com", via: "google", demo: true }, save(), renderAll(), toast("התחברות לדוגמה. שרת עדיין לא מחובר"));
     const lo = $("#me-logout"); if (lo) lo.onclick = async () => { if (Cloud.enabled) { try { await Cloud.signOut(); } catch (e) {} } S.user = { name: "אורח", via: "guest" }; save(); renderAll(); };
-    $("#me-cars").innerHTML = S.cars.map((c, i) => `<button class="row between" style="width:100%; text-align:right" data-i="${i}">
+    $("#me-cars").innerHTML = S.cars.map((c, i) => `<button class="row between row-btn" data-i="${i}">
       <span><b>${carName(c)}</b><br><span class="small muted num">${fmt(c.km)} ק"מ</span></span>${i === S.active ? `<span class="status good">פעיל</span>` : `<span class="small muted">בחר</span>`}</button>`).join("");
     $$("#me-cars button").forEach(b => b.onclick = () => { S.active = +b.dataset.i; save(); renderAll(); show("s-home"); });
     const s = schedById(S.cars[S.active].schedule);
     const st = { draft: ["טיוטה", "warn"], reviewed: ["נבדק", "good"], verified: ["מאומת", "good"] }[s.status];
     $("#me-sources").innerHTML = `<div class="row between"><h3>מקור הנתונים לרכב שלך</h3><span class="status ${st[1]}">${st[0]}</span></div>
       <p class="small muted">${s.notes || ""}</p>
-      <div class="list small">${s.sources.map(x => `<div><a href="${x.url}" target="_blank" rel="noopener" style="color:var(--accent-text)">${new URL(x.url).hostname}</a><br><span class="muted">${x.note || x.kind}</span></div>`).join("")}</div>`;
+      <div class="list small">${s.sources.map(x => `<div><a href="${x.url}" target="_blank" rel="noopener">${new URL(x.url).hostname}</a><br><span class="muted">${x.note || x.kind}</span></div>`).join("")}</div>`;
   }
   $("#me-add").onclick = startAdd;
   $$(".toggle").forEach(t => t.onclick = () => { t.classList.toggle("on"); toast(t.classList.contains("on") ? "התראה הופעלה" : "התראה כבויה"); });
