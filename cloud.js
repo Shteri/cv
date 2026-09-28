@@ -14,8 +14,10 @@
   const dataUrlToBase64 = d => d.split(",")[1];
   const mediaOf = d => (d.match(/^data:([^;]+);/) || [, "image/jpeg"])[1];
 
-  async function currentUser() { if (!sb) return null; const { data } = await sb.auth.getUser(); return data.user || null; }
-  function onAuth(cb) { if (!sb) return; sb.auth.onAuthStateChange((_e, session) => cb(session ? session.user : null)); }
+  // getSession reads the stored session (no network) and is safe to call from anywhere.
+  async function currentUser() { if (!sb) return null; const { data } = await sb.auth.getSession(); return data.session ? data.session.user : null; }
+  // supabase-js deadlocks if other auth calls run inside the onAuthStateChange callback, so defer the app's handler.
+  function onAuth(cb) { if (!sb) return; sb.auth.onAuthStateChange((event, session) => { if (event === "TOKEN_REFRESHED") return; setTimeout(() => cb(session ? session.user : null, event), 0); }); }
   async function signInWithGoogle() {
     const redirectTo = location.origin + location.pathname;
     const { error } = await sb.auth.signInWithOAuth({ provider: "google", options: { redirectTo } });
