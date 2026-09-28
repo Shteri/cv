@@ -145,3 +145,14 @@ championmotors.co.il  books.championmotors.co.il  skoda.co.il
 - Google Sign-In אמיתי (Google Identity Services, דורש client ID).
 - שרת לדיווחי מחירים (אנונימי, חציון ורבעונים לפי דגם/טיפול/סוג מוסך/עיר).
 - תוקף טסט וביטוח מהמאגר הממשלתי + תזכורות.
+
+## 10. סקילים בפרויקט (`.claude/skills/`)
+
+נטענים אוטומטית בכל סשן על הריפו. מקורות ורישיונות ב-`THIRD-PARTY-LICENSES.md`.
+
+- `redesign-existing-projects`: ביקורת עיצוב למוצר קיים ותיקונים ממוקדים. הורץ פעם אחת על האפליקציה (commit d1890ac).
+- `design-taste-frontend`: לדפי נחיתה. לא לממשק המוצר.
+- `web-design-guidelines`: בדיקת נגישות ו-UX לפי Vercel Web Interface Guidelines. עותק מקומי ב-`guidelines.md`.
+- `design-md`: עבודה עם DESIGN.md כמקור אמת עיצובי, עם 6 דוגמאות. כשנבחר שם, לכתוב DESIGN.md בשורש.
+- `playwright-cli`: אוטומציית דפדפן. בסביבה הזו Playwright כבר מותקן ב-/opt/pw-browsers.
+- `image-to-code`: מתמונה לקוד, מיועד ל-Codex עם יצירת תמונות. פחות רלוונטי כאן.
