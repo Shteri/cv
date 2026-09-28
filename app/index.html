@@ -242,6 +242,12 @@
   .hours-row .closed { color: var(--muted); font-size: .85rem; }
   .price-row { display: grid; grid-template-columns: 1fr 96px 32px; gap: 8px; align-items: center; }
   .price-row .x { color: var(--muted); font-size: 1.1rem; text-align: center; }
+  .recall { border: 1.5px solid var(--crit); }
+  .recall .rc { padding: 10px 0; border-top: 1px solid var(--line); }
+  .recall .rc:first-of-type { border-top: 0; }
+  .recall .rc .t { font-weight: 600; }
+  .recall .acts { display: flex; gap: 8px; margin-top: 8px; flex-wrap: wrap; }
+  .recall .acts .btn { width: auto; padding: 8px 14px; font-size: .9rem; }
   .tag.rec { background: var(--good-soft, #E3F4E8); color: var(--good, #1E7A3E); }
   .chip.loc { display: inline-flex; align-items: center; gap: 6px; border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
   .chip.loc svg { width: 16px; height: 16px; }
@@ -398,6 +404,7 @@
   <!-- MY CAR: condition, repairs, documents -->
   <section class="screen" id="s-car" hidden>
     <div class="stack" style="gap:4px"><h1>מצב הרכב</h1><p class="muted small" id="car-sub"></p></div>
+    <div id="car-recalls"></div>
     <div class="counts" id="car-counts"></div>
     <div class="card stack" style="gap:6px">
       <div class="row between"><h3>לפי פריט</h3><span class="small muted">מה הוחלף, מתי, ומתי הבא</span></div>
@@ -974,6 +981,7 @@
     const s = schedById(car.schedule), rows = carState(car), recs = (car.history || []);
     $("#car-sub").textContent = `${carName(car)} · ${fmt(car.km)} ק"מ${car.gov && car.gov.test_expiry ? ` · טסט עד ${fmtDate(car.gov.test_expiry)}` : ""}`;
     const n = k => rows.filter(r => r.status === k || (k === "ok" && r.status === "done")).length;
+    $("#car-recalls").innerHTML = recallsHTML(car); wireRecalls($("#car-recalls"));
     $("#car-counts").innerHTML = `<div class="c overdue"><b class="num">${n("overdue")}</b><span>באיחור</span></div><div class="c soon"><b class="num">${n("soon")}</b><span>מתקרב</span></div><div class="c ok"><b class="num">${n("ok")}</b><span>בסדר</span></div><div class="c"><b class="num">${n("unknown")}</b><span>לא ידוע</span></div>`;
     const attention = rows.filter(r => r.status !== "ok" && r.status !== "done"), fine = rows.filter(r => r.status === "ok" || r.status === "done");
     $("#car-state").innerHTML = (attention.map(stateRow).join("") || `<p class="small muted">הכל ידוע ובסדר.</p>`) + (fine.length ? `<details class="fold"><summary><span>בסדר (${fine.length})</span></summary>${fine.map(stateRow).join("")}</details>` : "") +
@@ -1008,6 +1016,30 @@
       <div class="list small" style="padding-top:6px">${keys.map(k => `<div class="row between" style="align-items:flex-start"><span class="muted" style="flex:none">${specLabels[k]}</span><b style="text-align:left">${s.specs[k]}</b></div>`).join("")}</div>
       ${s.specs._note ? `<p class="small muted" style="margin-top:8px">${s.specs._note}</p>` : ""}</details>`; };
 
+  // ---------- recalls (MoT open-recall registry, by plate) ----------
+  const RECALL_TTL = 24 * 3600 * 1000;
+  const recallsInFlight = new Set();
+  function ensureRecalls(car) {
+    const digits = (car.plate || "").replace(/\D/g, "");
+    if (!digits || !window.TipulitLookup || !TipulitLookup.fetchRecalls) return;
+    if (car.recalls && car.recalls.plate === digits && Date.now() - car.recalls.at < RECALL_TTL) return;
+    if (recallsInFlight.has(digits)) return;
+    recallsInFlight.add(digits);
+    TipulitLookup.fetchRecalls(digits).then(list => { car.recalls = { plate: digits, at: Date.now(), list }; save(); renderHome(); if (!$("#s-car").hidden) renderCar(); })
+      .catch(() => {}).finally(() => recallsInFlight.delete(digits));
+  }
+  const openRecalls = car => car.recalls ? car.recalls.list.filter(r => !(car.recallsDone || []).includes(r.id)) : [];
+  const recallsHTML = car => { const list = openRecalls(car); if (!list.length) return ""; return `
+    <div class="card recall stack" style="gap:6px">
+      <div class="row between"><p class="eyebrow">ריקול פתוח לרכב שלך</p><span class="status crit">${list.length === 1 ? "1 ריקול" : list.length + " ריקולים"}</span></div>
+      ${list.map(r => `<div class="rc"><div class="t">${esc(r.system || "תקלה סדרתית")}</div>
+        <p class="small">${esc(r.text)}</p>
+        <p class="small muted">${r.fix ? esc(r.fix) + " · " : ""}בלי תשלום, בכל מרכז שירות של ${esc(r.importer || "היבואן")}${r.opened ? " · נפתח " + fmtDate(r.opened) : ""}</p>
+        <div class="acts">${r.phone ? `<a class="btn primary" href="${telHref(r.phone)}">תיאום ${esc(r.phone)}</a>` : ""}${r.website ? `<a class="btn secondary" href="${esc(r.website)}" target="_blank" rel="noopener">מרכזי שירות</a>` : ""}<button class="btn ghost" data-recall-done="${r.id}">כבר תוקן</button></div></div>`).join("")}
+    </div>`; };
+  function wireRecalls(root) { $$("[data-recall-done]", root).forEach(b => b.onclick = () => { const car = S.cars[S.active]; car.recallsDone = [...new Set([...(car.recallsDone || []), +b.dataset.recallDone])]; save(); renderHome(); if (!$("#s-car").hidden) renderCar(); toast("סומן כמתוקן"); }); }
+  const recallLine = car => car.recalls && !openRecalls(car).length ? `<div class="row between small"><span class="muted">ריקולים פתוחים</span><b style="color:var(--good)">אין</b></div>` : "";
+
   // ---------- home ----------
   function renderHome() {
     const car = S.cars[S.active]; if (!car) return;
@@ -1021,7 +1053,9 @@
     $("#home-avatar").textContent = (S.user && S.user.name[0]) || "א";
     $("#home-body").innerHTML = `
       <div class="car-head"><div class="stack" style="gap:2px"><p class="eyebrow">${hello}</p><h1 style="font-size:1.5rem">${carName(car)}</h1></div>${car.plate ? plateHTML(car.plate) : ""}</div>
+      ${recallsHTML(car)}
       <div class="card car-card">
+        ${recallLine(car)}
         ${car.gov && car.gov.test_expiry ? `<div class="row between small"><span class="muted">טסט בתוקף עד</span><b class="num">${fmtDate(car.gov.test_expiry)}</b></div>` : ""}
         <div class="row between" style="flex-wrap:wrap; gap:10px"><div class="stack" style="gap:2px"><span class="eyebrow">על השעון</span>${odoHTML(car.km)}</div>${car.gov && car.gov.km_last_test ? `<span class="small muted num">בטסט האחרון: ${fmt(car.gov.km_last_test)}</span>` : ""}</div>
         <div class="row" style="gap:8px">
@@ -1063,6 +1097,7 @@
     if (GD) wireClaims($("#home-body"));
     $("#to-garage").onclick = () => { show("s-tl"); const el = $(".tl-item.next"); if (el) el.scrollIntoView({ block: "start" }); };
     $("#done-svc").onclick = () => openLog();
+    wireRecalls($("#home-body")); ensureRecalls(car);
     $$("[data-go]", $("#home-body")).forEach(b => b.onclick = () => show("s-" + b.dataset.go));
   }
 
@@ -1125,7 +1160,7 @@
     const txt = [`טיפול ${fmt(km)} ק"מ · ${carName(car)} · לפי לוח ${s.importer}`, "",
       "להחליף:", ...svc.items.filter(i => i.action === "replace").map(i => "☐ " + itemName(i.item)), "",
       "לבדוק:", ...svc.items.filter(i => i.action !== "replace").map(i => "☐ " + itemName(i.item)), "",
-      `מחיר סביר: יבואן ₪${fmt(c.importer.lo)}-${fmt(c.importer.hi)}, פרטי ₪${fmt(c.independent.lo)}-${fmt(c.independent.hi)}`, "",
+      ...(c.example ? [] : [[["יבואן", c.importer], ["פרטי", c.independent]].filter(([, b]) => b).map(([t, b]) => `${t} ₪${fmt(b.lo)}-${fmt(b.hi)}`).join(", ")].filter(Boolean).map(x => "מחיר שדווח: " + x)), "",
       "לוודא: חשבונית מפורטת, סוג שמן לפי ספר, חלקים מקוריים/תחליפיים, חלקים ישנים, רישום הטיפול.", "", "נוצר בטיפולית"].join("\n");
     const done = () => toast("הרשימה הועתקה");
     const fallback = () => { const ta = document.createElement("textarea"); ta.value = txt; document.body.appendChild(ta); ta.select(); try { document.execCommand("copy"); done(); } catch (e) {} ta.remove(); };
@@ -1165,7 +1200,7 @@
   const cityNorm = x => (x || "").replace(/[\s\-"'.]+/g, "").replace(/יפו$/, "");
   const findCity = q => { if (!GD || !q) return null; const n = cityNorm(q); return (GD.cities.find(([c]) => cityNorm(c) === n) || GD.cities.find(([c]) => cityNorm(c).startsWith(n) || n.startsWith(cityNorm(c))) || [null])[0]; };
   const esc = x => String(x ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
-  const telHref = p => "tel:" + p.replace(/[^\d+]/g, "");
+  const telHref = p => "tel:" + p.replace(/[^\d+*#]/g, "");
   const wazeHref = g => "https://waze.com/ul?q=" + encodeURIComponent(g.addr + " " + g.city) + "&navigate=yes";
   const icoPhone = `<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>`;
   const icoNav = `<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l18-8-8 18-2-8z"/></svg>`;
