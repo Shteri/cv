@@ -17,6 +17,7 @@ Text is ours. Never paste book sentences.
 """
 import json
 import os
+import re
 
 ROOT = os.path.join(os.path.dirname(__file__), "..", "data")
 OUT = os.path.join(ROOT, "schedules")
@@ -685,5 +686,416 @@ mazda("mazda-cx-30-2020-2025", "CX-30", "CX-30", "DM", [2020, 2025], ["2.0 Skyac
       cabin="-R-R-R-R", brake="-R-R-R-R", air="---R---R",
       url=SP + "Eb5FcNyL7vlApQPossE106MBq2aV1oBzzVXKBrqC9_tuSA?download=1", fname="38646 _Mazda_CX-30_2020_And_Above.pdf", plan_years="שנת ייצור 2020 ומעלה",
       extra_note=" זהה לתוכנית מאזדה 3 2020+: מסנן מזגן ונוזל בלמים כל טיפול שני, מסנן אוויר כל טיפול רביעי, מצתים 120,000, מסנן דלק 135,000. שמן API-SN Plus.")
+
+# --- Kia Picanto TA (2011-2016) and Sportage SL (2011-2015): older books use a
+# custom font; decoded with a fixed byte offset (see SOURCES.md).
+SPECS["kia-picanto-2011-2016"] = {"_note": CHECKED,
+   "engine_oil": "API SM / ILSAC GF-4 ומעלה; היבואן ממליץ PAZ Power K 5W-40", "oil_capacity": "1.0: 2.9 ליטר; 1.25: 3.6 ליטר (ריקון ומילוי)",
+   "coolant": "אתילן גליקול למקרן אלומיניום, 5.1 ליטר", "brake_fluid": "DOT 3 או DOT 4 (FMVSS116), 0.7-0.8 ליטר",
+   "fuel": "בנזין 95 אוקטן, מיכל 35 ליטר", "tires": "155/70 R13, 165/60 R14 או 175/50 R15; חלופי T105/70 D14",
+   "tire_pressure": "2.3 בר (33 psi) קדמי, 2.1 בר (31 psi) אחורי; בעומס מלא 2.5/2.5; חלופי 4.2 בר",
+   "battery": "מצבר רגיל 12V, לוודא מידה מול הקיים", "timing": "שרשרת, ללא החלפה מתוכננת", "spare": "גלגל חלופי צר T105/70 D14", "warranty": KIA_WARRANTY}
+SPECS["kia-sportage-2011-2015"] = {"_note": CHECKED,
+   "engine_oil": "API SM (או SL) / ILSAC GF-4 ומעלה, 5W-30", "oil_capacity": "2.0: 4.1 ליטר; 2.4: 4.6 ליטר (ריקון ומילוי)",
+   "coolant": "אתילן גליקול למקרן אלומיניום; ידני 6.8 ליטר, אוטומטי 6.7 ליטר", "brake_fluid": "DOT 3 או DOT 4 (FMVSS116), 0.7-0.8 ליטר; נוזל הגה כוח PSF-3, 1.0 ליטר",
+   "fuel": "בנזין 95 אוקטן, מיכל 55 ליטר", "tires": "215/70 R16, 225/60 R17 או 235/55 R18; חלופי T155/90 R16",
+   "tire_pressure": "2.3 בר (33 psi) קדמי ואחורי; בעומס מלא 2.6/2.9 בר; חלופי 4.2 בר",
+   "battery": "מצבר רגיל 12V, לוודא מידה מול הקיים", "timing": "שרשרת, ללא החלפה מתוכננת", "spare": "גלגל חלופי צר T155/90 R16 (אם קיים)", "warranty": KIA_WARRANTY}
+write({
+    **KIA, "id": "kia-picanto-2011-2016", "model": "Picanto", "model_he": "פיקנטו", "generation": "TA",
+    "years": [2011, 2016], "engines": ["1.0 MPI (Kappa)", "1.25 MPI (Kappa)"], "fuel": "petrol",
+    "interval": {"km": 15000, "months": 12}, "cycle_km": 120000,
+    "services": grid(GRID_15, [
+        ("engine_oil", R_ALL), ("oil_filter", R_ALL),
+        ("air_filter", "IIRIIRII"),
+        ("cabin_filter", ALL, "בספר: בדיקה בכל טיפול, החלפה לפי מצב (בתנאי אבק: להחליף)"),
+        ("spark_plugs", "---R---R"),
+        ("drive_belt", EVEN), ("cv_boots", EVEN),
+        ("fuel_filter", "-I-R-I-R"), ("fuel_lines", Q), ("evap_system", Q),
+        ("transmission_oil", Q), ("manual_gearbox_oil", Q),
+        ("battery_12v", ALL), ("ac_refrigerant", ALL), ("ac_system", ALL),
+        ("brake_fluid", ALL, "בספר: בדיקת מפלס בכל טיפול; בתנאים קשים החלפה"), ("brake_pads", ALL), ("brake_discs", ALL), ("brake_lines", ALL),
+        ("parking_brake", ALL), ("exhaust", ALL), ("suspension", ALL), ("steering", ALL), ("tires", ALL),
+    ]),
+    "long_interval": [
+        long_("valve_clearance", "inspect", every_km=95000, every_months=48),
+        long_("cooling_system", "inspect", first_km=60000, first_months=48, then_every_km=30000, then_every_months=24),
+        long_("coolant", "replace", first_km=210000, first_months=120, then_every_km=30000, then_every_months=24),
+    ],
+    "time_based": [],
+    "sources": [
+        {"url": "https://cdnmedia.kia-israel.co.il/www/cars-book/Picanto-2011-2016.pdf", "kind": "importer",
+         "note": "ספר רכב פיקנטו 2011-2016 של קיה ישראל, פרק 7 עמ' 8-19. הטבלה מוצגת לפי טיפול. הפונט מקודד, פוענח (היסט 0x9c)"},
+        KIA_HUB,
+    ],
+    "status": "reviewed",
+    "notes": "דור TA. מצתים כל 60,000. מסנן אוויר כל 45,000. מסנן דלק: בדיקה ב-30, החלפה ב-60. מסנן מזגן ונוזל בלמים מופיעים כבדיקה בלבד. "
+             "תוסף דלק כל 15,000. יש גם טבלה נפרדת לגרסת גפ\"מ (Bi-Fuel) שלא הועתקה.",
+})
+write({
+    **KIA, "id": "kia-sportage-2011-2015", "model": "Sportage", "model_he": "ספורטאז'", "generation": "SL",
+    "years": [2010, 2015], "engines": ["2.0 MPI (Theta II)", "2.4 GDI (Theta II)"], "fuel": "petrol",
+    "interval": {"km": 15000, "months": 12}, "cycle_km": 120000,
+    "services": grid(GRID_15, [
+        ("drive_belt", EVEN),
+        ("engine_oil", R_ALL), ("oil_filter", R_ALL),
+        ("air_filter", "IIRIIRII", "בספר: למזרח התיכון החלפה בכל טיפול; לשאר השווקים החלפה כל 45,000"),
+        ("evap_system", Q), ("fuel_tank_air_filter", "-I-R-I-R"), ("vacuum_hose", ALL), ("fuel_filter", "-I-R-I-R"), ("fuel_lines", Q),
+        ("battery_12v", ALL), ("electrical_system", EVEN),
+        ("brake_lines", ALL), ("pedals", EVEN), ("parking_brake", EVEN),
+        ("brake_fluid", ALL, "בספר: בדיקה בכל טיפול, ללא מרווח החלפה קבוע"), ("brake_pads", ALL), ("brake_discs", ALL),
+        ("power_steering_fluid", ALL), ("steering", ALL),
+        ("cv_boots", EVEN), ("tires", ALL), ("suspension", ALL), ("body_underside", ALL),
+        ("ac_refrigerant", ALL), ("ac_system", ALL),
+        ("cabin_filter", R_ALL),
+        ("manual_gearbox_oil", Q), ("transfer_case_oil", Q, "4x4 בלבד"), ("differential_oil", Q, "4x4 בלבד"),
+        ("exhaust", EVEN),
+    ]),
+    "long_interval": [
+        long_("spark_plugs", "replace", every_km=40000, note="כך בספר הישראלי (מצתים רגילים); לפי הנוחות אפשר להחליף מוקדם יותר בטיפול אחר"),
+        long_("valve_clearance", "inspect", every_km=60000, note="בטבלה שתי בדיקות במחזור של 120,000"),
+        long_("cooling_system", "inspect", first_km=60000, first_months=48, then_every_km=30000, then_every_months=24),
+        long_("coolant", "replace", first_km=200000, first_months=120, then_every_km=40000, then_every_months=24),
+    ],
+    "time_based": [],
+    "sources": [
+        {"url": "https://cdnmedia.kia-israel.co.il/www/cars-book/Sportage-SL-2011-2015.pdf", "kind": "importer",
+         "note": "ספר רכב ספורטאז' 2011-2015 של קיה ישראל, פרק 7 עמ' 8-14 (טבלת בנזין). הפונט מקודד, פוענח"},
+        KIA_HUB,
+    ],
+    "status": "reviewed",
+    "notes": "דור SL. הטבלה בספר על רשת 15,000 עם הערות לשווקים: לסין 5,000, למזרח התיכון 10,000 ק\"מ או 12 חודשים לשמן (הערה *3, בתנאי חום מעל 40°C). "
+             "היבואן בישראל מטפל כל 15,000. שמן גיר אוטומטי: ללא טיפול לפי הספר. נוזל בלמים: בדיקה בלבד בטבלה.",
+})
+
+# ---------------------------------------------------------------------------
+# Alfa Romeo (סמלת). The Israeli Hebrew books sit on alfaromeo.co.il which is
+# geo/bot blocked; the plans below come from the manufacturer's English
+# handbooks on FCA's eLUM server (same content Samelet translates). The
+# importer services every 15,000 km or 12 months; the petrol plans are on a
+# 15,000 km grid anyway. Status stays draft until the Hebrew book is read.
+# ---------------------------------------------------------------------------
+AR = {"make": "Alfa Romeo", "make_he": "אלפא רומיאו", "importer": "סמלת"}
+AR_WARR = {"url": "https://samelet.com/ebooks/AlfaRomeo_warranty_092022.pdf", "kind": "importer",
+           "note": "חוברת אחריות ושירות של סמלת: אחריות 24 חודשים ללא הגבלת ק\"מ, חלודה 8 שנים, צבע 3 שנים; שגרת הטיפולים לפי ספר הרכב; איחור בטיפול מבטל אחריות"}
+AR_BOOKS = {"url": "https://samelet.com/ספרות-רכב-אלפא-רומיאו/", "kind": "importer",
+            "note": "עמוד ספרות הרכב של סמלת (הקישורים ל-carbook_* באתר alfaromeo.co.il חסומים מסביבת הענן)"}
+AR_NOTE = ("הלוח הועתק מספר הנהג של היצרן באנגלית (eLUM). הספר העברי של סמלת הוא תרגום שלו אך לא נקרא. היבואן: טיפול כל 15,000 ק\"מ או שנה, "
+           "והלוח של היצרן לבנזין בנוי על עמודות 15,000. ")
+GRID_15_150 = [15000 * i for i in range(1, 11)]
+A10 = "●" * 10
+def ar(pat10):  # 10-column pattern -> keep as is
+    return pat10
+write({
+    **AR, "id": "alfa-romeo-giulietta-2010-2020-1.4", "model": "Giulietta", "model_he": "ג'ולייטה", "generation": "940",
+    "years": [2010, 2020], "engines": ["1.4 TB 120", "1.4 TB MultiAir 170"], "fuel": "petrol",
+    "interval": {"km": 15000, "months": 12, "note": "היבואן: 15,000 או שנה. בספר היצרן: שמן כל 30,000 אך לפחות פעם בשנה (ובנסיעה עירונית או פחות מ-10,000 ק\"מ בשנה: כל שנה)"},
+    "cycle_km": 120000,
+    "services": grid(GRID_15_150[:8], [
+        ("engine_oil", "-R-R-R-R", "לפי ספר היצרן כל 30,000 או שנה; בישראל נהוג בכל טיפול שנתי"), ("oil_filter", "-R-R-R-R"),
+        ("tires", ALL), ("lights", ALL), ("coolant", ALL, "בדיקת מפלס והשלמה"), ("brake_fluid", "-R-R-R-R"),
+        ("exhaust", ALL, "בדיקת פליטה"), ("diagnostics", ALL),
+        ("body_underside", "I-I-I-I-"), ("wipers", "I-I-I-I-"), ("washer_fluid", "I-I-I-I-"),
+        ("door_hinges", "-I-I-I-I"), ("parking_brake", "-I-I-I-I"),
+        ("brake_pads", ALL), ("brake_discs", ALL),
+        ("drive_belt", "---I----", "בדיקה ב-60,000 (גרסאות ללא מותחן אוטומטי)"), ("timing_belt", "---I---R", "בדיקה ב-60,000; החלפה ב-120,000 או 6 שנים, באבק/עיר 60,000 או 4 שנים"),
+        ("dct_oil", "-I-I-I-I", "גיר TCT: בדיקת מפלס"),
+        ("spark_plugs", "-R-R-R-R", "מנועי 1.4 TB ו-1.4 MultiAir: כל 30,000"),
+        ("air_filter", "-R-R-R-R", "באזורי אבק כל 15,000"),
+        ("cabin_filter", R_ALL, "בספר: חובה כל 30,000, מומלץ כל 15,000; באבק כל 15,000"),
+    ]),
+    "long_interval": [long_("drive_belt", "replace", every_km=120000, every_months=72, note="באזורי אבק/שימוש עירוני: 60,000 או 4 שנים")],
+    "time_based": [],
+    "specs": {"_note": "מתוך ספר היצרן באנגלית", "engine_oil": "Selenia StAR Pure Energy 5W-40 (ACEA C3) למנועי 1.4 TB", "oil_capacity": "1.4 TB: 3.1 ליטר כולל מסנן; 1.4 MultiAir: 3.5 ליטר", "coolant": "Paraflu UP 50% עם מים מזוקקים, 5.7 ליטר", "brake_fluid": "Tutela Top 4 (DOT 4), 0.83 ליטר",
+              "fuel": "בנזין 95 אוקטן, מיכל 60 ליטר", "tires": "205/55 R16, 225/45 R17 או 225/40 R18", "tire_pressure": "לפי המדבקה בעמוד הדלת", "battery": "מצבר רגיל 12V; עם Start&Stop: EFB/AGM",
+              "timing": "רצועת תזמון: החלפה ב-120,000 ק\"מ או 6 שנים (60,000/4 שנים בשימוש קשה)", "spare": "ערכת Fix&Go או גלגל חלופי צר", "warranty": "סמלת: 24 חודשים ללא הגבלת ק\"מ"},
+    "sources": [
+        {"url": "https://aftersales.fiat.com/eLumData/EN/83/191_GIULIETTA/83_191_GIULIETTA_604.38.735_EN_04_09.15_L_LG/83_191_GIULIETTA_604.38.735_EN_04_09.15_L_LG.pdf",
+         "kind": "manufacturer", "note": "Owner handbook 2015 (EN), Scheduled Servicing Plan, petrol versions, pp. 197-200"},
+        AR_BOOKS, AR_WARR,
+    ],
+    "status": "draft",
+    "notes": AR_NOTE + "פעולות הבדיקה בספר (צמיגים, תאורה, נוזלים, פליטה, אבחון מחשב) בכל טיפול. מצתים כל 30,000 (1.4 טורבו). רצועת תזמון: החלפה ב-120,000/6 שנים.",
+})
+write({
+    **AR, "id": "alfa-romeo-mito-2009-2018-1.4", "model": "MiTo", "model_he": "מיטו", "generation": "955",
+    "years": [2009, 2018], "engines": ["1.4 78/105", "1.4 TB 120/155", "1.4 TB MultiAir 135/170"], "fuel": "petrol",
+    "interval": {"km": 15000, "months": 12, "note": "היבואן: 15,000 או שנה. בספר היצרן: טיפול כל 30,000 ק\"מ או 24 חודשים"},
+    "cycle_km": 120000,
+    "services": grid(GRID_15_150[:8], [
+        ("engine_oil", "-R-R-R-R", "לפי ספר היצרן כל 30,000 או 24 חודשים; בעיר או פחות מ-10,000 בשנה כל שנה"), ("oil_filter", "-R-R-R-R"),
+        ("tires", "-I-I-I-I"), ("lights", "-I-I-I-I"), ("wipers", "-I-I-I-I"), ("washer_fluid", "-I-I-I-I"),
+        ("brake_pads", "-I-I-I-I"), ("brake_discs", "-I-I-I-I"), ("body_underside", "-I-I-I-I"), ("door_hinges", "-I-I-I-I"),
+        ("coolant", "-I-I-I-I", "בדיקת מפלס"), ("parking_brake", "-I-I-I-I"),
+        ("timing_belt", "---I---R", "בדיקה ב-60,000; החלפה ב-120,000, ולפחות כל 4-5 שנים"), ("drive_belt", "---I---R"),
+        ("exhaust", "-I-I-I-I", "בדיקת פליטה"), ("diagnostics", "-I-I-I-I"),
+        ("spark_plugs", "-R-R-R-R", "כל 30,000"), ("air_filter", "---R---R"), ("brake_fluid", "---R---R", "או כל 24 חודשים"),
+        ("cabin_filter", "-R-R-R-R", "או כל 24 חודשים"),
+    ]),
+    "long_interval": [],
+    "time_based": [],
+    "specs": {"_note": "מתוך ספר היצרן באנגלית", "engine_oil": "Selenia 5W-40 (ACEA C3) לטורבו; Selenia K P.E. 5W-40 לאטמוספרי", "coolant": "Paraflu UP, אדום", "brake_fluid": "Tutela Top 4 (DOT 4)",
+              "fuel": "בנזין 95 אוקטן", "tires": "195/55 R16 או 215/45 R17", "tire_pressure": "לפי המדבקה", "battery": "מצבר רגיל 12V", "timing": "רצועת תזמון: 120,000 ק\"מ או 4-5 שנים", "spare": "גלגל חלופי צר או Fix&Go", "warranty": "סמלת: 24 חודשים ללא הגבלת ק\"מ"},
+    "sources": [
+        {"url": "https://aftersales.fiat.com/eLumData/EN/83/145_MiTo/83_145_MiTo_604.38.043_EN_01_10.08_L_LG/83_145_MiTo_604.38.043_EN_01_10.08_L_LG.pdf",
+         "kind": "manufacturer", "note": "Owner handbook 2008 (EN), Scheduled Servicing Plan, petrol versions, pp. 199-200 (grid 30,000 km)"},
+        AR_BOOKS, AR_WARR,
+    ],
+    "status": "draft",
+    "notes": AR_NOTE + "הטבלה בספר היצרן בעמודות של 30,000 ק\"מ (30..180), לכן ברשת 15,000 של היבואן הפריטים נופלים על הטיפולים הזוגיים ובטיפולי הביניים שמן ובדיקות בלבד.",
+})
+GIULIA_ROWS = [
+    ("battery_12v", "IIIIIIIIII"), ("tires", "IIIIIIIIII"), ("lights", "IIIIIIIIII"), ("coolant", "IIIIIIIIII", "בדיקת מפלס והשלמה"),
+    ("exhaust", "IIIIIIIIII", "בדיקת פליטה"), ("diagnostics", "IIIIIIIIII", "כולל בדיקת מצב השמן במחשב"),
+    ("body_underside", "-I-I-I-I-I"), ("wipers", "I-I-I-I-I-"), ("washer_fluid", "I-I-I-I-I-"), ("door_hinges", "-I-I-I-I-I"),
+    ("brake_pads", "IIIIIIIIII"), ("brake_discs", "IIIIIIIIII"),
+    ("drive_belt", "III-III-II", "בדיקה; החלפה ב-60,000 או 4 שנים (באבק/עיר 30,000 או 2 שנים)"),
+    ("engine_oil", "RRRRRRRRRR", "לפי ספר היצרן לפי חיווי המחשב ולא יותר משנה; היבואן: כל 15,000 או שנה"), ("oil_filter", "RRRRRRRRRR"),
+    ("spark_plugs", "---R---R--"), ("air_filter", "--R--R--R-", "באבק כל 15,000"),
+    ("fuel_filter", "RRRRRRRRRR", "מסנן דלק משלים, אם קיים"),
+    ("cabin_filter", "RRRRRRRRRR", "בספר: חובה כל 30,000, מומלץ כל 15,000"),
+    ("brake_fluid", "-R-R-R-R-R", "כל שנתיים ללא קשר לק\"מ"),
+]
+GIULIA_LONG = [long_("drive_belt", "replace", every_km=60000, every_months=48, note="באבק/עיר: 30,000 או 2 שנים"),
+               long_("transfer_case_oil", "replace", every_km=120000, note="גרסאות Q4 (4x4) בלבד")]
+GIULIA_SPECS = {"_note": "מתוך ספר היצרן באנגלית", "engine_oil": "SAE 0W-30 ACEA C2 (FCA 9.55535-GS1), Selenia Digitek P.E., למנוע 2.0 T4 MultiAir", "coolant": "Paraflu UP, אדום",
+                "brake_fluid": "Tutela Top 4/S (DOT 4)", "fuel": "בנזין 95 אוקטן", "tires": "225/45 R18 (ג'וליה) / 235/55 R18 (סטלביו) ומידות גדולות יותר לפי גימור", "tire_pressure": "לפי המדבקה בעמוד הדלת",
+                "battery": "עם Start&Stop: מצבר AGM/EFB בלבד", "timing": "שרשרת, ללא החלפה מתוכננת", "spare": "ערכת תיקון (Fix&Go) או גלגל חלופי צר", "warranty": "סמלת: 24 חודשים ללא הגבלת ק\"מ"}
+for id_, model, model_he, gen, years, src, note in [
+    ("alfa-romeo-giulia-2016-2025-2.0", "Giulia", "ג'וליה", "952", [2016, 2025],
+     "https://aftersales.fiat.com/eLumData/EN/83/620_GIULIA/83_620_GIULIA_603.93.005_EN_04_01.17_L_LG/83_620_GIULIA_603.93.005_EN_04_01.17_L_LG.pdf", "Owner handbook 2017 (EN), Service Schedule 2.0 T4 MAir petrol, pp. 158-160"),
+    ("alfa-romeo-stelvio-2017-2025-2.0", "Stelvio", "סטלביו", "949", [2017, 2025],
+     "https://aftersales.fiat.com/eLumData/EN/83/630_STELVIO/83_630_STELVIO_603.93.152_EN_02_02.18_L_LG/83_630_STELVIO_603.93.152_EN_02_02.18_L_LG.pdf", "Owner handbook 2018 (EN), Service Schedule 2.0 T4 MAir petrol, pp. 161-163 (same rows as Giulia)"),
+]:
+    write({
+        **AR, "id": id_, "model": model, "model_he": model_he, "generation": gen, "years": years,
+        "engines": ["2.0 T4 MultiAir 200/280"], "fuel": "petrol",
+        "interval": {"km": 15000, "months": 12, "note": "היבואן: 15,000 או שנה; ספר היצרן: שמן לפי חיווי המחשב ולא יותר משנה"},
+        "cycle_km": 150000,
+        "services": grid(GRID_15_150, GIULIA_ROWS),
+        "long_interval": GIULIA_LONG,
+        "time_based": [],
+        "specs": GIULIA_SPECS,
+        "sources": [{"url": src, "kind": "manufacturer", "note": note}, AR_BOOKS, AR_WARR],
+        "status": "draft",
+        "notes": AR_NOTE + "מצתים ב-60 ו-120 אלף. מסנן אוויר כל 45,000. נוזל בלמים כל שנתיים. מסנן תא נוסעים חובה כל 30,000. שמן תיבת העברה ב-120,000 בגרסאות Q4. הלוח חוזר על עצמו אחרי 150,000/10 שנים.",
+    })
+write({
+    **AR, "id": "alfa-romeo-tonale-2022-2025-1.5-hybrid", "model": "Tonale", "model_he": "טונאלה", "generation": "965",
+    "years": [2022, 2025], "engines": ["1.5 T4 160 mild hybrid 48V"], "fuel": "hybrid",
+    "interval": {"km": 15000, "months": 12}, "cycle_km": 150000,
+    "services": grid(GRID_15_150, [
+        ("tires", "IIIIIIIIII"), ("lights", "IIIIIIIIII"), ("coolant", "IIIIIIIIII", "בדיקת מפלס: קירור מנוע וקירור מערכת 48V"), ("diagnostics", "IIIIIIIIII"),
+        ("body_underside", "I-I-I-I-I-"), ("wipers", "I-I-I-I-I-"), ("washer_fluid", "I-I-I-I-I-"), ("door_hinges", "-I-I-I-I-I"),
+        ("brake_pads", "IIIIIIIIII"), ("brake_discs", "IIIIIIIIII"),
+        ("drive_belt", "---I------", "בדיקה ב-60,000; החלפה ב-120,000 או 6 שנים (בשימוש קשה 60,000 או 4 שנים)"),
+        ("engine_oil", "RRRRRRRRRR"), ("oil_filter", "RRRRRRRRRR"),
+        ("spark_plugs", "---R---R--"), ("air_filter", "-R-R-R-R-R", "באבק כל 15,000"),
+        ("cabin_filter", "RRRRRRRRRR", "מומלץ אף כל 6 חודשים"), ("brake_fluid", "-R-R-R-R-R", "כל שנתיים"),
+        ("dct_oil", "---R---R--", "שמן תיבת הילוכים (DCT 7): כל 60,000 או 6 שנים"),
+    ]),
+    "long_interval": [long_("drive_belt", "replace", every_km=120000, every_months=72, note="בשימוש קשה 60,000 או 4 שנים; מותחן ב-120,000/6 שנים")],
+    "time_based": [{"item": "ecall_battery", "action": "replace", "months": 60, "note": "סוללת Alfa Connect Box כל 5 שנים"}],
+    "specs": {"_note": "מתוך ספר היצרן באנגלית", "engine_oil": "SAE 0W-20 ACEA C5 (FCA 9.55535-DM1), Selenia Eco2, למנוע 1.5 T4 48V; גיר DCT: Tutela DCT 700 H", "coolant": "Paraflu UP; מעגל נפרד למערכת 48V", "brake_fluid": "DOT 4",
+              "fuel": "בנזין 95 אוקטן", "tires": "215/60 R17, 225/55 R18, 235/45 R19 או 235/40 R20", "tire_pressure": "לפי המדבקה בעמוד הדלת", "battery": "מצבר 12V AGM + סוללת 48V; לא מצבר רגיל",
+              "timing": "שרשרת, ללא החלפה מתוכננת", "spare": "ערכת TireKit", "warranty": "סמלת: 24 חודשים ללא הגבלת ק\"מ"},
+    "sources": [
+        {"url": "https://aftersales.fiat.com/eLumData/EN/83/965_TONALE/83_965_TONALE_603.93.733_EN_01_03.22_L_LG/83_965_TONALE_603.93.733_EN_01_03.22_L_LG.pdf",
+         "kind": "manufacturer", "note": "Owner handbook 2022 (EN), Service Schedule, pp. 224-226 (dots read from the vector drawing)"},
+        AR_BOOKS, AR_WARR,
+    ],
+    "status": "draft",
+    "notes": AR_NOTE + "היברידי מתון 48V. מצתים ב-60 ו-120 אלף, מסנן אוויר כל 30,000, נוזל בלמים כל שנתיים, שמן גיר כל 60,000/6 שנים, סוללת Alfa Connect כל 5 שנים.",
+})
+
+# ---------------------------------------------------------------------------
+# Toyota (יוניון מוטורס). The importer publishes a one-page Israeli
+# maintenance sheet per model/generation at books.union-motors.co.il
+# (API: /app/api/models, /app/api/search?modelId&year, /app/api/files/{conn}/download).
+# The sheets were parsed by word coordinates into data/sources/toyota-union-sheets.json:
+# 10 columns (15..150 thousand km), letters I/R/C/T per cell, "רגילה" (normal)
+# and "מחמירה" (severe) rows, plus free-text long intervals.
+# ---------------------------------------------------------------------------
+TY = {"make": "Toyota", "make_he": "טויוטה", "importer": "יוניון מוטורס"}
+TY_SHEETS = json.load(open(os.path.join(ROOT, "sources", "toyota-union-sheets.json"), encoding="utf-8"))
+TY_HUB = {"url": "https://www.toyota.co.il/owners/parts-and-accessories/owners-manuals", "kind": "importer",
+          "note": "מרכז ספרות הרכב של טויוטה ישראל (בחירת דגם ושנה); המסמכים נשלפים מ-books.union-motors.co.il"}
+GRID_TY = [15000 * i for i in range(1, 11)]
+TY_ACT = {"I": "inspect", "R": "replace", "C": "clean", "T": "adjust"}
+# label regex -> list of item keys (a row may feed two items)
+TY_MAP = [
+    (r"^שמן מנוע ומסנן", ["engine_oil", "oil_filter"]), (r"^שמן מנוע", ["engine_oil"]), (r"^מסנן שמן", ["oil_filter"]),
+    (r"^מערכת קירור וחימום", ["cooling_system"]),
+    (r"נוזל קירור (מערכת )?היבריד|נוזל קירור ממיר", ["coolant"]), (r"^נוזל קירור מנוע", ["coolant"]),
+    (r"^צינורות פליטה", ["exhaust"]), (r"^מצבר", ["battery_12v"]), (r"^מסנן דלק", ["fuel_filter"]),
+    (r"^מסנן אוויר מזגן", ["cabin_filter"]), (r"^מסנן אוויר", ["air_filter"]),
+    (r"^צינורות דלק", ["fuel_lines"]), (r"מסנן פחם|מכלול פחמי", ["evap_system"]),
+    (r"^דוושת בלם.*חניה|^דוושת בלם", ["pedals", "parking_brake"]), (r"^דוושת מצמד", ["pedals"]),
+    (r"תופי בלם|^צינורות ותופי", ["brake_drums"]),
+    (r"^צלחות|^ודיסקיות", ["brake_pads", "brake_discs"]),
+    (r"^נוזל (מכלול )?בלמים", ["brake_fluid"]), (r"^נוזל (מכלול )?מצמד", ["clutch"]),
+    (r"^צינורות בלמים", ["brake_lines"]),
+    (r"^(מסרק|תיבת) הגה|^הגה", ["steering"]), (r"^שרוולי גומי לציריות", ["cv_boots"]),
+    (r"מחברים כדוריים|מפרקים כדוריים|מפרקים וגומיות|^ומגיני אבק|^אבק", ["suspension"]),
+    (r"נוזל תיבת הילוכים (רציפה|CVT|E-CVT)|\(\s*ו?דיפרנציאל קדמי\s*\)|^\( משולב דיפרנציאל \)", ["cvt_oil"]),
+    (r"נוזל תיבת הילוכים היברידית|נוזל \( תיבת משולב", ["transmission_oil"]),
+    (r"נוזל תיבת הילוכים (אוט|רובוטית)|^רובוטית", ["transmission_oil"]),
+    (r"תיבה \" ל ידנית|שמן גיר ידני|נוזל תיבת הילוכים ידנית", ["manual_gearbox_oil"]),
+    (r"^מתלים", ["suspension"]), (r"^ברגי", ["body_underside"]),
+    (r"^צמיגים", ["tires"]), (r"^אורות|^מגבים", ["lights", "wipers"]),
+    (r"בדיקת חלודה|בדיקת קורוזיה|בדיקת גוף הרכב", ["body_underside"]),
+    (r"מסנן (אוויר )?סוללה היברידית", ["hybrid_battery_filter"]),
+    (r"^מרווח שסתומים|^כיוון שסתומים", ["valve_clearance"]), (r"^מצתים", ["spark_plugs"]), (r"^רצועת הינע", ["drive_belt"]),
+    (r"שמן דיפרנציאל|שמן דיפרונציאל", ["differential_oil"]), (r"שמן תיבת העברה", ["transfer_case_oil"]),
+    (r"^מצנן צינורות|^מחברי , צינורות ומצנן", ["coolant_hoses"]),
+]
+TY_SKIP = re.compile(r"עיגון שטיח|^מקרא|^רגילה$|^מחמירה$|^בדיקה$|^$|ידית הילוכים|ברגי גל הינע|מסנן מצבר")
+def ty_rows(fid):
+    """Return list of (items, pattern, severe, months_text, label) for one sheet."""
+    out = []
+    for r in TY_SHEETS[str(fid)]["rows"]:
+        lab = r["label"]
+        if TY_SKIP.search(lab):
+            continue
+        severe = "מחמירה" in lab and "רגילה" not in lab
+        lab_clean = lab.replace("רגילה", "").replace("מחמירה", "").strip(" -")
+        items = None
+        for rx, it in TY_MAP:
+            if re.search(rx, lab_clean):
+                items = it; break
+        if not items:
+            raise KeyError(f"sheet {fid}: unmapped label {lab!r}")
+        out.append((items, r["pattern"], severe, r["months"], lab_clean))
+    return out
+def ty_long(fid):
+    """Long-interval facts from the sheet's free text (layout order is messy,
+    so we match anchored phrases in the whole normalized text)."""
+    t = TY_SHEETS[str(fid)]["text"]
+    L = []; notes = []
+    def add(item, action, **kw):
+        k = (item, action, kw.get("first_km"), kw.get("every_km"))
+        if k not in {(x["item"], x["action"], x.get("first_km"), x.get("every_km")) for x in L}:
+            L.append(long_(item, action, **kw))
+    for m in re.finditer(r"(.{0,40})החלפה ראשונה (?:ב|לאחר)\s*(\d{3}),000 ק\"מ ומאז (?:כל|מידי|מדי)\s*(\d{2,3}),000", t):
+        ctx = m.group(1); first, then = int(m.group(2)) * 1000, int(m.group(3)) * 1000
+        hyb = ("היבריד" in ctx or "ממיר" in ctx or first >= 200000)
+        add("coolant", "replace", first_km=first, then_every_km=then, note="נוזל קירור מערכת היברידית/ממיר" if hyb else "נוזל קירור מנוע (SLLC)")
+    m = (re.search(r"מצתים\s*(?:החלפה|החלף) (?:מדי|מידי|כל)\s*(\d{2,3})[.,]000", t)
+         or re.search(r"מסנן שמן מנוע (?:החלף|החלפה) כל\s*(\d{2,3})[.,]000", t))
+    if m: add("spark_plugs", "replace", every_km=int(m.group(1)) * 1000, note="מצתי אירידיום")
+    m = re.search(r"מסנן דלק\s*(?:החלפה|החלף) (?:מדי|מידי|כל)\s*(\d{2,3}),000", t)
+    if m: add("fuel_filter", "replace", every_km=int(m.group(1)) * 1000)
+    m = re.search(r"(?:אבחון|בדיקה) ראשונ?ה? (?:ב|לאחר)\s*(\d{3}),000 ק\"מ \(?או\s*(\d{2}) ח[ודשים']*\)? ומאז (?:כל|מידי|מדי)\s*(\d{2}),000", t)
+    if m: add("drive_belt", "inspect", first_km=int(m.group(1)) * 1000, first_months=int(m.group(2)), then_every_km=int(m.group(3)) * 1000, then_every_months=12)
+    m = re.search(r"(?:רציפה|E-CVT|CVT)[^.]{0,60}?בדיקה כל\s*(\d{2}),000 ק\"מ ?[.,]? ?החלפה כל\s*(\d{2}),000", t)
+    if m: add("cvt_oil", "replace", every_km=int(m.group(2)) * 1000, note=f"בדיקה כל {m.group(1)},000")
+    m = re.search(r"משאבת וו?אקום (?:החלפה|החלף) (?:מדי|כל)\s*(\d{3}),000 ק\"מ( או\s*\d+ שנים)?", t)
+    if m: notes.append(f"משאבת ואקום: החלפה כל {m.group(1)},000 ק\"מ{m.group(2) or ''}.")
+    return L, notes
+def toyota(id_, fid, model, model_he, gen, years, engines, fuel, extra_sheets=(), notes_extra="", specs=None):
+    sheet = TY_SHEETS[str(fid)]
+    rows = ty_rows(fid)
+    # normal rows only; severe-only rows become notes
+    grid_rows = []; severe_notes = []
+    normal_keys = {tuple(it) for it, pat, sev, mo, lab in rows if not sev}
+    for it, pat, sev, mo, lab in rows:
+        if sev:
+            if tuple(it) not in normal_keys:
+                severe_notes.append(f"{lab}: בתנאים מחמירים בלבד ({pat})")
+            continue
+        note = f"תדירות בחודשים לפי הגיליון: {mo}" if mo else None
+        for k in it:
+            grid_rows.append((k, pat.replace("T", "A"), note) if note else (k, pat.replace("T", "A")))
+    # merge duplicate (item,column) entries: grid() emits duplicates, dedupe after
+    services = grid(GRID_TY, grid_rows)
+    for svc in services:
+        seen = {}; merged = []
+        for e in svc["items"]:
+            key = (e["item"], e["action"])
+            if key in seen: continue
+            seen[key] = 1; merged.append(e)
+        svc["items"] = merged
+    long_items, ln = ty_long(fid)
+    engine_line = sheet.get("engine")
+    srcs = [{"url": sheet["source"], "kind": "importer", "note": f"לוח אחזקה של יוניון מוטורס '{sheet['title']}' (דגמים {', '.join(sheet['models'])}, שנים {sheet['years'][0]}-{sheet['years'][1]}); דגם מנוע בגיליון: {engine_line}"}]
+    for x in extra_sheets:
+        sh = TY_SHEETS[str(x)]
+        srcs.append({"url": sh["source"], "kind": "importer", "note": f"לוח אחזקה נוסף '{sh['title']}' ({sh['years'][0]}-{sh['years'][1]}), אותו מבנה"})
+    srcs.append(TY_HUB)
+    sp = {"_note": "שמן, נוזל קירור ונוזל בלמים מהגיליון של היבואן; שאר הפריטים ידע כללי, לאימות"}
+    sp.update(specs or {})
+    write({
+        **TY, "id": id_, "model": model, "model_he": model_he, "generation": gen, "years": years, "engines": engines, "fuel": fuel,
+        "interval": {"km": 15000, "months": 12, "note": "לפי הגיליון: תנאי פעולה רגילים 15,000 ק\"מ או 12 חודשים; בתנאים מחמירים שמן ומסנן כל 7,500 ק\"מ או 6 חודשים"},
+        "cycle_km": 150000,
+        "services": services,
+        "long_interval": long_items,
+        "time_based": [],
+        "specs": sp,
+        "sources": srcs,
+        "status": "reviewed",
+        "notes": ("הועתק מלוח האחזקה הישראלי של יוניון מוטורס (10 עמודות של 15,000 ק\"מ). פעולות: I בדיקה, R החלפה, C ניקוי, T הידוק. "
+                  + ("שורות 'מחמירה' בלבד: " + "; ".join(severe_notes) + ". " if severe_notes else "")
+                  + (" ".join(ln) + " " if ln else "") + notes_extra).strip(),
+    })
+
+TY_OIL_OLD = {"engine_oil": "API SL/SM/SN, 0W-20 או 5W-30 (לפי טבלת הנוזלים בגיליון)", "coolant": "Toyota SLLC (ורוד), לא לערבב", "brake_fluid": "DOT 3 או DOT 4 (FMVSS 116)", "fuel": "בנזין 95 אוקטן", "timing": "שרשרת, ללא החלפה מתוכננת", "tire_pressure": "לפי המדבקה בעמוד הדלת", "warranty": "יוניון מוטורס: 3 שנים או 100,000 ק\"מ (ידע כללי, לאימות)"}
+TY_OIL_NEW = dict(TY_OIL_OLD, engine_oil="API SL/SM/SN, 0W-16, 0W-20, 5W-30 או 10W-30 (לפי הגיליון)")
+HYB = {"battery": "מצבר עזר 12V קטן (לא מצבר רגיל) + סוללה היברידית; בדיקת סוללה שנתית תנאי לאחריות הסוללה"}
+toyota("toyota-corolla-2007-2012-1.6", 287, "Corolla", "קורולה", "E150", [2007, 2012], ["1.6 (1ZR-FE)"], "petrol",
+       specs=dict(TY_OIL_OLD, oil_capacity="כ-4.2 ליטר", tires="195/65 R15 או 205/55 R16", battery="מצבר רגיל 12V", spare="גלגל חלופי צר"))
+toyota("toyota-corolla-2013-2019-1.6", 289, "Corolla", "קורולה", "E170", [2013, 2019], ["1.6 (1ZR-FAE)"], "petrol",
+       specs=dict(TY_OIL_OLD, oil_capacity="4.2 ליטר (לפי הגיליון)", coolant="Toyota SLLC, 5.8 ליטר", tires="205/55 R16", battery="מצבר רגיל 12V", spare="גלגל חלופי צר",
+                  brake_fluid="SAE J1704 / FMVSS 116 DOT 4"),
+       notes_extra="הגיליון הוא לשנים 2013-2017; דור E170 נמכר עד 2019. מצתים DENSO Iridium SC20HR11; שמן CVT Toyota Genuine CVT Fluid FE.")
+toyota("toyota-corolla-2019-2025-1.6", 327, "Corolla", "קורולה", "E210 (ZRE210)", [2019, 2025], ["1.6 (1ZR-FAE)"], "petrol", extra_sheets=(317,),
+       specs=dict(TY_OIL_NEW, oil_capacity="4.2 ליטר (לפי הגיליון)", coolant="Toyota SLLC, 5.8 ליטר", tires="205/55 R16 או 225/40 R18", battery="מצבר רגיל 12V", spare="ערכת תיקון או גלגל חלופי צר, לפי גימור",
+                  brake_fluid="SAE J1703/J1704 / FMVSS 116 DOT 3/DOT 4"),
+       notes_extra="גיר אוטומטי (ATF WS, ללא החלפה מתוכננת בתנאים רגילים; בדיקה כל 60,000).")
+toyota("toyota-corolla-2019-2025-1.8-hybrid", 316, "Corolla", "קורולה", "E210 (ZWE211)", [2019, 2025], ["1.8 hybrid (2ZR-FXS)"], "hybrid", extra_sheets=(345,),
+       specs=dict(TY_OIL_NEW, oil_capacity="4.2 ליטר (לפי הגיליון)", coolant="Toyota SLLC: מנוע 5.4 ליטר, מערכת היברידית 1.4 ליטר (לפי הגיליון)", tires="205/55 R16 או 225/40 R18", spare="ערכת תיקון או גלגל חלופי צר", **HYB,
+                  brake_fluid="SAE J1703/J1704 / FMVSS 116 DOT 3/DOT 4"),
+       notes_extra="מסנן אוויר סוללה היברידית: ניקוי בכל טיפול. נוזל קירור מערכת היברידית: החלפה ראשונה 240,000 ואז כל 90,000.")
+toyota("toyota-corolla-cross-2022-2025-1.8-hybrid", 346, "Corolla Cross", "קורולה קרוס", "XG10", [2022, 2025], ["1.8 hybrid (2ZR-FXE)"], "hybrid", extra_sheets=(338,),
+       specs=dict(TY_OIL_NEW, tires="215/60 R17 או 225/50 R18", spare="ערכת תיקון", **HYB))
+toyota("toyota-yaris-2011-2019-1.33-1.5", 311, "Yaris", "יאריס", "XP130", [2011, 2019], ["1.33 (1NR-FE)", "1.5 (2NR-FKE, 2017+)"], "petrol", extra_sheets=(314,),
+       specs=dict(TY_OIL_OLD, oil_capacity="3.4 ליטר (1.33) / 3.1 ליטר (1.5), לפי הגיליון", coolant="Toyota SLLC, 4.8 ליטר", tires="175/65 R15 או 185/60 R15", battery="מצבר רגיל 12V", spare="גלגל חלופי צר או ערכת תיקון",
+                  brake_fluid="SAE J1704 / FMVSS 116 DOT 4"),
+       notes_extra="שני גיליונות (2011-2017 מנוע 1NR-FE, 2017-2019 מנוע 2NR-FKE) עם אותה טבלה. שמן CVT: Toyota Genuine CVT Fluid FE / TC.")
+toyota("toyota-yaris-2012-2019-1.5-hybrid", 312, "Yaris", "יאריס", "XP130 hybrid", [2012, 2019], ["1.5 hybrid (1NZ-FXE)"], "hybrid",
+       specs=dict(TY_OIL_OLD, tires="175/65 R15 או 185/60 R15", spare="ערכת תיקון או גלגל חלופי צר", **HYB),
+       notes_extra="מרווח שסתומים: בדיקה ב-90,000 (72 חודשים). נוזל קירור ממיר מתח: בדיקה כל 30,000.")
+toyota("toyota-yaris-2020-2025-1.5", 336, "Yaris", "יאריס", "XP210", [2020, 2025], ["1.5 (M15A-FKS)"], "petrol", extra_sheets=(320, 355),
+       specs=dict(TY_OIL_NEW, tires="185/65 R15 או 205/45 R17", battery="מצבר רגיל 12V", spare="ערכת תיקון"))
+toyota("toyota-yaris-2020-2025-1.5-hybrid", 335, "Yaris", "יאריס", "XP210 hybrid", [2020, 2025], ["1.5 hybrid (M15A-FXE)"], "hybrid", extra_sheets=(321, 356),
+       specs=dict(TY_OIL_NEW, tires="185/65 R15 או 205/45 R17", spare="ערכת תיקון", **HYB))
+toyota("toyota-yaris-cross-2021-2025-1.5-hybrid", 340, "Yaris Cross", "יאריס קרוס", "XP210", [2021, 2025], ["1.5 hybrid (M15A-FXE)"], "hybrid", extra_sheets=(354,),
+       specs=dict(TY_OIL_NEW, tires="205/65 R16 או 215/50 R18", spare="ערכת תיקון", **HYB))
+toyota("toyota-yaris-cross-2021-2025-1.5", 341, "Yaris Cross", "יאריס קרוס", "XP210", [2021, 2025], ["1.5 (M15A-FKS)"], "petrol", extra_sheets=(353,),
+       specs=dict(TY_OIL_NEW, tires="205/65 R16 או 215/50 R18", battery="מצבר רגיל 12V", spare="ערכת תיקון"))
+toyota("toyota-auris-2013-2019-1.6", 281, "Auris", "אוריס", "E180", [2013, 2019], ["1.6 (1ZR-FAE)"], "petrol",
+       specs=dict(TY_OIL_OLD, tires="205/55 R16", battery="מצבר רגיל 12V", spare="גלגל חלופי צר"))
+toyota("toyota-auris-2011-2019-1.8-hybrid", 280, "Auris", "אוריס", "E180 hybrid", [2011, 2019], ["1.8 hybrid (2ZR-FXE)"], "hybrid", extra_sheets=(282,),
+       specs=dict(TY_OIL_OLD, tires="205/55 R16 או 225/45 R17", spare="ערכת תיקון או גלגל חלופי צר", **HYB))
+toyota("toyota-rav4-2013-2019-2.0", 307, "RAV4", "ראב 4", "XA40", [2013, 2019], ["2.0 (3ZR-FAE / לפי הגיליון 1ZR-FAE)"], "petrol",
+       specs=dict(TY_OIL_OLD, tires="225/65 R17 או 235/55 R18", battery="מצבר רגיל 12V", spare="גלגל חלופי צר"), notes_extra="גיליון 4x4: כולל שמן דיפרנציאל ותיבת העברה.")
+toyota("toyota-rav4-2016-2019-2.5-hybrid", 308, "RAV4", "ראב 4", "XA40 hybrid", [2016, 2019], ["2.5 hybrid (2AR-FXE)"], "hybrid",
+       specs=dict(TY_OIL_OLD, tires="225/65 R17 או 235/55 R18", spare="גלגל חלופי צר", **HYB))
+toyota("toyota-rav4-2020-2025-2.0", 325, "RAV4", "ראב 4", "XA50", [2020, 2025], ["2.0 (M20A-FKS)"], "petrol", extra_sheets=(351,),
+       specs=dict(TY_OIL_NEW, tires="225/65 R17 או 235/55 R19", battery="מצבר רגיל 12V", spare="גלגל חלופי צר"))
+toyota("toyota-rav4-2020-2025-2.5-hybrid", 324, "RAV4", "ראב 4", "XA50 hybrid", [2020, 2025], ["2.5 hybrid (A25A-FXS)"], "hybrid", extra_sheets=(350,),
+       specs=dict(TY_OIL_NEW, tires="225/65 R17 או 235/55 R19", spare="גלגל חלופי צר", **HYB))
+toyota("toyota-c-hr-2017-2019-1.2", 285, "C-HR", "C-HR", "AX10", [2017, 2019], ["1.2 turbo (8NR-FTS)"], "petrol",
+       specs=dict(TY_OIL_OLD, tires="215/60 R17 או 225/50 R18", battery="מצבר רגיל 12V", spare="ערכת תיקון"))
+toyota("toyota-c-hr-2016-2023-1.8-hybrid", 326, "C-HR", "C-HR", "AX10 hybrid", [2016, 2023], ["1.8 hybrid (2ZR-FXE)"], "hybrid", extra_sheets=(286,),
+       specs=dict(TY_OIL_NEW, tires="215/60 R17 או 225/50 R18", spare="ערכת תיקון", **HYB))
+toyota("toyota-camry-2013-2019-2.5-hybrid", 291, "Camry", "קאמרי", "XV50 hybrid", [2013, 2019], ["2.5 hybrid (2AR-FXE)"], "hybrid",
+       specs=dict(TY_OIL_OLD, tires="215/55 R17", spare="גלגל חלופי צר", **HYB))
+toyota("toyota-camry-2020-2025-2.5-hybrid", 319, "Camry", "קאמרי", "XV70 hybrid", [2020, 2025], ["2.5 hybrid (A25A-FXS)"], "hybrid", extra_sheets=(363,),
+       specs=dict(TY_OIL_NEW, tires="215/55 R17 או 235/45 R18", spare="גלגל חלופי צר", **HYB))
+toyota("toyota-aygo-x-2022-2025-1.0", 344, "Aygo X", "איגו X", "AB70", [2022, 2025], ["1.0 (1KR-FE)"], "petrol", extra_sheets=(339,),
+       specs=dict(TY_OIL_NEW, tires="175/65 R17 או 175/60 R18", battery="מצבר רגיל 12V", spare="ערכת תיקון"))
+toyota("toyota-aygo-2014-2022-1.0", 284, "Aygo", "איגו", "AB40", [2014, 2022], ["1.0 (1KR-FE)"], "petrol", extra_sheets=(318,),
+       specs=dict(TY_OIL_OLD, tires="165/65 R14 או 165/60 R15", battery="מצבר רגיל 12V", spare="ערכת תיקון"))
 
 print("done")

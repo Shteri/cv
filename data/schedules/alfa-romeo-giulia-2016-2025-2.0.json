@@ -1,0 +1,831 @@
+{
+  "make": "Alfa Romeo",
+  "make_he": "אלפא רומיאו",
+  "importer": "סמלת",
+  "id": "alfa-romeo-giulia-2016-2025-2.0",
+  "model": "Giulia",
+  "model_he": "ג'וליה",
+  "generation": "952",
+  "years": [
+    2016,
+    2025
+  ],
+  "engines": [
+    "2.0 T4 MultiAir 200/280"
+  ],
+  "fuel": "petrol",
+  "interval": {
+    "km": 15000,
+    "months": 12,
+    "note": "היבואן: 15,000 או שנה; ספר היצרן: שמן לפי חיווי המחשב ולא יותר משנה"
+  },
+  "cycle_km": 150000,
+  "services": [
+    {
+      "km": 15000,
+      "items": [
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקת מפלס והשלמה"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "בדיקת פליטה"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "כולל בדיקת מצב השמן במחשב"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "בדיקה; החלפה ב-60,000 או 4 שנים (באבק/עיר 30,000 או 2 שנים)"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי ספר היצרן לפי חיווי המחשב ולא יותר משנה; היבואן: כל 15,000 או שנה"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace",
+          "note": "מסנן דלק משלים, אם קיים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "בספר: חובה כל 30,000, מומלץ כל 15,000"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקת מפלס והשלמה"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "בדיקת פליטה"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "כולל בדיקת מצב השמן במחשב"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "בדיקה; החלפה ב-60,000 או 4 שנים (באבק/עיר 30,000 או 2 שנים)"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי ספר היצרן לפי חיווי המחשב ולא יותר משנה; היבואן: כל 15,000 או שנה"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace",
+          "note": "מסנן דלק משלים, אם קיים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "בספר: חובה כל 30,000, מומלץ כל 15,000"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "כל שנתיים ללא קשר לק\"מ"
+        }
+      ]
+    },
+    {
+      "km": 45000,
+      "items": [
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקת מפלס והשלמה"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "בדיקת פליטה"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "כולל בדיקת מצב השמן במחשב"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "בדיקה; החלפה ב-60,000 או 4 שנים (באבק/עיר 30,000 או 2 שנים)"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי ספר היצרן לפי חיווי המחשב ולא יותר משנה; היבואן: כל 15,000 או שנה"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "באבק כל 15,000"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace",
+          "note": "מסנן דלק משלים, אם קיים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "בספר: חובה כל 30,000, מומלץ כל 15,000"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקת מפלס והשלמה"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "בדיקת פליטה"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "כולל בדיקת מצב השמן במחשב"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי ספר היצרן לפי חיווי המחשב ולא יותר משנה; היבואן: כל 15,000 או שנה"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace",
+          "note": "מסנן דלק משלים, אם קיים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "בספר: חובה כל 30,000, מומלץ כל 15,000"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "כל שנתיים ללא קשר לק\"מ"
+        }
+      ]
+    },
+    {
+      "km": 75000,
+      "items": [
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקת מפלס והשלמה"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "בדיקת פליטה"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "כולל בדיקת מצב השמן במחשב"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "בדיקה; החלפה ב-60,000 או 4 שנים (באבק/עיר 30,000 או 2 שנים)"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי ספר היצרן לפי חיווי המחשב ולא יותר משנה; היבואן: כל 15,000 או שנה"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace",
+          "note": "מסנן דלק משלים, אם קיים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "בספר: חובה כל 30,000, מומלץ כל 15,000"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקת מפלס והשלמה"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "בדיקת פליטה"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "כולל בדיקת מצב השמן במחשב"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "בדיקה; החלפה ב-60,000 או 4 שנים (באבק/עיר 30,000 או 2 שנים)"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי ספר היצרן לפי חיווי המחשב ולא יותר משנה; היבואן: כל 15,000 או שנה"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "באבק כל 15,000"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace",
+          "note": "מסנן דלק משלים, אם קיים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "בספר: חובה כל 30,000, מומלץ כל 15,000"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "כל שנתיים ללא קשר לק\"מ"
+        }
+      ]
+    },
+    {
+      "km": 105000,
+      "items": [
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקת מפלס והשלמה"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "בדיקת פליטה"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "כולל בדיקת מצב השמן במחשב"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "בדיקה; החלפה ב-60,000 או 4 שנים (באבק/עיר 30,000 או 2 שנים)"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי ספר היצרן לפי חיווי המחשב ולא יותר משנה; היבואן: כל 15,000 או שנה"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace",
+          "note": "מסנן דלק משלים, אם קיים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "בספר: חובה כל 30,000, מומלץ כל 15,000"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקת מפלס והשלמה"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "בדיקת פליטה"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "כולל בדיקת מצב השמן במחשב"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי ספר היצרן לפי חיווי המחשב ולא יותר משנה; היבואן: כל 15,000 או שנה"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace",
+          "note": "מסנן דלק משלים, אם קיים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "בספר: חובה כל 30,000, מומלץ כל 15,000"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "כל שנתיים ללא קשר לק\"מ"
+        }
+      ]
+    },
+    {
+      "km": 135000,
+      "items": [
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקת מפלס והשלמה"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "בדיקת פליטה"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "כולל בדיקת מצב השמן במחשב"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "בדיקה; החלפה ב-60,000 או 4 שנים (באבק/עיר 30,000 או 2 שנים)"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי ספר היצרן לפי חיווי המחשב ולא יותר משנה; היבואן: כל 15,000 או שנה"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "באבק כל 15,000"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace",
+          "note": "מסנן דלק משלים, אם קיים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "בספר: חובה כל 30,000, מומלץ כל 15,000"
+        }
+      ]
+    },
+    {
+      "km": 150000,
+      "items": [
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקת מפלס והשלמה"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "בדיקת פליטה"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "כולל בדיקת מצב השמן במחשב"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "בדיקה; החלפה ב-60,000 או 4 שנים (באבק/עיר 30,000 או 2 שנים)"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי ספר היצרן לפי חיווי המחשב ולא יותר משנה; היבואן: כל 15,000 או שנה"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace",
+          "note": "מסנן דלק משלים, אם קיים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "בספר: חובה כל 30,000, מומלץ כל 15,000"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "כל שנתיים ללא קשר לק\"מ"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "drive_belt",
+      "action": "replace",
+      "every_km": 60000,
+      "every_months": 48,
+      "note": "באבק/עיר: 30,000 או 2 שנים"
+    },
+    {
+      "item": "transfer_case_oil",
+      "action": "replace",
+      "every_km": 120000,
+      "note": "גרסאות Q4 (4x4) בלבד"
+    }
+  ],
+  "time_based": [],
+  "specs": {
+    "_note": "מתוך ספר היצרן באנגלית",
+    "engine_oil": "SAE 0W-30 ACEA C2 (FCA 9.55535-GS1), Selenia Digitek P.E., למנוע 2.0 T4 MultiAir",
+    "coolant": "Paraflu UP, אדום",
+    "brake_fluid": "Tutela Top 4/S (DOT 4)",
+    "fuel": "בנזין 95 אוקטן",
+    "tires": "225/45 R18 (ג'וליה) / 235/55 R18 (סטלביו) ומידות גדולות יותר לפי גימור",
+    "tire_pressure": "לפי המדבקה בעמוד הדלת",
+    "battery": "עם Start&Stop: מצבר AGM/EFB בלבד",
+    "timing": "שרשרת, ללא החלפה מתוכננת",
+    "spare": "ערכת תיקון (Fix&Go) או גלגל חלופי צר",
+    "warranty": "סמלת: 24 חודשים ללא הגבלת ק\"מ"
+  },
+  "sources": [
+    {
+      "url": "https://aftersales.fiat.com/eLumData/EN/83/620_GIULIA/83_620_GIULIA_603.93.005_EN_04_01.17_L_LG/83_620_GIULIA_603.93.005_EN_04_01.17_L_LG.pdf",
+      "kind": "manufacturer",
+      "note": "Owner handbook 2017 (EN), Service Schedule 2.0 T4 MAir petrol, pp. 158-160"
+    },
+    {
+      "url": "https://samelet.com/ספרות-רכב-אלפא-רומיאו/",
+      "kind": "importer",
+      "note": "עמוד ספרות הרכב של סמלת (הקישורים ל-carbook_* באתר alfaromeo.co.il חסומים מסביבת הענן)"
+    },
+    {
+      "url": "https://samelet.com/ebooks/AlfaRomeo_warranty_092022.pdf",
+      "kind": "importer",
+      "note": "חוברת אחריות ושירות של סמלת: אחריות 24 חודשים ללא הגבלת ק\"מ, חלודה 8 שנים, צבע 3 שנים; שגרת הטיפולים לפי ספר הרכב; איחור בטיפול מבטל אחריות"
+    }
+  ],
+  "status": "draft",
+  "notes": "הלוח הועתק מספר הנהג של היצרן באנגלית (eLUM). הספר העברי של סמלת הוא תרגום שלו אך לא נקרא. היבואן: טיפול כל 15,000 ק\"מ או שנה, והלוח של היצרן לבנזין בנוי על עמודות 15,000. מצתים ב-60 ו-120 אלף. מסנן אוויר כל 45,000. נוזל בלמים כל שנתיים. מסנן תא נוסעים חובה כל 30,000. שמן תיבת העברה ב-120,000 בגרסאות Q4. הלוח חוזר על עצמו אחרי 150,000/10 שנים."
+}

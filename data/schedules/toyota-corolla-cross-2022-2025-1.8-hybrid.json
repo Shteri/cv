@@ -1,0 +1,107 @@
+{
+  "make": "Toyota",
+  "make_he": "טויוטה",
+  "importer": "יוניון מוטורס",
+  "id": "toyota-corolla-cross-2022-2025-1.8-hybrid",
+  "model": "Corolla Cross",
+  "model_he": "קורולה קרוס",
+  "generation": "XG10",
+  "years": [
+    2022,
+    2025
+  ],
+  "engines": [
+    "1.8 hybrid (2ZR-FXE)"
+  ],
+  "fuel": "hybrid",
+  "interval": {
+    "km": 15000,
+    "months": 12,
+    "note": "לפי הגיליון: תנאי פעולה רגילים 15,000 ק\"מ או 12 חודשים; בתנאים מחמירים שמן ומסנן כל 7,500 ק\"מ או 6 חודשים"
+  },
+  "cycle_km": 150000,
+  "services": [
+    {
+      "km": 15000,
+      "items": []
+    },
+    {
+      "km": 30000,
+      "items": []
+    },
+    {
+      "km": 45000,
+      "items": []
+    },
+    {
+      "km": 60000,
+      "items": []
+    },
+    {
+      "km": 75000,
+      "items": []
+    },
+    {
+      "km": 90000,
+      "items": []
+    },
+    {
+      "km": 105000,
+      "items": []
+    },
+    {
+      "km": 120000,
+      "items": []
+    },
+    {
+      "km": 135000,
+      "items": []
+    },
+    {
+      "km": 150000,
+      "items": []
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "coolant",
+      "action": "replace",
+      "first_km": 240000,
+      "then_every_km": 75000,
+      "note": "נוזל קירור מערכת היברידית/ממיר"
+    }
+  ],
+  "time_based": [],
+  "specs": {
+    "_note": "שמן, נוזל קירור ונוזל בלמים מהגיליון של היבואן; שאר הפריטים ידע כללי, לאימות",
+    "engine_oil": "API SL/SM/SN, 0W-16, 0W-20, 5W-30 או 10W-30 (לפי הגיליון)",
+    "coolant": "Toyota SLLC (ורוד), לא לערבב",
+    "brake_fluid": "DOT 3 או DOT 4 (FMVSS 116)",
+    "fuel": "בנזין 95 אוקטן",
+    "timing": "שרשרת, ללא החלפה מתוכננת",
+    "tire_pressure": "לפי המדבקה בעמוד הדלת",
+    "warranty": "יוניון מוטורס: 3 שנים או 100,000 ק\"מ (ידע כללי, לאימות)",
+    "tires": "215/60 R17 או 225/50 R18",
+    "spare": "ערכת תיקון",
+    "battery": "מצבר עזר 12V קטן (לא מצבר רגיל) + סוללה היברידית; בדיקת סוללה שנתית תנאי לאחריות הסוללה"
+  },
+  "sources": [
+    {
+      "url": "https://books.union-motors.co.il/app (fileId 346, connectionId 1156)",
+      "kind": "importer",
+      "note": "לוח אחזקה של יוניון מוטורס 'Corolla Cross HV' (דגמים Corolla Cross, שנים 2023-2025); דגם מנוע בגיליון: None"
+    },
+    {
+      "url": "https://books.union-motors.co.il/app (fileId 338, connectionId 979)",
+      "kind": "importer",
+      "note": "לוח אחזקה נוסף 'COROLLA CROSS' (2022-2023), אותו מבנה"
+    },
+    {
+      "url": "https://www.toyota.co.il/owners/parts-and-accessories/owners-manuals",
+      "kind": "importer",
+      "note": "מרכז ספרות הרכב של טויוטה ישראל (בחירת דגם ושנה); המסמכים נשלפים מ-books.union-motors.co.il"
+    }
+  ],
+  "status": "reviewed",
+  "notes": "הועתק מלוח האחזקה הישראלי של יוניון מוטורס (10 עמודות של 15,000 ק\"מ). פעולות: I בדיקה, R החלפה, C ניקוי, T הידוק."
+}

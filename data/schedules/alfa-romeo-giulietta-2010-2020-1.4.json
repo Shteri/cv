@@ -1,0 +1,596 @@
+{
+  "make": "Alfa Romeo",
+  "make_he": "אלפא רומיאו",
+  "importer": "סמלת",
+  "id": "alfa-romeo-giulietta-2010-2020-1.4",
+  "model": "Giulietta",
+  "model_he": "ג'ולייטה",
+  "generation": "940",
+  "years": [
+    2010,
+    2020
+  ],
+  "engines": [
+    "1.4 TB 120",
+    "1.4 TB MultiAir 170"
+  ],
+  "fuel": "petrol",
+  "interval": {
+    "km": 15000,
+    "months": 12,
+    "note": "היבואן: 15,000 או שנה. בספר היצרן: שמן כל 30,000 אך לפחות פעם בשנה (ובנסיעה עירונית או פחות מ-10,000 ק\"מ בשנה: כל שנה)"
+  },
+  "cycle_km": 120000,
+  "services": [
+    {
+      "km": 15000,
+      "items": [
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקת מפלס והשלמה"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "בדיקת פליטה"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "בספר: חובה כל 30,000, מומלץ כל 15,000; באבק כל 15,000"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי ספר היצרן כל 30,000 או שנה; בישראל נהוג בכל טיפול שנתי"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקת מפלס והשלמה"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "בדיקת פליטה"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "dct_oil",
+          "action": "inspect",
+          "note": "גיר TCT: בדיקת מפלס"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "מנועי 1.4 TB ו-1.4 MultiAir: כל 30,000"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "באזורי אבק כל 15,000"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "בספר: חובה כל 30,000, מומלץ כל 15,000; באבק כל 15,000"
+        }
+      ]
+    },
+    {
+      "km": 45000,
+      "items": [
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקת מפלס והשלמה"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "בדיקת פליטה"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "בספר: חובה כל 30,000, מומלץ כל 15,000; באבק כל 15,000"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי ספר היצרן כל 30,000 או שנה; בישראל נהוג בכל טיפול שנתי"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקת מפלס והשלמה"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "בדיקת פליטה"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "בדיקה ב-60,000 (גרסאות ללא מותחן אוטומטי)"
+        },
+        {
+          "item": "timing_belt",
+          "action": "inspect",
+          "note": "בדיקה ב-60,000; החלפה ב-120,000 או 6 שנים, באבק/עיר 60,000 או 4 שנים"
+        },
+        {
+          "item": "dct_oil",
+          "action": "inspect",
+          "note": "גיר TCT: בדיקת מפלס"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "מנועי 1.4 TB ו-1.4 MultiAir: כל 30,000"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "באזורי אבק כל 15,000"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "בספר: חובה כל 30,000, מומלץ כל 15,000; באבק כל 15,000"
+        }
+      ]
+    },
+    {
+      "km": 75000,
+      "items": [
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקת מפלס והשלמה"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "בדיקת פליטה"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "בספר: חובה כל 30,000, מומלץ כל 15,000; באבק כל 15,000"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי ספר היצרן כל 30,000 או שנה; בישראל נהוג בכל טיפול שנתי"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקת מפלס והשלמה"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "בדיקת פליטה"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "dct_oil",
+          "action": "inspect",
+          "note": "גיר TCT: בדיקת מפלס"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "מנועי 1.4 TB ו-1.4 MultiAir: כל 30,000"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "באזורי אבק כל 15,000"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "בספר: חובה כל 30,000, מומלץ כל 15,000; באבק כל 15,000"
+        }
+      ]
+    },
+    {
+      "km": 105000,
+      "items": [
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקת מפלס והשלמה"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "בדיקת פליטה"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "בספר: חובה כל 30,000, מומלץ כל 15,000; באבק כל 15,000"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי ספר היצרן כל 30,000 או שנה; בישראל נהוג בכל טיפול שנתי"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקת מפלס והשלמה"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "בדיקת פליטה"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "timing_belt",
+          "action": "replace",
+          "note": "בדיקה ב-60,000; החלפה ב-120,000 או 6 שנים, באבק/עיר 60,000 או 4 שנים"
+        },
+        {
+          "item": "dct_oil",
+          "action": "inspect",
+          "note": "גיר TCT: בדיקת מפלס"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "מנועי 1.4 TB ו-1.4 MultiAir: כל 30,000"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "באזורי אבק כל 15,000"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "בספר: חובה כל 30,000, מומלץ כל 15,000; באבק כל 15,000"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "drive_belt",
+      "action": "replace",
+      "every_km": 120000,
+      "every_months": 72,
+      "note": "באזורי אבק/שימוש עירוני: 60,000 או 4 שנים"
+    }
+  ],
+  "time_based": [],
+  "specs": {
+    "_note": "מתוך ספר היצרן באנגלית",
+    "engine_oil": "Selenia StAR Pure Energy 5W-40 (ACEA C3) למנועי 1.4 TB",
+    "oil_capacity": "1.4 TB: 3.1 ליטר כולל מסנן; 1.4 MultiAir: 3.5 ליטר",
+    "coolant": "Paraflu UP 50% עם מים מזוקקים, 5.7 ליטר",
+    "brake_fluid": "Tutela Top 4 (DOT 4), 0.83 ליטר",
+    "fuel": "בנזין 95 אוקטן, מיכל 60 ליטר",
+    "tires": "205/55 R16, 225/45 R17 או 225/40 R18",
+    "tire_pressure": "לפי המדבקה בעמוד הדלת",
+    "battery": "מצבר רגיל 12V; עם Start&Stop: EFB/AGM",
+    "timing": "רצועת תזמון: החלפה ב-120,000 ק\"מ או 6 שנים (60,000/4 שנים בשימוש קשה)",
+    "spare": "ערכת Fix&Go או גלגל חלופי צר",
+    "warranty": "סמלת: 24 חודשים ללא הגבלת ק\"מ"
+  },
+  "sources": [
+    {
+      "url": "https://aftersales.fiat.com/eLumData/EN/83/191_GIULIETTA/83_191_GIULIETTA_604.38.735_EN_04_09.15_L_LG/83_191_GIULIETTA_604.38.735_EN_04_09.15_L_LG.pdf",
+      "kind": "manufacturer",
+      "note": "Owner handbook 2015 (EN), Scheduled Servicing Plan, petrol versions, pp. 197-200"
+    },
+    {
+      "url": "https://samelet.com/ספרות-רכב-אלפא-רומיאו/",
+      "kind": "importer",
+      "note": "עמוד ספרות הרכב של סמלת (הקישורים ל-carbook_* באתר alfaromeo.co.il חסומים מסביבת הענן)"
+    },
+    {
+      "url": "https://samelet.com/ebooks/AlfaRomeo_warranty_092022.pdf",
+      "kind": "importer",
+      "note": "חוברת אחריות ושירות של סמלת: אחריות 24 חודשים ללא הגבלת ק\"מ, חלודה 8 שנים, צבע 3 שנים; שגרת הטיפולים לפי ספר הרכב; איחור בטיפול מבטל אחריות"
+    }
+  ],
+  "status": "draft",
+  "notes": "הלוח הועתק מספר הנהג של היצרן באנגלית (eLUM). הספר העברי של סמלת הוא תרגום שלו אך לא נקרא. היבואן: טיפול כל 15,000 ק\"מ או שנה, והלוח של היצרן לבנזין בנוי על עמודות 15,000. פעולות הבדיקה בספר (צמיגים, תאורה, נוזלים, פליטה, אבחון מחשב) בכל טיפול. מצתים כל 30,000 (1.4 טורבו). רצועת תזמון: החלפה ב-120,000/6 שנים."
+}

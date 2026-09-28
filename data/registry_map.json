@@ -1,6 +1,28 @@
 {
-  "_note": "Maps a data.gov.il registry record to a schedule id. Match order: make, then commercial name (kinuy_mishari, upper-case), then year range, then optional engine codes (degem_manoa) and fuel. First rule that matches wins; rules with engine_codes are checked before rules without. Engine codes seen in the registry: Hyundai/Kia G3LA=1.0 Kappa MPI, G4LA=1.25 Kappa, G4LF=1.2 Kappa MPI, G3LC=1.0 T-GDI, G4LE=1.6 GDI hybrid, G4FG=1.6 Gamma MPI, G4FD=1.6 Gamma GDI, G4FJ=1.6 T-GDI, G4NA=2.0 Nu; Toyota 1ZR=1.6, 2ZR=1.8 (hybrid on E210), 1NR/1KR=Yaris; Skoda CBZ/CJZ=1.2 TSI, CZD/CZE/DAD=1.4-1.5 TSI. Registry spells Mazda 'מזדה' with names 'MAZDA 3', 'MAZDA 2', 'MAZDA CX-30'.",
+  "_note": "Maps a data.gov.il registry record to a schedule id. Match order: make, then commercial name (kinuy_mishari, upper-case), then year range, then optional engine codes (degem_manoa) and fuel. First rule that matches wins; rules with engine_codes are checked before rules without. Engine codes seen in the registry: Hyundai/Kia G3LA=1.0 Kappa MPI, G4LA=1.25 Kappa, G4LF=1.2 Kappa MPI, G3LC=1.0 T-GDI, G4LE=1.6 GDI hybrid, G4FG=1.6 Gamma MPI, G4FD=1.6 Gamma GDI, G4FJ=1.6 T-GDI, G4NA=2.0 Nu; Toyota 1ZR=1.6, 2ZR=1.8 (hybrid on E210), 1NR/1KR=Yaris; Skoda CBZ/CJZ=1.2 TSI, CZD/CZE/DAD=1.4-1.5 TSI. Registry spells Mazda 'מזדה' with names 'MAZDA 3', 'MAZDA 2', 'MAZDA CX-30'. Alfa Romeo maker is 'אלפא רומיאו_אי'; names 'ALFA GIULIETTA', 'GIULIA', 'GIULIA Q4', 'STELVIO'; engine 55273835 = 2.0 T4 MultiAir (Quadrifoglio 2.9 V6 = 670050436, not covered). Toyota hybrids: fuel is 'בנזין' and the name carries HYBRID (e.g. 'C-HR HYBRID').",
   "rules": [
+    {
+      "make": "Toyota",
+      "names": [
+        "COROLLA"
+      ],
+      "years": [
+        2007,
+        2012
+      ],
+      "schedule": "toyota-corolla-2007-2012-1.6"
+    },
+    {
+      "make": "Toyota",
+      "names": [
+        "COROLLA"
+      ],
+      "years": [
+        2013,
+        2018
+      ],
+      "schedule": "toyota-corolla-2013-2019-1.6"
+    },
     {
       "make": "Toyota",
       "names": [
@@ -10,22 +32,32 @@
         2019,
         2026
       ],
-      "fuel": [
-        "חשמל/בנזין",
-        "היברידי"
+      "schedule": "toyota-corolla-2019-2025-1.6"
+    },
+    {
+      "make": "Toyota",
+      "names": [
+        "COROLLA HYBRID",
+        "COROLLA HSD",
+        "COROLLA HV"
+      ],
+      "years": [
+        2019,
+        2026
       ],
       "schedule": "toyota-corolla-2019-2025-1.8-hybrid"
     },
     {
       "make": "Toyota",
       "names": [
-        "COROLLA"
+        "COROLLA CROSS",
+        "COROLLA CROSS HYBRID"
       ],
       "years": [
-        2013,
-        2019
+        2022,
+        2026
       ],
-      "schedule": "toyota-corolla-2013-2019-1.6"
+      "schedule": "toyota-corolla-cross-2022-2025-1.8-hybrid"
     },
     {
       "make": "Toyota",
@@ -34,9 +66,211 @@
       ],
       "years": [
         2011,
-        2020
+        2019
       ],
-      "schedule": "toyota-yaris-2011-2020"
+      "schedule": "toyota-yaris-2011-2019-1.33-1.5"
+    },
+    {
+      "make": "Toyota",
+      "names": [
+        "YARIS HYBRID",
+        "YARIS HSD"
+      ],
+      "years": [
+        2012,
+        2019
+      ],
+      "schedule": "toyota-yaris-2012-2019-1.5-hybrid"
+    },
+    {
+      "make": "Toyota",
+      "names": [
+        "YARIS"
+      ],
+      "years": [
+        2020,
+        2026
+      ],
+      "schedule": "toyota-yaris-2020-2025-1.5"
+    },
+    {
+      "make": "Toyota",
+      "names": [
+        "YARIS HYBRID",
+        "YARIS HSD"
+      ],
+      "years": [
+        2020,
+        2026
+      ],
+      "schedule": "toyota-yaris-2020-2025-1.5-hybrid"
+    },
+    {
+      "make": "Toyota",
+      "names": [
+        "YARIS CROSS HYBRID",
+        "YARIS CROSS HSD"
+      ],
+      "years": [
+        2021,
+        2026
+      ],
+      "schedule": "toyota-yaris-cross-2021-2025-1.5-hybrid"
+    },
+    {
+      "make": "Toyota",
+      "names": [
+        "YARIS CROSS"
+      ],
+      "years": [
+        2021,
+        2026
+      ],
+      "schedule": "toyota-yaris-cross-2021-2025-1.5"
+    },
+    {
+      "make": "Toyota",
+      "names": [
+        "AURIS HYBRID",
+        "AURIS HSD"
+      ],
+      "years": [
+        2011,
+        2019
+      ],
+      "schedule": "toyota-auris-2011-2019-1.8-hybrid"
+    },
+    {
+      "make": "Toyota",
+      "names": [
+        "AURIS"
+      ],
+      "years": [
+        2013,
+        2019
+      ],
+      "schedule": "toyota-auris-2013-2019-1.6"
+    },
+    {
+      "make": "Toyota",
+      "names": [
+        "RAV4",
+        "RAV 4"
+      ],
+      "years": [
+        2013,
+        2019
+      ],
+      "schedule": "toyota-rav4-2013-2019-2.0"
+    },
+    {
+      "make": "Toyota",
+      "names": [
+        "RAV4 HYBRID",
+        "RAV4 HSD"
+      ],
+      "years": [
+        2016,
+        2019
+      ],
+      "schedule": "toyota-rav4-2016-2019-2.5-hybrid"
+    },
+    {
+      "make": "Toyota",
+      "names": [
+        "RAV4",
+        "RAV 4"
+      ],
+      "years": [
+        2020,
+        2026
+      ],
+      "schedule": "toyota-rav4-2020-2025-2.0"
+    },
+    {
+      "make": "Toyota",
+      "names": [
+        "RAV4 HYBRID",
+        "RAV4 HSD"
+      ],
+      "years": [
+        2020,
+        2026
+      ],
+      "schedule": "toyota-rav4-2020-2025-2.5-hybrid"
+    },
+    {
+      "make": "Toyota",
+      "names": [
+        "C-HR",
+        "CHR"
+      ],
+      "years": [
+        2017,
+        2019
+      ],
+      "schedule": "toyota-c-hr-2017-2019-1.2"
+    },
+    {
+      "make": "Toyota",
+      "names": [
+        "C-HR HYBRID",
+        "CHR HYBRID",
+        "C-HR HSD"
+      ],
+      "years": [
+        2016,
+        2023
+      ],
+      "schedule": "toyota-c-hr-2016-2023-1.8-hybrid"
+    },
+    {
+      "make": "Toyota",
+      "names": [
+        "CAMRY HYBRID",
+        "CAMRY HSD",
+        "CAMRY"
+      ],
+      "years": [
+        2013,
+        2019
+      ],
+      "schedule": "toyota-camry-2013-2019-2.5-hybrid"
+    },
+    {
+      "make": "Toyota",
+      "names": [
+        "CAMRY HYBRID",
+        "CAMRY HSD",
+        "CAMRY"
+      ],
+      "years": [
+        2020,
+        2026
+      ],
+      "schedule": "toyota-camry-2020-2025-2.5-hybrid"
+    },
+    {
+      "make": "Toyota",
+      "names": [
+        "AYGO"
+      ],
+      "years": [
+        2014,
+        2022
+      ],
+      "schedule": "toyota-aygo-2014-2022-1.0"
+    },
+    {
+      "make": "Toyota",
+      "names": [
+        "AYGO X"
+      ],
+      "years": [
+        2022,
+        2026
+      ],
+      "schedule": "toyota-aygo-x-2022-2025-1.0"
     },
     {
       "make": "Hyundai",
@@ -151,6 +385,31 @@
         "G4LE"
       ],
       "schedule": "hyundai-ioniq-2016-2022-1.6-hybrid"
+    },
+    {
+      "make": "Kia",
+      "names": [
+        "SPORTAGE"
+      ],
+      "years": [
+        2010,
+        2015
+      ],
+      "fuel": [
+        "בנזין"
+      ],
+      "schedule": "kia-sportage-2011-2015"
+    },
+    {
+      "make": "Kia",
+      "names": [
+        "PICANTO"
+      ],
+      "years": [
+        2011,
+        2016
+      ],
+      "schedule": "kia-picanto-2011-2016"
     },
     {
       "make": "Kia",
@@ -336,6 +595,73 @@
         "בנזין"
       ],
       "schedule": "skoda-octavia-2013-2025"
+    },
+    {
+      "make": "Alfa Romeo",
+      "names": [
+        "ALFA GIULIETTA",
+        "GIULIETTA"
+      ],
+      "years": [
+        2010,
+        2020
+      ],
+      "schedule": "alfa-romeo-giulietta-2010-2020-1.4"
+    },
+    {
+      "make": "Alfa Romeo",
+      "names": [
+        "ALFA MITO",
+        "MITO"
+      ],
+      "years": [
+        2009,
+        2018
+      ],
+      "schedule": "alfa-romeo-mito-2009-2018-1.4"
+    },
+    {
+      "make": "Alfa Romeo",
+      "names": [
+        "GIULIA",
+        "GIULIA Q4",
+        "ALFA GIULIA"
+      ],
+      "years": [
+        2016,
+        2026
+      ],
+      "schedule": "alfa-romeo-giulia-2016-2025-2.0",
+      "engine_codes": [
+        "55273835"
+      ]
+    },
+    {
+      "make": "Alfa Romeo",
+      "names": [
+        "STELVIO",
+        "STELVIO Q4"
+      ],
+      "years": [
+        2017,
+        2026
+      ],
+      "schedule": "alfa-romeo-stelvio-2017-2025-2.0",
+      "engine_codes": [
+        "55273835"
+      ]
+    },
+    {
+      "make": "Alfa Romeo",
+      "names": [
+        "TONALE",
+        "ALFA TONALE"
+      ],
+      "years": [
+        2022,
+        2026
+      ],
+      "schedule": "alfa-romeo-tonale-2022-2025-1.5-hybrid"
     }
   ]
 }

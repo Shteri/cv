@@ -27,6 +27,10 @@ Rules:
   like the importer's grid). Edit the rules, rerun the script, then
   validate. Hand-written draft files are left untouched by the script.
 
+- `sources/` holds machine-readable extracts of importer documents that the
+  generator consumes (today: `toyota-union-sheets.json`, the 51 parsed
+  Toyota Israel maintenance sheets).
+
 Scripts:
 
 - `python3 scripts/build_schedules.py`: regenerate the transcribed schedules.

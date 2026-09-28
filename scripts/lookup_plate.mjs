@@ -43,7 +43,7 @@ export async function lookupPlate(plate) {
 // The registry writes the maker with its country ("טויוטה יפן", "יונדאי קוריאה").
 // Strip the country and map to the make names used in data/models.json.
 const MAKES = [
-  ["טויוטה", "Toyota"], ["יונדאי", "Hyundai"], ["קיה", "Kia"], ["סקודה", "Skoda"],
+  ["טויוטה", "Toyota"], ["אלפא", "Alfa Romeo"], ["יונדאי", "Hyundai"], ["קיה", "Kia"], ["סקודה", "Skoda"],
   ["מאזדה", "Mazda"], ["מזדה", "Mazda"], ["מיצובישי", "Mitsubishi"], ["פורד", "Ford"], ["סיאט", "Seat"],
   ["פולקסווגן", "Volkswagen"], ["סוזוקי", "Suzuki"], ["ניסאן", "Nissan"], ["הונדה", "Honda"],
   ["שברולט", "Chevrolet"], ["סובארו", "Subaru"], ["רנו", "Renault"], ["פיג'ו", "Peugeot"],
