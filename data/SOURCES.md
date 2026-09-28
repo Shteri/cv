@@ -157,6 +157,55 @@ No Accent (RB) book is published by Colmobil. The Elantra MD 2011-2015 book
 (same Gamma 1.6 / Kappa 1.4 engines and era) is used as the closest source
 and the i25 file stays `draft` with a note.
 
+## Toyota, second pass (28.9.2026)
+
+The API lists 91 documents whose title is just a model name ("Hilux", "Prius
+2009-2015", "לוח אחזקות לנד קרוזר"); they are maintenance sheets too. All 88
+usable ones are in `data/sources/toyota-union-sheets.json` (rebuilt with
+`scripts/toyota_sheets_export.py` from the scratch parse). Diesel/4x4 sheets
+(Hilux, Land Cruiser, Proace, City van) have 16 columns of 10,000 km and use
+Hebrew marks (ב בדיקה, ה החלפה, ג גירוז, ח חיזוק, נ ניקוי); the generator maps
+them to inspect/replace and keeps the 10,000 km step. Several sheets give the
+oil rule as text instead of marks: "בהופעת התראת החלפת שמן / 15,000 ק"מ / 12
+חודשים" (Yaris, Corolla Cross, Aygo X, C-HR) or "עפ"י נורת התראה או 30,000 ק"מ
+/ 24 חודשים" (Hilux 2015+, Land Cruiser 2020+); `ty_long()` turns these into
+oil rules. Hilux 2026 (sheet 368) still lacks an oil row (parser drops it).
+Not turned into schedules: Proace, City/City van (two sheet layouts), Highlander
+petrol, Hilux 2026/08 multi-page sheets 370-372.
+
+## Kia and Hyundai books, second pass (28.9.2026)
+
+`scripts/hk_table_parse.py` reads the "תכנית תחזוקה רגילה" table of a Hebrew
+Hyundai/Kia book by word coordinates. Two templates exist: columns of 15,000 km
+(older books, and books printed with a miles row 10-80 next to a km row 15-120)
+and columns of 30,000 km (Sportage NQ5, Sorento MQ4, Carnival KA4, Sportage
+HEV) whose oil note still says 15,000 km / 12 months. Hyundai books are printed
+landscape with rotated text; the parser handles that (dict mode, vertical lines)
+and repairs headers whose digits are lost ("1", "3", "4"... = 15, 30, 45...).
+Parsed tables: `data/sources/hk-tables.json`; generator `hk()` with `HK_MAP`.
+Books that could not be parsed: Kona 2023+ and Kona hybrid 2023-2026 (scanned
+images), Kona hybrid 2022 and Santa Fe 2013-2018 (table without extractable
+km header), i30 N. No book exists for Tucson petrol (2016-2024), i30, i35,
+ix35, Getz, Accent, Kia Forte/Cerato, Ceed, Soul.
+
+Kia book URLs: `https://cdnmedia.kia-israel.co.il/www/cars-book/<file>` with
+files Stonic_Facelift_2021, Stonic_PE_2026, Rio-SC-2017, Rio-YB-2018,
+Rio-OM-2022, Seltos-2020, Sportage_NQ5_2022, "Sportage_HEV-PHEV 2022",
+Sportage-Hybrid-2026, Sorento-MQ4-GSL-DSL-2021, Sorento-UMPE-2019-2020,
+NIRO_PHEV_General_Heb_01_פלאגאין, Niro-Plus-HEV-PHEV-OM-2022, Carnival-KA4-2021,
+Carnival-YP-2016-2020 (12,000 km grid, not used), Picanto-AMT-2021.
+Hyundai book URLs are the cloudinary links listed in the schedules' sources.
+
+## Other importers probed (28.9.2026)
+
+- Mitsubishi (כלמוביל): the site is `mitsubishi-israel.co.il` (mitsubishi-motors.co.il is dead).
+- Suzuki: `https://suzuki.co.il/content/ספרי-נהג-סוזוקי` has only S-Cross 2025 (Hebrew/Arabic).
+- Ford (דלק מוטורס): `https://www.ford.co.il/תוכנית-טיפול/שירות` is a model+year form
+  (Angular, same app as the Mazda site) returning a service-plan PDF per model.
+- Nissan: no manuals online (service via service.freesbe.com).
+- Mercedes: `/site/car-books/` links to the global digital manual portal.
+- Honda, Renault, Dacia, Peugeot, Citroen, Opel, Fiat, Chevrolet: 403 for all egress; Seat/VW/Skoda: Link11 491.
+
 ## Government vehicle registry (data.gov.il)
 
 - Dataset "כלי רכב פרטיים ומסחריים", resource `053cea08-09bc-40ec-8f7a-156f0677aff3`,
@@ -171,6 +220,16 @@ and the i25 file stays `draft` with a note.
   `MAZDA 3`, `MAZDA CX-30`; Alfa Romeo is `אלפא רומיאו_אי` with
   `ALFA GIULIETTA`, `GIULIA`, `GIULIA Q4`, `STELVIO`.
 - `scripts/lookup_plate.mjs <plate>` wraps it.
+
+### Full dump and popularity counts
+
+The resource's CSV dump (875 MB, pipe-delimited, **windows-1255**) downloads from
+`https://data.gov.il/dataset/7a338622-63bb-4cfd-b3f7-0d2e8cf71033/resource/053cea08-09bc-40ec-8f7a-156f0677aff3/download/053cea08-09bc-40ec-8f7a-156f0677aff3.csv`
+(browser User-Agent; the `e.data.gov.il` link from `resource_show` redirects to a
+Google login; `datastore_search_sql` is disabled). `scripts/registry_counts.py`
+aggregates it into `data/sources/registry-counts.json` (snapshot 28.9.2026,
+4,181,617 rows) and `scripts/registry_coverage.mjs` ranks models without a
+schedule. Engine codes in the dump are short (1ZR, 2GD, G4LE, 55273835).
 
 ## Sales rankings (for models.json)
 

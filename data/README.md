@@ -40,3 +40,10 @@ Scripts:
   `data/registry_map.json`.
 
 Sources and access notes per importer: `SOURCES.md`.
+
+### Popularity and coverage
+
+- `scripts/registry_counts.py <dump.csv>` aggregates the data.gov.il registry dump into `data/sources/registry-counts.json`.
+- `node scripts/registry_coverage.mjs [limit]` ranks registered models that no rule in `registry_map.json` covers.
+- `scripts/hk_table_parse.py book.pdf <pages>` parses a Hyundai/Kia Hebrew book table (`--json out.json` for the generator); tables live in `data/sources/hk-tables.json`.
+- `scripts/toyota_sheets_export.py <workdir>` merges parsed Toyota sheets into `data/sources/toyota-union-sheets.json`.
