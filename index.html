@@ -10,6 +10,8 @@
 <meta property="og:description" content="הטיפול הבא לרכב שלך לפי ספר היבואן, ומה לוודא במוסך.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="icon-512.png">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="icon-192.png">
@@ -139,6 +141,29 @@
 
   /* Next service hero */
   .hero { display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: center; }
+  /* The next-service card is the one dark surface in the app: the focal point of the home screen. */
+  .card.ink { background: var(--ink); color: var(--ground); box-shadow: 0 16px 36px rgba(21, 32, 43, .28); }
+  .card.ink .muted, .card.ink .eyebrow { color: rgba(255,255,255,.62); }
+  .card.ink .item { border-color: rgba(255,255,255,.12); }
+  .card.ink .act.replace { background: rgba(255,255,255,.14); color: #fff; }
+  .card.ink .act.inspect { background: rgba(255,255,255,.08); color: rgba(255,255,255,.75); }
+  .card.ink .price .p { background: rgba(255,255,255,.08); }
+  .card.ink .status.good { background: rgba(76,193,131,.18); color: #7ED8A6; }
+  .card.ink .status.warn { background: rgba(240,176,74,.18); color: #F5C36E; }
+  .card.ink .status.crit { background: rgba(240,113,115,.18); color: #F59A9B; }
+  .card.ink .btn.primary { background: #fff; color: var(--ink); box-shadow: none; }
+  .card.ink .btn.ghost { color: rgba(255,255,255,.75); }
+  .card.ink .ring .lbl .muted { color: rgba(255,255,255,.6); }
+  .card.ink .banner { background: rgba(240,176,74,.16); color: #F5C36E; }
+  :root[data-theme="dark"] .card.ink, :root:not([data-theme="light"]) .card.ink { }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .card.ink { background: #0B1220; border: 1px solid var(--line); } }
+  :root[data-theme="dark"] .card.ink { background: #0B1220; border: 1px solid var(--line); }
+  .big { font-size: 2.6rem; }
+  .nav button.on { color: var(--accent); }
+  .nav button.on svg { background: var(--accent-soft); border-radius: 10px; padding: 3px; width: 30px; height: 30px; margin: -3px 0; }
+  .brand { font-size: 1.05rem; }
+  .brand .mark { width: 30px; height: 30px; border-radius: 9px; }
+  .car-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; }
   .ring { width: 108px; height: 108px; position: relative; }
   .ring svg { width: 100%; height: 100%; transform: rotate(-90deg); }
   .ring .lbl { position: absolute; inset: 0; display: grid; place-items: center; text-align: center; line-height: 1.1; }
@@ -498,6 +523,9 @@
 
 <script src="data.js"></script>
 <script src="lookup.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script src="config.js"></script>
+<script src="cloud.js"></script>
 <script>
 (function () {
   document.documentElement.dir = "rtl";
@@ -512,7 +540,9 @@
     clear() { try { localStorage.removeItem("tipulit"); } catch (e) {} }
   };
   let S = store.get() || { onboarded: false, user: null, cars: [], active: 0 };
-  const save = () => store.set(S);
+  const Cloud = window.TipulitCloud || { enabled: false };
+  let syncT = null;
+  const save = () => { store.set(S); if (Cloud.enabled && S.user && S.user.via === "google") { clearTimeout(syncT); syncT = setTimeout(() => Promise.all(S.cars.map(c => Cloud.saveCar(c))).then(() => store.set(S)).catch(e => console.warn("sync failed", e)), 800); } };
 
   // ---------- helpers ----------
   const schedById = id => D.schedules.find(s => s.id === id);
@@ -611,7 +641,26 @@
   // Real Google sign-in goes here with Google Identity Services:
   //   google.accounts.id.initialize({ client_id: "<CLIENT_ID>", callback: onCredential });
   // Needs a client ID and an allowed origin. In this prototype the button simulates a signed-in user.
-  $("#auth-google").onclick = () => { S.user = { name: "מקס", email: "max@gmail.com", via: "google" }; save(); afterAuth(); };
+  const demoGoogle = () => { S.user = { name: "מקס", email: "max@gmail.com", via: "google", demo: true }; save(); afterAuth(); toast("התחברות לדוגמה. שרת עדיין לא מחובר"); };
+  $("#auth-google").onclick = () => Cloud.enabled ? Cloud.signInWithGoogle().catch(e => toast("ההתחברות נכשלה: " + e.message)) : demoGoogle();
+  if (!Cloud.enabled) $("#auth-google").insertAdjacentHTML("beforeend", ` <span class="small muted">(דמו)</span>`);
+  // Real sign-in: when Supabase reports a session, adopt the user and merge cloud cars with local ones.
+  if (Cloud.enabled) Cloud.onAuth(async user => {
+    if (!user) { if (S.user && S.user.via === "google" && !S.user.demo) { S.user = { name: "אורח", via: "guest" }; save(); renderAll(); } return; }
+    S.user = { name: user.user_metadata?.full_name || user.user_metadata?.name || user.email.split("@")[0], email: user.email, via: "google", id: user.id };
+    try {
+      const cloudCars = await Cloud.loadCars();
+      if (cloudCars.length) {
+        // cloud is the source of truth; local cars that never synced are pushed
+        const unsynced = S.cars.filter(c => !c.cloudId);
+        S.cars = cloudCars.concat(unsynced);
+        for (const c of unsynced) await Cloud.saveCar(c);
+      } else for (const c of S.cars) await Cloud.saveCar(c);
+      S.active = Math.min(S.active, Math.max(0, S.cars.length - 1));
+    } catch (e) { console.warn("cloud load failed", e); toast("לא הצלחתי לסנכרן מהענן. עובדים מקומית"); }
+    S.onboarded = true; save(); migrateCars();
+    if (S.cars.length) { renderAll(); show("s-home"); } else startAdd();
+  });
   $("#auth-guest").onclick = () => { S.user = { name: "אורח", via: "guest" }; save(); afterAuth(); };
   function afterAuth() { if (S.cars.length) { renderAll(); show("s-home"); } else startAdd(); }
 
@@ -703,7 +752,14 @@
 
   // ---------- community prices (example data, deterministic) ----------
   // Real version: aggregate anonymous reports server-side by schedule id + service km + garage type + city.
+  const cloudPrices = {}, cloudGarages = {};
   function communityPrice(s, svc) {
+    if (Cloud.enabled) {
+      const key = s.id + "|" + svc.km;
+      if (!(key in cloudPrices)) { cloudPrices[key] = null; Cloud.communityPrices(s.id, svc.km).then(r => { cloudPrices[key] = r || {}; renderAll(); }).catch(() => { cloudPrices[key] = {}; }); }
+      const r = cloudPrices[key] || {};
+      return { importer: r.importer || null, independent: r.independent || null, live: true, loading: cloudPrices[key] === null };
+    }
     const rep = svc.items.filter(i => i.action === "replace").length;
     const base = 330 + rep * 80 + (s.make === "Toyota" || s.make === "Mazda" ? 90 : 0) + (svc.km % s.cycle_km === 0 ? 120 : 0);
     const seed = (svc.km / 1000 + s.id.length) % 7;
@@ -711,7 +767,13 @@
     const mine = (S.cars[S.active].history || []).filter(h => h.svcKm === svc.km && h.share && h.price);
     return { importer: { med: imp, lo: imp - 140, hi: imp + 210, n: 12 + seed * 3 }, independent: { med: ind, lo: ind - 120, hi: ind + 160, n: 20 + seed * 4 }, mine, example: true };
   }
-  const priceHTML = (s, svc) => { const c = communityPrice(s, svc); return `
+  const priceTile = (label, b) => b ? `<div class="p"><span class="small muted">${label}</span><b class="num">₪${fmt(b.med)}</b><span class="small muted num">₪${fmt(b.lo)} עד ₪${fmt(b.hi)} · ${b.n} דיווחים${b.verified ? ` · ${b.verified} עם חשבונית` : ""}</span></div>` : `<div class="p"><span class="small muted">${label}</span><b class="num muted">—</b><span class="small muted">עדיין אין 3 דיווחים</span></div>`;
+  const priceHTML = (s, svc) => { const c = communityPrice(s, svc); if (c.live) return `
+    <div class="stack" style="gap:6px">
+      <div class="row between"><p class="eyebrow">כמה זה עולה לאחרים</p><span class="small muted">${c.loading ? "טוען…" : "דיווחי נהגים"}</span></div>
+      <div class="price">${priceTile("מוסך יבואן", c.importer)}${priceTile("מוסך פרטי", c.independent)}</div>
+      ${!c.importer && !c.independent && !c.loading ? `<p class="small muted">היה הראשון: אחרי הטיפול לחץ "עשיתי טיפול" ושתף את המחיר.</p>` : ""}
+    </div>`; return `
     <div class="stack" style="gap:6px">
       <div class="row between"><p class="eyebrow">כמה זה עולה לאחרים</p><span class="small muted">נתוני דוגמה</span></div>
       <div class="price">
@@ -772,8 +834,31 @@
   $("#log").onclick = e => { if (e.target.id === "log") { $("#log").classList.remove("show"); uploadQueue = []; } };
   $$("#log-where button").forEach(b => b.onclick = () => { $$("#log-where button").forEach(x => x.classList.remove("on")); b.classList.add("on"); logWhere = b.dataset.v; $("#log-garage-row").hidden = logWhere === "self"; });
   // Shrink a photo to a small JPEG thumbnail (kept on device; the full image is what a future server would OCR).
-  const shrink = file => new Promise(res => { const r = new FileReader(); r.onload = () => { const img = new Image(); img.onload = () => { const c = document.createElement("canvas"); const k = 320 / Math.max(img.width, img.height); c.width = img.width * k; c.height = img.height * k; c.getContext("2d").drawImage(img, 0, 0, c.width, c.height); res(c.toDataURL("image/jpeg", .7)); }; img.src = r.result; }; r.readAsDataURL(file); });
-  $("#log-file").onchange = async e => { for (const f of e.target.files) logThumbs.push(await shrink(f)); renderThumbs(); };
+  const shrink = (file, max = 320) => new Promise(res => { const r = new FileReader(); r.onload = () => { const img = new Image(); img.onload = () => { const c = document.createElement("canvas"); const k = Math.min(1, max / Math.max(img.width, img.height)); c.width = img.width * k; c.height = img.height * k; c.getContext("2d").drawImage(img, 0, 0, c.width, c.height); res(c.toDataURL("image/jpeg", .7)); }; img.src = r.result; }; r.readAsDataURL(file); });
+  // Ask the server to read the document and prefill the form. The driver reviews before saving.
+  async function prefillFromReceipt(file) {
+    if (!Cloud.enabled || !file) return;
+    const car = S.cars[S.active], s = schedById(car.schedule);
+    const btn = $("#log-save"); btn.disabled = true; btn.dataset.busy = "קורא את החשבונית…"; btn.classList.add("busy");
+    try {
+      const big = await shrink(file, 1600);
+      const r = await Cloud.extractReceipt(big, { make: s.make_he, model: s.model_he, year: car.year, items: candidateItems(s).map(k => ({ key: k, he: itemName(k) })) });
+      if (r.kind) setKind(r.kind);
+      if (r.date) $("#log-date").value = r.date;
+      if (r.km) $("#log-km").value = r.km;
+      if (r.price) $("#log-price").value = r.price;
+      if (r.garage) $("#log-garage").value = r.garage;
+      if (r.city) $("#log-city").value = r.city;
+      if (r.where) { logWhere = r.where; $$("#log-where button").forEach(x => x.classList.toggle("on", x.dataset.v === r.where)); }
+      if (r.text) $("#log-text").value = r.text;
+      if (Array.isArray(r.items) && r.items.length) { logSel = new Set(r.items.filter(k => D.items[k])); renderItemChips(s); }
+      toast(r.confidence === "low" ? "קראתי חלקית. בדוק את הפרטים לפני שמירה" : "מולא מהחשבונית. בדוק ושמור");
+      if (r.notes) $("#log-extra").value = r.notes;
+    } catch (e) { toast("לא הצלחתי לקרוא את החשבונית. מלא ידנית"); }
+    btn.disabled = false; btn.classList.remove("busy"); btn.dataset.busy = "";
+  }
+  let pendingFiles = [];
+  $("#log-file").onchange = async e => { const files = [...e.target.files]; for (const f of files) logThumbs.push(await shrink(f)); renderThumbs(); if (files[0]) prefillFromReceipt(files[0]); };
   $("#log-share").onclick = () => $("#log-share").classList.toggle("on");
   $("#log-save").onclick = () => {
     const car = S.cars[S.active];
@@ -789,7 +874,7 @@
     if (e.kind === "service" && e.date && (!car.lastService || e.date > car.lastService)) car.lastService = e.date;
     if (e.km > car.km) car.km = e.km;
     save(); renderAll();
-    if (uploadQueue.length) { const next = uploadQueue.shift(); toast(`נשמר. עוד ${uploadQueue.length + 1} מסמכים`); openLog(null, { thumbs: [next], kind: "service" }); return; }
+    if (uploadQueue.length) { const next = uploadQueue.shift(); const nf = pendingFiles.shift(); toast(`נשמר. עוד ${uploadQueue.length + 1} מסמכים`); openLog(null, { thumbs: [next], kind: "service" }); prefillFromReceipt(nf); return; }
     $("#log").classList.remove("show");
     toast(e.share && e.price ? "נשמר. תודה שעזרת לנהגים אחרים" : "נשמר. מצב הרכב עודכן");
   };
@@ -797,8 +882,9 @@
   $("#car-upload").onchange = async e => {
     const files = [...e.target.files]; if (!files.length) return; e.target.value = "";
     const thumbs = []; for (const f of files) thumbs.push(await shrink(f));
-    uploadQueue = thumbs.slice(1);
+    uploadQueue = thumbs.slice(1); pendingFiles = files.slice(1);
     openLog(null, { thumbs: [thumbs[0]], kind: "service" });
+    prefillFromReceipt(files[0]);
   };
   $("#car-add-repair").onclick = () => openLog(null, { kind: "repair" });
 
@@ -890,17 +976,16 @@
     const hello = S.user && S.user.via === "google" ? `היי ${S.user.name}` : "היי";
     $("#home-avatar").textContent = (S.user && S.user.name[0]) || "א";
     $("#home-body").innerHTML = `
-      <div class="stack" style="gap:2px"><p class="eyebrow">${hello}</p><h1 style="font-size:1.5rem">${carName(car)}</h1></div>
+      <div class="car-head"><div class="stack" style="gap:2px"><p class="eyebrow">${hello}</p><h1 style="font-size:1.5rem">${carName(car)}</h1></div>${car.plate ? plateHTML(car.plate) : ""}</div>
       <div class="card car-card">
         ${car.gov && car.gov.test_expiry ? `<div class="row between small"><span class="muted">טסט בתוקף עד</span><b class="num">${fmtDate(car.gov.test_expiry)}</b></div>` : ""}
-        <div class="row between" style="flex-wrap:wrap; gap:10px">${car.plate ? plateHTML(car.plate) : `<span class="muted small">ללא מספר רכב</span>`}
-          <div class="stack" style="gap:2px; align-items:flex-start"><span class="eyebrow">על השעון</span>${odoHTML(car.km)}</div></div>
+        <div class="row between" style="flex-wrap:wrap; gap:10px"><div class="stack" style="gap:2px"><span class="eyebrow">על השעון</span>${odoHTML(car.km)}</div>${car.gov && car.gov.km_last_test ? `<span class="small muted num">בטסט האחרון: ${fmt(car.gov.km_last_test)}</span>` : ""}</div>
         <div class="row" style="gap:8px">
           <button class="btn secondary" id="upd-km" style="padding:10px">עדכן ק"מ</button>
           <button class="btn secondary" id="done-svc" style="padding:10px">עשיתי טיפול</button>
         </div>
       </div>
-      <div class="card stack" style="gap:14px">
+      <div class="card ink stack" style="gap:14px">
         <div class="row between"><p class="eyebrow">הטיפול הבא</p><span class="status ${n.level}">${statusText}</span></div>
         <div class="hero">
           <div class="stack" style="gap:6px">
@@ -909,8 +994,8 @@
             <p class="small muted">${timeLine}</p>
           </div>
           <div class="ring" aria-hidden="true">
-            <svg viewBox="0 0 108 108"><circle cx="54" cy="54" r="${r}" fill="none" stroke="var(--surface-2)" stroke-width="10"/>
-              <circle cx="54" cy="54" r="${r}" fill="none" stroke="var(--${n.level === "good" ? "accent" : n.level})" stroke-width="10" stroke-linecap="round" stroke-dasharray="${c}" stroke-dashoffset="${c * (1 - n.progress)}"/></svg>
+            <svg viewBox="0 0 108 108"><circle cx="54" cy="54" r="${r}" fill="none" stroke="rgba(255,255,255,.14)" stroke-width="10"/>
+              <circle cx="54" cy="54" r="${r}" fill="none" stroke="${n.level === "good" ? "#7FB0FF" : n.level === "warn" ? "#F5C36E" : "#F59A9B"}" stroke-width="10" stroke-linecap="round" stroke-dasharray="${c}" stroke-dashoffset="${c * (1 - n.progress)}"/></svg>
             <div class="lbl"><div><b class="num">${Math.round(n.progress * 100)}%</b><br><span class="small muted">מהדרך</span></div></div>
           </div>
         </div>
@@ -1010,7 +1095,11 @@
   // ---------- garages for this car ----------
   // Community reports come from other drivers with the same model. Until there is a server, the list is
   // built from this device's own reports only, and the community part is empty on purpose.
-  function communityGarages(schedule) { return []; }
+  function communityGarages(schedule) {
+    if (!Cloud.enabled) return [];
+    if (!(schedule in cloudGarages)) { cloudGarages[schedule] = []; Cloud.communityGarages(schedule).then(r => { cloudGarages[schedule] = r || []; renderAll(); if (!$("#s-garages").hidden) renderGarages(); }).catch(() => {}); }
+    return cloudGarages[schedule];
+  }
   function garagesFor(car) {
     const s = schedById(car.schedule);
     const mine = (car.history || []).filter(h => h.garage && h.where !== "self");
@@ -1053,9 +1142,10 @@
   function renderMe() {
     const u = S.user || { name: "אורח", via: "guest" };
     $("#me-body").innerHTML = `<div class="row"><span class="avatar">${u.name[0]}</span><div><b>${u.name}</b><br><span class="small muted">${u.via === "google" ? u.email + " · מחובר עם Google" : "לא מחובר. הנתונים שמורים רק במכשיר הזה."}</span></div></div>
-      ${u.via === "guest" ? `<button class="btn secondary" id="me-google">התחבר עם Google לגיבוי בין מכשירים</button>` : `<button class="btn ghost" id="me-logout">התנתק</button>`}`;
-    const g = $("#me-google"); if (g) g.onclick = () => { S.user = { name: "מקס", email: "max@gmail.com", via: "google" }; save(); renderAll(); toast("מחובר"); };
-    const lo = $("#me-logout"); if (lo) lo.onclick = () => { S.user = { name: "אורח", via: "guest" }; save(); renderAll(); };
+      ${u.via === "guest" ? `<button class="btn secondary" id="me-google">התחבר עם Google לגיבוי בין מכשירים${Cloud.enabled ? "" : " (דמו)"}</button>` : `<button class="btn ghost" id="me-logout">התנתק</button>`}
+      <p class="small muted">${Cloud.enabled ? "מחובר לשרת: סנכרון, דיווחי קהילה וקריאת חשבוניות פעילים." : "ללא שרת כרגע: הכל נשמר במכשיר הזה בלבד. דיווחי הקהילה הם נתוני דוגמה."}</p>`;
+    const g = $("#me-google"); if (g) g.onclick = () => Cloud.enabled ? Cloud.signInWithGoogle().catch(e => toast("ההתחברות נכשלה: " + e.message)) : (S.user = { name: "מקס", email: "max@gmail.com", via: "google", demo: true }, save(), renderAll(), toast("התחברות לדוגמה. שרת עדיין לא מחובר"));
+    const lo = $("#me-logout"); if (lo) lo.onclick = async () => { if (Cloud.enabled) { try { await Cloud.signOut(); } catch (e) {} } S.user = { name: "אורח", via: "guest" }; save(); renderAll(); };
     $("#me-cars").innerHTML = S.cars.map((c, i) => `<button class="row between" style="width:100%; text-align:right" data-i="${i}">
       <span><b>${carName(c)}</b><br><span class="small muted num">${fmt(c.km)} ק"מ</span></span>${i === S.active ? `<span class="status good">פעיל</span>` : `<span class="small muted">בחר</span>`}</button>`).join("");
     $$("#me-cars button").forEach(b => b.onclick = () => { S.active = +b.dataset.i; save(); renderAll(); show("s-home"); });

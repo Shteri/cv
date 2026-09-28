@@ -288,3 +288,17 @@ toyota-yaris-2011-2020, hyundai-i25-2011-2018, skoda-octavia-2013-2025.
    (Claude) עם סכמת פלט קבועה; להריץ בשרת, לא בדפדפן. עד אז המשתמש מאשר ידנית.
 2. **דיווחי מחירים ומוסכים משותפים**: טבלאות אנונימיות, חציון ורבעונים לפי לוח/טיפול/סוג מוסך/עיר.
 3. **התחברות Google וסנכרון בין מכשירים.** מומלץ Supabase (Postgres + Auth + Storage לחשבוניות).
+
+## 13. שרת (28.9.2026, ערב): Supabase מוכן להפעלה
+
+- `supabase/migrations/0001_init.sql`: טבלאות profiles, cars, records, price_reports (עותק אנונימי של
+  רשומות משותפות), RLS, פונקציות `community_prices` ו-`community_garages` (מסתירות קבוצות מתחת ל-3
+  דיווחים), bucket פרטי `receipts`.
+- `supabase/functions/extract-receipt/index.ts`: Edge Function שמקבלת צילום חשבונית ומחזירה רשומה
+  מובנית (תאריך, ק"מ, מחיר, מוסך, עיר, סוג מוסך, פריטים שהוחלפו, טקסט לתיקון, רמת ביטחון) דרך
+  Claude (`claude-opus-5`, structured output). דורשת `ANTHROPIC_API_KEY` כסוד.
+- `app/config.js`: כשריק, האפליקציה מקומית לחלוטין. עם URL ומפתח anon: התחברות Google אמיתית,
+  סנכרון רכבים ורשומות, מחירי קהילה ומוסכים אמיתיים (במקום נתוני דוגמה), העלאת חשבוניות ל-Storage,
+  ומילוי אוטומטי של הטופס מהחשבונית.
+- `app/cloud.js`: שכבת הענן. `supabase/README.md`: הוראות הקמה, כ-20 דקות, כולל Google OAuth.
+- מה שמקס צריך לספק: פרויקט Supabase (URL + anon key), OAuth client של Google, מפתח Anthropic.
