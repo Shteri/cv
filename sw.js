@@ -1,5 +1,5 @@
-// Minimal offline cache for the app shell. Version: 0bee9f34e7
-const CACHE = "tipulit-0bee9f34e7";
+// Minimal offline cache for the app shell. Version: b609b10b93
+const CACHE = "tipulit-b609b10b93";
 const ASSETS = ["./", "./index.html", "./styles/tokens.css", "./styles/brand.css", "./styles/app.css", "./data.js", "./lookup.js", "./config.js", "./cloud.js", "./manifest.webmanifest", "./icon.svg", "./icon-192.png", "./icon-512.png"];
 self.addEventListener("install", e => { e.waitUntil(caches.open(CACHE).then(c => c.addAll(ASSETS)).then(() => self.skipWaiting())); });
 self.addEventListener("activate", e => { e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k !== CACHE).map(k => caches.delete(k)))).then(() => self.clients.claim())); });

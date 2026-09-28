@@ -5,7 +5,7 @@ import { mkdirSync, readFileSync, writeFileSync, copyFileSync, readdirSync } fro
 import { createHash } from "node:crypto";
 const root = new URL("../", import.meta.url).pathname;
 const src = readFileSync(root + "app/index.html", "utf8");
-const title = (src.match(/<title>(.*?)<\/title>/) || [, "טיפולית"])[1];
+const title = (src.match(/<title>(.*?)<\/title>/) || [, "Tipulit"])[1];
 // Stylesheet links in the fragment move to <head> so tokens and components load before first paint.
 const headLinks = (src.match(/<link [^>]*>/g) || []).join("\n");
 const body = src.replace(/<title>.*?<\/title>\s*/, "").replace(/<link [^>]*>\s*/g, "");
@@ -88,7 +88,7 @@ writeFileSync(out + "welcome/index.html", readFileSync(welcomeSrc + "index.html"
   .replace(/\{\{ICON:([a-z-]+)\}\}/g, (m, n) => readFileSync(welcomeSrc + "icons/" + n + ".svg", "utf8").replace("<svg ", '<svg aria-hidden="true" focusable="false" ')));
 for (const f of ["home.png", "timeline.png", "condition.png", "welcome.css"]) copyFileSync(welcomeSrc + f, out + "welcome/" + f);
 writeFileSync(out + "manifest.webmanifest", JSON.stringify({
-  name: "טיפולית Tipulit", short_name: "טיפולית", lang: "he", dir: "rtl", start_url: "./", scope: "./", display: "standalone",
+  name: "Tipulit", short_name: "Tipulit", lang: "he", dir: "rtl", start_url: "./", scope: "./", display: "standalone",
   background_color: "#111418", theme_color: "#111418",
   description: "הטיפול הבא לרכב שלך לפי ספר היבואן, ומה לוודא במוסך.",
   icons: [{ src: "icon-192.png", sizes: "192x192", type: "image/png" }, { src: "icon-512.png", sizes: "512x512", type: "image/png" }, { src: "icon.svg", sizes: "any", type: "image/svg+xml" }]
@@ -105,6 +105,7 @@ self.addEventListener("fetch", e => {
   e.respondWith(fetch(e.request).then(r => { const copy = r.clone(); caches.open(CACHE).then(c => c.put(e.request, copy)); return r; }).catch(() => caches.match(e.request)));
 });
 `);
-const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><rect width="512" height="512" rx="110" fill="#F7C948"/><rect x="18" y="18" width="476" height="476" rx="94" fill="none" stroke="#111418" stroke-width="20"/><text x="256" y="345" font-family="Rubik, Arial, sans-serif" font-weight="700" font-size="300" fill="#111418" text-anchor="middle">ט</text></svg>`;
+// App icon: a geometric "t" with the plate-yellow square full stop, drawn as shapes so it needs no font.
+const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><rect width="512" height="512" rx="112" fill="#111418"/><path d="M206 118V318Q206 384 272 384H300" fill="none" stroke="#F3F4F6" stroke-width="58"/><rect x="138" y="176" width="176" height="54" rx="4" fill="#F3F4F6"/><rect x="334" y="330" width="58" height="58" rx="10" fill="#F7C948"/></svg>`;
 writeFileSync(out + "icon.svg", svg);
 console.log("site built into " + out);

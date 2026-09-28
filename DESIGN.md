@@ -42,10 +42,11 @@ The look is a night drive: graphite surfaces, light as the material (soft glows,
 - **Unknown**: faint grey dot and "?".
 
 ## Logo
-- Lockup: the yellow ט mark, then "טיפולית" (Rubik 700) with the Latin wordmark "TIPULIT" underneath (Unbounded 500, uppercase, +0.14em tracking, muted). Both names always appear together.
-- One implementation for every surface: `app/styles/brand.css` with the markup documented at the top of that file. Size it with `--brand-size` (app 1.1rem, landing nav 1.2rem); the mark and wordmark scale from it.
-- `{font.brand}` (Unbounded) is used for the Latin wordmark only, never for UI text.
-- The app icon stays the ט mark alone.
+- Wordmark only: lowercase **tipulit** in Unbounded 600, tracking -0.03em, followed by a square full stop in plate yellow (`{colors.accent}`). No Hebrew in the logo and no letter mark.
+- One implementation for every surface: `app/styles/brand.css`, markup documented at the top of that file. Size with `--brand-size` (app 1.25rem, landing nav 1.4rem); the full stop scales with it.
+- `{font.brand}` (Unbounded) is for the wordmark only, never UI text.
+- App icon: a geometric "t" in off-white with the same yellow square, on the graphite hero colour (#111418). Drawn as shapes in `scripts/build-site.mjs`, so it renders without any font.
+- The product name in running Hebrew copy stays "טיפולית"; page titles and the installed-app name use "Tipulit".
 
 ## Typography
 - **IBM Plex Sans Hebrew** 400/500/600: body, labels, buttons, notes.
