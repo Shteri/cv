@@ -1394,8 +1394,8 @@
     const s = schedById(S.cars[S.active].schedule);
     const st = { draft: ["טיוטה", "warn"], reviewed: ["נבדק", "good"], verified: ["מאומת", "good"] }[s.status];
     $("#me-sources").innerHTML = `<details class="fold"><summary><span>מקור הנתונים <span class="status ${st[1]}" style="margin-right:6px">${st[0]}</span></span></summary>
-      ${s.notes ? `<p class="small muted">${s.notes}</p>` : ""}
-      <div class="list small">${s.sources.map(x => `<div><a href="${x.url}" target="_blank" rel="noopener" style="color:var(--accent)">${new URL(x.url).hostname}</a><br><span class="muted">${x.note || x.kind}</span></div>`).join("")}</div></details>`;
+      <p class="small muted">${{ draft: "המרווח לפי היבואן. תכולת הטיפולים עדיין באימות מול ספר הרכב.", reviewed: `הועתק מלוח הטיפולים של ${s.importer} ונבדק.`, verified: `אומת מול ספר הרכב של ${s.importer}.` }[s.status]}</p>
+      <div class="list small">${s.sources.map(x => `<div class="row between"><span class="muted">${{ importer: "ספר הרכב של היבואן", manufacturer: "ספר היצרן", garage: "מוסך", forum: "פורום בעלי רכב", other: "מקור נוסף" }[x.kind] || "מקור"}</span><a href="${x.url}" target="_blank" rel="noopener" style="color:var(--accent)">${new URL(x.url).hostname.replace(/^www\./, "")}</a></div>`).join("")}</div></details>`;
   }
   $("#me-add").onclick = startAdd;
   $$(".toggle").forEach(t => t.onclick = () => { t.classList.toggle("on"); toast(t.classList.contains("on") ? "התראה הופעלה" : "התראה כבויה"); });
