@@ -90,7 +90,7 @@ writeFileSync(out + "welcome/index.html", readFileSync(welcomeSrc + "index.html"
   .replaceAll("{{MODEL_COUNT}}", String(modelCount)).replace("{{MAKE_COUNT}}", String(makeList.length))
   .replace("{{CATALOG}}", () => catalogJSON)
   .replace(/\{\{ICON:([a-z-]+)\}\}/g, (m, n) => readFileSync(welcomeSrc + "icons/" + n + ".svg", "utf8").replace("<svg ", '<svg aria-hidden="true" focusable="false" ')));
-for (const f of ["home.png", "timeline.png", "condition.png", "welcome.css"]) copyFileSync(welcomeSrc + f, out + "welcome/" + f);
+for (const f of ["home.png", "timeline.png", "condition.png", "og.png", "welcome.css"]) copyFileSync(welcomeSrc + f, out + "welcome/" + f);
 writeFileSync(out + "manifest.webmanifest", JSON.stringify({
   name: "Tipulit", short_name: "Tipulit", lang: "he", dir: "rtl", start_url: "./", scope: "./", display: "standalone",
   background_color: "#111418", theme_color: "#111418",

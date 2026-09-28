@@ -97,7 +97,7 @@
   async function communityGarages(scheduleId) {
     const { data, error } = await sb.rpc("community_garages", { p_schedule_id: scheduleId });
     if (error || !data) return [];
-    return data.map(r => ({ name: r.garage, city: r.city || "", type: r.where, n: +r.n, prices: r.avg_price ? [+r.avg_price] : [], back: r.back_pct === null ? [] : [r.back_pct >= 50], backPctRaw: r.back_pct }));
+    return data.map(r => ({ name: r.garage, city: r.city || "", type: r.where, n: +r.n, prices: r.avg_price ? [+r.avg_price] : [], back: r.back_pct === null ? [] : [r.back_pct / 100], backPctRaw: r.back_pct }));
   }
 
   // ---------- garage profiles (owners claim a licensed garage) ----------

@@ -11,12 +11,12 @@
   <!-- ONBOARDING -->
   <section class="screen no-nav" id="s-onb" hidden>
     <div class="brand" aria-label="Tipulit"><span class="brand-word" lang="en" dir="ltr">tipulit</span></div>
-    <div class="onb-art" id="onb-art"></div>
+    <div class="onb-art" id="onb-art" aria-hidden="true"></div>
     <div class="stack grow">
       <h1 id="onb-title"></h1>
       <p class="muted" id="onb-text"></p>
     </div>
-    <div class="dots" id="onb-dots"></div>
+    <div class="dots" id="onb-dots" aria-hidden="true"></div>
     <button class="btn primary" id="onb-next">הבא</button>
     <button class="btn ghost" id="onb-skip">דלג</button>
   </section>
@@ -125,7 +125,7 @@
       <div class="row between"><h3>המסמכים שלך</h3><span class="small muted" id="car-docs-n"></span></div>
       <p class="small muted">חשבוניות ישנות? העלה אותן. כל אחת הופכת לרשומה.</p>
       <div class="docs" id="car-docs"></div>
-      <label class="btn secondary" for="car-upload">העלה חשבוניות</label>
+      <label class="btn secondary" for="car-upload" tabindex="0">העלה חשבוניות</label>
       <input id="car-upload" type="file" accept="image/*" multiple hidden>
     </div>
     <div class="card stack g-6">
@@ -146,7 +146,7 @@
   </section>
 
   <!-- GARAGES: licensed-garage finder (MoT registry) + community recommendations -->
-  <section class="screen" id="s-garages" hidden>
+  <section class="screen no-nav" id="s-garages" hidden>
     <div class="topbar">
       <div class="stack g-2"><p class="eyebrow">מוסכים מורשים</p><h1>מוסך ליד הבית</h1></div>
       <button class="btn ghost fit" id="gr-back">חזרה</button>
@@ -199,8 +199,8 @@
       <h3>תזכורות</h3>
       <div class="list">
         <div class="row between"><span>התראה חודש לפני טיפול</span><button class="toggle on" id="t1" aria-label="התראה חודש לפני"></button></div>
-        <div class="row between"><span>התראה 1,000 ק"מ לפני</span><button class="toggle on" id="t2" aria-label="התראה אלף קילומטר לפני"></button></div>
-        <div class="row between"><span>תזכורת לעדכן ק"מ פעם בחודש</span><button class="toggle" id="t3" aria-label="תזכורת חודשית"></button></div>
+        <div class="row between"><span>התראה 1,000 ק״מ לפני</span><button class="toggle on" id="t2" aria-label="התראה אלף קילומטר לפני"></button></div>
+        <div class="row between"><span>תזכורת לעדכן ק״מ פעם בחודש</span><button class="toggle" id="t3" aria-label="תזכורת חודשית"></button></div>
       </div>
     </div>
     <div class="card stack" id="me-sources"></div>
@@ -217,10 +217,10 @@
     </div>
   </nav>
 
-  <template id="ic-wrench">{{ICON:wrench}}</template><template id="ic-gauge">{{ICON:gauge}}</template><template id="ic-receipt">{{ICON:receipt}}</template><template id="ic-garage">{{ICON:garage}}</template><template id="ic-check">{{ICON:check}}</template><template id="ic-caret-left">{{ICON:caret-left}}</template>
+  <template id="ic-wrench">{{ICON:wrench}}</template><template id="ic-gauge">{{ICON:gauge}}</template><template id="ic-receipt">{{ICON:receipt}}</template><template id="ic-garage">{{ICON:garage}}</template><template id="ic-check">{{ICON:check}}</template><template id="ic-caret-left">{{ICON:caret-left}}</template><template id="ic-caret-down">{{ICON:caret-down}}</template>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-  <div class="sheet" id="log">
+  <div class="sheet" id="log" role="dialog" aria-modal="true">
     <div class="panel">
       <div class="row between"><h2 id="log-title">עשיתי טיפול</h2><button class="btn ghost fit" id="log-close">סגור</button></div>
       <div class="thumbs" id="log-thumbs" hidden></div>
@@ -232,7 +232,7 @@
       <div class="field"><label>מה הוחלף <span class="muted">(מעדכן את מצב הרכב)</span></label><div class="items-pick" id="log-items"></div></div>
       <div class="row g-10">
         <div class="field grow"><label for="log-date">מתי</label><input id="log-date" name="service-date" type="month" autocomplete="off"></div>
-        <div class="field grow"><label for="log-km">ק"מ בטיפול</label><input id="log-km" name="service-km" inputmode="numeric" autocomplete="off" class="num"></div>
+        <div class="field grow"><label for="log-km">ק״מ בטיפול</label><input id="log-km" name="service-km" inputmode="numeric" autocomplete="off" class="num"></div>
       </div>
       <div class="field"><label>איפה</label>
         <div class="seg" id="log-where">
@@ -256,7 +256,7 @@
     </div>
   </div>
 
-  <div class="sheet" id="sheet">
+  <div class="sheet" id="sheet" role="dialog" aria-modal="true">
     <div class="panel">
       <h2>עדכון קילומטראז'</h2>
       <div class="field"><label for="sheet-km">מה על השעון עכשיו?</label><input id="sheet-km" name="odometer" inputmode="numeric" autocomplete="off" class="num"></div>
@@ -265,7 +265,7 @@
     </div>
   </div>
 
-  <div class="sheet" id="citysheet">
+  <div class="sheet" id="citysheet" role="dialog" aria-modal="true">
     <div class="panel stack g-10">
       <div class="row between"><h2>באיזו עיר?</h2><button class="btn ghost fit" id="city-close">סגור</button></div>
       <div class="search"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><input id="city-q" type="search" autocomplete="off" placeholder="הקלד עיר" aria-label="חיפוש עיר"></div>
@@ -287,6 +287,8 @@
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
   const fmt = n => new Intl.NumberFormat("he-IL").format(Math.round(n));
+  // every user- or server-provided string goes through esc() before it reaches innerHTML
+  const esc = x => String(x ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
   const store = {
     get() { try { return JSON.parse(localStorage.getItem("tipulit") || "null"); } catch (e) { return null; } },
     set(v) { try { localStorage.setItem("tipulit", JSON.stringify(v)); } catch (e) {} },
@@ -316,7 +318,7 @@
   const show = (id, fromHistory) => {
     if (!fromHistory && (!history.state || history.state.screen !== id)) { try { history.pushState({ screen: id }, "", "#" + id.replace(/^s-/, "")); } catch (e) {} }
     $$(".screen").forEach(s => s.hidden = s.id !== id);
-    const main = ["s-home", "s-car", "s-tl", "s-me", "s-garages"].includes(id);
+    const main = ["s-home", "s-car", "s-tl", "s-me"].includes(id);
     if (id === "s-garages") renderGarages();
     if (id === "s-car") renderCar();
     if (id === "s-me") renderMe();
@@ -360,8 +362,8 @@
     if (l.first_km) { if (km < l.first_km) return l.first_km; if (!l.then_every_km) return null; return l.first_km + Math.ceil((km - l.first_km + 1) / l.then_every_km) * l.then_every_km; }
     return null;
   }
-  const longText = l => l.every_km ? `כל ${fmt(l.every_km)} ק"מ${l.every_months ? ` או ${l.every_months / 12} שנים` : ""}`
-    : `ראשונה ב-${fmt(l.first_km || 0)} ק"מ${l.first_months ? ` או ${l.first_months / 12} שנים` : ""}${l.then_every_km ? `, אחר כך כל ${fmt(l.then_every_km)} ק"מ` : ""}${l.then_every_months ? ` או ${l.then_every_months / 12} שנים` : ""}`;
+  const longText = l => l.every_km ? `כל ${fmt(l.every_km)} ק״מ${l.every_months ? ` או ${l.every_months / 12} שנים` : ""}`
+    : `ראשונה ב-${fmt(l.first_km || 0)} ק״מ${l.first_months ? ` או ${l.first_months / 12} שנים` : ""}${l.then_every_km ? `, אחר כך כל ${fmt(l.then_every_km)} ק״מ` : ""}${l.then_every_months ? ` או ${l.then_every_months / 12} שנים` : ""}`;
   const fmtDate = iso => { try { return new Intl.DateTimeFormat("he-IL", { day: "2-digit", month: "2-digit", year: "numeric" }).format(new Date(iso)); } catch (e) { return iso; } };
   const monthName = d => new Intl.DateTimeFormat("he-IL", { month: "long", year: "numeric" }).format(d);
   const carName = car => { const s = schedById(car.schedule); return `${s.make_he} ${s.model_he} ${car.year}`; };
@@ -378,7 +380,7 @@
 
   // ---------- onboarding ----------
   const onb = [
-    { t: "כל טיפול, בזמן הנכון", x: "לפי הק\"מ והזמן, עם תזכורת לפני.",
+    { t: "כל טיפול, בזמן הנכון", x: "לפי הק״מ והזמן, עם תזכורת לפני.",
       art: `<svg viewBox="0 0 320 220"><rect class="f-surface" x="40" y="70" width="240" height="90" rx="16"/><rect class="f-line" x="60" y="92" width="200" height="12" rx="6"/><rect class="f-accent" x="60" y="92" width="130" height="12" rx="6"/><circle class="f-accent" cx="190" cy="98" r="10"/><circle class="halo" cx="190" cy="98" r="18"/><text class="tx-num" x="60" y="140">45,000</text><text class="tx-meta" x="230" y="140" text-anchor="end">60,000</text></svg>` },
     { t: "לפי ספר היבואן, לא לפי ניחוש", x: "מה מחליפים ומה בודקים, מלוח הטיפולים של היבואן.",
       art: `<svg viewBox="0 0 320 220"><rect class="f-surface" x="70" y="40" width="180" height="140" rx="12"/><rect class="f-ink" x="90" y="64" width="80" height="10" rx="5"/><rect class="f-line" x="90" y="88" width="140" height="8" rx="4"/><rect class="f-line" x="90" y="106" width="120" height="8" rx="4"/><rect class="f-line" x="90" y="124" width="140" height="8" rx="4"/><rect class="f-line" x="90" y="142" width="100" height="8" rx="4"/><rect class="f-accent-soft" x="210" y="84" width="24" height="16" rx="4"/><rect class="f-accent-soft" x="210" y="120" width="24" height="16" rx="4"/></svg>` },
@@ -402,7 +404,7 @@
   // Real Google sign-in goes here with Google Identity Services:
   //   google.accounts.id.initialize({ client_id: "<CLIENT_ID>", callback: onCredential });
   // Needs a client ID and an allowed origin. In this prototype the button simulates a signed-in user.
-  const demoGoogle = () => { S.user = { name: "מקס", email: "max@gmail.com", via: "google", demo: true }; save(); afterAuth(); toast("התחברות לדוגמה. שרת עדיין לא מחובר"); };
+  const demoGoogle = () => { S.user = { name: "משתמש לדוגמה", email: "demo@tipulit.app", via: "google", demo: true }; save(); afterAuth(); toast("התחברות לדוגמה. שרת עדיין לא מחובר"); };
   $("#auth-google").onclick = () => Cloud.enabled ? Cloud.signInWithGoogle().catch(e => toast("ההתחברות נכשלה: " + e.message)) : demoGoogle();
   if (!Cloud.enabled) $("#auth-google").insertAdjacentHTML("beforeend", ` <span class="small muted">(דמו)</span>`);
   // Real sign-in: when Supabase reports a session, adopt the user and merge cloud cars with local ones.
@@ -435,7 +437,7 @@
   // ---------- add car ----------
   let draft = {};
   function startAdd() {
-    draft = {}; $("#plate").value = ""; $("#plate-go").disabled = true;
+    draft = {}; $("#plate").value = ""; $("#plate-go").disabled = true; $("#km").value = ""; $("#last").value = ""; $("#km-go").disabled = true;
     try { const p = sessionStorage.getItem("tipulit-plate"); if (p) { sessionStorage.removeItem("tipulit-plate"); $("#plate").value = fmtPlate(p); $("#plate-go").disabled = false; } } catch (e) {}
     ["plate", "confirm", "manual", "km"].forEach(k => $("#add-step-" + k).hidden = k !== "plate");
     $("#add-back").hidden = S.cars.length === 0;
@@ -454,9 +456,9 @@
         <div class="row between"><span class="muted">מנוע</span><b>${v && v.engine_cc ? v.engine_cc + ' סמ"ק · ' + (v.fuel || "") : s.engines[0]}</b></div>
         ${v && v.trim ? `<div class="row between"><span class="muted">רמת גימור</span><b>${v.trim}</b></div>` : ""}
         ${v && v.test_expiry ? `<div class="row between"><span class="muted">טסט בתוקף עד</span><b class="num">${fmtDate(v.test_expiry)}</b></div>` : ""}
-        ${v && v.km_last_test ? `<div class="row between"><span class="muted">ק"מ בטסט האחרון</span><b class="num">${fmt(v.km_last_test)}</b></div>` : ""}
+        ${v && v.km_last_test ? `<div class="row between"><span class="muted">ק״מ בטסט האחרון</span><b class="num">${fmt(v.km_last_test)}</b></div>` : ""}
         <div class="row between"><span class="muted">יבואן</span><b>${s.importer}</b></div>
-        <div class="row between"><span class="muted">מרווח טיפולים</span><b class="num">${fmt(s.interval.km)} ק"מ / ${s.interval.months} חודשים</b></div>
+        <div class="row between"><span class="muted">מרווח טיפולים</span><b class="num">${fmt(s.interval.km)} ק״מ / ${s.interval.months} חודשים</b></div>
       </div>
       <p class="small muted">${v ? "לפי מאגר הרכב של משרד התחבורה" : "זיהוי מדומה: המאגר הממשלתי לא זמין מכאן"}</p>`;
   // Real lookup: data.gov.il vehicle registry, matched to a schedule by data/gov-match.json.
@@ -472,7 +474,7 @@
       const s = schedById(resolved.schedule);
       draft = { plate: $("#plate").value, schedule: s.id, year: v.year || s.years[1], gov: v };
       $("#confirm-card").innerHTML = confirmCardHTML(s, v);
-      if (v.km_last_test) $("#km").value = v.km_last_test;
+      if (v.km_last_test) { $("#km").value = v.km_last_test; $("#km-go").disabled = false; }
       stepTo("confirm");
     } else if (v && resolved && resolved.status === "electric") {
       toast("רכב חשמלי. בשלב הזה Tipulit תומכת ברכבי בנזין והיברידיים בלבד"); 
@@ -525,7 +527,7 @@
   function communityPrice(s, svc) {
     if (Cloud.enabled) {
       const key = s.id + "|" + svc.km;
-      if (!(key in cloudPrices)) { cloudPrices[key] = null; Cloud.communityPrices(s.id, svc.km).then(r => { cloudPrices[key] = r || {}; renderAll(); }).catch(() => { cloudPrices[key] = {}; }); }
+      if (!(key in cloudPrices)) { cloudPrices[key] = null; Cloud.communityPrices(s.id, svc.km).then(r => { cloudPrices[key] = r || {}; renderAll(); }).catch(() => { cloudPrices[key] = { failed: true }; renderAll(); }); }
       const r = cloudPrices[key] || {};
       return { importer: r.importer || null, independent: r.independent || null, live: true, loading: cloudPrices[key] === null };
     }
@@ -586,11 +588,14 @@
     const laps = Math.floor(Math.max(0, car.km - gridShift(s)) / s.cycle_km); const list = [];
     for (let lap = Math.max(0, laps - 1); lap <= laps; lap++) for (const svc of s.services) list.push(lap * s.cycle_km + svc.km);
     const nearest = preKm || list.reduce((a, b) => Math.abs(b - car.km) < Math.abs(a - car.km) ? b : a);
-    $("#log-svc").innerHTML = list.filter(k => k <= n.nextKm).map(k => `<option value="${k}" ${k === nearest ? "selected" : ""}>טיפול ${fmt(k)} ק"מ</option>`).join("");
+    if (preKm && !list.includes(preKm)) list.push(preKm);
+    $("#log-svc").innerHTML = list.filter(k => k <= n.nextKm || k === preKm).sort((a, b) => a - b).map(k => `<option value="${k}" ${k === nearest ? "selected" : ""}>טיפול ${fmt(k)} ק״מ</option>`).join("");
     const d = new Date(); $("#log-date").value = opts.date || `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}`;
     $("#log-km").value = opts.km || car.km; $("#log-price").value = ""; $("#log-garage").value = ""; $("#log-city").value = ""; $("#log-extra").value = ""; $("#log-text").value = "";
     $("#log-price-err").hidden = true; $("#log-text-err").hidden = true;
     logBack = ""; $$("#log-back button").forEach(x => x.classList.toggle("on", x.dataset.v === ""));
+    const w0 = $$("#log-where button")[0]; if (w0) w0.click();
+    $("#log-share").classList.add("on");
     logThumbs = opts.thumbs ? opts.thumbs.slice() : []; renderThumbs(); $("#log-file").value = "";
     setKind(opts.kind || "service");
     $("#garage-dl").innerHTML = ""; loadGarageDir().catch(() => {});
@@ -694,13 +699,13 @@
   }
   const stateRow = r => `<div class="state ${r.status === "done" ? "ok" : r.status}"><span class="dot"></span>
       <div><div>${itemName(r.item)} <span class="small muted">· ${catName[r.cat] || ""}</span></div>
-        <div class="sub">${r.done ? `הוחלף ב-${fmt(r.done.km)} ק"מ${r.done.date ? ", " + monthName(new Date(r.done.date + "-01")) : ""}` : `לא ידוע${r.gridNext ? ` · לפי הלוח: ${fmt(r.gridNext)} ק"מ` : ""}`}</div></div>
+        <div class="sub">${r.done ? `הוחלף ב-${fmt(r.done.km)} ק״מ${r.done.date ? ", " + monthName(new Date(r.done.date + "-01")) : ""}` : `לא ידוע${r.gridNext ? ` · לפי הלוח: ${fmt(r.gridNext)} ק״מ` : ""}`}</div></div>
       <div class="due num">${r.status === "unknown" ? "?" : r.nextKm ? (r.status === "overdue" ? "באיחור · " : "") + fmt(r.nextKm) : r.nextDate ? monthName(r.nextDate) : "✓"}</div></div>`;
   let carFilter = "all";
   function renderCar() {
     const car = S.cars[S.active]; if (!car) return;
     const s = schedById(car.schedule), rows = carState(car), recs = (car.history || []);
-    $("#car-sub").textContent = `${carName(car)} · ${fmt(car.km)} ק"מ${car.gov && car.gov.test_expiry ? ` · טסט עד ${fmtDate(car.gov.test_expiry)}` : ""}`;
+    $("#car-sub").textContent = `${carName(car)} · ${fmt(car.km)} ק״מ${car.gov && car.gov.test_expiry ? ` · טסט עד ${fmtDate(car.gov.test_expiry)}` : ""}`;
     const n = k => rows.filter(r => r.status === k || (k === "ok" && r.status === "done")).length;
     // Cold start: nothing is known yet, so lead with how to fill the picture instead of a wall of "?"
     const known = rows.length - n("unknown");
@@ -715,20 +720,20 @@
         <span class="t-cat">${catName[r.cat] || ""}</span>
         <b class="t-name">${itemName(r.item)}</b>
         <span class="t-due num">${dueText(r)}</span>
-        ${st === "unknown" ? `<span class="t-sub">${r.gridNext ? `לפי הלוח: ${fmt(r.gridNext)} ק"מ` : "אין רשומה"}</span>` : gaugeHTML(lifeLeft(r, car)) || `<span class="t-sub">${r.done ? "הוחלף ב-" + fmt(r.done.km) : ""}</span>`}
+        ${st === "unknown" ? `<span class="t-sub">${r.gridNext ? `לפי הלוח: ${fmt(r.gridNext)} ק״מ` : "אין רשומה"}</span>` : gaugeHTML(lifeLeft(r, car)) || `<span class="t-sub">${r.done ? "הוחלף ב-" + fmt(r.done.km) : ""}</span>`}
       </article>`; }).join("")}</div>` + (n("unknown") && f !== "ok" ? `<p class="small muted mt-8">"לא ידוע" = אין רשומה. העלה חשבונית או רשום טיפול, והפריט יתעדכן.</p>` : "");
     $$("#car-counts .tab").forEach(t => t.onclick = () => { carFilter = t.dataset.f; renderCar(); });
     const docs = recs.flatMap(r => (r.receipts || (r.receipt ? [r.receipt] : [])).map(t => ({ t, r })));
     $("#car-docs-n").textContent = docs.length ? `${docs.length} מסמכים` : "";
-    $("#car-docs").innerHTML = docs.map(d => `<button title="${d.r.kind === "service" ? "טיפול " + fmt(d.r.svcKm || d.r.km) : d.r.text}"><img src="${d.t}" alt="חשבונית"><span class="lb num">${d.r.date || fmt(d.r.km)}</span></button>`).join("");
+    $("#car-docs").innerHTML = docs.map(d => `<figure title="${d.r.kind === "service" ? "טיפול " + fmt(d.r.svcKm || d.r.km) : esc(d.r.text)}"><img src="${d.t}" alt="חשבונית"><span class="lb num">${d.r.date || fmt(d.r.km)}</span></figure>`).join("");
     const reps = recs.filter(r => r.kind === "repair" || r.kind === "other").sort((a, b) => b.km - a.km);
-    $("#car-repairs").innerHTML = reps.length ? reps.map(r => `<div class="hist"><div><b>${r.text || kindName[r.kind]}</b> <span class="small muted num">· ${fmt(r.km)} ק"מ${r.date ? " · " + monthName(new Date(r.date + "-01")) : ""}</span><br><span class="small muted">${(r.items || []).map(itemName).join(", ")}${r.garage ? " · " + r.garage : ""}</span></div><span class="amt num">${r.price ? "₪" + fmt(r.price) : ""}</span></div>`).join("") : `<p class="small muted">אין תיקונים רשומים.</p>`;
+    $("#car-repairs").innerHTML = reps.length ? reps.map(r => `<div class="hist"><div><b>${esc(r.text) || kindName[r.kind]}</b> <span class="small muted num">· ${fmt(r.km)} ק״מ${r.date ? " · " + monthName(new Date(r.date + "-01")) : ""}</span><br><span class="small muted">${(r.items || []).map(itemName).join(", ")}${r.garage ? " · " + esc(r.garage) : ""}</span></div><span class="amt num">${r.price ? "₪" + fmt(r.price) : ""}</span></div>`).join("") : `<p class="small muted">אין תיקונים רשומים.</p>`;
     $("#car-history").innerHTML = historyHTML(car);
   }
   const startCardHTML = () => `<div class="card start stack g-12">
       <h3>מצב הרכב מתחיל מהטיפול האחרון</h3>
-      <p class="small muted">עוד אין רשומות, אז לא ידוע מה הוחלף. רשום את הטיפול האחרון או העלה חשבוניות, וכל פריט יקבל תאריך, ק"מ ומועד הבא.</p>
-      <div class="row g-8"><button class="btn primary compact" data-start="log">רשום טיפול</button><label class="btn secondary compact" for="car-upload">העלה חשבוניות</label></div>
+      <p class="small muted">עוד אין רשומות, אז לא ידוע מה הוחלף. רשום את הטיפול האחרון או העלה חשבוניות, וכל פריט יקבל תאריך, ק״מ ומועד הבא.</p>
+      <div class="row g-8"><button class="btn primary compact" data-start="log">רשום טיפול</button><label class="btn secondary compact" for="car-upload" tabindex="0">העלה חשבוניות</label></div>
     </div>`;
   const wireStart = root => { const b = root && $("[data-start=log]", root); if (b) b.onclick = () => openLog(); };
   const carSummaryHTML = car => { const rows = carState(car); const c = k => rows.filter(r => r.status === k).length; const unknown = c("unknown"), known = rows.length - unknown; const attn = rows.filter(r => r.status === "overdue" || r.status === "soon"); if (known === 0) return startCardHTML(); return `
@@ -742,8 +747,8 @@
   const historyHTML = car => { const h = (car.history || []).slice().sort((a, b) => b.km - a.km || b.at - a.at); if (!h.length) return `<p class="small muted px-4">עוד אין רשומות.</p>`; return `
     <div class="card stack"><p class="eyebrow">כל הרשומות</p>
       ${h.map(e => `<div class="hist">
-        <div><b class="num">${e.kind === "service" || !e.kind ? "טיפול " + fmt(e.svcKm || e.km) : e.text || kindName[e.kind]}</b> <span class="small muted num">· ${fmt(e.km)} ק"מ${e.date ? " · " + monthName(new Date(e.date + "-01")) : ""}</span><br>
-          <span class="small muted">${whereName[e.where] || ""}${e.garage ? " · " + e.garage : ""}${e.city ? " · " + e.city : ""}${(e.items || []).length ? " · " + e.items.length + " פריטים" : ""}${e.extra ? " · " + e.extra : ""}</span></div>
+        <div><b class="num">${e.kind === "service" || !e.kind ? "טיפול " + fmt(e.svcKm || e.km) : esc(e.text) || kindName[e.kind]}</b> <span class="small muted num">· ${fmt(e.km)} ק״מ${e.date ? " · " + monthName(new Date(e.date + "-01")) : ""}</span><br>
+          <span class="small muted">${whereName[e.where] || ""}${e.garage ? " · " + esc(e.garage) : ""}${e.city ? " · " + esc(e.city) : ""}${(e.items || []).length ? " · " + e.items.length + " פריטים" : ""}${e.extra ? " · " + esc(e.extra) : ""}</span></div>
         <div class="row g-8">${(e.receipts && e.receipts[0]) || e.receipt ? `<img class="hist-thumb" src="${(e.receipts && e.receipts[0]) || e.receipt}" alt="חשבונית">` : ""}<span class="amt num">${e.price ? "₪" + fmt(e.price) : ""}</span></div>
       </div>`).join("")}
     </div>`; };
@@ -766,7 +771,7 @@
     return null;
   };
   const gaugeHTML = f => f === null ? "" : `<span class="life" aria-hidden="true">${Array.from({ length: 10 }, (_, i) => `<i class="${i < Math.round(f * 10) ? "on" : ""}"></i>`).join("")}</span>`;
-  const dueText = r => r.status === "unknown" ? "לא ידוע" : r.nextKm ? `${r.status === "overdue" ? "היה ב-" : ""}${fmt(r.nextKm)} ק"מ` : r.nextDate ? `${r.status === "overdue" ? "באיחור מ" : ""}${monthName(r.nextDate)}` : "הוחלף";
+  const dueText = r => r.status === "unknown" ? "לא ידוע" : r.nextKm ? `${r.status === "overdue" ? "היה ב-" : ""}${fmt(r.nextKm)} ק״מ` : r.nextDate ? `${r.status === "overdue" ? "באיחור מ" : ""}${monthName(r.nextDate)}` : "הוחלף";
   // a ring split into status arcs; geometry is data, colours come from CSS classes
   const condRingHTML = (counts, total) => { const R = 46, C = 2 * Math.PI * R, gap = total > 1 ? 3 : 0; let at = 0;
     return `<svg viewBox="0 0 108 108" aria-hidden="true"><circle class="ring-track" cx="54" cy="54" r="${R}"/>${["overdue", "soon", "ok", "unknown"].map(k => { const len = C * (counts[k] || 0) / total; const seg = len > gap ? `<circle class="seg ${k}" cx="54" cy="54" r="${R}" stroke-dasharray="${len - gap} ${C}" stroke-dashoffset="${-at}"/>` : ""; at += len; return seg; }).join("")}</svg>`; };
@@ -791,7 +796,7 @@
         <button class="dial" data-go="tl" aria-label="הטיפול הבא: ${fmt(n.nextKm)} קילומטר, ${statusText}">
           <span class="ring dial-ring">
             <svg viewBox="0 0 108 108" aria-hidden="true"><circle class="ring-track" cx="54" cy="54" r="${R}"/><circle class="ring-fill ${n.level}" cx="54" cy="54" r="${R}" stroke-dasharray="${C}" stroke-dashoffset="${C * (1 - n.progress)}"/></svg>
-            <span class="dial-c"><b class="num">${n.remainKm > 0 ? fmt(n.remainKm) : fmt(-n.remainKm)}</b><small>${n.remainKm > 0 ? 'ק"מ לטיפול' : 'ק"מ באיחור'}</small></span>
+            <span class="dial-c"><b class="num">${n.remainKm > 0 ? fmt(n.remainKm) : fmt(-n.remainKm)}</b><small>${n.remainKm > 0 ? 'ק״מ לטיפול' : 'ק״מ באיחור'}</small></span>
           </span>
           <span class="dial-t">טיפול <b class="num">${fmt(n.nextKm)}</b></span>
           <span class="status ${n.level}">${statusText}</span>
@@ -809,12 +814,12 @@
         </div>
       </section>
 
-      <nav class="dock" aria-label="פעולות מהירות">
+      <div class="dock" role="group" aria-label="פעולות מהירות">
         <button id="done-svc">${icon("wrench")}<span>עשיתי טיפול</span></button>
-        <button id="upd-km">${icon("gauge")}<span>עדכן ק"מ</span></button>
+        <button id="upd-km">${icon("gauge")}<span>עדכן ק״מ</span></button>
         <label for="car-upload" tabindex="0">${icon("receipt")}<span>חשבונית</span></label>
         <button id="dock-garages">${icon("garage")}<span>מוסך</span></button>
-      </nav>
+      </div>
 
       ${!known ? startCardHTML() : attn.length ? `
       <section class="stack g-10" aria-label="דורש טיפול">
@@ -828,7 +833,7 @@
       </section>` : `<p class="all-good">${icon("check")}<span>אין פריטים באיחור או שמתקרבים.</span></p>`}
 
       <section class="card next-card stack g-12" aria-label="הטיפול הבא">
-        <div class="row between"><div class="stack g-2"><p class="eyebrow">הטיפול הבא · ${when}</p><h2 class="num">${fmt(n.nextKm)} ק"מ</h2></div><span class="status ${n.level}">${statusText}</span></div>
+        <div class="row between"><div class="stack g-2"><p class="eyebrow">הטיפול הבא · ${when}</p><h2 class="num">${fmt(n.nextKm)} ק״מ</h2></div><span class="status ${n.level}">${statusText}</span></div>
         <div class="item-chips">${rep.map(i => `<span>${itemName(i.item)}</span>`).join("")}${chk ? `<span class="more-chip">+ ${chk} בדיקות</span>` : ""}</div>
         <details class="fold price-fold"><summary><span>כמה זה עולה</span></summary>${priceHTML(n.s, n.svc)}</details>
         <div class="row g-8"><button class="btn primary" id="to-garage">מה לוודא במוסך</button><button class="btn secondary fit" data-go="tl">כל הטיפולים</button></div>
@@ -852,9 +857,13 @@
   }
 
   // ---------- timeline ----------
+  // which timeline items are open is UI state that must survive async re-renders
+  const tlOpen = new Set(); let tlOpenInit = null;
   function renderTL() {
     const car = S.cars[S.active]; if (!car) return;
     const n = computeNext(car); const s = n.s;
+    if (tlOpenInit !== n.nextKm) { tlOpen.clear(); tlOpen.add(n.nextKm); tlOpenInit = n.nextKm; }
+    const isOpen = r => tlOpen.has(r.km);
     const shift = gridShift(s);
     const laps = Math.floor(Math.max(0, car.km - shift) / s.cycle_km);
     $("#tl-sub").textContent = `${carName(car)} · לוח ${s.importer}`;
@@ -868,18 +877,20 @@
     const list = rows.filter(r => r.state !== "done").slice(0, 8);
     const done = rows.filter(r => r.state === "done").slice(-2);
     $("#tl-body").innerHTML = [...done, ...list].map((r, i) => `
-      <div class="tl-item ${r.state} ${r.state === "next" ? "open" : ""}">
+      <div class="tl-item ${r.state} ${isOpen(r) ? "open" : ""}" data-km="${r.km}">
         <div class="tl-dot">${r.state === "done" ? "✓" : ""}</div>
         <div class="tl-card">
-          <button class="tl-head"><span><span class="km num">${fmt(r.km)} ק"מ</span>${r.state === "next" ? ` <span class="status good ms-6">הבא</span>` : ""}<br><span class="summary">${summarize(r.svc.items)}</span></span><span class="chev" aria-hidden="true">⌄</span></button>
+          <button class="tl-head" aria-expanded="${isOpen(r)}"><span><span class="km num">${fmt(r.km)} ק״מ</span>${r.state === "next" ? ` <span class="status good ms-6">הבא</span>` : ""}<br><span class="summary">${summarize(r.svc.items)}</span></span><span class="chev" aria-hidden="true">${icon("caret-down")}</span></button>
           <div class="tl-body stack">${r.state === "done" ? itemsHTML(r.svc.items) : checklistHTML(s, r.svc, r.km)}</div>
         </div>
       </div>`).join("");
-    $$(".tl-head").forEach(b => b.onclick = () => b.closest(".tl-item").classList.toggle("open"));
+    $$(".tl-head").forEach(b => b.onclick = () => { const it = b.closest(".tl-item"), km = +it.dataset.km, open = it.classList.toggle("open"); b.setAttribute("aria-expanded", open); tlOpen[open ? "add" : "delete"](km); });
+    // checklist ticks survive re-renders and reloads
+    $$("#tl-body .chk input").forEach(x => { x.checked = !!(S.ticks || {})[x.id]; x.onchange = () => { S.ticks = { ...(S.ticks || {}), [x.id]: x.checked }; if (!x.checked) delete S.ticks[x.id]; save(); }; });
     $$("[data-log]").forEach(b => b.onclick = () => openLog(+b.dataset.log));
     $$("[data-copy]").forEach(b => b.onclick = () => copyChecklist(s, s.services.find(x => x.km === +b.dataset.svc), +b.dataset.copy));
     const tb = s.time_based || [], li = s.long_interval || [];
-    const liRows = li.map(l => { const n = longNext(l, car.km); const soon = n && n - car.km <= 15000; return `<div class="item"><span class="act ${l.action}">${actName[l.action]}</span><div><div>${itemName(l.item)}${n ? ` · <b class="num" class="${soon ? "is-soon" : ""}">בסביבות ${fmt(n)} ק"מ</b>` : ""}</div><div class="note">${longText(l)}${l.note ? " · " + l.note : ""}</div></div></div>`; }).join("");
+    const liRows = li.map(l => { const n = longNext(l, car.km); const soon = n && n - car.km <= 15000; return `<div class="item"><span class="act ${l.action}">${actName[l.action]}</span><div><div>${itemName(l.item)}${n ? ` · <b class="num${soon ? " is-soon" : ""}">בסביבות ${fmt(n)} ק״מ</b>` : ""}</div><div class="note">${longText(l)}${l.note ? " · " + l.note : ""}</div></div></div>`; }).join("");
     const tbRows = tb.map(t => `<div class="item"><span class="act ${t.action}">${actName[t.action]}</span><div><div>${itemName(t.item)}${t.months ? ` · כל ${t.months / 12} שנים` : ""}</div>${t.note ? `<div class="note">${t.note}</div>` : ""}</div></div>`).join("");
     $("#tl-time").innerHTML = `<h3>מרווחים ארוכים ולפי זמן</h3>${liRows + tbRows || `<p class="small muted">אין פריטים כאלה בלוח הזה.</p>`}`;
   }
@@ -891,12 +902,12 @@
     ["חלקים מקוריים או תחליפיים", "לשאול מראש. תחליפי באיכות טובה לגיטימי, אבל זו בחירה שלך וזה צריך להשתקף במחיר."],
     ["תוספות באמצע", "\"מצאנו עוד משהו\" זה בסדר, אבל לבקש תמונה, מחיר, והאם זה דחוף או יכול לחכות לטיפול הבא."],
     ["החלקים הישנים", "לבקש את המסננים והרפידות שהוחלפו. הדרך הפשוטה לוודא שההחלפה בוצעה."],
-    ["רישום הטיפול", "חותמת בספר או רישום דיגיטלי אצל היבואן, עם ק\"מ ותאריך. חשוב לאחריות ולמכירה."],
+    ["רישום הטיפול", "חותמת בספר או רישום דיגיטלי אצל היבואן, עם ק״מ ותאריך. חשוב לאחריות ולמכירה."],
     ["אחריות", "לפי חוק רישוי שירותים ומקצועות בענף הרכב (2016), כל מוסך מורשה משרד התחבורה שומר על האחריות, כל עוד הטיפול לפי הוראות היצרן. לשמור חשבונית."],
     ["שעת עבודה", "המוסך חייב שלט עם מחיר שעת עבודה ומספר רישיון. אם לא רואים, לשאול."]
   ];
   function checklistHTML(s, svc, km) {
-    const row = (it, i) => `<label class="chk"><input type="checkbox" id="c-${km}-${i}"><span class="t">${itemName(it.item)}${it.action === "clean" || it.action === "adjust" ? ` <span class="act ${it.action}">${actName[it.action]}</span>` : ""}${it.note ? `<div class="note">${it.note}</div>` : ""}</span></label>`;
+    const row = (it, i) => `<label class="chk"><input type="checkbox" id="c-${S.active}-${km}-${i}"><span class="t"><span>${itemName(it.item)}</span>${it.action === "clean" || it.action === "adjust" ? ` <span class="act ${it.action}">${actName[it.action]}</span>` : ""}${it.note ? `<div class="note">${it.note}</div>` : ""}</span></label>`;
     const rep = svc.items.filter(i => i.action === "replace"), insp = svc.items.filter(i => i.action !== "replace");
     return `
       <div class="stack g-2"><div class="row between"><b>לבקש שיחליפו</b><span class="small muted">לפי לוח ${s.importer}</span></div>${rep.map((it, i) => row(it, "r" + i)).join("")}</div>
@@ -907,10 +918,10 @@
   }
   function copyChecklist(s, svc, km) {
     const car = S.cars[S.active], c = communityPrice(s, svc);
-    const txt = [`טיפול ${fmt(km)} ק"מ · ${carName(car)} · לפי לוח ${s.importer}`, "",
+    const txt = [`טיפול ${fmt(km)} ק״מ · ${carName(car)} · לפי לוח ${s.importer}`, "",
       "להחליף:", ...svc.items.filter(i => i.action === "replace").map(i => "☐ " + itemName(i.item)), "",
       "לבדוק:", ...svc.items.filter(i => i.action !== "replace").map(i => "☐ " + itemName(i.item)), "",
-      `מחיר סביר: יבואן ₪${fmt(c.importer.lo)}-${fmt(c.importer.hi)}, פרטי ₪${fmt(c.independent.lo)}-${fmt(c.independent.hi)}`, "",
+      ...(c.importer || c.independent ? [["מחיר סביר:", c.importer ? `יבואן ₪${fmt(c.importer.lo)}-${fmt(c.importer.hi)}` : "", c.independent ? `פרטי ₪${fmt(c.independent.lo)}-${fmt(c.independent.hi)}` : ""].filter(Boolean).join(" "), ""] : []),
       "לוודא: חשבונית מפורטת, סוג שמן לפי ספר, חלקים מקוריים/תחליפיים, חלקים ישנים, רישום הטיפול.", "", "נוצר ב-Tipulit"].join("\n");
     const done = () => toast("הרשימה הועתקה");
     const fallback = () => { const ta = document.createElement("textarea"); ta.value = txt; document.body.appendChild(ta); ta.select(); try { document.execCommand("copy"); done(); } catch (e) {} ta.remove(); };
@@ -932,10 +943,10 @@
     for (const h of mine) {
       const key = (h.garage + "|" + (h.city || "")).toLowerCase();
       const g = byKey.get(key) || { name: h.garage, city: h.city || "", type: h.where, n: 0, prices: [], back: [], mine: true };
-      g.n++; if (h.price) g.prices.push(h.price); if (h.back) g.back.push(h.back === "yes"); byKey.set(key, g);
+      g.n++; if (h.price) g.prices.push(h.price); if (h.back) g.back.push(h.back === "yes" ? 1 : 0); byKey.set(key, g);
     }
     for (const g of communityGarages(s.id)) { const key = (g.name + "|" + (g.city || "")).toLowerCase(); const m = byKey.get(key); if (m) { m.n += g.n; m.prices.push(...g.prices); m.back.push(...g.back); } else byKey.set(key, { ...g, mine: false }); }
-    return [...byKey.values()].map(g => ({ ...g, avg: g.prices.length ? g.prices.reduce((a, b) => a + b, 0) / g.prices.length : null, backPct: g.back.length ? Math.round(100 * g.back.filter(Boolean).length / g.back.length) : null }))
+    return [...byKey.values()].map(g => ({ ...g, avg: g.prices.length ? g.prices.reduce((a, b) => a + b, 0) / g.prices.length : null, backPct: g.back.length ? Math.round(100 * g.back.reduce((x, y) => x + y, 0) / g.back.length) : null }))
       .sort((a, b) => (b.backPct ?? -1) - (a.backPct ?? -1) || b.n - a.n);
   }
   // ---------- licensed-garage directory (Ministry of Transport registry, bundled at build time as garages.json) ----------
@@ -949,7 +960,6 @@
   const normName = x => (x || "").replace(/בע["'\s]*מ/g, "").replace(/[\s"'.\-]+/g, "").toLowerCase();
   const cityNorm = x => (x || "").replace(/[\s\-"'.]+/g, "").replace(/יפו$/, "");
   const findCity = q => { if (!GD || !q) return null; const n = cityNorm(q); return (GD.cities.find(([c]) => cityNorm(c) === n) || GD.cities.find(([c]) => cityNorm(c).startsWith(n) || n.startsWith(cityNorm(c))) || [null])[0]; };
-  const esc = x => String(x ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
   const telHref = p => "tel:" + p.replace(/[^\d+]/g, "");
   const wazeHref = g => "https://waze.com/ul?q=" + encodeURIComponent(g.addr + " " + g.city) + "&navigate=yes";
   const icoPhone = `<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>`;
@@ -966,8 +976,8 @@
       ${prof ? profileDetailsHTML(prof) : ""}
       ${!prof || mine ? `<button class="claim" data-claim="${g.id}">${mine ? "ערוך את פרופיל המוסך" : "זה המוסך שלי?"}</button>` : ""}</div>`; };
   // A community report that isn't in the registry (free-text name) still gets a row.
-  const commOnlyRow = (g, s) => `<div class="garage"><div><div class="nm">${g.name} <span class="tag rec">מומלץ</span>${g.mine ? ` <span class="tag mine">דיווחת</span>` : ""}</div>
-      <div class="meta"><span>${whereName[g.type] || ""}</span>${g.city ? `<span>${g.city}</span>` : ""}</div>${commLine(g, s)}</div><div class="acts"></div></div>`;
+  const commOnlyRow = (g, s) => `<div class="garage"><div><div class="nm">${esc(g.name)} <span class="tag rec">מומלץ</span>${g.mine ? ` <span class="tag mine">דיווחת</span>` : ""}</div>
+      <div class="meta"><span>${whereName[g.type] || ""}</span>${g.city ? `<span>${esc(g.city)}</span>` : ""}</div>${commLine(g, s)}</div><div class="acts"></div></div>`;
   // Rows for a city: registry garages with community data attached, recommended first.
   function cityGarages(car, city) {
     if (!GD) return { rows: [], extra: [] };
@@ -982,7 +992,7 @@
   const garagesHomeHTML = car => { const s = schedById(car.schedule), comm = garagesFor(car); const city = S.city; const dir = city && GD ? cityGarages(car, city) : null; return `
     <div class="card stack g-8">
       <div class="row between"><p class="eyebrow">מוסכים לרכב שלך</p><button class="btn ghost fit bare" id="to-garages">${city ? "לכולם" : "בחר עיר"}</button></div>
-      ${comm.length ? `<div>${(dir ? dir.rows.filter(r => r.comm).slice(0, 3).map(r => garageRow(r.g, r.comm, s, r.prof)) : comm.slice(0, 3).map(g => commOnlyRow(g, s))).join("")}</div>`
+      ${comm.length ? `<div>${(dir && dir.rows.some(r => r.comm) ? dir.rows.filter(r => r.comm).slice(0, 3).map(r => garageRow(r.g, r.comm, s, r.prof)) : comm.slice(0, 3).map(g => commOnlyRow(g, s))).join("")}</div>`
         : dir && dir.rows.length ? `<p class="small muted">${dir.rows.length} מוסכים מורשים ב${city}. עדיין אין המלצות לדגם שלך.</p><div>${dir.rows.filter(r => r.g.cats.includes("mech") || r.prof).slice(0, 3).map(r => garageRow(r.g, null, s, r.prof)).join("")}</div>`
         : `<p class="small muted">מוסכים מורשים ליד הבית, עם המלצות של נהגים עם אותו דגם.</p><button class="btn secondary compact" id="gr-pick">מצא מוסך ליד הבית</button>`}
     </div>`; };
@@ -1046,7 +1056,8 @@
   const defaultHours = () => ({ 0: { open: "08:00", close: "17:00" }, 1: { open: "08:00", close: "17:00" }, 2: { open: "08:00", close: "17:00" }, 3: { open: "08:00", close: "17:00" }, 4: { open: "08:00", close: "17:00" }, 5: { open: "08:00", close: "13:00" }, 6: null });
   // "open until 17:00" / "closed today" / "opens at 08:00", from the profile's hours and the current time
   const hoursNow = h => { if (!h || !Object.keys(h).length) return null; const d = new Date(), t = d.toTimeString().slice(0, 5), day = h[d.getDay()];
-    if (!day) return { open: false, text: "סגור היום" }; if (t < day.open) return { open: false, text: "נפתח ב-" + day.open }; if (t < day.close) return { open: true, text: "פתוח עד " + day.close }; return { open: false, text: "סגור, נפתח מחר" }; };
+    if (!day) return { open: false, text: "סגור היום" }; if (t < day.open) return { open: false, text: "נפתח ב-" + day.open }; if (t < day.close) return { open: true, text: "פתוח עד " + day.close }; return { open: false, text: nextOpen(h, d.getDay()) }; };
+  const nextOpen = (h, today) => { for (let i = 1; i <= 7; i++) { const k = (today + i) % 7, day = h[k]; if (day) return i === 1 ? "סגור, נפתח מחר ב-" + day.open : "סגור, נפתח ביום " + DAYS[k] + "׳"; } return "סגור"; };
   const waHref = p => "https://wa.me/" + (p.replace(/\D/g, "").replace(/^0/, "972"));
   const icoWa = `<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20l1.3-3.9A8 8 0 1 1 8.2 19z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.5-2-1-1 1a4 4 0 0 1-2-2l1-1-1-2z"/></svg>`;
   let cloudProfiles = {}, myProfiles = null;
@@ -1065,9 +1076,10 @@
       ${(p.photos || []).length ? `<div class="photos">${p.photos.map(ph => `<img src="${esc(Cloud.photoUrl(ph))}" alt="" loading="lazy">`).join("")}</div>` : ""}
       ${p.booking_url ? `<a class="btn secondary mt-8 compact" href="${esc(p.booking_url)}" target="_blank" rel="noopener">קביעת תור</a>` : ""}</details>`;
   // claim / edit entry points
-  function claimGarage(reg) {
+  async function claimGarage(reg) {
     if (!Cloud.enabled) return toast("צריך חיבור לשרת כדי לרשום מוסך");
     if (!S.user || S.user.via !== "google" || S.user.demo) { toast("התחבר עם Google כדי לרשום את המוסך שלך"); return show("s-auth"); }
+    await loadMyProfiles(true).catch(() => {});
     const mine = (myProfiles || []).find(p => p.garage_id === reg.id);
     openGarageEdit(mine || { garage_id: reg.id, name: reg.name, city: reg.city, address: reg.addr, phone: reg.phone, registry_phone: reg.phone, hours: defaultHours(), makes: [], services: reg.cats.filter(c => c !== "test"), prices: [{ label: "טיפול קטן", price: "" }, { label: "טיפול גדול", price: "" }, { label: "שעת עבודה", price: "" }], photos: [], about: "", whatsapp: "", booking_url: "" });
   }
@@ -1122,7 +1134,7 @@
     $$("#ge-prices input").forEach(x => x.oninput = () => { ge.prices[x.dataset.i][x.dataset.k] = x.value; });
     $$("#ge-prices [data-del]").forEach(b => b.onclick = () => { ge.prices.splice(+b.dataset.del, 1); renderGePrices(); });
   }
-  $("#ge-price-add").onclick = () => { ge.prices.push({ label: "", price: "" }); renderGePrices(); $("#ge-prices input")[ge.prices.length * 2 - 2].focus(); };
+  $("#ge-price-add").onclick = () => { ge.prices.push({ label: "", price: "" }); renderGePrices(); $$("#ge-prices input")[ge.prices.length * 2 - 2].focus(); };
   function renderGePhotos() {
     $("#ge-photos").innerHTML = ge.photos.map((p, i) => `<button data-ph="${i}" aria-label="הסר תמונה"><img src="${esc(Cloud.enabled ? Cloud.photoUrl(p) : p)}" alt=""><span class="lb">הסר</span></button>`).join("");
     $$("#ge-photos [data-ph]").forEach(b => b.onclick = () => { ge.photos.splice(+b.dataset.ph, 1); renderGePhotos(); });
@@ -1136,7 +1148,7 @@
     if (ge.booking_url && !/^https?:\/\//.test(ge.booking_url)) { $("#ge-err").textContent = "קישור לקביעת תור צריך להתחיל ב-https://"; $("#ge-err").hidden = false; return; }
     b.disabled = true; b.classList.add("busy");
     try { const saved = await Cloud.saveGarageProfile(ge); ge = { ...ge, ...saved }; myProfiles = null; delete cloudProfiles[ge.city]; $("#ge-delete").hidden = false; renderGeStatus(); renderGePhotos(); toast("נשמר"); window.scrollTo(0, 0); }
-    catch (e) { $("#ge-err").textContent = /relation|schema cache|does not exist/i.test(e.message || "") ? "השרת עדיין לא מוכן לפרופילי מוסכים (צריך להריץ את המיגרציה 0002)." : "השמירה נכשלה: " + (e.message || e); $("#ge-err").hidden = false; }
+    catch (e) { $("#ge-err").textContent = /relation|schema cache|does not exist/i.test(e.message || "") ? "פרופילי מוסכים עוד לא זמינים. נסה שוב מאוחר יותר." : "השמירה נכשלה: " + (e.message || e); $("#ge-err").hidden = false; }
     b.disabled = false; b.classList.remove("busy");
   };
   let geDelArmed = null;
@@ -1160,21 +1172,23 @@
     try {
       const claims = await Cloud.pendingGarageClaims();
       if (claims.length) { $("#me-claims").innerHTML = `<h3 class="mt-12">בקשות ממתינות (מנהל)</h3><div class="list">${claims.map(c => `<div><b>${esc(c.name)}</b> · ${esc(c.city)}<br><span class="small muted num" dir="ltr">${esc(c.registry_phone || "")} · ${esc(c.phone || "")} · ${esc(c.owner_email || "")}</span><div class="row g-8 mt-6"><button class="btn primary tight" data-ok="${c.id}">אשר</button><button class="btn ghost tight fit" data-no="${c.id}">דחה</button></div></div>`).join("")}</div>`;
-        $$("[data-ok]").forEach(b => b.onclick = async () => { await Cloud.setGarageStatus(b.dataset.ok, "verified"); cloudProfiles = {}; renderMyGarages(); });
-        $$("[data-no]").forEach(b => b.onclick = async () => { await Cloud.setGarageStatus(b.dataset.no, "rejected"); renderMyGarages(); }); }
+        const act = async (b, id, status) => { b.classList.add("busy"); b.disabled = true; try { await Cloud.setGarageStatus(id, status); cloudProfiles = {}; toast(status === "verified" ? "המוסך אושר" : "הבקשה נדחתה"); renderMyGarages(); } catch (e) { b.classList.remove("busy"); b.disabled = false; toast("הפעולה נכשלה. נסה שוב."); } };
+        $$("[data-ok]").forEach(b => b.onclick = () => act(b, b.dataset.ok, "verified"));
+        $$("[data-no]").forEach(b => b.onclick = () => { if (confirm("לדחות את הבקשה?")) act(b, b.dataset.no, "rejected"); }); }
     } catch (e) { /* not admin or table missing */ }
   }
 
   // ---------- profile ----------
   function renderMe() {
     const u = S.user || { name: "אורח", via: "guest" };
-    $("#me-body").innerHTML = `<div class="row"><span class="avatar">${u.name[0]}</span><div><b>${u.name}</b><br><span class="small muted">${u.via === "google" ? u.email : "לא מחובר. נשמר במכשיר הזה בלבד."}</span></div></div>
+    $("#me-body").innerHTML = `<div class="row"><span class="avatar">${esc(u.name[0])}</span><div><b>${esc(u.name)}</b><br><span class="small muted">${u.via === "google" ? esc(u.email) : "לא מחובר. נשמר במכשיר הזה בלבד."}</span></div></div>
       ${u.via === "guest" ? `<button class="btn secondary" id="me-google">התחבר עם Google${Cloud.enabled ? "" : " (דמו)"}</button>` : `<button class="btn ghost" id="me-logout">התנתק</button>`}${Cloud.enabled ? "" : `<p class="small muted">ללא שרת: דיווחי הקהילה הם נתוני דוגמה.</p>`}`;
-    const g = $("#me-google"); if (g) g.onclick = () => Cloud.enabled ? Cloud.signInWithGoogle().catch(e => toast("ההתחברות נכשלה: " + e.message)) : (S.user = { name: "מקס", email: "max@gmail.com", via: "google", demo: true }, save(), renderAll(), toast("התחברות לדוגמה. שרת עדיין לא מחובר"));
+    const g = $("#me-google"); if (g) g.onclick = () => Cloud.enabled ? Cloud.signInWithGoogle().catch(e => toast("ההתחברות נכשלה: " + e.message)) : (S.user = { name: "משתמש לדוגמה", email: "demo@tipulit.app", via: "google", demo: true }, save(), renderAll(), toast("התחברות לדוגמה. שרת עדיין לא מחובר"));
     const lo = $("#me-logout"); if (lo) lo.onclick = async () => { if (Cloud.enabled) { try { await Cloud.signOut(); } catch (e) {} } S.user = { name: "אורח", via: "guest" }; save(); renderAll(); };
     renderMyGarages();
+    if (!S.cars.length) return;
     $("#me-cars").innerHTML = S.cars.map((c, i) => `<button class="row between row-btn" data-i="${i}">
-      <span><b>${carName(c)}</b><br><span class="small muted num">${fmt(c.km)} ק"מ</span></span>${i === S.active ? `<span class="status good">פעיל</span>` : `<span class="small muted">בחר</span>`}</button>`).join("");
+      <span><b>${carName(c)}</b><br><span class="small muted num">${fmt(c.km)} ק״מ</span></span>${i === S.active ? `<span class="status good">פעיל</span>` : `<span class="small muted">בחר</span>`}</button>`).join("");
     $$("#me-cars button").forEach(b => b.onclick = () => { S.active = +b.dataset.i; save(); renderAll(); show("s-home"); });
     const s = schedById(S.cars[S.active].schedule);
     const st = { draft: ["טיוטה", "warn"], reviewed: ["נבדק", "good"], verified: ["מאומת", "good"] }[s.status];
@@ -1183,7 +1197,9 @@
       <div class="list small">${s.sources.map(x => `<div class="row between"><span class="muted">${{ importer: "ספר הרכב של היבואן", manufacturer: "ספר היצרן", garage: "מוסך", forum: "פורום בעלי רכב", other: "מקור נוסף" }[x.kind] || "מקור"}</span><a href="${x.url}" target="_blank" rel="noopener">${new URL(x.url).hostname.replace(/^www\./, "")}</a></div>`).join("")}</div></details>`;
   }
   $("#me-add").onclick = startAdd;
-  $$(".toggle").forEach(t => t.onclick = () => { t.classList.toggle("on"); toast(t.classList.contains("on") ? "התראה הופעלה" : "התראה כבויה"); });
+  // reminder switches on the profile screen, remembered per device
+  const REM = { t1: true, t2: true, t3: false };
+  $$("#s-me .toggle").forEach(t => { const on = (S.reminders || REM)[t.id]; t.classList.toggle("on", on); t.onclick = () => { const v = t.classList.toggle("on"); S.reminders = { ...(S.reminders || REM), [t.id]: v }; save(); toast(v ? "התזכורת הופעלה" : "התזכורת כובתה"); }; });
   let resetArmed = null;
   $("#me-reset").onclick = () => {
     if (!resetArmed) { resetArmed = setTimeout(() => { resetArmed = null; $("#me-reset").textContent = "איפוס האפליקציה"; }, 5000); $("#me-reset").textContent = "בטוח? לחיצה נוספת מוחקת הכל במכשיר"; return; }
@@ -1192,7 +1208,7 @@
 
   // ---------- km sheet ----------
   // Sheets: drag the panel down from its top to dismiss (touch or mouse); a short drag snaps back.
-  const closeSheet = sh => (sh.id === "log" ? $("#log-close") : $("#sheet-close")).click();
+  const closeSheet = sh => { const x = sh.querySelector("[id$=-close]"); if (x) x.click(); else sh.classList.remove("show"); };
   $$(".sheet .panel").forEach(panel => {
     let y0 = null, dy = 0;
     // only the grab zone (handle + title row) starts a drag, so the form inside still scrolls normally
@@ -1201,6 +1217,26 @@
     const end = () => { if (y0 === null) return; y0 = null; panel.classList.add("snap"); if (dy > 110) { closeSheet(panel.parentElement); } panel.style.setProperty("--drag", "0px"); };
     panel.addEventListener("pointerup", end); panel.addEventListener("pointercancel", end);
   });
+  // Skip link: focus the current screen's heading (the screens are routed by hash, so #main would navigate)
+  $(".skip").onclick = e => { e.preventDefault(); const h = $(".screen:not([hidden]) h1"); if (h) { h.tabIndex = -1; h.focus(); } };
+  // Labels that open a file picker work from the keyboard too
+  document.addEventListener("keydown", e => { const l = e.target.closest && e.target.closest("label[for][tabindex]"); if (l && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); const i = document.getElementById(l.htmlFor); if (i) i.click(); } });
+  // Escape closes the open sheet
+  document.addEventListener("keydown", e => { if (e.key !== "Escape") return; const sh = $$(".sheet.show").pop(); if (sh) closeSheet(sh); });
+  // A sheet is a history step: the back button closes it instead of changing the screen underneath
+  new MutationObserver(ms => ms.forEach(m => { const sh = m.target; if (!sh.classList || !sh.classList.contains("sheet")) return; const open = sh.classList.contains("show");
+    if (open && !sh.dataset.hist) { sh.dataset.hist = "1"; try { history.pushState({ ...(history.state || {}), sheet: sh.id }, ""); } catch (x) {} }
+    if (!open && sh.dataset.hist) { delete sh.dataset.hist; if (history.state && history.state.sheet === sh.id) history.back(); } })).observe(document.body, { attributes: true, attributeFilter: ["class"], subtree: true });
+  addEventListener("popstate", () => { $$(".sheet.show").forEach(sh => { delete sh.dataset.hist; sh.classList.remove("show"); }); }, true);
+  // ARIA state follows the visual state classes, wherever they are toggled
+  const syncAria = root => {
+    $$(".toggle", root).forEach(t => { t.setAttribute("role", "switch"); t.setAttribute("aria-checked", t.classList.contains("on")); });
+    $$(".chip, .seg button", root).forEach(c => c.setAttribute("aria-pressed", c.classList.contains("on")));
+    $$("#nav button", root).forEach(b => b.classList.contains("on") ? b.setAttribute("aria-current", "page") : b.removeAttribute("aria-current"));
+  };
+  syncAria(document);
+  new MutationObserver(ms => { const set = new Set(ms.map(m => m.target)); set.forEach(t => { if (t.matches && t.matches(".toggle, .chip, .seg button, #nav button")) syncAria(t.parentElement); else if (t.querySelector) syncAria(t); }); }).observe(document.getElementById("app"), { attributes: true, attributeFilter: ["class"], childList: true, subtree: true });
+
   // A short tick on taps that change something (Android; ignored elsewhere)
   document.addEventListener("click", e => { if (e.target.closest(".btn.primary, .nav button, .chip, .seg button, .toggle, .tl-head, .chk")) { try { navigator.vibrate && navigator.vibrate(6); } catch (x) {} } });
   function openSheet() { $("#sheet-km").value = S.cars[S.active].km; $("#sheet").classList.add("show"); $("#sheet-km").focus(); }
@@ -1212,6 +1248,7 @@
     const id = (e.state && e.state.screen) || "s-home";
     if (["s-onb", "s-auth", "s-add"].includes(id) && S.cars.length) { show("s-home", true); return; }
     if (!$("#" + id)) { show("s-home", true); return; }
+    if (!$("#" + id).hidden) return; // a sheet closed over the same screen: keep scroll and state
     show(id, true);
   });
   // ---------- nav / boot ----------

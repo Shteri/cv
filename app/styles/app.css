@@ -425,3 +425,39 @@ label.btn { cursor: pointer; }
 .tile.unknown .t-due { color: var(--faint); font-weight: 600; }
 .tile .t-sub { font-size: .78rem; color: var(--muted); }
 .tile.overdue { background: color-mix(in srgb, var(--crit) 7%, var(--surface)); }
+
+/* ======================= review fixes ======================= */
+[hidden] { display: none !important; }
+/* busy and disabled chips (location lookup) */
+.chip.busy { position: relative; color: transparent; pointer-events: none; }
+.chip.busy::after { content: ""; position: absolute; inset: 0; margin: auto; width: 16px; height: 16px; border-radius: 50%; border: 2px solid var(--muted); border-top-color: transparent; animation: spin .7s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.chip:disabled { opacity: .45; }
+/* busy label readable on every button variant */
+.btn.secondary.busy::before, .btn.ghost.busy::before { color: var(--ink); }
+/* labels that don't fit end with an ellipsis instead of being cut; rows of buttons wrap */
+.btn { text-overflow: ellipsis; }
+.btn.ghost { white-space: normal; }
+.row:has(> .btn:not(.fit)) { flex-wrap: wrap; }
+.row > .btn { flex: 1 1 auto; }
+/* safe areas on phones with a home indicator or a notch */
+.toast { bottom: calc(104px + env(safe-area-inset-bottom, 0px)); }
+.tabs { top: env(safe-area-inset-top, 0px); }
+/* contrast: the tick on a done dot, the off switch, the sheet handle */
+.tl-item.done .tl-dot { color: var(--on-good); }
+.toggle { box-shadow: inset 0 0 0 1.5px var(--line-strong); }
+.toggle.on { box-shadow: none; }
+.sheet .panel::before { background: var(--line-strong); }
+.sheet .panel { max-height: 92dvh; }
+.tl-head .chev svg { width: 18px; height: 18px; }
+/* long names and emails wrap */
+.garage .nm, #me-body b, #me-body .small { overflow-wrap: anywhere; }
+/* document thumbnails are figures now */
+.docs figure { position: relative; margin: 0; aspect-ratio: 1; border-radius: var(--r-field); overflow: hidden; border: 1px solid var(--line); background: var(--surface-2); }
+/* hover feedback where it was missing */
+@media (hover: hover) {
+  .seg button:not(.on):hover, .tab:not([aria-pressed="true"]):hover, .nav button:not(.on):hover, .row-btn:hover, #city-list button:hover { background: color-mix(in srgb, var(--surface-3) 55%, transparent); }
+  .garage .ib:hover, .avatar:hover, .toggle:hover { filter: brightness(1.06); }
+}
+/* the focus ring keeps each control's own shape */
+button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, a:focus-visible, label:focus-visible { border-radius: inherit; }
