@@ -645,7 +645,10 @@
   $("#auth-google").onclick = () => Cloud.enabled ? Cloud.signInWithGoogle().catch(e => toast("ההתחברות נכשלה: " + e.message)) : demoGoogle();
   if (!Cloud.enabled) $("#auth-google").insertAdjacentHTML("beforeend", ` <span class="small muted">(דמו)</span>`);
   // Real sign-in: when Supabase reports a session, adopt the user and merge cloud cars with local ones.
-  if (Cloud.enabled) Cloud.onAuth(async user => {
+  let lastAuthUid = null;
+  if (Cloud.enabled) Cloud.onAuth(async (user, event) => {
+    if (user && lastAuthUid === user.id && event !== "SIGNED_IN") return; // ignore repeats (INITIAL_SESSION after SIGNED_IN, etc.)
+    lastAuthUid = user ? user.id : null;
     if (!user) { if (S.user && S.user.via === "google" && !S.user.demo) { S.user = { name: "אורח", via: "guest" }; save(); renderAll(); } return; }
     S.user = { name: user.user_metadata?.full_name || user.user_metadata?.name || user.email.split("@")[0], email: user.email, via: "google", id: user.id };
     try { if (/[?&#](code|access_token)=/.test(location.href)) history.replaceState({ screen: "s-home" }, "", location.pathname + "#home"); } catch (e) {}
@@ -661,7 +664,8 @@
       S.active = Math.min(S.active, Math.max(0, S.cars.length - 1));
     } catch (e) { console.warn("cloud load failed", e); toast("לא הצלחתי לסנכרן מהענן. עובדים מקומית"); }
     S.onboarded = true; save(); migrateCars();
-    if (S.cars.length) { renderAll(); show("s-home"); } else startAdd();
+    try { if (S.cars.length) { renderAll(); show("s-home"); } else startAdd(); }
+    catch (e) { console.error(e); toast("שגיאה אחרי ההתחברות: " + e.message); }
   });
   $("#auth-guest").onclick = () => { S.user = { name: "אורח", via: "guest" }; save(); afterAuth(); };
   function afterAuth() { if (S.cars.length) { renderAll(); show("s-home"); } else startAdd(); }
