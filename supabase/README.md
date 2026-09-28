@@ -18,7 +18,7 @@ filled in, every feature below switches on.
    client from Google Cloud Console (APIs & Services → Credentials → OAuth client ID,
    type Web). Authorized redirect URI: `https://<project-ref>.supabase.co/auth/v1/callback`.
    Paste the client ID and secret into Supabase.
-   Then Authentication → URL Configuration → Site URL: `https://shteri.github.io/cv/`
+   Then Authentication → URL Configuration → Site URL: `https://tipulit.netlify.app/`
    and add it to Redirect URLs (plus `http://localhost:*` for local testing).
 4. **Receipt extraction**: install the Supabase CLI, then
    ```

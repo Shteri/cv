@@ -5,7 +5,7 @@
   const cfg = g.TIPULIT_CONFIG || {};
   const lib = g.supabase;
   const enabled = !!(cfg.SUPABASE_URL && cfg.SUPABASE_ANON_KEY && lib && lib.createClient);
-  const sb = enabled ? lib.createClient(cfg.SUPABASE_URL, cfg.SUPABASE_ANON_KEY, { auth: { flowType: "pkce", detectSessionInUrl: true, persistSession: true, autoRefreshToken: true } }) : null;
+  const sb = enabled ? lib.createClient(cfg.SUPABASE_URL, cfg.SUPABASE_ANON_KEY, { auth: { flowType: "pkce", detectSessionInUrl: false, persistSession: true, autoRefreshToken: true } }) : null;
   // OAuth errors come back in the URL (?error=... or #error=...). Expose them so the app can show them.
   const authError = (() => { const q = new URLSearchParams(location.search), h = new URLSearchParams(location.hash.replace(/^#/, "")); return q.get("error_description") || h.get("error_description") || q.get("error") || h.get("error") || null; })();
   const hasAuthParams = /[?&#](code|access_token|error)=/.test(location.href);
@@ -24,6 +24,16 @@
     if (error) throw error;
   }
   async function signOut() { await sb.auth.signOut(); }
+  // Finish the OAuth round trip ourselves so failures are visible (supabase-js swallows them when it auto-detects).
+  async function handleRedirect() {
+    const q = new URLSearchParams(location.search);
+    const code = q.get("code");
+    if (!code) return { handled: false, error: authError ? new Error(authError) : null };
+    const { data, error } = await sb.auth.exchangeCodeForSession(code);
+    try { history.replaceState(history.state, "", location.pathname + (location.hash || "")); } catch (e) {}
+    if (error && /code verifier/i.test(error.message)) error.hint = "ההתחברות התחילה מכתובת אחרת או מדפדפן אחר. פתח את tipulit.netlify.app ונסה שוב מאותו דפדפן.";
+    return { handled: true, error, user: data && data.session ? data.session.user : null };
+  }
 
   // ---------- cars and records ----------
   // App car -> row
@@ -87,5 +97,5 @@
     return data;
   }
 
-  g.TipulitCloud = { enabled, authError, hasAuthParams, currentUser, onAuth, signInWithGoogle, signOut, loadCars, saveCar, deleteCar, communityPrices, communityGarages, extractReceipt };
+  g.TipulitCloud = { enabled, authError, hasAuthParams, currentUser, onAuth, signInWithGoogle, signOut, handleRedirect, loadCars, saveCar, deleteCar, communityPrices, communityGarages, extractReceipt };
 })(window);

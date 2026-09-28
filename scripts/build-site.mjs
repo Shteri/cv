@@ -1,4 +1,4 @@
-// Builds the deployable static site into the repository ROOT (served by GitHub Pages from main).
+// Builds the deployable static site into site/ (Netlify publishes it). SITE_OUT overrides the folder.
 // app/index.html is written for the claude.ai artifact wrapper (no <html>/<head>),
 // so here we wrap it in a full document, add PWA files, and copy the data bundle.
 import { mkdirSync, readFileSync, writeFileSync, copyFileSync } from "node:fs";
@@ -41,7 +41,8 @@ if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catc
 </body>
 </html>
 `;
-const out = (process.env.SITE_OUT ? process.env.SITE_OUT.replace(/\/?$/, "/") : root);
+const out = (process.env.SITE_OUT || "site/").replace(/\/?$/, "/");
+if (!out.startsWith("/")) { /* relative to repo root */ }
 mkdirSync(out, { recursive: true });
 writeFileSync(out + "index.html", html);
 copyFileSync(root + "app/data.js", out + "data.js");

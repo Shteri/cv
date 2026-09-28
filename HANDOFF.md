@@ -302,3 +302,13 @@ toyota-yaris-2011-2020, hyundai-i25-2011-2018, skoda-octavia-2013-2025.
   ומילוי אוטומטי של הטופס מהחשבונית.
 - `app/cloud.js`: שכבת הענן. `supabase/README.md`: הוראות הקמה, כ-20 דקות, כולל Google OAuth.
 - מה שמקס צריך לספק: פרויקט Supabase (URL + anon key), OAuth client של Google, מפתח Anthropic.
+
+## 14. פריסה (28.9.2026, לילה): Netlify הוא הבית
+
+- האתר: **https://tipulit.netlify.app/** (Netlify בונה מ-main לפי `netlify.toml`: build ל-`site/`).
+- הכתובת הישנה shteri.github.io/cv מפנה לחדשה ומנקה service worker ישן. קבצי הבנייה
+  הוסרו משורש הריפו; `site/` ב-.gitignore.
+- Workflow `ci.yml` רק מאמת ובונה (בלי קומיטים). אין יותר "Build site from data".
+- Supabase: Site URL ו-Redirect URLs מצביעים ל-netlify; Google: origin נוסף.
+- ידוע: התחברות Google מתוך אפליקציה מותקנת במסך הבית ב-iOS נפתחת בספארי ולא חוזרת. לטפל
+  (למשל: זיהוי מצב standalone והנחיה להתחבר מהדפדפן, או magic link במייל).

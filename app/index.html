@@ -281,10 +281,11 @@
       <p class="muted">חשבון שומר את הרכבים והתזכורות שלך בין מכשירים. אפשר גם להתחיל כאורח ולהתחבר אחר כך.</p>
     </div>
     <div class="stack">
-      <button class="btn secondary" id="auth-google">
+      <button class="btn secondary" id="auth-google" data-busy="מסיים התחברות…">
         <svg class="g" aria-hidden="true" viewBox="0 0 24 24"><path fill="#EA4335" d="M12 10.2v3.9h5.5c-.2 1.3-1.6 3.8-5.5 3.8-3.3 0-6-2.7-6-6.1s2.7-6.1 6-6.1c1.9 0 3.1.8 3.9 1.5l2.6-2.5C16.9 3.1 14.7 2 12 2 6.5 2 2 6.5 2 12s4.5 10 10 10c5.8 0 9.6-4 9.6-9.7 0-.7-.1-1.1-.2-1.6H12z"/></svg>
         המשך עם Google
       </button>
+      <p class="err" id="auth-err" hidden></p>
       <button class="btn primary" id="auth-guest">המשך כאורח</button>
       <p class="small muted" style="text-align:center">בהמשך: התחברות עם Apple ומספר טלפון</p>
     </div>
@@ -1182,10 +1183,20 @@
   }
   migrateCars();
   const boot = () => { if (!S.onboarded) { renderOnb(); return "s-onb"; } if (!S.user) return "s-auth"; if (!S.cars.length) { startAdd(); return "s-add"; } renderAll(); return "s-home"; };
-  const first = boot();
-  // Do not touch the URL while an OAuth redirect is being processed (tokens or code live there).
-  if (!(Cloud.enabled && Cloud.hasAuthParams)) { try { history.replaceState({ screen: first }, "", "#" + first.replace(/^s-/, "")); } catch (e) {} }
-  show(first, true);
-  if (Cloud.enabled && Cloud.authError) toast("ההתחברות נכשלה: " + decodeURIComponent(Cloud.authError).replace(/\+/g, " "));
+  if (Cloud.enabled && Cloud.hasAuthParams) {
+    // Returning from Google: show the sign-in screen in a busy state and finish the exchange explicitly.
+    S.onboarded = true; save();
+    show("s-auth", true);
+    const gb = $("#auth-google"); gb.disabled = true; gb.classList.add("busy"); gb.dataset.busy = "מסיים התחברות…";
+    Cloud.handleRedirect().then(r => {
+      gb.disabled = false; gb.classList.remove("busy");
+      if (r.error) { const msg = (r.error.hint || r.error.message || String(r.error)); toast("ההתחברות נכשלה: " + msg); $("#auth-err").textContent = "ההתחברות נכשלה: " + msg; $("#auth-err").hidden = false; }
+      // on success the SIGNED_IN event runs the handler above
+    }).catch(e => { gb.disabled = false; gb.classList.remove("busy"); toast("ההתחברות נכשלה: " + e.message); });
+  } else {
+    const first = boot();
+    try { history.replaceState({ screen: first }, "", "#" + first.replace(/^s-/, "")); } catch (e) {}
+    show(first, true);
+  }
 })();
 </script>
