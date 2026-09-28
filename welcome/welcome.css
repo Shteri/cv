@@ -36,8 +36,7 @@ button { cursor: pointer; }
 .progress { position: absolute; inset-inline: 0; bottom: -1px; height: 2px; background: linear-gradient(90deg, var(--accent-2), var(--accent)); transform: scaleX(0); transform-origin: right; }
 @supports (animation-timeline: scroll()) { .progress { animation: grow-x linear both; animation-timeline: scroll(root); } }
 @keyframes grow-x { to { transform: scaleX(1); } }
-.brand { display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-display); font-weight: 700; font-size: 1.2rem; text-decoration: none; letter-spacing: -.01em; }
-.brand .mark { width: 32px; height: 32px; border-radius: 10px; background: var(--accent); color: var(--accent-ink); display: grid; place-items: center; font-size: 1rem; box-shadow: inset 0 0 0 2px var(--accent-ink); }
+.nav .brand { --brand-size: 1.2rem; }
 .nav-links { display: none; gap: 6px; font-size: .95rem; }
 .nav-links a { color: var(--muted); text-decoration: none; padding: 8px 14px; border-radius: 999px; transition: color .15s ease, background-color .2s ease; }
 .nav-links a:hover { color: var(--ink); background: var(--surface-2); }

@@ -18,8 +18,9 @@
 <link rel="apple-touch-icon" href="icon-192.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Hebrew:wght@400;500;600&family=Rubik:wght@500;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Hebrew:wght@400;500;600&family=Rubik:wght@500;600;700;800&family=Unbounded:wght@500;600&display=swap">
 <link rel="stylesheet" href="styles/tokens.css">
+<link rel="stylesheet" href="styles/brand.css">
 <link rel="stylesheet" href="styles/app.css">
 <style>
   /* document-level resets only; every colour and font comes from styles/tokens.css */
@@ -35,7 +36,7 @@
 
   <!-- ONBOARDING -->
   <section class="screen no-nav" id="s-onb" hidden>
-    <div class="brand"><span class="mark">ט</span> טיפולית</div>
+    <div class="brand"><span class="mark" aria-hidden="true">ט</span><span class="brand-name"><span class="he">טיפולית</span><span class="en" lang="en" dir="ltr">Tipulit</span></span></div>
     <div class="onb-art" id="onb-art"></div>
     <div class="stack grow">
       <h1 id="onb-title"></h1>
@@ -48,7 +49,7 @@
 
   <!-- SIGN IN -->
   <section class="screen no-nav" id="s-auth" hidden>
-    <div class="brand"><span class="mark">ט</span> טיפולית</div>
+    <div class="brand"><span class="mark" aria-hidden="true">ט</span><span class="brand-name"><span class="he">טיפולית</span><span class="en" lang="en" dir="ltr">Tipulit</span></span></div>
     <div class="stack grow justify-center g-8">
       <h1>ברוך הבא</h1>
       <p class="muted">חשבון שומר את הרכבים והתזכורות שלך בין מכשירים. אפשר גם להתחיל כאורח ולהתחבר אחר כך.</p>
@@ -66,7 +67,7 @@
   <!-- ADD CAR -->
   <section class="screen no-nav" id="s-add" hidden>
     <div class="topbar">
-      <div class="brand"><span class="mark">ט</span> טיפולית</div>
+      <div class="brand"><span class="mark" aria-hidden="true">ט</span><span class="brand-name"><span class="he">טיפולית</span><span class="en" lang="en" dir="ltr">Tipulit</span></span></div>
       <button class="btn ghost fit" id="add-back">חזרה</button>
     </div>
 
@@ -136,7 +137,7 @@
   <!-- HOME -->
   <section class="screen" id="s-home" hidden>
     <div class="topbar">
-      <div class="brand"><span class="mark">ט</span> טיפולית</div>
+      <div class="brand"><span class="mark" aria-hidden="true">ט</span><span class="brand-name"><span class="he">טיפולית</span><span class="en" lang="en" dir="ltr">Tipulit</span></span></div>
       <button class="avatar" id="home-avatar" aria-label="הפרופיל שלי">א</button>
     </div>
     <div id="home-body" class="stack g-16"></div>

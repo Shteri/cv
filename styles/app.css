@@ -26,8 +26,6 @@ input, select, textarea { font: inherit; color: var(--ink); }
 .screen:not([hidden]) { animation: screen-in .45s var(--ease); }
 @keyframes screen-in { from { opacity: 0; transform: translateY(10px); } }
 
-.brand { display: flex; align-items: center; gap: 10px; font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; letter-spacing: -.01em; }
-.brand .mark { width: 30px; height: 30px; border-radius: 9px; background: var(--accent); color: var(--accent-ink); display: grid; place-items: center; font-size: .95rem; box-shadow: inset 0 0 0 2px var(--accent-ink); }
 
 /* buttons */
 .btn { position: relative; display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 14px 18px; border-radius: 14px; font-weight: 600; font-size: 1rem; overflow: hidden; transition: transform .3s var(--spring), background-color .2s ease, border-color .2s ease, box-shadow .25s ease, opacity .15s ease, color .15s ease; }
@@ -62,7 +60,7 @@ input, select, textarea { font: inherit; color: var(--ink); }
 
 /* onboarding */
 .onb-art { height: 240px; border-radius: 28px; background: radial-gradient(90% 80% at 50% 100%, var(--accent-soft), transparent 70%), var(--surface-2); border: 1px solid var(--line); display: grid; place-items: center; overflow: hidden; }
-.onb-art svg { width: 100%; height: 100%; animation: art-in .6s var(--ease); }
+.onb-art svg { direction: ltr; width: 100%; height: 100%; animation: art-in .6s var(--ease); }
 @keyframes art-in { from { opacity: 0; transform: scale(.94); } }
 .dots { display: flex; gap: 6px; justify-content: center; }
 .dots span { width: 8px; height: 8px; border-radius: 999px; background: var(--line); transition: width .35s var(--spring), background-color .2s ease; }

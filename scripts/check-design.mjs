@@ -14,11 +14,11 @@ import { readFileSync } from "node:fs";
 const root = new URL("../", import.meta.url).pathname;
 const read = f => readFileSync(root + f, "utf8");
 const TOKENS = "app/styles/tokens.css";
-const CSS = ["app/styles/app.css", "app/welcome/welcome.css"];
-const HTML = { "app/index.html": ["app/styles/app.css"], "app/welcome/index.html": ["app/welcome/welcome.css"] };
+const CSS = ["app/styles/brand.css", "app/styles/app.css", "app/welcome/welcome.css"];
+const HTML = { "app/index.html": ["app/styles/brand.css", "app/styles/app.css"], "app/welcome/index.html": ["app/styles/brand.css", "app/welcome/welcome.css"] };
 
 // Custom properties that markup or scripts set at runtime (documented in DESIGN.md, "Design in code").
-const RUNTIME = new Set(["--i", "--k", "--r", "--s", "--c", "--n", "--h", "--x", "--y", "--mx", "--my", "--rx", "--ry", "--p", "--drag", "--vt", "--spin"]);
+const RUNTIME = new Set(["--brand-size", "--i", "--k", "--r", "--s", "--c", "--n", "--h", "--x", "--y", "--mx", "--my", "--rx", "--ry", "--p", "--drag", "--vt", "--spin"]);
 // Classes that exist only as behaviour hooks for scripts or tests; they carry no styling on purpose.
 const HOOKS = new Set(["magnetic", "js"]);
 
@@ -28,7 +28,7 @@ const lineOf = (text, idx) => text.slice(0, idx).split("\n").length;
 const stripComments = css => css.replace(/\/\*[\s\S]*?\*\//g, m => m.replace(/[^\n]/g, " "));
 
 const COLOR = /#[0-9a-fA-F]{3,8}\b|\b(?:rgba?|hsla?)\(|(?<![-\w])(?:white|black)(?![-\w])/;
-const FONT = /["'](?:Rubik|IBM Plex Sans Hebrew|Heebo|Inter|Arial|Segoe UI)["']/;
+const FONT = /["'](?:Rubik|IBM Plex Sans Hebrew|Unbounded|Heebo|Inter|Arial|Segoe UI)["']/;
 
 // class="..." values, skipping ${...} template expressions (which may themselves contain quotes)
 function* classAttrs(src) {

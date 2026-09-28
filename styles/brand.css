@@ -1,0 +1,11 @@
+/*
+  The Tipulit logo lockup, shared by the app and the landing page so it is identical everywhere.
+  Markup (the only form to use):
+    <… class="brand"><span class="mark" aria-hidden="true">ט</span><span class="brand-name"><span class="he">טיפולית</span><span class="en" lang="en" dir="ltr">Tipulit</span></span></…>
+  Size it with --brand-size on the element (default 1.1rem); everything else scales from it.
+*/
+.brand { --brand-size: 1.1rem; display: inline-flex; align-items: center; gap: calc(var(--brand-size) * .55); color: inherit; text-decoration: none; }
+.brand .mark { flex: none; width: calc(var(--brand-size) * 1.8); height: calc(var(--brand-size) * 1.8); border-radius: calc(var(--brand-size) * .52); background: var(--accent); color: var(--accent-ink); display: grid; place-items: center; font: 700 calc(var(--brand-size) * .9)/1 var(--font-display); box-shadow: inset 0 0 0 2px var(--accent-ink); }
+.brand-name { display: grid; justify-items: start; line-height: 1; }
+.brand-name .he { font: 700 var(--brand-size)/1 var(--font-display); letter-spacing: -.01em; }
+.brand-name .en { margin-top: calc(var(--brand-size) * .22); font: 500 calc(var(--brand-size) * .54)/1 var(--font-brand); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }

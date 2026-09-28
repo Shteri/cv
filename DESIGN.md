@@ -41,6 +41,12 @@ The look is a night drive: graphite surfaces, light as the material (soft glows,
 - **Crit** #C8352B / #FF6B5E: overdue, inline errors. An overdue dot gets a slow pulsing halo.
 - **Unknown**: faint grey dot and "?".
 
+## Logo
+- Lockup: the yellow ט mark, then "טיפולית" (Rubik 700) with the Latin wordmark "TIPULIT" underneath (Unbounded 500, uppercase, +0.14em tracking, muted). Both names always appear together.
+- One implementation for every surface: `app/styles/brand.css` with the markup documented at the top of that file. Size it with `--brand-size` (app 1.1rem, landing nav 1.2rem); the mark and wordmark scale from it.
+- `{font.brand}` (Unbounded) is used for the Latin wordmark only, never for UI text.
+- The app icon stays the ט mark alone.
+
 ## Typography
 - **IBM Plex Sans Hebrew** 400/500/600: body, labels, buttons, notes.
 - **Rubik** 500–800: headings, big numbers, the plate, odometer digits, counts.
@@ -115,6 +121,7 @@ The design lives in three stylesheets; markup and scripts only carry content, st
 | File | Holds | May contain |
 |---|---|---|
 | `app/styles/tokens.css` | every colour, font, radius and easing, light and dark | literals (the only file that may) |
+| `app/styles/brand.css` | the logo lockup, shared by both pages | `var(--token)` only |
 | `app/styles/app.css` | app components + a short list of layout utilities | `var(--token)` only |
 | `app/welcome/welcome.css` | landing components | `var(--token)` only |
 | `app/index.html`, `app/welcome/index.html` | markup, copy, data, behaviour | classes, and `style="--x: …"` for runtime data |
