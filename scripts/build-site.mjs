@@ -2,6 +2,7 @@
 // app/index.html is written for the claude.ai artifact wrapper (no <html>/<head>),
 // so here we wrap it in a full document, add PWA files, and copy the data bundle.
 import { mkdirSync, readFileSync, writeFileSync, copyFileSync } from "node:fs";
+import { createHash } from "node:crypto";
 const root = new URL("../", import.meta.url).pathname;
 const src = readFileSync(root + "app/index.html", "utf8");
 const title = (src.match(/<title>(.*?)<\/title>/) || [, "טיפולית"])[1];
@@ -50,7 +51,8 @@ writeFileSync(out + "manifest.webmanifest", JSON.stringify({
   description: "הטיפול הבא לרכב שלך לפי ספר היבואן, ומה לוודא במוסך.",
   icons: [{ src: "icon-192.png", sizes: "192x192", type: "image/png" }, { src: "icon-512.png", sizes: "512x512", type: "image/png" }, { src: "icon.svg", sizes: "any", type: "image/svg+xml" }]
 }, null, 2));
-const version = Date.now().toString(36);
+// Content hash, so rebuilding unchanged sources yields identical files (no churn in git or in the service worker).
+const version = createHash("sha1").update(html).update(readFileSync(root + "app/data.js")).update(readFileSync(root + "app/lookup.js")).digest("hex").slice(0, 10);
 writeFileSync(out + "sw.js", `// Minimal offline cache for the app shell. Version: ${version}
 const CACHE = "tipulit-${version}";
 const ASSETS = ["./", "./index.html", "./data.js", "./lookup.js", "./manifest.webmanifest", "./icon.svg", "./icon-192.png", "./icon-512.png"];
