@@ -1,0 +1,997 @@
+{
+  "make": "Mitsubishi",
+  "make_he": "מיצובישי",
+  "importer": "כלמוביל",
+  "id": "mitsubishi-outlander-2021-2026-2.5",
+  "model": "Outlander",
+  "model_he": "אאוטלנדר",
+  "generation": "GN (4th gen)",
+  "years": [
+    2021,
+    2026
+  ],
+  "engines": [
+    "2.5 MIVEC (PR25DD)"
+  ],
+  "fuel": "petrol",
+  "interval": {
+    "km": 15000,
+    "months": 12,
+    "note": "לפי ספר הרכב של היבואן: 15,000 ק\"מ או 12 חודשים, המוקדם מביניהם; בתנאי הפעלה קשים שמן ומסנן כל 7,500 ק\"מ או 6 חודשים"
+  },
+  "cycle_km": 225000,
+  "services": [
+    {
+      "km": 15000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "cvt_oil",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cvt_oil",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 45000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "cvt_oil",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cvt_oil",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 75000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "cvt_oil",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cvt_oil",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 105000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "cvt_oil",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cvt_oil",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 135000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "cvt_oil",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 150000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cvt_oil",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 165000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "cvt_oil",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 180000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cvt_oil",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 195000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "cvt_oil",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 210000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cvt_oil",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 225000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "cvt_oil",
+          "action": "inspect"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "drive_belt",
+      "action": "inspect",
+      "every_km": 15000,
+      "every_months": 12,
+      "note": "רצועות V: החלפה אם פגומות או כשהמותחן האוטומטי בקצה"
+    },
+    {
+      "item": "spark_plugs",
+      "action": "replace",
+      "every_km": 90000,
+      "every_months": 72,
+      "note": "מצתי אירידיום"
+    },
+    {
+      "item": "coolant",
+      "action": "replace",
+      "first_km": 150000,
+      "first_months": 120,
+      "then_every_km": 75000,
+      "then_every_months": 60
+    },
+    {
+      "item": "air_filter",
+      "action": "replace",
+      "every_km": 30000,
+      "every_months": 24,
+      "note": "ניקוי כל 15,000 ק\"מ או שנה"
+    },
+    {
+      "item": "fuel_filter",
+      "action": "replace",
+      "every_km": 165000,
+      "every_months": 132
+    },
+    {
+      "item": "suspension",
+      "action": "inspect",
+      "every_km": 30000,
+      "every_months": 24,
+      "note": "מערכת המתלה, מפרקים כדוריים וגומיות הגנה"
+    },
+    {
+      "item": "steering",
+      "action": "inspect",
+      "every_km": 15000,
+      "every_months": 12,
+      "note": "מוט קישור, אטמים וגומיות"
+    },
+    {
+      "item": "transfer_case_oil",
+      "action": "replace",
+      "every_km": 180000,
+      "every_months": 144,
+      "note": "4WD; לפי הספר אין צורך בטיפול עד 180,000 ק\"מ או 12 שנים"
+    },
+    {
+      "item": "differential_oil",
+      "action": "replace",
+      "every_km": 75000,
+      "every_months": 60,
+      "note": "בגרירה/גגון/כבישים משובשים: החלפה כל 30,000 ק\"מ או שנה"
+    },
+    {
+      "item": "wheel_alignment",
+      "action": "inspect",
+      "every_km": 30000,
+      "every_months": 24,
+      "note": "חופש מסבי גלגלים"
+    },
+    {
+      "item": "cvt_oil",
+      "action": "replace",
+      "every_km": 60000,
+      "note": "לפי הטבלה: בדיקה בכל טיפול והחלפה כל טיפול רביעי (60,000 ק\"מ); בתנאים קשים החלפה כל 30,000"
+    }
+  ],
+  "time_based": [],
+  "specs": {
+    "_note": "לפי ספר הרכב; נפחים לאימות",
+    "engine_oil": "לפי הספר: שמן מנוע במפרט ILSAC GF-6 / API SP, 0W-20",
+    "coolant": "נוזל קירור מקורי מיצובישי (Super Long Life) 50/50",
+    "brake_fluid": "DOT 3 / DOT 4",
+    "fuel": "בנזין 95 אוקטן",
+    "timing": "שרשרת"
+  },
+  "sources": [
+    {
+      "url": "https://res.cloudinary.com/colmobil/images/v1722236766/ספר-רכב-מיצובישי-אאוטלנדר_1267488853/ספר-רכב-מיצובישי-אאוטלנדר_1267488853.pdf",
+      "kind": "importer",
+      "note": "ספר רכב מיצובישי אאוטלנדר 2021-2024 (כלמוביל), פרק 9 'לוח תחזוקה' (טבלת התחזוקה בעמודי PDF 432-433)"
+    },
+    {
+      "url": "https://www.mitsubishi-israel.co.il/car_books/",
+      "kind": "importer",
+      "note": "ספריית ספרי הרכב של מיצובישי ישראל (בחירת דגם ושנה; הקבצים ב-res.cloudinary.com/colmobil)"
+    }
+  ],
+  "status": "reviewed",
+  "notes": "הועתק מטבלת 'תכנית תחזוקה רגילה' בספר הרכב בעברית של היבואן. טבלת הספר בנויה בעמודות של 15,000 ק\"מ. I בדיקה, R החלפה. הטבלה בספר מכסה 15 טיפולים של 15,000 ק\"מ (עד 225,000). שמן ומסנן: כל 15,000 ק\"מ או שנה, או כשמופיע מחוון החלפת השמן. עמוד 'שירות בתנאים קשים' (עמ' 434 ב-PDF) לא נכלל בלוח."
+}

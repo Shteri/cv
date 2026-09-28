@@ -1,5 +1,5 @@
 {
-"_note": "Maintenance tables parsed from the Hebrew Hyundai (hyundaimotors.co.il/maintenance) and Kia (kia-israel.co.il) owner's books with scripts/hk_table_parse.py. pattern = one I/R/-/. per km column (ascending); txt = lines with km figures (long-interval notes). Books are downloaded to a scratch dir, not committed.",
+"_note": "Maintenance tables parsed from the Hebrew Hyundai (hyundaimotors.co.il/maintenance), Kia (kia-israel.co.il) and Mitsubishi (mitsubishi-israel.co.il/car_books) owner's books with scripts/hk_table_parse.py. pattern = one I/R/-/. per km column (ascending); txt = lines with km figures (long-interval notes). Books are downloaded to a scratch dir, not committed.",
 "books": {
 "kia-Stonic_Facelift_2021.pdf": {
 "pages": [
@@ -8219,6 +8219,187 @@
 "I חודשים6  ק“מ או5,000 כל",
 "R חודשים24  ק“מ או50,000 כל",
 "בת הילוכים אוטומטיתR ק“מ100,000 החלף כלA, C, F, G, H, I. J, K"
+]
+}
+]
+},
+"mitsu-ספר_רכב_מיצובישי_אאוטלנדר-2021-2024.pdf": {
+"pages": [
+{
+"page": 431,
+"km_columns": [
+15.0,
+30.0,
+45.0,
+60.0,
+75.0,
+90.0,
+105.0,
+120.0,
+135.0,
+150.0,
+165.0,
+180.0,
+195.0,
+210.0,
+225.0
+],
+"rows": [
+{
+"pattern": ".I.I.I.I.I.I.I.",
+"label": "4 צינורות מצנן , בדוק נזק וחיבור נכון",
+"left": ""
+},
+{
+"pattern": ".I.I.I.I.I.I.I.",
+"label": "5 נוזל קירור מנוע ( #2 ,) ( #3 )",
+"left": ""
+},
+{
+"pattern": "IRIRIRIRIRIRIRI",
+"label": "7 נוזל בלמים ונוזל מצמד",
+"left": ""
+},
+{
+"pattern": "IIIIIIIIIIIIIII",
+"label": "8 מצבר",
+"left": ""
+},
+{
+"pattern": ".I.I.I.I.I.I.I.",
+"label": "* 2 גומיות גלי הינע , אתר נזק",
+"left": ""
+},
+{
+"pattern": "IIIIIIIIIIIIIII",
+"label": "5 שמן דיפרנציאל ( #4 )",
+"left": ""
+},
+{
+"pattern": ".I.I.I.I.I.I.I.",
+"label": "6 חיבורי צינורות המפלט , אתר דליפות גז ובדוק את ההתקנה",
+"left": ""
+}
+],
+"txt": [
+"1,000",
+"כל15,000",
+"כל90,000",
+"לאחר150,000",
+"שנים, לאחר מכן כל75,000",
+"30,000",
+"ק\"מ או שנתיים, נקה כל15,000",
+"כל165,000",
+"כל30,000",
+"כל30,000",
+"כל15,000",
+"אין צורך בטיפול עד180,000",
+"כל75,000",
+"אם אתה גורר גרור, משתמש בגגון או בקרוואן, או נוהג בכבישים משובשים או בוציים, החלף את השמן (לא רק לבדוק) כל30,000"
+]
+},
+{
+"page": 432,
+"km_columns": [
+15.0,
+30.0,
+45.0,
+60.0,
+75.0,
+90.0,
+105.0,
+120.0,
+135.0,
+150.0,
+165.0,
+180.0,
+195.0,
+210.0,
+225.0
+],
+"rows": [
+{
+"pattern": "IIIIIIIIIIIIIII",
+"label": "1 חופש דוושת הבלמים ודוושת המצמד",
+"left": ""
+},
+{
+"pattern": "RRRRRRRRRRRRRRR",
+"label": "* 2 מסנ ן אוויר בתא הנוסעים",
+"left": ""
+},
+{
+"pattern": ".I.I.I.I.I.I.I.",
+"label": "1 יישור גלגלים",
+"left": ""
+},
+{
+"pattern": ".I.I.I.I.I.I.I.",
+"label": "* 3 בלמים צינורות , אתר נזילות",
+"left": ""
+},
+{
+"pattern": "IIIIIIIIIIIIIII",
+"label": "רפידות וצלחות , בדוק שחיקה",
+"left": ""
+},
+{
+"pattern": ".I.I.I.I.I.I.I.",
+"label": "4 צינורות דלק , אתר נזילות",
+"left": ""
+},
+{
+"pattern": "IIIRIIIRIIIRIII",
+"label": "* 1 נוזל תיבת הילוכים אוטומטית ( כולל נוזל תיבת ההילוכים הרציפה )",
+"left": ""
+},
+{
+"pattern": "IIIIIIIIIIIIIII",
+"label": "2 נסיעת מבחן",
+"left": ""
+}
+],
+"txt": [
+"1,000",
+"כל30,000",
+"כל15,000",
+"כל15,000"
+]
+},
+{
+"page": 433,
+"km_columns": [
+15.0,
+30.0,
+45.0,
+60.0,
+75.0,
+90.0,
+105.0,
+120.0,
+135.0,
+150.0,
+165.0,
+180.0,
+195.0,
+210.0,
+225.0
+],
+"rows": [
+{
+"pattern": "IRIRIRIRIRIRIRI",
+"label": "7 נוזל תיבת הילוכים אוטומטית ( כולל נוזל תיבת ההילוכים הרציפה )",
+"left": ""
+}
+],
+"txt": [
+"1,000",
+"כל15,000",
+"כל15,000",
+"כל15,000",
+"כל15,000",
+"כל15,000",
+"כל7,500"
 ]
 }
 ]

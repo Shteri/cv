@@ -17,7 +17,7 @@ CELLS = {"I", "R", "-", "C", "T", "|R", "I|", "R|", "|I"}
 def page_rows(page):
     words = page.get_text("words")
     # header: the y band holding the most of 15,30,...,150 tokens
-    km_tokens = {str(k) for k in range(15, 151, 15)} | {str(k) for k in range(10, 161, 10)} | {str(k) for k in range(30, 241, 30)}
+    km_tokens = {str(k) for k in range(15, 151, 15)} | {str(k) for k in range(10, 161, 10)} | {str(k) for k in range(30, 241, 30)} | {str(k) for k in range(15, 241, 15)}
     bands = {}
     for w in words:
         if w[4] in km_tokens:

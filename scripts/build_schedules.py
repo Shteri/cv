@@ -1248,9 +1248,9 @@ def hk_items(label):
             return items
     return None
 def hk(id_, brand, book, pages, model, model_he, gen, years, engines, fuel, family, url, book_note, extra_notes="",
-       specs=None, long=(), overrides=None, oil_every_service=True, status="reviewed", drop=(), interval_page=None):
+       specs=None, long=(), overrides=None, oil_every_service=True, status="reviewed", drop=(), interval_page=None, ncols=None, brand_note=None):
     b = HK_TABLES[book]; overrides = overrides or {}
-    cols = [15000 * i for i in range(1, 9 if family == 15 else 17)]
+    cols = [15000 * i for i in range(1, (ncols or (8 if family == 15 else 16)) + 1)]
     rows = []; skipped = []; seen = set()
     for pg in b["pages"]:
         if pg["page"] not in pages:
@@ -1290,6 +1290,8 @@ def hk(id_, brand, book, pages, model, model_he, gen, years, engines, fuel, fami
     if skipped:
         print(f"  [{id_}] rows not used: " + "; ".join(f"{l[:45]!r}={p}" for l, p in skipped))
     interval_src = interval_page or (KIA_INTERVAL if brand is KIA else HY_INTERVAL)
+    if family == 30 and ncols:
+        raise ValueError("ncols is only for 15,000-km tables")
     tmpl = ("טבלת הספר בנויה בעמודות של 15,000 ק\"מ." if family == 15 else
             "טבלת הספר בנויה בעמודות של 30,000 ק\"מ; הספר מציין החלפת שמן ומסנן כל 15,000 ק\"מ או 12 חודשים, ולכן הלוח מוצג בצעדי 15,000 ופריטי הטבלה נופלים על הטיפולים הזוגיים.")
     write({
@@ -1484,3 +1486,119 @@ hk("hyundai-tucson-2025-2026-1.6-hybrid", HY, "hyundai-tucson-hybrid-2025.pdf", 
          long_("transmission_oil", "replace", every_km=100000, note="בתנאי הפעלה קשים בלבד")],
    extra_notes="הספר מציין מסנן אוויר: החלפה בכל טיפול (R בכל עמודה).", specs=dict(HY_SPECS, battery="מצבר עזר 12V + סוללת מתח גבוה"))
 print("done hyundai")
+
+# ---- Mitsubishi (כלמוביל): only the Outlander 2021+ Hebrew book carries a maintenance table ----
+MI = {"make": "Mitsubishi", "make_he": "מיצובישי", "importer": "כלמוביל"}
+MI_HUB = {"url": "https://www.mitsubishi-israel.co.il/car_books/", "kind": "importer", "note": "ספריית ספרי הרכב של מיצובישי ישראל (בחירת דגם ושנה; הקבצים ב-res.cloudinary.com/colmobil)"}
+hk("mitsubishi-outlander-2021-2026-2.5", MI, "mitsu-ספר_רכב_מיצובישי_אאוטלנדר-2021-2024.pdf", [431, 432], "Outlander", "אאוטלנדר", "GN (4th gen)", [2021, 2026],
+   ["2.5 MIVEC (PR25DD)"], "petrol", 15, "https://res.cloudinary.com/colmobil/images/v1722236766/ספר-רכב-מיצובישי-אאוטלנדר_1267488853/ספר-רכב-מיצובישי-אאוטלנדר_1267488853.pdf",
+   "ספר רכב מיצובישי אאוטלנדר 2021-2024 (כלמוביל), פרק 9 'לוח תחזוקה'", ncols=15, interval_page=MI_HUB,
+   overrides={"* 2 גומיות גלי הינע , אתר נזק": ["cv_boots"], "5 שמן דיפרנציאל ( #4 )": ["differential_oil"], "1 יישור גלגלים": ["wheel_alignment"], "2 נסיעת מבחן": "skip",
+              "* 3 בלמים צינורות , אתר נזילות": ["brake_lines"], "רפידות וצלחות , בדוק שחיקה": ["brake_pads", "brake_discs"], "4 צינורות דלק , אתר נזילות": ["fuel_lines"],
+              "1 חופש דוושת הבלמים ודוושת המצמד": ["pedals"], "4 צינורות מצנן , בדוק נזק וחיבור נכון": ["coolant_hoses"], "5 נוזל קירור מנוע ( #2 ,) ( #3 )": ["coolant"],
+              "6 חיבורי צינורות המפלט , אתר דליפות גז ובדוק את ההתקנה": ["exhaust"], "7 נוזל בלמים ונוזל מצמד": ["brake_fluid"], "8 מצבר": ["battery_12v"],
+              "* 2 מסנ ן אוויר בתא הנוסעים": ["cabin_filter"], "* 1 נוזל תיבת הילוכים אוטומטית ( כולל נוזל תיבת ההילוכים הרציפה )": ["cvt_oil"]},
+   long=[long_("drive_belt", "inspect", every_km=15000, every_months=12, note="רצועות V: החלפה אם פגומות או כשהמותחן האוטומטי בקצה"),
+         long_("spark_plugs", "replace", every_km=90000, every_months=72, note="מצתי אירידיום"),
+         long_("coolant", "replace", first_km=150000, first_months=120, then_every_km=75000, then_every_months=60),
+         long_("air_filter", "replace", every_km=30000, every_months=24, note="ניקוי כל 15,000 ק\"מ או שנה"),
+         long_("fuel_filter", "replace", every_km=165000, every_months=132),
+         long_("suspension", "inspect", every_km=30000, every_months=24, note="מערכת המתלה, מפרקים כדוריים וגומיות הגנה"),
+         long_("steering", "inspect", every_km=15000, every_months=12, note="מוט קישור, אטמים וגומיות"),
+         long_("transfer_case_oil", "replace", every_km=180000, every_months=144, note="4WD; לפי הספר אין צורך בטיפול עד 180,000 ק\"מ או 12 שנים"),
+         long_("differential_oil", "replace", every_km=75000, every_months=60, note="בגרירה/גגון/כבישים משובשים: החלפה כל 30,000 ק\"מ או שנה"),
+         long_("wheel_alignment", "inspect", every_km=30000, every_months=24, note="חופש מסבי גלגלים"),
+         long_("cvt_oil", "replace", every_km=60000, note="לפי הטבלה: בדיקה בכל טיפול והחלפה כל טיפול רביעי (60,000 ק\"מ); בתנאים קשים החלפה כל 30,000")],
+   extra_notes="הטבלה בספר מכסה 15 טיפולים של 15,000 ק\"מ (עד 225,000). שמן ומסנן: כל 15,000 ק\"מ או שנה, או כשמופיע מחוון החלפת השמן. עמוד 'שירות בתנאים קשים' (עמ' 434 ב-PDF) לא נכלל בלוח.",
+   specs={"_note": "לפי ספר הרכב; נפחים לאימות", "engine_oil": "לפי הספר: שמן מנוע במפרט ILSAC GF-6 / API SP, 0W-20", "coolant": "נוזל קירור מקורי מיצובישי (Super Long Life) 50/50", "brake_fluid": "DOT 3 / DOT 4", "fuel": "בנזין 95 אוקטן", "timing": "שרשרת"})
+print("done mitsubishi")
+
+# ===================== Ford (דלק מוטורס): one-page service plans, same portal as Mazda =====================
+# data/sources/ford-plans.json = items parsed from the plan PDFs (label, interval text, km, months, every_service).
+FORD = {"make": "Ford", "make_he": "פורד", "importer": "דלק מוטורס"}
+FORD_PAGE = {"url": "https://www.ford.co.il/תוכנית-טיפול/שירות", "kind": "importer", "note": "תוכנית טיפול לפי דגם ושנת עלייה לכביש: התראה בלוח המחוונים / 15,000 ק\"מ / שנה, המוקדם"}
+FORD_PLANS = json.load(open(os.path.join(ROOT, "sources", "ford-plans.json"), encoding="utf-8"))
+FORD_MAP = [
+    (r"שמן ומסנן שמן מנוע ופקק", ["engine_oil", "oil_filter"]), (r"^שמן מנוע", ["engine_oil"]), (r"מסנן שמן מנוע", ["oil_filter"]), (r"^פקק אגן שמן", ["oil_filter"]),
+    (r"מסנן אוויר למזגן", ["cabin_filter"]), (r"נוזל קירור", ["coolant"]), (r"נוזל בלמים", ["brake_fluid"]),
+    (r"מסנן או?ויר למנוע", ["air_filter"]), (r"מצתים", ["spark_plugs"]), (r"כיוון שסתומים|מרווח שסתומים", ["valve_clearance"]),
+    (r"מסנן דלק|מסנן סולר", ["fuel_filter"]), (r"רצועת תזמון ורצועת אביזרים", ["timing_belt", "drive_belt"]), (r"רצועת תזמון", ["timing_belt"]),
+    (r"רצועת אביזרים", ["drive_belt"]), (r"תיבת הילוכים רובוטית", ["dct_oil"]), (r"שמן תיבת הילוכים", ["transmission_oil"]),
+]
+def ford(id_, plan_file, model, model_he, gen, years, engines, fuel, url=None, extra_notes="", specs=None, status="reviewed", skip=()):
+    plan = FORD_PLANS[plan_file]
+    url = plan.get("url") or url
+    cols = [15000 * i for i in range(1, 9)]
+    rows = []; longs = []; notes = []
+    for it in plan["items"]:
+        lab = it["label"]
+        if any(re.search(s, lab) for s in skip):
+            continue
+        items = next((v for rx, v in FORD_MAP if re.search(rx, lab)), None)
+        if not items:
+            notes.append(f"פריט לא ממופה: {lab} ({it['interval_text']})"); continue
+        qual = re.search(r"ליטר\s*[\d./]+|[\d./]+\s*ליטר|בנזין|דיזל|03/12", lab)
+        note = (f"{lab}: {it['interval_text']}".strip()) if qual else None
+        km, mo, ev = it["km"], it["months"], it["every_service"]
+        act = "adjust" if items == ["valve_clearance"] else "replace"
+        if ev == 1 or (km == 15000):
+            pat = "R" * 8
+        elif ev == 2 or (km is None and mo == 24) or km == 30000:
+            pat = "-R" * 4
+        elif km and km % 15000 == 0 and km <= 120000:
+            n = km // 15000; pat = "".join("R" if (i + 1) % n == 0 else "-" for i in range(8))
+        else:
+            kw = {}
+            if km: kw["every_km"] = km
+            if mo: kw["every_months"] = mo
+            if not kw:
+                notes.append(f"{lab}: {it['interval_text']}"); continue
+            for k in items:
+                longs.append(long_(k, act, note=note, **kw) if note else long_(k, act, **kw))
+            continue
+        if act == "adjust":
+            pat = pat.replace("R", "A")
+        for k in items:
+            rows.append((k, pat, note) if note else (k, pat))
+    services = grid(cols, rows)
+    for svc in services:
+        dd = {}
+        for e in svc["items"]:
+            dd.setdefault((e["item"], e["action"]), e)
+        svc["items"] = list(dd.values())
+    fl = "; ".join(plan["fluids"][:8])
+    write({
+        **FORD, "id": id_, "model": model, "model_he": model_he, "generation": gen, "years": years, "engines": engines, "fuel": fuel,
+        "interval": {"km": 15000, "months": 12, "note": "לפי תוכנית הטיפול של דלק מוטורס: התראה בלוח המחוונים, 15,000 ק\"מ או 12 חודשים, המוקדם"},
+        "cycle_km": 120000, "services": services, "long_interval": longs, "time_based": [],
+        "specs": dict({"_note": "מפרטי הנוזלים מתוך תוכנית הטיפול (מק\"טי Ford WSS): " + fl}, **(specs or {})),
+        "sources": [{"url": url, "kind": "importer", "note": f"PDF תוכנית טיפול '{plan_file.replace('ford-plan-', '')}' של דלק מוטורס (קישור SharePoint מתוך הדף; {plan['header'][:80]})"}, FORD_PAGE],
+        "status": status,
+        "notes": ("הועתק מתוכנית הטיפול (עמוד אחד: פריט ומרווח). הלוח מציג 8 טיפולים של 15,000 ק\"מ; פריטים עם מרווח ארוך יותר ב-long_interval. "
+                  + (" ".join(notes) + " " if notes else "") + extra_notes).strip(),
+    })
+
+FSP = "https://delekmotorscoil.sharepoint.com/:b:/s/Techtrain/"
+ford("ford-focus-2004-2010-1.6-2.0", "ford-plan-Ford_Focus_2004_2010.pdf", "Focus", "פוקוס", "Mk2 (C307)", [2004, 2010], ["1.6 Duratec (HWDA/SHDA)", "2.0 Duratec"], "petrol",
+     None, extra_notes="מסנן דלק 135,000 או 6 שנים; רצועת תזמון 120,000 או 5 שנים; כיוון שסתומים 120,000.")
+ford("ford-focus-2011-2015-1.6-2.0", "ford-plan-Ford_Focus_2011_2015.pdf", "Focus", "פוקוס", "Mk3 (C346)", [2011, 2015], ["1.6 Ti-VCT (PNDA)", "1.6 EcoBoost", "2.0 GDI"], "petrol",
+     None, extra_notes="מסנן דלק 45,000 רק לרכבים עד ייצור 03/2012. רצועת תזמון ורצועת אביזרים 120,000 או 5 שנים.")
+ford("ford-focus-2016-2018-1.0-1.5", "ford-plan-Ford_Focus_2016_2018.pdf", "Focus", "פוקוס", "Mk3 facelift", [2016, 2018], ["1.0 EcoBoost (M1DA/M2DA)", "1.5 EcoBoost (M8DC/M9DC)"], "petrol",
+     None, extra_notes="רצועת תזמון (ברטובה בשמן) 195,000 או 10 שנים; רצועת אביזרים 120,000 או 5 שנים.")
+ford("ford-focus-2019-2021-1.0-1.5", "ford-plan-Ford_Focus_2019_2021.pdf", "Focus", "פוקוס", "Mk4 (C519)", [2019, 2021], ["1.0 EcoBoost (M0DC/Y1DA)", "1.5 EcoBoost", "1.5 EcoBlue diesel"], "petrol/diesel",
+     None, extra_notes="דיזל: שמן ומסנן כל טיפול שני לפי התוכנית (בבנזין כל טיפול); מסנן סולר 60,000 או 4 שנים; רצועת תזמון דיזל 180,000 או 10 שנים.")
+ford("ford-focus-2022-2026-1.0", "ford-plan-Ford_Focus_2022_And_Up.pdf", "Focus", "פוקוס", "Mk4 facelift", [2022, 2026], ["1.0 EcoBoost mHEV (Y1DA/FYD)"], "petrol",
+     None)
+ford("ford-fiesta-2008-2018-1.0-1.6", "ford-plan-Ford_Fiesta_2008_2018.pdf", "Fiesta", "פיאסטה", "Mk7 (B299)", [2008, 2018], ["1.0 EcoBoost (SFJA/SFJB)", "1.25 Duratec (SNJB/SNJA)", "1.4 Duratec (SPJA)", "1.6 Ti-VCT (IQJA)"], "petrol",
+     None, extra_notes="מנוע 1.0 EcoBoost: נוזל קירור 150,000 או 5 שנים, מצתים 60,000, רצועות תזמון ואביזרים 195,000 או 10 שנים; שאר המנועים: רצועות 120,000 או 5 שנים.")
+ford("ford-kuga-2013-2016-1.5-1.6", "ford-plan-Ford_Kuga_2013_2016.pdf", "Kuga", "קוגה", "Mk2 (C520)", [2013, 2016], ["1.6 EcoBoost", "1.5 EcoBoost"], "petrol",
+     None, extra_notes="רצועת תזמון: 1.6 - 120,000 או 5 שנים; 1.5 - 195,000 או 10 שנים. שמן גיר אוטומטי 240,000 או 12 שנים.")
+ford("ford-kuga-2017-2026-1.5", "ford-plan-Ford_Kuga_2017_And_Up.pdf", "Kuga", "קוגה", "Mk2 facelift / Mk3", [2017, 2026], ["1.5 EcoBoost (M9MB/M8MA)"], "petrol",
+     None, extra_notes="שמן גיר אוטומטי 240,000 או 12 שנים; רצועת תזמון 195,000 או 10 שנים.")
+ford("ford-mondeo-2007-2012-2.0-2.3", "ford-plan-Ford_Mondeo_2007_2012.pdf", "Mondeo", "מונדאו", "Mk4 (CD345)", [2007, 2012], ["2.0 Duratec (SEBA)", "2.3 Duratec", "2.0 TDCi"], "petrol/diesel",
+     None, extra_notes="דיזל: מסנן דלק 45,000 או 3 שנים, רצועת תזמון 135,000 או 6 שנים; בנזין: מרווח שסתומים - בדיקת רעשים ב-135,000; גיר רובוטי (PowerShift) שמן 60,000 או 3 שנים.")
+ford("ford-puma-2020-2026-1.0", "ford-plan-Ford_Puma_2020_And_Up.pdf", "Puma", "פומה", "J2K", [2020, 2026], ["1.0 EcoBoost mHEV (B7JA)"], "petrol",
+     None, extra_notes="פקק אגן שמן מוחלף בכל טיפול; רצועת אביזרים 240,000.")
+ford("ford-s-max-galaxy-2007-2011-2.0-2.3", "ford-plan-Ford_Smax_Galaxy_2007_2011.pdf", "S-Max / Galaxy", "אס-מקס / גלקסי", "WA6", [2007, 2011], ["2.0 Duratec", "2.3 Duratec", "2.0 TDCi"], "petrol/diesel",
+     None, extra_notes="דיזל: מסנן דלק 45,000/3 שנים, רצועת תזמון 135,000/6 שנים; 2.3 בנזין: מסנן דלק 135,000/6 שנים.")
+print("done ford")
