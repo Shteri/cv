@@ -228,6 +228,20 @@
   .garage .amt { font-family: "Rubik", sans-serif; font-weight: 600; text-align: left; }
   .tag { display: inline-block; font-size: .72rem; font-weight: 600; padding: 2px 8px; border-radius: 6px; background: var(--surface-2); color: var(--muted); }
   .tag.mine { background: var(--accent-soft); color: var(--accent); }
+  .tag.ver { background: var(--accent-soft); color: var(--accent); }
+  .garage .hrs { font-size: .8rem; color: var(--muted); }
+  .garage .hrs.open { color: var(--good); }
+  .garage .claim { grid-column: 1 / -1; font-size: .8rem; color: var(--accent); padding: 0; text-align: right; }
+  .garage .more { grid-column: 1 / -1; font-size: .85rem; }
+  .garage .more summary { padding: 4px 0; font-size: .85rem; font-weight: 500; }
+  .garage .more .photos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-top: 6px; }
+  .garage .more .photos img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px; }
+  .hours-row { display: grid; grid-template-columns: 42px 44px 1fr; align-items: center; gap: 8px; }
+  .hours-row .row { gap: 4px; }
+  .hours-row input[type="time"] { padding: 6px 4px; width: 100%; min-width: 0; font-size: .85rem; }
+  .hours-row .closed { color: var(--muted); font-size: .85rem; }
+  .price-row { display: grid; grid-template-columns: 1fr 96px 32px; gap: 8px; align-items: center; }
+  .price-row .x { color: var(--muted); font-size: 1.1rem; text-align: center; }
   .tag.rec { background: var(--good-soft, #E3F4E8); color: var(--good, #1E7A3E); }
   .chip.loc { display: inline-flex; align-items: center; gap: 6px; border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
   .chip.loc svg { width: 16px; height: 16px; }
@@ -429,6 +443,30 @@
     <div class="card" id="gr-list"></div>
   </section>
 
+  <!-- GARAGE PROFILE: the owner of a licensed garage edits its public profile -->
+  <section class="screen no-nav" id="s-gedit" hidden>
+    <div class="topbar">
+      <div class="stack" style="gap:2px"><p class="eyebrow">המוסך שלי</p><h1 id="ge-name" style="font-size:1.4rem">מוסך</h1></div>
+      <button class="btn ghost" id="ge-back" style="width:auto">חזרה</button>
+    </div>
+    <p class="small muted" id="ge-sub"></p>
+    <div class="card stack" style="gap:8px" id="ge-status"></div>
+    <div class="card stack" style="gap:14px">
+      <div class="field"><label for="ge-phone">טלפון לנהגים</label><input id="ge-phone" name="garage-phone" inputmode="tel" autocomplete="off"></div>
+      <div class="field"><label for="ge-wa">וואטסאפ <span class="muted">(לא חובה)</span></label><input id="ge-wa" name="garage-whatsapp" inputmode="tel" autocomplete="off" placeholder="05x-xxxxxxx"></div>
+      <div class="field"><label for="ge-booking">קישור לקביעת תור <span class="muted">(לא חובה)</span></label><input id="ge-booking" name="booking" type="url" autocomplete="off" placeholder="https://"></div>
+      <div class="field"><label>שעות פתיחה</label><div class="list" id="ge-hours"></div></div>
+      <div class="field"><label>התמחות ביצרנים <span class="muted">(לא חובה)</span></label><div class="chips" id="ge-makes"></div></div>
+      <div class="field"><label>שירותים</label><div class="chips" id="ge-services"></div></div>
+      <div class="field"><label>מחירון <span class="muted">(לא חובה)</span></label><div class="stack" id="ge-prices" style="gap:8px"></div><button class="btn ghost" id="ge-price-add" style="width:auto;padding:4px 0;align-self:flex-start">+ שורה</button></div>
+      <div class="field"><label for="ge-about">על המוסך <span class="muted">(לא חובה)</span></label><textarea id="ge-about" name="about" rows="3" autocomplete="off"></textarea></div>
+      <div class="field"><label>תמונות <span class="muted">(עד 4)</span></label><div class="thumbs" id="ge-photos"></div><label class="btn secondary" for="ge-file" style="cursor:pointer">הוסף תמונה</label><input id="ge-file" type="file" accept="image/*" multiple style="display:none"></div>
+      <p class="err" id="ge-err" hidden></p>
+      <button class="btn primary" id="ge-save" data-busy="שומר…">שמור</button>
+      <button class="btn ghost" id="ge-delete" hidden>הסר את המוסך מהחשבון שלי</button>
+    </div>
+  </section>
+
   <!-- PROFILE / SETTINGS -->
   <section class="screen" id="s-me" hidden>
     <h1>הפרופיל שלי</h1>
@@ -438,6 +476,7 @@
       <div class="list" id="me-cars"></div>
       <button class="btn secondary" id="me-add">הוסף רכב</button>
     </div>
+    <div class="card stack" id="me-garages" hidden></div>
     <div class="card stack">
       <h3>תזכורות</h3>
       <div class="list">
@@ -554,6 +593,7 @@
     const main = ["s-home", "s-car", "s-tl", "s-me", "s-garages"].includes(id);
     if (id === "s-garages") renderGarages();
     if (id === "s-car") renderCar();
+    if (id === "s-me") renderMe();
     $("#nav").hidden = !main;
     $$("#nav button").forEach(b => b.classList.toggle("on", "s-" + b.dataset.go === id));
     window.scrollTo(0, 0);
@@ -647,7 +687,7 @@
     if (!user) { if (S.user && S.user.via === "google" && !S.user.demo) { S.user = { name: "אורח", via: "guest" }; save(); renderAll(); } return; }
     S.user = { name: user.user_metadata?.full_name || user.user_metadata?.name || user.email.split("@")[0], email: user.email, via: "google", id: user.id };
     try { if (/[?&#](code|access_token)=/.test(location.href)) history.replaceState({ screen: "s-home" }, "", location.pathname + "#home"); } catch (e) {}
-    toast("מחובר: " + S.user.name);
+    toast("מחובר: " + S.user.name); myProfiles = null; cloudProfiles = {}; loadMyProfiles().catch(() => {});
     try {
       const cloudCars = await Cloud.loadCars();
       if (cloudCars.length) {
@@ -1020,6 +1060,7 @@
     const tc = $("#to-car"); if (tc) tc.onclick = () => show("s-car");
     const tg = $("#to-garages"); if (tg) tg.onclick = () => { renderGarages(); show("s-garages"); if (!S.city) openCitySheet(); };
     const gp = $("#gr-pick"); if (gp) gp.onclick = () => { renderGarages(); show("s-garages"); openCitySheet(); };
+    if (GD) wireClaims($("#home-body"));
     $("#to-garage").onclick = () => { show("s-tl"); const el = $(".tl-item.next"); if (el) el.scrollIntoView({ block: "start" }); };
     $("#done-svc").onclick = () => openLog();
     $$("[data-go]", $("#home-body")).forEach(b => b.onclick = () => show("s-" + b.dataset.go));
@@ -1131,11 +1172,14 @@
   // Community reports (this device + other drivers of the same model) keyed by normalized name|city.
   const communityMap = car => { const m = new Map(); for (const g of garagesFor(car)) m.set(normName(g.name) + "|" + cityNorm(g.city), g); return m; };
   const commLine = (g, s) => `<div class="comm">${g.n} ${g.n === 1 ? "נהג" : "נהגי"} ${s.model_he}${g.backPct !== null ? ` · ${g.backPct}% היו חוזרים` : ""}${g.avg ? ` · ממוצע ₪${fmt(g.avg)}` : ""}</div>`;
-  const garageRow = (g, comm, s) => `<div class="garage">
-      <div><div class="nm">${esc(g.name)}${comm ? ` <span class="tag rec">מומלץ</span>` : ""}${comm && comm.mine ? ` <span class="tag mine">דיווחת</span>` : ""}</div>
-        <div class="meta">${g.addr ? `<span>${esc(g.addr)}${g.city && g.city !== (S.city || "") ? ", " + g.city : ""}</span>` : ""}${g.cats.map(c => `<span>${gCatName[c]}</span>`).join("")}</div>
+  const garageRow = (g, comm, s, prof) => { const hn = prof ? hoursNow(prof.hours) : null, phone = (prof && prof.phone) || g.phone, mine = prof && myProfiles && myProfiles.some(p => p.id === prof.id); return `<div class="garage">
+      <div><div class="nm">${esc(g.name)}${comm ? ` <span class="tag rec">מומלץ</span>` : ""}${prof ? ` <span class="tag ver">מאומת</span>` : ""}${comm && comm.mine ? ` <span class="tag mine">דיווחת</span>` : ""}</div>
+        <div class="meta">${g.addr ? `<span>${esc(g.addr)}${g.city && g.city !== (S.city || "") ? ", " + g.city : ""}</span>` : ""}${(prof && prof.services && prof.services.length ? prof.services : g.cats).map(c => `<span>${gCatName[c] || c}</span>`).join("")}</div>
+        ${hn ? `<div class="hrs ${hn.open ? "open" : ""}">${hn.text}</div>` : ""}
         ${comm ? commLine(comm, s) : ""}</div>
-      <div class="acts">${g.phone ? `<a class="ib" href="${telHref(g.phone)}" aria-label="התקשר">${icoPhone}</a>` : ""}${g.addr ? `<a class="ib" href="${wazeHref(g)}" target="_blank" rel="noopener" aria-label="ניווט">${icoNav}</a>` : ""}</div></div>`;
+      <div class="acts">${phone ? `<a class="ib" href="${telHref(phone)}" aria-label="התקשר">${icoPhone}</a>` : ""}${prof && prof.whatsapp ? `<a class="ib" href="${waHref(prof.whatsapp)}" target="_blank" rel="noopener" aria-label="וואטסאפ">${icoWa}</a>` : ""}${g.addr ? `<a class="ib" href="${wazeHref(g)}" target="_blank" rel="noopener" aria-label="ניווט">${icoNav}</a>` : ""}</div>
+      ${prof ? profileDetailsHTML(prof) : ""}
+      ${!prof || mine ? `<button class="claim" data-claim="${g.id}">${mine ? "ערוך את פרופיל המוסך" : "זה המוסך שלי?"}</button>` : ""}</div>`; };
   // A community report that isn't in the registry (free-text name) still gets a row.
   const commOnlyRow = (g, s) => `<div class="garage"><div><div class="nm">${g.name} <span class="tag rec">מומלץ</span>${g.mine ? ` <span class="tag mine">דיווחת</span>` : ""}</div>
       <div class="meta"><span>${whereName[g.type] || ""}</span>${g.city ? `<span>${g.city}</span>` : ""}</div>${commLine(g, s)}</div><div class="acts"></div></div>`;
@@ -1143,17 +1187,18 @@
   function cityGarages(car, city) {
     if (!GD) return { rows: [], extra: [] };
     const s = schedById(car.schedule), cm = communityMap(car), used = new Set();
-    const rows = GD.garages.filter(r => r[2] === city).map(dirRow).map(g => { const k = normName(g.name) + "|" + cityNorm(g.city); const comm = cm.get(k) || null; if (comm) used.add(k); return { g, comm }; });
+    const profs = profilesFor(city);
+    const rows = GD.garages.filter(r => r[2] === city).map(dirRow).map(g => { const k = normName(g.name) + "|" + cityNorm(g.city); const comm = cm.get(k) || null; if (comm) used.add(k); return { g, comm, prof: profs[g.id] || null }; });
     const extra = [...cm.entries()].filter(([k, g]) => !used.has(k) && (!city || cityNorm(g.city) === cityNorm(city) || !g.city)).map(([, g]) => g);
-    rows.sort((a, b) => (b.comm ? 1 : 0) - (a.comm ? 1 : 0) || ((b.comm?.backPct ?? -1) - (a.comm?.backPct ?? -1)) || (b.g.cats.includes("mech") ? 1 : 0) - (a.g.cats.includes("mech") ? 1 : 0) || a.g.name.localeCompare(b.g.name, "he"));
+    rows.sort((a, b) => (b.comm ? 1 : 0) - (a.comm ? 1 : 0) || ((b.comm?.backPct ?? -1) - (a.comm?.backPct ?? -1)) || (b.prof ? 1 : 0) - (a.prof ? 1 : 0) || (b.g.cats.includes("mech") ? 1 : 0) - (a.g.cats.includes("mech") ? 1 : 0) || a.g.name.localeCompare(b.g.name, "he"));
     return { rows, extra, s };
   }
   const garagesEmptyHTML = () => `<div class="empty"><b>אין עדיין המלצות לדגם שלך</b><p class="small muted">אחרי הטיפול הבא, רשום איפה היית. נהגים עם אותו דגם יראו את זה.</p></div>`;
   const garagesHomeHTML = car => { const s = schedById(car.schedule), comm = garagesFor(car); const city = S.city; const dir = city && GD ? cityGarages(car, city) : null; return `
     <div class="card stack" style="gap:8px">
       <div class="row between"><p class="eyebrow">מוסכים לרכב שלך</p><button class="btn ghost" id="to-garages" style="width:auto;padding:0">${city ? "לכולם" : "בחר עיר"}</button></div>
-      ${comm.length ? `<div>${(dir ? dir.rows.filter(r => r.comm).slice(0, 3).map(r => garageRow(r.g, r.comm, s)) : comm.slice(0, 3).map(g => commOnlyRow(g, s))).join("")}</div>`
-        : dir && dir.rows.length ? `<p class="small muted">${dir.rows.length} מוסכים מורשים ב${city}. עדיין אין המלצות לדגם שלך.</p><div>${dir.rows.filter(r => r.g.cats.includes("mech")).slice(0, 3).map(r => garageRow(r.g, null, s)).join("")}</div>`
+      ${comm.length ? `<div>${(dir ? dir.rows.filter(r => r.comm).slice(0, 3).map(r => garageRow(r.g, r.comm, s, r.prof)) : comm.slice(0, 3).map(g => commOnlyRow(g, s))).join("")}</div>`
+        : dir && dir.rows.length ? `<p class="small muted">${dir.rows.length} מוסכים מורשים ב${city}. עדיין אין המלצות לדגם שלך.</p><div>${dir.rows.filter(r => r.g.cats.includes("mech") || r.prof).slice(0, 3).map(r => garageRow(r.g, null, s, r.prof)).join("")}</div>`
         : `<p class="small muted">מוסכים מורשים ליד הבית, עם המלצות של נהגים עם אותו דגם.</p><button class="btn secondary" id="gr-pick" style="padding:10px">מצא מוסך ליד הבית</button>`}
     </div>`; };
   let grFilter = "all";
@@ -1172,8 +1217,10 @@
     const ex = grFilter === "all" || grFilter === "rec" ? extra.filter(g => !q || normName(g.name).includes(q)) : [];
     const recN = rows.filter(r => r.comm).length + extra.length;
     $("#gr-sub").textContent = `${rows.length} מוסכים מורשים ב${S.city}${recN ? ` · ${recN} עם המלצות לדגם שלך` : ""}`;
-    $("#gr-list").innerHTML = ex.map(g => commOnlyRow(g, s)).join("") + list.map(r => garageRow(r.g, r.comm, s)).join("") || (grFilter === "rec" ? garagesEmptyHTML() : `<p class="small muted">לא נמצא מוסך מתאים ב${S.city}.</p>`);
+    $("#gr-list").innerHTML = ex.map(g => commOnlyRow(g, s)).join("") + list.map(r => garageRow(r.g, r.comm, s, r.prof)).join("") || (grFilter === "rec" ? garagesEmptyHTML() : `<p class="small muted">לא נמצא מוסך מתאים ב${S.city}.</p>`);
+    wireClaims($("#gr-list"));
   }
+  function wireClaims(root) { $$("[data-claim]", root).forEach(b => b.onclick = () => { const r = GD.garages.find(x => x[0] === +b.dataset.claim); if (r) claimGarage(dirRow(r)); }); }
   $("#gr-q").oninput = () => renderGarages();
   $("#gr-back").onclick = () => history.length > 1 ? history.back() : show("s-home");
   // City picker
@@ -1209,6 +1256,130 @@
   $("#log-garage").oninput = fillGarageDL;
   $("#log-garage").onchange = () => { if (!GD) return; const r = GD.garages.find(r => r[1] === $("#log-garage").value); if (r && !$("#log-city").value) $("#log-city").value = r[2]; };
 
+  // ---------- garage profiles: owners claim a licensed garage and fill a public profile ----------
+  const DAYS = ["א", "ב", "ג", "ד", "ה", "ו", "ש"];
+  const defaultHours = () => ({ 0: { open: "08:00", close: "17:00" }, 1: { open: "08:00", close: "17:00" }, 2: { open: "08:00", close: "17:00" }, 3: { open: "08:00", close: "17:00" }, 4: { open: "08:00", close: "17:00" }, 5: { open: "08:00", close: "13:00" }, 6: null });
+  // "open until 17:00" / "closed today" / "opens at 08:00", from the profile's hours and the current time
+  const hoursNow = h => { if (!h || !Object.keys(h).length) return null; const d = new Date(), t = d.toTimeString().slice(0, 5), day = h[d.getDay()];
+    if (!day) return { open: false, text: "סגור היום" }; if (t < day.open) return { open: false, text: "נפתח ב-" + day.open }; if (t < day.close) return { open: true, text: "פתוח עד " + day.close }; return { open: false, text: "סגור, נפתח מחר" }; };
+  const waHref = p => "https://wa.me/" + (p.replace(/\D/g, "").replace(/^0/, "972"));
+  const icoWa = `<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20l1.3-3.9A8 8 0 1 1 8.2 19z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.5-2-1-1 1a4 4 0 0 1-2-2l1-1-1-2z"/></svg>`;
+  let cloudProfiles = {}, myProfiles = null;
+  // verified profiles for a city, keyed by registry id (loaded once per city)
+  function profilesFor(city) {
+    if (!Cloud.enabled || !city) return {};
+    if (!(city in cloudProfiles)) { cloudProfiles[city] = {}; Cloud.garageProfiles(city).then(rows => { const m = {}; for (const r of rows) m[r.garage_id] = r; cloudProfiles[city] = m; if (!$("#s-garages").hidden) renderGarages(); renderHome(); }).catch(() => {}); }
+    return cloudProfiles[city];
+  }
+  async function loadMyProfiles(force) { if (!Cloud.enabled || !S.user || S.user.via !== "google" || S.user.demo) return (myProfiles = []); if (myProfiles && !force) return myProfiles; try { myProfiles = await Cloud.myGarageProfiles(); } catch (e) { myProfiles = []; } return myProfiles; }
+  const profileDetailsHTML = p => `<details class="fold more"><summary><span>פרטים ומחירון</span></summary>
+      ${p.makes && p.makes.length ? `<div class="small"><span class="muted">מתמחה ב:</span> ${p.makes.map(esc).join(", ")}</div>` : ""}
+      ${p.services && p.services.length ? `<div class="small"><span class="muted">שירותים:</span> ${p.services.map(s => gCatName[s] || s).join(", ")}</div>` : ""}
+      ${(p.prices || []).length ? `<div class="list small" style="margin-top:6px">${p.prices.map(x => `<div class="row between"><span>${esc(x.label)}</span><b class="num">₪${fmt(x.price)}</b></div>`).join("")}</div>` : ""}
+      ${p.about ? `<p class="small" style="margin-top:6px">${esc(p.about)}</p>` : ""}
+      ${(p.photos || []).length ? `<div class="photos">${p.photos.map(ph => `<img src="${esc(Cloud.photoUrl(ph))}" alt="" loading="lazy">`).join("")}</div>` : ""}
+      ${p.booking_url ? `<a class="btn secondary" href="${esc(p.booking_url)}" target="_blank" rel="noopener" style="margin-top:8px;padding:10px">קביעת תור</a>` : ""}</details>`;
+  // claim / edit entry points
+  function claimGarage(reg) {
+    if (!Cloud.enabled) return toast("צריך חיבור לשרת כדי לרשום מוסך");
+    if (!S.user || S.user.via !== "google" || S.user.demo) { toast("התחבר עם Google כדי לרשום את המוסך שלך"); return show("s-auth"); }
+    const mine = (myProfiles || []).find(p => p.garage_id === reg.id);
+    openGarageEdit(mine || { garage_id: reg.id, name: reg.name, city: reg.city, address: reg.addr, phone: reg.phone, registry_phone: reg.phone, hours: defaultHours(), makes: [], services: reg.cats.filter(c => c !== "test"), prices: [{ label: "טיפול קטן", price: "" }, { label: "טיפול גדול", price: "" }, { label: "שעת עבודה", price: "" }], photos: [], about: "", whatsapp: "", booking_url: "" });
+  }
+  let ge = null;
+  function openGarageEdit(p) {
+    ge = { ...p, hours: { ...(p.hours && Object.keys(p.hours).length ? p.hours : defaultHours()) }, makes: [...(p.makes || [])], services: [...(p.services || [])], prices: (p.prices || []).map(x => ({ ...x })), photos: [...(p.photos || [])] };
+    $("#ge-name").textContent = ge.name; $("#ge-sub").textContent = `${ge.address ? ge.address + ", " : ""}${ge.city} · מוסך מורשה מס' ${ge.garage_id}`;
+    $("#ge-phone").value = ge.phone || ""; $("#ge-wa").value = ge.whatsapp || ""; $("#ge-booking").value = ge.booking_url || ""; $("#ge-about").value = ge.about || "";
+    $("#ge-err").hidden = true; $("#ge-delete").hidden = !ge.id;
+    renderGeStatus(); renderGeHours(); renderGeChips(); renderGePrices(); renderGePhotos();
+    show("s-gedit");
+  }
+  function renderGeStatus() {
+    const el = $("#ge-status");
+    if (!ge.id) { el.innerHTML = `<div class="row between"><b>עוד לא נשמר</b><span class="status warn">טיוטה</span></div><p class="small muted">מלא את הפרטים ושמור. אחר כך מאמתים שהמוסך שלך, והוא מופיע לנהגים עם תג "מאומת".</p>`; return; }
+    if (ge.status === "verified") { el.innerHTML = `<div class="row between"><b>המוסך מאומת</b><span class="status good">מאומת</span></div><p class="small muted">מופיע לנהגים ב${esc(ge.city)} עם הפרטים שכאן.</p>`; return; }
+    if (ge.status === "rejected") { el.innerHTML = `<div class="row between"><b>הבקשה נדחתה</b><span class="status crit">נדחה</span></div><p class="small muted">אם זו טעות, כתוב לנו: tipulit.app@gmail.com</p>`; return; }
+    el.innerHTML = `<div class="row between"><b>ממתין לאימות</b><span class="status warn">בבדיקה</span></div>
+      <p class="small muted">נשלח קוד ב-SMS למספר הרשום במאגר משרד התחבורה: <b class="num" dir="ltr">${esc(ge.registry_phone || "")}</b></p>
+      <div id="ge-verify" class="stack" style="gap:8px"><button class="btn secondary" id="ge-send" data-busy="שולח…" style="padding:10px">שלח קוד</button></div>`;
+    $("#ge-send").onclick = async () => {
+      const b = $("#ge-send"); b.disabled = true; b.classList.add("busy");
+      try {
+        await Cloud.startPhoneVerify(ge.registry_phone);
+        $("#ge-verify").innerHTML = `<div class="field"><label for="ge-code">הקוד שקיבלת</label><input id="ge-code" inputmode="numeric" autocomplete="one-time-code" class="num" maxlength="8"></div><button class="btn primary" id="ge-confirm" data-busy="מאמת…" style="padding:10px">אמת</button>`;
+        $("#ge-confirm").onclick = async () => {
+          const c = $("#ge-confirm"); c.disabled = true; c.classList.add("busy");
+          try { await Cloud.confirmPhoneVerify(ge.registry_phone, $("#ge-code").value.trim()); const r = await Cloud.claimGarage(ge.id); if (r && r.verified) { ge.status = "verified"; myProfiles = null; toast("המוסך אומת"); renderGeStatus(); } else toast("הקוד אושר אבל המספר לא תואם למאגר"); }
+          catch (e) { toast("האימות נכשל: " + (e.message || e)); }
+          c.disabled = false; c.classList.remove("busy");
+        };
+      } catch (e) {
+        $("#ge-verify").innerHTML = `<p class="small muted">אימות ב-SMS עדיין לא פעיל. הבקשה נשמרה ונאשר אותה ידנית תוך יום עבודה, בשיחה למספר הרשום.</p>`;
+      }
+      b.disabled = false; b.classList.remove("busy");
+    };
+  }
+  function renderGeHours() {
+    $("#ge-hours").innerHTML = DAYS.map((d, i) => { const h = ge.hours[i]; return `<div class="hours-row"><span>יום ${d}</span><button class="toggle ${h ? "on" : ""}" data-day="${i}" aria-label="פתוח ביום ${d}"></button>${h ? `<div class="row" style="gap:6px"><input type="time" data-day="${i}" data-k="open" value="${h.open}"><span class="muted">עד</span><input type="time" data-day="${i}" data-k="close" value="${h.close}"></div>` : `<span class="closed">סגור</span>`}</div>`; }).join("");
+    $$("#ge-hours .toggle").forEach(t => t.onclick = () => { const i = t.dataset.day; ge.hours[i] = ge.hours[i] ? null : { open: "08:00", close: "17:00" }; renderGeHours(); });
+    $$("#ge-hours input").forEach(x => x.onchange = () => { ge.hours[x.dataset.day][x.dataset.k] = x.value; });
+  }
+  function renderGeChips() {
+    const makes = [...new Set(D.schedules.map(s => s.make_he))].sort((a, b) => a.localeCompare(b, "he"));
+    $("#ge-makes").innerHTML = makes.map(m => `<button class="chip ${ge.makes.includes(m) ? "on" : ""}" data-m="${esc(m)}">${esc(m)}</button>`).join("");
+    $$("#ge-makes .chip").forEach(c => c.onclick = () => { const m = c.dataset.m; ge.makes = ge.makes.includes(m) ? ge.makes.filter(x => x !== m) : [...ge.makes, m]; c.classList.toggle("on"); });
+    $("#ge-services").innerHTML = Object.entries(gCatName).map(([k, t]) => `<button class="chip ${ge.services.includes(k) ? "on" : ""}" data-s="${k}">${t}</button>`).join("");
+    $$("#ge-services .chip").forEach(c => c.onclick = () => { const k = c.dataset.s; ge.services = ge.services.includes(k) ? ge.services.filter(x => x !== k) : [...ge.services, k]; c.classList.toggle("on"); });
+  }
+  function renderGePrices() {
+    $("#ge-prices").innerHTML = ge.prices.map((p, i) => `<div class="price-row"><input data-i="${i}" data-k="label" value="${esc(p.label)}" placeholder="למשל טיפול קטן" autocomplete="off"><input data-i="${i}" data-k="price" class="num" inputmode="numeric" value="${p.price || ""}" placeholder="₪" autocomplete="off"><button class="x" data-del="${i}" aria-label="מחק שורה">×</button></div>`).join("");
+    $$("#ge-prices input").forEach(x => x.oninput = () => { ge.prices[x.dataset.i][x.dataset.k] = x.value; });
+    $$("#ge-prices [data-del]").forEach(b => b.onclick = () => { ge.prices.splice(+b.dataset.del, 1); renderGePrices(); });
+  }
+  $("#ge-price-add").onclick = () => { ge.prices.push({ label: "", price: "" }); renderGePrices(); $("#ge-prices input")[ge.prices.length * 2 - 2].focus(); };
+  function renderGePhotos() {
+    $("#ge-photos").innerHTML = ge.photos.map((p, i) => `<button data-ph="${i}" aria-label="הסר תמונה" style="position:relative"><img src="${esc(Cloud.enabled ? Cloud.photoUrl(p) : p)}" alt=""><span class="lb" style="position:absolute;bottom:0;left:0;right:0;font-size:.65rem;background:rgba(21,32,43,.7);color:#fff">הסר</span></button>`).join("");
+    $$("#ge-photos [data-ph]").forEach(b => b.onclick = () => { ge.photos.splice(+b.dataset.ph, 1); renderGePhotos(); });
+  }
+  $("#ge-file").onchange = async e => { for (const f of [...e.target.files].slice(0, 4 - ge.photos.length)) ge.photos.push(await shrink(f, 1000)); renderGePhotos(); e.target.value = ""; };
+  $("#ge-save").onclick = async () => {
+    const b = $("#ge-save"); $("#ge-err").hidden = true;
+    ge.phone = $("#ge-phone").value.trim(); ge.whatsapp = $("#ge-wa").value.trim(); ge.booking_url = $("#ge-booking").value.trim(); ge.about = $("#ge-about").value.trim();
+    ge.prices = ge.prices.filter(p => p.label.trim() && +String(p.price).replace(/\D/g, "")).map(p => ({ label: p.label.trim(), price: +String(p.price).replace(/\D/g, "") }));
+    if (!ge.phone) { $("#ge-err").textContent = "צריך טלפון שנהגים יוכלו להתקשר אליו."; $("#ge-err").hidden = false; return; }
+    if (ge.booking_url && !/^https?:\/\//.test(ge.booking_url)) { $("#ge-err").textContent = "קישור לקביעת תור צריך להתחיל ב-https://"; $("#ge-err").hidden = false; return; }
+    b.disabled = true; b.classList.add("busy");
+    try { const saved = await Cloud.saveGarageProfile(ge); ge = { ...ge, ...saved }; myProfiles = null; delete cloudProfiles[ge.city]; $("#ge-delete").hidden = false; renderGeStatus(); renderGePhotos(); toast("נשמר"); window.scrollTo(0, 0); }
+    catch (e) { $("#ge-err").textContent = /relation|schema cache|does not exist/i.test(e.message || "") ? "השרת עדיין לא מוכן לפרופילי מוסכים (צריך להריץ את המיגרציה 0002)." : "השמירה נכשלה: " + (e.message || e); $("#ge-err").hidden = false; }
+    b.disabled = false; b.classList.remove("busy");
+  };
+  let geDelArmed = null;
+  $("#ge-delete").onclick = async () => {
+    if (!geDelArmed) { geDelArmed = setTimeout(() => { geDelArmed = null; $("#ge-delete").textContent = "הסר את המוסך מהחשבון שלי"; }, 5000); $("#ge-delete").textContent = "בטוח? לחיצה נוספת מסירה"; return; }
+    clearTimeout(geDelArmed); geDelArmed = null; $("#ge-delete").textContent = "הסר את המוסך מהחשבון שלי";
+    try { await Cloud.deleteGarageProfile(ge.id); myProfiles = null; delete cloudProfiles[ge.city]; toast("הוסר"); show("s-me"); } catch (e) { toast("ההסרה נכשלה: " + e.message); }
+  };
+  $("#ge-back").onclick = () => history.length > 1 ? history.back() : show("s-garages");
+  // profile screen: my garages + (admin) pending claims
+  async function renderMyGarages() {
+    const el = $("#me-garages"); if (!el) return;
+    if (!Cloud.enabled || !S.user || S.user.via !== "google" || S.user.demo) { el.hidden = true; return; }
+    el.hidden = false;
+    const mine = await loadMyProfiles();
+    const st = { pending: ["בבדיקה", "warn"], verified: ["מאומת", "good"], rejected: ["נדחה", "crit"] };
+    el.innerHTML = `<h3>המוסך שלי</h3>` + (mine.length ? `<div class="list">${mine.map(p => `<button class="row between" style="width:100%;text-align:right" data-gp="${p.id}"><span><b>${esc(p.name)}</b><br><span class="small muted">${esc(p.city)}</span></span><span class="status ${st[p.status][1]}">${st[p.status][0]}</span></button>`).join("")}</div>` : `<p class="small muted">יש לך מוסך מורשה? מצא אותו ברשימת המוסכים ולחץ "זה המוסך שלי".</p>`) +
+      `<button class="btn secondary" id="me-garage-find">${mine.length ? "הוסף מוסך נוסף" : "לרשימת המוסכים"}</button><div id="me-claims"></div>`;
+    $$("[data-gp]", el).forEach(b => b.onclick = () => openGarageEdit(mine.find(p => p.id === b.dataset.gp)));
+    $("#me-garage-find").onclick = () => { renderGarages(); show("s-garages"); if (!S.city) openCitySheet(); };
+    try {
+      const claims = await Cloud.pendingGarageClaims();
+      if (claims.length) { $("#me-claims").innerHTML = `<h3 style="margin-top:12px">בקשות ממתינות (מנהל)</h3><div class="list">${claims.map(c => `<div><b>${esc(c.name)}</b> · ${esc(c.city)}<br><span class="small muted num" dir="ltr">${esc(c.registry_phone || "")} · ${esc(c.phone || "")} · ${esc(c.owner_email || "")}</span><div class="row" style="gap:8px;margin-top:6px"><button class="btn primary" style="padding:8px" data-ok="${c.id}">אשר</button><button class="btn ghost" style="padding:8px;width:auto" data-no="${c.id}">דחה</button></div></div>`).join("")}</div>`;
+        $$("[data-ok]").forEach(b => b.onclick = async () => { await Cloud.setGarageStatus(b.dataset.ok, "verified"); cloudProfiles = {}; renderMyGarages(); });
+        $$("[data-no]").forEach(b => b.onclick = async () => { await Cloud.setGarageStatus(b.dataset.no, "rejected"); renderMyGarages(); }); }
+    } catch (e) { /* not admin or table missing */ }
+  }
+
   // ---------- profile ----------
   function renderMe() {
     const u = S.user || { name: "אורח", via: "guest" };
@@ -1216,6 +1387,7 @@
       ${u.via === "guest" ? `<button class="btn secondary" id="me-google">התחבר עם Google${Cloud.enabled ? "" : " (דמו)"}</button>` : `<button class="btn ghost" id="me-logout">התנתק</button>`}${Cloud.enabled ? "" : `<p class="small muted">ללא שרת: דיווחי הקהילה הם נתוני דוגמה.</p>`}`;
     const g = $("#me-google"); if (g) g.onclick = () => Cloud.enabled ? Cloud.signInWithGoogle().catch(e => toast("ההתחברות נכשלה: " + e.message)) : (S.user = { name: "מקס", email: "max@gmail.com", via: "google", demo: true }, save(), renderAll(), toast("התחברות לדוגמה. שרת עדיין לא מחובר"));
     const lo = $("#me-logout"); if (lo) lo.onclick = async () => { if (Cloud.enabled) { try { await Cloud.signOut(); } catch (e) {} } S.user = { name: "אורח", via: "guest" }; save(); renderAll(); };
+    renderMyGarages();
     $("#me-cars").innerHTML = S.cars.map((c, i) => `<button class="row between" style="width:100%; text-align:right" data-i="${i}">
       <span><b>${carName(c)}</b><br><span class="small muted num">${fmt(c.km)} ק"מ</span></span>${i === S.active ? `<span class="status good">פעיל</span>` : `<span class="small muted">בחר</span>`}</button>`).join("");
     $$("#me-cars button").forEach(b => b.onclick = () => { S.active = +b.dataset.i; save(); renderAll(); show("s-home"); });

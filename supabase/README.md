@@ -29,7 +29,13 @@ filled in, every feature below switches on.
    ```
    The Anthropic key comes from https://platform.claude.com. The function uses
    `claude-opus-5`; a receipt costs a fraction of a cent to a few cents.
-5. **Point the app at the project**: in `app/config.js` set `SUPABASE_URL` and
+5. **Garage profiles** (owners claim a licensed garage): run `migrations/0002_garage_profiles.sql`
+   in the SQL editor. Then make yourself admin so pending claims show up on your profile screen:
+   `update public.profiles set is_admin = true where id = '<your auth user id>';`
+   Automatic verification by SMS needs an SMS provider (Authentication → Providers → Phone, e.g. Twilio)
+   and the Edge Function: `supabase functions deploy claim-garage`. Until then, claims stay "pending"
+   and you approve them from the app after calling the registry phone.
+6. **Point the app at the project**: in `app/config.js` set `SUPABASE_URL` and
    `SUPABASE_ANON_KEY` (Project Settings → API). The anon key is public by design;
    row-level security is what protects the data. Rebuild and push.
 
@@ -39,6 +45,8 @@ filled in, every feature below switches on.
 |---|---|---|
 | Cars, records, receipt paths | `cars`, `records` tables | Only the owning user (RLS) |
 | Receipt photos | bucket `receipts/<user-id>/...` | Only the owning user |
+| Garage profiles | `garage_profiles` | Owner edits; everyone reads rows with status `verified` |
+| Garage photos | bucket `garage-photos/<user-id>/...` | Public read, owner writes |
 | Shared price and garage reports | `price_reports` | Nobody directly; only the aggregate functions `community_prices` and `community_garages` (no user id, no plate, no free text; buckets under 3 reports are hidden) |
 
 ## Local development

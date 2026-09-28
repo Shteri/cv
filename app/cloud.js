@@ -100,6 +100,50 @@
     return data.map(r => ({ name: r.garage, city: r.city || "", type: r.where, n: +r.n, prices: r.avg_price ? [+r.avg_price] : [], back: r.back_pct === null ? [] : [r.back_pct >= 50], backPctRaw: r.back_pct }));
   }
 
+  // ---------- garage profiles (owners claim a licensed garage) ----------
+  // Rows are plain objects mirroring the table; see supabase/migrations/0002_garage_profiles.sql.
+  async function myGarageProfiles() {
+    const uid = (await currentUser())?.id; if (!uid) return [];
+    const { data, error } = await sb.from("garage_profiles").select("*").eq("owner_id", uid).order("created_at");
+    if (error) { if (/relation|does not exist|schema cache/i.test(error.message)) return []; throw error; }
+    return data || [];
+  }
+  async function garageProfiles(city) {
+    const { data, error } = await sb.from("garage_profiles").select("id, garage_id, name, city, address, phone, whatsapp, booking_url, about, makes, services, hours, prices, photos, status, verified_via").eq("city", city).eq("status", "verified");
+    if (error) return [];
+    return data || [];
+  }
+  async function saveGarageProfile(p) {
+    const uid = (await currentUser())?.id; if (!uid) throw new Error("not signed in");
+    const photos = [];
+    for (let i = 0; i < (p.photos || []).length; i++) {
+      const d = p.photos[i];
+      if (!d.startsWith("data:")) { photos.push(d); continue; }
+      const path = `${uid}/${p.garage_id}/${Date.now()}-${i}.jpg`;
+      const { error } = await sb.storage.from("garage-photos").upload(path, await dataUrlToBlob(d), { contentType: "image/jpeg", upsert: true });
+      if (!error) photos.push(path);
+    }
+    const row = { id: p.id || undefined, garage_id: p.garage_id, owner_id: uid, name: p.name, city: p.city, address: p.address || null, phone: p.phone || null, registry_phone: p.registry_phone || null, whatsapp: p.whatsapp || null, booking_url: p.booking_url || null, about: p.about || null, makes: p.makes || [], services: p.services || [], hours: p.hours || {}, prices: p.prices || [], photos };
+    const { data, error } = await sb.from("garage_profiles").upsert(row, { onConflict: "garage_id,owner_id" }).select("*").single();
+    if (error) throw error;
+    return data;
+  }
+  async function deleteGarageProfile(id) { const { error } = await sb.from("garage_profiles").delete().eq("id", id); if (error) throw error; }
+  const photoUrl = path => path && path.startsWith("data:") ? path : sb.storage.from("garage-photos").getPublicUrl(path).data.publicUrl;
+  // Phone verification: links the registry phone to the signed-in account via SMS OTP (needs an SMS provider in
+  // Supabase Auth). Then claim-garage (Edge Function) compares it with the registry and flips the status.
+  async function startPhoneVerify(phone) { const { error } = await sb.auth.updateUser({ phone: toE164(phone) }); if (error) throw error; }
+  async function confirmPhoneVerify(phone, token) { const { error } = await sb.auth.verifyOtp({ phone: toE164(phone), token, type: "phone_change" }); if (error) throw error; }
+  const toE164 = p => { const d = p.replace(/\D/g, ""); return d.startsWith("972") ? "+" + d : "+972" + d.replace(/^0/, ""); };
+  async function claimGarage(profileId) {
+    const { data, error } = await sb.functions.invoke("claim-garage", { body: { profile_id: profileId } });
+    if (error) throw error;
+    if (data && data.error) throw new Error(data.error);
+    return data;
+  }
+  async function pendingGarageClaims() { const { data, error } = await sb.rpc("pending_garage_claims"); if (error) throw error; return data || []; }
+  async function setGarageStatus(id, status) { const { error } = await sb.rpc("set_garage_status", { p_id: id, p_status: status }); if (error) throw error; }
+
   // ---------- receipt extraction (Edge Function -> Claude vision) ----------
   async function extractReceipt(dataUrl, context) {
     const { data, error } = await sb.functions.invoke("extract-receipt", { body: { image_base64: dataUrlToBase64(dataUrl), media_type: mediaOf(dataUrl), context } });
@@ -108,5 +152,5 @@
     return data;
   }
 
-  g.TipulitCloud = { enabled, authError, hasAuthParams, currentUser, onAuth, signInWithGoogle, signOut, handleRedirect, loadCars, saveCar, deleteCar, communityPrices, communityGarages, extractReceipt };
+  g.TipulitCloud = { enabled, authError, hasAuthParams, currentUser, onAuth, signInWithGoogle, signOut, handleRedirect, loadCars, saveCar, deleteCar, communityPrices, communityGarages, extractReceipt, myGarageProfiles, garageProfiles, saveGarageProfile, deleteGarageProfile, photoUrl, startPhoneVerify, confirmPhoneVerify, claimGarage, pendingGarageClaims, setGarageStatus };
 })(window);
