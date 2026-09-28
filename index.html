@@ -1,89 +1,796 @@
-<!DOCTYPE html>
+<!doctype html>
+<html lang="he" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-     <title>Shteri Legend</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0E5FD8">
+<meta name="description" content="הטיפול הבא לרכב שלך לפי ספר היבואן, ומה לוודא במוסך.">
+<title>טיפולית</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<style>
+  :root { color-scheme: light; padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+  body { margin: 0; font: 14px system-ui, sans-serif; background: #f3f5f8; }
+  img { max-width: 100%; }
+  [hidden] { display: none !important; }
+</style>
 </head>
-<body>  
-    <table cellspacing="20">
-        <tr>
-            <td><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMSEhUUEhEVFRUWGSAaFhgYGBsgIBsgICggICAoHx8wJjAqICYwJh8fKzsqLzU1NTU1ICs6QDo1PzE0NjcBCgoKDg0OGhAQGjYmHSUrLTc0Kzc3LS83LTUxLSstLTEtNjU3NTcrLy0tNzc3Lzg4OC04ODc3ODgzKzc4OC84K//AABEIAGQAZAMBIgACEQEDEQH/xAAcAAEAAgIDAQAAAAAAAAAAAAAABQYDBwIECAH/xAA0EAACAQIEBAIIBgMBAAAAAAABAgADEQQSITEFBkFRYXEHEyJCkaGx8BQjMoHB0WJy8ST/xAAaAQEAAgMBAAAAAAAAAAAAAAAABAUCAwYB/8QAJhEAAwABAgUEAwEAAAAAAAAAAAECAwQRBRIhMXEyM0FhE1GRIv/aAAwDAQACEQMRAD8A2fEROFLYRErnPdTEjDMMIWFQg+0u4tY6fO/gJsxY/wAlqUYt7E7isUlMZqjqg7sQJhwHFKFa/qa1OoRuFYEjzG81rhalXE4egcQWq1LHMzbbkAWA7D+7znxTBJhqlFqSKK2YFSgsb72PgbHSWT4alPWup7KdLc2nEw4PECpTRwCA6hgD0vrtM0qmtnsBERPD0REQBERAEREAT4wvvPs+spykzdgw3lvlhdTCqUrdlWwXAjh2IDZkUllJHRibqe5Glj4yN5jNrOi3ZNRJLjeNcg2NmAIA6H+j4yv8C4X+OzVcQ706NIlSA+XMdzmPQAb+cvamsU75DOM65S8cv5vw1EsLMUBbW+p1P1khKyOZkpJ7FBvUqAKZDC7KNLqp93sSddO4kxwri1HEqTRqBsps46qezDoZT6jTZY/3U7Jmuck09kzvRESIbBERAEREAREQBMHGuJLQTVSx7C31/q8zzrcaqLY/lq7HYNqPh3l5wbZc9P6I+aXTUo1xxDmFKrFcpU3uLkEab6+XhIbE8VynI7P6guDXCgHMF1Fx2vofDvM/MmJZ3NqVMFN2VcuW+3n5SqcUxb0k/VnvuyixzeI2IPfeXUVFM0ZMVx3JDnLmRGAXDVCc5ZiVzrlzaFd7MpubKRYdNzLH6DuDV0NXEuCtKogRAffIbUgdhYi/iZqMuxbMdNb9vgOk3z6H8ea2GrNlKoKvsgm9jlGax7bfGaeK01pnsYadLnL7EROPLIREQBERAEREATp8UQldNxqP5ncnDFUyyabjUS34R1y1Pw0actcu1fZqPmh8rEmwBN7D3jKnxHB1AquylQTcDy+7zbXFeC0XPrMlyNd9j3t3+7SscVw10ZW9oWOUnobG1/H6y8jFyPqYZ86tdDXHBeXMRjq4FGk2R3P5mU5FF9STtp2/aejOXeCUsFh0oUb5V3J3YncnxMgvRRhDT4evZ6lRx5XsLfCXCUHEtZeW3j+E/wCnuDGpXMIiJVkgREQBERAEREATjUe2t7W6/fTWcpirVlYEo6kLcNqNLb5u1tby94Gl+Sn9EXVPoiGx+HAvc6733/5Kdx+syo+Wnn02v+r9vu0tpx1KqgdKisrqGW7AXB203+MrHExqevkZf2REXjl3DLTwtBEIKrTUAjrpr87yRkZy3TC4WkAb+zf4kkyTnEZ/cryyyn0oRETUZiIiAIiIAiIgCaA5kx7ficSVZl9twcpIvckEHvN/iefObqGWvX7tWc/tmMvOC+uvBE1XZFTrgam21vnt8rzprUIOhI8jJPidHItMH37t59B9DIk7zoKIaPSnouqM3C8MWuTZtT/u1papA8h08vDsILW/JU289f5vJ6cVqXvmryy0j0oRETQZiIiAIiIAiIgCaM5/X/2Vh/mYiXXBfcrwRNV2RTuMULsCWY2AAuRoPCdHhOGFXEUabXyvURTbezEA2nyJ0D7EX5PVmCwiUaa0qYslMBFHgug1meInEV1p7/tlnPYRETAyEREAREQD/9k=" alt= "Max's profile" </td>
-            <td>   <p> <em>  <h1> MAX SHTERENBERG </h1>  </em></p>
-                <p><h2> My name is Max SHTERI a CO Founder of Beebizzy.llc</h2></p></td>
-        </tr>
-    </table>
-    
+<body>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&family=Rubik:wght@500;600;700&display=swap">
+<style>
+  :root {
+    --ground: #F3F5F8; --surface: #FFFFFF; --surface-2: #EAF0F7;
+    --ink: #15202B; --muted: #5E6B78; --line: #D9E0E8;
+    --accent: #0E5FD8; --accent-ink: #FFFFFF; --accent-soft: #E3EDFC;
+    --plate: #F7C948; --plate-ink: #1A1A1A;
+    --good: #1E8A55; --good-soft: #DFF3E8;
+    --warn: #B96E00; --warn-soft: #FBEFD6;
+    --crit: #C4383A; --crit-soft: #FBE3E3;
+    --shadow: 0 8px 24px rgba(21, 32, 43, .08);
+    --radius: 18px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --ground: #0E141B; --surface: #172029; --surface-2: #1F2A35;
+      --ink: #EDF2F7; --muted: #9AA8B6; --line: #2B3844;
+      --accent: #5C9EFF; --accent-ink: #0B1420; --accent-soft: #1B2D45;
+      --good: #4CC183; --good-soft: #163526;
+      --warn: #F0B04A; --warn-soft: #3A2C10;
+      --crit: #F07173; --crit-soft: #3F1D1E;
+      --shadow: 0 8px 24px rgba(0, 0, 0, .35);
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --ground: #0E141B; --surface: #172029; --surface-2: #1F2A35;
+    --ink: #EDF2F7; --muted: #9AA8B6; --line: #2B3844;
+    --accent: #5C9EFF; --accent-ink: #0B1420; --accent-soft: #1B2D45;
+    --good: #4CC183; --good-soft: #163526;
+    --warn: #F0B04A; --warn-soft: #3A2C10;
+    --crit: #F07173; --crit-soft: #3F1D1E;
+    --shadow: 0 8px 24px rgba(0, 0, 0, .35);
+  }
+  html, body { height: 100%; }
+  body {
+    background: var(--ground); color: var(--ink);
+    font-family: "Heebo", "Segoe UI", Arial, sans-serif; font-size: 16px; line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  * { box-sizing: border-box; }
+  h1, h2, h3 { font-family: "Rubik", "Heebo", Arial, sans-serif; font-weight: 600; margin: 0; text-wrap: balance; line-height: 1.25; }
+  h1 { font-size: 1.7rem; } h2 { font-size: 1.25rem; } h3 { font-size: 1.05rem; }
+  p { margin: 0; }
+  button { font: inherit; color: inherit; cursor: pointer; border: 0; background: none; }
+  button:focus-visible, input:focus-visible, select:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+  input, select { font: inherit; color: var(--ink); }
+  .num { font-variant-numeric: tabular-nums; }
 
-   <p>
-    <h3><i> The legend was born is israel</i> on 29th of September 1998.
-   An enterpenuer that gonna make an app (Beenizzy) that will change the side hustle world and help you folks get BIZZY..</h3>
+  #app { direction: rtl; min-height: 100%; max-width: 480px; margin: 0 auto; display: flex; flex-direction: column; }
+  .screen { display: flex; flex-direction: column; flex: 1; padding: 20px 16px 96px; gap: 20px; }
+  .screen.no-nav { padding-bottom: 32px; }
 
-   <hr size="2" noshade color="black">
-    <strong><h3>The Education of the Myth:</h3></strong>
-    <pr><em>Elementry School:
-      <ul>
-       <li>1-2 "Yonatan Netanyahu"</li> 
-       <li>3-6 "Ilan ramon School"</li>
-    </ul></em>
-    <strong><h3>Shit got real here:</h3></strong>
-       <em><ul>
-       <li> <a href="https://atidraziel.atidedu.org.il/">High School: "Atid raziel"</a> </li>
-    </ul></em>
-    
-    <strong><H3>IDF SERVICE:</H3></strong>
-        <em><h3>Served in the idf from March 17 to Nov 19-</h3>
-          <ul>
-            <li>Started basic training in Zikim than became a combat fighter at the serch and rescue Unit</h4>
-            Later on became a commander of the Medical Platoon, and Krav maga 
-        </li></ul></em>
-        <hr size="2" noshade color="black">
-        
-    <pr><h3>Service history</h3></pr>
-    
-            <tr>   
-                <td>March 17-Nov 17</td>
-                <td> Basic training </td>
-            </tr><br>
-            <tr>
-                <td>Nov 17-march 18</td>
-                <td>Medic Course</td>
-            </tr>
-            <tr><br>
-                <td>March 18- march 18 </td>
-                <td> A big AD MTAY </td>
-            </tr><br>
-            <TR>
-                <TD>march 18- NOV 19 </TD>
-                <TD>Combat medic Commander of Medic Platoon </TD>
-            </TR>
-           
-        </table>
-        <hr size="2" noshade color="black">
-        <h3><PR>My Skills</PR></h3>
-        <table cellspacing="3" >
-            <tr>
-                <td>
-                    <table>
-                        <tr>
-                            <td> WebDEVELOPMENT</td>
-                            <td>⭐⭐⭐</td>
-                        </tr>
-                        <tr>
-                            <td> Soccer </td>
-                            <td>⭐⭐⭐⭐</td>
-                        </tr>
-                        <tr>    
-                            <td>Martial Arts</td>
-                            <td>⭐⭐⭐⭐⭐</td>
-                        </tr>
-                </td>
-            </tr>            
-        </table>
+  .brand { display: flex; align-items: center; gap: 10px; font-family: "Rubik", sans-serif; font-weight: 700; font-size: 1.15rem; }
+  .brand .mark { width: 34px; height: 34px; border-radius: 10px; background: var(--accent); color: var(--accent-ink); display: grid; place-items: center; font-size: 1rem; }
 
-    <h3><strong><a href="Hobbies.html">Hobbies of the legend</a> </strong></h3>
-       <hr size="2" noshade color="black">
-     
-    <h3><strong><a href="contacts.html">Contact me</a></strong></h3>
+  .btn { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 14px 18px; border-radius: 14px; font-weight: 600; font-size: 1rem; transition: transform .08s ease, opacity .15s ease; }
+  .btn:active { transform: scale(.985); }
+  .btn.primary { background: var(--accent); color: var(--accent-ink); }
+  .btn.secondary { background: var(--surface); color: var(--ink); border: 1.5px solid var(--line); }
+  .btn.ghost { color: var(--muted); padding: 10px; }
+  .btn:disabled { opacity: .45; cursor: not-allowed; }
+  .btn .g { width: 20px; height: 20px; }
 
-     
+  .card { background: var(--surface); border-radius: var(--radius); padding: 18px; box-shadow: var(--shadow); }
+  .stack { display: flex; flex-direction: column; gap: 12px; }
+  .row { display: flex; align-items: center; gap: 12px; }
+  .row.between { justify-content: space-between; }
+  .muted { color: var(--muted); }
+  .small { font-size: .875rem; }
+  .eyebrow { font-size: .75rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+
+  /* Onboarding */
+  .onb-art { height: 220px; border-radius: 24px; background: var(--surface-2); display: grid; place-items: center; overflow: hidden; }
+  .onb-art svg { width: 100%; height: 100%; }
+  .dots { display: flex; gap: 6px; justify-content: center; }
+  .dots span { width: 8px; height: 8px; border-radius: 50%; background: var(--line); transition: width .2s; }
+  .dots span.on { width: 22px; background: var(--accent); border-radius: 4px; }
+
+  /* Plate */
+  .plate { display: inline-flex; align-items: center; gap: 0; white-space: nowrap; flex: none; background: var(--plate); color: var(--plate-ink); border-radius: 8px; border: 2px solid #1A1A1A; overflow: hidden; font-family: "Rubik", sans-serif; font-weight: 700; letter-spacing: .05em; font-size: 1.05rem; direction: ltr; }
+  .plate .il { background: #1747A8; color: #fff; font-size: .6rem; padding: 6px 5px; align-self: stretch; display: grid; place-items: center; letter-spacing: 0; line-height: 1; }
+  .plate .n { padding: 4px 12px; }
+  .plate-input { display: flex; align-items: center; background: var(--plate); border: 2px solid #1A1A1A; border-radius: 10px; overflow: hidden; direction: ltr; }
+  .plate-input .il { background: #1747A8; color: #fff; font-size: .7rem; padding: 0 8px; align-self: stretch; display: grid; place-items: center; }
+  .plate-input input { flex: 1; background: transparent; border: 0; padding: 14px 12px; font-family: "Rubik", sans-serif; font-weight: 700; font-size: 1.6rem; letter-spacing: .12em; color: #1A1A1A; text-align: center; min-width: 0; }
+  .plate-input input::placeholder { color: rgba(26,26,26,.35); letter-spacing: .12em; }
+
+  .field { display: flex; flex-direction: column; gap: 6px; }
+  .field label { font-weight: 500; font-size: .95rem; }
+  .field input, .field select { padding: 13px 14px; border: 1.5px solid var(--line); border-radius: 12px; background: var(--surface); width: 100%; }
+  .field .hint { font-size: .8rem; color: var(--muted); }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip { padding: 8px 14px; border-radius: 999px; border: 1.5px solid var(--line); background: var(--surface); font-size: .9rem; font-weight: 500; }
+  .chip.on { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
+
+  /* Car card */
+  .car-card { display: flex; flex-direction: column; gap: 12px; }
+  .car-card .name { font-family: "Rubik", sans-serif; font-weight: 600; font-size: 1.15rem; }
+  .odometer { display: inline-flex; gap: 2px; direction: ltr; }
+  .odometer span { background: var(--ink); color: var(--ground); font-family: "Rubik", sans-serif; font-weight: 600; padding: 2px 5px; border-radius: 4px; font-size: .95rem; min-width: 20px; text-align: center; }
+
+  /* Next service hero */
+  .hero { display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: center; }
+  .ring { width: 108px; height: 108px; position: relative; }
+  .ring svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+  .ring .lbl { position: absolute; inset: 0; display: grid; place-items: center; text-align: center; line-height: 1.1; }
+  .ring .lbl b { font-family: "Rubik", sans-serif; font-size: 1.3rem; }
+  .big { font-family: "Rubik", sans-serif; font-weight: 700; font-size: 2rem; line-height: 1; }
+  .status { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px; font-size: .8rem; font-weight: 600; }
+  .status.good { background: var(--good-soft); color: var(--good); }
+  .status.warn { background: var(--warn-soft); color: var(--warn); }
+  .status.crit { background: var(--crit-soft); color: var(--crit); }
+  .status::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+
+  .items { display: flex; flex-direction: column; }
+  .item { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-top: 1px solid var(--line); }
+  .item:first-child { border-top: 0; }
+  .item .act { flex: none; font-size: .72rem; font-weight: 600; padding: 3px 8px; border-radius: 6px; margin-top: 3px; }
+  .act.replace { background: var(--accent-soft); color: var(--accent); }
+  .act.inspect { background: var(--surface-2); color: var(--muted); }
+  .act.clean, .act.rotate, .act.adjust { background: var(--warn-soft); color: var(--warn); }
+  .item .note { font-size: .8rem; color: var(--muted); }
+
+  /* Timeline */
+  .tl { display: flex; flex-direction: column; gap: 0; position: relative; }
+  .tl-item { display: grid; grid-template-columns: 28px 1fr; gap: 12px; position: relative; padding-bottom: 14px; }
+  .tl-item::before { content: ""; position: absolute; right: 13px; top: 28px; bottom: 0; width: 2px; background: var(--line); }
+  .tl-item:last-child::before { display: none; }
+  .tl-dot { width: 28px; height: 28px; border-radius: 50%; border: 2px solid var(--line); background: var(--surface); display: grid; place-items: center; font-size: .75rem; font-weight: 700; z-index: 1; }
+  .tl-item.done .tl-dot { background: var(--good); border-color: var(--good); color: #fff; }
+  .tl-item.next .tl-dot { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); box-shadow: 0 0 0 5px var(--accent-soft); }
+  .tl-card { background: var(--surface); border-radius: 14px; padding: 12px 14px; border: 1.5px solid var(--line); }
+  .tl-item.next .tl-card { border-color: var(--accent); }
+  .tl-item.done .tl-card { opacity: .7; }
+  .tl-head { display: flex; justify-content: space-between; align-items: center; width: 100%; text-align: right; }
+  .tl-head .km { font-family: "Rubik", sans-serif; font-weight: 600; font-size: 1.05rem; }
+  .tl-head .chev { transition: transform .2s; color: var(--muted); }
+  .tl-item.open .chev { transform: rotate(180deg); }
+  .tl-body { display: none; margin-top: 8px; }
+  .tl-item.open .tl-body { display: block; }
+  .summary { font-size: .85rem; color: var(--muted); }
+
+  /* Bottom nav */
+  .nav { position: fixed; bottom: 0; left: 0; right: 0; background: var(--surface); border-top: 1px solid var(--line); display: flex; justify-content: center; padding: 6px 0 calc(6px + env(safe-area-inset-bottom, 0px)); z-index: 5; }
+  .nav .inner { display: flex; width: 100%; max-width: 480px; direction: rtl; }
+  .nav button { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px; padding: 6px 4px; font-size: .72rem; color: var(--muted); font-weight: 500; }
+  .nav button.on { color: var(--accent); }
+  .nav svg { width: 24px; height: 24px; }
+
+  .topbar { display: flex; justify-content: space-between; align-items: center; }
+  .avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--accent-soft); color: var(--accent); display: grid; place-items: center; font-weight: 700; font-family: "Rubik", sans-serif; }
+  .toggle { width: 46px; height: 26px; border-radius: 999px; background: var(--line); position: relative; transition: background .2s; flex: none; }
+  .toggle::after { content: ""; position: absolute; top: 3px; right: 3px; width: 20px; height: 20px; border-radius: 50%; background: var(--surface); transition: transform .2s; box-shadow: 0 1px 3px rgba(0,0,0,.25); }
+  .toggle.on { background: var(--good); }
+  .toggle.on::after { transform: translateX(-20px); }
+  .list > * { padding: 12px 0; border-top: 1px solid var(--line); }
+  .list > *:first-child { border-top: 0; padding-top: 0; }
+  .list > *:last-child { padding-bottom: 0; }
+  .banner { background: var(--warn-soft); color: var(--warn); border-radius: 12px; padding: 10px 14px; font-size: .85rem; font-weight: 500; }
+  .toast { position: fixed; bottom: 90px; left: 50%; transform: translateX(-50%); background: var(--ink); color: var(--ground); padding: 10px 18px; border-radius: 999px; font-size: .9rem; opacity: 0; transition: opacity .2s; pointer-events: none; z-index: 9; }
+  .toast.show { opacity: 1; }
+  .sheet { position: fixed; inset: 0; background: rgba(0,0,0,.45); display: none; align-items: flex-end; justify-content: center; z-index: 8; }
+  .sheet.show { display: flex; }
+  .sheet .panel { background: var(--surface); width: 100%; max-width: 480px; border-radius: 22px 22px 0 0; padding: 20px 16px calc(20px + env(safe-area-inset-bottom, 0px)); direction: rtl; display: flex; flex-direction: column; gap: 14px; }
+  .price { display: flex; gap: 10px; }
+  .price .p { flex: 1; background: var(--surface-2); border-radius: 12px; padding: 10px 12px; }
+  .price .p b { font-family: "Rubik", sans-serif; font-size: 1.1rem; }
+  .price .p .small { display: block; }
+  .seg { display: flex; border: 1.5px solid var(--line); border-radius: 12px; overflow: hidden; }
+  .seg button { flex: 1; padding: 10px 6px; font-size: .9rem; font-weight: 500; background: var(--surface); }
+  .seg button.on { background: var(--accent); color: var(--accent-ink); }
+  .receipt { display: flex; align-items: center; gap: 12px; }
+  .receipt img { width: 56px; height: 56px; object-fit: cover; border-radius: 10px; border: 1px solid var(--line); }
+  .receipt label { flex: 1; padding: 12px; border: 1.5px dashed var(--line); border-radius: 12px; text-align: center; color: var(--muted); font-size: .9rem; cursor: pointer; }
+  .receipt input { display: none; }
+  .hist { display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; align-items: center; }
+  .hist .amt { font-family: "Rubik", sans-serif; font-weight: 600; font-size: 1.05rem; }
+  .field textarea { padding: 13px 14px; border: 1.5px solid var(--line); border-radius: 12px; background: var(--surface); width: 100%; font: inherit; color: var(--ink); resize: vertical; }
+  .sheet .panel { max-height: 92vh; overflow-y: auto; }
+  .chk { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-top: 1px solid var(--line); cursor: pointer; }
+  .chk:first-child { border-top: 0; }
+  .chk input { width: 22px; height: 22px; margin: 2px 0 0; accent-color: var(--accent); flex: none; }
+  .chk .t { flex: 1; }
+  .chk .note { font-size: .8rem; color: var(--muted); }
+  .tip { display: flex; gap: 10px; padding: 8px 0; font-size: .9rem; }
+  .tip .i { flex: none; width: 24px; height: 24px; border-radius: 50%; background: var(--accent-soft); color: var(--accent); display: grid; place-items: center; font-weight: 700; font-size: .8rem; }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div id="app">
+
+  <!-- ONBOARDING -->
+  <section class="screen no-nav" id="s-onb" hidden>
+    <div class="brand"><span class="mark">ט</span> טיפולית</div>
+    <div class="onb-art" id="onb-art"></div>
+    <div class="stack" style="flex:1">
+      <h1 id="onb-title"></h1>
+      <p class="muted" id="onb-text"></p>
+    </div>
+    <div class="dots" id="onb-dots"></div>
+    <button class="btn primary" id="onb-next">הבא</button>
+    <button class="btn ghost" id="onb-skip">דלג</button>
+  </section>
+
+  <!-- SIGN IN -->
+  <section class="screen no-nav" id="s-auth" hidden>
+    <div class="brand"><span class="mark">ט</span> טיפולית</div>
+    <div class="stack" style="flex:1; justify-content:center; gap:8px">
+      <h1>ברוך הבא</h1>
+      <p class="muted">חשבון שומר את הרכבים והתזכורות שלך בין מכשירים. אפשר גם להתחיל כאורח ולהתחבר אחר כך.</p>
+    </div>
+    <div class="stack">
+      <button class="btn secondary" id="auth-google">
+        <svg class="g" viewBox="0 0 24 24"><path fill="#EA4335" d="M12 10.2v3.9h5.5c-.2 1.3-1.6 3.8-5.5 3.8-3.3 0-6-2.7-6-6.1s2.7-6.1 6-6.1c1.9 0 3.1.8 3.9 1.5l2.6-2.5C16.9 3.1 14.7 2 12 2 6.5 2 2 6.5 2 12s4.5 10 10 10c5.8 0 9.6-4 9.6-9.7 0-.7-.1-1.1-.2-1.6H12z"/></svg>
+        המשך עם Google
+      </button>
+      <button class="btn primary" id="auth-guest">המשך כאורח</button>
+      <p class="small muted" style="text-align:center">בהמשך: התחברות עם Apple ומספר טלפון</p>
+    </div>
+  </section>
+
+  <!-- ADD CAR -->
+  <section class="screen no-nav" id="s-add" hidden>
+    <div class="topbar">
+      <div class="brand"><span class="mark">ט</span> טיפולית</div>
+      <button class="btn ghost" id="add-back" style="width:auto">חזרה</button>
+    </div>
+
+    <div class="stack" id="add-step-plate">
+      <div class="stack" style="gap:6px">
+        <h1>מה מספר הרכב?</h1>
+        <p class="muted">נזהה את היצרן, הדגם, השנה והמנוע ממאגר הרכב הממשלתי.</p>
+      </div>
+      <div class="plate-input">
+        <span class="il">IL</span>
+        <input id="plate" inputmode="numeric" autocomplete="off" placeholder="12-345-67" maxlength="10" aria-label="מספר רכב">
+      </div>
+      <button class="btn primary" id="plate-go" disabled>זהה את הרכב</button>
+      <button class="btn ghost" id="plate-manual">אין לי את המספר, אבחר ידנית</button>
+      <p class="small muted">באב-טיפוס הזה הזיהוי מדומה: כל מספר יקבל דגם מתוך הדגמים שכבר יש להם לוח טיפולים.</p>
+    </div>
+
+    <div class="stack" id="add-step-confirm" hidden>
+      <div class="stack" style="gap:6px">
+        <h1>זה הרכב שלך?</h1>
+        <p class="muted">לפי מאגר הרכב הממשלתי.</p>
+      </div>
+      <div class="card car-card" id="confirm-card"></div>
+      <button class="btn primary" id="confirm-yes">כן, זה הרכב</button>
+      <button class="btn secondary" id="confirm-no">לא, אבחר ידנית</button>
+    </div>
+
+    <div class="stack" id="add-step-manual" hidden>
+      <div class="stack" style="gap:6px">
+        <h1>בחר את הרכב</h1>
+        <p class="muted">רק דגמים שיש להם לוח טיפולים מוכן מופיעים כאן.</p>
+      </div>
+      <div class="field"><label for="m-make">יצרן</label><select id="m-make"></select></div>
+      <div class="field"><label for="m-model">דגם ודור</label><select id="m-model"></select></div>
+      <div class="field"><label for="m-year">שנת ייצור</label><select id="m-year"></select></div>
+      <button class="btn primary" id="manual-go">המשך</button>
+    </div>
+
+    <div class="stack" id="add-step-km" hidden>
+      <div class="stack" style="gap:6px">
+        <h1>כמה קילומטרים על השעון?</h1>
+        <p class="muted">ואיך אתה נוסע. מזה נחשב מתי הטיפול הבא.</p>
+      </div>
+      <div class="field">
+        <label for="km">קילומטראז' נוכחי</label>
+        <input id="km" inputmode="numeric" placeholder="למשל 47500" class="num">
+      </div>
+      <div class="field">
+        <label>כמה אתה נוסע בחודש בערך?</label>
+        <div class="chips" id="km-month">
+          <button class="chip" data-v="800">עד 800</button>
+          <button class="chip on" data-v="1500">כ-1,500</button>
+          <button class="chip" data-v="2500">כ-2,500</button>
+          <button class="chip" data-v="4000">4,000 ומעלה</button>
+        </div>
+      </div>
+      <div class="field">
+        <label for="last">מתי היה הטיפול האחרון? <span class="muted">(לא חובה)</span></label>
+        <input id="last" type="month">
+        <span class="hint">אם לא זוכר, נחשב לפי ק"מ בלבד.</span>
+      </div>
+      <button class="btn primary" id="km-go" disabled>סיום</button>
+    </div>
+  </section>
+
+  <!-- HOME -->
+  <section class="screen" id="s-home" hidden>
+    <div class="topbar">
+      <div class="brand"><span class="mark">ט</span> טיפולית</div>
+      <button class="avatar" id="home-avatar" aria-label="הפרופיל שלי">א</button>
+    </div>
+    <div id="home-body" class="stack" style="gap:16px"></div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section class="screen" id="s-tl" hidden>
+    <div class="stack" style="gap:4px">
+      <h1>ציר הטיפולים</h1>
+      <p class="muted small" id="tl-sub"></p>
+    </div>
+    <div class="tl" id="tl-body"></div>
+    <div class="card stack" id="tl-time"></div>
+  </section>
+
+  <!-- PROFILE / SETTINGS -->
+  <section class="screen" id="s-me" hidden>
+    <h1>הפרופיל שלי</h1>
+    <div class="card stack" id="me-body"></div>
+    <div class="card stack">
+      <h3>הרכבים שלי</h3>
+      <div class="list" id="me-cars"></div>
+      <button class="btn secondary" id="me-add">הוסף רכב</button>
+    </div>
+    <div class="card stack">
+      <h3>תזכורות</h3>
+      <div class="list">
+        <div class="row between"><span>התראה חודש לפני טיפול</span><button class="toggle on" id="t1" aria-label="התראה חודש לפני"></button></div>
+        <div class="row between"><span>התראה 1,000 ק"מ לפני</span><button class="toggle on" id="t2" aria-label="התראה אלף קילומטר לפני"></button></div>
+        <div class="row between"><span>תזכורת לעדכן ק"מ פעם בחודש</span><button class="toggle" id="t3" aria-label="תזכורת חודשית"></button></div>
+      </div>
+    </div>
+    <div class="card stack" id="me-sources"></div>
+    <button class="btn ghost" id="me-reset">איפוס האפליקציה (מוחק הכל במכשיר הזה)</button>
+  </section>
+
+  <nav class="nav" id="nav" hidden>
+    <div class="inner">
+      <button data-go="home" class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>בית</button>
+      <button data-go="tl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M12 6a2 2 0 1 0 0 .01M12 12a2 2 0 1 0 0 .01M12 18a2 2 0 1 0 0 .01"/></svg>ציר טיפולים</button>
+      <button data-go="me"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>אני</button>
+    </div>
+  </nav>
+
+  <div class="toast" id="toast"></div>
+
+  <div class="sheet" id="log">
+    <div class="panel">
+      <div class="row between"><h2>עשיתי טיפול</h2><button class="btn ghost" id="log-close" style="width:auto">סגור</button></div>
+      <div class="field"><label for="log-svc">איזה טיפול</label><select id="log-svc"></select></div>
+      <div class="row" style="gap:10px">
+        <div class="field" style="flex:1"><label for="log-date">מתי</label><input id="log-date" type="month"></div>
+        <div class="field" style="flex:1"><label for="log-km">ק"מ בטיפול</label><input id="log-km" inputmode="numeric" class="num"></div>
+      </div>
+      <div class="field"><label>איפה</label>
+        <div class="seg" id="log-where">
+          <button data-v="importer" class="on">מוסך יבואן</button><button data-v="independent">מוסך פרטי</button><button data-v="self">בעצמי</button>
+        </div>
+      </div>
+      <div class="row" style="gap:10px" id="log-garage-row">
+        <div class="field" style="flex:1.4"><label for="log-garage">שם המוסך <span class="muted">(לא חובה)</span></label><input id="log-garage" placeholder="למשל טויוטה ראשל"צ"></div>
+        <div class="field" style="flex:1"><label for="log-city">עיר</label><input id="log-city" placeholder="ראשון לציון"></div>
+      </div>
+      <div class="field"><label for="log-price">כמה שילמת (₪)</label><input id="log-price" inputmode="numeric" class="num" placeholder="למשל 890"></div>
+      <div class="field"><label for="log-extra">מה עוד נעשה מעבר לטיפול הרגיל? <span class="muted">(לא חובה)</span></label><textarea id="log-extra" rows="2" placeholder="למשל רפידות קדמיות, מצבר"></textarea></div>
+      <div class="field"><label>צילום חשבונית <span class="muted">(לא חובה, עוזר לאמת מחירים)</span></label>
+        <div class="receipt"><img id="log-thumb" alt="" hidden><label for="log-file" id="log-file-lbl">הוסף צילום</label><input id="log-file" type="file" accept="image/*"></div>
+      </div>
+      <div class="row between"><span class="small">שתף את המחיר אנונימית עם נהגים אחרים<br><span class="muted">בלי שם, בלי מספר רכב. רק דגם, טיפול, סוג מוסך, עיר ומחיר.</span></span><button class="toggle on" id="log-share" aria-label="שיתוף מחיר"></button></div>
+      <button class="btn primary" id="log-save">שמור</button>
+    </div>
+  </div>
+
+  <div class="sheet" id="sheet">
+    <div class="panel">
+      <h2>עדכון קילומטראז'</h2>
+      <div class="field"><label for="sheet-km">מה על השעון עכשיו?</label><input id="sheet-km" inputmode="numeric" class="num"></div>
+      <button class="btn primary" id="sheet-save">שמור</button>
+      <button class="btn ghost" id="sheet-close">ביטול</button>
+    </div>
+  </div>
+</div>
+
+<script src="data.js"></script>
+<script>
+(function () {
+  document.documentElement.dir = "rtl";
+  document.documentElement.lang = "he";
+  const D = window.TIPULIT_DATA;
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const fmt = n => new Intl.NumberFormat("he-IL").format(Math.round(n));
+  const store = {
+    get() { try { return JSON.parse(localStorage.getItem("tipulit") || "null"); } catch (e) { return null; } },
+    set(v) { try { localStorage.setItem("tipulit", JSON.stringify(v)); } catch (e) {} },
+    clear() { try { localStorage.removeItem("tipulit"); } catch (e) {} }
+  };
+  let S = store.get() || { onboarded: false, user: null, cars: [], active: 0 };
+  const save = () => store.set(S);
+
+  // ---------- helpers ----------
+  const schedById = id => D.schedules.find(s => s.id === id);
+  const itemName = k => (D.items[k] && D.items[k].he) || k;
+  const actName = { replace: "החלפה", inspect: "בדיקה", clean: "ניקוי", rotate: "סבב", adjust: "כיוון" };
+  const fmtPlate = raw => {
+    const d = raw.replace(/\D/g, "").slice(0, 8);
+    if (d.length <= 7) return d.replace(/(\d{2})(\d{0,3})(\d{0,2})/, (m, a, b, c) => [a, b, c].filter(Boolean).join("-"));
+    return d.replace(/(\d{3})(\d{2})(\d{3})/, "$1-$2-$3");
+  };
+  const show = id => {
+    $$(".screen").forEach(s => s.hidden = s.id !== id);
+    const main = ["s-home", "s-tl", "s-me"].includes(id);
+    $("#nav").hidden = !main;
+    $$("#nav button").forEach(b => b.classList.toggle("on", "s-" + b.dataset.go === id));
+    window.scrollTo(0, 0);
+  };
+  let toastT;
+  const toast = msg => { const t = $("#toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove("show"), 2200); };
+
+  // Maintenance engine: given a schedule and a car, compute the next service.
+  function computeNext(car) {
+    const s = schedById(car.schedule);
+    const cyc = s.cycle_km;
+    const rel = car.km % cyc;
+    const laps = Math.floor(car.km / cyc);
+    let svc = s.services.find(x => x.km > rel);
+    let nextKm;
+    if (svc) nextKm = laps * cyc + svc.km;
+    else { svc = s.services[0]; nextKm = (laps + 1) * cyc + svc.km; }
+    const remainKm = nextKm - car.km;
+    const monthsByKm = remainKm / car.kmMonth;
+    let dueDate = new Date(); dueDate.setMonth(dueDate.getMonth() + Math.floor(monthsByKm));
+    let byTime = null;
+    if (car.lastService) {
+      byTime = new Date(car.lastService + "-01"); byTime.setMonth(byTime.getMonth() + s.interval.months);
+      if (byTime < dueDate) dueDate = byTime;
+    }
+    const prevKm = nextKm - s.interval.km;
+    const progress = Math.min(1, Math.max(0, (car.km - prevKm) / s.interval.km));
+    const daysLeft = Math.round((dueDate - new Date()) / 86400000);
+    const level = remainKm <= 0 || daysLeft <= 0 ? "crit" : (remainKm <= 1500 || daysLeft <= 30) ? "warn" : "good";
+    return { s, svc, nextKm, remainKm, dueDate, byTime, progress, daysLeft, level };
+  }
+  const monthName = d => new Intl.DateTimeFormat("he-IL", { month: "long", year: "numeric" }).format(d);
+  const carName = car => { const s = schedById(car.schedule); return `${s.make_he} ${s.model_he} ${car.year}`; };
+  const plateHTML = p => `<span class="plate"><span class="il">IL</span><span class="n">${p}</span></span>`;
+  const odoHTML = km => `<span class="odometer">${String(Math.round(km)).padStart(6, "0").split("").map(c => `<span>${c}</span>`).join("")}</span>`;
+  const itemsHTML = items => `<div class="items">${items.map(it => `
+    <div class="item"><span class="act ${it.action}">${actName[it.action] || it.action}</span>
+      <div><div>${itemName(it.item)}</div>${it.note ? `<div class="note">${it.note}</div>` : ""}</div></div>`).join("")}</div>`;
+  const summarize = items => {
+    const rep = items.filter(i => i.action === "replace").map(i => itemName(i.item));
+    const chk = items.length - rep.length;
+    return `${rep.slice(0, 3).join(", ")}${rep.length > 3 ? ` ועוד ${rep.length - 3}` : ""}${chk ? ` · ${chk} בדיקות` : ""}`;
+  };
+
+  // ---------- onboarding ----------
+  const onb = [
+    { t: "כל טיפול, בזמן הנכון", x: "טיפולית מחשבת מתי הטיפול הבא לפי הקילומטראז' והזמן, ומזכירה לך לפני שמאחרים.",
+      art: `<svg viewBox="0 0 320 220"><rect x="40" y="70" width="240" height="90" rx="16" fill="var(--surface)"/><rect x="60" y="92" width="200" height="12" rx="6" fill="var(--line)"/><rect x="60" y="92" width="130" height="12" rx="6" fill="var(--accent)"/><circle cx="190" cy="98" r="10" fill="var(--accent)"/><circle cx="190" cy="98" r="18" fill="var(--accent)" opacity=".2"/><text x="60" y="140" font-family="Rubik" font-weight="600" font-size="20" fill="var(--ink)">45,000</text><text x="230" y="140" font-family="Heebo" font-size="12" fill="var(--muted)" text-anchor="end">60,000</text></svg>` },
+    { t: "לפי ספר היבואן, לא לפי ניחוש", x: "מה מחליפים, מה בודקים ומתי. הכל מלוחות הטיפולים של היבואנים בישראל, דגם אחר דגם.",
+      art: `<svg viewBox="0 0 320 220"><rect x="70" y="40" width="180" height="140" rx="12" fill="var(--surface)"/><rect x="90" y="64" width="80" height="10" rx="5" fill="var(--ink)"/><rect x="90" y="88" width="140" height="8" rx="4" fill="var(--line)"/><rect x="90" y="106" width="120" height="8" rx="4" fill="var(--line)"/><rect x="90" y="124" width="140" height="8" rx="4" fill="var(--line)"/><rect x="90" y="142" width="100" height="8" rx="4" fill="var(--line)"/><rect x="210" y="84" width="24" height="16" rx="4" fill="var(--accent-soft)"/><rect x="210" y="120" width="24" height="16" rx="4" fill="var(--accent-soft)"/></svg>` },
+    { t: "מספר רכב, וזהו", x: "מקלידים מספר רכב, אנחנו מזהים את הדגם, השנה והמנוע. בלי טפסים ובלי לחפש את ספר הרכב במגירה.",
+      art: `<svg viewBox="0 0 320 220"><rect x="70" y="85" width="180" height="50" rx="8" fill="#F7C948" stroke="#1A1A1A" stroke-width="3"/><rect x="70" y="85" width="26" height="50" rx="6" fill="#1747A8"/><text x="170" y="120" font-family="Rubik" font-weight="700" font-size="26" fill="#1A1A1A" text-anchor="middle" letter-spacing="3">12-345-67</text></svg>` }
+    ,{ t: "כמה זה עולה? הקהילה יודעת", x: "אחרי כל טיפול אפשר לשתף אנונימית כמה שילמת ואיפה. ככה כולם רואים מחיר הוגן לפני שנכנסים למוסך.",
+      art: `<svg viewBox="0 0 320 220"><rect x="50" y="60" width="100" height="100" rx="14" fill="var(--surface)"/><rect x="170" y="60" width="100" height="100" rx="14" fill="var(--surface)"/><text x="100" y="105" font-family="Rubik" font-weight="700" font-size="22" fill="var(--ink)" text-anchor="middle">₪1,150</text><text x="220" y="105" font-family="Rubik" font-weight="700" font-size="22" fill="var(--accent)" text-anchor="middle">₪780</text><text x="100" y="135" font-family="Heebo" font-size="12" fill="var(--muted)" text-anchor="middle">מוסך יבואן</text><text x="220" y="135" font-family="Heebo" font-size="12" fill="var(--muted)" text-anchor="middle">מוסך פרטי</text></svg>` }
+  ];
+  let onbI = 0;
+  function renderOnb() {
+    const o = onb[onbI];
+    $("#onb-title").textContent = o.t; $("#onb-text").textContent = o.x; $("#onb-art").innerHTML = o.art;
+    $("#onb-dots").innerHTML = onb.map((_, i) => `<span class="${i === onbI ? "on" : ""}"></span>`).join("");
+    $("#onb-next").textContent = onbI === onb.length - 1 ? "בואו נתחיל" : "הבא";
+  }
+  $("#onb-next").onclick = () => { if (onbI < onb.length - 1) { onbI++; renderOnb(); } else finishOnb(); };
+  $("#onb-skip").onclick = finishOnb;
+  function finishOnb() { S.onboarded = true; save(); show("s-auth"); }
+
+  // ---------- auth ----------
+  // Real Google sign-in goes here with Google Identity Services:
+  //   google.accounts.id.initialize({ client_id: "<CLIENT_ID>", callback: onCredential });
+  // Needs a client ID and an allowed origin. In this prototype the button simulates a signed-in user.
+  $("#auth-google").onclick = () => { S.user = { name: "מקס", email: "max@gmail.com", via: "google" }; save(); afterAuth(); };
+  $("#auth-guest").onclick = () => { S.user = { name: "אורח", via: "guest" }; save(); afterAuth(); };
+  function afterAuth() { if (S.cars.length) { renderAll(); show("s-home"); } else startAdd(); }
+
+  // ---------- add car ----------
+  let draft = {};
+  function startAdd() {
+    draft = {}; $("#plate").value = ""; $("#plate-go").disabled = true;
+    ["plate", "confirm", "manual", "km"].forEach(k => $("#add-step-" + k).hidden = k !== "plate");
+    $("#add-back").hidden = S.cars.length === 0;
+    show("s-add");
+  }
+  $("#add-back").onclick = () => show("s-me");
+  $("#plate").addEventListener("input", e => {
+    e.target.value = fmtPlate(e.target.value);
+    const n = e.target.value.replace(/\D/g, "").length;
+    $("#plate-go").disabled = !(n === 7 || n === 8);
+  });
+  $("#plate-go").onclick = () => {
+    const digits = $("#plate").value.replace(/\D/g, "");
+    // Prototype lookup: deterministic pick from the schedules we have. Real version calls data.gov.il.
+    const s = D.schedules[parseInt(digits.slice(-2), 10) % D.schedules.length];
+    const year = s.years[0] + (parseInt(digits.slice(0, 2), 10) % (s.years[1] - s.years[0] + 1));
+    draft = { plate: $("#plate").value, schedule: s.id, year };
+    $("#confirm-card").innerHTML = `<div class="row between"><span class="name">${s.make_he} ${s.model_he}</span>${plateHTML(draft.plate)}</div>
+      <div class="list small">
+        <div class="row between"><span class="muted">שנת ייצור</span><b class="num">${year}</b></div>
+        <div class="row between"><span class="muted">מנוע</span><b>${s.engines[0]}</b></div>
+        <div class="row between"><span class="muted">יבואן</span><b>${s.importer}</b></div>
+        <div class="row between"><span class="muted">מרווח טיפולים</span><b class="num">${fmt(s.interval.km)} ק"מ / ${s.interval.months} חודשים</b></div>
+      </div>`;
+    stepTo("confirm");
+  };
+  const stepTo = k => ["plate", "confirm", "manual", "km"].forEach(x => $("#add-step-" + x).hidden = x !== k);
+  $("#confirm-yes").onclick = () => stepTo("km");
+  $("#confirm-no").onclick = () => { fillManual(); stepTo("manual"); };
+  $("#plate-manual").onclick = () => { draft = { plate: "" }; fillManual(); stepTo("manual"); };
+  function fillManual() {
+    const makes = [...new Set(D.schedules.map(s => s.make_he))];
+    $("#m-make").innerHTML = makes.map(m => `<option>${m}</option>`).join("");
+    fillModels();
+  }
+  function fillModels() {
+    const list = D.schedules.filter(s => s.make_he === $("#m-make").value);
+    $("#m-model").innerHTML = list.map(s => `<option value="${s.id}">${s.model_he} (${s.years[0]}-${s.years[1]}) · ${s.engines[0]}</option>`).join("");
+    fillYears();
+  }
+  function fillYears() {
+    const s = schedById($("#m-model").value); const ys = [];
+    for (let y = s.years[1]; y >= s.years[0]; y--) ys.push(y);
+    $("#m-year").innerHTML = ys.map(y => `<option>${y}</option>`).join("");
+  }
+  $("#m-make").onchange = fillModels; $("#m-model").onchange = fillYears;
+  $("#manual-go").onclick = () => { draft.schedule = $("#m-model").value; draft.year = +$("#m-year").value; stepTo("km"); };
+  let kmMonth = 1500;
+  $$("#km-month .chip").forEach(c => c.onclick = () => { $$("#km-month .chip").forEach(x => x.classList.remove("on")); c.classList.add("on"); kmMonth = +c.dataset.v; });
+  $("#km").addEventListener("input", e => { e.target.value = e.target.value.replace(/\D/g, ""); $("#km-go").disabled = !e.target.value; });
+  $("#km-go").onclick = () => {
+    const car = { ...draft, km: +$("#km").value, kmMonth, lastService: $("#last").value || null, added: Date.now() };
+    S.cars.push(car); S.active = S.cars.length - 1; save();
+    renderAll(); show("s-home"); toast("הרכב נוסף");
+  };
+
+  // ---------- community prices (example data, deterministic) ----------
+  // Real version: aggregate anonymous reports server-side by schedule id + service km + garage type + city.
+  function communityPrice(s, svc) {
+    const rep = svc.items.filter(i => i.action === "replace").length;
+    const base = 330 + rep * 80 + (s.make === "Toyota" || s.make === "Mazda" ? 90 : 0) + (svc.km % s.cycle_km === 0 ? 120 : 0);
+    const seed = (svc.km / 1000 + s.id.length) % 7;
+    const imp = Math.round((base * 1.45 + seed * 20) / 10) * 10, ind = Math.round((base + seed * 15) / 10) * 10;
+    const mine = (S.cars[S.active].history || []).filter(h => h.svcKm === svc.km && h.share && h.price);
+    return { importer: { med: imp, lo: imp - 140, hi: imp + 210, n: 12 + seed * 3 }, independent: { med: ind, lo: ind - 120, hi: ind + 160, n: 20 + seed * 4 }, mine, example: true };
+  }
+  const priceHTML = (s, svc) => { const c = communityPrice(s, svc); return `
+    <div class="stack" style="gap:6px">
+      <div class="row between"><p class="eyebrow">כמה זה עולה לאחרים</p><span class="small muted">נתוני דוגמה</span></div>
+      <div class="price">
+        <div class="p"><span class="small muted">מוסך יבואן</span><b class="num">₪${fmt(c.importer.med)}</b><span class="small muted num">₪${fmt(c.importer.lo)} עד ₪${fmt(c.importer.hi)} · ${c.importer.n} דיווחים</span></div>
+        <div class="p"><span class="small muted">מוסך פרטי</span><b class="num">₪${fmt(c.independent.med)}</b><span class="small muted num">₪${fmt(c.independent.lo)} עד ₪${fmt(c.independent.hi)} · ${c.independent.n} דיווחים</span></div>
+      </div>
+    </div>`; };
+
+  // ---------- log a service ----------
+  const whereName = { importer: "מוסך יבואן", independent: "מוסך פרטי", self: "בעצמי" };
+  let logWhere = "importer", logThumb = null;
+  function openLog(preKm) {
+    const car = S.cars[S.active], s = schedById(car.schedule), n = computeNext(car);
+    const laps = Math.floor(car.km / s.cycle_km); const opts = [];
+    for (let lap = Math.max(0, laps - 1); lap <= laps; lap++) for (const svc of s.services) opts.push(lap * s.cycle_km + svc.km);
+    const nearest = preKm || opts.reduce((a, b) => Math.abs(b - car.km) < Math.abs(a - car.km) ? b : a);
+    $("#log-svc").innerHTML = opts.filter(k => k <= n.nextKm).map(k => `<option value="${k}" ${k === nearest ? "selected" : ""}>טיפול ${fmt(k)} ק"מ</option>`).join("");
+    const d = new Date(); $("#log-date").value = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}`;
+    $("#log-km").value = car.km; $("#log-price").value = ""; $("#log-garage").value = ""; $("#log-city").value = ""; $("#log-extra").value = "";
+    logThumb = null; $("#log-thumb").hidden = true; $("#log-file-lbl").textContent = "הוסף צילום"; $("#log-file").value = "";
+    $("#log").classList.add("show");
+  }
+  $("#log-close").onclick = () => $("#log").classList.remove("show");
+  $("#log").onclick = e => { if (e.target.id === "log") $("#log").classList.remove("show"); };
+  $$("#log-where button").forEach(b => b.onclick = () => { $$("#log-where button").forEach(x => x.classList.remove("on")); b.classList.add("on"); logWhere = b.dataset.v; $("#log-garage-row").hidden = logWhere === "self"; });
+  $("#log-file").onchange = e => {
+    const f = e.target.files[0]; if (!f) return;
+    const r = new FileReader(); r.onload = () => {
+      const img = new Image(); img.onload = () => {
+        const c = document.createElement("canvas"); const k = 160 / Math.max(img.width, img.height);
+        c.width = img.width * k; c.height = img.height * k; c.getContext("2d").drawImage(img, 0, 0, c.width, c.height);
+        logThumb = c.toDataURL("image/jpeg", .7); $("#log-thumb").src = logThumb; $("#log-thumb").hidden = false; $("#log-file-lbl").textContent = "החלף צילום";
+      }; img.src = r.result;
+    }; r.readAsDataURL(f);
+  };
+  $("#log-share").onclick = () => $("#log-share").classList.toggle("on");
+  $("#log-save").onclick = () => {
+    const car = S.cars[S.active];
+    const e = { svcKm: +$("#log-svc").value, date: $("#log-date").value, km: +$("#log-km").value.replace(/\D/g, "") || car.km, where: logWhere,
+      garage: $("#log-garage").value.trim(), city: $("#log-city").value.trim(), price: +$("#log-price").value.replace(/\D/g, "") || null,
+      extra: $("#log-extra").value.trim(), receipt: logThumb, share: $("#log-share").classList.contains("on"), at: Date.now() };
+    car.history = car.history || []; car.history.push(e);
+    car.lastService = e.date || car.lastService; if (e.km > car.km) car.km = e.km;
+    save(); $("#log").classList.remove("show"); renderAll();
+    toast(e.share && e.price ? "נשמר. תודה שעזרת לנהגים אחרים" : "הטיפול נשמר");
+  };
+  const historyHTML = car => { const h = (car.history || []).slice().sort((a, b) => b.svcKm - a.svcKm); if (!h.length) return ""; return `
+    <div class="card stack"><p class="eyebrow">היסטוריית הטיפולים שלך</p>
+      ${h.map(e => `<div class="hist">
+        <div><b class="num">טיפול ${fmt(e.svcKm)}</b> <span class="small muted">· ${e.date ? monthName(new Date(e.date + "-01")) : ""}</span><br>
+          <span class="small muted">${whereName[e.where]}${e.garage ? " · " + e.garage : ""}${e.city ? " · " + e.city : ""}${e.extra ? " · " + e.extra : ""}</span></div>
+        <div class="row" style="gap:8px">${e.receipt ? `<img src="${e.receipt}" alt="חשבונית" style="width:36px;height:36px;object-fit:cover;border-radius:8px">` : ""}<span class="amt num">${e.price ? "₪" + fmt(e.price) : "ללא מחיר"}</span></div>
+      </div>`).join("")}
+    </div>`; };
+
+  // ---------- useful specs from the owner's book ----------
+  const specLabels = { engine_oil: "שמן מנוע", oil_capacity: "כמות שמן עם מסנן", coolant: "נוזל קירור", brake_fluid: "נוזל בלמים", fuel: "דלק", tires: "מידת צמיגים", tire_pressure: "לחץ אוויר", battery: "מצבר", timing: "תזמון", spare: "גלגל חלופי", wipers: "מגבים", warranty: "אחריות יבואן" };
+  const specsHTML = s => { if (!s.specs) return ""; const keys = Object.keys(specLabels).filter(k => s.specs[k]); return `
+    <div class="card stack" style="gap:8px"><div class="row between"><p class="eyebrow">מהספר, בשורה אחת</p><span class="small muted">${s.specs._note || ""}</span></div>
+      <div class="list small">${keys.map(k => `<div class="row between" style="align-items:flex-start"><span class="muted" style="flex:none">${specLabels[k]}</span><b style="text-align:left">${s.specs[k]}</b></div>`).join("")}</div></div>`; };
+
+  // ---------- home ----------
+  function renderHome() {
+    const car = S.cars[S.active]; if (!car) return;
+    const n = computeNext(car);
+    const r = 46, c = 2 * Math.PI * r;
+    const statusText = n.level === "crit" ? "הגיע הזמן לטיפול" : n.level === "warn" ? "מתקרב" : "הכל בסדר";
+    const timeLine = n.byTime && n.byTime <= n.dueDate
+      ? `לפי הזמן: עד ${monthName(n.byTime)} (${n.s.interval.months} חודשים מהטיפול האחרון)`
+      : `לפי הקצב שלך (${fmt(car.kmMonth)} ק"מ בחודש): בערך ${monthName(n.dueDate)}`;
+    const hello = S.user && S.user.via === "google" ? `היי ${S.user.name}` : "היי";
+    $("#home-avatar").textContent = (S.user && S.user.name[0]) || "א";
+    $("#home-body").innerHTML = `
+      <div class="stack" style="gap:2px"><p class="eyebrow">${hello}</p><h2>${carName(car)}</h2></div>
+      <div class="card car-card">
+        <div class="row between" style="flex-wrap:wrap; gap:10px">${car.plate ? plateHTML(car.plate) : `<span class="muted small">ללא מספר רכב</span>`}
+          <div class="stack" style="gap:2px; align-items:flex-start"><span class="eyebrow">על השעון</span>${odoHTML(car.km)}</div></div>
+        <div class="row" style="gap:8px">
+          <button class="btn secondary" id="upd-km" style="padding:10px">עדכן ק"מ</button>
+          <button class="btn secondary" id="done-svc" style="padding:10px">עשיתי טיפול</button>
+        </div>
+      </div>
+      <div class="card stack" style="gap:14px">
+        <div class="row between"><p class="eyebrow">הטיפול הבא</p><span class="status ${n.level}">${statusText}</span></div>
+        <div class="hero">
+          <div class="stack" style="gap:6px">
+            <div><span class="big num">${fmt(n.nextKm)}</span> <span class="muted">ק"מ</span></div>
+            <p class="small"><b class="num">${n.remainKm > 0 ? "עוד " + fmt(n.remainKm) : "באיחור של " + fmt(-n.remainKm)}</b> ק"מ</p>
+            <p class="small muted">${timeLine}</p>
+          </div>
+          <div class="ring" aria-hidden="true">
+            <svg viewBox="0 0 108 108"><circle cx="54" cy="54" r="${r}" fill="none" stroke="var(--surface-2)" stroke-width="10"/>
+              <circle cx="54" cy="54" r="${r}" fill="none" stroke="var(--${n.level === "good" ? "accent" : n.level})" stroke-width="10" stroke-linecap="round" stroke-dasharray="${c}" stroke-dashoffset="${c * (1 - n.progress)}"/></svg>
+            <div class="lbl"><div><b class="num">${Math.round(n.progress * 100)}%</b><br><span class="small muted">מהדרך</span></div></div>
+          </div>
+        </div>
+        <div class="stack" style="gap:6px">
+          <p class="small"><b>מה כולל טיפול ${fmt(n.svc.km)}:</b></p>
+          ${itemsHTML(n.svc.items.filter(i => i.action === "replace"))}
+          <button class="btn ghost" data-go="tl" style="width:auto; align-self:flex-start; padding-right:0">לכל הפריטים והבדיקות</button>
+        </div>
+        ${priceHTML(n.s, n.svc)}
+        <button class="btn primary" id="to-garage">לקחת למוסך: מה לוודא בטיפול ${fmt(n.svc.km)}</button>
+      </div>
+      ${historyHTML(car)}
+      ${n.s.status === "draft" ? `<div class="banner">הלוח של הדגם הזה עדיין בטיוטה. המרווח לפי היבואן, תכולת הטיפולים בהמתנה לאימות מול ספר הרכב.</div>` : ""}
+      ${specsHTML(n.s)}
+      <div class="card stack" style="gap:8px">
+        <p class="eyebrow">טוב לדעת</p>
+        <p class="small">המרווח של ${n.s.importer} לדגם הזה: <b class="num">${fmt(n.s.interval.km)} ק"מ או ${n.s.interval.months} חודשים</b>, המוקדם מביניהם.</p>
+        ${n.s.interval.note ? `<p class="small muted">${n.s.interval.note}</p>` : ""}
+      </div>`;
+    $("#upd-km").onclick = openSheet;
+    $("#to-garage").onclick = () => { show("s-tl"); const el = $(".tl-item.next"); if (el) el.scrollIntoView({ block: "start" }); };
+    $("#done-svc").onclick = () => openLog();
+    $$("[data-go]", $("#home-body")).forEach(b => b.onclick = () => show("s-" + b.dataset.go));
+  }
+
+  // ---------- timeline ----------
+  function renderTL() {
+    const car = S.cars[S.active]; if (!car) return;
+    const n = computeNext(car); const s = n.s;
+    const laps = Math.floor(car.km / s.cycle_km);
+    $("#tl-sub").textContent = `${carName(car)} · לוח ${s.importer} · המחזור חוזר כל ${fmt(s.cycle_km)} ק"מ. הטיפול הבא פתוח: סמן תוך כדי במוסך.`;
+    const rows = [];
+    for (let lap = laps; lap <= laps + 1; lap++) for (const svc of s.services) {
+      const km = lap * s.cycle_km + svc.km;
+      if (km < car.km - s.cycle_km) continue;
+      const state = km < n.nextKm ? "done" : km === n.nextKm ? "next" : "future";
+      rows.push({ km, svc, state });
+    }
+    const list = rows.filter(r => r.state !== "done").slice(0, 8);
+    const done = rows.filter(r => r.state === "done").slice(-2);
+    $("#tl-body").innerHTML = [...done, ...list].map((r, i) => `
+      <div class="tl-item ${r.state} ${r.state === "next" ? "open" : ""}">
+        <div class="tl-dot">${r.state === "done" ? "✓" : ""}</div>
+        <div class="tl-card">
+          <button class="tl-head"><span><span class="km num">${fmt(r.km)} ק"מ</span>${r.state === "next" ? ` <span class="status good" style="margin-right:6px">הבא</span>` : ""}<br><span class="summary">${summarize(r.svc.items)}</span></span><span class="chev">⌄</span></button>
+          <div class="tl-body stack">${r.state === "done" ? itemsHTML(r.svc.items) : checklistHTML(s, r.svc, r.km)}</div>
+        </div>
+      </div>`).join("");
+    $$(".tl-head").forEach(b => b.onclick = () => b.closest(".tl-item").classList.toggle("open"));
+    $$("[data-log]").forEach(b => b.onclick = () => openLog(+b.dataset.log));
+    $$("[data-copy]").forEach(b => b.onclick = () => copyChecklist(s, s.services.find(x => x.km === +b.dataset.svc), +b.dataset.copy));
+    const tb = s.time_based || [];
+    $("#tl-time").innerHTML = `<h3>לפי זמן, לא לפי ק"מ</h3>${tb.length ? tb.map(t => `<div class="item"><span class="act ${t.action}">${actName[t.action]}</span><div><div>${itemName(t.item)}${t.months ? ` · כל ${t.months / 12} שנים` : ""}</div>${t.note ? `<div class="note">${t.note}</div>` : ""}</div></div>`).join("") : `<p class="small muted">אין פריטים תלויי זמן בלוח הזה.</p>`}`;
+  }
+
+  // ---------- garage checklist (inside the timeline) ----------
+  const gTips = s => [
+    ["חשבונית מפורטת", "כל פריט בשורה נפרדת: חלק, כמות, מחיר, שעות עבודה. בלי \"טיפול תקופתי\" בשורה אחת."],
+    ["איזה שמן נכנס", `הסוג והצמיגות לפי ספר היבואן (${s.importer}), לא \"מה שיש\". שיירשם בחשבונית.`],
+    ["חלקים מקוריים או תחליפיים", "לשאול מראש. תחליפי באיכות טובה לגיטימי, אבל זו בחירה שלך וזה צריך להשתקף במחיר."],
+    ["תוספות באמצע", "\"מצאנו עוד משהו\" זה בסדר, אבל לבקש תמונה, מחיר, והאם זה דחוף או יכול לחכות לטיפול הבא."],
+    ["החלקים הישנים", "לבקש את המסננים והרפידות שהוחלפו. הדרך הפשוטה לוודא שההחלפה בוצעה."],
+    ["רישום הטיפול", "חותמת בספר או רישום דיגיטלי אצל היבואן, עם ק\"מ ותאריך. חשוב לאחריות ולמכירה."],
+    ["אחריות", "לפי חוק רישוי שירותים ומקצועות בענף הרכב (2016), כל מוסך מורשה משרד התחבורה שומר על האחריות, כל עוד הטיפול לפי הוראות היצרן. לשמור חשבונית."],
+    ["שעת עבודה", "המוסך חייב שלט עם מחיר שעת עבודה ומספר רישיון. אם לא רואים, לשאול."]
+  ];
+  function checklistHTML(s, svc, km) {
+    const row = (it, i) => `<label class="chk"><input type="checkbox" id="c-${km}-${i}"><span class="t">${itemName(it.item)}${it.action === "clean" || it.action === "adjust" ? ` <span class="act ${it.action}">${actName[it.action]}</span>` : ""}${it.note ? `<div class="note">${it.note}</div>` : ""}</span></label>`;
+    const rep = svc.items.filter(i => i.action === "replace"), insp = svc.items.filter(i => i.action !== "replace");
+    return `
+      <div class="stack" style="gap:2px"><div class="row between"><b>לבקש שיחליפו</b><span class="small muted">לפי לוח ${s.importer}</span></div>${rep.map((it, i) => row(it, "r" + i)).join("")}</div>
+      <div class="stack" style="gap:2px"><b>לבקש שיבדקו</b>${insp.map((it, i) => row(it, "i" + i)).join("")}</div>
+      <div class="stack" style="gap:0"><b>לוודא לפני שמשלמים</b>${gTips(s).map(([t, x], i) => `<div class="tip"><span class="i">${i + 1}</span><span><b>${t}</b><br><span class="muted">${x}</span></span></div>`).join("")}</div>
+      ${priceHTML(s, svc)}
+      <div class="row" style="gap:8px"><button class="btn secondary" data-copy="${km}" data-svc="${svc.km}" style="padding:10px">העתק רשימה</button><button class="btn primary" data-log="${km}" style="padding:10px">עשיתי את הטיפול</button></div>`;
+  }
+  function copyChecklist(s, svc, km) {
+    const car = S.cars[S.active], c = communityPrice(s, svc);
+    const txt = [`טיפול ${fmt(km)} ק"מ · ${carName(car)} · לפי לוח ${s.importer}`, "",
+      "להחליף:", ...svc.items.filter(i => i.action === "replace").map(i => "☐ " + itemName(i.item)), "",
+      "לבדוק:", ...svc.items.filter(i => i.action !== "replace").map(i => "☐ " + itemName(i.item)), "",
+      `מחיר סביר: יבואן ₪${fmt(c.importer.lo)}-${fmt(c.importer.hi)}, פרטי ₪${fmt(c.independent.lo)}-${fmt(c.independent.hi)}`, "",
+      "לוודא: חשבונית מפורטת, סוג שמן לפי ספר, חלקים מקוריים/תחליפיים, חלקים ישנים, רישום הטיפול.", "", "נוצר בטיפולית"].join("\n");
+    const done = () => toast("הרשימה הועתקה");
+    const fallback = () => { const ta = document.createElement("textarea"); ta.value = txt; document.body.appendChild(ta); ta.select(); try { document.execCommand("copy"); done(); } catch (e) {} ta.remove(); };
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(txt).then(done).catch(fallback); else fallback();
+  }
+
+  // ---------- profile ----------
+  function renderMe() {
+    const u = S.user || { name: "אורח", via: "guest" };
+    $("#me-body").innerHTML = `<div class="row"><span class="avatar">${u.name[0]}</span><div><b>${u.name}</b><br><span class="small muted">${u.via === "google" ? u.email + " · מחובר עם Google" : "לא מחובר. הנתונים שמורים רק במכשיר הזה."}</span></div></div>
+      ${u.via === "guest" ? `<button class="btn secondary" id="me-google">התחבר עם Google לגיבוי בין מכשירים</button>` : `<button class="btn ghost" id="me-logout">התנתק</button>`}`;
+    const g = $("#me-google"); if (g) g.onclick = () => { S.user = { name: "מקס", email: "max@gmail.com", via: "google" }; save(); renderAll(); toast("מחובר"); };
+    const lo = $("#me-logout"); if (lo) lo.onclick = () => { S.user = { name: "אורח", via: "guest" }; save(); renderAll(); };
+    $("#me-cars").innerHTML = S.cars.map((c, i) => `<button class="row between" style="width:100%; text-align:right" data-i="${i}">
+      <span><b>${carName(c)}</b><br><span class="small muted num">${fmt(c.km)} ק"מ</span></span>${i === S.active ? `<span class="status good">פעיל</span>` : `<span class="small muted">בחר</span>`}</button>`).join("");
+    $$("#me-cars button").forEach(b => b.onclick = () => { S.active = +b.dataset.i; save(); renderAll(); show("s-home"); });
+    const s = schedById(S.cars[S.active].schedule);
+    const st = { draft: ["טיוטה", "warn"], reviewed: ["נבדק", "good"], verified: ["מאומת", "good"] }[s.status];
+    $("#me-sources").innerHTML = `<div class="row between"><h3>מקור הנתונים לרכב שלך</h3><span class="status ${st[1]}">${st[0]}</span></div>
+      <p class="small muted">${s.notes || ""}</p>
+      <div class="list small">${s.sources.map(x => `<div><a href="${x.url}" target="_blank" rel="noopener" style="color:var(--accent)">${new URL(x.url).hostname}</a><br><span class="muted">${x.note || x.kind}</span></div>`).join("")}</div>`;
+  }
+  $("#me-add").onclick = startAdd;
+  $$(".toggle").forEach(t => t.onclick = () => { t.classList.toggle("on"); toast(t.classList.contains("on") ? "התראה הופעלה" : "התראה כבויה"); });
+  $("#me-reset").onclick = () => { store.clear(); S = { onboarded: false, user: null, cars: [], active: 0 }; onbI = 0; renderOnb(); show("s-onb"); };
+
+  // ---------- km sheet ----------
+  function openSheet() { $("#sheet-km").value = S.cars[S.active].km; $("#sheet").classList.add("show"); $("#sheet-km").focus(); }
+  $("#sheet-close").onclick = () => $("#sheet").classList.remove("show");
+  $("#sheet").onclick = e => { if (e.target.id === "sheet") $("#sheet").classList.remove("show"); };
+  $("#sheet-save").onclick = () => { const v = +$("#sheet-km").value.replace(/\D/g, ""); if (v) { S.cars[S.active].km = v; save(); renderAll(); toast("הקילומטראז' עודכן"); } $("#sheet").classList.remove("show"); };
+
+  // ---------- nav / boot ----------
+  $$("#nav button").forEach(b => b.onclick = () => { show("s-" + b.dataset.go); if (b.dataset.go === "tl") { const el = $(".tl-item.next"); if (el) el.scrollIntoView({ block: "start" }); } });
+  $("#home-avatar").onclick = () => show("s-me");
+  function renderAll() { renderHome(); renderTL(); renderMe(); }
+  if (!S.onboarded) { renderOnb(); show("s-onb"); }
+  else if (!S.user) show("s-auth");
+  else if (!S.cars.length) startAdd();
+  else { renderAll(); show("s-home"); }
+})();
+</script>
+
+<script>
+if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(() => {});
+</script>
 </body>
 </html>

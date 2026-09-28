@@ -1,4 +1,4 @@
-// Builds a deployable static site into site/ from app/index.html + app/data.js.
+// Builds the deployable static site into the repository ROOT (served by GitHub Pages from main).
 // app/index.html is written for the claude.ai artifact wrapper (no <html>/<head>),
 // so here we wrap it in a full document, add PWA files, and copy the data bundle.
 import { mkdirSync, readFileSync, writeFileSync, copyFileSync } from "node:fs";
@@ -34,18 +34,19 @@ if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catc
 </body>
 </html>
 `;
-mkdirSync(root + "site", { recursive: true });
-writeFileSync(root + "site/index.html", html);
-copyFileSync(root + "app/data.js", root + "site/data.js");
-for (const f of ["icon-192.png", "icon-512.png"]) copyFileSync(root + "app/" + f, root + "site/" + f);
-writeFileSync(root + "site/manifest.webmanifest", JSON.stringify({
+const out = process.env.SITE_OUT || root;
+mkdirSync(out, { recursive: true });
+writeFileSync(out + "index.html", html);
+copyFileSync(root + "app/data.js", out + "data.js");
+for (const f of ["icon-192.png", "icon-512.png"]) copyFileSync(root + "app/" + f, out + "" + f);
+writeFileSync(out + "manifest.webmanifest", JSON.stringify({
   name: "טיפולית", short_name: "טיפולית", lang: "he", dir: "rtl", start_url: "./", scope: "./", display: "standalone",
   background_color: "#f3f5f8", theme_color: "#0E5FD8",
   description: "הטיפול הבא לרכב שלך לפי ספר היבואן, ומה לוודא במוסך.",
   icons: [{ src: "icon-192.png", sizes: "192x192", type: "image/png" }, { src: "icon-512.png", sizes: "512x512", type: "image/png" }, { src: "icon.svg", sizes: "any", type: "image/svg+xml" }]
 }, null, 2));
 const version = Date.now().toString(36);
-writeFileSync(root + "site/sw.js", `// Minimal offline cache for the app shell. Version: ${version}
+writeFileSync(out + "sw.js", `// Minimal offline cache for the app shell. Version: ${version}
 const CACHE = "tipulit-${version}";
 const ASSETS = ["./", "./index.html", "./data.js", "./manifest.webmanifest", "./icon.svg", "./icon-192.png", "./icon-512.png"];
 self.addEventListener("install", e => { e.waitUntil(caches.open(CACHE).then(c => c.addAll(ASSETS)).then(() => self.skipWaiting())); });
@@ -56,5 +57,5 @@ self.addEventListener("fetch", e => {
 });
 `);
 const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><rect width="512" height="512" rx="110" fill="#0E5FD8"/><text x="256" y="345" font-family="Rubik, Arial, sans-serif" font-weight="700" font-size="300" fill="#fff" text-anchor="middle">ט</text></svg>`;
-writeFileSync(root + "site/icon.svg", svg);
-console.log("site/ built");
+writeFileSync(out + "icon.svg", svg);
+console.log("site built into " + out);
