@@ -12,7 +12,8 @@ const html = `<!doctype html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#0E5FD8">
+<meta name="theme-color" content="#F1F2F4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#08090B" media="(prefers-color-scheme: dark)">
 <meta name="description" content="הטיפול הבא לרכב שלך לפי ספר היבואן, ומה לוודא במוסך.">
 <title>${title}</title>
 <meta property="og:title" content="${title}">
@@ -28,7 +29,8 @@ const html = `<!doctype html>
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <style>
   :root { color-scheme: light; padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
-  body { margin: 0; font: 14px system-ui, sans-serif; background: #f3f5f8; }
+  body { margin: 0; font: 14px system-ui, sans-serif; background: #F1F2F4; }
+  @media (prefers-color-scheme: dark) { body { background: #08090B; } }
   img { max-width: 100%; }
   [hidden] { display: none !important; }
 </style>
@@ -52,40 +54,38 @@ for (const f of ["icon-192.png", "icon-512.png"]) copyFileSync(root + "app/" + f
 
 // Landing page at /welcome/: model coverage is generated from the schedules, so the page never overstates it.
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
-const makes = new Map();
+// One entry per model (generations merged), plus make facts. Scales to hundreds of models: the page searches and filters it.
+const models = new Map(), makes = new Map();
 for (const f of readdirSync(root + "data/schedules").filter(f => f.endsWith(".json")).sort()) {
   const s = JSON.parse(readFileSync(root + "data/schedules/" + f, "utf8"));
-  if (!makes.has(s.make_he)) makes.set(s.make_he, { importer: s.importer, models: new Set() });
-  makes.get(s.make_he).models.add(s.model_he);
+  const key = s.make_he + "|" + s.model_he;
+  const m = models.get(key) || { mk: s.make_he, mkEn: s.make, md: s.model_he, mdEn: s.model, imp: s.importer || "", y0: 9999, y1: 0, hy: false };
+  m.y0 = Math.min(m.y0, s.years[0]); m.y1 = Math.max(m.y1, s.years[1]); m.hy = m.hy || s.fuel === "hybrid";
+  models.set(key, m);
+  if (!makes.has(s.make_he)) makes.set(s.make_he, { en: s.make, imp: s.importer || "", n: 0 });
 }
-const makeList = [...makes].sort((a, b) => b[1].models.size - a[1].models.size || a[0].localeCompare(b[0], "he"));
-const modelCount = makeList.reduce((n, [, m]) => n + m.models.size, 0);
-const logoSlug = { "טויוטה": "toyota", "יונדאי": "hyundai", "קיה": "kia", "מאזדה": "mazda", "סקודה": "skoda", "אלפא רומיאו": "alfaromeo" };
-const logo = make => {
-  const f = root + "app/welcome/logos/" + (logoSlug[make] || "_") + ".svg";
+for (const m of models.values()) makes.get(m.mk).n++;
+const modelCount = models.size;
+const logoSlug = { "Toyota": "toyota", "Hyundai": "hyundai", "Kia": "kia", "Mazda": "mazda", "Skoda": "skoda", "Alfa Romeo": "alfaromeo" };
+const logo = en => {
+  const f = root + "app/welcome/logos/" + (logoSlug[en] || "_") + ".svg";
   try { return readFileSync(f, "utf8").replace(/<title>.*?<\/title>/, "").replace("<svg ", '<svg fill="currentColor" aria-hidden="true" focusable="false" '); } catch (e) { return ""; }
 };
-const makesHTML = makeList.map(([make, m], i) => {
-  const models = [...m.models].sort((a, b) => a.localeCompare(b, "he"));
-  return `        <li class="mk" style="--i:${i}">
-          <div class="mk-top"><span class="mk-logo">${logo(make)}</span><span class="mk-count num">${m.models.size}<small>${m.models.size === 1 ? "דגם" : "דגמים"}</small></span></div>
-          <h3>${esc(make)}</h3>
-          <p class="mk-imp">${esc(m.importer || "")}</p>
-          <div class="mk-models">${models.map(x => `<span>${esc(x)}</span>`).join("")}</div>
-        </li>`;
-}).join("\n");
-const marqueeItems = makeList.map(([make]) => `<span class="mq-item">${logo(make)}<span>${esc(make)}</span></span>`).join("");
-const marqueeHTML = `<div class="mq-track">${marqueeItems}</div><div class="mq-track" aria-hidden="true">${marqueeItems}</div>`;
+const makeList = [...makes].sort((a, b) => b[1].n - a[1].n || a[0].localeCompare(b[0], "he")).map(([he, v]) => ({ he, ...v, logo: logo(v.en) }));
+const rank = new Map(makeList.map((m, i) => [m.he, i]));
+const catalog = { makes: makeList, models: [...models.values()].sort((a, b) => rank.get(a.mk) - rank.get(b.mk) || a.md.localeCompare(b.md, "he")) };
+// JSON inside a <script> tag: escape "<" so no string can close the tag
+const catalogJSON = JSON.stringify(catalog).replace(/</g, "\\u003c");
 const welcomeSrc = root + "app/welcome/";
 mkdirSync(out + "welcome", { recursive: true });
 writeFileSync(out + "welcome/index.html", readFileSync(welcomeSrc + "index.html", "utf8")
   .replaceAll("{{MODEL_COUNT}}", String(modelCount)).replace("{{MAKE_COUNT}}", String(makeList.length))
-  .replace("{{MAKES}}", makesHTML).replace("{{MARQUEE}}", marqueeHTML)
+  .replace("{{CATALOG}}", () => catalogJSON)
   .replace(/\{\{ICON:([a-z-]+)\}\}/g, (m, n) => readFileSync(welcomeSrc + "icons/" + n + ".svg", "utf8").replace("<svg ", '<svg aria-hidden="true" focusable="false" ')));
 for (const f of ["home.png", "timeline.png", "condition.png"]) copyFileSync(welcomeSrc + f, out + "welcome/" + f);
 writeFileSync(out + "manifest.webmanifest", JSON.stringify({
   name: "טיפולית", short_name: "טיפולית", lang: "he", dir: "rtl", start_url: "./", scope: "./", display: "standalone",
-  background_color: "#f3f5f8", theme_color: "#0E5FD8",
+  background_color: "#111418", theme_color: "#111418",
   description: "הטיפול הבא לרכב שלך לפי ספר היבואן, ומה לוודא במוסך.",
   icons: [{ src: "icon-192.png", sizes: "192x192", type: "image/png" }, { src: "icon-512.png", sizes: "512x512", type: "image/png" }, { src: "icon.svg", sizes: "any", type: "image/svg+xml" }]
 }, null, 2));
@@ -101,6 +101,6 @@ self.addEventListener("fetch", e => {
   e.respondWith(fetch(e.request).then(r => { const copy = r.clone(); caches.open(CACHE).then(c => c.put(e.request, copy)); return r; }).catch(() => caches.match(e.request)));
 });
 `);
-const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><rect width="512" height="512" rx="110" fill="#0E5FD8"/><text x="256" y="345" font-family="Rubik, Arial, sans-serif" font-weight="700" font-size="300" fill="#fff" text-anchor="middle">ט</text></svg>`;
+const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><rect width="512" height="512" rx="110" fill="#F7C948"/><rect x="18" y="18" width="476" height="476" rx="94" fill="none" stroke="#111418" stroke-width="20"/><text x="256" y="345" font-family="Rubik, Arial, sans-serif" font-weight="700" font-size="300" fill="#111418" text-anchor="middle">ט</text></svg>`;
 writeFileSync(out + "icon.svg", svg);
 console.log("site built into " + out);
