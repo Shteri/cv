@@ -3,7 +3,7 @@
 // row-level security in supabase/migrations protects the data.
 window.TIPULIT_CONFIG = {
   SUPABASE_URL: "https://enzwltbsbamqtfflkzgi.supabase.co",
-  SUPABASE_ANON_KEY: "",
+  SUPABASE_ANON_KEY: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVuendsdGJzYmFtcXRmZmxremdpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTA1ODY5NzksImV4cCI6MjEwNjE2Mjk3OX0.bgBLCSmZOa1ZhY1HWN95Mw-KGwT-rBXqlZII6KIjS00",
   // Minimum reports before a community price bucket is shown (mirrors the SQL function).
   MIN_REPORTS: 3
 };
