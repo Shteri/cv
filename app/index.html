@@ -1193,7 +1193,7 @@
       gb.disabled = false; gb.classList.remove("busy");
       if (r.error) { const msg = (r.error.hint || r.error.message || String(r.error)); toast("ההתחברות נכשלה: " + msg); $("#auth-err").textContent = "ההתחברות נכשלה: " + msg; $("#auth-err").hidden = false; }
       else if (r.user && !lastAuthUid) { onSignedIn(r.user, "SIGNED_IN"); } // in case the event fired before the handler was attached
-    }).catch(e => { gb.disabled = false; gb.classList.remove("busy"); toast("ההתחברות נכשלה: " + e.message); });
+    }).catch(e => { gb.disabled = false; gb.classList.remove("busy"); toast("ההתחברות נכשלה: " + e.message); $("#auth-err").textContent = "ההתחברות נכשלה: " + e.message; $("#auth-err").hidden = false; });
   } else {
     const first = boot();
     try { history.replaceState({ screen: first }, "", "#" + first.replace(/^s-/, "")); } catch (e) {}
