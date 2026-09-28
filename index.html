@@ -648,6 +648,8 @@
   if (Cloud.enabled) Cloud.onAuth(async user => {
     if (!user) { if (S.user && S.user.via === "google" && !S.user.demo) { S.user = { name: "אורח", via: "guest" }; save(); renderAll(); } return; }
     S.user = { name: user.user_metadata?.full_name || user.user_metadata?.name || user.email.split("@")[0], email: user.email, via: "google", id: user.id };
+    try { if (/[?&#](code|access_token)=/.test(location.href)) history.replaceState({ screen: "s-home" }, "", location.pathname + "#home"); } catch (e) {}
+    toast("מחובר: " + S.user.name);
     try {
       const cloudCars = await Cloud.loadCars();
       if (cloudCars.length) {
@@ -1202,7 +1204,11 @@
   }
   migrateCars();
   const boot = () => { if (!S.onboarded) { renderOnb(); return "s-onb"; } if (!S.user) return "s-auth"; if (!S.cars.length) { startAdd(); return "s-add"; } renderAll(); return "s-home"; };
-  const first = boot(); try { history.replaceState({ screen: first }, "", "#" + first.replace(/^s-/, "")); } catch (e) {} show(first, true);
+  const first = boot();
+  // Do not touch the URL while an OAuth redirect is being processed (tokens or code live there).
+  if (!(Cloud.enabled && Cloud.hasAuthParams)) { try { history.replaceState({ screen: first }, "", "#" + first.replace(/^s-/, "")); } catch (e) {} }
+  show(first, true);
+  if (Cloud.enabled && Cloud.authError) toast("ההתחברות נכשלה: " + decodeURIComponent(Cloud.authError).replace(/\+/g, " "));
 })();
 </script>
 

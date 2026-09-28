@@ -5,7 +5,10 @@
   const cfg = g.TIPULIT_CONFIG || {};
   const lib = g.supabase;
   const enabled = !!(cfg.SUPABASE_URL && cfg.SUPABASE_ANON_KEY && lib && lib.createClient);
-  const sb = enabled ? lib.createClient(cfg.SUPABASE_URL, cfg.SUPABASE_ANON_KEY) : null;
+  const sb = enabled ? lib.createClient(cfg.SUPABASE_URL, cfg.SUPABASE_ANON_KEY, { auth: { flowType: "pkce", detectSessionInUrl: true, persistSession: true, autoRefreshToken: true } }) : null;
+  // OAuth errors come back in the URL (?error=... or #error=...). Expose them so the app can show them.
+  const authError = (() => { const q = new URLSearchParams(location.search), h = new URLSearchParams(location.hash.replace(/^#/, "")); return q.get("error_description") || h.get("error_description") || q.get("error") || h.get("error") || null; })();
+  const hasAuthParams = /[?&#](code|access_token|error)=/.test(location.href);
 
   const dataUrlToBlob = async d => (await fetch(d)).blob();
   const dataUrlToBase64 = d => d.split(",")[1];
@@ -82,5 +85,5 @@
     return data;
   }
 
-  g.TipulitCloud = { enabled, currentUser, onAuth, signInWithGoogle, signOut, loadCars, saveCar, deleteCar, communityPrices, communityGarages, extractReceipt };
+  g.TipulitCloud = { enabled, authError, hasAuthParams, currentUser, onAuth, signInWithGoogle, signOut, loadCars, saveCar, deleteCar, communityPrices, communityGarages, extractReceipt };
 })(window);
