@@ -60,17 +60,26 @@ for (const f of readdirSync(root + "data/schedules").filter(f => f.endsWith(".js
 }
 const makeList = [...makes].sort((a, b) => b[1].models.size - a[1].models.size || a[0].localeCompare(b[0], "he"));
 const modelCount = makeList.reduce((n, [, m]) => n + m.models.size, 0);
+const logoSlug = { "טויוטה": "toyota", "יונדאי": "hyundai", "קיה": "kia", "מאזדה": "mazda", "סקודה": "skoda", "אלפא רומיאו": "alfaromeo" };
+const logo = make => {
+  const f = root + "app/welcome/logos/" + (logoSlug[make] || "_") + ".svg";
+  try { return readFileSync(f, "utf8").replace(/<title>.*?<\/title>/, "").replace("<svg ", '<svg fill="currentColor" aria-hidden="true" focusable="false" '); } catch (e) { return ""; }
+};
 const makesHTML = makeList.map(([make, m], i) => {
   const models = [...m.models].sort((a, b) => a.localeCompare(b, "he"));
-  return `        <div class="make reveal${i === 0 ? " lead" : ""}" style="--i:${i % 3}">
-          <h3>${esc(make)} <span>${esc(m.importer || "")}</span></h3>
-          <div class="chips">${models.map(x => `<span class="chip">${esc(x)}</span>`).join("")}</div>
-        </div>`;
+  return `        <li class="make reveal" style="--i:${i % 3}">
+          <span class="make-logo">${logo(make)}</span>
+          <div class="make-body"><h3>${esc(make)}</h3><p>${models.map(esc).join("<span class=\"sep\" aria-hidden=\"true\">/</span>")}</p></div>
+          <span class="make-count num" aria-label="${m.models.size} דגמים">${m.models.size}</span>
+        </li>`;
 }).join("\n");
+const marqueeItems = makeList.map(([make]) => `<span class="mq-item">${logo(make)}<span>${esc(make)}</span></span>`).join("");
+const marqueeHTML = `<div class="mq-track">${marqueeItems}</div><div class="mq-track" aria-hidden="true">${marqueeItems}</div>`;
 const welcomeSrc = root + "app/welcome/";
 mkdirSync(out + "welcome", { recursive: true });
 writeFileSync(out + "welcome/index.html", readFileSync(welcomeSrc + "index.html", "utf8")
-  .replace("{{MODEL_COUNT}}", String(modelCount)).replace("{{MAKES}}", makesHTML));
+  .replaceAll("{{MODEL_COUNT}}", String(modelCount)).replace("{{MAKE_COUNT}}", String(makeList.length))
+  .replace("{{MAKES}}", makesHTML).replace("{{MARQUEE}}", marqueeHTML));
 for (const f of ["home.png", "timeline.png"]) copyFileSync(welcomeSrc + f, out + "welcome/" + f);
 writeFileSync(out + "manifest.webmanifest", JSON.stringify({
   name: "טיפולית", short_name: "טיפולית", lang: "he", dir: "rtl", start_url: "./", scope: "./", display: "standalone",

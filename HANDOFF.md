@@ -305,7 +305,7 @@ toyota-yaris-2011-2020, hyundai-i25-2011-2018, skoda-octavia-2013-2025.
 
 ## 14. דף נחיתה (28.9.2026)
 
-- `app/welcome/index.html`: דף נחיתה בעברית, נבנה ל-`/welcome/` ע"י `scripts/build-site.mjs`. אותם טוקנים כמו האפליקציה (DESIGN.md), צילומי מסך אמיתיים (`app/welcome/home.png`, `timeline.png`).
-- רשימת הדגמים ומספרם נוצרים בבנייה מ-`data/schedules/` (placeholders `{{MODEL_COUNT}}` ו-`{{MAKES}}`). לא לערוך ביד.
+- `app/welcome/index.html`: דף נחיתה בעברית, נבנה ל-`/welcome/` ע"י `scripts/build-site.mjs`. גרסה 2 ("מוסך לילי"): גרפיט כהה, צהוב לוחית כצבע יחיד, מד אוץ מתגלגל, בנטו, לוגואים של היצרנים. צילומי מסך אמיתיים (`app/welcome/home.png`, `timeline.png`). הגרסה הראשונה (בכחול של האפליקציה) נמצאת בקומיט cecc47e.
+- רשימת הדגמים ומספרם נוצרים בבנייה מ-`data/schedules/` (placeholders `{{MODEL_COUNT}}`, `{{MAKE_COUNT}}`, `{{MAKES}}`, `{{MARQUEE}}`). לא לערוך ביד.
 - טופס מספר הרכב שולח ל-`../?plate=1234567`. האפליקציה שומרת את המספר ב-sessionStorage (שורד אונבורדינג והתחברות Google) וממלאת אותו בשלב הוספת רכב. פרמטרים אחרים ב-URL (למשל `code` של OAuth) נשמרים.
 - נשאר פתוח: האם דף הנחיתה צריך להיות ה-root ואפליקציה תעבור לנתיב אחר (שינוי start_url ו-scope של ה-PWA, לא נעשה).
