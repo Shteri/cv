@@ -1,0 +1,163 @@
+{
+  "id": "mg-zs-2018-2021-1.0t",
+  "make": "MG",
+  "make_he": "אם.ג'י",
+  "model": "ZS",
+  "model_he": "ZS",
+  "generation": "ZS (2017-2020)",
+  "years": [
+    2018,
+    2021
+  ],
+  "engines": [
+    "1.0T (10E4E)"
+  ],
+  "fuel": "petrol",
+  "importer": "קאר איסט (קבוצת לובינסקי)",
+  "interval": {
+    "km": 24000,
+    "months": 12,
+    "note": "לפי טבלת השירות של MG בריטניה: כל 15,000 מייל (כ-24,000 ק\"מ) או 12 חודשים"
+  },
+  "cycle_km": 120000,
+  "services": [
+    {
+      "km": 24000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "כולל אטם בורג הניקוז"
+        }
+      ]
+    },
+    {
+      "km": 48000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "כולל אטם בורג הניקוז"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 72000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "כולל אטם בורג הניקוז"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "replace",
+          "note": "רק בגיר אוטומטי"
+        }
+      ]
+    },
+    {
+      "km": 96000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "כולל אטם בורג הניקוז"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "coolant",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "כולל אטם בורג הניקוז"
+        }
+      ]
+    }
+  ],
+  "long_interval": [],
+  "time_based": [],
+  "specs": {
+    "_note": "טיוטה - לפי MG בריטניה, לא נבדק מול ספר היבואן"
+  },
+  "sources": [
+    {
+      "url": "https://www.mg.co.uk/servicing",
+      "kind": "manufacturer",
+      "note": "MG Motor UK, Service Schedules - טבלת 'MG ZS (2017-2020)'; בטבלת 'MG ZS (2020-2024)' מצתי 1.0T מוחלפים רק בשנה השלישית"
+    },
+    {
+      "url": "https://mg-israel.co.il/guide-books/",
+      "kind": "importer",
+      "note": "עמוד ספרי הרכב של MG ישראל; הקבצים ב-clearmash חסומים מכאן - לא נפתחו"
+    }
+  ],
+  "status": "draft",
+  "notes": "ספרי הנהג של היבואן באתר mg-israel.co.il/guide-books יושבים על lubinski.clearmash.com, שחסום מכאן (Cloudflare 403), ולכן זו טיוטה לפי טבלאות השירות של MG בריטניה. בבריטניה המרווח הוא 15,000 מייל או 12 חודשים; הומר ל-24,000 ק\"מ (15,000 מייל = כ-24,140 ק\"מ). לפי הטבלה הבריטית לדגם שלפני מתיחת הפנים. בטבלה המאוחרת (2020-2024) מצתי מנוע 1.0T מוחלפים בשנה השלישית ונוזל הקירור בשנה החמישית - ייתכן שזה מתאים יותר לרכבי 2021. בטבלה מוחלפות גם סוללות המפתחות כל שנתיים."
+}

@@ -1,0 +1,156 @@
+{
+  "id": "mg-zs-hybrid-2025-2026-1.5-hybrid",
+  "make": "MG",
+  "make_he": "אם.ג'י",
+  "model": "ZS Hybrid+",
+  "model_he": "ZS היברידי",
+  "generation": "ZS (2024+) Hybrid+",
+  "years": [
+    2025,
+    2026
+  ],
+  "engines": [
+    "1.5 hybrid (15FHC)"
+  ],
+  "fuel": "hybrid",
+  "importer": "קאר איסט (קבוצת לובינסקי)",
+  "interval": {
+    "km": 24000,
+    "months": 12,
+    "note": "לפי טבלת השירות של MG בריטניה: כל 15,000 מייל (כ-24,000 ק\"מ) או 12 חודשים"
+  },
+  "cycle_km": 120000,
+  "services": [
+    {
+      "km": 24000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "כולל אטם בורג הניקוז"
+        }
+      ]
+    },
+    {
+      "km": 48000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "כולל אטם בורג הניקוז"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 72000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "כולל אטם בורג הניקוז"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 96000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "כולל אטם בורג הניקוז"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace",
+          "note": "משאבת דלק עם מסנן משולב"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "replace",
+          "note": "שמן תיבת ההילוכים ההיברידית, כולל מסנן יניקה, מסנן לחץ ואטם"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "כולל אטם בורג הניקוז"
+        },
+        {
+          "item": "coolant",
+          "action": "replace"
+        }
+      ]
+    }
+  ],
+  "long_interval": [],
+  "time_based": [],
+  "specs": {
+    "_note": "טיוטה - לפי MG בריטניה, לא נבדק מול ספר היבואן"
+  },
+  "sources": [
+    {
+      "url": "https://www.mg.co.uk/servicing",
+      "kind": "manufacturer",
+      "note": "MG Motor UK, Service Schedules - טבלת 'MG ZS Hybrid+ (2024 onwards)', 5 שנים/75,000 מייל"
+    },
+    {
+      "url": "https://mg-israel.co.il/guide-books/",
+      "kind": "importer",
+      "note": "עמוד ספרי הרכב של MG ישראל; הקבצים ב-clearmash חסומים מכאן - לא נפתחו"
+    }
+  ],
+  "status": "draft",
+  "notes": "ספרי הנהג של היבואן באתר mg-israel.co.il/guide-books יושבים על lubinski.clearmash.com, שחסום מכאן (Cloudflare 403), ולכן זו טיוטה לפי טבלאות השירות של MG בריטניה. בבריטניה המרווח הוא 15,000 מייל או 12 חודשים; הומר ל-24,000 ק\"מ (15,000 מייל = כ-24,140 ק\"מ). קוד המנוע 15FHC משותף ל-MG3 ההיברידית, ולכן ZS עם מנוע זה ברישוי (2025 ואילך) הוא גרסת Hybrid+. בטבלה הבריטית מוחלפות גם סוללות המפתחות כל שנתיים. נוזל הקירור מוחלף בשנה החמישית."
+}

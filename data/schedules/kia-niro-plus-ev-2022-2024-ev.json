@@ -1,0 +1,465 @@
+{
+  "id": "kia-niro-plus-ev-2022-2024-ev",
+  "make": "Kia",
+  "make_he": "קיה",
+  "model": "Niro Plus EV",
+  "model_he": "נירו פלוס חשמלי",
+  "generation": "DE (Niro Plus)",
+  "years": [
+    2022,
+    2024
+  ],
+  "engines": [
+    "EV (EM16)"
+  ],
+  "fuel": "electric",
+  "importer": "טלקאר",
+  "interval": {
+    "km": 15000,
+    "months": 12,
+    "note": "לפי ספר הרכב של היבואן: כל 15,000 ק\"מ או 12 חודשים, המוקדם מביניהם"
+  },
+  "cycle_km": 120000,
+  "services": [
+    {
+      "km": 15000,
+      "items": [
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "קרר ומדחס המזגן"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "מסרק, חיבורים ושרוולים"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרקים כדוריים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גלי הינע ושרוולים"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "קרר ומדחס המזגן"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "מסרק, חיבורים ושרוולים"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרקים כדוריים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 45000,
+      "items": [
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "קרר ומדחס המזגן"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "מסרק, חיבורים ושרוולים"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרקים כדוריים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "נוזל תיבת ההפחתה (ממסרה חד-הילוכית)"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גלי הינע ושרוולים"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "קרר ומדחס המזגן"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "מסרק, חיבורים ושרוולים"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרקים כדוריים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 75000,
+      "items": [
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "קרר ומדחס המזגן"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "מסרק, חיבורים ושרוולים"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרקים כדוריים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גלי הינע ושרוולים"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "קרר ומדחס המזגן"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "מסרק, חיבורים ושרוולים"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרקים כדוריים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 105000,
+      "items": [
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "קרר ומדחס המזגן"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "מסרק, חיבורים ושרוולים"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרקים כדוריים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "נוזל תיבת ההפחתה (ממסרה חד-הילוכית)"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גלי הינע ושרוולים"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "קרר ומדחס המזגן"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "מסרק, חיבורים ושרוולים"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרקים כדוריים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "coolant",
+      "action": "replace",
+      "every_km": 60000,
+      "every_months": 36,
+      "note": "כל 60,000 ק\"מ או 36 חודשים"
+    },
+    {
+      "item": "brake_fluid",
+      "action": "replace",
+      "every_km": 45000,
+      "every_months": 36,
+      "note": "בטבלה: החלפה ב-45,000 וב-90,000 ק\"מ"
+    }
+  ],
+  "time_based": [],
+  "specs": {
+    "brake_fluid": "DOT 4",
+    "battery": "מצבר עזר 12V + סוללת מתח גבוה",
+    "fuel": "חשמלי",
+    "_note": "לפי ספר הרכב של היבואן"
+  },
+  "sources": [
+    {
+      "url": "https://cdnmedia.kia-israel.co.il/www/cars-book/Niro-Plus-DE-PV-EV-2023.pdf",
+      "kind": "importer",
+      "note": "ספר הרכב בעברית של נירו פלוס חשמלי - עמוד PDF 318"
+    },
+    {
+      "url": "https://kia-israel.co.il/%d7%a7%d7%91%d7%9c-%d7%a1%d7%a4%d7%a8-%d7%a8%d7%9b%d7%91-%d7%9c%d7%9e%d7%99%d7%99%d7%9c",
+      "kind": "importer",
+      "note": "עמוד ספרי הרכב של קיה ישראל"
+    },
+    {
+      "url": "https://kia-israel.co.il/טיפול-ותחזוקה/טיפולים-לרכב",
+      "kind": "importer",
+      "note": "הצהרת קיה ישראל: טיפול תקופתי כל 15,000 ק\"מ או שנה"
+    }
+  ],
+  "status": "reviewed",
+  "notes": "הועתק מטבלת התחזוקה הרגילה בספר העברי של נירו פלוס החשמלי, בעמודות של 15,000 ק\"מ/שנה. נוזל הבלמים מוחלף לפי הטבלה בכל 45,000 ק\"מ."
+}

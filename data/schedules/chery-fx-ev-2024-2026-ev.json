@@ -1,0 +1,149 @@
+{
+  "id": "chery-fx-ev-2024-2026-ev",
+  "make": "Chery",
+  "make_he": "צ'רי",
+  "model": "FX EV",
+  "model_he": "FX EV",
+  "generation": "FX EV (Omoda E5)",
+  "years": [
+    2024,
+    2026
+  ],
+  "engines": [
+    "EV (TZ210XS129 / TZ180SMZB0)"
+  ],
+  "fuel": "electric",
+  "importer": "פריסבי",
+  "interval": {
+    "km": 15000,
+    "months": 12,
+    "note": "לפי לוח השירות של צ'רי מלזיה ל-Omoda E5: כל 15,000 ק\"מ או 12 חודשים"
+  },
+  "cycle_km": 90000,
+  "services": [
+    {
+      "km": 15000,
+      "items": [
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "wipers",
+          "action": "replace",
+          "note": "פריט מומלץ"
+        }
+      ]
+    },
+    {
+      "km": 45000,
+      "items": [
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant",
+          "action": "replace",
+          "note": "נוזל קירור של מערכת ההנעה החשמלית"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "replace",
+          "note": "שמן תיבת ההפחתה"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "wipers",
+          "action": "replace",
+          "note": "פריט מומלץ"
+        }
+      ]
+    },
+    {
+      "km": 75000,
+      "items": [
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant",
+          "action": "replace",
+          "note": "נוזל קירור של מערכת ההנעה החשמלית"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "replace",
+          "note": "שמן תיבת ההפחתה"
+        },
+        {
+          "item": "wipers",
+          "action": "replace",
+          "note": "פריט מומלץ"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "brake_pads",
+      "action": "replace",
+      "every_km": 75000,
+      "every_months": 60,
+      "note": "פריט מומלץ: רפידות קדמיות ואחוריות ב-75,000 ק\"מ (60 חודשים) וב-150,000 ק\"מ"
+    }
+  ],
+  "time_based": [],
+  "specs": {
+    "_note": "טיוטה - לפי צ'רי מלזיה, לא נבדק מול ספר היבואן"
+  },
+  "sources": [
+    {
+      "url": "https://www.chery.my/wp-content/uploads/2026/05/Chery_Service_Maintenance_Schedule_E5_2026-2.pdf",
+      "kind": "manufacturer",
+      "note": "Chery Malaysia, OMODA E5 Service Schedule & Pricing Guide (מאי 2026) - פריטי החלפה חובה ומומלצים לפי חודשים/ק\"מ"
+    },
+    {
+      "url": "https://cdn.cworigin.com/omja/46593bd9b73f2b8bcc630b351d7cdfd10b69156c.pdf",
+      "kind": "manufacturer",
+      "note": "ספר הבעלים הבריטי של Omoda E5 (omodaauto.co.uk/downloads): קודי המנוע TZ210XS129 ו-TZ180SMZB0 זהים לרישוי הישראלי; הספר מפנה ללוח השירות ללא טבלה; סבב צמיגים כל 10,000 ק\"מ"
+    }
+  ],
+  "status": "draft",
+  "notes": "FX EV הוא הגרסה הישראלית של Omoda E5 (אותם קודי מנוע כמו בספר הבריטי). אתר היבואן cheryisrael.co.il חסום (Imperva) ולא נמצא ספר עברי; ספרי Omoda בבריטניה אינם כוללים טבלת טיפולים, ולכן זו טיוטה לפי לוח השירות של צ'רי מלזיה (אקלים חם). בלוח המלזי מופיעים רק פריטים להחלפה: מסנן מזגן בכל טיפול, ונוזל קירור, נוזל בלמים ושמן תיבת ההפחתה כל 45,000 ק\"מ או 36 חודשים. באוסטרליה המרווח המוצהר הוא 12 חודשים או 20,000 ק\"מ. הספר הבריטי ממליץ על סבב צמיגים כל 10,000 ק\"מ."
+}

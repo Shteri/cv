@@ -1,0 +1,474 @@
+{
+  "id": "kia-ev3-2025-2026-ev",
+  "make": "Kia",
+  "make_he": "קיה",
+  "model": "EV3",
+  "model_he": "EV3",
+  "generation": "SV1",
+  "years": [
+    2025,
+    2026
+  ],
+  "engines": [
+    "EV (EM16)"
+  ],
+  "fuel": "electric",
+  "importer": "טלקאר",
+  "interval": {
+    "km": 15000,
+    "months": 12,
+    "note": "לפי ספר הרכב של היבואן (טבלת 'חוץ מאשר אירופה'): כל 15,000 ק\"מ או 12 חודשים"
+  },
+  "cycle_km": 120000,
+  "services": [
+    {
+      "km": 15000,
+      "items": [
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "קרר ומדחס המזגן"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "מסרק, מוט קישור וגומיות"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרקים כדוריים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גלי הינע וגומיות"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "קרר ומדחס המזגן"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "מסרק, מוט קישור וגומיות"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרקים כדוריים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 45000,
+      "items": [
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "קרר ומדחס המזגן"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "מסרק, מוט קישור וגומיות"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרקים כדוריים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "נוזל תיבת ההפחתה (ממסרה חד-הילוכית)"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גלי הינע וגומיות"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "קרר ומדחס המזגן"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "מסרק, מוט קישור וגומיות"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרקים כדוריים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 75000,
+      "items": [
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "קרר ומדחס המזגן"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "מסרק, מוט קישור וגומיות"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרקים כדוריים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גלי הינע וגומיות"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "קרר ומדחס המזגן"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "מסרק, מוט קישור וגומיות"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרקים כדוריים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 105000,
+      "items": [
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "קרר ומדחס המזגן"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "מסרק, מוט קישור וגומיות"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרקים כדוריים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "נוזל תיבת ההפחתה (ממסרה חד-הילוכית)"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גלי הינע וגומיות"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "קרר ומדחס המזגן"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "מסרק, מוט קישור וגומיות"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרקים כדוריים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "coolant",
+      "action": "replace",
+      "first_km": 180000,
+      "first_months": 120,
+      "then_every_km": 30000,
+      "then_every_months": 24,
+      "note": "ראשונה ב-180,000 ק\"מ או 120 חודשים, אחר כך כל 30,000 ק\"מ או 24 חודשים"
+    },
+    {
+      "item": "brake_fluid",
+      "action": "replace",
+      "every_km": 45000,
+      "every_months": 36,
+      "note": "בטבלה (שורת 'למעט אוסטרליה וניו-זילנד'): החלפה ב-45,000 וב-90,000 ק\"מ"
+    }
+  ],
+  "time_based": [
+    {
+      "item": "ecall_battery",
+      "action": "replace",
+      "months": 48,
+      "note": "סוללת eCall (אם קיימת) - כל 4 שנים"
+    }
+  ],
+  "specs": {
+    "brake_fluid": "DOT 4",
+    "battery": "מצבר עזר 12V + סוללת מתח גבוה",
+    "fuel": "חשמלי",
+    "_note": "לפי ספר הרכב של היבואן"
+  },
+  "sources": [
+    {
+      "url": "https://cdnmedia.kia-israel.co.il/www/cars-book/EV3_Book.pdf",
+      "kind": "importer",
+      "note": "ספר הרכב בעברית של EV3 - עמודי PDF 644-645"
+    },
+    {
+      "url": "https://kia-israel.co.il/%d7%a7%d7%91%d7%9c-%d7%a1%d7%a4%d7%a8-%d7%a8%d7%9b%d7%91-%d7%9c%d7%9e%d7%99%d7%99%d7%9c",
+      "kind": "importer",
+      "note": "עמוד ספרי הרכב של קיה ישראל"
+    },
+    {
+      "url": "https://kia-israel.co.il/טיפול-ותחזוקה/טיפולים-לרכב",
+      "kind": "importer",
+      "note": "הצהרת קיה ישראל: טיפול תקופתי כל 15,000 ק\"מ או שנה"
+    }
+  ],
+  "status": "reviewed",
+  "notes": "בספר שתי טבלאות: רגילה (30,000 ק\"מ/שנתיים) ו'חוץ מאשר אירופה' (15,000 ק\"מ/שנה). נבחרה השנייה לפי הצהרת קיה ישראל על טיפול כל 15,000 ק\"מ או שנה, ובשורות המפוצלות האפשרות שאינה לאוסטרליה וניו-זילנד. אחרי טבילה במים יש להחליף את נוזל תיבת ההפחתה."
+}

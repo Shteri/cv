@@ -1,0 +1,758 @@
+{
+  "id": "hyundai-kona-electric-2023-2026-ev",
+  "make": "Hyundai",
+  "make_he": "יונדאי",
+  "model": "KONA Electric",
+  "model_he": "קונה חשמלית",
+  "generation": "SX2",
+  "years": [
+    2023,
+    2026
+  ],
+  "engines": [
+    "EV (EM16)"
+  ],
+  "fuel": "electric",
+  "importer": "כלמוביל",
+  "interval": {
+    "km": 30000,
+    "months": 24,
+    "note": "לפי ספר הרכב של היבואן (2026): כל 30,000 ק\"מ או 24 חודשים; בנוסף בדיקת מערכת מתח גבוה כל 12 חודשים או 13,000 ק\"מ"
+  },
+  "cycle_km": 240000,
+  "services": [
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקה; החלפה ב-240,000 ק\"מ"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "בדיקת חופשים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "בדיקת חופשים בגלי ההינע"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בדיקת חופשים"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "מדחס המזגן"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect",
+          "note": "בדיקה והחלפה לפי הצורך"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "בדיקת EV special care בכל טיפול"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקה; החלפה ב-240,000 ק\"מ"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "בדיקת חופשים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "בדיקת חופשים בגלי ההינע"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בדיקת חופשים"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "מדחס המזגן"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect",
+          "note": "בדיקה והחלפה לפי הצורך"
+        },
+        {
+          "item": "ecall_battery",
+          "action": "replace"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "בדיקת EV special care בכל טיפול"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקה; החלפה ב-240,000 ק\"מ"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "בדיקת חופשים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "בדיקת חופשים בגלי ההינע"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בדיקת חופשים"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "מדחס המזגן"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect",
+          "note": "בדיקה והחלפה לפי הצורך"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "בדיקת EV special care בכל טיפול"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקה; החלפה ב-240,000 ק\"מ"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "בדיקת חופשים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "בדיקת חופשים בגלי ההינע"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בדיקת חופשים"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "מדחס המזגן"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect",
+          "note": "בדיקה והחלפה לפי הצורך"
+        },
+        {
+          "item": "ecall_battery",
+          "action": "replace"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "בדיקת EV special care בכל טיפול"
+        }
+      ]
+    },
+    {
+      "km": 150000,
+      "items": [
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקה; החלפה ב-240,000 ק\"מ"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "בדיקת חופשים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "בדיקת חופשים בגלי ההינע"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בדיקת חופשים"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "מדחס המזגן"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect",
+          "note": "בדיקה והחלפה לפי הצורך"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "בדיקת EV special care בכל טיפול"
+        }
+      ]
+    },
+    {
+      "km": 180000,
+      "items": [
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקה; החלפה ב-240,000 ק\"מ"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "בדיקת חופשים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "בדיקת חופשים בגלי ההינע"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בדיקת חופשים"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "מדחס המזגן"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect",
+          "note": "בדיקה והחלפה לפי הצורך"
+        },
+        {
+          "item": "ecall_battery",
+          "action": "replace"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "בדיקת EV special care בכל טיפול"
+        }
+      ]
+    },
+    {
+      "km": 210000,
+      "items": [
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקה; החלפה ב-240,000 ק\"מ"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "בדיקת חופשים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "בדיקת חופשים בגלי ההינע"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בדיקת חופשים"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "מדחס המזגן"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect",
+          "note": "בדיקה והחלפה לפי הצורך"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "בדיקת EV special care בכל טיפול"
+        }
+      ]
+    },
+    {
+      "km": 240000,
+      "items": [
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקה; החלפה ב-240,000 ק\"מ"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "בדיקת חופשים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "בדיקת חופשים בגלי ההינע"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בדיקת חופשים"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "מדחס המזגן"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect",
+          "note": "בדיקה והחלפה לפי הצורך"
+        },
+        {
+          "item": "ecall_battery",
+          "action": "replace"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "בדיקת EV special care בכל טיפול"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "coolant",
+      "action": "replace",
+      "every_km": 240000,
+      "every_months": 192,
+      "note": "בטבלה: החלפה בטיפול 240,000 ק\"מ (192 חודשים)"
+    },
+    {
+      "item": "hybrid_system",
+      "action": "inspect",
+      "every_km": 13000,
+      "every_months": 12,
+      "note": "טבלה נפרדת לרכב חשמלי: כל 12 חודשים או 13,000 ק\"מ - בדיקת בידוד ומתח בסוללת המתח הגבוה, כמות נוזל הקירור, משאבת המים החשמלית והשסתום התלת-כיווני, סריקת קודי תקלה, ונזק לתחתית הסוללה ולכבלי המתח הגבוה"
+    }
+  ],
+  "time_based": [],
+  "specs": {
+    "brake_fluid": "DOT 4",
+    "battery": "מצבר עזר 12V + סוללת מתח גבוה",
+    "fuel": "חשמלי",
+    "_note": "לפי ספר הרכב של היבואן"
+  },
+  "sources": [
+    {
+      "url": "https://res.cloudinary.com/colmobil/images/v1782197556/KONA-EV2026-all-web-low/KONA-EV2026-all-web-low.pdf",
+      "kind": "importer",
+      "note": "ספר הנהג בעברית של קונה EV 2026 - לוח תחזוקה רגילה ולוח טיפול מיוחד לרכב חשמלי, עמודי PDF 497-498 (סרוקים)"
+    },
+    {
+      "url": "https://www.hyundaimotors.co.il/maintenance/",
+      "kind": "importer",
+      "note": "ספריית ספרי הרכב של יונדאי ישראל"
+    }
+  ],
+  "status": "reviewed",
+  "notes": "הועתק מהטבלאות הסרוקות בספר העברי של קונה EV 2026 (דור שני). הטבלה של הספר כוללת גם זמן עבודה לכל טיפול (2.4 שעות, 2.9 בטיפול 240,000). בספר זה אין שורה לנוזל תיבת ההפחתה. השנים 2023-2025 שויכו לספר 2026 כי זה הספר היחיד לדור השני באתר היבואן; ברישוי הדגם רשום כ-KONA EV."
+}
