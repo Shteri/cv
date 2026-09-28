@@ -1,0 +1,60 @@
+// Builds a deployable static site into site/ from app/index.html + app/data.js.
+// app/index.html is written for the claude.ai artifact wrapper (no <html>/<head>),
+// so here we wrap it in a full document, add PWA files, and copy the data bundle.
+import { mkdirSync, readFileSync, writeFileSync, copyFileSync } from "node:fs";
+const root = new URL("../", import.meta.url).pathname;
+const src = readFileSync(root + "app/index.html", "utf8");
+const title = (src.match(/<title>(.*?)<\/title>/) || [, "טיפולית"])[1];
+const body = src.replace(/<title>.*?<\/title>\s*/, "");
+const html = `<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0E5FD8">
+<meta name="description" content="הטיפול הבא לרכב שלך לפי ספר היבואן, ומה לוודא במוסך.">
+<title>${title}</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<style>
+  :root { color-scheme: light; padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+  body { margin: 0; font: 14px system-ui, sans-serif; background: #f3f5f8; }
+  img { max-width: 100%; }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+${body}
+<script>
+if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(() => {});
+</script>
+</body>
+</html>
+`;
+mkdirSync(root + "site", { recursive: true });
+writeFileSync(root + "site/index.html", html);
+copyFileSync(root + "app/data.js", root + "site/data.js");
+for (const f of ["icon-192.png", "icon-512.png"]) copyFileSync(root + "app/" + f, root + "site/" + f);
+writeFileSync(root + "site/manifest.webmanifest", JSON.stringify({
+  name: "טיפולית", short_name: "טיפולית", lang: "he", dir: "rtl", start_url: "./", scope: "./", display: "standalone",
+  background_color: "#f3f5f8", theme_color: "#0E5FD8",
+  description: "הטיפול הבא לרכב שלך לפי ספר היבואן, ומה לוודא במוסך.",
+  icons: [{ src: "icon-192.png", sizes: "192x192", type: "image/png" }, { src: "icon-512.png", sizes: "512x512", type: "image/png" }, { src: "icon.svg", sizes: "any", type: "image/svg+xml" }]
+}, null, 2));
+const version = Date.now().toString(36);
+writeFileSync(root + "site/sw.js", `// Minimal offline cache for the app shell. Version: ${version}
+const CACHE = "tipulit-${version}";
+const ASSETS = ["./", "./index.html", "./data.js", "./manifest.webmanifest", "./icon.svg", "./icon-192.png", "./icon-512.png"];
+self.addEventListener("install", e => { e.waitUntil(caches.open(CACHE).then(c => c.addAll(ASSETS)).then(() => self.skipWaiting())); });
+self.addEventListener("activate", e => { e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k !== CACHE).map(k => caches.delete(k)))).then(() => self.clients.claim())); });
+self.addEventListener("fetch", e => {
+  if (e.request.method !== "GET" || !e.request.url.startsWith(self.location.origin)) return;
+  e.respondWith(fetch(e.request).then(r => { const copy = r.clone(); caches.open(CACHE).then(c => c.put(e.request, copy)); return r; }).catch(() => caches.match(e.request)));
+});
+`);
+const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><rect width="512" height="512" rx="110" fill="#0E5FD8"/><text x="256" y="345" font-family="Rubik, Arial, sans-serif" font-weight="700" font-size="300" fill="#fff" text-anchor="middle">ט</text></svg>`;
+writeFileSync(root + "site/icon.svg", svg);
+console.log("site/ built");
