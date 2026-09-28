@@ -47,3 +47,9 @@ Sources and access notes per importer: `SOURCES.md`.
 - `node scripts/registry_coverage.mjs [limit]` ranks registered models that no rule in `registry_map.json` covers.
 - `scripts/hk_table_parse.py book.pdf <pages>` parses a Hyundai/Kia Hebrew book table (`--json out.json` for the generator); tables live in `data/sources/hk-tables.json`.
 - `scripts/toyota_sheets_export.py <workdir>` merges parsed Toyota sheets into `data/sources/toyota-union-sheets.json`.
+
+### Checking the data by hand
+
+- `node scripts/build_check_page.mjs` writes `data/check/index.html` (self-contained; open it in a browser). It does live plate lookups against data.gov.il, shows the matched schedule grid, long intervals and source links, lists all schedules with filters, and the biggest uncovered models. `index.html?plate=NNN` opens a plate directly.
+- `node scripts/sample_plates.mjs [models] [perModel]` pulls real plates for the biggest registry models and writes `data/check/sample-plates.md` (plate, registry fields, matched schedule, source link).
+- `python3 scripts/stage_import.py <staging_dir> [--dry-run]` imports hand-researched schedules (see `scripts/research/` and `data/sources/research/`).
