@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tipulit: מצב הרכב שלך, תמיד מעודכן</title>
+<meta name="description" content="מה הוחלף, מה מתקרב ומה באיחור. Tipulit עוקבת אחרי מצב הרכב לפי ספר היבואן, החשבוניות שלך ומאגר הרכב הממשלתי.">
+<meta name="theme-color" content="#08090B" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F1F2F4" media="(prefers-color-scheme: light)">
+<meta property="og:title" content="Tipulit: מצב הרכב שלך, תמיד מעודכן">
+<meta property="og:description" content="מה הוחלף, מה מתקרב ומה באיחור. לפי ספר היבואן, החשבוניות שלך ומאגר הרכב הממשלתי.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="condition.png">
+<link rel="icon" href="../icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../icon-192.png">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Hebrew:wght@400;500;600&family=Rubik:wght@500;600;700;800&family=Unbounded:wght@500;600&display=swap">
+<link rel="stylesheet" href="../styles/tokens.css">
+<link rel="stylesheet" href="../styles/brand.css">
+<link rel="stylesheet" href="welcome.css">
+</head>
+<body>
+<a class="skip" href="#main">דלג לתוכן</a>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="brand" href="./" aria-label="Tipulit, דף הבית"><span class="brand-word" lang="en" dir="ltr">tipulit</span></a>
+    <nav class="nav-links" aria-label="ניווט ראשי">
+      <a href="#sources">איך זה יודע</a>
+      <a href="#history">היסטוריה</a>
+      <a href="#models">דגמים</a>
+      <a href="#faq">שאלות</a>
+    </nav>
+    <a class="btn quiet" href="../">לאפליקציה</a>
+  </div>
+  <span class="progress" aria-hidden="true"></span>
+</header>
+
+<main id="main">
+  <section class="story" aria-label="מצב הרכב">
+    <div class="road" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="hero-copy">
+        <h1 class="rise" style="--i:0">תדע בדיוק מה <span class="hl">מצב הרכב</span> שלך.</h1>
+        <p class="lede rise" style="--i:1">מה הוחלף, מה מתקרב ומה באיחור, פריט אחרי פריט. לפי ספר היבואן, החשבוניות שלך ומאגר הרכב הממשלתי.</p>
+        <form class="plate-form rise" style="--i:2" action="../" method="get" novalidate data-plate-form id="hero-form">
+          <label for="plate-hero">מספר רכב</label>
+          <div class="plate-row">
+            <div class="plate"><span class="il" aria-hidden="true">IL</span><input id="plate-hero" name="plate" inputmode="numeric" autocomplete="off" spellcheck="false" placeholder="12-345-67" maxlength="10" aria-describedby="plate-hero-hint plate-hero-err"></div>
+            <button class="btn primary magnetic" type="submit"><span>זהה את הרכב</span></button>
+          </div>
+          <p class="hint" id="plate-hero-hint">7 או 8 ספרות. הזיהוי מול מאגר הרכב הממשלתי.</p>
+          <p class="err" id="plate-hero-err" role="alert" hidden>מספר רכב הוא 7 או 8 ספרות</p>
+        </form>
+      </div>
+
+      <div class="console-col rise">
+        <figure class="console glass" id="console" aria-label="דוגמה למסך מצב הרכב. אפשר לסנן לפי סטטוס ולפתוח כל פריט">
+          <div class="console-head">
+            <div class="car-id"><b>טויוטה קורולה 2021</b><span class="num">52,300 ק"מ על השעון</span></div>
+            <span class="plate-mini"><i>IL</i><span>12-345-67</span></span>
+          </div>
+          <div class="counts" role="group" aria-label="סינון לפי סטטוס">
+            <button class="count crit" data-f="crit" aria-pressed="false"><b class="num">1</b><span>באיחור</span></button>
+            <button class="count soon" data-f="soon" aria-pressed="false"><b class="num">0</b><span>מתקרב</span></button>
+            <button class="count good" data-f="good" aria-pressed="false"><b class="num">6</b><span>בסדר</span></button>
+            <button class="count unk" data-f="unk" aria-pressed="false"><b class="num">5</b><span>לא ידוע</span></button>
+          </div>
+          <div class="rows" id="rows"></div>
+          <figcaption class="console-foot"><span class="t">{{ICON:calendar-check}}טסט בתוקף עד <b class="num">14.03.2027</b></span><span class="sample">נתוני דוגמה</span></figcaption>
+        </figure>
+      </div>
+
+      <div class="deck-wrap">
+        <ol class="steps" id="steps">
+          <li class="step" data-step="crit" style="--c: var(--crit)">
+            <span class="tag"><i></i>באיחור</span>
+            <h2>מה שעבר את המועד, קופץ לראש הרשימה.</h2>
+            <p>המגבים הוחלפו לפני יותר משנה. Tipulit מסמנת את זה באדום, עוד לפני שהגשם מזכיר לך.</p>
+          </li>
+          <li class="step" data-step="life" style="--c: var(--good)">
+            <span class="tag"><i></i>בסדר</span>
+            <h2>כמה חיים נשארו לכל פריט.</h2>
+            <p>לפי הק"מ או הזמן מאז ההחלפה האחרונה, מול המרווח שהיבואן קבע לדגם שלך.</p>
+          </li>
+          <li class="step" data-step="unk" style="--c: var(--unknown)">
+            <span class="tag"><i></i>לא ידוע</span>
+            <h2>מה שלא ידוע, מסומן ככזה.</h2>
+            <p>אין רשומה? מעלים חשבונית ישנה או רושמים ידנית, והפריט מקבל תאריך, ק"מ ומועד הבא.</p>
+          </li>
+          <li class="step" data-step="test" style="--c: var(--yellow)">
+            <span class="tag"><i></i>טסט</span>
+            <h2>גם הטסט בתמונה.</h2>
+            <p>תוקף הטסט והק"מ בטסט האחרון מגיעים ישר ממאגר הרכב הממשלתי.</p>
+          </li>
+        </ol>
+        <div class="dots" id="dots" aria-label="בחירת שלב"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="sources" aria-labelledby="src-title">
+    <div class="wrap">
+      <h2 class="h2 reveal" id="src-title">ארבעה מקורות. תמונה אחת של הרכב.</h2>
+      <p class="sub reveal">Tipulit לא מנחשת. כל סטטוס נגזר ממה שידוע על הרכב שלך, ומה שלא ידוע מסומן.</p>
+      <div class="src-grid" id="src-grid">
+        <article class="spot reveal" style="--i:0"><span class="ic" aria-hidden="true">{{ICON:identification-card}}</span><h3>מאגר הרכב הממשלתי</h3><p>דגם, שנה ומנוע, עד מתי הטסט בתוקף וכמה ק"מ היו בטסט האחרון.</p></article>
+        <article class="spot reveal" style="--i:1"><span class="ic" aria-hidden="true">{{ICON:book-open}}</span><h3>לוח הטיפולים של היבואן</h3><p>מה מחליפים ובאיזה מרווח, לפי ק"מ ולפי זמן, בדגם ובדור שלך.</p></article>
+        <article class="spot result reveal" style="--i:2"><h3>מצב הרכב, פריט אחרי פריט</h3><p>באיחור, מתקרב, בסדר או לא ידוע. עם הק"מ או החודש של ההחלפה הבאה.</p></article>
+        <article class="spot reveal" style="--i:1"><span class="ic" aria-hidden="true">{{ICON:receipt}}</span><h3>החשבוניות שלך</h3><p>מה באמת הוחלף, מתי, איפה ובכמה. מצלמים, מאשרים, וזה בהיסטוריה.</p></article>
+        <article class="spot reveal" style="--i:2"><span class="ic" aria-hidden="true">{{ICON:gauge}}</span><h3>הקילומטראז'</h3><p>מעדכנים את השעון בשנייה, ולפי הקצב החודשי שלך כל פריט מקבל גם תאריך משוער.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block odo-sec" aria-labelledby="odo-title">
+    <div class="wrap">
+      <p class="muted reveal">והטיפול הבא? גם הוא כבר מחושב. באותה קורולה:</p>
+      <div class="odo" id="odo" data-value="060000" role="img" aria-label="הטיפול הבא ב-60,000 קילומטר">
+        <span class="d" style="--i:0"><span class="strip"></span></span><span class="d" style="--i:1"><span class="strip"></span></span><span class="d" style="--i:2"><span class="strip"></span></span><span class="d" style="--i:3"><span class="strip"></span></span><span class="d" style="--i:4"><span class="strip"></span></span><span class="d" style="--i:5"><span class="strip"></span></span>
+        <span class="unit">ק"מ</span>
+      </div>
+      <div class="odo-foot">
+        <h2 class="reveal" id="odo-title">עוד <span class="num">7,700</span> ק"מ, בערך בפברואר 2027.</h2>
+        <div class="reveal" style="--i:1">
+          <ul class="items" aria-label="מה כולל טיפול 60,000">
+            <li><b>החלפה</b> שמן מנוע</li>
+            <li><b>החלפה</b> מסנן שמן</li>
+            <li><b>החלפה</b> מסנן אוויר למנוע</li>
+            <li><b>החלפה</b> נוזל בלמים</li>
+            <li><b>החלפה</b> מסנן אוויר לתא הנוסעים</li>
+          </ul>
+          <p class="odo-note">לפי לוח הטיפולים של יוניון מוטורס לדגם הזה. באפליקציה זה הופך לרשימת סימון למוסך.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block docs" id="history" aria-labelledby="docs-title">
+    <div class="wrap">
+      <div class="phone-wrap">
+        <div class="phone"><div class="screen"><img src="condition.png" width="800" height="1720" loading="lazy" alt="מסך מצב הרכב באפליקציה: אחד באיחור, שישה בסדר, חמישה לא ידועים, ורשימה לפי פריט"></div></div>
+      </div>
+      <div>
+        <h2 class="h2 reveal" id="docs-title">ערימת החשבוניות הופכת להיסטוריה של הרכב.</h2>
+        <p class="sub reveal">קנית יד שנייה? מעלים את כל החשבוניות פעם אחת, וכל אחת הופכת לרשומה שמעדכנת את מצב הפריטים.</p>
+        <ul class="facts">
+          <li class="reveal" style="--i:1"><b>הרבה חשבוניות בבת אחת</b><span>כל צילום נפתח לאישור קצר: תאריך, ק"מ, מחיר ומה הוחלף.</span></li>
+          <li class="reveal" style="--i:2"><b>תקלות ותיקונים בנפרד</b><span>מצבר, צמיגים, בלמים. נרשמים לצד הטיפולים בלי לבלבל את הלוח.</span></li>
+          <li class="reveal" style="--i:3"><b>המוסכים שלך</b><span>איפה טיפלת, כמה שילמת, והאם היית חוזר לשם.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="models" aria-labelledby="models-title">
+    <div class="wrap">
+      <div class="models-head reveal">
+        <div class="big num">{{MODEL_COUNT}}</div>
+        <div>
+          <h2 class="h2" id="models-title">הדגם שלך כבר כאן?</h2>
+          <p class="sub">רכבי בנזין והיברידיים עד גיל 20. הרשימה גדלה כל הזמן, אז פשוט מחפשים.</p>
+        </div>
+      </div>
+      <div class="finder reveal">
+        <label class="search glass" for="q">
+          <span class="ic" aria-hidden="true">{{ICON:magnifying-glass}}</span>
+          <span class="sr">חיפוש דגם</span>
+          <input id="q" type="search" autocomplete="off" spellcheck="false" placeholder="למשל קורולה, CX-5 או ספורטאז'" aria-describedby="found">
+          <button type="button" class="clear" id="q-clear" aria-label="ניקוי החיפוש" hidden>{{ICON:x}}</button>
+        </label>
+        <div class="makes-row" id="makes" role="group" aria-label="סינון לפי יצרן"></div>
+        <p class="found" id="found" aria-live="polite"></p>
+        <ul class="grid-models" id="grid"></ul>
+        <div class="empty-models" id="empty" hidden>
+          <b>עוד לא יש לנו את הדגם הזה.</b>
+          <span>באפליקציה אפשר לבחור ידנית דגם קרוב, ודגמים חדשים נכנסים לפי כמה הם נפוצים בכביש.</span>
+        </div>
+        <button type="button" class="btn quiet more-btn" id="more" hidden></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="block faq" id="faq" aria-labelledby="faq-title">
+    <div class="wrap">
+      <h2 class="h2 reveal" id="faq-title">שאלות שחוזרות</h2>
+      <div class="reveal">
+        <details><summary>מה זה "לא ידוע"?<span class="pm" aria-hidden="true"></span></summary><p>פריט שאין עליו רשומה, כלומר לא ידוע מתי הוחלף. מעלים חשבונית או רושמים ידנית, והוא מקבל תאריך, ק"מ ומועד החלפה הבא.</p></details>
+        <details><summary>צריך להירשם?<span class="pm" aria-hidden="true"></span></summary><p>לא. אפשר להמשיך כאורח והרכבים נשמרים במכשיר. התחברות עם Google שומרת אותם גם בענן, כדי שלא ילכו לאיבוד כשמחליפים טלפון.</p></details>
+        <details><summary>מאיפה מגיעים הנתונים?<span class="pm" aria-hidden="true"></span></summary><p>זיהוי הרכב, תוקף הטסט והק"מ בטסט האחרון מגיעים ממאגר כלי הרכב של משרד התחבורה באתר data.gov.il. לוחות הטיפולים נבנים לפי גיליונות האחזקה של היבואנים בישראל, ונכתבים במילים שלנו.</p></details>
+        <details><summary>הרכב שלי לא נתמך. מה עכשיו?<span class="pm" aria-hidden="true"></span></summary><p>אם הדגם זוהה אבל עוד אין לו לוח, אפשר לבחור ידנית דגם קרוב. דגמים חדשים נכנסים לפי כמה הם נפוצים בכביש.</p></details>
+        <details><summary>יש תמיכה ברכב חשמלי?<span class="pm" aria-hidden="true"></span></summary><p>עדיין לא. בשלב הזה Tipulit תומכת ברכבי בנזין והיברידיים בלבד.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="closing" aria-labelledby="closing-title">
+    <div class="road" aria-hidden="true"></div>
+    <div class="wrap">
+      <h2 class="h2 reveal" id="closing-title">מה מצב <span class="hl">הרכב שלך?</span></h2>
+      <form class="plate-form reveal" style="--i:1" action="../" method="get" novalidate data-plate-form id="end-form">
+        <label for="plate-end">מספר רכב</label>
+        <div class="plate-row">
+          <div class="plate"><span class="il" aria-hidden="true">IL</span><input id="plate-end" name="plate" inputmode="numeric" autocomplete="off" spellcheck="false" placeholder="12-345-67" maxlength="10" aria-describedby="plate-end-err"></div>
+          <button class="btn primary magnetic" type="submit"><span>זהה את הרכב</span></button>
+        </div>
+        <p class="err" id="plate-end-err" role="alert" hidden>מספר רכב הוא 7 או 8 ספרות</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="./" aria-label="Tipulit"><span class="brand-word" lang="en" dir="ltr">tipulit</span></a>
+    <span>נתוני רכב וטסט לפי <a href="https://data.gov.il" rel="noopener">data.gov.il</a>. לוחות טיפולים לפי גיליונות היבואנים.</span>
+    <a href="../">לאפליקציה</a>
+  </div>
+</footer>
+
+<div class="fab glass" id="fab" aria-hidden="true">
+  <span>מה מצב הרכב שלך?</span>
+  <button class="btn primary" type="button" id="fab-go" tabindex="-1"><span>זהה את הרכב</span></button>
+</div>
+
+<script type="application/json" id="catalog">{{CATALOG}}</script>
+<template id="ic-caret">{{ICON:caret-down}}</template>
+<template id="ic-up">{{ICON:upload-simple}}</template>
+
+<script>
+(() => {
+  document.documentElement.classList.add("js");
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const fine = matchMedia("(hover: hover) and (pointer: fine)").matches;
+  const tick = () => { try { navigator.vibrate && navigator.vibrate(8); } catch (e) {} };
+  const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const smooth = reduce ? "auto" : "smooth";
+
+  // ---------- plate forms: format like the app, validate, hand off with ?plate= ----------
+  const fmtPlate = raw => {
+    const d = raw.replace(/\D/g, "").slice(0, 8);
+    if (d.length <= 7) return d.replace(/(\d{2})(\d{0,3})(\d{0,2})/, (m, a, b, c) => [a, b, c].filter(Boolean).join("-"));
+    return d.replace(/(\d{3})(\d{2})(\d{3})/, "$1-$2-$3");
+  };
+  $$("[data-plate-form]").forEach(form => {
+    const input = $("input", form), err = $(".err", form), plate = $(".plate", form), btn = $("button", form);
+    const setInvalid = on => { form.classList.toggle("invalid", on); err.hidden = !on; input.setAttribute("aria-invalid", on ? "true" : "false"); };
+    input.addEventListener("input", () => {
+      input.value = fmtPlate(input.value); setInvalid(false);
+      const n = input.value.replace(/\D/g, "").length;
+      if (n === 7 || n === 8) { plate.classList.remove("ok"); void plate.offsetWidth; plate.classList.add("ok"); }
+    });
+    form.addEventListener("submit", e => {
+      e.preventDefault();
+      const d = input.value.replace(/\D/g, "");
+      if (d.length !== 7 && d.length !== 8) { form.classList.remove("invalid"); void form.offsetWidth; setInvalid(true); tick(); input.focus(); return; }
+      tick(); btn.classList.add("busy");
+      setTimeout(() => { location.href = "../?plate=" + d; }, reduce ? 0 : 280);
+    });
+  });
+  // coming back with the browser's back button must not leave a spinner
+  addEventListener("pageshow", () => $$(".btn.busy").forEach(b => b.classList.remove("busy")));
+
+  // ---------- magnetic buttons (fine pointers only; CSS variables, no layout) ----------
+  if (fine && !reduce) $$(".magnetic").forEach(b => {
+    b.addEventListener("pointermove", e => { const r = b.getBoundingClientRect(); b.style.setProperty("--mx", ((e.clientX - r.left) / r.width - .5) * 10 + "px"); b.style.setProperty("--my", ((e.clientY - r.top) / r.height - .5) * 8 + "px"); });
+    b.addEventListener("pointerleave", () => { b.style.setProperty("--mx", "0px"); b.style.setProperty("--my", "0px"); });
+  });
+
+  // ---------- condition console (sample data, same car as the app screenshots) ----------
+  const ROWS = [
+    { s: "crit", n: "מגבים", c: "נוחות", sub: "הוחלפו באוגוסט 2025", due: "באיחור", d: [["הוחלפו", "אוגוסט 2025, 46,000 ק\"מ"], ["מרווח", "כל 12 חודשים"], ["מועד", "אוגוסט 2026"]] },
+    { s: "good", n: "שמן מנוע", c: "מנוע", sub: "הוחלף ב-45,000 ק\"מ", due: "60,000", g: 5, d: [["הוחלף", "אפריל 2025, 45,100 ק\"מ"], ["מרווח", "כל 15,000 ק\"מ"], ["נשאר", "עוד 7,700 ק\"מ"]] },
+    { s: "good", n: "מסנן שמן", c: "מנוע", sub: "הוחלף ב-45,000 ק\"מ", due: "60,000", g: 5, d: [["הוחלף", "אפריל 2025, 45,100 ק\"מ"], ["מרווח", "כל 15,000 ק\"מ"], ["נשאר", "עוד 7,700 ק\"מ"]] },
+    { s: "good", n: "נוזל בלמים", c: "בלמים", sub: "הוחלף ב-30,000 ק\"מ", due: "60,000", g: 3, d: [["הוחלף", "יוני 2023, 30,400 ק\"מ"], ["מרווח", "כל 30,000 ק\"מ"], ["נשאר", "עוד 7,700 ק\"מ"]] },
+    { s: "good", n: "מסנן אוויר לתא הנוסעים", c: "מיזוג", sub: "הוחלף ב-30,000 ק\"מ", due: "60,000", g: 3, d: [["הוחלף", "יוני 2023, 30,400 ק\"מ"], ["מרווח", "כל 30,000 ק\"מ"], ["נשאר", "עוד 7,700 ק\"מ"]] },
+    { s: "good", n: "מצבר", c: "חשמל", sub: "הוחלף בנובמבר 2024", due: "נוב׳ 2028", g: 5, d: [["הוחלף", "נובמבר 2024, מוסך פרטי, ₪620"], ["אורך חיים", "כ-4 שנים"], ["הבא", "נובמבר 2028"]] },
+    { s: "good", n: "צמיגים", c: "צמיגים", sub: "הוחלפו בדצמבר 2025", due: "דצמ׳ 2031", g: 9, d: [["הוחלפו", "דצמבר 2025, שני קדמיים, ₪1,400"], ["אורך חיים", "כ-6 שנים"], ["הבא", "דצמבר 2031"]] },
+    { s: "unk", n: "מסנן אוויר למנוע", c: "מנוע", sub: "אין רשומה. לפי הלוח: 60,000 ק\"מ", due: "?" },
+    { s: "unk", n: "רפידות בלם", c: "בלמים", sub: "אין רשומה. נבדקות בכל טיפול", due: "?" },
+    { s: "unk", n: "מצתים", c: "מנוע", sub: "אין רשומה. לפי הלוח: כל 90,000 ק\"מ", due: "?" },
+    { s: "unk", n: "נוזל קירור", c: "מנוע", sub: "אין רשומה. לפי הלוח: 150,000 ק\"מ", due: "?" },
+    { s: "unk", n: "מסנן דלק", c: "מנוע", sub: "אין רשומה. לפי הלוח: כל 120,000 ק\"מ", due: "?" }
+  ];
+  const caret = $("#ic-caret").innerHTML, up = $("#ic-up").innerHTML;
+  const con = $("#console"), rowsEl = $("#rows");
+  rowsEl.innerHTML = ROWS.map((r, i) => `
+    <div class="r ${r.s}" style="--r:${Math.min(i, 6)}; --vt: row-${i}">
+      <button class="r-btn" type="button" aria-expanded="false" aria-controls="more-${i}">
+        <span class="dot" aria-hidden="true"></span>
+        <span><span class="name">${r.n}<small>${r.c}</small></span><span class="sub num">${r.sub}</span>${r.g ? `<span class="gauge" aria-hidden="true">${Array.from({ length: 10 }, (_, s) => `<i class="${s < r.g ? "on" : ""}" style="--s:${s}"></i>`).join("")}</span>` : ""}</span>
+        <span class="due num">${r.due}</span>
+        <span class="car" aria-hidden="true">${caret}</span>
+      </button>
+      <div class="more" id="more-${i}"><div>${r.d ? `<dl>${r.d.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join("")}</dl>` : `<a class="up" href="../" tabindex="-1">${up}העלה חשבונית</a>`}</div></div>
+    </div>`).join("");
+  $$(".r-btn", rowsEl).forEach(b => b.addEventListener("click", () => {
+    const r = b.parentElement, open = !r.classList.contains("open");
+    r.classList.toggle("open", open); b.setAttribute("aria-expanded", String(open));
+    const link = $(".up", r); if (link) link.tabIndex = open ? 0 : -1;
+    tick();
+  }));
+
+  // count tiles filter the list, morphing with a view transition where supported
+  let filter = null;
+  const applyFilter = f => {
+    filter = f;
+    $$(".count", con).forEach(c => c.setAttribute("aria-pressed", String(c.dataset.f === f)));
+    $$(".r", rowsEl).forEach(r => { r.hidden = !!f && !r.classList.contains(f); });
+    rowsEl.scrollTop = 0;
+  };
+  const withVT = fn => (!reduce && document.startViewTransition) ? document.startViewTransition(fn) : fn();
+  $$(".count", con).forEach(c => c.addEventListener("click", () => { tick(); withVT(() => applyFilter(filter === c.dataset.f ? null : c.dataset.f)); }));
+
+  // one scan beam when the console first appears
+  const setH = () => con.style.setProperty("--h", con.offsetHeight + "px");
+  setH(); addEventListener("resize", setH, { passive: true });
+  if (!reduce) con.classList.add("scan");
+
+  // 3D tilt that follows the pointer (fine pointers only)
+  if (fine && !reduce) {
+    const col = $(".console-col");
+    col.addEventListener("pointermove", e => { const r = col.getBoundingClientRect(); con.style.setProperty("--ry", ((e.clientX - r.left) / r.width - .5) * -7 + "deg"); con.style.setProperty("--rx", ((e.clientY - r.top) / r.height - .5) * 6 + "deg"); });
+    col.addEventListener("pointerleave", () => { con.style.setProperty("--ry", "0deg"); con.style.setProperty("--rx", "0deg"); });
+  }
+
+  // ---------- story: the step on screen drives the console ----------
+  const steps = $$(".step"), dots = $("#dots"), deck = $("#steps");
+  dots.innerHTML = steps.map(s => `<button type="button" aria-label="${$(".tag", s).textContent}"></button>`).join("");
+  const dotBtns = $$("button", dots);
+  const focusRow = key => { const r = key && $(".r." + key + ":not([hidden])", rowsEl); if (r) rowsEl.scrollTo({ top: r.offsetTop - 4, behavior: smooth }); };
+  let current = -2;
+  const setStep = i => {
+    if (i === current) return; current = i;
+    steps.forEach((s, j) => s.classList.toggle("active", j === i));
+    dotBtns.forEach((d, j) => d.setAttribute("aria-current", String(j === i)));
+    const key = i < 0 ? null : steps[i].dataset.step;
+    if (key) con.dataset.step = key; else delete con.dataset.step;
+    if (key !== "test") focusRow(key === "life" ? "good" : key);
+  };
+  dotBtns.forEach((d, i) => d.addEventListener("click", () => { tick(); deck.scrollTo({ left: steps[i].offsetLeft - deck.offsetLeft - 16, behavior: smooth }); }));
+  const observers = [];
+  const wireStory = () => {
+    observers.splice(0).forEach(o => o.disconnect());
+    const desktop = matchMedia("(min-width: 1020px)").matches;
+    const pick = es => { const vis = es.filter(e => e.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0]; if (vis) setStep(steps.indexOf(vis.target)); };
+    const io = new IntersectionObserver(pick, desktop ? { rootMargin: "-45% 0px -45% 0px" } : { root: deck, threshold: .6 });
+    steps.forEach(s => io.observe(s)); observers.push(io);
+    if (desktop) {
+      const back = new IntersectionObserver(([e]) => { if (e.isIntersecting) setStep(-1); }, { rootMargin: "-40% 0px -40% 0px" });
+      back.observe($(".hero-copy")); observers.push(back);
+    } else setStep(0);
+  };
+  if ("IntersectionObserver" in window) { wireStory(); matchMedia("(min-width: 1020px)").addEventListener("change", wireStory); }
+
+  // ---------- sources: spotlight follows the pointer ----------
+  const grid = $("#src-grid");
+  if (fine) grid.addEventListener("pointermove", e => $$(".spot", grid).forEach(c => { const r = c.getBoundingClientRect(); c.style.setProperty("--x", e.clientX - r.left + "px"); c.style.setProperty("--y", e.clientY - r.top + "px"); }));
+
+  // ---------- odometer: scrubbed by scroll where supported, else rolls once ----------
+  const odo = $("#odo"), target = odo.dataset.value;
+  $$(".d", odo).forEach((d, i) => { const s = $(".strip", d); s.innerHTML = Array.from({ length: 10 }, (_, n) => `<span>${n}</span>`).join(""); s.style.setProperty("--n", target[i]); if (i === 1 || i === 2) d.classList.add("key"); });
+  const scrubbed = !reduce && window.CSS && CSS.supports("animation-timeline: view()");
+  const roll = () => odo.classList.add("rolled");
+
+  // ---------- models finder: search Hebrew or English names, filter by make, reveal in pages ----------
+  const CAT = JSON.parse($("#catalog").textContent);
+  const norm = t => String(t).toLowerCase().replace(/[\u0591-\u05C7]/g, "").replace(/[׳'"`\-\s./()]/g, "");
+  CAT.models.forEach(m => { m.key = norm([m.mk, m.mkEn, m.md, m.mdEn].join(" ")); });
+  const q = $("#q"), clear = $("#q-clear"), gridM = $("#grid"), found = $("#found"), empty = $("#empty"), more = $("#more"), makesEl = $("#makes");
+  const PAGE = 12;
+  let make = null, shown = PAGE;
+  const escH = t => String(t).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+  const mark = (text, query) => { if (!query) return escH(text); const i = text.toLowerCase().indexOf(query.toLowerCase()); return i < 0 ? escH(text) : escH(text.slice(0, i)) + "<mark>" + escH(text.slice(i, i + query.length)) + "</mark>" + escH(text.slice(i + query.length)); };
+  makesEl.innerHTML = `<button type="button" class="mkb" data-m="" aria-pressed="true">הכל <small class="num">${CAT.models.length}</small></button>` +
+    CAT.makes.map(m => `<button type="button" class="mkb" data-m="${escH(m.he)}" aria-pressed="false"><span class="lg" aria-hidden="true">${m.logo || escH(m.he[0])}</span>${escH(m.he)} <small class="num">${m.n}</small></button>`).join("");
+  const render = () => {
+    const raw = q.value.trim(), nq = norm(raw);
+    const list = CAT.models.filter(m => (!make || m.mk === make) && (!nq || m.key.includes(nq)));
+    clear.hidden = !raw;
+    found.textContent = raw || make ? (list.length ? `${list.length} ${list.length === 1 ? "דגם" : "דגמים"}${make ? " של " + make : ""}` : "") : `${CAT.models.length} דגמים של ${CAT.makes.length} יצרנים`;
+    empty.hidden = list.length > 0;
+    gridM.innerHTML = list.slice(0, shown).map((m, k) => `<li class="md" style="--k:${Math.min(k, 12)}"><b>${mark(m.md, raw)}${m.hy ? `<span class="hy">היברידי</span>` : ""}</b><span class="mk-name">${escH(m.mk)} · <span class="yrs num">${m.y0}-${m.y1}</span></span></li>`).join("");
+    const rest = list.length - shown;
+    more.hidden = rest <= 0; more.textContent = rest > 0 ? `הצג עוד ${Math.min(rest, PAGE * 2)}` : "";
+  };
+  let qt; q.addEventListener("input", () => { clearTimeout(qt); qt = setTimeout(() => { shown = PAGE; render(); }, 90); });
+  clear.addEventListener("click", () => { tick(); q.value = ""; shown = PAGE; render(); q.focus(); });
+  makesEl.addEventListener("click", e => { const b = e.target.closest(".mkb"); if (!b) return; tick(); make = b.dataset.m || null; shown = PAGE; $$(".mkb", makesEl).forEach(x => x.setAttribute("aria-pressed", String(x === b))); render(); });
+  more.addEventListener("click", () => { tick(); shown += PAGE * 2; render(); });
+  render();
+
+  // ---------- floating call to action on phones ----------
+  const fab = $("#fab"), fabGo = $("#fab-go"), heroForm = $("#hero-form"), endForm = $("#end-form");
+  fabGo.addEventListener("click", () => { tick(); endForm.scrollIntoView({ behavior: smooth, block: "center" }); setTimeout(() => $("input", endForm).focus({ preventScroll: true }), reduce ? 0 : 550); });
+  if ("IntersectionObserver" in window) {
+    let endVisible = false;
+    const upd = () => { const show = heroForm.getBoundingClientRect().bottom < 0 && !endVisible; fab.classList.toggle("show", show); fab.setAttribute("aria-hidden", String(!show)); fabGo.tabIndex = show ? 0 : -1; };
+    new IntersectionObserver(upd).observe(heroForm);
+    new IntersectionObserver(([e]) => { endVisible = e.isIntersecting; upd(); }).observe(endForm);
+  }
+
+  // ---------- nav hairline + reveals ----------
+  const nav = $("#nav");
+  const sentinel = document.createElement("div");
+  sentinel.className = "sentinel";
+  document.body.prepend(sentinel);
+  if (!("IntersectionObserver" in window) || reduce) {
+    $$(".reveal").forEach(el => el.classList.add("in")); if (!scrubbed) roll();
+  } else {
+    new IntersectionObserver(([e]) => nav.classList.toggle("scrolled", !e.isIntersecting)).observe(sentinel);
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { rootMargin: "0px 0px -8% 0px", threshold: .15 });
+    $$(".reveal").forEach(el => io.observe(el));
+    if (!scrubbed) new IntersectionObserver(([e], o) => { if (e.isIntersecting) { setTimeout(roll, 200); o.disconnect(); } }, { threshold: .4 }).observe(odo);
+  }
+})();
+</script>
+</body>
+</html>

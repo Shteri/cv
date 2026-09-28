@@ -1,304 +1,18 @@
-<title>טיפולית</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&family=Rubik:wght@500;600;700&display=swap">
-<style>
-  :root {
-    --ground: #F3F5F8; --surface: #FFFFFF; --surface-2: #EAF0F7;
-    --ink: #15202B; --muted: #5E6B78; --line: #D9E0E8;
-    --accent: #215FBA; --accent-ink: #FFFFFF; --accent-soft: #E4ECF8; --accent-deep: #1A4C95;
-    --plate: #F7C948; --plate-ink: #1A1A1A;
-    --good: #1E8A55; --good-soft: #DFF3E8;
-    --warn: #B96E00; --warn-soft: #FBEFD6;
-    --crit: #C4383A; --crit-soft: #FBE3E3;
-    --shadow: 0 10px 28px rgba(33, 95, 186, .10), 0 1px 2px rgba(33, 95, 186, .06);
-    --radius: 18px;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      color-scheme: dark;
-      --ground: #0E141B; --surface: #172029; --surface-2: #1F2A35;
-      --ink: #EDF2F7; --muted: #9AA8B6; --line: #2B3844;
-      --accent: #6FA3EA; --accent-ink: #0B1420; --accent-soft: #1B2D45; --accent-deep: #8CB6F0;
-      --good: #4CC183; --good-soft: #163526;
-      --warn: #F0B04A; --warn-soft: #3A2C10;
-      --crit: #F07173; --crit-soft: #3F1D1E;
-      --shadow: 0 10px 28px rgba(0, 0, 0, .35), 0 1px 2px rgba(0, 0, 0, .3);
-    }
-  }
-  :root[data-theme="dark"] {
-    color-scheme: dark;
-    --ground: #0E141B; --surface: #172029; --surface-2: #1F2A35;
-    --ink: #EDF2F7; --muted: #9AA8B6; --line: #2B3844;
-    --accent: #6FA3EA; --accent-ink: #0B1420; --accent-soft: #1B2D45; --accent-deep: #8CB6F0;
-    --good: #4CC183; --good-soft: #163526;
-    --warn: #F0B04A; --warn-soft: #3A2C10;
-    --crit: #F07173; --crit-soft: #3F1D1E;
-    --shadow: 0 10px 28px rgba(0, 0, 0, .35), 0 1px 2px rgba(0, 0, 0, .3);
-  }
-  html, body { height: 100%; }
-  body {
-    background: var(--ground); color: var(--ink);
-    font-family: "Heebo", "Segoe UI", Arial, sans-serif; font-size: 16px; line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
-  }
-  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-  button, input, select, textarea, label, a { touch-action: manipulation; }
-  .row > * { min-width: 0; }
-  .t, .hist > div, .summary { min-width: 0; overflow-wrap: anywhere; }
-  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-  h1, h2, h3 { font-family: "Rubik", "Heebo", Arial, sans-serif; font-weight: 600; margin: 0; text-wrap: balance; line-height: 1.25; }
-  h1 { font-size: 1.75rem; letter-spacing: -0.015em; } h2 { font-size: 1.25rem; } h3 { font-size: 1.05rem; }
-  p { margin: 0; }
-  button { font: inherit; color: inherit; cursor: pointer; border: 0; background: none; }
-  button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
-  .skip { position: absolute; top: -48px; right: 16px; background: var(--accent); color: var(--accent-ink); padding: 8px 12px; border-radius: 8px; z-index: 20; }
-  .skip:focus { top: 8px; }
-  input, select { font: inherit; color: var(--ink); }
-  .num { font-variant-numeric: tabular-nums; }
-
-  #app { direction: rtl; min-height: 100%; max-width: 480px; margin: 0 auto; display: flex; flex-direction: column; }
-  .screen { display: flex; flex-direction: column; flex: 1; padding: 20px 16px 96px; gap: 20px; }
-  .screen.no-nav { padding-bottom: 32px; }
-
-  .brand { display: flex; align-items: center; gap: 10px; font-family: "Rubik", sans-serif; font-weight: 700; font-size: 1.15rem; }
-  .brand .mark { width: 34px; height: 34px; border-radius: 10px; background: var(--accent); color: var(--accent-ink); display: grid; place-items: center; font-size: 1rem; }
-
-  .btn { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 14px 18px; border-radius: 14px; font-weight: 600; font-size: 1rem; transition: transform .12s ease, background-color .2s ease, border-color .2s ease, box-shadow .2s ease, opacity .15s ease; }
-  .btn:active { transform: scale(.985) translateY(1px); }
-  @media (hover: hover) { .btn.primary:hover { background: var(--accent-deep); box-shadow: 0 6px 16px rgba(33, 95, 186, .25); } .btn.secondary:hover { background: var(--surface-2); border-color: var(--muted); } .btn.ghost:hover { color: var(--ink); } .chip:hover { border-color: var(--accent); } .tl-head:hover .km { color: var(--accent); } }
-  .btn.primary { background: var(--accent); color: var(--accent-ink); box-shadow: 0 2px 6px rgba(33, 95, 186, .18); }
-  .btn.busy { position: relative; color: transparent; }
-  .btn.busy::after { content: attr(data-busy); position: absolute; inset: 0; display: grid; place-items: center; color: var(--accent-ink); animation: pulse 1.2s ease-in-out infinite; }
-  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .55; } }
-  .err { color: var(--crit); font-size: .85rem; }
-  .btn.secondary { background: var(--surface); color: var(--ink); border: 1.5px solid var(--line); }
-  .btn.ghost { color: var(--muted); padding: 10px; }
-  .btn:disabled { opacity: .45; cursor: not-allowed; }
-  .btn .g { width: 20px; height: 20px; }
-
-  .card { background: var(--surface); border-radius: var(--radius); padding: 18px; box-shadow: var(--shadow); }
-  .stack { display: flex; flex-direction: column; gap: 12px; }
-  .row { display: flex; align-items: center; gap: 12px; }
-  .row.between { justify-content: space-between; }
-  .muted { color: var(--muted); }
-  .small { font-size: .875rem; }
-  .eyebrow { font-size: .75rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
-
-  /* Onboarding */
-  .onb-art { height: 220px; border-radius: 24px; background: radial-gradient(120% 90% at 20% 0%, var(--accent-soft) 0%, var(--surface-2) 60%); display: grid; place-items: center; overflow: hidden; }
-  .onb-art svg { width: 100%; height: 100%; }
-  .dots { display: flex; gap: 6px; justify-content: center; }
-  .dots span { width: 8px; height: 8px; border-radius: 50%; background: var(--line); transition: width .2s; }
-  .dots span.on { width: 22px; background: var(--accent); border-radius: 4px; }
-
-  /* Plate */
-  .plate { display: inline-flex; align-items: center; gap: 0; white-space: nowrap; flex: none; background: var(--plate); color: var(--plate-ink); border-radius: 8px; border: 2px solid #1A1A1A; overflow: hidden; font-family: "Rubik", sans-serif; font-weight: 700; letter-spacing: .05em; font-size: 1.05rem; direction: ltr; }
-  .plate .il { background: #1747A8; color: #fff; font-size: .6rem; padding: 6px 5px; align-self: stretch; display: grid; place-items: center; letter-spacing: 0; line-height: 1; }
-  .plate .n { padding: 4px 12px; }
-  .plate-input { display: flex; align-items: center; background: var(--plate); border: 2px solid #1A1A1A; border-radius: 10px; overflow: hidden; direction: ltr; }
-  .plate-input .il { background: #1747A8; color: #fff; font-size: .7rem; padding: 0 8px; align-self: stretch; display: grid; place-items: center; }
-  .plate-input input { flex: 1; background: transparent; border: 0; padding: 14px 12px; font-family: "Rubik", sans-serif; font-weight: 700; font-size: 1.6rem; letter-spacing: .12em; color: #1A1A1A; text-align: center; min-width: 0; }
-  .plate-input input::placeholder { color: rgba(26,26,26,.35); letter-spacing: .12em; }
-
-  .field { display: flex; flex-direction: column; gap: 6px; }
-  .field label { font-weight: 500; font-size: .95rem; }
-  .field input, .field select { padding: 13px 14px; border: 1.5px solid var(--line); border-radius: 12px; background: var(--surface); width: 100%; }
-  .field .hint { font-size: .8rem; color: var(--muted); }
-  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
-  .chip { padding: 8px 14px; border-radius: 999px; border: 1.5px solid var(--line); background: var(--surface); font-size: .9rem; font-weight: 500; transition: border-color .2s ease, background-color .2s ease; }
-  .chip.on { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
-
-  /* Car card */
-  .car-card { display: flex; flex-direction: column; gap: 12px; }
-  .car-card .name { font-family: "Rubik", sans-serif; font-weight: 600; font-size: 1.15rem; }
-  .odometer { display: inline-flex; gap: 2px; direction: ltr; }
-  .odometer span { background: var(--ink); color: var(--ground); font-family: "Rubik", sans-serif; font-weight: 600; padding: 2px 5px; border-radius: 4px; font-size: .95rem; min-width: 20px; text-align: center; }
-
-  /* Next service hero */
-  .hero { display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: center; }
-  /* The next-service card is the one dark surface in the app: the focal point of the home screen. */
-  .card.ink { background: var(--ink); color: var(--ground); box-shadow: 0 16px 36px rgba(21, 32, 43, .28); }
-  .card.ink .muted, .card.ink .eyebrow { color: rgba(255,255,255,.62); }
-  .card.ink .item { border-color: rgba(255,255,255,.12); }
-  .card.ink .act.replace { background: rgba(255,255,255,.14); color: #fff; }
-  .card.ink .act.inspect { background: rgba(255,255,255,.08); color: rgba(255,255,255,.75); }
-  .card.ink .price .p { background: rgba(255,255,255,.08); }
-  .card.ink .status.good { background: rgba(76,193,131,.18); color: #7ED8A6; }
-  .card.ink .status.warn { background: rgba(240,176,74,.18); color: #F5C36E; }
-  .card.ink .status.crit { background: rgba(240,113,115,.18); color: #F59A9B; }
-  .card.ink .btn.primary { background: #fff; color: var(--ink); box-shadow: none; }
-  .card.ink .btn.ghost { color: rgba(255,255,255,.75); }
-  .card.ink .ring .lbl .muted { color: rgba(255,255,255,.6); }
-  .card.ink .banner { background: rgba(240,176,74,.16); color: #F5C36E; }
-  :root[data-theme="dark"] .card.ink, :root:not([data-theme="light"]) .card.ink { }
-  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .card.ink { background: #0B1220; border: 1px solid var(--line); } }
-  :root[data-theme="dark"] .card.ink { background: #0B1220; border: 1px solid var(--line); }
-  .big { font-size: 2.6rem; }
-  .nav button.on { color: var(--accent); }
-  .nav button.on svg { background: var(--accent-soft); border-radius: 10px; padding: 3px; width: 30px; height: 30px; margin: -3px 0; }
-  .brand { font-size: 1.05rem; }
-  .brand .mark { width: 30px; height: 30px; border-radius: 9px; }
-  .car-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; }
-  .ring { width: 108px; height: 108px; position: relative; }
-  .ring svg { width: 100%; height: 100%; transform: rotate(-90deg); }
-  .ring .lbl { position: absolute; inset: 0; display: grid; place-items: center; text-align: center; line-height: 1.1; }
-  .ring .lbl b { font-family: "Rubik", sans-serif; font-size: 1.3rem; }
-  .big { font-family: "Rubik", sans-serif; font-weight: 700; font-size: 2.25rem; line-height: 1; letter-spacing: -0.02em; }
-  .status { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px; font-size: .8rem; font-weight: 600; }
-  .status.good { background: var(--good-soft); color: var(--good); }
-  .status.warn { background: var(--warn-soft); color: var(--warn); }
-  .status.crit { background: var(--crit-soft); color: var(--crit); }
-  .status::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
-
-  .items { display: flex; flex-direction: column; }
-  .item { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-top: 1px solid var(--line); }
-  .item:first-child { border-top: 0; }
-  .item .act { flex: none; font-size: .72rem; font-weight: 600; padding: 3px 8px; border-radius: 6px; margin-top: 3px; }
-  .act.replace { background: var(--accent-soft); color: var(--accent); }
-  .act.inspect { background: var(--surface-2); color: var(--muted); }
-  .act.clean, .act.rotate, .act.adjust { background: var(--warn-soft); color: var(--warn); }
-  .item .note { font-size: .8rem; color: var(--muted); }
-
-  /* Timeline */
-  .tl { display: flex; flex-direction: column; gap: 0; position: relative; }
-  .tl-item { display: grid; grid-template-columns: 28px 1fr; gap: 12px; position: relative; padding-bottom: 14px; }
-  .tl-item::before { content: ""; position: absolute; right: 13px; top: 28px; bottom: 0; width: 2px; background: var(--line); }
-  .tl-item:last-child::before { display: none; }
-  .tl-dot { width: 28px; height: 28px; border-radius: 50%; border: 2px solid var(--line); background: var(--surface); display: grid; place-items: center; font-size: .75rem; font-weight: 700; z-index: 1; }
-  .tl-item.done .tl-dot { background: var(--good); border-color: var(--good); color: #fff; }
-  .tl-item.next .tl-dot { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); box-shadow: 0 0 0 5px var(--accent-soft); }
-  .tl-card { background: var(--surface); border-radius: 14px; padding: 12px 14px; border: 1.5px solid var(--line); }
-  .tl-item.next .tl-card { border-color: var(--accent); }
-  .tl-item.done .tl-card { opacity: .7; }
-  .tl-head { display: flex; justify-content: space-between; align-items: center; width: 100%; text-align: right; }
-  .tl-head .km { font-family: "Rubik", sans-serif; font-weight: 600; font-size: 1.05rem; }
-  .tl-head .chev { transition: transform .2s; color: var(--muted); }
-  .tl-item.open .chev { transform: rotate(180deg); }
-  .tl-body { display: none; margin-top: 8px; }
-  .tl-item.open .tl-body { display: block; }
-  .summary { font-size: .85rem; color: var(--muted); }
-
-  /* Bottom nav */
-  .nav { position: fixed; bottom: 0; left: 0; right: 0; background: var(--surface); border-top: 1px solid var(--line); display: flex; justify-content: center; padding: 6px 0 calc(6px + env(safe-area-inset-bottom, 0px)); z-index: 5; }
-  .nav .inner { display: flex; width: 100%; max-width: 480px; direction: rtl; }
-  .nav button { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px; padding: 6px 4px; font-size: .72rem; color: var(--muted); font-weight: 500; }
-  .nav button.on { color: var(--accent); }
-  .nav svg { width: 24px; height: 24px; }
-
-  .topbar { display: flex; justify-content: space-between; align-items: center; }
-  .avatar { width: 38px; height: 38px; border-radius: 12px; background: var(--accent-soft); color: var(--accent); display: grid; place-items: center; font-weight: 700; font-family: "Rubik", sans-serif; }
-  .toggle { width: 46px; height: 26px; border-radius: 999px; background: var(--line); position: relative; transition: background .2s; flex: none; }
-  .toggle::after { content: ""; position: absolute; top: 3px; right: 3px; width: 20px; height: 20px; border-radius: 50%; background: var(--surface); transition: transform .2s; box-shadow: 0 1px 3px rgba(0,0,0,.25); }
-  .toggle.on { background: var(--good); }
-  .toggle.on::after { transform: translateX(-20px); }
-  .list > * { padding: 12px 0; border-top: 1px solid var(--line); }
-  .list > *:first-child { border-top: 0; padding-top: 0; }
-  .list > *:last-child { padding-bottom: 0; }
-  .banner { background: var(--warn-soft); color: var(--warn); border-radius: 12px; padding: 10px 14px; font-size: .85rem; font-weight: 500; }
-  .toast { position: fixed; bottom: 90px; left: 50%; transform: translateX(-50%); background: var(--ink); color: var(--ground); padding: 10px 18px; border-radius: 999px; font-size: .9rem; opacity: 0; transition: opacity .2s; pointer-events: none; z-index: 9; }
-  .toast.show { opacity: 1; }
-  .sheet { position: fixed; inset: 0; background: rgba(0,0,0,.45); display: none; align-items: flex-end; justify-content: center; z-index: 8; }
-  .sheet.show { display: flex; }
-  .sheet .panel { background: var(--surface); width: 100%; max-width: 480px; border-radius: 22px 22px 0 0; padding: 20px 16px calc(20px + env(safe-area-inset-bottom, 0px)); direction: rtl; display: flex; flex-direction: column; gap: 14px; }
-  .price { display: flex; gap: 10px; }
-  .price .p { flex: 1; background: var(--surface-2); border-radius: 12px; padding: 10px 12px; }
-  .price .p b { font-family: "Rubik", sans-serif; font-size: 1.1rem; }
-  .price .p .small { display: block; }
-  .seg { display: flex; border: 1.5px solid var(--line); border-radius: 12px; overflow: hidden; }
-  .seg button { flex: 1; padding: 10px 6px; font-size: .9rem; font-weight: 500; background: var(--surface); }
-  .seg button.on { background: var(--accent); color: var(--accent-ink); }
-  .receipt { display: flex; align-items: center; gap: 12px; }
-  .receipt img { width: 56px; height: 56px; object-fit: cover; border-radius: 10px; border: 1px solid var(--line); }
-  .receipt label { flex: 1; padding: 12px; border: 1.5px dashed var(--line); border-radius: 12px; text-align: center; color: var(--muted); font-size: .9rem; cursor: pointer; }
-  .receipt input { display: none; }
-  .hist { display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; align-items: center; }
-  .hist .amt { font-family: "Rubik", sans-serif; font-weight: 600; font-size: 1.05rem; }
-  .field textarea { padding: 13px 14px; border: 1.5px solid var(--line); border-radius: 12px; background: var(--surface); width: 100%; font: inherit; color: var(--ink); resize: vertical; }
-  .sheet .panel { max-height: 92vh; overflow-y: auto; overscroll-behavior: contain; }
-  .chk { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-top: 1px solid var(--line); cursor: pointer; }
-  .chk:first-child { border-top: 0; }
-  .chk input { width: 22px; height: 22px; margin: 2px 0 0; accent-color: var(--accent); flex: none; }
-  .chk .t { flex: 1; }
-  .chk .note { font-size: .8rem; color: var(--muted); }
-  .tip { display: flex; gap: 10px; padding: 8px 0; font-size: .9rem; }
-  .tip .i { flex: none; width: 24px; height: 24px; border-radius: 50%; background: var(--accent-soft); color: var(--accent); display: grid; place-items: center; font-weight: 700; font-size: .8rem; }
-  .garage { display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; padding: 12px 0; border-top: 1px solid var(--line); align-items: start; }
-  .garage:first-child { border-top: 0; padding-top: 0; }
-  .garage .nm { font-weight: 600; }
-  .garage .meta { font-size: .8rem; color: var(--muted); display: flex; flex-wrap: wrap; gap: 4px 10px; }
-  .garage .amt { font-family: "Rubik", sans-serif; font-weight: 600; text-align: left; }
-  .tag { display: inline-block; font-size: .72rem; font-weight: 600; padding: 2px 8px; border-radius: 6px; background: var(--surface-2); color: var(--muted); }
-  .tag.mine { background: var(--accent-soft); color: var(--accent); }
-  .tag.ver { background: var(--accent-soft); color: var(--accent); }
-  .garage .hrs { font-size: .8rem; color: var(--muted); }
-  .garage .hrs.open { color: var(--good); }
-  .garage .claim { grid-column: 1 / -1; font-size: .8rem; color: var(--accent); padding: 0; text-align: right; }
-  .garage .more { grid-column: 1 / -1; font-size: .85rem; }
-  .garage .more summary { padding: 4px 0; font-size: .85rem; font-weight: 500; }
-  .garage .more .photos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-top: 6px; }
-  .garage .more .photos img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px; }
-  .hours-row { display: grid; grid-template-columns: 42px 44px 1fr; align-items: center; gap: 8px; }
-  .hours-row .row { gap: 4px; }
-  .hours-row input[type="time"] { padding: 6px 4px; width: 100%; min-width: 0; font-size: .85rem; }
-  .hours-row .closed { color: var(--muted); font-size: .85rem; }
-  .price-row { display: grid; grid-template-columns: 1fr 96px 32px; gap: 8px; align-items: center; }
-  .price-row .x { color: var(--muted); font-size: 1.1rem; text-align: center; }
-  .recall { border: 1.5px solid var(--crit); }
-  .recall .rc { padding: 10px 0; border-top: 1px solid var(--line); }
-  .recall .rc:first-of-type { border-top: 0; }
-  .recall .rc .t { font-weight: 600; }
-  .recall .acts { display: flex; gap: 8px; margin-top: 8px; flex-wrap: wrap; }
-  .recall .acts .btn { width: auto; padding: 8px 14px; font-size: .9rem; }
-  .tag.rec { background: var(--good-soft, #E3F4E8); color: var(--good, #1E7A3E); }
-  .chip.loc { display: inline-flex; align-items: center; gap: 6px; border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
-  .chip.loc svg { width: 16px; height: 16px; }
-  .chips.scroll { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin: 0 -16px; padding: 0 16px; }
-  .chips.scroll::-webkit-scrollbar { display: none; }
-  .chips.scroll .chip { flex: none; }
-  .search { display: flex; align-items: center; gap: 8px; padding: 0 14px; border: 1.5px solid var(--line); border-radius: 12px; background: var(--surface); }
-  .search svg { width: 18px; height: 18px; color: var(--muted); flex: none; }
-  .search input { flex: 1; min-width: 0; border: 0; background: none; padding: 12px 0; outline: none; }
-  .garage .acts { display: flex; gap: 8px; }
-  .garage .ib { width: 40px; height: 40px; border-radius: 12px; background: var(--accent-soft); color: var(--accent); display: grid; place-items: center; text-decoration: none; }
-  .garage .ib svg { width: 20px; height: 20px; }
-  .garage .comm { font-size: .8rem; color: var(--good, #1E7A3E); font-weight: 500; }
-  #city-list button { width: 100%; text-align: right; display: flex; justify-content: space-between; padding: 12px 0; }
-  .empty { display: flex; flex-direction: column; gap: 8px; padding: 14px; border: 1.5px dashed var(--line); border-radius: 14px; }
-  .state { display: grid; grid-template-columns: 10px 1fr auto; gap: 4px 10px; align-items: center; padding: 10px 0; border-top: 1px solid var(--line); }
-  .state:first-child { border-top: 0; }
-  .state .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--line); }
-  .state.ok .dot { background: var(--good); } .state.soon .dot { background: var(--warn); } .state.overdue .dot { background: var(--crit); } .state.unknown .dot { background: var(--line); }
-  .state .sub { font-size: .8rem; color: var(--muted); }
-  .state .due { font-family: "Rubik", sans-serif; font-weight: 600; font-size: .95rem; text-align: left; }
-  .state.overdue .due { color: var(--crit); } .state.soon .due { color: var(--warn); } .state.unknown .due { color: var(--muted); font-weight: 500; }
-  .counts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
-  .counts .c { background: var(--surface-2); border-radius: 12px; padding: 10px 6px; text-align: center; }
-  .counts .c b { display: block; font-family: "Rubik", sans-serif; font-size: 1.3rem; line-height: 1.1; }
-  .counts .c span { font-size: .72rem; color: var(--muted); }
-  .counts .c.overdue b { color: var(--crit); } .counts .c.soon b { color: var(--warn); } .counts .c.ok b { color: var(--good); }
-  .docs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
-  .docs button { position: relative; aspect-ratio: 1; border-radius: 10px; overflow: hidden; border: 1px solid var(--line); background: var(--surface-2); }
-  .docs img { width: 100%; height: 100%; object-fit: cover; }
-  .docs .lb { position: absolute; bottom: 0; left: 0; right: 0; font-size: .65rem; background: rgba(21,32,43,.7); color: #fff; padding: 2px 4px; text-align: center; }
-  .items-pick { display: flex; flex-wrap: wrap; gap: 6px; max-height: 190px; overflow-y: auto; padding: 4px 0; }
-  .items-pick .chip { font-size: .82rem; padding: 6px 11px; }
-  .thumbs { display: flex; gap: 8px; flex-wrap: wrap; }
-  .thumbs img { width: 56px; height: 56px; object-fit: cover; border-radius: 10px; border: 1px solid var(--line); }
-  .fold > summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; padding: 8px 0; font-weight: 600; }
-  .fold > summary::-webkit-details-marker { display: none; }
-  .fold > summary::after { content: "⌄"; color: var(--muted); transition: transform .2s; }
-  .fold[open] > summary::after { transform: rotate(180deg); }
-  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
-</style>
+<title>Tipulit</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Hebrew:wght@400;500;600&family=Rubik:wght@500;600;700;800&family=Unbounded:wght@500;600&display=swap">
+<link rel="stylesheet" href="styles/tokens.css">
+<link rel="stylesheet" href="styles/brand.css">
+<link rel="stylesheet" href="styles/app.css">
 
 <div id="app">
   <a class="skip" href="#main">דלג לתוכן</a>
-  <main id="main" style="display:contents">
+  <main class="contents" id="main">
 
   <!-- ONBOARDING -->
   <section class="screen no-nav" id="s-onb" hidden>
-    <div class="brand"><span class="mark">ט</span> טיפולית</div>
+    <div class="brand" aria-label="Tipulit"><span class="brand-word" lang="en" dir="ltr">tipulit</span></div>
     <div class="onb-art" id="onb-art"></div>
-    <div class="stack" style="flex:1">
+    <div class="stack grow">
       <h1 id="onb-title"></h1>
       <p class="muted" id="onb-text"></p>
     </div>
@@ -309,14 +23,14 @@
 
   <!-- SIGN IN -->
   <section class="screen no-nav" id="s-auth" hidden>
-    <div class="brand"><span class="mark">ט</span> טיפולית</div>
-    <div class="stack" style="flex:1; justify-content:center; gap:8px">
+    <div class="brand" aria-label="Tipulit"><span class="brand-word" lang="en" dir="ltr">tipulit</span></div>
+    <div class="stack grow justify-center g-8">
       <h1>ברוך הבא</h1>
       <p class="muted">הרכבים והרשומות שלך נשמרים בין מכשירים.</p>
     </div>
     <div class="stack">
       <button class="btn secondary" id="auth-google" data-busy="מסיים התחברות…">
-        <svg class="g" aria-hidden="true" viewBox="0 0 24 24"><path fill="#EA4335" d="M12 10.2v3.9h5.5c-.2 1.3-1.6 3.8-5.5 3.8-3.3 0-6-2.7-6-6.1s2.7-6.1 6-6.1c1.9 0 3.1.8 3.9 1.5l2.6-2.5C16.9 3.1 14.7 2 12 2 6.5 2 2 6.5 2 12s4.5 10 10 10c5.8 0 9.6-4 9.6-9.7 0-.7-.1-1.1-.2-1.6H12z"/></svg>
+        <svg class="g" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 10.2v3.9h5.5c-.2 1.3-1.6 3.8-5.5 3.8-3.3 0-6-2.7-6-6.1s2.7-6.1 6-6.1c1.9 0 3.1.8 3.9 1.5l2.6-2.5C16.9 3.1 14.7 2 12 2 6.5 2 2 6.5 2 12s4.5 10 10 10c5.8 0 9.6-4 9.6-9.7 0-.7-.1-1.1-.2-1.6H12z"/></svg>
         המשך עם Google
       </button>
       <p class="err" id="auth-err" hidden></p>
@@ -327,12 +41,12 @@
   <!-- ADD CAR -->
   <section class="screen no-nav" id="s-add" hidden>
     <div class="topbar">
-      <div class="brand"><span class="mark">ט</span> טיפולית</div>
-      <button class="btn ghost" id="add-back" style="width:auto">חזרה</button>
+      <div class="brand" aria-label="Tipulit"><span class="brand-word" lang="en" dir="ltr">tipulit</span></div>
+      <button class="btn ghost fit" id="add-back">חזרה</button>
     </div>
 
     <div class="stack" id="add-step-plate">
-      <div class="stack" style="gap:6px">
+      <div class="stack g-6">
         <h1>מה מספר הרכב?</h1>
         <p class="muted">נזהה יצרן, דגם, שנה ומנוע.</p>
       </div>
@@ -346,7 +60,7 @@
     </div>
 
     <div class="stack" id="add-step-confirm" hidden>
-      <div class="stack" style="gap:6px">
+      <div class="stack g-6">
         <h1>זה הרכב שלך?</h1>
         <p class="muted">לפי מאגר הרכב הממשלתי.</p>
       </div>
@@ -356,7 +70,7 @@
     </div>
 
     <div class="stack" id="add-step-manual" hidden>
-      <div class="stack" style="gap:6px">
+      <div class="stack g-6">
         <h1>בחר את הרכב</h1>
         <p class="muted">רק דגמים עם לוח טיפולים מוכן.</p>
       </div>
@@ -367,7 +81,7 @@
     </div>
 
     <div class="stack" id="add-step-km" hidden>
-      <div class="stack" style="gap:6px">
+      <div class="stack g-6">
         <h1>כמה קילומטרים על השעון?</h1>
         <p class="muted">מזה נחשב מתי הטיפול הבא.</p>
       </div>
@@ -395,30 +109,30 @@
   <!-- HOME -->
   <section class="screen" id="s-home" hidden>
     <div class="topbar">
-      <div class="brand"><span class="mark">ט</span> טיפולית</div>
+      <div class="brand" aria-label="Tipulit"><span class="brand-word" lang="en" dir="ltr">tipulit</span></div>
       <button class="avatar" id="home-avatar" aria-label="הפרופיל שלי">א</button>
     </div>
-    <div id="home-body" class="stack" style="gap:16px"></div>
+    <div id="home-body" class="stack g-16"></div>
   </section>
 
   <!-- MY CAR: condition, repairs, documents -->
   <section class="screen" id="s-car" hidden>
-    <div class="stack" style="gap:4px"><h1>מצב הרכב</h1><p class="muted small" id="car-sub"></p></div>
+    <div class="stack g-4"><h1>מצב הרכב</h1><p class="muted small" id="car-sub"></p></div>
     <div id="car-recalls"></div>
     <div class="counts" id="car-counts"></div>
-    <div class="card stack" style="gap:6px">
+    <div class="card stack g-6">
       <div class="row between"><h3>לפי פריט</h3><span class="small muted">מה הוחלף, מתי, ומתי הבא</span></div>
       <div id="car-state"></div>
     </div>
-    <div class="card stack" style="gap:8px">
+    <div class="card stack g-8">
       <div class="row between"><h3>המסמכים שלך</h3><span class="small muted" id="car-docs-n"></span></div>
       <p class="small muted">חשבוניות ישנות? העלה אותן. כל אחת הופכת לרשומה.</p>
       <div class="docs" id="car-docs"></div>
-      <label class="btn secondary" for="car-upload" style="cursor:pointer">העלה חשבוניות</label>
-      <input id="car-upload" type="file" accept="image/*" multiple style="display:none">
+      <label class="btn secondary" for="car-upload">העלה חשבוניות</label>
+      <input id="car-upload" type="file" accept="image/*" multiple hidden>
     </div>
-    <div class="card stack" style="gap:6px">
-      <div class="row between"><h3>תקלות ותיקונים</h3><button class="btn ghost" id="car-add-repair" style="width:auto;padding:0">הוסף</button></div>
+    <div class="card stack g-6">
+      <div class="row between"><h3>תקלות ותיקונים</h3><button class="btn ghost fit bare" id="car-add-repair">הוסף</button></div>
       <div id="car-repairs"></div>
     </div>
     <div id="car-history"></div>
@@ -426,7 +140,7 @@
 
   <!-- TIMELINE -->
   <section class="screen" id="s-tl" hidden>
-    <div class="stack" style="gap:4px">
+    <div class="stack g-4">
       <h1>ציר הטיפולים</h1>
       <p class="muted small" id="tl-sub"></p>
     </div>
@@ -437,10 +151,10 @@
   <!-- GARAGES: licensed-garage finder (MoT registry) + community recommendations -->
   <section class="screen" id="s-garages" hidden>
     <div class="topbar">
-      <div class="stack" style="gap:2px"><p class="eyebrow">מוסכים מורשים</p><h1>מוסך ליד הבית</h1></div>
-      <button class="btn ghost" id="gr-back" style="width:auto">חזרה</button>
+      <div class="stack g-2"><p class="eyebrow">מוסכים מורשים</p><h1>מוסך ליד הבית</h1></div>
+      <button class="btn ghost fit" id="gr-back">חזרה</button>
     </div>
-    <div class="row" style="gap:8px">
+    <div class="row g-8">
       <button class="chip loc" id="gr-city"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-7.1 7-12a7 7 0 0 0-14 0c0 4.9 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg><span id="gr-city-name">בחר עיר</span></button>
       <button class="chip" id="gr-near" data-busy="מאתר…">לפי המיקום שלי</button>
     </div>
@@ -453,21 +167,21 @@
   <!-- GARAGE PROFILE: the owner of a licensed garage edits its public profile -->
   <section class="screen no-nav" id="s-gedit" hidden>
     <div class="topbar">
-      <div class="stack" style="gap:2px"><p class="eyebrow">המוסך שלי</p><h1 id="ge-name" style="font-size:1.4rem">מוסך</h1></div>
-      <button class="btn ghost" id="ge-back" style="width:auto">חזרה</button>
+      <div class="stack g-2"><p class="eyebrow">המוסך שלי</p><h1 class="title-sm" id="ge-name">מוסך</h1></div>
+      <button class="btn ghost fit" id="ge-back">חזרה</button>
     </div>
     <p class="small muted" id="ge-sub"></p>
-    <div class="card stack" style="gap:8px" id="ge-status"></div>
-    <div class="card stack" style="gap:14px">
+    <div class="card stack g-8" id="ge-status"></div>
+    <div class="card stack g-14">
       <div class="field"><label for="ge-phone">טלפון לנהגים</label><input id="ge-phone" name="garage-phone" inputmode="tel" autocomplete="off"></div>
       <div class="field"><label for="ge-wa">וואטסאפ <span class="muted">(לא חובה)</span></label><input id="ge-wa" name="garage-whatsapp" inputmode="tel" autocomplete="off" placeholder="05x-xxxxxxx"></div>
       <div class="field"><label for="ge-booking">קישור לקביעת תור <span class="muted">(לא חובה)</span></label><input id="ge-booking" name="booking" type="url" autocomplete="off" placeholder="https://"></div>
       <div class="field"><label>שעות פתיחה</label><div class="list" id="ge-hours"></div></div>
       <div class="field"><label>התמחות ביצרנים <span class="muted">(לא חובה)</span></label><div class="chips" id="ge-makes"></div></div>
       <div class="field"><label>שירותים</label><div class="chips" id="ge-services"></div></div>
-      <div class="field"><label>מחירון <span class="muted">(לא חובה)</span></label><div class="stack" id="ge-prices" style="gap:8px"></div><button class="btn ghost" id="ge-price-add" style="width:auto;padding:4px 0;align-self:flex-start">+ שורה</button></div>
+      <div class="field"><label>מחירון <span class="muted">(לא חובה)</span></label><div class="stack g-8" id="ge-prices"></div><button class="btn ghost fit slim self-start" id="ge-price-add">+ שורה</button></div>
       <div class="field"><label for="ge-about">על המוסך <span class="muted">(לא חובה)</span></label><textarea id="ge-about" name="about" rows="3" autocomplete="off"></textarea></div>
-      <div class="field"><label>תמונות <span class="muted">(עד 4)</span></label><div class="thumbs" id="ge-photos"></div><label class="btn secondary" for="ge-file" style="cursor:pointer">הוסף תמונה</label><input id="ge-file" type="file" accept="image/*" multiple style="display:none"></div>
+      <div class="field"><label>תמונות <span class="muted">(עד 4)</span></label><div class="thumbs" id="ge-photos"></div><label class="btn secondary" for="ge-file">הוסף תמונה</label><input id="ge-file" type="file" accept="image/*" multiple hidden></div>
       <p class="err" id="ge-err" hidden></p>
       <button class="btn primary" id="ge-save" data-busy="שומר…">שמור</button>
       <button class="btn ghost" id="ge-delete" hidden>הסר את המוסך מהחשבון שלי</button>
@@ -510,7 +224,7 @@
 
   <div class="sheet" id="log">
     <div class="panel">
-      <div class="row between"><h2 id="log-title">עשיתי טיפול</h2><button class="btn ghost" id="log-close" style="width:auto">סגור</button></div>
+      <div class="row between"><h2 id="log-title">עשיתי טיפול</h2><button class="btn ghost fit" id="log-close">סגור</button></div>
       <div class="thumbs" id="log-thumbs" hidden></div>
       <div class="field"><label>מה זה היה</label>
         <div class="seg" id="log-kind"><button data-v="service" class="on">טיפול תקופתי</button><button data-v="repair">תיקון או תקלה</button><button data-v="other">אחר</button></div>
@@ -518,18 +232,18 @@
       <div class="field" id="log-svc-row"><label for="log-svc">איזה טיפול</label><select id="log-svc"></select></div>
       <div class="field" id="log-text-row" hidden><label for="log-text">מה נעשה</label><input id="log-text" name="what" autocomplete="off" placeholder="למשל החלפת מצבר, תיקון מזגן"><p class="err" id="log-text-err" hidden>כתוב בקצרה מה נעשה.</p></div>
       <div class="field"><label>מה הוחלף <span class="muted">(מעדכן את מצב הרכב)</span></label><div class="items-pick" id="log-items"></div></div>
-      <div class="row" style="gap:10px">
-        <div class="field" style="flex:1"><label for="log-date">מתי</label><input id="log-date" name="service-date" type="month" autocomplete="off"></div>
-        <div class="field" style="flex:1"><label for="log-km">ק"מ בטיפול</label><input id="log-km" name="service-km" inputmode="numeric" autocomplete="off" class="num"></div>
+      <div class="row g-10">
+        <div class="field grow"><label for="log-date">מתי</label><input id="log-date" name="service-date" type="month" autocomplete="off"></div>
+        <div class="field grow"><label for="log-km">ק"מ בטיפול</label><input id="log-km" name="service-km" inputmode="numeric" autocomplete="off" class="num"></div>
       </div>
       <div class="field"><label>איפה</label>
         <div class="seg" id="log-where">
           <button data-v="importer" class="on">מוסך יבואן</button><button data-v="independent">מוסך פרטי</button><button data-v="self">בעצמי</button>
         </div>
       </div>
-      <div class="row" style="gap:10px" id="log-garage-row">
-        <div class="field" style="flex:1.4"><label for="log-garage">שם המוסך <span class="muted">(לא חובה)</span></label><input id="log-garage" name="garage" autocomplete="off" list="garage-dl" placeholder="למשל טויוטה ראשל"צ"><datalist id="garage-dl"></datalist></div>
-        <div class="field" style="flex:1"><label for="log-city">עיר</label><input id="log-city" name="city" autocomplete="off" placeholder="ראשון לציון"></div>
+      <div class="row g-10" id="log-garage-row">
+        <div class="field grow-more"><label for="log-garage">שם המוסך <span class="muted">(לא חובה)</span></label><input id="log-garage" name="garage" autocomplete="off" list="garage-dl" placeholder="למשל טויוטה ראשל"צ"><datalist id="garage-dl"></datalist></div>
+        <div class="field grow"><label for="log-city">עיר</label><input id="log-city" name="city" autocomplete="off" placeholder="ראשון לציון"></div>
       </div>
       <div class="field"><label for="log-price">כמה שילמת (₪)</label><input id="log-price" name="price" inputmode="numeric" autocomplete="off" class="num" placeholder="למשל 890"><p class="err" id="log-price-err" hidden>כדי לשתף מחיר צריך להזין כמה שילמת.</p></div>
       <div class="field"><label>היית חוזר למוסך הזה?</label>
@@ -554,8 +268,8 @@
   </div>
 
   <div class="sheet" id="citysheet">
-    <div class="panel stack" style="gap:10px">
-      <div class="row between"><h2>באיזו עיר?</h2><button class="btn ghost" id="city-close" style="width:auto">סגור</button></div>
+    <div class="panel stack g-10">
+      <div class="row between"><h2>באיזו עיר?</h2><button class="btn ghost fit" id="city-close">סגור</button></div>
       <div class="search"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><input id="city-q" type="search" autocomplete="off" placeholder="הקלד עיר" aria-label="חיפוש עיר"></div>
       <div class="list" id="city-list"></div>
     </div>
@@ -581,6 +295,13 @@
     clear() { try { localStorage.removeItem("tipulit"); } catch (e) {} }
   };
   let S = store.get() || { onboarded: false, user: null, cars: [], active: 0 };
+  // Plate handed over from the landing page (/welcome/ -> ?plate=1234567). Kept for the session so it
+  // survives onboarding and the OAuth round trip, and used once when the add-car step opens.
+  try {
+    const q = new URLSearchParams(location.search), p = q.get("plate");
+    if (p && /^\d{7,8}$/.test(p)) sessionStorage.setItem("tipulit-plate", p);
+    if (p !== null) { q.delete("plate"); const rest = q.toString(); history.replaceState(history.state, "", location.pathname + (rest ? "?" + rest : "") + location.hash); }
+  } catch (e) {}
   const Cloud = window.TipulitCloud || { enabled: false };
   let syncT = null;
   const save = () => { store.set(S); if (Cloud.enabled && S.user && S.user.via === "google") { clearTimeout(syncT); syncT = setTimeout(() => Promise.all(S.cars.map(c => Cloud.saveCar(c))).then(() => store.set(S)).catch(e => console.warn("sync failed", e)), 800); } };
@@ -660,13 +381,13 @@
   // ---------- onboarding ----------
   const onb = [
     { t: "כל טיפול, בזמן הנכון", x: "לפי הק\"מ והזמן, עם תזכורת לפני.",
-      art: `<svg viewBox="0 0 320 220"><rect x="40" y="70" width="240" height="90" rx="16" fill="var(--surface)"/><rect x="60" y="92" width="200" height="12" rx="6" fill="var(--line)"/><rect x="60" y="92" width="130" height="12" rx="6" fill="var(--accent)"/><circle cx="190" cy="98" r="10" fill="var(--accent)"/><circle cx="190" cy="98" r="18" fill="var(--accent)" opacity=".2"/><text x="60" y="140" font-family="Rubik" font-weight="600" font-size="20" fill="var(--ink)">45,000</text><text x="230" y="140" font-family="Heebo" font-size="12" fill="var(--muted)" text-anchor="end">60,000</text></svg>` },
+      art: `<svg viewBox="0 0 320 220"><rect class="f-surface" x="40" y="70" width="240" height="90" rx="16"/><rect class="f-line" x="60" y="92" width="200" height="12" rx="6"/><rect class="f-accent" x="60" y="92" width="130" height="12" rx="6"/><circle class="f-accent" cx="190" cy="98" r="10"/><circle class="halo" cx="190" cy="98" r="18"/><text class="tx-num" x="60" y="140">45,000</text><text class="tx-meta" x="230" y="140" text-anchor="end">60,000</text></svg>` },
     { t: "לפי ספר היבואן, לא לפי ניחוש", x: "מה מחליפים ומה בודקים, מלוח הטיפולים של היבואן.",
-      art: `<svg viewBox="0 0 320 220"><rect x="70" y="40" width="180" height="140" rx="12" fill="var(--surface)"/><rect x="90" y="64" width="80" height="10" rx="5" fill="var(--ink)"/><rect x="90" y="88" width="140" height="8" rx="4" fill="var(--line)"/><rect x="90" y="106" width="120" height="8" rx="4" fill="var(--line)"/><rect x="90" y="124" width="140" height="8" rx="4" fill="var(--line)"/><rect x="90" y="142" width="100" height="8" rx="4" fill="var(--line)"/><rect x="210" y="84" width="24" height="16" rx="4" fill="var(--accent-soft)"/><rect x="210" y="120" width="24" height="16" rx="4" fill="var(--accent-soft)"/></svg>` },
+      art: `<svg viewBox="0 0 320 220"><rect class="f-surface" x="70" y="40" width="180" height="140" rx="12"/><rect class="f-ink" x="90" y="64" width="80" height="10" rx="5"/><rect class="f-line" x="90" y="88" width="140" height="8" rx="4"/><rect class="f-line" x="90" y="106" width="120" height="8" rx="4"/><rect class="f-line" x="90" y="124" width="140" height="8" rx="4"/><rect class="f-line" x="90" y="142" width="100" height="8" rx="4"/><rect class="f-accent-soft" x="210" y="84" width="24" height="16" rx="4"/><rect class="f-accent-soft" x="210" y="120" width="24" height="16" rx="4"/></svg>` },
     { t: "מספר רכב, וזהו", x: "מזהים דגם, שנה ומנוע ממאגר הרכב.",
-      art: `<svg viewBox="0 0 320 220"><rect x="70" y="85" width="180" height="50" rx="8" fill="#F7C948" stroke="#1A1A1A" stroke-width="3"/><rect x="70" y="85" width="26" height="50" rx="6" fill="#1747A8"/><text x="170" y="120" font-family="Rubik" font-weight="700" font-size="26" fill="#1A1A1A" text-anchor="middle" letter-spacing="3">12-345-67</text></svg>` }
+      art: `<svg viewBox="0 0 320 220"><rect class="f-plate s-plate" x="70" y="85" width="180" height="50" rx="8"/><rect class="f-plate-tab" x="70" y="85" width="26" height="50" rx="6"/><text class="tx-plate" x="170" y="120" text-anchor="middle">12-345-67</text></svg>` }
     ,{ t: "מחירים ומוסכים מנהגים כמוך", x: "כמה שילמו ואיפה, מנהגים עם אותו דגם. אנונימי.",
-      art: `<svg viewBox="0 0 320 220"><rect x="50" y="60" width="100" height="100" rx="14" fill="var(--surface)"/><rect x="170" y="60" width="100" height="100" rx="14" fill="var(--surface)"/><text x="100" y="105" font-family="Rubik" font-weight="700" font-size="22" fill="var(--ink)" text-anchor="middle">₪1,150</text><text x="220" y="105" font-family="Rubik" font-weight="700" font-size="22" fill="var(--accent)" text-anchor="middle">₪780</text><text x="100" y="135" font-family="Heebo" font-size="12" fill="var(--muted)" text-anchor="middle">מוסך יבואן</text><text x="220" y="135" font-family="Heebo" font-size="12" fill="var(--muted)" text-anchor="middle">מוסך פרטי</text></svg>` }
+      art: `<svg viewBox="0 0 320 220"><rect class="f-surface" x="50" y="60" width="100" height="100" rx="14"/><rect class="f-surface" x="170" y="60" width="100" height="100" rx="14"/><text class="tx-price" x="100" y="105" text-anchor="middle">₪1,150</text><text class="tx-price f-accent-text" x="220" y="105" text-anchor="middle">₪780</text><text class="tx-meta" x="100" y="135" text-anchor="middle">מוסך יבואן</text><text class="tx-meta" x="220" y="135" text-anchor="middle">מוסך פרטי</text></svg>` }
   ];
   let onbI = 0;
   function renderOnb() {
@@ -717,6 +438,7 @@
   let draft = {};
   function startAdd() {
     draft = {}; $("#plate").value = ""; $("#plate-go").disabled = true;
+    try { const p = sessionStorage.getItem("tipulit-plate"); if (p) { sessionStorage.removeItem("tipulit-plate"); $("#plate").value = fmtPlate(p); $("#plate-go").disabled = false; } } catch (e) {}
     ["plate", "confirm", "manual", "km"].forEach(k => $("#add-step-" + k).hidden = k !== "plate");
     $("#add-back").hidden = S.cars.length === 0;
     show("s-add");
@@ -755,7 +477,7 @@
       if (v.km_last_test) $("#km").value = v.km_last_test;
       stepTo("confirm");
     } else if (v && resolved && resolved.status === "electric") {
-      toast("רכב חשמלי. בשלב הזה טיפולית תומכת ברכבי בנזין והיברידיים בלבד"); 
+      toast("רכב חשמלי. בשלב הזה Tipulit תומכת ברכבי בנזין והיברידיים בלבד"); 
     } else if (v) {
       draft = { plate: $("#plate").value, gov: v };
       toast(resolved && resolved.status === "unsupported_year" ? `זוהה ${v.commercial_name} ${v.year || ""}, אבל אין עדיין לוח לשנתון הזה. בחר את הדור הקרוב` : `זוהה ${v.make_raw.split(" ")[0]} ${v.commercial_name} ${v.year || ""}, אבל עדיין אין לו לוח. בחר דגם דומה או המתן לעדכון`);
@@ -818,12 +540,12 @@
   }
   const priceTile = (label, b) => b ? `<div class="p"><span class="small muted">${label}</span><b class="num">₪${fmt(b.med)}</b><span class="small muted num">₪${fmt(b.lo)} עד ₪${fmt(b.hi)} · ${b.n} דיווחים${b.verified ? ` · ${b.verified} עם חשבונית` : ""}</span></div>` : `<div class="p"><span class="small muted">${label}</span><b class="num muted">—</b><span class="small muted">עדיין אין 3 דיווחים</span></div>`;
   const priceHTML = (s, svc) => { const c = communityPrice(s, svc); if (c.live) return `
-    <div class="stack" style="gap:6px">
+    <div class="stack g-6">
       <div class="row between"><p class="eyebrow">כמה זה עולה לאחרים</p><span class="small muted">${c.loading ? "טוען…" : "דיווחי נהגים"}</span></div>
       <div class="price">${priceTile("מוסך יבואן", c.importer)}${priceTile("מוסך פרטי", c.independent)}</div>
       ${!c.importer && !c.independent && !c.loading ? `<p class="small muted">היה הראשון לשתף מחיר.</p>` : ""}
     </div>`; return `
-    <div class="stack" style="gap:6px">
+    <div class="stack g-6">
       <div class="row between"><p class="eyebrow">כמה זה עולה לאחרים</p><span class="small muted">נתוני דוגמה</span></div>
       <div class="price">
         <div class="p"><span class="small muted">מוסך יבואן</span><b class="num">₪${fmt(c.importer.med)}</b><span class="small muted num">₪${fmt(c.importer.lo)} עד ₪${fmt(c.importer.hi)} · ${c.importer.n} דיווחים</span></div>
@@ -985,7 +707,7 @@
     $("#car-counts").innerHTML = `<div class="c overdue"><b class="num">${n("overdue")}</b><span>באיחור</span></div><div class="c soon"><b class="num">${n("soon")}</b><span>מתקרב</span></div><div class="c ok"><b class="num">${n("ok")}</b><span>בסדר</span></div><div class="c"><b class="num">${n("unknown")}</b><span>לא ידוע</span></div>`;
     const attention = rows.filter(r => r.status !== "ok" && r.status !== "done"), fine = rows.filter(r => r.status === "ok" || r.status === "done");
     $("#car-state").innerHTML = (attention.map(stateRow).join("") || `<p class="small muted">הכל ידוע ובסדר.</p>`) + (fine.length ? `<details class="fold"><summary><span>בסדר (${fine.length})</span></summary>${fine.map(stateRow).join("")}</details>` : "") +
-      (n("unknown") ? `<p class="small muted" style="margin-top:8px">"לא ידוע" = אין רשומה. העלה חשבונית או הוסף רשומה.</p>` : "");
+      (n("unknown") ? `<p class="small muted mt-8">"לא ידוע" = אין רשומה. העלה חשבונית או הוסף רשומה.</p>` : "");
     const docs = recs.flatMap(r => (r.receipts || (r.receipt ? [r.receipt] : [])).map(t => ({ t, r })));
     $("#car-docs-n").textContent = docs.length ? `${docs.length} מסמכים` : "";
     $("#car-docs").innerHTML = docs.map(d => `<button title="${d.r.kind === "service" ? "טיפול " + fmt(d.r.svcKm || d.r.km) : d.r.text}"><img src="${d.t}" alt="חשבונית"><span class="lb num">${d.r.date || fmt(d.r.km)}</span></button>`).join("");
@@ -993,19 +715,20 @@
     $("#car-repairs").innerHTML = reps.length ? reps.map(r => `<div class="hist"><div><b>${r.text || kindName[r.kind]}</b> <span class="small muted num">· ${fmt(r.km)} ק"מ${r.date ? " · " + monthName(new Date(r.date + "-01")) : ""}</span><br><span class="small muted">${(r.items || []).map(itemName).join(", ")}${r.garage ? " · " + r.garage : ""}</span></div><span class="amt num">${r.price ? "₪" + fmt(r.price) : ""}</span></div>`).join("") : `<p class="small muted">אין תיקונים רשומים.</p>`;
     $("#car-history").innerHTML = historyHTML(car);
   }
-  const carSummaryHTML = car => { const rows = carState(car); const c = k => rows.filter(r => r.status === k).length; const unknown = c("unknown"), known = rows.length - unknown; return `
-    <div class="card stack" style="gap:10px">
-      <div class="row between"><p class="eyebrow">מצב הרכב</p><button class="btn ghost" id="to-car" style="width:auto;padding:0">לפרטים</button></div>
-      <div class="counts"><div class="c overdue"><b class="num">${c("overdue")}</b><span>באיחור</span></div><div class="c soon"><b class="num">${c("soon")}</b><span>מתקרב</span></div><div class="c ok"><b class="num">${rows.filter(r => r.status === "ok" || r.status === "done").length}</b><span>בסדר</span></div><div class="c"><b class="num">${unknown}</b><span>לא ידוע</span></div></div>
+  const carSummaryHTML = car => { const rows = carState(car); const c = k => rows.filter(r => r.status === k).length; const unknown = c("unknown"), known = rows.length - unknown; const attn = rows.filter(r => r.status === "overdue" || r.status === "soon"); return `
+    <div class="card stack g-12">
+      <div class="row between"><h3>מצב הרכב</h3><button class="btn ghost fit bare" id="to-car">לפרטים</button></div>
+      <div class="counts"><div class="c overdue${c("overdue") ? " hot" : ""}"><b class="num">${c("overdue")}</b><span>באיחור</span></div><div class="c soon"><b class="num">${c("soon")}</b><span>מתקרב</span></div><div class="c ok"><b class="num">${rows.filter(r => r.status === "ok" || r.status === "done").length}</b><span>בסדר</span></div><div class="c"><b class="num">${unknown}</b><span>לא ידוע</span></div></div>
+      ${attn.length ? `<div class="attn">${attn.slice(0, 3).map(stateRow).join("")}</div>` : known ? `<p class="small muted">אין פריטים באיחור או שמתקרבים.</p>` : ""}
       ${known === 0 ? `<p class="small muted">עדיין לא ידוע מה הוחלף. העלה חשבוניות או רשום טיפול.</p>` : ""}
     </div>`; };
 
-  const historyHTML = car => { const h = (car.history || []).slice().sort((a, b) => b.km - a.km || b.at - a.at); if (!h.length) return `<p class="small muted" style="padding:0 4px">עוד אין רשומות.</p>`; return `
+  const historyHTML = car => { const h = (car.history || []).slice().sort((a, b) => b.km - a.km || b.at - a.at); if (!h.length) return `<p class="small muted px-4">עוד אין רשומות.</p>`; return `
     <div class="card stack"><p class="eyebrow">כל הרשומות</p>
       ${h.map(e => `<div class="hist">
         <div><b class="num">${e.kind === "service" || !e.kind ? "טיפול " + fmt(e.svcKm || e.km) : e.text || kindName[e.kind]}</b> <span class="small muted num">· ${fmt(e.km)} ק"מ${e.date ? " · " + monthName(new Date(e.date + "-01")) : ""}</span><br>
           <span class="small muted">${whereName[e.where] || ""}${e.garage ? " · " + e.garage : ""}${e.city ? " · " + e.city : ""}${(e.items || []).length ? " · " + e.items.length + " פריטים" : ""}${e.extra ? " · " + e.extra : ""}</span></div>
-        <div class="row" style="gap:8px">${(e.receipts && e.receipts[0]) || e.receipt ? `<img src="${(e.receipts && e.receipts[0]) || e.receipt}" alt="חשבונית" style="width:36px;height:36px;object-fit:cover;border-radius:8px">` : ""}<span class="amt num">${e.price ? "₪" + fmt(e.price) : ""}</span></div>
+        <div class="row g-8">${(e.receipts && e.receipts[0]) || e.receipt ? `<img class="hist-thumb" src="${(e.receipts && e.receipts[0]) || e.receipt}" alt="חשבונית">` : ""}<span class="amt num">${e.price ? "₪" + fmt(e.price) : ""}</span></div>
       </div>`).join("")}
     </div>`; };
 
@@ -1013,8 +736,8 @@
   const specLabels = { engine_oil: "שמן מנוע", oil_capacity: "כמות שמן עם מסנן", coolant: "נוזל קירור", brake_fluid: "נוזל בלמים", fuel: "דלק", tires: "מידת צמיגים", tire_pressure: "לחץ אוויר", battery: "מצבר", timing: "תזמון", spare: "גלגל חלופי", wipers: "מגבים", warranty: "אחריות יבואן" };
   const specsHTML = s => { if (!s.specs) return ""; const keys = Object.keys(specLabels).filter(k => s.specs[k]); return `
     <details class="card fold"><summary><span>מהספר, בשורה אחת</span></summary>
-      <div class="list small" style="padding-top:6px">${keys.map(k => `<div class="row between" style="align-items:flex-start"><span class="muted" style="flex:none">${specLabels[k]}</span><b style="text-align:left">${s.specs[k]}</b></div>`).join("")}</div>
-      ${s.specs._note ? `<p class="small muted" style="margin-top:8px">${s.specs._note}</p>` : ""}</details>`; };
+      <div class="list small pt-6">${keys.map(k => `<div class="row between items-start"><span class="muted fixed">${specLabels[k]}</span><b class="ta-end">${s.specs[k]}</b></div>`).join("")}</div>
+      ${s.specs._note ? `<p class="small muted mt-8">${s.specs._note}</p>` : ""}</details>`; };
 
   // ---------- recalls (MoT open-recall registry, by plate) ----------
   const RECALL_TTL = 24 * 3600 * 1000;
@@ -1030,7 +753,7 @@
   }
   const openRecalls = car => car.recalls ? car.recalls.list.filter(r => !(car.recallsDone || []).includes(r.id)) : [];
   const recallsHTML = car => { const list = openRecalls(car); if (!list.length) return ""; return `
-    <div class="card recall stack" style="gap:6px">
+    <div class="card recall stack g-6">
       <div class="row between"><p class="eyebrow">ריקול פתוח לרכב שלך</p><span class="status crit">${list.length === 1 ? "1 ריקול" : list.length + " ריקולים"}</span></div>
       ${list.map(r => `<div class="rc"><div class="t">${esc(r.system || "תקלה סדרתית")}</div>
         <p class="small">${esc(r.text)}</p>
@@ -1038,49 +761,50 @@
         <div class="acts">${r.phone ? `<a class="btn primary" href="${telHref(r.phone)}">תיאום ${esc(r.phone)}</a>` : ""}${r.website ? `<a class="btn secondary" href="${esc(r.website)}" target="_blank" rel="noopener">מרכזי שירות</a>` : ""}<button class="btn ghost" data-recall-done="${r.id}">כבר תוקן</button></div></div>`).join("")}
     </div>`; };
   function wireRecalls(root) { $$("[data-recall-done]", root).forEach(b => b.onclick = () => { const car = S.cars[S.active]; car.recallsDone = [...new Set([...(car.recallsDone || []), +b.dataset.recallDone])]; save(); renderHome(); if (!$("#s-car").hidden) renderCar(); toast("סומן כמתוקן"); }); }
-  const recallLine = car => car.recalls && !openRecalls(car).length ? `<div class="row between small"><span class="muted">ריקולים פתוחים</span><b style="color:var(--good)">אין</b></div>` : "";
+  const recallLine = car => car.recalls && !openRecalls(car).length ? `<div class="row between small"><span class="muted">ריקולים פתוחים</span><b class="ok-text">אין</b></div>` : "";
 
   // ---------- home ----------
   function renderHome() {
     const car = S.cars[S.active]; if (!car) return;
     const n = computeNext(car);
     const r = 46, c = 2 * Math.PI * r;
-    const statusText = n.level === "crit" ? "הגיע הזמן לטיפול" : n.level === "warn" ? "מתקרב" : "הכל בסדר";
+    const statusText = n.level === "crit" ? "הגיע הזמן לטיפול" : n.level === "warn" ? "מתקרב" : "בזמן";
     const timeLine = n.byTime && n.byTime <= n.dueDate
       ? `לפי הזמן: עד ${monthName(n.byTime)} (${n.s.interval.months} חודשים מהטיפול האחרון)`
       : `בערך ${monthName(n.dueDate)}, לפי ${fmt(car.kmMonth)} ק"מ בחודש`;
     const hello = S.user && S.user.via === "google" ? `היי ${S.user.name}` : "היי";
     $("#home-avatar").textContent = (S.user && S.user.name[0]) || "א";
     $("#home-body").innerHTML = `
-      <div class="car-head"><div class="stack" style="gap:2px"><p class="eyebrow">${hello}</p><h1 style="font-size:1.5rem">${carName(car)}</h1></div>${car.plate ? plateHTML(car.plate) : ""}</div>
+      <div class="car-head"><div class="stack g-2"><p class="eyebrow">${hello}</p><h1 class="car-title">${carName(car)}</h1></div>${car.plate ? plateHTML(car.plate) : ""}</div>
       ${recallsHTML(car)}
       <div class="card car-card">
         ${recallLine(car)}
         ${car.gov && car.gov.test_expiry ? `<div class="row between small"><span class="muted">טסט בתוקף עד</span><b class="num">${fmtDate(car.gov.test_expiry)}</b></div>` : ""}
-        <div class="row between" style="flex-wrap:wrap; gap:10px"><div class="stack" style="gap:2px"><span class="eyebrow">על השעון</span>${odoHTML(car.km)}</div>${car.gov && car.gov.km_last_test ? `<span class="small muted num">בטסט האחרון: ${fmt(car.gov.km_last_test)}</span>` : ""}</div>
-        <div class="row" style="gap:8px">
-          <button class="btn secondary" id="upd-km" style="padding:10px">עדכן ק"מ</button>
-          <button class="btn secondary" id="done-svc" style="padding:10px">עשיתי טיפול</button>
+        <div class="row between wraps g-10"><div class="stack g-2"><span class="eyebrow">על השעון</span>${odoHTML(car.km)}</div>${car.gov && car.gov.km_last_test ? `<span class="small muted num">בטסט האחרון: ${fmt(car.gov.km_last_test)}</span>` : ""}</div>
+        <div class="row g-8">
+          <button class="btn secondary compact" id="upd-km">עדכן ק"מ</button>
+          <button class="btn secondary compact" id="done-svc">עשיתי טיפול</button>
         </div>
       </div>
-      <div class="card ink stack" style="gap:14px">
+      ${carSummaryHTML(car)}
+      <div class="card ink stack g-14">
         <div class="row between"><p class="eyebrow">הטיפול הבא</p><span class="status ${n.level}">${statusText}</span></div>
         <div class="hero">
-          <div class="stack" style="gap:6px">
+          <div class="stack g-6">
             <div><span class="big num">${fmt(n.nextKm)}</span> <span class="muted">ק"מ</span></div>
             <p class="small"><b class="num">${n.remainKm > 0 ? "עוד " + fmt(n.remainKm) : "באיחור של " + fmt(-n.remainKm)}</b> ק"מ</p>
             <p class="small muted">${timeLine}</p>
           </div>
           <div class="ring" aria-hidden="true">
-            <svg viewBox="0 0 108 108"><circle cx="54" cy="54" r="${r}" fill="none" stroke="rgba(255,255,255,.14)" stroke-width="10"/>
-              <circle cx="54" cy="54" r="${r}" fill="none" stroke="${n.level === "good" ? "#7FB0FF" : n.level === "warn" ? "#F5C36E" : "#F59A9B"}" stroke-width="10" stroke-linecap="round" stroke-dasharray="${c}" stroke-dashoffset="${c * (1 - n.progress)}"/></svg>
+            <svg viewBox="0 0 108 108"><circle class="ring-track" cx="54" cy="54" r="${r}"/>
+              <circle class="ring-fill ${n.level}" cx="54" cy="54" r="${r}" stroke-dasharray="${c}" stroke-dashoffset="${c * (1 - n.progress)}"/></svg>
             <div class="lbl"><div><b class="num">${Math.round(n.progress * 100)}%</b><br><span class="small muted">מהדרך</span></div></div>
           </div>
         </div>
-        <div class="stack" style="gap:6px">
+        <div class="stack g-6">
           <p class="small"><b>מה כולל טיפול ${fmt(n.svc.km)}:</b></p>
           ${itemsHTML(n.svc.items.filter(i => i.action === "replace"))}
-          <button class="btn ghost" data-go="tl" style="width:auto; align-self:flex-start; padding-right:0">לכל הפריטים והבדיקות</button>
+          <button class="btn ghost fit self-start flush-start" data-go="tl">לכל הפריטים והבדיקות</button>
         </div>
         ${priceHTML(n.s, n.svc)}
         <button class="btn primary" id="to-garage">מה לוודא במוסך</button>
@@ -1088,7 +812,6 @@
       ${(n.s.long_interval || []).filter(l => { const x = longNext(l, car.km); return x && x - car.km <= 15000; }).map(l => `<div class="banner">בקרוב גם: ${itemName(l.item)} (${longText(l)})</div>`).join("")}
       ${n.s.status === "draft" ? `<div class="banner">לוח בטיוטה: המרווח לפי היבואן, התכולה עדיין באימות.</div>` : ""}
       ${garagesHomeHTML(car)}
-      ${carSummaryHTML(car)}
       ${specsHTML(n.s)}`;
     $("#upd-km").onclick = openSheet;
     const tc = $("#to-car"); if (tc) tc.onclick = () => show("s-car");
@@ -1121,7 +844,7 @@
       <div class="tl-item ${r.state} ${r.state === "next" ? "open" : ""}">
         <div class="tl-dot">${r.state === "done" ? "✓" : ""}</div>
         <div class="tl-card">
-          <button class="tl-head"><span><span class="km num">${fmt(r.km)} ק"מ</span>${r.state === "next" ? ` <span class="status good" style="margin-right:6px">הבא</span>` : ""}<br><span class="summary">${summarize(r.svc.items)}</span></span><span class="chev" aria-hidden="true">⌄</span></button>
+          <button class="tl-head"><span><span class="km num">${fmt(r.km)} ק"מ</span>${r.state === "next" ? ` <span class="status good ms-6">הבא</span>` : ""}<br><span class="summary">${summarize(r.svc.items)}</span></span><span class="chev" aria-hidden="true">⌄</span></button>
           <div class="tl-body stack">${r.state === "done" ? itemsHTML(r.svc.items) : checklistHTML(s, r.svc, r.km)}</div>
         </div>
       </div>`).join("");
@@ -1129,7 +852,7 @@
     $$("[data-log]").forEach(b => b.onclick = () => openLog(+b.dataset.log));
     $$("[data-copy]").forEach(b => b.onclick = () => copyChecklist(s, s.services.find(x => x.km === +b.dataset.svc), +b.dataset.copy));
     const tb = s.time_based || [], li = s.long_interval || [];
-    const liRows = li.map(l => { const n = longNext(l, car.km); const soon = n && n - car.km <= 15000; return `<div class="item"><span class="act ${l.action}">${actName[l.action]}</span><div><div>${itemName(l.item)}${n ? ` · <b class="num" style="color:${soon ? "var(--warn)" : "inherit"}">בסביבות ${fmt(n)} ק"מ</b>` : ""}</div><div class="note">${longText(l)}${l.note ? " · " + l.note : ""}</div></div></div>`; }).join("");
+    const liRows = li.map(l => { const n = longNext(l, car.km); const soon = n && n - car.km <= 15000; return `<div class="item"><span class="act ${l.action}">${actName[l.action]}</span><div><div>${itemName(l.item)}${n ? ` · <b class="num" class="${soon ? "is-soon" : ""}">בסביבות ${fmt(n)} ק"מ</b>` : ""}</div><div class="note">${longText(l)}${l.note ? " · " + l.note : ""}</div></div></div>`; }).join("");
     const tbRows = tb.map(t => `<div class="item"><span class="act ${t.action}">${actName[t.action]}</span><div><div>${itemName(t.item)}${t.months ? ` · כל ${t.months / 12} שנים` : ""}</div>${t.note ? `<div class="note">${t.note}</div>` : ""}</div></div>`).join("");
     $("#tl-time").innerHTML = `<h3>מרווחים ארוכים ולפי זמן</h3>${liRows + tbRows || `<p class="small muted">אין פריטים כאלה בלוח הזה.</p>`}`;
   }
@@ -1149,11 +872,11 @@
     const row = (it, i) => `<label class="chk"><input type="checkbox" id="c-${km}-${i}"><span class="t">${itemName(it.item)}${it.action === "clean" || it.action === "adjust" ? ` <span class="act ${it.action}">${actName[it.action]}</span>` : ""}${it.note ? `<div class="note">${it.note}</div>` : ""}</span></label>`;
     const rep = svc.items.filter(i => i.action === "replace"), insp = svc.items.filter(i => i.action !== "replace");
     return `
-      <div class="stack" style="gap:2px"><div class="row between"><b>לבקש שיחליפו</b><span class="small muted">לפי לוח ${s.importer}</span></div>${rep.map((it, i) => row(it, "r" + i)).join("")}</div>
-      <div class="stack" style="gap:2px"><b>לבקש שיבדקו</b>${insp.map((it, i) => row(it, "i" + i)).join("")}</div>
+      <div class="stack g-2"><div class="row between"><b>לבקש שיחליפו</b><span class="small muted">לפי לוח ${s.importer}</span></div>${rep.map((it, i) => row(it, "r" + i)).join("")}</div>
+      <div class="stack g-2"><b>לבקש שיבדקו</b>${insp.map((it, i) => row(it, "i" + i)).join("")}</div>
       <details class="fold"><summary><span>לוודא לפני שמשלמים</span></summary>${gTips(s).map(([t, x], i) => `<div class="tip"><span class="i">${i + 1}</span><span><b>${t}</b><br><span class="muted">${x}</span></span></div>`).join("")}</details>
       ${priceHTML(s, svc)}
-      <div class="row" style="gap:8px"><button class="btn secondary" data-copy="${km}" data-svc="${svc.km}" style="padding:10px">העתק רשימה</button><button class="btn primary" data-log="${km}" style="padding:10px">עשיתי את הטיפול</button></div>`;
+      <div class="row g-8"><button class="btn secondary compact" data-copy="${km}" data-svc="${svc.km}">העתק רשימה</button><button class="btn primary compact" data-log="${km}">עשיתי את הטיפול</button></div>`;
   }
   function copyChecklist(s, svc, km) {
     const car = S.cars[S.active], c = communityPrice(s, svc);
@@ -1161,7 +884,7 @@
       "להחליף:", ...svc.items.filter(i => i.action === "replace").map(i => "☐ " + itemName(i.item)), "",
       "לבדוק:", ...svc.items.filter(i => i.action !== "replace").map(i => "☐ " + itemName(i.item)), "",
       ...(c.example ? [] : [[["יבואן", c.importer], ["פרטי", c.independent]].filter(([, b]) => b).map(([t, b]) => `${t} ₪${fmt(b.lo)}-${fmt(b.hi)}`).join(", ")].filter(Boolean).map(x => "מחיר שדווח: " + x)), "",
-      "לוודא: חשבונית מפורטת, סוג שמן לפי ספר, חלקים מקוריים/תחליפיים, חלקים ישנים, רישום הטיפול.", "", "נוצר בטיפולית"].join("\n");
+      "לוודא: חשבונית מפורטת, סוג שמן לפי ספר, חלקים מקוריים/תחליפיים, חלקים ישנים, רישום הטיפול.", "", "נוצר ב-Tipulit"].join("\n");
     const done = () => toast("הרשימה הועתקה");
     const fallback = () => { const ta = document.createElement("textarea"); ta.value = txt; document.body.appendChild(ta); ta.select(); try { document.execCommand("copy"); done(); } catch (e) {} ta.remove(); };
     if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(txt).then(done).catch(fallback); else fallback();
@@ -1230,11 +953,11 @@
   }
   const garagesEmptyHTML = () => `<div class="empty"><b>אין עדיין המלצות לדגם שלך</b><p class="small muted">אחרי הטיפול הבא, רשום איפה היית. נהגים עם אותו דגם יראו את זה.</p></div>`;
   const garagesHomeHTML = car => { const s = schedById(car.schedule), comm = garagesFor(car); const city = S.city; const dir = city && GD ? cityGarages(car, city) : null; return `
-    <div class="card stack" style="gap:8px">
-      <div class="row between"><p class="eyebrow">מוסכים לרכב שלך</p><button class="btn ghost" id="to-garages" style="width:auto;padding:0">${city ? "לכולם" : "בחר עיר"}</button></div>
+    <div class="card stack g-8">
+      <div class="row between"><p class="eyebrow">מוסכים לרכב שלך</p><button class="btn ghost fit bare" id="to-garages">${city ? "לכולם" : "בחר עיר"}</button></div>
       ${comm.length ? `<div>${(dir ? dir.rows.filter(r => r.comm).slice(0, 3).map(r => garageRow(r.g, r.comm, s, r.prof)) : comm.slice(0, 3).map(g => commOnlyRow(g, s))).join("")}</div>`
         : dir && dir.rows.length ? `<p class="small muted">${dir.rows.length} מוסכים מורשים ב${city}. עדיין אין המלצות לדגם שלך.</p><div>${dir.rows.filter(r => r.g.cats.includes("mech") || r.prof).slice(0, 3).map(r => garageRow(r.g, null, s, r.prof)).join("")}</div>`
-        : `<p class="small muted">מוסכים מורשים ליד הבית, עם המלצות של נהגים עם אותו דגם.</p><button class="btn secondary" id="gr-pick" style="padding:10px">מצא מוסך ליד הבית</button>`}
+        : `<p class="small muted">מוסכים מורשים ליד הבית, עם המלצות של נהגים עם אותו דגם.</p><button class="btn secondary compact" id="gr-pick">מצא מוסך ליד הבית</button>`}
     </div>`; };
   let grFilter = "all";
   const grChips = () => [["all", "הכל"], ["rec", "מומלצים לדגם"], ...Object.entries(gCatName)];
@@ -1244,7 +967,7 @@
     $("#gr-filter").innerHTML = grChips().map(([v, t]) => `<button class="chip ${grFilter === v ? "on" : ""}" data-v="${v}">${t}</button>`).join("");
     $$("#gr-filter .chip").forEach(c => c.onclick = () => { grFilter = c.dataset.v; renderGarages(); });
     if (!GD) { $("#gr-sub").textContent = ""; $("#gr-list").innerHTML = `<p class="small muted">טוען את מאגר המוסכים…</p>`; loadGarageDir().then(() => renderGarages()).catch(() => { $("#gr-list").innerHTML = `<p class="small muted">מאגר המוסכים לא נטען. בדוק חיבור ונסה שוב.</p>`; }); return; }
-    if (!S.city) { $("#gr-sub").textContent = ""; $("#gr-list").innerHTML = `<div class="empty"><b>באיזו עיר לחפש?</b><p class="small muted">${GD.garages.length.toLocaleString("he")} מוסכים מורשים ב-${GD.cities.length} יישובים.</p><button class="btn secondary" id="gr-pick2" style="padding:10px">בחר עיר</button></div>`; $("#gr-pick2").onclick = openCitySheet; return; }
+    if (!S.city) { $("#gr-sub").textContent = ""; $("#gr-list").innerHTML = `<div class="empty"><b>באיזו עיר לחפש?</b><p class="small muted">${GD.garages.length.toLocaleString("he")} מוסכים מורשים ב-${GD.cities.length} יישובים.</p><button class="btn secondary compact" id="gr-pick2">בחר עיר</button></div>`; $("#gr-pick2").onclick = openCitySheet; return; }
     const { rows, extra, s } = cityGarages(car, S.city);
     const q = normName($("#gr-q").value);
     let list = rows.filter(r => grFilter === "all" ? r.g.type !== 2 || r.comm : grFilter === "rec" ? r.comm : r.g.cats.includes(grFilter));
@@ -1310,10 +1033,10 @@
   const profileDetailsHTML = p => `<details class="fold more"><summary><span>פרטים ומחירון</span></summary>
       ${p.makes && p.makes.length ? `<div class="small"><span class="muted">מתמחה ב:</span> ${p.makes.map(esc).join(", ")}</div>` : ""}
       ${p.services && p.services.length ? `<div class="small"><span class="muted">שירותים:</span> ${p.services.map(s => gCatName[s] || s).join(", ")}</div>` : ""}
-      ${(p.prices || []).length ? `<div class="list small" style="margin-top:6px">${p.prices.map(x => `<div class="row between"><span>${esc(x.label)}</span><b class="num">₪${fmt(x.price)}</b></div>`).join("")}</div>` : ""}
-      ${p.about ? `<p class="small" style="margin-top:6px">${esc(p.about)}</p>` : ""}
+      ${(p.prices || []).length ? `<div class="list small mt-6">${p.prices.map(x => `<div class="row between"><span>${esc(x.label)}</span><b class="num">₪${fmt(x.price)}</b></div>`).join("")}</div>` : ""}
+      ${p.about ? `<p class="small mt-6">${esc(p.about)}</p>` : ""}
       ${(p.photos || []).length ? `<div class="photos">${p.photos.map(ph => `<img src="${esc(Cloud.photoUrl(ph))}" alt="" loading="lazy">`).join("")}</div>` : ""}
-      ${p.booking_url ? `<a class="btn secondary" href="${esc(p.booking_url)}" target="_blank" rel="noopener" style="margin-top:8px;padding:10px">קביעת תור</a>` : ""}</details>`;
+      ${p.booking_url ? `<a class="btn secondary mt-8 compact" href="${esc(p.booking_url)}" target="_blank" rel="noopener">קביעת תור</a>` : ""}</details>`;
   // claim / edit entry points
   function claimGarage(reg) {
     if (!Cloud.enabled) return toast("צריך חיבור לשרת כדי לרשום מוסך");
@@ -1337,12 +1060,12 @@
     if (ge.status === "rejected") { el.innerHTML = `<div class="row between"><b>הבקשה נדחתה</b><span class="status crit">נדחה</span></div><p class="small muted">אם זו טעות, כתוב לנו: tipulit.app@gmail.com</p>`; return; }
     el.innerHTML = `<div class="row between"><b>ממתין לאימות</b><span class="status warn">בבדיקה</span></div>
       <p class="small muted">נשלח קוד ב-SMS למספר הרשום במאגר משרד התחבורה: <b class="num" dir="ltr">${esc(ge.registry_phone || "")}</b></p>
-      <div id="ge-verify" class="stack" style="gap:8px"><button class="btn secondary" id="ge-send" data-busy="שולח…" style="padding:10px">שלח קוד</button></div>`;
+      <div id="ge-verify" class="stack g-8"><button class="btn secondary compact" id="ge-send" data-busy="שולח…">שלח קוד</button></div>`;
     $("#ge-send").onclick = async () => {
       const b = $("#ge-send"); b.disabled = true; b.classList.add("busy");
       try {
         await Cloud.startPhoneVerify(ge.registry_phone);
-        $("#ge-verify").innerHTML = `<div class="field"><label for="ge-code">הקוד שקיבלת</label><input id="ge-code" inputmode="numeric" autocomplete="one-time-code" class="num" maxlength="8"></div><button class="btn primary" id="ge-confirm" data-busy="מאמת…" style="padding:10px">אמת</button>`;
+        $("#ge-verify").innerHTML = `<div class="field"><label for="ge-code">הקוד שקיבלת</label><input id="ge-code" inputmode="numeric" autocomplete="one-time-code" class="num" maxlength="8"></div><button class="btn primary compact" id="ge-confirm" data-busy="מאמת…">אמת</button>`;
         $("#ge-confirm").onclick = async () => {
           const c = $("#ge-confirm"); c.disabled = true; c.classList.add("busy");
           try { await Cloud.confirmPhoneVerify(ge.registry_phone, $("#ge-code").value.trim()); const r = await Cloud.claimGarage(ge.id); if (r && r.verified) { ge.status = "verified"; myProfiles = null; toast("המוסך אומת"); renderGeStatus(); } else toast("הקוד אושר אבל המספר לא תואם למאגר"); }
@@ -1356,7 +1079,7 @@
     };
   }
   function renderGeHours() {
-    $("#ge-hours").innerHTML = DAYS.map((d, i) => { const h = ge.hours[i]; return `<div class="hours-row"><span>יום ${d}</span><button class="toggle ${h ? "on" : ""}" data-day="${i}" aria-label="פתוח ביום ${d}"></button>${h ? `<div class="row" style="gap:6px"><input type="time" data-day="${i}" data-k="open" value="${h.open}"><span class="muted">עד</span><input type="time" data-day="${i}" data-k="close" value="${h.close}"></div>` : `<span class="closed">סגור</span>`}</div>`; }).join("");
+    $("#ge-hours").innerHTML = DAYS.map((d, i) => { const h = ge.hours[i]; return `<div class="hours-row"><span>יום ${d}</span><button class="toggle ${h ? "on" : ""}" data-day="${i}" aria-label="פתוח ביום ${d}"></button>${h ? `<div class="row g-6"><input type="time" data-day="${i}" data-k="open" value="${h.open}"><span class="muted">עד</span><input type="time" data-day="${i}" data-k="close" value="${h.close}"></div>` : `<span class="closed">סגור</span>`}</div>`; }).join("");
     $$("#ge-hours .toggle").forEach(t => t.onclick = () => { const i = t.dataset.day; ge.hours[i] = ge.hours[i] ? null : { open: "08:00", close: "17:00" }; renderGeHours(); });
     $$("#ge-hours input").forEach(x => x.onchange = () => { ge.hours[x.dataset.day][x.dataset.k] = x.value; });
   }
@@ -1374,7 +1097,7 @@
   }
   $("#ge-price-add").onclick = () => { ge.prices.push({ label: "", price: "" }); renderGePrices(); $("#ge-prices input")[ge.prices.length * 2 - 2].focus(); };
   function renderGePhotos() {
-    $("#ge-photos").innerHTML = ge.photos.map((p, i) => `<button data-ph="${i}" aria-label="הסר תמונה" style="position:relative"><img src="${esc(Cloud.enabled ? Cloud.photoUrl(p) : p)}" alt=""><span class="lb" style="position:absolute;bottom:0;left:0;right:0;font-size:.65rem;background:rgba(21,32,43,.7);color:#fff">הסר</span></button>`).join("");
+    $("#ge-photos").innerHTML = ge.photos.map((p, i) => `<button data-ph="${i}" aria-label="הסר תמונה"><img src="${esc(Cloud.enabled ? Cloud.photoUrl(p) : p)}" alt=""><span class="lb">הסר</span></button>`).join("");
     $$("#ge-photos [data-ph]").forEach(b => b.onclick = () => { ge.photos.splice(+b.dataset.ph, 1); renderGePhotos(); });
   }
   $("#ge-file").onchange = async e => { for (const f of [...e.target.files].slice(0, 4 - ge.photos.length)) ge.photos.push(await shrink(f, 1000)); renderGePhotos(); e.target.value = ""; };
@@ -1403,13 +1126,13 @@
     el.hidden = false;
     const mine = await loadMyProfiles();
     const st = { pending: ["בבדיקה", "warn"], verified: ["מאומת", "good"], rejected: ["נדחה", "crit"] };
-    el.innerHTML = `<h3>המוסך שלי</h3>` + (mine.length ? `<div class="list">${mine.map(p => `<button class="row between" style="width:100%;text-align:right" data-gp="${p.id}"><span><b>${esc(p.name)}</b><br><span class="small muted">${esc(p.city)}</span></span><span class="status ${st[p.status][1]}">${st[p.status][0]}</span></button>`).join("")}</div>` : `<p class="small muted">יש לך מוסך מורשה? מצא אותו ברשימת המוסכים ולחץ "זה המוסך שלי".</p>`) +
+    el.innerHTML = `<h3>המוסך שלי</h3>` + (mine.length ? `<div class="list">${mine.map(p => `<button class="row between row-btn" data-gp="${p.id}"><span><b>${esc(p.name)}</b><br><span class="small muted">${esc(p.city)}</span></span><span class="status ${st[p.status][1]}">${st[p.status][0]}</span></button>`).join("")}</div>` : `<p class="small muted">יש לך מוסך מורשה? מצא אותו ברשימת המוסכים ולחץ "זה המוסך שלי".</p>`) +
       `<button class="btn secondary" id="me-garage-find">${mine.length ? "הוסף מוסך נוסף" : "לרשימת המוסכים"}</button><div id="me-claims"></div>`;
     $$("[data-gp]", el).forEach(b => b.onclick = () => openGarageEdit(mine.find(p => p.id === b.dataset.gp)));
     $("#me-garage-find").onclick = () => { renderGarages(); show("s-garages"); if (!S.city) openCitySheet(); };
     try {
       const claims = await Cloud.pendingGarageClaims();
-      if (claims.length) { $("#me-claims").innerHTML = `<h3 style="margin-top:12px">בקשות ממתינות (מנהל)</h3><div class="list">${claims.map(c => `<div><b>${esc(c.name)}</b> · ${esc(c.city)}<br><span class="small muted num" dir="ltr">${esc(c.registry_phone || "")} · ${esc(c.phone || "")} · ${esc(c.owner_email || "")}</span><div class="row" style="gap:8px;margin-top:6px"><button class="btn primary" style="padding:8px" data-ok="${c.id}">אשר</button><button class="btn ghost" style="padding:8px;width:auto" data-no="${c.id}">דחה</button></div></div>`).join("")}</div>`;
+      if (claims.length) { $("#me-claims").innerHTML = `<h3 class="mt-12">בקשות ממתינות (מנהל)</h3><div class="list">${claims.map(c => `<div><b>${esc(c.name)}</b> · ${esc(c.city)}<br><span class="small muted num" dir="ltr">${esc(c.registry_phone || "")} · ${esc(c.phone || "")} · ${esc(c.owner_email || "")}</span><div class="row g-8 mt-6"><button class="btn primary tight" data-ok="${c.id}">אשר</button><button class="btn ghost tight fit" data-no="${c.id}">דחה</button></div></div>`).join("")}</div>`;
         $$("[data-ok]").forEach(b => b.onclick = async () => { await Cloud.setGarageStatus(b.dataset.ok, "verified"); cloudProfiles = {}; renderMyGarages(); });
         $$("[data-no]").forEach(b => b.onclick = async () => { await Cloud.setGarageStatus(b.dataset.no, "rejected"); renderMyGarages(); }); }
     } catch (e) { /* not admin or table missing */ }
@@ -1423,14 +1146,14 @@
     const g = $("#me-google"); if (g) g.onclick = () => Cloud.enabled ? Cloud.signInWithGoogle().catch(e => toast("ההתחברות נכשלה: " + e.message)) : (S.user = { name: "מקס", email: "max@gmail.com", via: "google", demo: true }, save(), renderAll(), toast("התחברות לדוגמה. שרת עדיין לא מחובר"));
     const lo = $("#me-logout"); if (lo) lo.onclick = async () => { if (Cloud.enabled) { try { await Cloud.signOut(); } catch (e) {} } S.user = { name: "אורח", via: "guest" }; save(); renderAll(); };
     renderMyGarages();
-    $("#me-cars").innerHTML = S.cars.map((c, i) => `<button class="row between" style="width:100%; text-align:right" data-i="${i}">
+    $("#me-cars").innerHTML = S.cars.map((c, i) => `<button class="row between row-btn" data-i="${i}">
       <span><b>${carName(c)}</b><br><span class="small muted num">${fmt(c.km)} ק"מ</span></span>${i === S.active ? `<span class="status good">פעיל</span>` : `<span class="small muted">בחר</span>`}</button>`).join("");
     $$("#me-cars button").forEach(b => b.onclick = () => { S.active = +b.dataset.i; save(); renderAll(); show("s-home"); });
     const s = schedById(S.cars[S.active].schedule);
     const st = { draft: ["טיוטה", "warn"], reviewed: ["נבדק", "good"], verified: ["מאומת", "good"] }[s.status];
-    $("#me-sources").innerHTML = `<details class="fold"><summary><span>מקור הנתונים <span class="status ${st[1]}" style="margin-right:6px">${st[0]}</span></span></summary>
+    $("#me-sources").innerHTML = `<details class="fold"><summary><span>מקור הנתונים <span class="status ${st[1]} ms-6">${st[0]}</span></span></summary>
       <p class="small muted">${{ draft: "המרווח לפי היבואן. תכולת הטיפולים עדיין באימות מול ספר הרכב.", reviewed: `הועתק מלוח הטיפולים של ${s.importer} ונבדק.`, verified: `אומת מול ספר הרכב של ${s.importer}.` }[s.status]}</p>
-      <div class="list small">${s.sources.map(x => `<div class="row between"><span class="muted">${{ importer: "ספר הרכב של היבואן", manufacturer: "ספר היצרן", garage: "מוסך", forum: "פורום בעלי רכב", other: "מקור נוסף" }[x.kind] || "מקור"}</span><a href="${x.url}" target="_blank" rel="noopener" style="color:var(--accent)">${new URL(x.url).hostname.replace(/^www\./, "")}</a></div>`).join("")}</div></details>`;
+      <div class="list small">${s.sources.map(x => `<div class="row between"><span class="muted">${{ importer: "ספר הרכב של היבואן", manufacturer: "ספר היצרן", garage: "מוסך", forum: "פורום בעלי רכב", other: "מקור נוסף" }[x.kind] || "מקור"}</span><a href="${x.url}" target="_blank" rel="noopener">${new URL(x.url).hostname.replace(/^www\./, "")}</a></div>`).join("")}</div></details>`;
   }
   $("#me-add").onclick = startAdd;
   $$(".toggle").forEach(t => t.onclick = () => { t.classList.toggle("on"); toast(t.classList.contains("on") ? "התראה הופעלה" : "התראה כבויה"); });
@@ -1441,6 +1164,18 @@
     store.clear(); S = { onboarded: false, user: null, cars: [], active: 0 }; onbI = 0; renderOnb(); show("s-onb"); };
 
   // ---------- km sheet ----------
+  // Sheets: drag the panel down from its top to dismiss (touch or mouse); a short drag snaps back.
+  const closeSheet = sh => (sh.id === "log" ? $("#log-close") : $("#sheet-close")).click();
+  $$(".sheet .panel").forEach(panel => {
+    let y0 = null, dy = 0;
+    // only the grab zone (handle + title row) starts a drag, so the form inside still scrolls normally
+    panel.addEventListener("pointerdown", e => { const inGrab = panel.firstElementChild.contains(e.target) || e.clientY - panel.getBoundingClientRect().top < 28; if (panel.scrollTop > 0 || !inGrab || e.target.closest("input, select, textarea")) return; y0 = e.clientY; dy = 0; panel.classList.remove("snap"); });
+    panel.addEventListener("pointermove", e => { if (y0 === null) return; dy = Math.max(0, e.clientY - y0); if (dy > 6) { panel.style.setProperty("--drag", dy + "px"); try { panel.setPointerCapture(e.pointerId); } catch (x) {} } });
+    const end = () => { if (y0 === null) return; y0 = null; panel.classList.add("snap"); if (dy > 110) { closeSheet(panel.parentElement); } panel.style.setProperty("--drag", "0px"); };
+    panel.addEventListener("pointerup", end); panel.addEventListener("pointercancel", end);
+  });
+  // A short tick on taps that change something (Android; ignored elsewhere)
+  document.addEventListener("click", e => { if (e.target.closest(".btn.primary, .nav button, .chip, .seg button, .toggle, .tl-head, .chk")) { try { navigator.vibrate && navigator.vibrate(6); } catch (x) {} } });
   function openSheet() { $("#sheet-km").value = S.cars[S.active].km; $("#sheet").classList.add("show"); $("#sheet-km").focus(); }
   $("#sheet-close").onclick = () => $("#sheet").classList.remove("show");
   $("#sheet").onclick = e => { if (e.target.id === "sheet") $("#sheet").classList.remove("show"); };

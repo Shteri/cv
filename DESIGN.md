@@ -1,156 +1,161 @@
 # DESIGN.md — טיפולית (Tipulit)
 
-Design source of truth for the Tipulit app. Agents and people building any screen, page or asset for this product read this first. Format follows the DESIGN.md convention (Google Stitch / awesome-design-md). Tokens are written as `{group.name}` and map 1:1 to the CSS custom properties in `app/index.html`.
+Design source of truth for Tipulit: the app (`app/index.html`) and the landing page (`app/welcome/index.html`) share one system, called "night drive". Agents and people building any screen, page or asset read this first. Format follows the DESIGN.md convention (Google Stitch / awesome-design-md). Tokens are written as `{group.name}` and map to the CSS custom properties in `app/styles/tokens.css`, the single source for both.
 
 ## Overview
 
-Tipulit is a Hebrew, right-to-left, mobile-first product UI for car owners in Israel. Its job is practical: tell the driver what the next service is, what it includes according to the importer's book, what it should cost, and what to verify at the garage. The visual language is a calm workshop: cool light-grey ground, white cards only where elevation carries meaning, one desaturated blue accent, and a single subject-specific color, the yellow of an Israeli licence plate.
+Tipulit is a Hebrew, right-to-left, mobile-first product for car owners in Israel. Its main job is **tracking the car's condition**: what was replaced, what is approaching, what is overdue and what is unknown, item by item. Next to that it tells the driver what the next service is, what it includes according to the importer's schedule, and what to verify at the garage.
 
-The page is scanned and operated, not read top to bottom. Hierarchy comes from information design (a status pill, a progress ring, a big tabular number) more than from decoration. Nothing animates for show; motion is limited to hover, press and one soft pulse on a busy control.
+The look is a night drive: graphite surfaces, light as the material (soft glows, a scan beam, glass on floating chrome), and one accent taken from the product's own subject, the yellow of an Israeli licence plate. Hierarchy comes from information design (count tiles, status dots, one big tabular number) rather than decoration. Motion is there to explain state: things arrive, filters morph, sheets slide and can be swiped away.
 
 **Key characteristics**
-- Ground `{colors.ground}` (#F3F5F8) with white cards `{colors.surface}` (#FFFFFF); grey family is cool (blue-tinted), never warm.
-- One accent, `{colors.accent}` (#215FBA), saturation kept under 75%. Shadows are tinted with the accent hue.
-- The licence plate is a first-class element: yellow `{colors.plate}` (#F7C948), black 2px border, blue "IL" tab, Rubik 700, always LTR.
-- Semantic colors (good / warn / crit) are separate from the accent and only mark state.
-- Typography: Heebo for text, Rubik for display and numbers. Numbers are always tabular.
-- Cards are rounded 18px; inner elements 12–14px; chips and status pills are full pills.
-- Every screen works at 400px wide with a 16px gutter and a fixed bottom navigation with four tabs: בית, הרכב, ציר טיפולים, אני.
+- Dark and light are both first-class and follow the system setting. Grey family is cool and neutral, never warm.
+- One accent, `{colors.accent}` (#F7C948), used as a **fill** (primary buttons, active tab, selected chip, toggles, next-service ring). Text in the accent colour uses `{colors.accent-text}`, which is yellow in dark and a dark amber in light, so it stays readable.
+- The licence plate is a first-class element: yellow, 2–3px near-black border, blue "IL" tab, Rubik 700, always LTR.
+- Semantic colours (good / warn / crit / unknown) only mark state and are always paired with text.
+- Typography: IBM Plex Sans Hebrew for text, Rubik for display and numbers. Numbers are always tabular.
+- The next-service card is the one graphite hero card, identical in both themes.
 
 ## Colors
 
-### Brand & accent
-- **Accent** `{colors.accent}` #215FBA — primary buttons, active nav tab, progress ring at rest, links. Press/hover deepens to `{colors.accent-deep}` #1A4C95.
-- **Accent soft** `{colors.accent-soft}` #E4ECF8 — "replace" chips, selected chip background, ring halo, avatar background.
-- **Accent ink** `{colors.accent-ink}` #FFFFFF — text on accent.
-- **Plate** `{colors.plate}` #F7C948 with `{colors.plate-ink}` #1A1A1A and the IL tab #1747A8 — used only for the licence plate and the onboarding plate illustration. Never as a general accent.
+### Accent
+- **Accent** `{colors.accent}` #F7C948, text on it `{colors.accent-ink}` #101214.
+- **Accent soft** `{colors.accent-soft}` light #FCEFC7 / dark #3A3014: "replace" chips, tags, halo on the next timeline dot.
+- **Accent text** `{colors.accent-text}` light #7A5A00 / dark #F7C948: links and accent-coloured text.
+- **Plate** #F7C948 with ink #101214 and IL tab #1747A8. Plate colours do not change with the theme.
 
-### Surface
-- **Ground** `{colors.ground}` #F3F5F8 — page background.
-- **Surface** `{colors.surface}` #FFFFFF — cards, sheets, bottom nav.
-- **Surface 2** `{colors.surface-2}` #EAF0F7 — inset panels (price tiles, inspect chips, onboarding art), ring track.
-- **Line** `{colors.line}` #D9E0E8 — 1px dividers and 1.5px input/chip borders.
+### Surfaces (light / dark)
+- **Ground** `{colors.ground}` #F1F2F4 / #08090B.
+- **Surface** `{colors.surface}` #FFFFFF / #14171C: cards, sheets, fields.
+- **Surface 2** `{colors.surface-2}` #ECEEF1 / #1C2027: inset panels, count tiles inside cards, segmented control track.
+- **Surface 3** `{colors.surface-3}` #E2E5EA / #252A32: toggle track, pressed rows.
+- **Line** `{colors.line}` #DDE0E5 / #262B33: 1px dividers, 1.5px borders.
+- **Hero card** #111418 with a soft yellow glow in the corner, text #F3F4F6, in both themes.
 
-### Text
-- **Ink** `{colors.ink}` #15202B — body and headings.
-- **Muted** `{colors.muted}` #5E6B78 — secondary text, eyebrows, notes. Contrast on ground ≥ 4.5:1.
+### Text (light / dark)
+- **Ink** `{colors.ink}` #0C0F12 / #F3F4F6. **Muted** `{colors.muted}` #555C66 / #9BA2AC. **Faint** `{colors.faint}` #868D97 / #626A75 (unknown values, secondary meta only).
 
-### Semantic (state only, never decoration)
-- **Good** `{colors.good}` #1E8A55 on `{colors.good-soft}` #DFF3E8 — "everything fine", done timeline dots, reviewed status.
-- **Warn** `{colors.warn}` #B96E00 on `{colors.warn-soft}` #FBEFD6 — approaching, draft data banner, long-interval item within range.
-- **Crit** `{colors.crit}` #C4383A on `{colors.crit-soft}` #FBE3E3 — overdue, inline errors.
+### Semantic (light / dark, with soft backgrounds)
+- **Good** #148A55 / #3FD58B: done, fine, remaining life.
+- **Warn** #9A6700 / #F0B04A: approaching (≤3,000 km or ≤45 days), data caveats.
+- **Crit** #C8352B / #FF6B5E: overdue, inline errors. An overdue dot gets a slow pulsing halo.
+- **Unknown**: faint grey dot and "?".
 
-### Dark theme
-Same roles, remapped: ground #0E141B, surface #172029, surface-2 #1F2A35, ink #EDF2F7, muted #9AA8B6, line #2B3844, accent #6FA3EA (accent-ink #0B1420, accent-soft #1B2D45, accent-deep #8CB6F0), good #4CC183 / #163526, warn #F0B04A / #3A2C10, crit #F07173 / #3F1D1E. Plate colors do not change. `color-scheme: dark` is set wherever the dark palette applies.
+## Logo
+- Wordmark only: lowercase **tipulit** in Unbounded 600, tracking -0.03em, followed by a square full stop in plate yellow (`{colors.accent}`). No Hebrew in the logo and no letter mark.
+- One implementation for every surface: `app/styles/brand.css`, markup documented at the top of that file. Size with `--brand-size` (app 1.25rem, landing nav 1.4rem); the full stop scales with it.
+- `{font.brand}` (Unbounded) is for the wordmark only, never UI text.
+- App icon: a geometric "t" in off-white with the same yellow square, on the graphite hero colour (#111418). Drawn as shapes in `scripts/build-site.mjs`, so it renders without any font.
+- The product name in running Hebrew copy stays "טיפולית"; page titles and the installed-app name use "Tipulit".
 
 ## Typography
+- **IBM Plex Sans Hebrew** 400/500/600: body, labels, buttons, notes.
+- **Rubik** 500–800: headings, big numbers, the plate, odometer digits, counts.
+Both are Hebrew-native; never substitute a Latin-only face.
 
-### Font family
-- **Heebo** (Google Fonts) — body, labels, buttons, notes. Weights 400, 500, 700. Fallback: "Segoe UI", Arial, sans-serif.
-- **Rubik** (Google Fonts) — headings, big numbers, the plate, odometer digits. Weights 500, 600, 700. Fallback: Heebo.
-Both are Hebrew-native. Do not substitute Inter, Geist or other Latin-only faces; Hebrew glyphs would fall back and the page would look broken.
-
-### Hierarchy
 | Token | Size | Weight | Face | Tracking | Use |
 |---|---|---|---|---|---|
-| `{type.display}` | 36px | 700 | Rubik | -0.02em | next-service km on home |
-| `{type.h1}` | 28px | 600 | Rubik | -0.015em | screen titles, car name on home |
-| `{type.h2}` | 20px | 600 | Rubik | 0 | card titles |
-| `{type.h3}` | 17px | 600 | Rubik | 0 | section titles inside cards |
-| `{type.body}` | 16px | 400 | Heebo | 0 | running text, list items |
-| `{type.small}` | 14px | 400 | Heebo | 0 | meta, notes, hints |
-| `{type.eyebrow}` | 12px | 500 | Heebo | +0.06em, uppercase | section labels |
-| `{type.chip}` | 11.5px | 600 | Heebo | 0 | action chips, tags |
-| `{type.plate}` | 17px | 700 | Rubik | +0.05em | licence plate, LTR |
+| `{type.display}` | 2.8rem (app) / clamp up to 5.4rem (landing) | 800 | Rubik | -0.04em | next-service km, landing hero |
+| `{type.h1}` | 1.9rem | 700 | Rubik | -0.03em | screen titles |
+| `{type.h2}` | 1.3rem | 700 | Rubik | -0.015em | sheet titles |
+| `{type.h3}` | 1.08rem | 600 | Rubik | -0.01em | card titles |
+| `{type.body}` | 16px | 400 | Plex | 0 | running text |
+| `{type.small}` | 14px | 400 | Plex | 0 | meta, notes |
+| `{type.label}` | 12.8px | 500 | Plex | 0 | eyebrows (sentence case, no uppercase tracking) |
+| `{type.plate}` | 17px (mini) / 1.7rem (input) | 700 | Rubik | +0.06–0.1em | licence plate, LTR |
 
-### Principles
-- Numbers are always `font-variant-numeric: tabular-nums` and formatted with `Intl.NumberFormat("he-IL")`; currency is prefixed with ₪.
-- Headings use `text-wrap: balance`. Body line-height 1.5, headings 1.25.
-- Copy is sentence case, active voice, second person, no exclamation marks. Loading states end with an ellipsis (…).
-- Hebrew text is RTL; plates, engine codes and part numbers are wrapped LTR.
+Numbers use `font-variant-numeric: tabular-nums` and `Intl.NumberFormat("he-IL")`; currency is prefixed with ₪. Copy is plain Hebrew, second person, no exclamation marks; loading states end with an ellipsis (…).
 
 ## Layout
-
-### Spacing
-Base unit 4px. Common steps: 6, 8, 10, 12, 16, 18, 20. Screen padding 20px top, 16px sides, 96px bottom (clears the nav). Card padding 18px. Gap between stacked cards 16–20px; inside cards 8–14px.
-
-### Grid & container
-Single column, `max-width: 480px`, centered. Screens are `display:flex; flex-direction:column` with `gap`, never per-element margins. Two-up rows (price tiles, button pairs) use flex with `gap` 8–10px and wrap at narrow widths.
-
-### Whitespace
-Let the next-service card breathe; everything else is compact. Lists inside cards use 1px dividers and 10–12px vertical padding instead of extra cards.
+- App: single column, `max-width: 480px`, 16px gutter, 18px between cards, bottom padding 112px to clear the floating nav.
+- Landing: `max-width: 1280px`, 16px gutter on phones and 40px from 768px.
+- Base unit 4px. Screens are flex columns with `gap`, not per-element margins.
 
 ## Elevation & depth
-- `{shadow.card}`: `0 10px 28px rgba(33,95,186,.10), 0 1px 2px rgba(33,95,186,.06)` — cards on the ground only.
-- `{shadow.button}`: `0 2px 6px rgba(33,95,186,.18)`; hover `0 6px 16px rgba(33,95,186,.25)`.
-- Timeline cards use a 1.5px border instead of shadow; the "next" card uses the accent border and a 5px accent-soft halo on its dot.
-- Sheets slide from the bottom over a 45% black scrim, radius 22px on the top corners.
-- Onboarding art gets one quiet radial tint from accent-soft into surface-2. No gradients elsewhere.
+- Cards: 1px line border + `{shadow.card}` (a soft neutral drop) + a 1px inner top highlight (`{edge}`).
+- The hero card and the primary button carry a yellow-tinted shadow; nothing else glows.
+- Floating chrome (bottom nav, landing FAB, landing console) is frosted glass: translucent surface + `backdrop-filter: blur(20px) saturate(160%)`, with a solid fallback under `prefers-reduced-transparency`. This is a web approximation, not Apple's Liquid Glass.
+- Sheets slide up over a 50% scrim, radius 26px at the top, with a grab handle.
 
 ## Shapes
 | Token | Radius | Use |
 |---|---|---|
-| `{radius.card}` | 18px | cards |
-| `{radius.control}` | 14px | primary/secondary buttons, empty-state boxes |
-| `{radius.field}` | 12px | inputs, selects, avatar (rounded square, not circle) |
-| `{radius.inner}` | 10–12px | receipt thumbnails, price tiles |
-| `{radius.chip}` | 6px | action chips, tags |
-| `{radius.pill}` | 999px | filter chips, status pills, toasts, toggles |
-| `{radius.plate}` | 8px | licence plate |
+| `{radius.card}` | 22px (app), 28px (landing panels) | cards, hero card |
+| `{radius.control}` | 14px | buttons, segmented control, banners |
+| `{radius.field}` | 12px | inputs, selects, thumbnails |
+| `{radius.pill}` | 999px | chips, status pills, action chips, toggles, toast |
+| `{radius.plate}` | 8px (mini) / 10px (input) | licence plate |
 
 ## Components
-- **Bottom nav**: four tabs (בית, הרכב, ציר טיפולים, אני), 24px outline icons + 11.5px label, active tab in accent. Fixed, respects `env(safe-area-inset-bottom)`.
-- **Condition row**: 10px status dot (good / warn / crit / line for unknown), item name with category, one-line history ("הוחלף ב-45,000 ק"מ, ינואר 2026"), due km on the left in Rubik. Unknown rows show "?" and the schedule's next grid km.
-- **Count tiles**: four surface-2 tiles (באיחור, מתקרב, בסדר, לא ידוע) with a Rubik number in the semantic color; used on home and on the car screen.
-- **Document grid**: four square thumbnails per row with a date label strip; tapping opens the record.
-- **Primary button**: accent fill, 14px radius, 14px/18px padding, 600 weight; busy state keeps the width and pulses the label.
-- **Secondary button**: surface fill, 1.5px line border; hover fills surface-2.
-- **Ghost button**: muted text, no fill; used for "back" and tertiary actions.
-- **Licence plate**: see Colors; input variant is the same plate with a centered 1.6rem Rubik field.
-- **Odometer**: six ink tiles with ground-colored digits, LTR.
-- **Status pill**: 12.8px 600 text with a 7px dot, semantic colors only.
-- **Progress ring**: 108px, 10px stroke, track surface-2, fill accent (good) or the semantic color.
-- **Action chip**: החלפה (accent-soft), בדיקה (surface-2), ניקוי/סבב/כיוון (warn-soft).
-- **Timeline item**: 28px dot + card; done = good, next = accent with halo and open by default.
-- **Checklist row**: 22px native checkbox, label is the hit target, note in small muted.
-- **Price tiles**: two surface-2 tiles side by side, median in Rubik 600, range and sample size in small muted.
-- **Garage row**: name + "דיווחת" tag, meta line (type, city, reports, % would return), average price on the left.
-- **Sheet**: bottom sheet with title row and a ghost close button, fields stacked 14px apart, primary action last.
-- **Toast**: ink pill on ground text, bottom 90px, `aria-live="polite"`, 2.2s.
-- **Banner**: warn-soft box, 12px radius, for data caveats and upcoming long-interval items.
-- **Empty state**: dashed line box with bold headline, one explanatory sentence and one secondary action.
-
-## Do's and don'ts
-
-### Do
-- Keep one accent. State is expressed with the semantic set, never with a second brand color.
-- Show the plate as a plate. It is the product's identity element.
-- Put the summary before the detail: next service first, items second, sources last.
-- Use real data or clearly labelled examples ("נתוני דוגמה"); never invent verified-looking numbers.
-- Provide hover, pressed, focus-visible and busy states on every control.
-- Write in plain Hebrew a garage customer uses; expand jargon the first time.
-
-### Don't
-- Don't use gradients, glassmorphism, grain or purple-blue hero blocks. This is a tool, not a landing page.
-- Don't add a fifth nav tab; secondary destinations (garages, checklist) open from cards and go back with the browser history.
-- Don't render cards inside cards. Use dividers and inset surface-2 panels.
-- Don't use warm greys, pure black, or a saturated blue.
-- Don't show a dashboard-style number wall; one big number per screen.
-- Don't rely on color alone: pair every semantic color with text.
-
-## Responsive behavior
-- Designed at 400px; verified at 360–480px. Above 480px the column is centered on the ground.
-- Touch targets ≥ 44px; chips ≥ 36px tall with 8px gaps.
-- Sheets cap at 92vh and scroll internally with `overscroll-behavior: contain`.
-- Text containers use `min-width: 0` and `overflow-wrap: anywhere`; long garage names and notes wrap, never clip.
-- The bottom nav and sheets add the safe-area insets to their own padding.
+- **Bottom nav**: a floating glass bar 12px from the edges; four tabs (בית, הרכב, ציר טיפולים, אני); the active tab gets a surface-2 pill and its icon sits on a yellow rounded square.
+- **Condition summary** (home, above the next-service card): four count tiles (באיחור, מתקרב, בסדר, לא ידוע) and up to three rows that need attention. The overdue tile turns crit-soft when above zero.
+- **Condition row**: 10px status dot, item name with category, one-line history, due km or month on the left in Rubik.
+- **Next-service hero card**: graphite, status pill ("בזמן" / "מתקרב" / "הגיע הזמן לטיפול"), big km, a 112px ring filled in yellow (warn / crit colours when late), what the service includes, price tiles, a yellow primary action.
+- **Primary button**: yellow fill, dark text, light sweep on hover, springy press (`scale(.97)`); busy state pulses its label.
+- **Secondary button**: surface fill, 1.5px line border. **Ghost button**: muted text.
+- **Chip**: pill, 1.5px border; selected = yellow fill.
+- **Segmented control**: surface-2 track, the selected segment is a raised surface pill.
+- **Toggle**: surface-3 track, yellow when on, springy knob.
+- **Checklist row**: custom 22px yellow checkbox with an animated tick; a checked label is struck through.
+- **Timeline item**: 28px dot + card; done = good, next = yellow dot with a breathing halo and a yellow border.
+- **Odometer**: six small surface tiles, LTR, Rubik 700.
+- **Sheet**: slides up; drag the handle or title row down to dismiss (over 110px closes, less snaps back).
+- **Toast**: ink pill that springs up from below the nav, `aria-live="polite"`, 2.2s.
+- **Banner**: warn-soft box, 14px radius.
 
 ## Motion
-- Transitions 120–200ms on transform, background-color, border-color, box-shadow, opacity only. Never `transition: all`.
-- Press: `scale(.985) translateY(1px)`. Busy: 1.2s opacity pulse. Toast: 200ms fade.
-- `prefers-reduced-motion: reduce` disables all transitions.
+- Only transform, opacity, colour, border and shadow animate. Durations 200–500ms; easing `cubic-bezier(.16, 1, .3, 1)`, and a spring `cubic-bezier(.34, 1.56, .64, 1)` for presses, toggles and chevrons.
+- Screens fade and rise 10px when shown. Timeline items open with a short slide.
+- Taps that change something send a 6ms vibration where supported (Android).
+- `prefers-reduced-motion: reduce` switches off all animation and transitions.
+
+## Landing page specifics
+- The hero holds a live, landing-scale "מצב הרכב" console with sample data (labelled "נתוני דוגמה"). On desktop it stays pinned while scroll steps highlight overdue, remaining life, unknown and test; on phones the steps are a swipe deck.
+- Models: a search field (Hebrew or English names) plus make filter pills and a paged grid. The catalogue is generated by `scripts/build-site.mjs` from `data/schedules/` into an inline JSON block, so it scales to hundreds of models without hand edits. Make logos come from Simple Icons (`app/welcome/logos/`); a make without a logo shows its first letter.
+- Icons are Phosphor (regular), inlined at build time from `app/welcome/icons/`.
+- The plate form hands off to the app with `?plate=<digits>`, which prefills the add-car step.
+
+## Design in code (how the look survives product changes)
+
+The design lives in three stylesheets; markup and scripts only carry content, state and data.
+
+| File | Holds | May contain |
+|---|---|---|
+| `app/styles/tokens.css` | every colour, font, radius and easing, light and dark | literals (the only file that may) |
+| `app/styles/brand.css` | the logo lockup, shared by both pages | `var(--token)` only |
+| `app/styles/app.css` | app components + a short list of layout utilities | `var(--token)` only |
+| `app/welcome/welcome.css` | landing components | `var(--token)` only |
+| `app/index.html`, `app/welcome/index.html` | markup, copy, data, behaviour | classes, and `style="--x: …"` for runtime data |
+
+Rules, enforced by `node scripts/check-design.mjs` (runs first in the Netlify build and in the GitHub workflow, and fails the build):
+1. No literal colours or font names outside `tokens.css`. Need a new shade? Add a token, or derive it with `color-mix(in srgb, var(--token) 40%, transparent)`.
+2. No `<style>` blocks in HTML. No inline `style=""` except custom properties that pass data to CSS (`--i`, `--k`, `--r`, `--s`, `--c`, `--n`, `--h`, `--x`, `--y`, `--mx`, `--my`, `--rx`, `--ry`, `--p`, `--drag`, `--vt`). New runtime properties are added to the list in the checker and here.
+3. JavaScript changes the look only by toggling classes or calling `el.style.setProperty("--name", value)`.
+4. SVG colour comes from CSS classes; `fill`/`stroke` attributes may only be `none` or `currentColor`. Geometry (x, y, r, dasharray) may be computed in JS.
+5. Every `var(--x)` must resolve to a token, a property set in the same stylesheet, or a runtime property.
+6. Every class written in markup or JS templates must exist in the page's stylesheet (behaviour-only hooks are listed in the checker).
+
+In practice: a new screen or feature reuses the existing components and utilities (`.card`, `.stack`, `.row`, `.btn.*`, `.chip`, `.status.*`, `.g-*`, `.grow`, …). If something new is needed, add a class to the stylesheet first, then use it. Changing the palette, fonts or radii is a `tokens.css` edit and nothing else.
+
+## Do's and don'ts
+- Do keep one accent. State is expressed with the semantic set, never a second brand colour.
+- Do show the plate as a plate.
+- Do put condition first: what needs attention, then the next service, then detail.
+- Do use real data or clearly labelled examples ("נתוני דוגמה"); never invent verified-looking numbers.
+- Do provide hover, pressed, focus-visible and busy states on every control.
+- Don't use yellow for text on light backgrounds; use `{colors.accent-text}`.
+- Don't add a fifth nav tab; secondary destinations open from cards.
+- Don't render cards inside cards; use dividers and surface-2 insets.
+- Don't rely on colour alone: pair every status colour with text.
+
+## Responsive behavior
+- App designed at 400px, verified at 360–480px; above 480px the column is centred.
+- Touch targets ≥ 44px; chips ≥ 36px.
+- Sheets cap at 92vh and scroll internally with `overscroll-behavior: contain`.
+- Text containers use `min-width: 0` and `overflow-wrap: anywhere`.
+- The nav, sheets and the landing FAB add safe-area insets to their own padding.
 
 ## Known gaps
-- No landing page yet; when one is built use `design-taste-frontend` and this palette, not a new one.
-- Icons are hand-drawn 2px outline SVGs; if the set grows, adopt Phosphor at 1.5–2px stroke for consistency.
+- App icons in the bottom nav are still hand-drawn 2px outline SVGs; move them to Phosphor like the landing page.
+- Onboarding illustrations are simple inline SVGs; replace with real screenshots or generated art when available.
 - Community price and garage data are placeholders until the backend exists; keep the "נתוני דוגמה" label until then.
