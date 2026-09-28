@@ -67,10 +67,11 @@ const logo = make => {
 };
 const makesHTML = makeList.map(([make, m], i) => {
   const models = [...m.models].sort((a, b) => a.localeCompare(b, "he"));
-  return `        <li class="make reveal" style="--i:${i % 3}">
-          <span class="make-logo">${logo(make)}</span>
-          <div class="make-body"><h3>${esc(make)}</h3><p>${models.map(esc).join("<span class=\"sep\" aria-hidden=\"true\">/</span>")}</p></div>
-          <span class="make-count num" aria-label="${m.models.size} דגמים">${m.models.size}</span>
+  return `        <li class="mk" style="--i:${i}">
+          <div class="mk-top"><span class="mk-logo">${logo(make)}</span><span class="mk-count num">${m.models.size}<small>${m.models.size === 1 ? "דגם" : "דגמים"}</small></span></div>
+          <h3>${esc(make)}</h3>
+          <p class="mk-imp">${esc(m.importer || "")}</p>
+          <div class="mk-models">${models.map(x => `<span>${esc(x)}</span>`).join("")}</div>
         </li>`;
 }).join("\n");
 const marqueeItems = makeList.map(([make]) => `<span class="mq-item">${logo(make)}<span>${esc(make)}</span></span>`).join("");
