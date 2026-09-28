@@ -346,7 +346,7 @@
 
   // ---------- onboarding ----------
   const onb = [
-    { t: "כל טיפול, בזמן הנכון", x: "טיפולית מחשבת מתי הטיפול הבא לפי הקילומטראז' והזמן, ומזכירה לך לפני שמאחרים.",
+    { t: "כל טיפול, בזמן הנכון", x: "Tipulit מחשבת מתי הטיפול הבא לפי הקילומטראז' והזמן, ומזכירה לך לפני שמאחרים.",
       art: `<svg viewBox="0 0 320 220"><rect class="f-surface" x="40" y="70" width="240" height="90" rx="16"/><rect class="f-line" x="60" y="92" width="200" height="12" rx="6"/><rect class="f-accent" x="60" y="92" width="130" height="12" rx="6"/><circle class="f-accent" cx="190" cy="98" r="10"/><circle class="halo" cx="190" cy="98" r="18"/><text class="tx-num" x="60" y="140">45,000</text><text class="tx-meta" x="230" y="140" text-anchor="end">60,000</text></svg>` },
     { t: "לפי ספר היבואן, לא לפי ניחוש", x: "מה מחליפים, מה בודקים ומתי. הכל מלוחות הטיפולים של היבואנים בישראל, דגם אחר דגם.",
       art: `<svg viewBox="0 0 320 220"><rect class="f-surface" x="70" y="40" width="180" height="140" rx="12"/><rect class="f-ink" x="90" y="64" width="80" height="10" rx="5"/><rect class="f-line" x="90" y="88" width="140" height="8" rx="4"/><rect class="f-line" x="90" y="106" width="120" height="8" rx="4"/><rect class="f-line" x="90" y="124" width="140" height="8" rx="4"/><rect class="f-line" x="90" y="142" width="100" height="8" rx="4"/><rect class="f-accent-soft" x="210" y="84" width="24" height="16" rx="4"/><rect class="f-accent-soft" x="210" y="120" width="24" height="16" rx="4"/></svg>` },
@@ -438,7 +438,7 @@
       if (v.km_last_test) $("#km").value = v.km_last_test;
       stepTo("confirm");
     } else if (v && resolved && resolved.status === "electric") {
-      toast("רכב חשמלי. בשלב הזה טיפולית תומכת ברכבי בנזין והיברידיים בלבד"); 
+      toast("רכב חשמלי. בשלב הזה Tipulit תומכת ברכבי בנזין והיברידיים בלבד"); 
     } else if (v) {
       draft = { plate: $("#plate").value, gov: v };
       toast(resolved && resolved.status === "unsupported_year" ? `זוהה ${v.commercial_name} ${v.year || ""}, אבל אין עדיין לוח לשנתון הזה. בחר את הדור הקרוב` : `זוהה ${v.make_raw.split(" ")[0]} ${v.commercial_name} ${v.year || ""}, אבל עדיין אין לו לוח. בחר דגם דומה או המתן לעדכון`);
@@ -819,7 +819,7 @@
       "להחליף:", ...svc.items.filter(i => i.action === "replace").map(i => "☐ " + itemName(i.item)), "",
       "לבדוק:", ...svc.items.filter(i => i.action !== "replace").map(i => "☐ " + itemName(i.item)), "",
       `מחיר סביר: יבואן ₪${fmt(c.importer.lo)}-${fmt(c.importer.hi)}, פרטי ₪${fmt(c.independent.lo)}-${fmt(c.independent.hi)}`, "",
-      "לוודא: חשבונית מפורטת, סוג שמן לפי ספר, חלקים מקוריים/תחליפיים, חלקים ישנים, רישום הטיפול.", "", "נוצר בטיפולית"].join("\n");
+      "לוודא: חשבונית מפורטת, סוג שמן לפי ספר, חלקים מקוריים/תחליפיים, חלקים ישנים, רישום הטיפול.", "", "נוצר ב-Tipulit"].join("\n");
     const done = () => toast("הרשימה הועתקה");
     const fallback = () => { const ta = document.createElement("textarea"); ta.value = txt; document.body.appendChild(ta); ta.select(); try { document.execCommand("copy"); done(); } catch (e) {} ta.remove(); };
     if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(txt).then(done).catch(fallback); else fallback();
