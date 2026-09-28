@@ -1,0 +1,775 @@
+{
+  "id": "subaru-forester-2025-2026-2.5",
+  "make": "Subaru",
+  "make_he": "סובארו",
+  "model": "Forester",
+  "model_he": "פורסטר",
+  "generation": "SL (דור 6, 25MY)",
+  "years": [
+    2025,
+    2026
+  ],
+  "engines": [
+    "2.5 (FB25)"
+  ],
+  "fuel": "petrol",
+  "importer": "יפנאוטו (סובארו, קבוצת סמלת)",
+  "interval": {
+    "km": 10000,
+    "months": 12,
+    "note": "לפי 'תכנית תחזוקה' בספר הרכב העברי (סמלת) לפורסטר 25MY: שירות כל 10,000 ק\"מ או 12 חודשים לפי סבב A/B/C/D; אחרי 100,000 ק\"מ חוזרים לתחילת הטבלה"
+  },
+  "cycle_km": 100000,
+  "services": [
+    {
+      "km": 10000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "מצב הצמיגים ולחץ אוויר כולל גלגל חילוף"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "drive_belt",
+          "action": "adjust",
+          "note": "בדיקה וכיוון מתיחות לפי הצורך"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "סיכת תפסים, צירים ומנעולים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "בדיקת כל מפלסי הנוזלים כולל שני הדיפרנציאלים"
+        }
+      ]
+    },
+    {
+      "km": 20000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "מצב הצמיגים ולחץ אוויר כולל גלגל חילוף"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "drive_belt",
+          "action": "adjust",
+          "note": "בדיקה וכיוון מתיחות לפי הצורך"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "סיכת תפסים, צירים ומנעולים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "נוזל קירור"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect",
+          "note": "צינורות גמישים וחבקים"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "החלפה לפי הצורך"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect",
+          "note": "החלפה לפי הצורך"
+        },
+        {
+          "item": "clutch",
+          "action": "inspect",
+          "note": "אם יש"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "מצב הצמיגים ולחץ אוויר כולל גלגל חילוף"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "drive_belt",
+          "action": "adjust",
+          "note": "בדיקה וכיוון מתיחות לפי הצורך"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "סיכת תפסים, צירים ומנעולים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "בדיקת כל מפלסי הנוזלים כולל שני הדיפרנציאלים"
+        }
+      ]
+    },
+    {
+      "km": 40000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "מצב הצמיגים ולחץ אוויר כולל גלגל חילוף"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "drive_belt",
+          "action": "adjust",
+          "note": "בדיקה וכיוון מתיחות לפי הצורך"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "סיכת תפסים, צירים ומנעולים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "נוזל קירור"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect",
+          "note": "צינורות גמישים וחבקים"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "החלפה לפי הצורך"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect",
+          "note": "החלפה לפי הצורך"
+        },
+        {
+          "item": "clutch",
+          "action": "inspect",
+          "note": "אם יש"
+        }
+      ]
+    },
+    {
+      "km": 50000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "מצב הצמיגים ולחץ אוויר כולל גלגל חילוף"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "drive_belt",
+          "action": "adjust",
+          "note": "בדיקה וכיוון מתיחות לפי הצורך"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "סיכת תפסים, צירים ומנעולים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "בדיקת כל מפלסי הנוזלים כולל שני הדיפרנציאלים"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "מצב הצמיגים ולחץ אוויר כולל גלגל חילוף"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "drive_belt",
+          "action": "adjust",
+          "note": "בדיקה וכיוון מתיחות לפי הצורך"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "סיכת תפסים, צירים ומנעולים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "ביקורת ושירות בלמים קדמיים ואחוריים"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "נוזל קירור"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect",
+          "note": "צינורות גמישים וחבקים"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "החלפה לפי הצורך"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect",
+          "note": "החלפה לפי הצורך"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "שירות מזרקי דלק"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "צנרת גמישה הקשורה לפליטה"
+        },
+        {
+          "item": "pcv_valve",
+          "action": "inspect",
+          "note": "החלפה לפי הצורך"
+        }
+      ]
+    },
+    {
+      "km": 70000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "מצב הצמיגים ולחץ אוויר כולל גלגל חילוף"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "drive_belt",
+          "action": "adjust",
+          "note": "בדיקה וכיוון מתיחות לפי הצורך"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "סיכת תפסים, צירים ומנעולים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "בדיקת כל מפלסי הנוזלים כולל שני הדיפרנציאלים"
+        }
+      ]
+    },
+    {
+      "km": 80000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "מצב הצמיגים ולחץ אוויר כולל גלגל חילוף"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "drive_belt",
+          "action": "adjust",
+          "note": "בדיקה וכיוון מתיחות לפי הצורך"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "סיכת תפסים, צירים ומנעולים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "נוזל קירור"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect",
+          "note": "צינורות גמישים וחבקים"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "החלפה לפי הצורך"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect",
+          "note": "החלפה לפי הצורך"
+        },
+        {
+          "item": "clutch",
+          "action": "inspect",
+          "note": "אם יש"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "מצב הצמיגים ולחץ אוויר כולל גלגל חילוף"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "drive_belt",
+          "action": "adjust",
+          "note": "בדיקה וכיוון מתיחות לפי הצורך"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "סיכת תפסים, צירים ומנעולים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "בדיקת כל מפלסי הנוזלים כולל שני הדיפרנציאלים"
+        }
+      ]
+    },
+    {
+      "km": 100000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "מצב הצמיגים ולחץ אוויר כולל גלגל חילוף"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "drive_belt",
+          "action": "adjust",
+          "note": "בדיקה וכיוון מתיחות לפי הצורך"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "סיכת תפסים, צירים ומנעולים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "ביקורת ושירות בלמים קדמיים ואחוריים"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "נוזל קירור"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect",
+          "note": "צינורות גמישים וחבקים"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "החלפה לפי הצורך"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect",
+          "note": "החלפה לפי הצורך"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace"
+        },
+        {
+          "item": "cvt_oil",
+          "action": "replace",
+          "note": "החלפת שמן תיבת ההילוכים"
+        },
+        {
+          "item": "differential_oil",
+          "action": "replace",
+          "note": "החלפת שמן הדיפרנציאל; בדיקת כל מפלסי הנוזלים"
+        }
+      ]
+    }
+  ],
+  "long_interval": [],
+  "time_based": [],
+  "specs": {
+    "engine_oil": "שמן סינתטי 0W-20"
+  },
+  "sources": [
+    {
+      "url": "https://samelet.com/ebooks/Subaru_Forester_25MY_carbook_082024.pdf",
+      "kind": "importer",
+      "note": "מדריך תפעול סובארו פורסטר 25MY (סמלת, 08/2024), פרק 11-1 'תכנית תחזוקה' עמ' 431-432 (עמודי PDF 435-436): טבלת שירותים A/B/C/D ורשימת הפעולות לכל שירות"
+    },
+    {
+      "url": "https://samelet.com/ebooks/",
+      "kind": "importer",
+      "note": "תיקיית ספרי הרכב הפתוחה של קבוצת סמלת (יבואנית סובארו)"
+    }
+  ],
+  "status": "reviewed",
+  "notes": "לפי ספר הרכב העברי של היבואן לפורסטר 25MY. שירות כל 10,000 ק\"מ או שנה: A ב-10, 30, 50, 70, 90 אלף; B ב-20, 40, 80 אלף (גם סבב צמיגים ובדיקת מסנני אוויר); C ב-60,000 (גם שירות בלמים והחלפת נוזל בלמים); D ב-100,000 (גם החלפת מצתים ושמן תיבת הילוכים ודיפרנציאל). הספר מציין שבתנאי נהיגה קשים (חום, אבק, נסיעות קצרות) חלק מהפעולות נדרשות בתדירות גבוהה יותר, ושמנוע סובארו עשוי לצרוך עד ליטר שמן לכל 6,000 ק\"מ."
+}

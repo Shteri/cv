@@ -1,0 +1,1437 @@
+{
+  "id": "mitsubishi-outlander-phev-2017-2021-2.0-2.4-phev",
+  "make": "Mitsubishi",
+  "make_he": "מיצובישי",
+  "model": "Outlander PHEV",
+  "model_he": "אאוטלנדר PHEV",
+  "generation": "ZK/ZL (GG2W/GG3W)",
+  "years": [
+    2017,
+    2021
+  ],
+  "engines": [
+    "2.0 MIVEC PHEV (4B11)",
+    "2.4 MIVEC PHEV (4B12)"
+  ],
+  "fuel": "plug-in-hybrid",
+  "importer": "כלמוביל",
+  "interval": {
+    "km": 15000,
+    "months": 12,
+    "note": "לפי לוח התחזוקה של מיצובישי אוסטרליה ל-Outlander PHEV MY19: טיפול כל 15,000 ק\"מ או 12 חודשים; בתנאים קשים שמן ומסנן כל 7,500 ק\"מ"
+  },
+  "cycle_km": 210000,
+  "services": [
+    {
+      "km": 15000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "מפלס נוזל קירור במיכל"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס במיכל הבלמים והמצמד"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "דליפת שמן קירור של המנוע החשמלי הקדמי; בכל 30,000 גם כבלי מתח גבוה ומפלס נוזל קירור של המנוע האחורי"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "כולל מפרקים כדוריים; ב-60,000, 120,000 ו-180,000 גם מסבי גלגלים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "שמן תמסורת קדמית (גיר הפחתה): בדיקת דליפה; בתנאים קשים החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "שמן תמסורת אחורית: בדיקת דליפה; בתנאים קשים החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מסנן מטהר אוויר"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "מפלס נוזל קירור במיכל"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "דליפת שמן קירור של המנוע החשמלי הקדמי; בכל 30,000 גם כבלי מתח גבוה ומפלס נוזל קירור של המנוע האחורי"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "כולל מפרקים כדוריים; ב-60,000, 120,000 ו-180,000 גם מסבי גלגלים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "שמן תמסורת קדמית (גיר הפחתה): בדיקת דליפה; בתנאים קשים החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "שמן תמסורת אחורית: בדיקת דליפה; בתנאים קשים החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מסנן מטהר אוויר"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect",
+          "note": "בדיקה חזותית לפי בלאי הצמיגים"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 45000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "מפלס נוזל קירור במיכל"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס במיכל הבלמים והמצמד"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "דליפת שמן קירור של המנוע החשמלי הקדמי; בכל 30,000 גם כבלי מתח גבוה ומפלס נוזל קירור של המנוע האחורי"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "כולל מפרקים כדוריים; ב-60,000, 120,000 ו-180,000 גם מסבי גלגלים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "שמן תמסורת קדמית (גיר הפחתה): בדיקת דליפה; בתנאים קשים החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "שמן תמסורת אחורית: בדיקת דליפה; בתנאים קשים החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מסנן מטהר אוויר"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "מפלס נוזל קירור במיכל"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "דליפת שמן קירור של המנוע החשמלי הקדמי; בכל 30,000 גם כבלי מתח גבוה ומפלס נוזל קירור של המנוע האחורי"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "כולל מפרקים כדוריים; ב-60,000, 120,000 ו-180,000 גם מסבי גלגלים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "שמן תמסורת קדמית (גיר הפחתה): בדיקת דליפה; בתנאים קשים החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "שמן תמסורת אחורית: בדיקת דליפה; בתנאים קשים החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מסנן מטהר אוויר"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect",
+          "note": "בדיקה חזותית לפי בלאי הצמיגים"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 75000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "מפלס נוזל קירור במיכל"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס במיכל הבלמים והמצמד"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "דליפת שמן קירור של המנוע החשמלי הקדמי; בכל 30,000 גם כבלי מתח גבוה ומפלס נוזל קירור של המנוע האחורי"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "כולל מפרקים כדוריים; ב-60,000, 120,000 ו-180,000 גם מסבי גלגלים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "שמן תמסורת קדמית (גיר הפחתה): בדיקת דליפה; בתנאים קשים החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "שמן תמסורת אחורית: בדיקת דליפה; בתנאים קשים החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מסנן מטהר אוויר"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "מפלס נוזל קירור במיכל"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "דליפת שמן קירור של המנוע החשמלי הקדמי; בכל 30,000 גם כבלי מתח גבוה ומפלס נוזל קירור של המנוע האחורי"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "כולל מפרקים כדוריים; ב-60,000, 120,000 ו-180,000 גם מסבי גלגלים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "שמן תמסורת קדמית (גיר הפחתה): בדיקת דליפה; בתנאים קשים החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "שמן תמסורת אחורית: בדיקת דליפה; בתנאים קשים החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מסנן מטהר אוויר"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect",
+          "note": "בדיקה חזותית לפי בלאי הצמיגים"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 105000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "מפלס נוזל קירור במיכל"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס במיכל הבלמים והמצמד"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "דליפת שמן קירור של המנוע החשמלי הקדמי; בכל 30,000 גם כבלי מתח גבוה ומפלס נוזל קירור של המנוע האחורי"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "כולל מפרקים כדוריים; ב-60,000, 120,000 ו-180,000 גם מסבי גלגלים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "שמן תמסורת קדמית (גיר הפחתה): בדיקת דליפה; בתנאים קשים החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "שמן תמסורת אחורית: בדיקת דליפה; בתנאים קשים החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מסנן מטהר אוויר"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "מפלס נוזל קירור במיכל"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "דליפת שמן קירור של המנוע החשמלי הקדמי; בכל 30,000 גם כבלי מתח גבוה ומפלס נוזל קירור של המנוע האחורי"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "כולל מפרקים כדוריים; ב-60,000, 120,000 ו-180,000 גם מסבי גלגלים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "שמן תמסורת קדמית (גיר הפחתה): בדיקת דליפה; בתנאים קשים החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "שמן תמסורת אחורית: בדיקת דליפה; בתנאים קשים החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מסנן מטהר אוויר"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect",
+          "note": "בדיקה חזותית לפי בלאי הצמיגים"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 135000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "מפלס נוזל קירור במיכל"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס במיכל הבלמים והמצמד"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "דליפת שמן קירור של המנוע החשמלי הקדמי; בכל 30,000 גם כבלי מתח גבוה ומפלס נוזל קירור של המנוע האחורי"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "כולל מפרקים כדוריים; ב-60,000, 120,000 ו-180,000 גם מסבי גלגלים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "שמן תמסורת קדמית (גיר הפחתה): בדיקת דליפה; בתנאים קשים החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "שמן תמסורת אחורית: בדיקת דליפה; בתנאים קשים החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מסנן מטהר אוויר"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 150000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "מפלס נוזל קירור במיכל"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "דליפת שמן קירור של המנוע החשמלי הקדמי; בכל 30,000 גם כבלי מתח גבוה ומפלס נוזל קירור של המנוע האחורי"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "כולל מפרקים כדוריים; ב-60,000, 120,000 ו-180,000 גם מסבי גלגלים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "שמן תמסורת קדמית (גיר הפחתה): בדיקת דליפה; בתנאים קשים החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "שמן תמסורת אחורית: בדיקת דליפה; בתנאים קשים החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מסנן מטהר אוויר"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect",
+          "note": "בדיקה חזותית לפי בלאי הצמיגים"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 165000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "מפלס נוזל קירור במיכל"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס במיכל הבלמים והמצמד"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "דליפת שמן קירור של המנוע החשמלי הקדמי; בכל 30,000 גם כבלי מתח גבוה ומפלס נוזל קירור של המנוע האחורי"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "כולל מפרקים כדוריים; ב-60,000, 120,000 ו-180,000 גם מסבי גלגלים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "שמן תמסורת קדמית (גיר הפחתה): בדיקת דליפה; בתנאים קשים החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "שמן תמסורת אחורית: בדיקת דליפה; בתנאים קשים החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מסנן מטהר אוויר"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 180000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "מפלס נוזל קירור במיכל"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "דליפת שמן קירור של המנוע החשמלי הקדמי; בכל 30,000 גם כבלי מתח גבוה ומפלס נוזל קירור של המנוע האחורי"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "כולל מפרקים כדוריים; ב-60,000, 120,000 ו-180,000 גם מסבי גלגלים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "שמן תמסורת קדמית (גיר הפחתה): בדיקת דליפה; בתנאים קשים החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "שמן תמסורת אחורית: בדיקת דליפה; בתנאים קשים החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מסנן מטהר אוויר"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect",
+          "note": "בדיקה חזותית לפי בלאי הצמיגים"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 195000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "מפלס נוזל קירור במיכל"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס במיכל הבלמים והמצמד"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "דליפת שמן קירור של המנוע החשמלי הקדמי; בכל 30,000 גם כבלי מתח גבוה ומפלס נוזל קירור של המנוע האחורי"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "כולל מפרקים כדוריים; ב-60,000, 120,000 ו-180,000 גם מסבי גלגלים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "שמן תמסורת קדמית (גיר הפחתה): בדיקת דליפה; בתנאים קשים החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "שמן תמסורת אחורית: בדיקת דליפה; בתנאים קשים החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מסנן מטהר אוויר"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 210000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "מפלס נוזל קירור במיכל"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "דליפת שמן קירור של המנוע החשמלי הקדמי; בכל 30,000 גם כבלי מתח גבוה ומפלס נוזל קירור של המנוע האחורי"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "כולל מפרקים כדוריים; ב-60,000, 120,000 ו-180,000 גם מסבי גלגלים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "שמן תמסורת קדמית (גיר הפחתה): בדיקת דליפה; בתנאים קשים החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "שמן תמסורת אחורית: בדיקת דליפה; בתנאים קשים החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מסנן מטהר אוויר"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect",
+          "note": "בדיקה חזותית לפי בלאי הצמיגים"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "spark_plugs",
+      "action": "replace",
+      "every_km": 90000,
+      "note": "מצתים עם קצה פלטינה"
+    },
+    {
+      "item": "valve_clearance",
+      "action": "inspect",
+      "every_km": 90000,
+      "note": "וגם בכל עת שיש רעש שסתומים"
+    },
+    {
+      "item": "coolant",
+      "action": "replace",
+      "first_km": 165000,
+      "first_months": 96,
+      "then_every_km": 105000,
+      "then_every_months": 60
+    },
+    {
+      "item": "fuel_filter",
+      "action": "replace",
+      "every_km": 150000,
+      "every_months": 120
+    }
+  ],
+  "time_based": [
+    {
+      "item": "coolant",
+      "action": "replace",
+      "every_months": 240,
+      "note": "נוזל קירור של המנוע החשמלי האחורי כל 20 שנה"
+    },
+    {
+      "item": "body_underside",
+      "action": "inspect",
+      "every_months": 12,
+      "note": "בדיקת מצב המרכב פעם בשנה"
+    }
+  ],
+  "specs": {},
+  "sources": [
+    {
+      "url": "https://www.mitsubishi-motors.com.au/content/dam/mmal/pdfs/maintenance-schedules/OUTLANDER-PHEV-MY19_Maintenance%20Schedule.pdf",
+      "kind": "manufacturer",
+      "note": "Mitsubishi Motors Australia, Periodic Inspection and Maintenance Schedule 19 MY PHEV, עמ' 1-2; נקרא מתמונת העמודים"
+    },
+    {
+      "url": "https://www.mitsubishi-motors.com.au/content/dam/mmal/pdfs/maintenance-schedules/20MY-Outlander-PHEV_Maintenance%20Schedule.pdf",
+      "kind": "manufacturer",
+      "note": "לוח 20MY PHEV: אותה טבלה"
+    },
+    {
+      "url": "https://www.mitsubishi-motors.com.au/content/dam/mmal/pdfs/maintenance-schedules/OUTLANDER-PHEV-MY18_Maintenance%20Schedule.pdf",
+      "kind": "manufacturer",
+      "note": "לוח 18MY ZK PHEV (מנוע 2.0): אותם פריטים ומועדים עד 300,000 ק\"מ; בלוח זה מסומן במפורש שהחלפת שמן התמסורות כל 30,000 ק\"מ היא לתנאים קשים בלבד"
+    },
+    {
+      "url": "https://www.mitsubishi-motors.com.au/owners/service/maintenance-schedule.html",
+      "kind": "manufacturer",
+      "note": "רשימת לוחות התחזוקה של מיצובישי אוסטרליה; ספרי כלמוביל העבריים שנבדקו בסבב הקודם אינם כוללים לוח תחזוקה לדגם זה"
+    }
+  ],
+  "status": "draft",
+  "notes": "טיוטה מלוח התחזוקה של מיצובישי אוסטרליה (Outlander PHEV דגמי 2018-2020, מנועי 2.0 ו-2.4), לא מספר ישראלי. טיפול כל 15,000 ק\"מ או שנה עם שמן, מסנן שמן ומסנן מזגן. מסנן אוויר מוחלף כל 45,000 ק\"מ ונוזל בלמים כל 30,000 ק\"מ (שנתיים). החלפת שמן התמסורת הקדמית והאחורית כל 30,000 ק\"מ נדרשת רק בתנאים קשים. מצתים ובדיקת שסתומים כל 90,000 ק\"מ, מסנן דלק כל 150,000 ק\"מ, נוזל קירור ראשון ב-165,000 ק\"מ או 8 שנים. בדיקות למערכת ההיברידית (כבלי מתח גבוה, קירור המנועים החשמליים) נכללות בטיפולים."
+}

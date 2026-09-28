@@ -1,0 +1,501 @@
+{
+  "id": "daihatsu-sirion-2005-2011-1.3",
+  "model": "Sirion",
+  "model_he": "סיריון",
+  "generation": "M300 (דור 2)",
+  "years": [
+    2005,
+    2011
+  ],
+  "engines": [
+    "1.3 (K3-VE)"
+  ],
+  "make": "Daihatsu",
+  "make_he": "דייהטסו",
+  "importer": "טלקאר",
+  "fuel": "petrol",
+  "interval": {
+    "km": 15000,
+    "months": 12,
+    "note": "לפי לוח התחזוקה בספר השירות של דייהטסו לסדרת M300: טיפול כל 15,000 ק\"מ או שנה; בתנאים קשים שמן ומסנן כל 7,500 ק\"מ וחצי שנה"
+  },
+  "cycle_km": 90000,
+  "services": [
+    {
+      "km": 15000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "שמן API SH ומעלה; עם שמן API SG ההחלפה כל 12,000 ק\"מ או שנה"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "ניקוי ובדיקה"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "רצועת אלטרנטור, משאבת מים והגה כוח"
+        },
+        {
+          "item": "clutch",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "הידוק אומי גלגלים וברגי מרכב"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "שמן API SH ומעלה; עם שמן API SG ההחלפה כל 12,000 ק\"מ או שנה"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "ניקוי ובדיקה"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "רצועת אלטרנטור, משאבת מים והגה כוח"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "inspect",
+          "note": "ניקוי ובדיקה רק במצתים רגילים (לא אירידיום)"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "clutch",
+          "action": "inspect"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect",
+          "note": "גיר ידני"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "רק בהנעה כפולה"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect",
+          "note": "כולל מפלס נוזל ושסתום P&B"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect",
+          "note": "תופים, רפידות תוף וצילינדרים"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "הידוק אומי גלגלים וברגי מרכב"
+        }
+      ]
+    },
+    {
+      "km": 45000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "שמן API SH ומעלה; עם שמן API SG ההחלפה כל 12,000 ק\"מ או שנה"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "רצועת אלטרנטור, משאבת מים והגה כוח"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect",
+          "note": "מיכל פחם (canister)"
+        },
+        {
+          "item": "clutch",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי, כולל צינורות מצנן השמן"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect",
+          "note": "בדיקת כיוון (toe-in)"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "הידוק אומי גלגלים וברגי מרכב"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "שמן API SH ומעלה; עם שמן API SG ההחלפה כל 12,000 ק\"מ או שנה"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "ניקוי ובדיקה"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "רצועת אלטרנטור, משאבת מים והגה כוח"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "inspect",
+          "note": "ניקוי ובדיקה רק במצתים רגילים (לא אירידיום)"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "clutch",
+          "action": "inspect"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect",
+          "note": "גיר ידני"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "רק בהנעה כפולה"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect",
+          "note": "כולל מפלס נוזל ושסתום P&B"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect",
+          "note": "תופים, רפידות תוף וצילינדרים"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "הידוק אומי גלגלים וברגי מרכב"
+        }
+      ]
+    },
+    {
+      "km": 75000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "שמן API SH ומעלה; עם שמן API SG ההחלפה כל 12,000 ק\"מ או שנה"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "ניקוי ובדיקה"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "רצועת אלטרנטור, משאבת מים והגה כוח"
+        },
+        {
+          "item": "clutch",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "הידוק אומי גלגלים וברגי מרכב"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "שמן API SH ומעלה; עם שמן API SG ההחלפה כל 12,000 ק\"מ או שנה"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "רצועת אלטרנטור, משאבת מים והגה כוח"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "inspect",
+          "note": "ניקוי ובדיקה רק במצתים רגילים (לא אירידיום)"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect",
+          "note": "מיכל פחם (canister)"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "clutch",
+          "action": "inspect"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "replace",
+          "note": "גיר ידני"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "replace",
+          "note": "גיר אוטומטי; צינורות מצנן השמן נבדקים"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "רק בהנעה כפולה"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect",
+          "note": "בדיקת כיוון (toe-in)"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect",
+          "note": "כולל מפלס נוזל ושסתום P&B"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect",
+          "note": "תופים, רפידות תוף וצילינדרים"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "הידוק אומי גלגלים וברגי מרכב"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "spark_plugs",
+      "action": "replace",
+      "every_km": 90000,
+      "note": "מצתי אירידיום"
+    }
+  ],
+  "time_based": [
+    {
+      "item": "coolant",
+      "action": "replace",
+      "every_months": 24,
+      "note": "נוזל קירור Long Life כל שנתיים"
+    },
+    {
+      "item": "brake_fluid",
+      "action": "replace",
+      "every_months": 24,
+      "note": "כל שנתיים"
+    },
+    {
+      "item": "evap_system",
+      "action": "replace",
+      "every_months": 96,
+      "note": "צינורות אדי דלק כל 8 שנים"
+    }
+  ],
+  "specs": {},
+  "status": "draft",
+  "sources": [
+    {
+      "url": "https://procarmanuals.com/wp-content/uploads/pdfs/manuals/DAIHATSU-SIRION-Model-M300-Series-Service-Manual-No.9890/daihatsu-sirion-model-m300-series-service-manual-no9890-maintenance.pdf",
+      "kind": "manufacturer",
+      "note": "ספר השירות של דייהטסו לסדרת M300 (Service Manual No.9890, לרכבים מנובמבר 2004), פרק A2 Maintenance, עמ' A2-2 עד A2-4 (עמודי PDF 3-5); עותק באתר procarmanuals.com; הטבלה נקראה מתמונת העמודים"
+    },
+    {
+      "url": "https://procarmanuals.com/daihatsu-sirion-model-m300-series-service-manual-no-9890-maintenance/",
+      "kind": "other",
+      "note": "עמוד האתר שמציג את הפרק (קובץ ה-PDF מוטמע)"
+    }
+  ],
+  "notes": "טיוטה מספר השירות הבינלאומי של דייהטסו לסדרת M300 (אנגלית), לא מספר ישראלי; לא נמצא ספר או לוח של היבואן. טיפול כל 15,000 ק\"מ או שנה עם החלפת שמן ומסנן. מסנן אוויר מוחלף כל 45,000 ק\"מ ונוקה בשאר הטיפולים. נוזל קירור ונוזל בלמים כל שנתיים. שמן גיר ידני ונוזל גיר אוטומטי מוחלפים ב-90,000 ק\"מ. מצתי אירידיום כל 90,000 ק\"מ. אחרי 90,000 ק\"מ חוזרים על אותו מחזור."
+}

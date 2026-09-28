@@ -1,0 +1,557 @@
+{
+  "id": "subaru-outback-2015-2020-2.5",
+  "make": "Subaru",
+  "make_he": "סובארו",
+  "model": "Outback",
+  "model_he": "אאוטבק",
+  "generation": "BS (דור 5)",
+  "years": [
+    2015,
+    2020
+  ],
+  "engines": [
+    "2.5 (FB25)"
+  ],
+  "fuel": "petrol",
+  "importer": "יפנאוטו (סובארו, קבוצת סמלת)",
+  "interval": {
+    "km": 15000,
+    "months": 12,
+    "note": "לפי 'תכנית תחזוקה' בספר הרכב העברי (סמלת): טיפול כל 15,000 ק\"מ או 12 חודשים; אחרי 120,000 ק\"מ חוזרים על הלוח מההתחלה"
+  },
+  "cycle_km": 120000,
+  "services": [
+    {
+      "km": 15000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "בתנאי נהיגה קשים בתדירות גבוהה יותר"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "החלפה כל 160,000 ק\"מ"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "בתנאי אבק החלפה בתדירות גבוהה יותר"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "בתנאי נהיגה קשים בתדירות גבוהה יותר"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "החלפה כל 160,000 ק\"מ"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect",
+          "note": "מערכת הקירור, צינורות וחיבורים"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "מערכת הדלק, צינורות וחיבורים"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "בתנאי אבק החלפה בתדירות גבוהה יותר"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "שמן תיבת הילוכים ודיפרנציאל קדמי/אחורי"
+        },
+        {
+          "item": "cvt_oil",
+          "action": "inspect",
+          "note": "בתנאי גרירה ומטען כבד החלפה כל 45,000 ק\"מ"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "באזורי לחות גבוהה או הרים כל 15,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "רפידות ותופי בלם החניה"
+        },
+        {
+          "item": "pedals",
+          "action": "adjust",
+          "note": "בדיקת פעולת בלם החניה ובלם השירות וכיוון"
+        },
+        {
+          "item": "clutch",
+          "action": "inspect",
+          "note": "חופש דוושה נבדק כבר ב-1,600 ק\"מ"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 45000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "בתנאי נהיגה קשים בתדירות גבוהה יותר"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "החלפה כל 160,000 ק\"מ"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "בתנאי נהיגה קשים בתדירות גבוהה יותר"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "החלפה כל 160,000 ק\"מ"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect",
+          "note": "מערכת הקירור, צינורות וחיבורים"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "מערכת הדלק, צינורות וחיבורים"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "בתנאי אבק החלפה בתדירות גבוהה יותר"
+        },
+        {
+          "item": "differential_oil",
+          "action": "replace",
+          "note": "שמן תיבת הילוכים ודיפרנציאל קדמי/אחורי"
+        },
+        {
+          "item": "cvt_oil",
+          "action": "inspect",
+          "note": "בתנאי גרירה ומטען כבד החלפה כל 45,000 ק\"מ"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "באזורי לחות גבוהה או הרים כל 15,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "רפידות ותופי בלם החניה"
+        },
+        {
+          "item": "pedals",
+          "action": "adjust",
+          "note": "בדיקת פעולת בלם החניה ובלם השירות וכיוון"
+        },
+        {
+          "item": "clutch",
+          "action": "inspect",
+          "note": "חופש דוושה נבדק כבר ב-1,600 ק\"מ"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 75000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "בתנאי נהיגה קשים בתדירות גבוהה יותר"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "החלפה כל 160,000 ק\"מ"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "בתנאי אבק החלפה בתדירות גבוהה יותר"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "בתנאי נהיגה קשים בתדירות גבוהה יותר"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "החלפה כל 160,000 ק\"מ"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect",
+          "note": "מערכת הקירור, צינורות וחיבורים"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "מערכת הדלק, צינורות וחיבורים"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "שמן תיבת הילוכים ודיפרנציאל קדמי/אחורי"
+        },
+        {
+          "item": "cvt_oil",
+          "action": "inspect",
+          "note": "בתנאי גרירה ומטען כבד החלפה כל 45,000 ק\"מ"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "באזורי לחות גבוהה או הרים כל 15,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "רפידות ותופי בלם החניה"
+        },
+        {
+          "item": "pedals",
+          "action": "adjust",
+          "note": "בדיקת פעולת בלם החניה ובלם השירות וכיוון"
+        },
+        {
+          "item": "clutch",
+          "action": "inspect",
+          "note": "חופש דוושה נבדק כבר ב-1,600 ק\"מ"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 105000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "בתנאי נהיגה קשים בתדירות גבוהה יותר"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "החלפה כל 160,000 ק\"מ"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "בתנאי אבק החלפה בתדירות גבוהה יותר"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "בתנאי נהיגה קשים בתדירות גבוהה יותר"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "החלפה כל 160,000 ק\"מ"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect",
+          "note": "מערכת הקירור, צינורות וחיבורים"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "מערכת הדלק, צינורות וחיבורים"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "בתנאי אבק החלפה בתדירות גבוהה יותר"
+        },
+        {
+          "item": "differential_oil",
+          "action": "replace",
+          "note": "שמן תיבת הילוכים ודיפרנציאל קדמי/אחורי"
+        },
+        {
+          "item": "cvt_oil",
+          "action": "inspect",
+          "note": "בתנאי גרירה ומטען כבד החלפה כל 45,000 ק\"מ"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "באזורי לחות גבוהה או הרים כל 15,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "רפידות ותופי בלם החניה"
+        },
+        {
+          "item": "pedals",
+          "action": "adjust",
+          "note": "בדיקת פעולת בלם החניה ובלם השירות וכיוון"
+        },
+        {
+          "item": "clutch",
+          "action": "inspect",
+          "note": "חופש דוושה נבדק כבר ב-1,600 ק\"מ"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מסבי גלגלים קדמיים ואחוריים (מומלץ)"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "coolant",
+      "action": "replace",
+      "first_km": 220000,
+      "first_months": 132,
+      "then_every_km": 120000,
+      "then_every_months": 72,
+      "note": "נוזל SUBARU Super Coolant"
+    },
+    {
+      "item": "fuel_filter",
+      "action": "replace",
+      "every_km": 90000,
+      "note": "מנוע בנזין"
+    },
+    {
+      "item": "spark_plugs",
+      "action": "replace",
+      "every_km": 105000
+    },
+    {
+      "item": "drive_belt",
+      "action": "replace",
+      "every_km": 160000
+    },
+    {
+      "item": "cabin_filter",
+      "action": "replace",
+      "every_km": 12000,
+      "every_months": 12
+    }
+  ],
+  "time_based": [],
+  "specs": {},
+  "sources": [
+    {
+      "url": "https://samelet.com/ebooks/Car_Book_outback.pdf",
+      "kind": "importer",
+      "note": "מדריך תפעול סובארו לגאסי/אאוטבק 2014 (סמלת), פרק 11 'תכנית תחזוקה' עמ' 11-3 עד 11-6 (עמודי PDF 453-456); הטבלה נקראה מתמונת העמודים"
+    },
+    {
+      "url": "https://samelet.com/ebooks/",
+      "kind": "importer",
+      "note": "תיקיית ספרי הרכב הפתוחה של קבוצת סמלת (יבואנית סובארו)"
+    }
+  ],
+  "status": "reviewed",
+  "notes": "לפי ספר הרכב העברי של היבואן לאאוטבק (דור BS). טיפול כל 15,000 ק\"מ או שנה עם שמן ומסנן ובדיקת בלמים. מסנן אוויר מוחלף כל 45,000 ק\"מ, נוזל בלמים כל 30,000 ק\"מ, שמן גיר ודיפרנציאל ב-60,000 וב-120,000. מסנן דלק כל 90,000 ק\"מ, מצתים כל 105,000 ק\"מ, רצועות כל 160,000 ק\"מ. נוזל קירור ראשון אחרי 220,000 ק\"מ או 11 שנים. מסנן המזגן מוחלף כל 12,000 ק\"מ או שנה. הספר כולל גם מנוע 3.6, שלא נכלל כאן."
+}

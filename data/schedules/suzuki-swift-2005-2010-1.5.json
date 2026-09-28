@@ -1,0 +1,480 @@
+{
+  "id": "suzuki-swift-2005-2010-1.5",
+  "make": "Suzuki",
+  "make_he": "סוזוקי",
+  "model": "Swift",
+  "model_he": "סוויפט",
+  "generation": "RS (דור 2, 2005-2010)",
+  "years": [
+    2005,
+    2010
+  ],
+  "engines": [
+    "1.5 (M15A)"
+  ],
+  "fuel": "petrol",
+  "importer": "מכשירי תנועה",
+  "interval": {
+    "km": 15000,
+    "months": 12,
+    "note": "לפי ספר השירות של סוזוקי לסוויפט RS (2005): טיפול כל 15,000 ק\"מ או 12 חודשים; בתנאים קשים (נסיעות קצרות, אבק, גרירה) שמן ומסנן כל 7,500 ק\"מ או 6 חודשים"
+  },
+  "cycle_km": 90000,
+  "services": [
+    {
+      "km": 15000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "בדרכים סלולות; בתנאי אבק לפי לוח התנאים הקשים"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "רק בטיפול הראשון"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "בלאי, נזק וסבב; מצב החישוקים"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect",
+          "note": "גיר ידני: בדיקת מפלס ודליפה בטיפול הראשון בלבד"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "valve_clearance",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "בדרכים סלולות; בתנאי אבק לפי לוח התנאים הקשים"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "clutch",
+          "action": "inspect",
+          "note": "דליפה ומפלס נוזל"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "בלאי, נזק וסבב; מצב החישוקים"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי: מפלס; צינור הנוזל נבדק ב-60,000"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect",
+          "note": "אם מותקן"
+        }
+      ]
+    },
+    {
+      "km": 45000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "replace"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "מצתי ניקל ברכב עם חיישן חמצן; מצתי אירידיום (מומלצים) כל 105,000 ק\"מ"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "בדיקת מיכל הדלק"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "בלאי, נזק וסבב; מצב החישוקים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "replace",
+          "note": "גיר ידני"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "אם מותקן"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "valve_clearance",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "בדרכים סלולות; בתנאי אבק לפי לוח התנאים הקשים"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "clutch",
+          "action": "inspect",
+          "note": "דליפה ומפלס נוזל"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "בלאי, נזק וסבב; מצב החישוקים"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי: מפלס; צינור הנוזל נבדק ב-60,000"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 75000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "בדרכים סלולות; בתנאי אבק לפי לוח התנאים הקשים"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "בלאי, נזק וסבב; מצב החישוקים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect",
+          "note": "אם מותקן"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "replace"
+        },
+        {
+          "item": "valve_clearance",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "replace"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "מצתי ניקל ברכב עם חיישן חמצן; מצתי אירידיום (מומלצים) כל 105,000 ק\"מ"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "בדיקת מיכל הדלק"
+        },
+        {
+          "item": "pcv_valve",
+          "action": "inspect"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "clutch",
+          "action": "inspect",
+          "note": "דליפה ומפלס נוזל"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "בלאי, נזק וסבב; מצב החישוקים"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "replace",
+          "note": "גיר ידני"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי: מפלס; צינור הנוזל נבדק ב-60,000"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "אם מותקן"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "spark_plugs",
+      "action": "replace",
+      "every_km": 105000,
+      "every_months": 84,
+      "note": "מצתי אירידיום"
+    },
+    {
+      "item": "fuel_filter",
+      "action": "replace",
+      "every_km": 105000
+    },
+    {
+      "item": "transmission_oil",
+      "action": "replace",
+      "every_km": 165000,
+      "note": "נוזל גיר אוטומטי"
+    }
+  ],
+  "time_based": [],
+  "specs": {},
+  "sources": [
+    {
+      "url": "https://procarmanuals.com/wp-content/uploads/pdfs/manuals/suzuki-swift-2005-rs-series-service-manual.pdf",
+      "kind": "manufacturer",
+      "note": "ספר השירות של סוזוקי לסוויפט RS (2005, קוד S4RS), פרק 0B 'Maintenance and Lubrication', עמ' 0B-1 עד 0B-2 (עמודי PDF 32-33); עותק באתר procarmanuals.com; הטבלה נקראה מתמונת העמוד"
+    },
+    {
+      "url": "https://procarmanuals.com/pdf-online-suzuki-swift-2005-rs-series-service-manual/",
+      "kind": "other",
+      "note": "עמוד האתר שמציג את הקובץ"
+    },
+    {
+      "url": "https://suzuki.co.il/content/%D7%A1%D7%A4%D7%A8%D7%99-%D7%A0%D7%94%D7%92-%D7%A1%D7%95%D7%96%D7%95%D7%A7%D7%99",
+      "kind": "importer",
+      "note": "בספריית ספרי הנהג של מכשירי תנועה אין ספר לסוויפט 2005-2010 עם מנוע M15A (נבדק בסבב הקודם)"
+    }
+  ],
+  "status": "draft",
+  "notes": "טיוטה מספר השירות הבינלאומי של סוזוקי לסוויפט RS (דגמי 2005 ואילך, מנועי 1.3/1.5), לא מספר ישראלי. טיפול כל 15,000 ק\"מ או שנה עם שמן ומסנן. מסנן אוויר ונוזל קירור מוחלפים כל 45,000 ק\"מ, נוזל בלמים כל 30,000 ק\"מ, שמן גיר ידני ב-45,000 וב-90,000. מצתי ניקל כל 45,000 ק\"מ (אירידיום כל 105,000), מסנן דלק כל 105,000 ק\"מ. רצועת אביזרים נבדקת ב-45,000 ומוחלפת ב-90,000. אחרי 90,000 ק\"מ חוזרים על אותו מחזור."
+}
