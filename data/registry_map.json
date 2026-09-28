@@ -1,5 +1,5 @@
 {
-  "_note": "Maps a data.gov.il registry record to a schedule id. Match order: make, then commercial name (kinuy_mishari, upper-case), then year range, then optional engine codes (degem_manoa) and fuel. First rule that matches wins; rules with engine_codes are checked before rules without. Engine codes seen in the registry: Hyundai/Kia G3LA=1.0 Kappa MPI, G4LA=1.25 Kappa, G4LF=1.2 Kappa MPI, G3LC=1.0 T-GDI, G4LE=1.6 GDI hybrid, G4FG=1.6 Gamma MPI, G4FD=1.6 Gamma GDI, G4FJ=1.6 T-GDI, G4NA=2.0 Nu; Toyota 1ZR=1.6, 2ZR=1.8 (hybrid on E210), 1NR/1KR=Yaris; Skoda CBZ/CJZ=1.2 TSI, CZD/CZE/DAD=1.4-1.5 TSI. Registry spells Mazda 'מזדה' with names 'MAZDA 3', 'MAZDA 2', 'MAZDA CX-30'. Alfa Romeo maker is 'אלפא רומיאו_אי'; names 'ALFA GIULIETTA', 'GIULIA', 'GIULIA Q4', 'STELVIO'; engine 55273835 = 2.0 T4 MultiAir (Quadrifoglio 2.9 V6 = 670050436, not covered). Toyota hybrids: fuel is 'בנזין' and the name carries HYBRID (e.g. 'C-HR HYBRID').",
+  "_note": "Maps a data.gov.il registry record to a schedule id. Match order: make, then commercial name (kinuy_mishari, upper-case), then year range, then optional engine codes (degem_manoa) and fuel. First rule that matches wins; rules with engine_codes are checked before rules without. Engine codes seen in the registry: Hyundai/Kia G3LA=1.0 Kappa MPI, G4LA=1.25 Kappa, G4LF=1.2 Kappa MPI, G3LC=1.0 T-GDI, G4LE=1.6 GDI hybrid, G4FG=1.6 Gamma MPI, G4FD=1.6 Gamma GDI, G4FJ=1.6 T-GDI, G4NA=2.0 Nu; Toyota 1ZR=1.6, 2ZR=1.8 (hybrid on E210), 1NR/1KR=Yaris; Skoda CBZ/CJZ=1.2 TSI, CZD/CZE/DAD=1.4-1.5 TSI. Registry spells Mazda 'מזדה' with names 'MAZDA 3', 'MAZDA 2', 'MAZDA CX-30'. Alfa Romeo maker is 'אלפא רומיאו_אי'; names 'ALFA GIULIETTA', 'GIULIA', 'GIULIA Q4', 'STELVIO'; engine 55273835 = 2.0 T4 MultiAir (Quadrifoglio 2.9 V6 = 670050436, not covered). Toyota hybrids: fuel is 'בנזין' and the name carries HYBRID (e.g. 'C-HR HYBRID'). Registry Toyota name variants: COROLLA HSD SDN / COROLLA SDN HSD / COROLLA TS HSD / COROLLA HSD HB (E210 hybrid), COROLLA SDN (E210 petrol), RAV 4 HYBRID / RAV4 HV / RAV-4 / RAV4 GAS, TOYOTA C-HR (2021+, engine 2ZR = hybrid, 8NR = 1.2 turbo), YARIS CROSS HV. Hyundai/Kia hybrids: IONIQ HYBRID, NIRO, KONA HYBRID, ELANTRA HEV all have fuel 'בנזין'; engines G4LE (1.6 GDI hybrid), G4LL/G4LM (1.6 GDI hybrid, 2020+).",
   "rules": [
     {
       "make": "Toyota",
@@ -26,7 +26,8 @@
     {
       "make": "Toyota",
       "names": [
-        "COROLLA"
+        "COROLLA",
+        "COROLLA SDN"
       ],
       "years": [
         2019,
@@ -39,7 +40,13 @@
       "names": [
         "COROLLA HYBRID",
         "COROLLA HSD",
-        "COROLLA HV"
+        "COROLLA HV",
+        "COROLLA HSD SDN",
+        "COROLLA SDN HSD",
+        "COROLLA TS HSD",
+        "COROLLA HSD HB",
+        "COROLLA HYBRID HB",
+        "COROLLA TS HYBRID"
       ],
       "years": [
         2019,
@@ -74,7 +81,8 @@
       "make": "Toyota",
       "names": [
         "YARIS HYBRID",
-        "YARIS HSD"
+        "YARIS HSD",
+        "YARIS HV"
       ],
       "years": [
         2012,
@@ -97,7 +105,8 @@
       "make": "Toyota",
       "names": [
         "YARIS HYBRID",
-        "YARIS HSD"
+        "YARIS HSD",
+        "YARIS HV"
       ],
       "years": [
         2020,
@@ -109,7 +118,8 @@
       "make": "Toyota",
       "names": [
         "YARIS CROSS HYBRID",
-        "YARIS CROSS HSD"
+        "YARIS CROSS HSD",
+        "YARIS CROSS HV"
       ],
       "years": [
         2021,
@@ -155,7 +165,9 @@
       "make": "Toyota",
       "names": [
         "RAV4",
-        "RAV 4"
+        "RAV 4",
+        "RAV-4",
+        "RAV4 GAS"
       ],
       "years": [
         2013,
@@ -167,7 +179,11 @@
       "make": "Toyota",
       "names": [
         "RAV4 HYBRID",
-        "RAV4 HSD"
+        "RAV4 HSD",
+        "RAV 4 HYBRID",
+        "RAV 4 HSD",
+        "RAV4 HV",
+        "RAV 4 HV"
       ],
       "years": [
         2016,
@@ -179,7 +195,9 @@
       "make": "Toyota",
       "names": [
         "RAV4",
-        "RAV 4"
+        "RAV 4",
+        "RAV-4",
+        "RAV4 GAS"
       ],
       "years": [
         2020,
@@ -191,7 +209,11 @@
       "make": "Toyota",
       "names": [
         "RAV4 HYBRID",
-        "RAV4 HSD"
+        "RAV4 HSD",
+        "RAV 4 HYBRID",
+        "RAV 4 HSD",
+        "RAV4 HV",
+        "RAV 4 HV"
       ],
       "years": [
         2020,
@@ -203,26 +225,38 @@
       "make": "Toyota",
       "names": [
         "C-HR",
-        "CHR"
+        "CHR",
+        "TOYOTA C-HR"
       ],
       "years": [
         2017,
         2019
       ],
-      "schedule": "toyota-c-hr-2017-2019-1.2"
+      "schedule": "toyota-c-hr-2017-2019-1.2",
+      "engine_codes": [
+        "8NR",
+        "8NR-FTS"
+      ]
     },
     {
       "make": "Toyota",
       "names": [
         "C-HR HYBRID",
         "CHR HYBRID",
-        "C-HR HSD"
+        "C-HR HSD",
+        "TOYOTA C-HR",
+        "TOYOTA C-HR HYBRID"
       ],
       "years": [
         2016,
-        2023
+        2024
       ],
-      "schedule": "toyota-c-hr-2016-2023-1.8-hybrid"
+      "schedule": "toyota-c-hr-2016-2023-1.8-hybrid",
+      "engine_codes": [
+        "2ZR",
+        "2ZR-FXE",
+        "2ZRFXE"
+      ]
     },
     {
       "make": "Toyota",
@@ -320,7 +354,8 @@
       "make": "Hyundai",
       "names": [
         "I25",
-        "ACCENT"
+        "ACCENT",
+        "I25 ACCENT"
       ],
       "years": [
         2011,
@@ -371,15 +406,13 @@
     {
       "make": "Hyundai",
       "names": [
-        "IONIQ"
+        "IONIQ",
+        "IONIQ HYBRID",
+        "IONIQ HEV"
       ],
       "years": [
         2016,
         2022
-      ],
-      "fuel": [
-        "חשמל/בנזין",
-        "היברידי"
       ],
       "engine_codes": [
         "G4LE"
@@ -453,15 +486,13 @@
     {
       "make": "Kia",
       "names": [
-        "NIRO"
+        "NIRO",
+        "NIRO HEV",
+        "NIRO HYBRID"
       ],
       "years": [
         2016,
-        2022
-      ],
-      "fuel": [
-        "חשמל/בנזין",
-        "היברידי"
+        2023
       ],
       "engine_codes": [
         "G4LE"
@@ -474,7 +505,8 @@
         "3",
         "MAZDA3",
         "MAZDA 3",
-        "AXELA"
+        "AXELA",
+        "MAZDA3-SPORT"
       ],
       "years": [
         2006,
