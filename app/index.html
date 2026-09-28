@@ -621,7 +621,7 @@
   if (!Cloud.enabled) $("#auth-google").insertAdjacentHTML("beforeend", ` <span class="small muted">(דמו)</span>`);
   // Real sign-in: when Supabase reports a session, adopt the user and merge cloud cars with local ones.
   let lastAuthUid = null;
-  if (Cloud.enabled) Cloud.onAuth(async (user, event) => {
+  async function onSignedIn(user, event) {
     if (user && lastAuthUid === user.id && event !== "SIGNED_IN") return; // ignore repeats (INITIAL_SESSION after SIGNED_IN, etc.)
     lastAuthUid = user ? user.id : null;
     if (!user) { if (S.user && S.user.via === "google" && !S.user.demo) { S.user = { name: "אורח", via: "guest" }; save(); renderAll(); } return; }
@@ -641,7 +641,8 @@
     S.onboarded = true; save(); migrateCars();
     try { if (S.cars.length) { renderAll(); show("s-home"); } else startAdd(); }
     catch (e) { console.error(e); toast("שגיאה אחרי ההתחברות: " + e.message); }
-  });
+  }
+  if (Cloud.enabled) Cloud.onAuth(onSignedIn);
   $("#auth-guest").onclick = () => { S.user = { name: "אורח", via: "guest" }; save(); afterAuth(); };
   function afterAuth() { if (S.cars.length) { renderAll(); show("s-home"); } else startAdd(); }
 
@@ -1191,7 +1192,7 @@
     Cloud.handleRedirect().then(r => {
       gb.disabled = false; gb.classList.remove("busy");
       if (r.error) { const msg = (r.error.hint || r.error.message || String(r.error)); toast("ההתחברות נכשלה: " + msg); $("#auth-err").textContent = "ההתחברות נכשלה: " + msg; $("#auth-err").hidden = false; }
-      // on success the SIGNED_IN event runs the handler above
+      else if (r.user && !lastAuthUid) { onSignedIn(r.user, "SIGNED_IN"); } // in case the event fired before the handler was attached
     }).catch(e => { gb.disabled = false; gb.classList.remove("busy"); toast("ההתחברות נכשלה: " + e.message); });
   } else {
     const first = boot();

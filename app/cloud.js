@@ -5,7 +5,7 @@
   const cfg = g.TIPULIT_CONFIG || {};
   const lib = g.supabase;
   const enabled = !!(cfg.SUPABASE_URL && cfg.SUPABASE_ANON_KEY && lib && lib.createClient);
-  const sb = enabled ? lib.createClient(cfg.SUPABASE_URL, cfg.SUPABASE_ANON_KEY, { auth: { flowType: "pkce", detectSessionInUrl: false, persistSession: true, autoRefreshToken: true } }) : null;
+  const sb = enabled ? lib.createClient(cfg.SUPABASE_URL, cfg.SUPABASE_ANON_KEY, { auth: { flowType: "implicit", detectSessionInUrl: true, persistSession: true, autoRefreshToken: true } }) : null;
   // OAuth errors come back in the URL (?error=... or #error=...). Expose them so the app can show them.
   const authError = (() => { const q = new URLSearchParams(location.search), h = new URLSearchParams(location.hash.replace(/^#/, "")); return q.get("error_description") || h.get("error_description") || q.get("error") || h.get("error") || null; })();
   const hasAuthParams = /[?&#](code|access_token|error)=/.test(location.href);
@@ -25,14 +25,25 @@
   }
   async function signOut() { await sb.auth.signOut(); }
   // Finish the OAuth round trip ourselves so failures are visible (supabase-js swallows them when it auto-detects).
+  // Implicit flow: tokens come back in the URL hash and supabase-js stores them on load (no stored verifier
+  // needed, which some mobile browsers drop between the redirect out and back). We wait for the session and
+  // report a readable error if it never arrives.
   async function handleRedirect() {
+    if (authError) return { handled: true, error: new Error(authError) };
+    const h = new URLSearchParams(location.hash.replace(/^#/, ""));
     const q = new URLSearchParams(location.search);
-    const code = q.get("code");
-    if (!code) return { handled: false, error: authError ? new Error(authError) : null };
-    const { data, error } = await sb.auth.exchangeCodeForSession(code);
-    try { history.replaceState(history.state, "", location.pathname + (location.hash || "")); } catch (e) {}
-    if (error && /code verifier/i.test(error.message)) error.hint = "ההתחברות התחילה מכתובת אחרת או מדפדפן אחר. פתח את tipulit.netlify.app ונסה שוב מאותו דפדפן.";
-    return { handled: true, error, user: data && data.session ? data.session.user : null };
+    if (h.get("access_token")) {
+      for (let i = 0; i < 20; i++) { const { data } = await sb.auth.getSession(); if (data.session) return { handled: true, error: null, user: data.session.user }; await new Promise(r => setTimeout(r, 250)); }
+      // fall back to setting it ourselves from the hash
+      const { data, error } = await sb.auth.setSession({ access_token: h.get("access_token"), refresh_token: h.get("refresh_token") });
+      return { handled: true, error, user: data && data.session ? data.session.user : null };
+    }
+    if (q.get("code")) {
+      const { data, error } = await sb.auth.exchangeCodeForSession(q.get("code"));
+      if (error && /code verifier/i.test(error.message)) error.hint = "הדפדפן לא שמר את תחילת ההתחברות. נסה שוב, ואם זה חוזר נסה מדפדפן אחר (ספארי או כרום).";
+      return { handled: true, error, user: data && data.session ? data.session.user : null };
+    }
+    return { handled: false, error: null };
   }
 
   // ---------- cars and records ----------
