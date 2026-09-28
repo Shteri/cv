@@ -38,6 +38,7 @@ const out = process.env.SITE_OUT || root;
 mkdirSync(out, { recursive: true });
 writeFileSync(out + "index.html", html);
 copyFileSync(root + "app/data.js", out + "data.js");
+copyFileSync(root + "app/lookup.js", out + "lookup.js");
 for (const f of ["icon-192.png", "icon-512.png"]) copyFileSync(root + "app/" + f, out + "" + f);
 writeFileSync(out + "manifest.webmanifest", JSON.stringify({
   name: "טיפולית", short_name: "טיפולית", lang: "he", dir: "rtl", start_url: "./", scope: "./", display: "standalone",
@@ -48,7 +49,7 @@ writeFileSync(out + "manifest.webmanifest", JSON.stringify({
 const version = Date.now().toString(36);
 writeFileSync(out + "sw.js", `// Minimal offline cache for the app shell. Version: ${version}
 const CACHE = "tipulit-${version}";
-const ASSETS = ["./", "./index.html", "./data.js", "./manifest.webmanifest", "./icon.svg", "./icon-192.png", "./icon-512.png"];
+const ASSETS = ["./", "./index.html", "./data.js", "./lookup.js", "./manifest.webmanifest", "./icon.svg", "./icon-192.png", "./icon-512.png"];
 self.addEventListener("install", e => { e.waitUntil(caches.open(CACHE).then(c => c.addAll(ASSETS)).then(() => self.skipWaiting())); });
 self.addEventListener("activate", e => { e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k !== CACHE).map(k => caches.delete(k)))).then(() => self.clients.claim())); });
 self.addEventListener("fetch", e => {

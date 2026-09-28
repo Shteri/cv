@@ -19,6 +19,7 @@ jobs:
         with: { node-version: 22 }
       - run: node scripts/validate.mjs
       - run: node scripts/build-app-data.mjs
+      - run: node scripts/test-lookup.mjs
       - run: SITE_OUT=site/ node scripts/build-site.mjs
       - uses: actions/upload-pages-artifact@v3
         with: { path: site }

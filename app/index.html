@@ -379,6 +379,7 @@
 </div>
 
 <script src="data.js"></script>
+<script src="lookup.js"></script>
 <script>
 (function () {
   document.documentElement.dir = "rtl";
@@ -495,20 +496,45 @@
     const n = e.target.value.replace(/\D/g, "").length;
     $("#plate-go").disabled = !(n === 7 || n === 8);
   });
-  $("#plate-go").onclick = () => {
-    const digits = $("#plate").value.replace(/\D/g, "");
-    // Prototype lookup: deterministic pick from the schedules we have. Real version calls data.gov.il.
-    const s = D.schedules[parseInt(digits.slice(-2), 10) % D.schedules.length];
-    const year = s.years[0] + (parseInt(digits.slice(0, 2), 10) % (s.years[1] - s.years[0] + 1));
-    draft = { plate: $("#plate").value, schedule: s.id, year };
-    $("#confirm-card").innerHTML = `<div class="row between"><span class="name">${s.make_he} ${s.model_he}</span>${plateHTML(draft.plate)}</div>
+  const confirmCardHTML = (s, v) => `<div class="row between"><span class="name">${s.make_he} ${s.model_he}</span>${plateHTML(draft.plate)}</div>
       <div class="list small">
-        <div class="row between"><span class="muted">שנת ייצור</span><b class="num">${year}</b></div>
-        <div class="row between"><span class="muted">מנוע</span><b>${s.engines[0]}</b></div>
+        <div class="row between"><span class="muted">שנת ייצור</span><b class="num">${draft.year}</b></div>
+        <div class="row between"><span class="muted">מנוע</span><b>${v && v.engine_cc ? v.engine_cc + ' סמ"ק · ' + (v.fuel || "") : s.engines[0]}</b></div>
+        ${v && v.trim ? `<div class="row between"><span class="muted">רמת גימור</span><b>${v.trim}</b></div>` : ""}
+        ${v && v.test_expiry ? `<div class="row between"><span class="muted">טסט בתוקף עד</span><b class="num">${v.test_expiry.split("-").reverse().join(".")}</b></div>` : ""}
+        ${v && v.km_last_test ? `<div class="row between"><span class="muted">ק"מ בטסט האחרון</span><b class="num">${fmt(v.km_last_test)}</b></div>` : ""}
         <div class="row between"><span class="muted">יבואן</span><b>${s.importer}</b></div>
         <div class="row between"><span class="muted">מרווח טיפולים</span><b class="num">${fmt(s.interval.km)} ק"מ / ${s.interval.months} חודשים</b></div>
-      </div>`;
-    stepTo("confirm");
+      </div>
+      <p class="small muted">${v ? "לפי מאגר הרכב של משרד התחבורה" : "זיהוי מדומה: המאגר הממשלתי לא זמין מכאן"}</p>`;
+  // Real lookup: data.gov.il vehicle registry, matched to a schedule by data/gov-match.json.
+  // Falls back to a simulated pick when the registry can't be reached (offline, or the artifact sandbox).
+  $("#plate-go").onclick = async () => {
+    const btn = $("#plate-go"); btn.disabled = true; btn.textContent = "מזהה...";
+    const digits = $("#plate").value.replace(/\D/g, "");
+    let v = null, resolved = null;
+    try { v = await window.TipulitLookup.fetchVehicle(digits); resolved = window.TipulitLookup.resolveSchedule(v, D.govMatch); } catch (e) { v = null; }
+    btn.disabled = false; btn.textContent = "זהה את הרכב";
+    if (v && resolved && resolved.status === "matched") {
+      const s = schedById(resolved.schedule);
+      draft = { plate: $("#plate").value, schedule: s.id, year: v.year || s.years[1], gov: v };
+      $("#confirm-card").innerHTML = confirmCardHTML(s, v);
+      if (v.km_last_test) $("#km").value = v.km_last_test;
+      stepTo("confirm");
+    } else if (v && resolved && resolved.status === "electric") {
+      toast("רכב חשמלי. בשלב הזה טיפולית תומכת ברכבי בנזין והיברידיים בלבד"); 
+    } else if (v) {
+      draft = { plate: $("#plate").value, gov: v };
+      toast(`זוהה ${v.make_raw.split(" ")[0]} ${v.commercial_name} ${v.year || ""}, אבל עדיין אין לו לוח. בחר דגם דומה או המתן לעדכון`);
+      fillManual(); stepTo("manual");
+    } else {
+      // Simulated fallback: deterministic pick from the schedules we have.
+      const s = D.schedules[parseInt(digits.slice(-2), 10) % D.schedules.length];
+      const year = s.years[0] + (parseInt(digits.slice(0, 2), 10) % (s.years[1] - s.years[0] + 1));
+      draft = { plate: $("#plate").value, schedule: s.id, year };
+      $("#confirm-card").innerHTML = confirmCardHTML(s, null);
+      stepTo("confirm");
+    }
   };
   const stepTo = k => ["plate", "confirm", "manual", "km"].forEach(x => $("#add-step-" + x).hidden = x !== k);
   $("#confirm-yes").onclick = () => stepTo("km");
@@ -626,6 +652,7 @@
     $("#home-body").innerHTML = `
       <div class="stack" style="gap:2px"><p class="eyebrow">${hello}</p><h2>${carName(car)}</h2></div>
       <div class="card car-card">
+        ${car.gov && car.gov.test_expiry ? `<div class="row between small"><span class="muted">טסט בתוקף עד</span><b class="num">${car.gov.test_expiry.split("-").reverse().join(".")}</b></div>` : ""}
         <div class="row between" style="flex-wrap:wrap; gap:10px">${car.plate ? plateHTML(car.plate) : `<span class="muted small">ללא מספר רכב</span>`}
           <div class="stack" style="gap:2px; align-items:flex-start"><span class="eyebrow">על השעון</span>${odoHTML(car.km)}</div></div>
         <div class="row" style="gap:8px">

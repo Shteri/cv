@@ -1,6 +1,6 @@
-// Minimal offline cache for the app shell. Version: mul0qlet
-const CACHE = "tipulit-mul0qlet";
-const ASSETS = ["./", "./index.html", "./data.js", "./manifest.webmanifest", "./icon.svg", "./icon-192.png", "./icon-512.png"];
+// Minimal offline cache for the app shell. Version: mul10c9x
+const CACHE = "tipulit-mul10c9x";
+const ASSETS = ["./", "./index.html", "./data.js", "./lookup.js", "./manifest.webmanifest", "./icon.svg", "./icon-192.png", "./icon-512.png"];
 self.addEventListener("install", e => { e.waitUntil(caches.open(CACHE).then(c => c.addAll(ASSETS)).then(() => self.skipWaiting())); });
 self.addEventListener("activate", e => { e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k !== CACHE).map(k => caches.delete(k)))).then(() => self.clients.claim())); });
 self.addEventListener("fetch", e => {
