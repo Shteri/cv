@@ -1771,6 +1771,19 @@
       "first_km": 160000,
       "then_every_km": 80000,
       "note": "נוזל קירור מנוע (SLLC)"
+    },
+    {
+      "item": "engine_oil",
+      "action": "replace",
+      "every_km": 30000,
+      "every_months": 24,
+      "note": "לפי נורת ההתראה של מערכת הטיפולים, או המרווח הזה, המוקדם מביניהם; מסנן השמן מוחלף בכל החלפת שמן"
+    },
+    {
+      "item": "oil_filter",
+      "action": "replace",
+      "every_km": 30000,
+      "every_months": 24
     }
   ],
   "time_based": [],

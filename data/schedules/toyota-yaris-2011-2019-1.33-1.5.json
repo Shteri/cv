@@ -574,6 +574,11 @@
       "km": 90000,
       "items": [
         {
+          "item": "drive_belt",
+          "action": "adjust",
+          "note": "תדירות בחודשים לפי הגיליון: מ ( או 12 ')"
+        },
+        {
           "item": "engine_oil",
           "action": "replace",
           "note": "תדירות בחודשים לפי הגיליון: : 12"
@@ -1160,18 +1165,6 @@
       "first_km": 150000,
       "then_every_km": 75000,
       "note": "נוזל קירור מנוע (SLLC)"
-    },
-    {
-      "item": "spark_plugs",
-      "action": "replace",
-      "every_km": 90000,
-      "note": "מצתי אירידיום"
-    },
-    {
-      "item": "cvt_oil",
-      "action": "replace",
-      "every_km": 60000,
-      "note": "בדיקה כל 30,000"
     }
   ],
   "time_based": [],
@@ -1191,12 +1184,12 @@
   },
   "sources": [
     {
-      "url": "https://books.union-motors.co.il/app (fileId 311, connectionId 335)",
+      "url": "https://books.union-motors.co.il/app (fileId 311, connectionId ?)",
       "kind": "importer",
       "note": "לוח אחזקה של יוניון מוטורס 'Yaris 2011-2017' (דגמים Yaris, שנים 2011-2017); דגם מנוע בגיליון: 1NR-FE"
     },
     {
-      "url": "https://books.union-motors.co.il/app (fileId 314, connectionId 587)",
+      "url": "https://books.union-motors.co.il/app (fileId 314, connectionId ?)",
       "kind": "importer",
       "note": "לוח אחזקה נוסף 'YARIS' (2017-2019), אותו מבנה"
     },

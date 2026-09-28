@@ -1,0 +1,583 @@
+{
+  "make": "Hyundai",
+  "make_he": "יונדאי",
+  "importer": "כלמוביל",
+  "id": "hyundai-kona-2021-2023-1.6-turbo",
+  "model": "Kona",
+  "model_he": "קונה",
+  "generation": "OS facelift",
+  "years": [
+    2021,
+    2023
+  ],
+  "engines": [
+    "1.6 T-GDI (Smartstream G1.6, G4FP)",
+    "1.0 T-GDI (G3LE)"
+  ],
+  "fuel": "petrol",
+  "interval": {
+    "km": 15000,
+    "months": 12,
+    "note": "לפי ספר הרכב של היבואן: 15,000 ק\"מ או 12 חודשים, המוקדם מביניהם; בתנאי הפעלה קשים שמן ומסנן כל 7,500 ק\"מ או 6 חודשים"
+  },
+  "cycle_km": 120000,
+  "services": [
+    {
+      "km": 15000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "intercooler_pipes",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "intercooler_pipes",
+          "action": "inspect"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 45000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "intercooler_pipes",
+          "action": "inspect"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "intercooler_pipes",
+          "action": "inspect"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 75000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "intercooler_pipes",
+          "action": "inspect"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "intercooler_pipes",
+          "action": "inspect"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 105000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "intercooler_pipes",
+          "action": "inspect"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "intercooler_pipes",
+          "action": "inspect"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "coolant",
+      "action": "replace",
+      "first_km": 200000,
+      "first_months": 120,
+      "then_every_km": 30000,
+      "then_every_months": 24,
+      "note": "החלפה ראשונה 200,000 ק\"מ או 120 חודשים, אחר כך כל 30,000 או 24 חודשים"
+    },
+    {
+      "item": "cooling_system",
+      "action": "inspect",
+      "first_km": 60000,
+      "first_months": 48,
+      "then_every_km": 40000,
+      "then_every_months": 24
+    },
+    {
+      "item": "spark_plugs",
+      "action": "replace",
+      "every_km": 75000
+    },
+    {
+      "item": "dct_oil",
+      "action": "replace",
+      "every_km": 100000,
+      "note": "בתנאי הפעלה קשים בלבד"
+    }
+  ],
+  "time_based": [],
+  "specs": {
+    "_note": "לפי ספר הרכב; נפחים לאימות",
+    "engine_oil": "לפי הספר: ACEA A5/B5 או API SN/SP; 0W-20 / 5W-30 לפי המנוע",
+    "coolant": "נוזל קירור מבוסס אתילן-גליקול (פוספט) לפי יונדאי, מדולל 50%",
+    "brake_fluid": "DOT 4",
+    "fuel": "בנזין 95 אוקטן",
+    "tire_pressure": "לפי המדבקה בעמוד דלת הנהג"
+  },
+  "sources": [
+    {
+      "url": "https://res.cloudinary.com/colmobil/images/v1716384256/ספר-רכב-יונדאי-קונה-טורבו-2021_7712f86ce/ספר-רכב-יונדאי-קונה-טורבו-2021_7712f86ce.pdf",
+      "kind": "importer",
+      "note": "ספר רכב יונדאי קונה טורבו 2021 (כלמוביל) (טבלת התחזוקה בעמודי PDF 494-498)"
+    },
+    {
+      "url": "https://www.hyundaimotors.co.il/maintenance/",
+      "kind": "importer",
+      "note": "ספריית ספרי הרכב של כלמוביל (הורדת ספר לפי דגם); טיפול כל 15,000 ק\"מ או שנה"
+    }
+  ],
+  "status": "reviewed",
+  "notes": "הועתק מטבלת 'תכנית תחזוקה רגילה' בספר הרכב בעברית של היבואן. טבלת הספר בנויה בעמודות של 15,000 ק\"מ. I בדיקה, R החלפה. הטבלה בספר מודפסת לרוחב; פריטים שמופיעים כטקסט נרשמו ב-long_interval."
+}

@@ -1350,7 +1350,21 @@
       ]
     }
   ],
-  "long_interval": [],
+  "long_interval": [
+    {
+      "item": "engine_oil",
+      "action": "replace",
+      "every_km": 30000,
+      "every_months": 24,
+      "note": "לפי נורת ההתראה של מערכת הטיפולים, או המרווח הזה, המוקדם מביניהם; מסנן השמן מוחלף בכל החלפת שמן"
+    },
+    {
+      "item": "oil_filter",
+      "action": "replace",
+      "every_km": 30000,
+      "every_months": 24
+    }
+  ],
   "time_based": [],
   "specs": {
     "_note": "שמן, נוזל קירור ונוזל בלמים מהגיליון של היבואן; שאר הפריטים ידע כללי, לאימות",

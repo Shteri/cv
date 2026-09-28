@@ -972,9 +972,11 @@ TY_MAP = [
     (r"מצנן צינורות וחיבורים לשמן גיר|מסנן צינורות וחיבורים לנוזל גיר|^צינורות תיבת הילוכים|^צינורות ומצנן תיבת", ["transmission_oil"]),
     (r"^משאבת וו?אקום", ["vacuum_hose"]), (r"^מסנן מערכת קירור מצבר", ["hybrid_battery_filter"]),
     (r"^תמיסת אוריאה|AdBlue", ["adblue"]),
-    (r"^נוזל תיבת הינע חשמלי|^נוזל תיבת הילוכים", ["transmission_oil"]),
+    (r"^נוזל תיבת הינע חשמלי|^נוזל תיבת הילוכים|^צינורות בתיבת הילוכים", ["transmission_oil"]),
+    (r"מחזור אדי דלק|^בקרת אדי דלק|^מסנן פחמי", ["evap_system"]), (r"^קדמיים", ["body_underside"]), (r"^רצועת מנוע", ["drive_belt"]),
+    (r"^בדיקת מרווח שסתומים", ["valve_clearance"]), (r"^דיפרנציאל אחורי", ["differential_oil"]),
 ]
-TY_SKIP = re.compile(r"עיגון שטיח|^מקרא|^רגילה$|^מחמירה$|^בדיקה$|^$|ידית הילוכים|ברגי גל הינע|מסנן מצבר|^סוג הנוזל|^החלפה לפי הצורך|^(מחמירה|רגילה)( (מחמירה|רגילה))+$")
+TY_SKIP = re.compile(r"עיגון שטיח|^מקרא|^רגילה$|^מחמירה$|^בדיקה$|^$|ידית הילוכים|ברגי גל הינע|מסנן מצבר|^סוג הנוזל|^החלפה לפי הצורך|^(מחמירה|רגילה)( (מחמירה|רגילה))+$|^רגיל$")
 def ty_rows(fid):
     """Return list of (items, pattern, severe, months_text, label) for one sheet."""
     out = []
@@ -1014,6 +1016,20 @@ def ty_long(fid):
     if m: add("drive_belt", "inspect", first_km=int(m.group(1)) * 1000, first_months=int(m.group(2)), then_every_km=int(m.group(3)) * 1000, then_every_months=12)
     m = re.search(r"(?:רציפה|E-CVT|CVT)[^.]{0,60}?בדיקה כל\s*(\d{2}),000 ק\"מ ?[.,]? ?החלפה כל\s*(\d{2}),000", t)
     if m: add("cvt_oil", "replace", every_km=int(m.group(2)) * 1000, note=f"בדיקה כל {m.group(1)},000")
+    # oil by service indicator (Hilux / Land Cruiser diesels): "שמן מנוע החלפה עפ"י נורת התראה או 30,000 ק"מ \ 24 חודשים"
+    m = (re.search(r"שמן ה?מנוע.{0,60}?(?:נורת התראה|אחד מהתנאים).{0,80}?(\d{2}),000 ק\"מ.{0,30}?(\d{2})\s*חודשים", t)
+         or re.search(r"שמן ה?מנוע.{0,60}?(?:נורת התראה|אחד מהתנאים).{0,40}?(\d{2}),000 ק\"מ.{0,20}?(שנתיים)", t)
+         or re.search(r"שמן ה?מנוע.{0,60}?(?:נורת התראה|אחד מהתנאים).{0,60}?(שנתיים).{0,25}?(\d{2}),000 ק\"מ", t))
+    if not m:
+        mm = re.search(r"נורת התראה או כל\s*(\d{2}),000 ק\"מ.{0,15}?(\d{2})\s*חודשים", t)  # Hilux 2015+: oil & filter by indicator or 30,000 / 24 months
+        if mm and not re.search(r"בהופעת התראת החלפת שמן|לפי מנורת התראה", t):
+            m = mm
+    if m and m.group(1) == "שנתיים":
+        m = type("M", (), {"group": (lambda self, i, a=m.group(2), b="שנתיים": a if i == 1 else b)})()
+    if m:
+        mo = 24 if m.group(2) == "שנתיים" else int(m.group(2))
+        add("engine_oil", "replace", every_km=int(m.group(1)) * 1000, every_months=mo, note="לפי נורת ההתראה של מערכת הטיפולים, או המרווח הזה, המוקדם מביניהם; מסנן השמן מוחלף בכל החלפת שמן")
+        add("oil_filter", "replace", every_km=int(m.group(1)) * 1000, every_months=mo)
     m = re.search(r"משאבת וו?אקום (?:החלפה|החלף) (?:מדי|כל)\s*(\d{3}),000 ק\"מ( או\s*\d+ שנים)?", t)
     if m: notes.append(f"משאבת ואקום: החלפה כל {m.group(1)},000 ק\"מ{m.group(2) or ''}.")
     return L, notes
@@ -1034,6 +1050,9 @@ def toyota(id_, fid, model, model_he, gen, years, engines, fuel, extra_sheets=()
             grid_rows.append((k, pat, note) if note else (k, pat))
     cols = sheet.get("columns_km") or GRID_TY
     step = cols[0]
+    if not any(k in ("engine_oil",) for k, *_ in grid_rows) and re.search(r"התראת החלפת שמן|נורית התראת טיפול|נורת התראת טיפול|לפי מנורת התראה", sheet["text"]) and fuel != "electric":
+        n = f"לפי הגיליון: בהופעת התראת החלפת שמן, או לאחר {step:,} ק\"מ, או לאחר 12 חודשים (הקודם); בתנאים מחמירים 7,500 ק\"מ או 6 חודשים"
+        grid_rows = [("engine_oil", "R" * len(cols), n), ("oil_filter", "R" * len(cols), n)] + grid_rows
     # merge duplicate (item,column) entries: grid() emits duplicates, dedupe after
     services = grid(cols, grid_rows)
     for svc in services:
@@ -1171,3 +1190,297 @@ toyota("toyota-bz4x-2022-2025-ev", 342, "bZ4X", "bZ4X", "XEAM10", [2022, 2025], 
        specs={"_note": "רכב חשמלי: אין שמן מנוע; נוזל קירור סוללה ותיבת הינע לפי הגיליון", "brake_fluid": "DOT 3 / DOT 4", **HYB})
 
 print("done")
+
+# ===================== Hyundai / Kia: tables parsed from the Hebrew owner's books =====================
+# data/sources/hk-tables.json is produced by scripts/hk_table_parse.py from the importer PDFs.
+# Each row: one I/R/-/. per km column (ascending). The books come in two templates:
+#   family 15: columns 15,30,...,120 (x1000 km)         -> 8 services of 15,000 km
+#   family 30: columns 30,60,...,240 (x1000 km)         -> 16 services of 15,000 km; the book's oil note
+#              ("החלף כל 15,000 ק\"מ או 12 חודשים") puts oil+filter in every 15,000 km service
+HK_TABLES = json.load(open(os.path.join(ROOT, "sources", "hk-tables.json"), encoding="utf-8"))["books"]
+KIA_INTERVAL = {"url": "https://kia-israel.co.il/טיפול-ותחזוקה/טיפולים-לרכב", "kind": "importer", "note": "הצהרת קיה ישראל: טיפול תקופתי כל 15,000 ק\"מ או שנה"}
+HY_INTERVAL = {"url": "https://www.hyundaimotors.co.il/maintenance/", "kind": "importer", "note": "ספריית ספרי הרכב של כלמוביל (הורדת ספר לפי דגם); טיפול כל 15,000 ק\"מ או שנה"}
+HK_MAP = [
+    (r"שמן מנוע|ומסנן שמן|מסנן שמן\+", ["engine_oil", "oil_filter"]),
+    (r"HSG|מחולל התנעה", ["hsg_belt"]),
+    (r"רצועות? ה?הנעה|חגורות הינע|רצועת ההנעה|רצועת4", ["drive_belt"]),
+    (r"מרווח שסתומים", ["valve_clearance"]),
+    (r"ואקום|וואקום|אוורור", ["vacuum_hose"]),
+    (r"נוזל מפעיל|נוזל iMT|מנגנון .*iMT|נוזל תיבת חכמה מפעיל", ["clutch_actuator_fluid"]),
+    (r"צינור .{0,25}וקו|צינור גמיש וצינור קשיח של נוזל מפעיל|צינור בוכנת מצמד|מפעיל מצמד המנוע$|צינורות גמישים וקשיחים של מפעיל", ["clutch"]),
+    (r"גל .{0,8}הינע.*ושרוולים|גל הינע ושרוולים", ["cv_boots"]),
+    (r"ידנית", ["manual_gearbox_oil"]),
+    (r"כפולת מצמדים|DCT", ["dct_oil"]),
+    (r"אוטומטית", ["transmission_oil"]),
+    (r"גל מדחף|גל הינע \(AWD\)|גל הינע \(4WD\)|\(4WD\) גל הינע|גל הינע \( הינע בכל הגלגלים|\(AWD\) בנזין$|\(AWD\) דיזל$", ["propshaft"]),
+    (r"גל הינע|גלי הינע|ציריות", ["cv_boots"]),
+    (r"דיפרנציאל", ["differential_oil"]),
+    (r"תיבת העברה", ["transfer_case_oil"]),
+    (r"מסנן האוויר של מי|מסנן אוויר מכל ה?דלק|אוויר למיכל דלק|מסנן מיכל אוויר|מסנן הדלק האוויר של מיכל|אוויר של מיכל הדלק", ["fuel_tank_air_filter"]),
+    (r"צינורות דלק|קווי דלק|צינורות .{0,20}דלק|דלק קשיחים", ["fuel_lines"]),
+    (r"צינור אדים|צינור האדים|מכסה מי|מכסה התדלוק|מילוי הדלק|מכסה פתח|צינור מיכל הדלק האדים|צינור הדלק אדים|ומ § סה מי", ["evap_system"]),
+    (r"מסנן הדלק|מסנן דלק|סינון של מסנן", ["fuel_filter"]),
+    (r"בקרת|האקלים|תא הנוסעים|מסנן מזגן|מסנן מער|מסנן אוויר של מער", ["cabin_filter"]),
+    (r"מסנן אוויר|מסנן אויר|אטם הגומי של מסנן", ["air_filter"]),
+    (r"מצנן ביניים|ליניקת|יניקת אוויר|כניסת אוויר|צינור גמיש לכניסה", ["intercooler_pipes"]),
+    (r"מערכת ה?קירור|כת קירור|כת הקירור", ["cooling_system"]),
+    (r"פליטה", ["exhaust"]),
+    (r"קרר|מדחס|חס מ", ["ac_system"]),
+    (r"דיסקים ורפידות|בלמי דיסק|צלחות ורפידות|דיסקיות ור|פידות של הבלמים|פידות בלימה|רפידות בלימה|פידותI", ["brake_pads", "brake_discs"]),
+    (r"תופי בלם|בלמי תוף|תופי בלמים", ["brake_drums"]),
+    (r"נוזל ה?בלמים", ["brake_fluid"]),
+    (r"צינורות בלמים|קווי בלמים|הצינורות הקשיחים|הצינורות והחיבורים|צינורות .{0,15}בלמים|ת בלמים צינורות|הגמישים והחיבורים|הצינורות הצינורות", ["brake_lines"]),
+    (r"דוושת בלם|דוושת בלמ", ["pedals"]),
+    (r"בלם חני|בלם הפעלה חניה", ["parking_brake"]),
+    (r"היגוי|מסרק|פס משונן|תיבת הגה|בת הגה|בת ההגה", ["steering"]),
+    (r"מפרקים|מפרקי המתלה|מתלה קד|מתלים|כת מתלים", ["suspension"]),
+    (r"צמיג", ["tires"]),
+    (r"מצבר", ["battery_12v"]),
+    (r"ברגים ואומים|חיזוק אומים|השלדה|בשלד", ["body_underside"]),
+    (r"מערכות החשמל|כות החשמליות", ["electrical_system"]),
+    (r"אוריאה", ["adblue"]),
+    (r"מצתים", ["spark_plugs"]),
+]
+HK_SKIP = re.compile(r"תוספי דלק|^בנזין$|^דיזל$|^\s*$|למעט|עבור (סין|מקסיקו|אוסטרליה|המזרח)|ובניו|וניו עבור|פרט התיכון|מסנן דלק עבור סין|מסנן דלק \) בנזין \( עבור")
+def hk_items(label):
+    for rx, items in HK_MAP:
+        if re.search(rx, label):
+            return items
+    return None
+def hk(id_, brand, book, pages, model, model_he, gen, years, engines, fuel, family, url, book_note, extra_notes="",
+       specs=None, long=(), overrides=None, oil_every_service=True, status="reviewed", drop=(), interval_page=None):
+    b = HK_TABLES[book]; overrides = overrides or {}
+    cols = [15000 * i for i in range(1, 9 if family == 15 else 17)]
+    rows = []; skipped = []; seen = set()
+    for pg in b["pages"]:
+        if pg["page"] not in pages:
+            continue
+        for r in pg["rows"]:
+            lab = r["label"].strip(); pat = r["pattern"].replace(".", "-")
+            if not re.search(r"[IR]", pat):
+                continue
+            if lab in overrides:
+                items = overrides[lab]
+            elif HK_SKIP.search(lab):
+                skipped.append((lab, pat)); continue
+            else:
+                items = hk_items(lab)
+            if not items:
+                skipped.append((lab, pat)); continue
+            if items == "skip":
+                continue
+            if family == 30:
+                pat = "".join("-" + ch for ch in pat)
+            for it in items:
+                if it in drop or (it, pat) in seen:
+                    continue
+                seen.add((it, pat)); rows.append((it, pat))
+    if oil_every_service:
+        rows = [(it, p) for it, p in rows if it not in ("engine_oil", "oil_filter")]
+        rows = [("engine_oil", "R" * len(cols)), ("oil_filter", "R" * len(cols))] + rows
+    services = grid(cols, rows)
+    for svc in services:
+        dd = {}
+        for e in svc["items"]:
+            k = (e["item"], e["action"])
+            if k in dd:
+                continue
+            dd[k] = e
+        svc["items"] = list(dd.values())
+    if skipped:
+        print(f"  [{id_}] rows not used: " + "; ".join(f"{l[:45]!r}={p}" for l, p in skipped))
+    interval_src = interval_page or (KIA_INTERVAL if brand is KIA else HY_INTERVAL)
+    tmpl = ("טבלת הספר בנויה בעמודות של 15,000 ק\"מ." if family == 15 else
+            "טבלת הספר בנויה בעמודות של 30,000 ק\"מ; הספר מציין החלפת שמן ומסנן כל 15,000 ק\"מ או 12 חודשים, ולכן הלוח מוצג בצעדי 15,000 ופריטי הטבלה נופלים על הטיפולים הזוגיים.")
+    write({
+        **brand, "id": id_, "model": model, "model_he": model_he, "generation": gen, "years": years, "engines": engines, "fuel": fuel,
+        "interval": {"km": 15000, "months": 12, "note": "לפי ספר הרכב של היבואן: 15,000 ק\"מ או 12 חודשים, המוקדם מביניהם; בתנאי הפעלה קשים שמן ומסנן כל 7,500 ק\"מ או 6 חודשים"},
+        "cycle_km": cols[-1], "services": services, "long_interval": list(long), "time_based": [],
+        "specs": specs or {"_note": "לאימות מול הספר"},
+        "sources": [{"url": url, "kind": "importer", "note": f"{book_note} (טבלת התחזוקה בעמודי PDF {min(pages) + 1}-{max(pages) + 1})"}, interval_src],
+        "status": status,
+        "notes": (f"הועתק מטבלת 'תכנית תחזוקה רגילה' בספר הרכב בעברית של היבואן. {tmpl} I בדיקה, R החלפה. " + extra_notes).strip(),
+    })
+
+KB = "https://cdnmedia.kia-israel.co.il/www/cars-book/"
+COOL_KIA = long_("coolant", "replace", first_km=210000, first_months=120, then_every_km=30000, then_every_months=24, note="נוזל קירור מנוע: החלפה ראשונה 210,000 ק\"מ או 120 חודשים, אחר כך כל 30,000 או 24 חודשים")
+COOL_KIA_180 = long_("coolant", "replace", first_km=180000, first_months=120, then_every_km=30000, then_every_months=24)
+BELT_KIA = long_("drive_belt", "inspect", first_km=90000, first_months=72, then_every_km=30000, then_every_months=24, note="רצועת הנעה: בדיקה ראשונה 90,000/72 חודשים ואחר כך כל 30,000/24")
+COOLSYS_KIA = long_("cooling_system", "inspect", first_km=60000, first_months=48, then_every_km=30000, then_every_months=24)
+KIA_SPECS = {"_note": "לפי ספר הרכב; לאימות נפחים", "engine_oil": "לפי הספר: שמן מנוע העונה למפרט ACEA A5/B5 או API SN לפי המנוע (בנזין); 0W-20/5W-30", "coolant": "נוזל קירור מבוסס אתילן-גליקול לפי קיה (פוספט), מדולל 50%", "brake_fluid": "DOT 4", "fuel": "בנזין 95 אוקטן", "tire_pressure": "לפי המדבקה בעמוד דלת הנהג"}
+
+hk("kia-stonic-2018-2025-1.0-1.4", KIA, "kia-Stonic_Facelift_2021.pdf", [484, 485], "Stonic", "סטוניק", "YB (facelift 2021)", [2018, 2025],
+   ["1.0 T-GDi (Smartstream G1.0, 48V MHEV 2021+)", "1.2 MPI (G1.2)", "1.4 MPI"], "petrol", 15, KB + "Stonic_Facelift_2021.pdf",
+   "ספר רכב סטוניק פייסליפט 2021-2025 (קיה ישראל)",
+   overrides={"48V HEV T-GDi G1.0 Smartstream": ["drive_belt"]},
+   long=[COOL_KIA, BELT_KIA, COOLSYS_KIA, long_("spark_plugs", "replace", every_km=75000, note="1.0 T-GDi; מנועי 1.2/1.4 MPI: כל 150,000"),
+         long_("manual_gearbox_oil", "replace", every_km=120000, note="בתנאי הפעלה קשים בלבד"), long_("dct_oil", "replace", every_km=120000, note="בתנאי הפעלה קשים בלבד"),
+         long_("transmission_oil", "replace", every_km=100000, note="גיר אוטומטי, בתנאי הפעלה קשים בלבד")],
+   extra_notes="הספר הוא של הפייסליפט (2021+); דגמי 2018-2020 עם אותם מנועים משתמשים באותה תכנית. תוספי דלק: כל 15,000 ק\"מ לפי הספר.", specs=KIA_SPECS)
+hk("kia-stonic-2026-1.0-mhev", KIA, "kia-Stonic_PE_2026.pdf", [408, 409], "Stonic", "סטוניק", "YB PE (2026)", [2026, 2026],
+   ["1.0 T-GDi 48V MHEV (Smartstream G1.0, Euro 7)"], "petrol", 15, KB + "Stonic_PE_2026.pdf", "ספר רכב סטוניק 2026 (קיה ישראל)",
+   long=[COOL_KIA_180, BELT_KIA, long_("spark_plugs", "replace", every_km=75000), long_("hsg_belt", "replace", every_km=105000, first_months=None) if False else long_("drive_belt", "replace", every_km=105000, note="לפי הספר: החלפה כל 105,000")],
+   extra_notes="הטבלה בספר מודפסת עם עמודת מיילים (10-80) ועמודת ק\"מ (15-120); נעשה שימוש בעמודת הק\"מ.", specs=KIA_SPECS)
+hk("kia-rio-2017-2020-1.0-1.4", KIA, "kia-Rio-YB-2018.pdf", [435, 436, 437], "Rio", "ריו", "YB", [2017, 2020],
+   ["1.0 T-GDi (Kappa)", "1.2 MPI (Kappa)", "1.4 MPI (Kappa)"], "petrol", 15, KB + "Rio-YB-2018.pdf", "ספר רכב ריו 2018+ (קיה ישראל)",
+   long=[COOL_KIA, BELT_KIA, COOLSYS_KIA, long_("spark_plugs", "replace", every_km=75000, note="1.0 T-GDi; 1.2/1.4 MPI: כל 150,000"),
+         long_("transmission_oil", "replace", every_km=90000, note="בתנאי הפעלה קשים בלבד"), long_("manual_gearbox_oil", "replace", every_km=120000, note="בתנאי הפעלה קשים בלבד"), long_("dct_oil", "replace", every_km=120000, note="בתנאי הפעלה קשים בלבד")],
+   extra_notes="הטבלה בספר מודפסת עם עמודת מיילים ועמודת ק\"מ (15-120); נעשה שימוש בעמודת הק\"מ. גם ספר ריו 2017 (Rio-SC-2017.PDF) באותה תכנית.", specs=KIA_SPECS)
+hk("kia-rio-2021-2024-1.0-1.4", KIA, "kia-Rio-OM-2022.pdf", [518, 519, 520], "Rio", "ריו", "YB facelift", [2021, 2024],
+   ["1.0 T-GDi 48V MHEV (Smartstream G1.0)", "1.2 MPI (Smartstream G1.2)", "1.4 MPI"], "petrol", 15, KB + "Rio-OM-2022.pdf", "ספר רכב ריו 2022 (קיה ישראל)",
+   overrides={"HEV G1.0 48V T-GDi Smartstream": ["drive_belt"]},
+   long=[COOL_KIA, BELT_KIA, COOLSYS_KIA, long_("spark_plugs", "replace", every_km=75000, note="1.0 T-GDi; 1.2/1.4 MPI: כל 150,000"),
+         long_("manual_gearbox_oil", "replace", every_km=120000, note="בתנאי הפעלה קשים בלבד"), long_("transmission_oil", "replace", every_km=90000, note="בתנאי הפעלה קשים בלבד"), long_("dct_oil", "replace", every_km=120000, note="בתנאי הפעלה קשים בלבד")],
+   specs=KIA_SPECS)
+hk("kia-seltos-2020-2026-1.6-2.0", KIA, "kia-Seltos-2020.pdf", [498, 499], "Seltos", "סלטוס", "SP2", [2020, 2026],
+   ["1.6 MPI / 1.6 T-GDI (Gamma)", "2.0 MPI (Nu / Smartstream G2.0)"], "petrol", 15, KB + "Seltos-2020.pdf", "ספר רכב סלטוס 2020+ (קיה ישראל)",
+   overrides={"MPI 2.0 Nu": ["valve_clearance"]},
+   long=[long_("coolant", "replace", first_km=100000, first_months=60, then_every_km=30000, then_every_months=24), long_("spark_plugs", "replace", every_km=75000, note="1.6 T-GDI; 2.0 MPI: כל 150,000"),
+         long_("transmission_oil", "replace", every_km=90000, note="בתנאי הפעלה קשים בלבד"), long_("manual_gearbox_oil", "replace", every_km=120000, note="בתנאי הפעלה קשים בלבד"), long_("dct_oil", "replace", every_km=120000, note="בתנאי הפעלה קשים בלבד")],
+   status="draft",
+   extra_notes="הטבלה בספר בעמודות של 15,000 ק\"מ, אבל שורת שמן המנוע בספר אומרת 'החלף כל 10,000 ק\"מ או 12 חודשים' (ספר מבוסס-הודו). קיה ישראל מצהירה על 15,000; הלוח הולך לפי הטבלה. לאימות מול היבואן, לכן draft.", specs=KIA_SPECS)
+hk("kia-sportage-2022-2025-1.6-2.0", KIA, "kia-Sportage_NQ5_2022.pdf", [450, 451], "Sportage", "ספורטאז'", "NQ5", [2022, 2025],
+   ["1.6 T-GDi (Smartstream G1.6, 48V MHEV)", "2.0 MPI (Smartstream G2.0)"], "petrol", 30, KB + "Sportage_NQ5_2022.pdf", "ספר רכב ספורטאז' 2022+ (קיה ישראל)",
+   long=[COOL_KIA, long_("drive_belt", "inspect", every_km=15000, every_months=12, note="בדיקה בכל טיפול; החלפה כל 105,000 ק\"מ או 48 חודשים"), long_("drive_belt", "replace", every_km=105000, every_months=48),
+         long_("spark_plugs", "replace", every_km=75000, note="1.6 T-GDi; 2.0 MPI: כל 150,000"), long_("transmission_oil", "replace", every_km=90000, note="בתנאי הפעלה קשים בלבד"),
+         long_("differential_oil", "replace", every_km=120000, note="AWD, בתנאי הפעלה קשים"), long_("transfer_case_oil", "replace", every_km=120000, note="AWD, בתנאי הפעלה קשים")],
+   extra_notes="גרסת הדיזל 1.6 CRDi (עמ' 456-457 בספר) לא נכללה בלוח זה.", specs=KIA_SPECS)
+hk("kia-sportage-2022-2024-1.6-hybrid", KIA, "kia-Sportage_HEV-PHEV_2022.pdf", [430], "Sportage", "ספורטאז'", "NQ5 HEV/PHEV", [2022, 2024],
+   ["1.6 T-GDi hybrid (Smartstream G1.6, G4FT)", "1.6 T-GDi plug-in hybrid"], "hybrid", 30, KB + "Sportage_HEV-PHEV%202022.pdf", "ספר רכב ספורטאז' היברידי/פלאג-אין 2022 (קיה ישראל)",
+   long=[COOL_KIA, long_("coolant", "replace", first_km=210000, first_months=120, then_every_km=30000, then_every_months=24, note="נוזל קירור המערכת ההיברידית (מעגל נפרד)"),
+         long_("hsg_belt", "inspect", every_km=15000, every_months=12), long_("hsg_belt", "replace", every_km=105000, every_months=48), long_("spark_plugs", "replace", every_km=75000),
+         long_("transmission_oil", "replace", every_km=90000, note="בתנאי הפעלה קשים בלבד"), long_("differential_oil", "replace", every_km=120000, note="AWD, בתנאי הפעלה קשים"), long_("transfer_case_oil", "replace", every_km=120000, note="AWD, בתנאי הפעלה קשים")],
+   extra_notes="PHEV: פריט נוסף בספר עם החלפה כל 60,000 ק\"מ או 36 חודשים (הערה 4 בספר; לא זוהה בוודאות).", specs=dict(KIA_SPECS, battery="מצבר עזר 12V + סוללת מתח גבוה"))
+hk("kia-sportage-2025-2026-1.6-hybrid", KIA, "kia-Sportage-Hybrid-2026.pdf", [480], "Sportage", "ספורטאז'", "NQ5 facelift HEV/PHEV", [2025, 2026],
+   ["1.6 T-GDi hybrid (G4FT / G4FZ)", "1.6 T-GDi plug-in hybrid"], "hybrid", 30, KB + "Sportage-Hybrid-2026.pdf", "ספר רכב ספורטאז' היברידי 2026 (קיה ישראל)",
+   long=[COOL_KIA_180, long_("coolant", "replace", first_km=180000, first_months=120, then_every_km=30000, then_every_months=24, note="נוזל קירור המערכת ההיברידית"),
+         long_("drive_belt", "replace", every_km=75000, note="רצועת ההנעה של משאבת המים: החלפה כל 75,000 לפי הספר"), long_("spark_plugs", "replace", every_km=60000, note="לפי הספר: כל 60,000"),
+         long_("transmission_oil", "replace", every_km=90000, note="בתנאי הפעלה קשים בלבד"), long_("differential_oil", "replace", every_km=120000, note="AWD, בתנאי הפעלה קשים"), long_("transfer_case_oil", "replace", every_km=120000, note="AWD, בתנאי הפעלה קשים")],
+   extra_notes="ספר גלובלי עם טבלאות לכמה שווקים; נעשה שימוש בטבלה הראשית (עמ' 481 ב-PDF) בעמודות של 30,000 ק\"מ, עם הערת שמן כל 15,000.", specs=dict(KIA_SPECS, battery="מצבר עזר 12V + סוללת מתח גבוה"))
+hk("kia-sorento-2021-2026-2.5-2.2", KIA, "kia-Sorento-MQ4-GSL-DSL-2021.pdf", [621, 622, 623], "Sorento", "סורנטו", "MQ4", [2021, 2026],
+   ["2.5 MPI (Smartstream G2.5)", "3.5 MPI (Smartstream G3.5)", "2.2 CRDi (Smartstream D2.2)"], "petrol/diesel", 30, KB + "Sorento-MQ4-GSL-DSL-2021.pdf", "ספר רכב סורנטו 2021+ בנזין/דיזל (קיה ישראל)",
+   long=[COOL_KIA, BELT_KIA, long_("drive_belt", "inspect", first_km=90000, first_months=48, then_every_km=30000, then_every_months=24, note="דיזל D2.2"),
+         long_("spark_plugs", "replace", every_km=165000, note="מנועי בנזין"), long_("timing_belt", "inspect", every_km=120000, note="דיזל: בדיקת רצועת התזמון כל 120,000, החלפה כל 240,000 לפי הספר"),
+         long_("transmission_oil", "replace", every_km=90000, note="בתנאי הפעלה קשים בלבד"), long_("dct_oil", "replace", every_km=120000, note="בתנאי הפעלה קשים בלבד"),
+         long_("differential_oil", "replace", every_km=120000, note="AWD, בתנאי הפעלה קשים"), long_("transfer_case_oil", "replace", every_km=120000, note="AWD, בתנאי הפעלה קשים")],
+   extra_notes="דיזל 2.2: שמן ומסנן כל 30,000 ק\"מ או 24 חודשים לפי הספר (הלוח מציג 15,000 לפי מנועי הבנזין; ברכב דיזל אפשר לדלג על הטיפולים האי-זוגיים לשמן). ההיברידי 1.6 (2022+) בספר נפרד שלא עובד.", specs=KIA_SPECS)
+hk("kia-sorento-2015-2020-2.4-2.2", KIA, "kia-Sorento-UMPE-2019-2020.pdf", [151, 152, 153, 154], "Sorento", "סורנטו", "UM", [2015, 2020],
+   ["2.4 GDI / MPI (Theta II)", "3.5 MPI (Lambda II)", "2.0 / 2.2 CRDi"], "petrol/diesel", 30, KB + "Sorento-UMPE-2019-2020.pdf", "ספר רכב סורנטו 2019-2020 (קיה ישראל)",
+   overrides={"בנזין מנוע II Theta 2.4 ליטר": ["engine_oil", "oil_filter"], "דיזל מנוע 2.0 ליטר": ["engine_oil", "oil_filter"], "דיזל מנוע 2.2 ליטר": ["engine_oil", "oil_filter"],
+              "בנזין MPI מנוע II Theta 2.4 ליטר": ["valve_clearance"], "בנזין MPI מנוע II Lambda 3.5 ליטר": ["valve_clearance"]},
+   long=[COOL_KIA, long_("spark_plugs", "replace", every_km=40000, note="2.4 MPI לפי הספר; GDI: כל 150,000"),
+         long_("transmission_oil", "replace", every_km=90000, note="בתנאי הפעלה קשים בלבד"), long_("manual_gearbox_oil", "replace", every_km=120000, note="בתנאי הפעלה קשים בלבד"),
+         long_("differential_oil", "replace", every_km=120000, note="AWD, בתנאי הפעלה קשים"), long_("transfer_case_oil", "replace", every_km=120000, note="AWD, בתנאי הפעלה קשים")],
+   extra_notes="הספר הוא לשנתונים 2019-2020 (פייסליפט UM); הדור UM נמכר מ-2015.", specs=KIA_SPECS)
+hk("kia-niro-2023-2024-1.6-plug-in-hybrid", KIA, "kia-NIRO_PHEV_General_Heb_01_פלאגאין.pdf", [459], "Niro", "נירו", "SG2 PHEV", [2023, 2024],
+   ["1.6 GDI plug-in hybrid (Smartstream G1.6, G4LL)"], "plug-in hybrid", 15, KB + "NIRO_PHEV_General_Heb_01_%D7%A4%D7%9C%D7%90%D7%92%D7%90%D7%99%D7%9F.pdf", "ספר רכב נירו פלאג-אין 2023+ (קיה ישראל)",
+   long=[COOL_KIA_180, long_("coolant", "replace", first_km=180000, first_months=120, then_every_km=30000, then_every_months=24, note="נוזל קירור המערכת ההיברידית/סוללה"),
+         long_("clutch_actuator_fluid", "replace", every_km=40000), long_("hsg_belt", "inspect", every_km=15000, every_months=12), long_("hsg_belt", "replace", every_km=105000),
+         long_("spark_plugs", "replace", every_km=150000), long_("dct_oil", "replace", every_km=120000, note="בתנאי הפעלה קשים בלבד")],
+   extra_notes="ספר גלובלי עם כמה טבלאות אזוריות; נעשה שימוש בטבלה בעמודות 15,000 ק\"מ (עמ' 460 ב-PDF).", specs=dict(KIA_SPECS, battery="מצבר עזר 12V + סוללת מתח גבוה"))
+hk("kia-niro-plus-2022-2024-1.6-hybrid", KIA, "kia-Niro-Plus-HEV-PHEV-OM-2022.pdf", [342, 343], "Niro Plus", "נירו פלוס", "DE (Niro Plus) HEV/PHEV", [2022, 2024],
+   ["1.6 GDI hybrid / plug-in hybrid (Kappa, G4LE)"], "hybrid", 15, KB + "Niro-Plus-HEV-PHEV-OM-2022.pdf", "ספר רכב נירו פלוס היברידי/פלאג-אין 2022 (קיה ישראל)",
+   long=[COOL_KIA_180, long_("clutch_actuator_fluid", "replace", every_km=40000, every_months=24), long_("hsg_belt", "inspect", every_km=15000, every_months=12), long_("hsg_belt", "replace", every_km=105000, every_months=48),
+         long_("spark_plugs", "replace", every_km=150000), long_("dct_oil", "replace", every_km=120000, note="בתנאי הפעלה קשים בלבד")],
+   specs=dict(KIA_SPECS, battery="מצבר עזר 12V + סוללת מתח גבוה"))
+hk("kia-carnival-2021-2026-2.2-3.5", KIA, "kia-Carnival-KA4-2021.pdf", [639, 640], "Carnival", "קרניבל", "KA4", [2021, 2026],
+   ["2.2 CRDi (Smartstream D2.2)", "3.5 MPI (Smartstream G3.5)"], "diesel/petrol", 30, KB + "Carnival-KA4-2021.pdf", "ספר רכב קרניבל 2021+ (קיה ישראל)",
+   overrides={"בנזין": "skip"},
+   long=[COOL_KIA, long_("drive_belt", "inspect", first_km=80000, first_months=48, then_every_km=20000, then_every_months=12), long_("spark_plugs", "replace", every_km=165000, note="3.5 בנזין"),
+         long_("timing_belt", "inspect", every_km=120000, note="דיזל: בדיקה כל 120,000, החלפה כל 240,000 לפי הספר"),
+         long_("transmission_oil", "replace", every_km=90000, note="בתנאי הפעלה קשים בלבד"), long_("fuel_filter", "replace", every_km=30000, note="דיזל: לפי הספר החלפה כל 30,000 (הערה 8)")],
+   extra_notes="לפי הספר שמן ומסנן כל 15,000 ק\"מ או 12 חודשים גם לדיזל.", specs=dict(KIA_SPECS, fuel="סולר / בנזין 95"))
+print("done hk")
+
+# ---- Hyundai books (rotated landscape tables; labels come out fragmented but the km grid is reliable) ----
+HB = "https://res.cloudinary.com/colmobil/images/"
+HY_SPECS = {"_note": "לפי ספר הרכב; נפחים לאימות", "engine_oil": "לפי הספר: ACEA A5/B5 או API SN/SP; 0W-20 / 5W-30 לפי המנוע", "coolant": "נוזל קירור מבוסס אתילן-גליקול (פוספט) לפי יונדאי, מדולל 50%", "brake_fluid": "DOT 4", "fuel": "בנזין 95 אוקטן", "tire_pressure": "לפי המדבקה בעמוד דלת הנהג"}
+COOL_HY = long_("coolant", "replace", first_km=200000, first_months=120, then_every_km=30000, then_every_months=24, note="החלפה ראשונה 200,000 ק\"מ או 120 חודשים, אחר כך כל 30,000 או 24 חודשים")
+COOL_HY_40 = long_("coolant", "replace", first_km=200000, first_months=120, then_every_km=40000, then_every_months=24)
+COOL_HY_210 = long_("coolant", "replace", first_km=210000, first_months=120, then_every_km=30000, then_every_months=24)
+COOL_HY_195 = long_("coolant", "replace", first_km=195000, first_months=120, then_every_km=30000, then_every_months=24)
+COOLSYS_HY = long_("cooling_system", "inspect", first_km=60000, first_months=48, then_every_km=30000, then_every_months=24)
+COOLSYS_HY_40 = long_("cooling_system", "inspect", first_km=60000, first_months=48, then_every_km=40000, then_every_months=24)
+BELT_HY = long_("drive_belt", "inspect", first_km=90000, first_months=72, then_every_km=30000, then_every_months=24)
+hk("hyundai-kona-2018-2020-1.6-turbo", HY, "hy-kona-2018-2020.pdf", [420, 422, 423], "Kona", "קונה", "OS", [2018, 2020],
+   ["1.6 T-GDI (Gamma, G4FJ)", "1.0 T-GDI"], "petrol", 15, HB + "v1716384260/ספר-רכב-יונדאי-קונה-טורבו-2018-2020_7711bdb91/ספר-רכב-יונדאי-קונה-טורבו-2018-2020_7711bdb91.pdf",
+   "ספר רכב יונדאי קונה טורבו 2018-2020 (כלמוביל)",
+   overrides={"T-GDI שמן מנוע ומסנן שמן3 * 2": ["engine_oil", "oil_filter"], "*1 חגורות הינע": ["drive_belt"]},
+   long=[COOL_HY_40, COOLSYS_HY, long_("spark_plugs", "replace", every_km=75000, every_months=60), long_("dct_oil", "replace", every_km=100000, note="בתנאי הפעלה קשים בלבד")],
+   extra_notes="הטבלה בספר מודפסת לרוחב; חלק מהשורות (מסנן דלק, מצתים) מופיעות כטקסט ולכן נרשמו ב-long_interval.", specs=HY_SPECS)
+hk("hyundai-kona-2021-2023-1.6-turbo", HY, "hy-kona-2021.pdf", [493, 495, 496, 497], "Kona", "קונה", "OS facelift", [2021, 2023],
+   ["1.6 T-GDI (Smartstream G1.6, G4FP)", "1.0 T-GDI (G3LE)"], "petrol", 15, HB + "v1716384256/ספר-רכב-יונדאי-קונה-טורבו-2021_7712f86ce/ספר-רכב-יונדאי-קונה-טורבו-2021_7712f86ce.pdf",
+   "ספר רכב יונדאי קונה טורבו 2021 (כלמוביל)",
+   overrides={"3* ֳשמן מנוע ומסנן שמן2*": ["engine_oil", "oil_filter"], "חגורות הינע1*": ["drive_belt"]},
+   long=[COOL_HY, COOLSYS_HY_40, long_("spark_plugs", "replace", every_km=75000), long_("dct_oil", "replace", every_km=100000, note="בתנאי הפעלה קשים בלבד")],
+   extra_notes="הטבלה בספר מודפסת לרוחב; פריטים שמופיעים כטקסט נרשמו ב-long_interval.", specs=HY_SPECS)
+hk("hyundai-elantra-2022-2026-1.6-hybrid", HY, "hy-elantra-hybrid-1.pdf", [490, 491, 492, 493], "Elantra", "אלנטרה", "CN7 hybrid", [2022, 2026],
+   ["1.6 GDI hybrid (Smartstream G1.6, G4LE)"], "hybrid", 15, HB + "v1716189028/ספר-רכב-יונדאי-אלנטרה-היברידית-1/ספר-רכב-יונדאי-אלנטרה-היברידית-1.pdf",
+   "ספר רכב יונדאי אלנטרה היברידית (כלמוביל)",
+   overrides={"תוספי דלק * 4": "skip"},
+   long=[COOL_HY_195, long_("coolant", "replace", first_km=195000, first_months=120, then_every_km=30000, then_every_months=24, note="נוזל קירור המערכת ההיברידית (מעגל נפרד)"),
+         long_("hsg_belt", "inspect", every_km=15000, every_months=12), long_("hsg_belt", "replace", every_km=105000), long_("spark_plugs", "replace", every_km=150000),
+         COOLSYS_HY, long_("dct_oil", "replace", every_km=120000, note="בתנאי הפעלה קשים בלבד")],
+   specs=dict(HY_SPECS, battery="מצבר עזר 12V + סוללת מתח גבוה"))
+hk("hyundai-venue-2020-2026-1.6", HY, "hy-venue-2024.pdf", [397, 398, 399], "Venue", "ונו", "QX", [2020, 2026],
+   ["1.6 MPI (Smartstream G1.6, G4FM)"], "petrol", 15, HB + "v1727680821/Hyundai_Venue_2024_OM_web/Hyundai_Venue_2024_OM_web.pdf", "ספר רכב יונדאי ונו 2024 (כלמוביל)",
+   long=[COOL_HY_195, BELT_HY, COOLSYS_HY, long_("spark_plugs", "replace", every_km=160000), long_("transmission_oil", "replace", every_km=90000, note="בתנאי הפעלה קשים בלבד")],
+   extra_notes="גם ספר ונו 2020-2021 באותה תכנית (מצתים 160,000; תוסף דלק כל 15,000).", specs=HY_SPECS)
+hk("hyundai-sonata-2015-2019-2.0-hybrid", HY, "hy-sonata-hybrid-2015-2017.pdf", [338, 339, 340, 341], "Sonata", "סונטה", "LF hybrid", [2015, 2019],
+   ["2.0 GDI hybrid (Nu, G4NG)"], "hybrid", 15, HB + "v1716389111/יונדאי-סונטה-היברידית-ספר-רכב-שנים-2015-2017_4614a8466/יונדאי-סונטה-היברידית-ספר-רכב-שנים-2015-2017_4614a8466.pdf",
+   "ספר רכב יונדאי סונטה היברידית 2015-2017 (כלמוביל)",
+   overrides={"*1 שמן מנוע ומסנן שמן": ["engine_oil", "oil_filter"], "*5 מסנן דלק": ["fuel_filter"]},
+   long=[long_("coolant", "replace", first_km=105000, first_months=60, then_every_km=45000, note="לפי הספר: החלפה ראשונה 105,000/60 חודשים ואחר כך כל 45,000"), COOLSYS_HY,
+         long_("spark_plugs", "replace", every_km=165000), long_("hsg_belt", "inspect", every_km=15000, every_months=12), long_("hsg_belt", "replace", every_km=105000, every_months=48),
+         long_("transmission_oil", "replace", every_km=100000, note="בתנאי הפעלה קשים בלבד")],
+   extra_notes="ספר 2018 זהה.", specs=dict(HY_SPECS, battery="מצבר עזר 12V + סוללת מתח גבוה"))
+hk("hyundai-sonata-2020-2023-2.0-hybrid", HY, "hy-sonata-hybrid-2021.pdf", [468, 469, 470, 471], "Sonata", "סונטה", "DN8 hybrid", [2020, 2023],
+   ["2.0 GDI hybrid (Smartstream G2.0, G4NR)"], "hybrid", 15, HB + "v1716389103/יודאי-סונטה-היברידית-ספר-רכב-שנה-2021_461602813/יודאי-סונטה-היברידית-ספר-רכב-שנה-2021_461602813.pdf",
+   "ספר רכב יונדאי סונטה היברידית 2021 (כלמוביל)",
+   overrides={"*1 שמן מנוע ומסנן שמן": ["engine_oil", "oil_filter"]},
+   long=[COOL_HY_210, COOLSYS_HY, long_("spark_plugs", "replace", every_km=160000), long_("transmission_oil", "replace", every_km=100000, note="בתנאי הפעלה קשים בלבד")],
+   specs=dict(HY_SPECS, battery="מצבר עזר 12V + סוללת מתח גבוה"))
+hk("hyundai-sonata-2024-2026-2.0-hybrid", HY, "hy-sonata-2024.pdf", [465, 466, 467, 468], "Sonata", "סונטה", "DN8 facelift hybrid", [2024, 2026],
+   ["2.0 GDI hybrid (Smartstream G2.0, G4NR)"], "hybrid", 15, HB + "v1731938134/Sonata_OM_2024_LR/Sonata_OM_2024_LR.pdf", "ספר רכב יונדאי סונטה 2024 (כלמוביל)",
+   overrides={"תוספי דלק * 2": "skip"},
+   long=[COOL_HY_210, long_("hsg_belt", "inspect", every_km=15000, every_months=12), long_("hsg_belt", "replace", every_km=105000), long_("spark_plugs", "replace", every_km=150000),
+         long_("transmission_oil", "replace", every_km=100000, note="בתנאי הפעלה קשים בלבד")],
+   specs=dict(HY_SPECS, battery="מצבר עזר 12V + סוללת מתח גבוה"))
+hk("hyundai-santa-fe-2019-2020-2.4-2.2", HY, "hy-santafe-2019-2020.pdf", [589, 590, 591], "Santa Fe", "סנטה פה", "TM", [2019, 2020],
+   ["2.4 GDI (Theta II, G4KJ)", "3.5 MPI", "2.2 CRDi (D4HB)"], "petrol/diesel", 15, HB + "v1716388807/ספר-רכב-סנטה-פה-2019-2020_5052df246/ספר-רכב-סנטה-פה-2019-2020_5052df246.pdf",
+   "ספר רכב יונדאי סנטה פה 2019-2020 (כלמוביל)",
+   overrides={"*מסנן דלק5": ["fuel_filter"], "*9 (4WD) שמן דיפרנציאל אחורי": ["differential_oil"]},
+   long=[COOL_HY_40, COOLSYS_HY, long_("spark_plugs", "replace", every_km=160000, every_months=120, note="2.4 MPI/GDI, 3.5 MPI"),
+         long_("transmission_oil", "replace", every_km=90000, note="בתנאי הפעלה קשים בלבד"), long_("differential_oil", "replace", every_km=120000, note="4WD, בתנאי הפעלה קשים")],
+   extra_notes="עמודי הדיזל (594-596 ב-PDF): מסנן דלק ובדיקת רצועה בתדירות שונה; הלוח מבוסס על טבלת הבנזין.", specs=HY_SPECS)
+hk("hyundai-santa-fe-2021-2023-2.5-2.2", HY, "hy-santafe-2021.pdf", [579, 580, 583, 584], "Santa Fe", "סנטה פה", "TM facelift", [2021, 2023],
+   ["2.5 GDI / 2.5 T-GDI (Smartstream)", "1.6 T-GDI hybrid", "2.2 CRDi (Smartstream D2.2)"], "petrol/diesel", 15, HB + "v1716388803/ספר-רכב-סנטה-פה-2021_505372a45/ספר-רכב-סנטה-פה-2021_505372a45.pdf",
+   "ספר רכב יונדאי סנטה פה 2021 (כלמוביל)",
+   overrides={"שמן מנוע ומסנן שמן2* ,1*": ["engine_oil", "oil_filter"], "חגורות הינע3*": ["drive_belt"], "*מסנן דלק8": ["fuel_filter"]},
+   long=[COOL_HY, COOLSYS_HY, long_("spark_plugs", "replace", every_km=160000), long_("transmission_oil", "replace", every_km=90000, note="בתנאי הפעלה קשים בלבד"),
+         long_("dct_oil", "replace", every_km=100000, note="בתנאי הפעלה קשים בלבד"), long_("differential_oil", "replace", every_km=120000, note="4WD, בתנאי הפעלה קשים"), long_("transfer_case_oil", "replace", every_km=120000, note="4WD, בתנאי הפעלה קשים")],
+   specs=HY_SPECS)
+hk("hyundai-santa-fe-2024-2026-1.6-hybrid", HY, "hy-santafe-hybrid-2025.pdf", [588, 589, 590, 591], "Santa Fe", "סנטה פה", "MX5 hybrid", [2024, 2026],
+   ["1.6 T-GDI hybrid (Smartstream G1.6, G4FT)"], "hybrid", 15, HB + "v1742998775/SantaFe-HEV_OM_2025_web/SantaFe-HEV_OM_2025_web.pdf", "ספר רכב יונדאי סנטה פה היברידית 2025 (כלמוביל)",
+   overrides={"תיכון למעט מזרח": "skip"},
+   long=[COOL_HY_195, long_("coolant", "replace", first_km=195000, first_months=120, then_every_km=30000, then_every_months=24, note="נוזל קירור המערכת ההיברידית"),
+         long_("spark_plugs", "replace", every_km=70000, note="לפי הספר: כל 70,000"), long_("hsg_belt", "replace", every_km=100000), long_("transmission_oil", "replace", every_km=100000, note="בתנאי הפעלה קשים בלבד"),
+         long_("differential_oil", "replace", every_km=120000, note="AWD, בתנאי הפעלה קשים"), long_("transfer_case_oil", "replace", every_km=120000, note="AWD, בתנאי הפעלה קשים")],
+   status="draft", extra_notes="הספר (מהדורת 2025) נוקב בכמה מרווחים של 10,000 ק\"מ ('החלף כל 10,000') לצד טבלה של 15,000; לאימות מול היבואן.", specs=dict(HY_SPECS, battery="מצבר עזר 12V + סוללת מתח גבוה"))
+hk("hyundai-bayon-2022-2025-1.0-turbo", HY, "hy-bayon-2022.pdf", [446, 447, 448, 449], "Bayon", "באיון", "BC3 CUV", [2022, 2025],
+   ["1.0 T-GDI (Smartstream G1.0, G3LE/G3LF, 48V)", "1.2 MPI"], "petrol", 15, HB + "v1716388083/ספר-רכב-יונדאי-באיון-2022_56661b991/ספר-רכב-יונדאי-באיון-2022_56661b991.pdf", "ספר רכב יונדאי באיון 2022 (כלמוביל)",
+   overrides={"3* ֳשמן מנוע ומסנן שמן2*": ["engine_oil", "oil_filter"], "*מסנן דלק7": ["fuel_filter"]},
+   long=[COOL_HY, BELT_HY, COOLSYS_HY_40, long_("spark_plugs", "replace", every_km=75000, every_months=60), long_("dct_oil", "replace", every_km=100000, note="בתנאי הפעלה קשים בלבד")],
+   specs=HY_SPECS)
+hk("hyundai-i20-2022-2025-1.0-1.2", HY, "hy-i20-2024.pdf", [436, 437, 438, 439], "i20", "i20", "BC3", [2022, 2025],
+   ["1.0 T-GDI (Smartstream G1.0, G3LC/G3LE, 48V)", "1.2 MPI (G4LC/G4LF)"], "petrol", 15, HB + "v1716190865/ספר-רכב-יונדאי-i20-2024/ספר-רכב-יונדאי-i20-2024.pdf", "ספר רכב יונדאי i20 2024 (כלמוביל)",
+   overrides={"3* ֳשמן מנוע ומסנן שמן2*": ["engine_oil", "oil_filter"], "*מסנן דלק7": ["fuel_filter"]},
+   long=[COOL_HY, BELT_HY, COOLSYS_HY_40, long_("spark_plugs", "replace", every_km=150000, every_months=120, note="1.2 MPI; 1.0 T-GDI: 75,000"), long_("dct_oil", "replace", every_km=100000, note="בתנאי הפעלה קשים בלבד")],
+   specs=HY_SPECS)
+hk("hyundai-tucson-2025-2026-1.6-hybrid", HY, "hyundai-tucson-hybrid-2025.pdf", [544, 545], "Tucson", "טוסון", "NX4 facelift hybrid", [2025, 2026],
+   ["1.6 T-GDI hybrid (Smartstream G1.6, G4FT)"], "hybrid", 15, HB + "v1756290337/tucso-hybrid-2025-hebrew-web-low/tucso-hybrid-2025-hebrew-web-low.pdf", "ספר רכב יונדאי טוסון היברידי 2025 (כלמוביל)",
+   overrides={"מסנן שמן+ שמן מנוע1,2*": ["engine_oil", "oil_filter"], "רצועת4*HSG": ["hsg_belt"], "מסנן אויר": ["air_filter"]},
+   long=[long_("coolant", "replace", first_km=150000, first_months=120, then_every_km=30000, then_every_months=24), long_("hsg_belt", "replace", every_km=105000),
+         long_("transmission_oil", "replace", every_km=100000, note="בתנאי הפעלה קשים בלבד")],
+   extra_notes="הספר מציין מסנן אוויר: החלפה בכל טיפול (R בכל עמודה).", specs=dict(HY_SPECS, battery="מצבר עזר 12V + סוללת מתח גבוה"))
+print("done hyundai")

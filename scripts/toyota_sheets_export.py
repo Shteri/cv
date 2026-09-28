@@ -35,7 +35,7 @@ for fid, e in parsed.items():
     sheets[fid] = {
         "title": meta["title"], "models": meta["models"], "years": [min(meta["years"]), max(meta["years"])],
         "engine": eng.group(0) if eng else None, "columns_km": cols, "rows": body, "fluid_tokens": fl[:20],
-        "source": f"https://books.union-motors.co.il/app (fileId {fid}, connectionId {meta['connectionId']})",
+        "source": f"https://books.union-motors.co.il/app (fileId {fid}, connectionId {meta.get('connectionId', '?')})",
         "text": text[:20000],
     }
     added += 1

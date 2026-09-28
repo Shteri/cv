@@ -252,6 +252,11 @@
       "km": 45000,
       "items": [
         {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: ק \" מ ( או 12 חודשים )"
+        },
+        {
           "item": "engine_oil",
           "action": "replace",
           "note": "תדירות בחודשים לפי הגיליון: : 12"
@@ -1213,7 +1218,7 @@
   },
   "sources": [
     {
-      "url": "https://books.union-motors.co.il/app (fileId 289, connectionId 421)",
+      "url": "https://books.union-motors.co.il/app (fileId 289, connectionId ?)",
       "kind": "importer",
       "note": "לוח אחזקה של יוניון מוטורס 'Corolla' (דגמים Corolla Sedan, שנים 2013-2017); דגם מנוע בגיליון: 1ZR-FAE"
     },

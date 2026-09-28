@@ -543,6 +543,11 @@
       "km": 90000,
       "items": [
         {
+          "item": "drive_belt",
+          "action": "adjust",
+          "note": "תדירות בחודשים לפי הגיליון: ( או 12 ')"
+        },
+        {
           "item": "engine_oil",
           "action": "replace",
           "note": "תדירות בחודשים לפי הגיליון: : 12"
@@ -1131,12 +1136,6 @@
       "first_km": 150000,
       "then_every_km": 75000,
       "note": "נוזל קירור מנוע (SLLC)"
-    },
-    {
-      "item": "spark_plugs",
-      "action": "replace",
-      "every_km": 120000,
-      "note": "מצתי אירידיום"
     }
   ],
   "time_based": [],
@@ -1155,7 +1154,7 @@
   },
   "sources": [
     {
-      "url": "https://books.union-motors.co.il/app (fileId 308, connectionId 395)",
+      "url": "https://books.union-motors.co.il/app (fileId 308, connectionId ?)",
       "kind": "importer",
       "note": "לוח אחזקה של יוניון מוטורס 'RAV4 2X4 Hybrid' (דגמים RAV4 Hybrid, Rav4, שנים 2016-2019); דגם מנוע בגיליון: 2AR-FXE"
     },
