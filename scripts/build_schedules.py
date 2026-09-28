@@ -921,7 +921,7 @@ TY_SHEETS = json.load(open(os.path.join(ROOT, "sources", "toyota-union-sheets.js
 TY_HUB = {"url": "https://www.toyota.co.il/owners/parts-and-accessories/owners-manuals", "kind": "importer",
           "note": "מרכז ספרות הרכב של טויוטה ישראל (בחירת דגם ושנה); המסמכים נשלפים מ-books.union-motors.co.il"}
 GRID_TY = [15000 * i for i in range(1, 11)]
-TY_ACT = {"I": "inspect", "R": "replace", "C": "clean", "T": "adjust"}
+TY_ACT = {"I": "inspect", "R": "replace", "C": "clean", "T": "adjust", "L": "inspect", "G": "inspect"}  # L/G = גירוז (אין פעולה כזו בסכמה)
 # label regex -> list of item keys (a row may feed two items)
 TY_MAP = [
     (r"^שמן מנוע ומסנן", ["engine_oil", "oil_filter"]), (r"^שמן מנוע", ["engine_oil"]), (r"^מסנן שמן", ["oil_filter"]),
@@ -948,8 +948,33 @@ TY_MAP = [
     (r"^מרווח שסתומים|^כיוון שסתומים", ["valve_clearance"]), (r"^מצתים", ["spark_plugs"]), (r"^רצועת הינע", ["drive_belt"]),
     (r"שמן דיפרנציאל|שמן דיפרונציאל", ["differential_oil"]), (r"שמן תיבת העברה", ["transfer_case_oil"]),
     (r"^מצנן צינורות|^מחברי , צינורות ומצנן", ["coolant_hoses"]),
+    # diesel / 4x4 / older sheets (Hilux, Land Cruiser, Prius, Verso, Avensis, City, bZ4X)
+    (r"^עשן סמיך|^בדיקת עשן|בדיקת סתימות (PDF|DPF)|^בדיקת סתימות \(", ["exhaust"]),
+    (r"^החלפה$", ["coolant"]),  # second line of 'נוזל קירור מנוע - בדיקה / החלפה'
+    (r"^נוזל מערכת היגוי", ["power_steering_fluid"]),
+    (r"^וקשיחים", ["brake_lines"]),
+    (r"^כמות קרר|^בדיקת קרר|^קרר", ["ac_refrigerant"]),
+    (r"^מפריד מים|^משקעי מים|^בית מסנן סולר|^מסנן סולר", ["fuel_filter"]),
+    (r"^תופי בילום|^\) כולל בלם החניה", ["brake_drums"]),
+    (r"^גירוז|^גלי הינע|^הידוק|^ואחורי הידוק|^חיזוק ברגים|^גומיות גלי הינע", ["propshaft"]),
+    (r"^תיבת העברה", ["transfer_case_oil"]),
+    (r"^פחמי$", ["cabin_filter"]),
+    (r"^תאורה|^צופר|^חלונות , פנסים", ["lights", "wipers"]),
+    (r"דיפרנציאל קדמי ואחורי|^שמן דיפ", ["differential_oil"]),
+    (r"נוזל קירור מער ' הברידית|נוזל קירור ליחידת חימום|נוזל קירור סוללה|מערכת קירור סוללה|^בדיקת pH", ["coolant"]),
+    (r"^אוטומטית \( משולב|^אוטומטית$", ["transmission_oil"]), (r"^ידנית$", ["manual_gearbox_oil"]),
+    (r"^רצועת תזמון|^גלגלת תזמון|^מכסה( מכלול)? תזמון", ["timing_belt"]),
+    (r"^שמן ומסנן שמן מנוע", ["engine_oil", "oil_filter"]),
+    (r"^בדיקת מערכות קירור", ["cooling_system"]),
+    (r"^צינורות , אטמי HOUSING|^צינורות ומחברי מצנן שמן", ["coolant_hoses"]),
+    (r"^איטום בולמי זעזועים", ["suspension"]), (r"^מסנן מזגן", ["cabin_filter"]),
+    (r"^כוונון שסתומים", ["valve_clearance"]), (r"^מכלול בלם חניה|^חניה$", ["parking_brake"]),
+    (r"מצנן צינורות וחיבורים לשמן גיר|מסנן צינורות וחיבורים לנוזל גיר|^צינורות תיבת הילוכים|^צינורות ומצנן תיבת", ["transmission_oil"]),
+    (r"^משאבת וו?אקום", ["vacuum_hose"]), (r"^מסנן מערכת קירור מצבר", ["hybrid_battery_filter"]),
+    (r"^תמיסת אוריאה|AdBlue", ["adblue"]),
+    (r"^נוזל תיבת הינע חשמלי|^נוזל תיבת הילוכים", ["transmission_oil"]),
 ]
-TY_SKIP = re.compile(r"עיגון שטיח|^מקרא|^רגילה$|^מחמירה$|^בדיקה$|^$|ידית הילוכים|ברגי גל הינע|מסנן מצבר")
+TY_SKIP = re.compile(r"עיגון שטיח|^מקרא|^רגילה$|^מחמירה$|^בדיקה$|^$|ידית הילוכים|ברגי גל הינע|מסנן מצבר|^סוג הנוזל|^החלפה לפי הצורך|^(מחמירה|רגילה)( (מחמירה|רגילה))+$")
 def ty_rows(fid):
     """Return list of (items, pattern, severe, months_text, label) for one sheet."""
     out = []
@@ -1004,10 +1029,13 @@ def toyota(id_, fid, model, model_he, gen, years, engines, fuel, extra_sheets=()
                 severe_notes.append(f"{lab}: בתנאים מחמירים בלבד ({pat})")
             continue
         note = f"תדירות בחודשים לפי הגיליון: {mo}" if mo else None
+        pat = pat.replace("T", "A").replace("L", "I").replace("G", "I")
         for k in it:
-            grid_rows.append((k, pat.replace("T", "A"), note) if note else (k, pat.replace("T", "A")))
+            grid_rows.append((k, pat, note) if note else (k, pat))
+    cols = sheet.get("columns_km") or GRID_TY
+    step = cols[0]
     # merge duplicate (item,column) entries: grid() emits duplicates, dedupe after
-    services = grid(GRID_TY, grid_rows)
+    services = grid(cols, grid_rows)
     for svc in services:
         seen = {}; merged = []
         for e in svc["items"]:
@@ -1026,15 +1054,16 @@ def toyota(id_, fid, model, model_he, gen, years, engines, fuel, extra_sheets=()
     sp.update(specs or {})
     write({
         **TY, "id": id_, "model": model, "model_he": model_he, "generation": gen, "years": years, "engines": engines, "fuel": fuel,
-        "interval": {"km": 15000, "months": 12, "note": "לפי הגיליון: תנאי פעולה רגילים 15,000 ק\"מ או 12 חודשים; בתנאים מחמירים שמן ומסנן כל 7,500 ק\"מ או 6 חודשים"},
-        "cycle_km": 150000,
+        "interval": ({"km": 15000, "months": 12, "note": "לפי הגיליון: תנאי פעולה רגילים 15,000 ק\"מ או 12 חודשים; בתנאים מחמירים שמן ומסנן כל 7,500 ק\"מ או 6 חודשים"} if step == 15000
+                     else {"km": step, "months": 6, "note": f"לפי הגיליון: {step:,} ק\"מ או 6 חודשים, המוקדם מביניהם (גיליון דיזל/4x4 של 16 עמודות)"}),
+        "cycle_km": cols[-1],
         "services": services,
         "long_interval": long_items,
         "time_based": [],
         "specs": sp,
         "sources": srcs,
         "status": "reviewed",
-        "notes": ("הועתק מלוח האחזקה הישראלי של יוניון מוטורס (10 עמודות של 15,000 ק\"מ). פעולות: I בדיקה, R החלפה, C ניקוי, T הידוק. "
+        "notes": (f"הועתק מלוח האחזקה הישראלי של יוניון מוטורס ({len(cols)} עמודות של {step:,} ק\"מ). פעולות: I בדיקה, R החלפה, C ניקוי, T הידוק, L/G גירוז (נרשם כבדיקה). "
                   + ("שורות 'מחמירה' בלבד: " + "; ".join(severe_notes) + ". " if severe_notes else "")
                   + (" ".join(ln) + " " if ln else "") + notes_extra).strip(),
     })
@@ -1097,5 +1126,48 @@ toyota("toyota-aygo-x-2022-2025-1.0", 344, "Aygo X", "איגו X", "AB70", [2022
        specs=dict(TY_OIL_NEW, tires="175/65 R17 או 175/60 R18", battery="מצבר רגיל 12V", spare="ערכת תיקון"))
 toyota("toyota-aygo-2014-2022-1.0", 284, "Aygo", "איגו", "AB40", [2014, 2022], ["1.0 (1KR-FE)"], "petrol", extra_sheets=(318,),
        specs=dict(TY_OIL_OLD, tires="165/65 R14 או 165/60 R15", battery="מצבר רגיל 12V", spare="ערכת תיקון"))
+
+
+# --- diesel pickups / SUVs, hybrids and older models (sheets found in the second pass) ---
+TY_DIESEL = dict(TY_OIL_OLD, engine_oil="שמן דיזל לפי טבלת הנוזלים בגיליון (ACEA C2/C5 0W-30 / 5W-30 בדורות החדשים)", fuel="סולר", timing="שרשרת",
+                 brake_fluid="DOT 3 / DOT 4 (FMVSS 116)")
+TY_4X4_NOTE = "רכב 4x4: שמן דיפרנציאלים ותיבת העברה ופעולות גירוז/הידוק גל הינע מופיעים בגיליון; בגיליון גם שורות 'מחמירה' תכופות יותר לנהיגת שטח."
+toyota("toyota-avensis-2009-2018-1.6-2.0", 283, "Avensis", "אוונסיס", "T270", [2009, 2018], ["1.6 (1ZR-FAE)", "1.8 (2ZR-FAE)", "2.0 (3ZR-FAE)"], "petrol",
+       specs=dict(TY_OIL_OLD, tires="215/55 R17", battery="מצבר רגיל 12V"))
+toyota("toyota-hilux-2005-2015-2.5-3.0-diesel", 295, "Hilux", "היילקס", "AN10/AN20/AN30 (Vigo)", [2005, 2015], ["2.5 D-4D (2KD-FTV)", "3.0 D-4D (1KD-FTV)"], "diesel", extra_sheets=(296,),
+       notes_extra="גיליון 295 לגיר ידני; גיליון 296 (גיר אוטומטי) זהה פרט לנוזל הגיר. " + TY_4X4_NOTE, specs=TY_DIESEL)
+toyota("toyota-hilux-2015-2019-2.4-2.8-diesel", 293, "Hilux", "היילקס", "AN120/AN130", [2015, 2019], ["2.4 D-4D (2GD-FTV)", "2.8 D-4D (1GD-FTV)"], "diesel", extra_sheets=(292, 294),
+       notes_extra="גיליון 293 = 4x4 Euro 6; 292 = 4x4 Euro 5 (1GD); 294 = 4x2 (ללא תיבת העברה ודיפרנציאל קדמי). " + TY_4X4_NOTE, specs=TY_DIESEL)
+toyota("toyota-hilux-2020-2025-2.4-2.8-diesel", 329, "Hilux", "היילקס", "AN120 facelift", [2020, 2025], ["2.4 D-4D (2GD-FTV)", "2.8 D-4D (1GD-FTV)"], "diesel", extra_sheets=(357,),
+       notes_extra=TY_4X4_NOTE, specs=TY_DIESEL)
+toyota("toyota-hilux-2026-2.8-mhev-diesel", 368, "Hilux", "היילקס", "AN120 48V MHEV", [2026, 2026], ["2.8 D-4D 48V (1GD-FTV)"], "diesel",
+       notes_extra="כולל תמיסת AdBlue ובדיקת DPF. " + TY_4X4_NOTE, specs=TY_DIESEL)
+toyota("toyota-land-cruiser-2003-2009-3.0-diesel", 297, "Land Cruiser", "לנד קרוזר", "J120 (Prado)", [2003, 2009], ["3.0 D-4D (1KD-FTV)"], "diesel",
+       notes_extra=TY_4X4_NOTE, specs=TY_DIESEL)
+toyota("toyota-land-cruiser-2010-2015-3.0-diesel", 298, "Land Cruiser", "לנד קרוזר", "J150", [2010, 2015], ["3.0 D-4D (1KD-FTV)"], "diesel",
+       notes_extra=TY_4X4_NOTE, specs=TY_DIESEL)
+toyota("toyota-land-cruiser-2016-2019-2.8-diesel", 299, "Land Cruiser", "לנד קרוזר", "J150 facelift", [2016, 2019], ["2.8 D-4D (1GD-FTV)"], "diesel",
+       notes_extra=TY_4X4_NOTE, specs=TY_DIESEL)
+toyota("toyota-land-cruiser-2009-2019-4.0", 300, "Land Cruiser", "לנד קרוזר", "J150 petrol", [2009, 2019], ["4.0 V6 (1GR-FE)"], "petrol",
+       notes_extra=TY_4X4_NOTE, specs=dict(TY_OIL_OLD, fuel="בנזין 95 אוקטן"))
+toyota("toyota-land-cruiser-2020-2024-2.8-diesel", 365, "Land Cruiser", "לנד קרוזר", "J150 (GDJ150)", [2020, 2024], ["2.8 D-4D (1GD-FTV)"], "diesel", extra_sheets=(323,),
+       notes_extra=TY_4X4_NOTE, specs=dict(TY_DIESEL, oil_capacity="7.7 ליטר (לפי הגיליון)", coolant="Toyota SLLC, 12 ליטר (לפי הגיליון)"))
+toyota("toyota-land-cruiser-2025-2026-2.8-diesel", 364, "Land Cruiser", "לנד קרוזר", "J250 (GDJ250)", [2025, 2026], ["2.8 D-4D (1GD-FTV)"], "diesel",
+       notes_extra=TY_4X4_NOTE, specs=TY_DIESEL)
+toyota("toyota-prius-2004-2009-1.5-hybrid", 301, "Prius", "פריוס", "XW20", [2004, 2009], ["1.5 hybrid (1NZ-FXE)"], "hybrid", specs=dict(TY_OIL_OLD, **HYB))
+toyota("toyota-prius-2009-2015-1.8-hybrid", 302, "Prius", "פריוס", "XW30", [2009, 2015], ["1.8 hybrid (2ZR-FXE)"], "hybrid", specs=dict(TY_OIL_OLD, **HYB))
+toyota("toyota-prius-2016-2022-1.8-hybrid", 303, "Prius", "פריוס", "XW50", [2016, 2022], ["1.8 hybrid (2ZR-FXE)"], "hybrid", extra_sheets=(328,), specs=dict(TY_OIL_NEW, **HYB))
+toyota("toyota-prius-2023-2025-2.0-hybrid", 348, "Prius", "פריוס", "XW60", [2023, 2025], ["2.0 hybrid (M20A-FXS)"], "hybrid", specs=dict(TY_OIL_NEW, **HYB))
+toyota("toyota-prius-plug-in-2012-2017-1.8-hybrid", 304, "Prius Plug-in", "פריוס פלאג-אין", "XW35 PHV", [2012, 2017], ["1.8 plug-in hybrid (2ZR-FXE)"], "plug-in hybrid", specs=dict(TY_OIL_OLD, **HYB))
+toyota("toyota-prius-plug-in-2023-2025-2.0-hybrid", 349, "Prius Plug-in", "פריוס פלאג-אין", "XW60 PHEV", [2023, 2025], ["2.0 plug-in hybrid (M20A-FXS)"], "plug-in hybrid", specs=dict(TY_OIL_NEW, **HYB))
+toyota("toyota-prius-plus-2013-2021-1.8-hybrid", 305, "Prius+", "פריוס פלוס", "ZVW40", [2013, 2021], ["1.8 hybrid (2ZR-FXE)"], "hybrid", specs=dict(TY_OIL_OLD, **HYB))
+toyota("toyota-verso-2009-2018-1.6-1.8", 310, "Verso", "ורסו", "AR20", [2009, 2018], ["1.6 (1ZR-FAE)", "1.8 (2ZR-FAE)"], "petrol", specs=TY_OIL_OLD)
+toyota("toyota-verso-s-2010-2016-1.33", 309, "Verso-S (Space Verso)", "ספייס ורסו", "XP120", [2010, 2016], ["1.33 (1NR-FE)"], "petrol", specs=TY_OIL_OLD)
+toyota("toyota-highlander-2021-2025-2.5-hybrid", 322, "Highlander", "היילנדר", "XU70", [2021, 2025], ["2.5 hybrid (A25A-FXS)"], "hybrid", extra_sheets=(347,), specs=dict(TY_OIL_NEW, **HYB))
+toyota("toyota-camry-2011-2019-2.5", 290, "Camry", "קאמרי", "XV50", [2011, 2019], ["2.5 (2AR-FE)"], "petrol", specs=TY_OIL_OLD)
+toyota("toyota-aygo-2005-2013-1.0", 288, "Aygo", "איגו", "AB10", [2005, 2013], ["1.0 (1KR-FE)"], "petrol", specs=TY_OIL_OLD)
+toyota("toyota-yaris-2006-2011-1.0-1.3", 313, "Yaris", "יאריס", "XP90", [2006, 2011], ["1.0 (1KR-FE)", "1.33 (1NR-FE, 2009+)", "1.3 (2SZ-FE, until 2008)"], "petrol", extra_sheets=(315,), specs=TY_OIL_OLD)
+toyota("toyota-bz4x-2022-2025-ev", 342, "bZ4X", "bZ4X", "XEAM10", [2022, 2025], ["EV (1XM / 1YM)"], "electric", extra_sheets=(359,),
+       specs={"_note": "רכב חשמלי: אין שמן מנוע; נוזל קירור סוללה ותיבת הינע לפי הגיליון", "brake_fluid": "DOT 3 / DOT 4", **HYB})
 
 print("done")
