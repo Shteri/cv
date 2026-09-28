@@ -15,7 +15,7 @@ The page is scanned and operated, not read top to bottom. Hierarchy comes from i
 - Semantic colors (good / warn / crit) are separate from the accent and only mark state.
 - Typography: Heebo for text, Rubik for display and numbers. Numbers are always tabular.
 - Cards are rounded 18px; inner elements 12–14px; chips and status pills are full pills.
-- Every screen works at 400px wide with a 16px gutter and a fixed bottom navigation with three tabs.
+- Every screen works at 400px wide with a 16px gutter and a fixed bottom navigation with four tabs: בית, הרכב, ציר טיפולים, אני.
 
 ## Colors
 
@@ -99,7 +99,10 @@ Let the next-service card breathe; everything else is compact. Lists inside card
 | `{radius.plate}` | 8px | licence plate |
 
 ## Components
-- **Bottom nav**: three tabs (בית, ציר טיפולים, אני), 24px outline icons + 11.5px label, active tab in accent. Fixed, respects `env(safe-area-inset-bottom)`.
+- **Bottom nav**: four tabs (בית, הרכב, ציר טיפולים, אני), 24px outline icons + 11.5px label, active tab in accent. Fixed, respects `env(safe-area-inset-bottom)`.
+- **Condition row**: 10px status dot (good / warn / crit / line for unknown), item name with category, one-line history ("הוחלף ב-45,000 ק"מ, ינואר 2026"), due km on the left in Rubik. Unknown rows show "?" and the schedule's next grid km.
+- **Count tiles**: four surface-2 tiles (באיחור, מתקרב, בסדר, לא ידוע) with a Rubik number in the semantic color; used on home and on the car screen.
+- **Document grid**: four square thumbnails per row with a date label strip; tapping opens the record.
 - **Primary button**: accent fill, 14px radius, 14px/18px padding, 600 weight; busy state keeps the width and pulses the label.
 - **Secondary button**: surface fill, 1.5px line border; hover fills surface-2.
 - **Ghost button**: muted text, no fill; used for "back" and tertiary actions.
@@ -129,7 +132,7 @@ Let the next-service card breathe; everything else is compact. Lists inside card
 
 ### Don't
 - Don't use gradients, glassmorphism, grain or purple-blue hero blocks. This is a tool, not a landing page.
-- Don't add a fourth nav tab; secondary destinations open from cards and go back with the browser history.
+- Don't add a fifth nav tab; secondary destinations (garages, checklist) open from cards and go back with the browser history.
 - Don't render cards inside cards. Use dividers and inset surface-2 panels.
 - Don't use warm greys, pure black, or a saturated blue.
 - Don't show a dashboard-style number wall; one big number per screen.
