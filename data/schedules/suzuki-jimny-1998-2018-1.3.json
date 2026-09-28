@@ -1,0 +1,683 @@
+{
+  "id": "suzuki-jimny-1998-2018-1.3",
+  "make": "Suzuki",
+  "make_he": "סוזוקי",
+  "model": "Jimny",
+  "model_he": "ג'ימני",
+  "generation": "FJ (JB43)",
+  "years": [
+    1998,
+    2018
+  ],
+  "engines": [
+    "1.3 (M13A)"
+  ],
+  "fuel": "petrol",
+  "importer": "מכשירי תנועה",
+  "interval": {
+    "km": 15000,
+    "months": 12,
+    "note": "לפי טבלת השירות של היבואן: 15,000 ק\"מ או שנה, המוקדם; אחרי 90,000 חוזרים לתחילת הטבלה"
+  },
+  "cycle_km": 90000,
+  "services": [
+    {
+      "km": 15000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "מיכל דלק, צנרת וחיבורים"
+        },
+        {
+          "item": "clutch",
+          "action": "inspect",
+          "note": "חופש דוושת מצמד"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "בלמים קדמיים ואחוריים"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "adjust"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect",
+          "note": "צנרת בלמים ודוושת בלם"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "כולל בולמי זעזועים"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי, כולל צנרת"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "צירי הנעה וגומיות מגן"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "סבב גלגלים מומלץ כל 15,000"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "valve_clearance",
+          "action": "adjust"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "כולל חיזוק ברגים"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "מיכל דלק, צנרת וחיבורים"
+        },
+        {
+          "item": "clutch",
+          "action": "inspect",
+          "note": "חופש דוושת מצמד"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "בלמים קדמיים ואחוריים"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "parking_brake",
+          "action": "adjust"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect",
+          "note": "צנרת בלמים ודוושת בלם"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "כולל בולמי זעזועים"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי, כולל צנרת"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "צירי הנעה וגומיות מגן"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "סבב גלגלים מומלץ כל 15,000"
+        }
+      ]
+    },
+    {
+      "km": 45000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "מיכל דלק, צנרת וחיבורים"
+        },
+        {
+          "item": "clutch",
+          "action": "inspect",
+          "note": "חופש דוושת מצמד"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "בלמים קדמיים ואחוריים"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "adjust"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect",
+          "note": "צנרת בלמים ודוושת בלם"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "כולל בולמי זעזועים"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי, כולל צנרת"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "צירי הנעה וגומיות מגן"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "סבב גלגלים מומלץ כל 15,000"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "valve_clearance",
+          "action": "adjust"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "כולל חיזוק ברגים"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "מצתי אירידיום"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "מיכל דלק, צנרת וחיבורים"
+        },
+        {
+          "item": "clutch",
+          "action": "inspect",
+          "note": "חופש דוושת מצמד"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "בלמים קדמיים ואחוריים"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "parking_brake",
+          "action": "adjust"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect",
+          "note": "צנרת בלמים ודוושת בלם"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "כולל בולמי זעזועים"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי, כולל צנרת"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "צירי הנעה וגומיות מגן"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "סבב גלגלים מומלץ כל 15,000"
+        }
+      ]
+    },
+    {
+      "km": 75000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "מיכל דלק, צנרת וחיבורים"
+        },
+        {
+          "item": "clutch",
+          "action": "inspect",
+          "note": "חופש דוושת מצמד"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "בלמים קדמיים ואחוריים"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "adjust"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect",
+          "note": "צנרת בלמים ודוושת בלם"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "כולל בולמי זעזועים"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי, כולל צנרת"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "צירי הנעה וגומיות מגן"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "סבב גלגלים מומלץ כל 15,000"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
+          "item": "drive_belt",
+          "action": "replace"
+        },
+        {
+          "item": "valve_clearance",
+          "action": "adjust"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "כולל חיזוק ברגים"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "מיכל דלק, צנרת וחיבורים"
+        },
+        {
+          "item": "pcv_valve",
+          "action": "inspect"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect"
+        },
+        {
+          "item": "clutch",
+          "action": "inspect",
+          "note": "חופש דוושת מצמד"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "בלמים קדמיים ואחוריים"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "parking_brake",
+          "action": "adjust"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect",
+          "note": "צנרת בלמים ודוושת בלם"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "כולל בולמי זעזועים"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי, כולל צנרת"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "צירי הנעה וגומיות מגן"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "סבב גלגלים מומלץ כל 15,000"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "coolant",
+      "action": "replace",
+      "first_km": 150000,
+      "first_months": 96,
+      "then_every_km": 75000,
+      "then_every_months": 48,
+      "note": "נוזל כחול; ירוק: כל 45,000 או 4 שנים"
+    },
+    {
+      "item": "fuel_filter",
+      "action": "replace",
+      "every_km": 210000
+    },
+    {
+      "item": "manual_gearbox_oil",
+      "action": "replace",
+      "every_km": 150000,
+      "every_months": 120,
+      "note": "שמן מקורי 75W80"
+    },
+    {
+      "item": "transmission_oil",
+      "action": "replace",
+      "every_km": 165000,
+      "note": "גיר אוטומטי"
+    },
+    {
+      "item": "differential_oil",
+      "action": "replace",
+      "first_km": 15000,
+      "first_months": 12,
+      "then_every_km": 120000,
+      "then_every_months": 48
+    }
+  ],
+  "time_based": [],
+  "sources": [
+    {
+      "url": "https://suzuki.co.il/sites/default/files/pdf/jimny.pdf",
+      "kind": "importer",
+      "note": "ספר נהג סוזוקי ג'ימני (מכשירי תנועה), פרק 13 \"שירות תקופתי ג'ימני\", עמודי PDF 203-205 (עמ' ספר 221-223)"
+    },
+    {
+      "url": "https://suzuki.co.il/content/%D7%A1%D7%A4%D7%A8%D7%99-%D7%A0%D7%94%D7%92-%D7%A1%D7%95%D7%96%D7%95%D7%A7%D7%99",
+      "kind": "importer",
+      "note": "ספריית ספרי הנהג של סוזוקי ישראל (\"ג'ימני - Suzuki Jimny\")"
+    }
+  ],
+  "status": "reviewed",
+  "notes": "הועתק מטבלת השירות התקופתי בספר העברי של היבואן. הטבלה בספר היא טבלת שירות של היבואן בעמודות של 15,000 ק\"מ / שנה עד 90,000, ואחרי 90,000 חוזרים על הטבלה מההתחלה. ■ החלפה, ▼ ניקוי/בדיקה (החלפה לפי הצורך). בתנאים קשים (אבק, חום, עיר, עומס) יש לקצר מרווחים. שמן ומסנן בכל טיפול. נוזל קירור כחול: ראשון 150,000 או 8 שנים ואז כל 75,000 (ירוק: כל 45,000 או 4 שנים). רצועת הינע: בדיקה בכל טיפול והחלפה ב-90,000. כיוון שסתומים כל 30,000. מצתי אירידיום כל 60,000 או 4 שנים. מסנן אוויר מוחלף כל 45,000; מסנן דלק כל 210,000. נוזל בלמים כל 30,000. כיוון בלם יד חובה בטיפול הראשון. שמן גיר ידני מקורי 75W80: החלפה כל 150,000 או 10 שנים; שמן גיר אוטומטי כל 165,000. שמן דיפרנציאלים: החלפה בטיפול הראשון ואחר כך כל 120,000 או 4 שנים."
+}

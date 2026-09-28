@@ -18,7 +18,12 @@ stage = args[0]
 gen_src = open(os.path.join(ROOT, "scripts", "build_schedules.py"), encoding="utf-8").read()
 generated = set(re.findall(r'"id":\s*"([a-z0-9.-]+)"', gen_src)) | set(re.findall(r'^\s*(?:toyota|hk|ford|mazda_plan|mazda)\("([a-z0-9.-]+)"', gen_src, re.M))
 
-v = subprocess.run(["node", os.path.join(ROOT, "scripts", "validate.mjs"), stage], capture_output=True, text=True)
+import shutil, tempfile
+tmp = tempfile.mkdtemp()
+for f in os.listdir(stage):
+    if f.endswith(".json") and f != "registry_rules.json":
+        shutil.copy(os.path.join(stage, f), tmp)
+v = subprocess.run(["node", os.path.join(ROOT, "scripts", "validate.mjs"), tmp], capture_output=True, text=True)
 print(v.stdout.strip() or v.stderr.strip())
 if "all schedules valid" not in v.stdout:
     print(v.stderr); sys.exit("staging dir does not validate")
@@ -38,8 +43,10 @@ for f in sorted(os.listdir(stage)):
         json.dump(s, open(dst, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
         open(dst, "a").write("\n")
 
-rules_path = os.path.join(stage, "registry_rules.json")
-new_rules = json.load(open(rules_path, encoding="utf-8")) if os.path.exists(rules_path) else []
+new_rules = []
+for rp in (os.path.join(stage, "registry_rules.json"), os.path.join(stage, "registry", "registry_rules.json")):
+    if os.path.exists(rp):
+        new_rules += json.load(open(rp, encoding="utf-8"))
 mp = os.path.join(ROOT, "data", "registry_map.json")
 m = json.load(open(mp, encoding="utf-8"))
 have = {(r["schedule"], tuple(r["names"]), tuple(r["years"])) for r in m["rules"]}

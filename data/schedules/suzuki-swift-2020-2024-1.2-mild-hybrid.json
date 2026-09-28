@@ -1,0 +1,958 @@
+{
+  "id": "suzuki-swift-2020-2024-1.2-mild-hybrid",
+  "make": "Suzuki",
+  "make_he": "סוזוקי",
+  "model": "Swift",
+  "model_he": "סוויפט Mild Hybrid",
+  "generation": "A2L facelift",
+  "years": [
+    2020,
+    2024
+  ],
+  "engines": [
+    "1.2 DualJet mild hybrid (K12D)"
+  ],
+  "fuel": "petrol",
+  "importer": "מכשירי תנועה",
+  "interval": {
+    "km": 20000,
+    "months": 12,
+    "note": "לפי ספר הרכב: 20,000 ק\"מ או 12 חודשים, המוקדם; שמן ומסנן לפי נורית/הודעת החלפת שמן, ובלעדיה כל 20,000 ק\"מ או שנה"
+  },
+  "cycle_km": 240000,
+  "services": [
+    {
+      "km": 20000,
+      "items": [
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "בדיקת מתיחות ומצב; החלפה לפי הטבלה"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "clutch",
+          "action": "inspect",
+          "note": "גיר ידני: דוושת מצמד ומפלס נוזל"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 40000,
+      "items": [
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "בדיקת מתיחות ומצב; החלפה לפי הטבלה"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect",
+          "note": "אם מותקנים"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "clutch",
+          "action": "inspect",
+          "note": "גיר ידני: דוושת מצמד ומפלס נוזל"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "כולל מסבי גלגלים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "cvt_oil",
+          "action": "inspect",
+          "note": "בדיקת דליפות"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect",
+          "note": "גיר ידני: בדיקה בשמן סוזוקי מקורי; עם שמן תחליפי החלפה בכל טיפול שני"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "בדיקת מתיחות ומצב; החלפה לפי הטבלה"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "clutch",
+          "action": "inspect",
+          "note": "גיר ידני: דוושת מצמד ומפלס נוזל"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 80000,
+      "items": [
+        {
+          "item": "drive_belt",
+          "action": "replace",
+          "note": "בדיקת מתיחות ומצב; החלפה לפי הטבלה"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pcv_valve",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect",
+          "note": "אם מותקנים"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "clutch",
+          "action": "inspect",
+          "note": "גיר ידני: דוושת מצמד ומפלס נוזל"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "כולל מסבי גלגלים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "cvt_oil",
+          "action": "inspect",
+          "note": "בדיקת דליפות"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect",
+          "note": "גיר ידני: בדיקה בשמן סוזוקי מקורי; עם שמן תחליפי החלפה בכל טיפול שני"
+        }
+      ]
+    },
+    {
+      "km": 100000,
+      "items": [
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "בדיקת מתיחות ומצב; החלפה לפי הטבלה"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "clutch",
+          "action": "inspect",
+          "note": "גיר ידני: דוושת מצמד ומפלס נוזל"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "בדיקת מתיחות ומצב; החלפה לפי הטבלה"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect",
+          "note": "אם מותקנים"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "clutch",
+          "action": "inspect",
+          "note": "גיר ידני: דוושת מצמד ומפלס נוזל"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "כולל מסבי גלגלים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "cvt_oil",
+          "action": "inspect",
+          "note": "בדיקת דליפות"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect",
+          "note": "גיר ידני: בדיקה בשמן סוזוקי מקורי; עם שמן תחליפי החלפה בכל טיפול שני"
+        }
+      ]
+    },
+    {
+      "km": 140000,
+      "items": [
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "בדיקת מתיחות ומצב; החלפה לפי הטבלה"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "clutch",
+          "action": "inspect",
+          "note": "גיר ידני: דוושת מצמד ומפלס נוזל"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 160000,
+      "items": [
+        {
+          "item": "drive_belt",
+          "action": "replace",
+          "note": "בדיקת מתיחות ומצב; החלפה לפי הטבלה"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pcv_valve",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect",
+          "note": "אם מותקנים"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "clutch",
+          "action": "inspect",
+          "note": "גיר ידני: דוושת מצמד ומפלס נוזל"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "כולל מסבי גלגלים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "cvt_oil",
+          "action": "inspect",
+          "note": "בדיקת דליפות"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect",
+          "note": "גיר ידני: בדיקה בשמן סוזוקי מקורי; עם שמן תחליפי החלפה בכל טיפול שני"
+        }
+      ]
+    },
+    {
+      "km": 180000,
+      "items": [
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "בדיקת מתיחות ומצב; החלפה לפי הטבלה"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "clutch",
+          "action": "inspect",
+          "note": "גיר ידני: דוושת מצמד ומפלס נוזל"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 200000,
+      "items": [
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "בדיקת מתיחות ומצב; החלפה לפי הטבלה"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect",
+          "note": "אם מותקנים"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "clutch",
+          "action": "inspect",
+          "note": "גיר ידני: דוושת מצמד ומפלס נוזל"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "כולל מסבי גלגלים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "cvt_oil",
+          "action": "inspect",
+          "note": "בדיקת דליפות"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect",
+          "note": "גיר ידני: בדיקה בשמן סוזוקי מקורי; עם שמן תחליפי החלפה בכל טיפול שני"
+        }
+      ]
+    },
+    {
+      "km": 220000,
+      "items": [
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "בדיקת מתיחות ומצב; החלפה לפי הטבלה"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "clutch",
+          "action": "inspect",
+          "note": "גיר ידני: דוושת מצמד ומפלס נוזל"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 240000,
+      "items": [
+        {
+          "item": "drive_belt",
+          "action": "replace",
+          "note": "בדיקת מתיחות ומצב; החלפה לפי הטבלה"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pcv_valve",
+          "action": "inspect"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect",
+          "note": "אם מותקנים"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "clutch",
+          "action": "inspect",
+          "note": "גיר ידני: דוושת מצמד ומפלס נוזל"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "כולל מסבי גלגלים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "cvt_oil",
+          "action": "inspect",
+          "note": "בדיקת דליפות"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect",
+          "note": "גיר ידני: בדיקה בשמן סוזוקי מקורי; עם שמן תחליפי החלפה בכל טיפול שני"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "coolant",
+      "action": "replace",
+      "first_km": 160000,
+      "first_months": 96,
+      "then_every_km": 80000,
+      "then_every_months": 48,
+      "note": "נוזל קירור כחול מקורי (Super LLC); עם נוזל ירוק רגיל החלפה כל 40,000 ק\"מ או 3 שנים"
+    },
+    {
+      "item": "spark_plugs",
+      "action": "replace",
+      "every_km": 100000,
+      "every_months": 84,
+      "note": "מצתי אירידיום"
+    }
+  ],
+  "time_based": [],
+  "specs": {
+    "engine_oil": "5W-30 בתקן ACEA",
+    "_note": "מתוך ספר הנהג של היבואן"
+  },
+  "sources": [
+    {
+      "url": "https://suzuki.co.il/sites/default/files/pdf/swift_24_12.pdf",
+      "kind": "importer",
+      "note": "ספר אחריות, תפעול ושירות סוויפט Mild Hybrid (מכשירי תנועה), \"שירות תקופתי תחת תנאי נהיגה רגילים - מנוע K12D\", עמודי PDF 572-579"
+    },
+    {
+      "url": "https://suzuki.co.il/content/%D7%A1%D7%A4%D7%A8%D7%99-%D7%A0%D7%94%D7%92-%D7%A1%D7%95%D7%96%D7%95%D7%A7%D7%99",
+      "kind": "importer",
+      "note": "ספריית ספרי הנהג של סוזוקי ישראל (\"סוויפט Mild Hybrid\")"
+    }
+  ],
+  "status": "reviewed",
+  "notes": "הועתק מטבלת השירות התקופתי בספר העברי של היבואן (מנוע K12D). עמודות של 20,000 ק\"מ / 12 חודשים עד 240,000; אחר כך חוזרים על אותם מרווחים. I בדיקה, R החלפה. שמן 5W-30 ACEA ומסנן כל 20,000 (שמן שאינו ACEA: כל 15,000 או 12 חודשים). רצועת הינע: בדיקה בכל טיפול והחלפה כל 80,000. מצתי אירידיום כל 100,000 או 7 שנים. מסנן אוויר: בדיקה כל 20,000 והחלפה כל 40,000 או 3 שנים. נוזל בלמים כל 40,000. נוזל קירור כחול: ראשון 160,000 או 8 שנים ואז כל 80,000 או 4 שנים. גיר CVT: בדיקה כל 40,000. גיר ידני בשמן מקורי: בדיקה כל 40,000 (לא מקורי: החלפה כל 40,000). בלם חניה: אחרי 20,000 הראשונים בלבד."
+}

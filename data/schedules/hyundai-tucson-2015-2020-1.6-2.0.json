@@ -1,0 +1,874 @@
+{
+  "make": "Hyundai",
+  "make_he": "יונדאי",
+  "importer": "כלמוביל",
+  "id": "hyundai-tucson-2015-2020-1.6-2.0",
+  "model": "Tucson",
+  "model_he": "טוסון",
+  "generation": "TL",
+  "years": [
+    2015,
+    2020
+  ],
+  "engines": [
+    "2.0 MPI (Nu, G4NA)",
+    "1.6 GDI (Gamma, G4FD)",
+    "1.6 T-GDI (Gamma, G4FJ)"
+  ],
+  "fuel": "petrol",
+  "interval": {
+    "km": 15000,
+    "months": 12,
+    "note": "לפי ספר הרכב בעברית: כל 15,000 ק\"מ או 12 חודשים. בתנאי נהיגה קשים שמן ומסנן כל 7,500 ק\"מ או 6 חודשים במנועי 1.6 T-GDI ו-2.0 MPI"
+  },
+  "cycle_km": 120000,
+  "services": [
+    {
+      "km": 15000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "4WD בלבד"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_tank_air_filter",
+          "action": "inspect",
+          "note": "מיקום העמודות משוחזר, ראה notes"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "מיקום העמודות משוחזר, ראה notes"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "dct_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect",
+          "note": "4WD בלבד"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "4WD בלבד, דיפרנציאל אחורי"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "4WD בלבד"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 45000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "4WD בלבד"
+        },
+        {
+          "item": "valve_clearance",
+          "action": "inspect",
+          "note": "מנוע 1.6 בלבד"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_tank_air_filter",
+          "action": "inspect",
+          "note": "מיקום העמודות משוחזר, ראה notes"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "מיקום העמודות משוחזר, ראה notes"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "dct_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect",
+          "note": "4WD בלבד"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "4WD בלבד, דיפרנציאל אחורי"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "4WD בלבד"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 75000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "4WD בלבד"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_tank_air_filter",
+          "action": "inspect",
+          "note": "מיקום העמודות משוחזר, ראה notes"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "מיקום העמודות משוחזר, ראה notes"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "dct_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect",
+          "note": "4WD בלבד"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "4WD בלבד, דיפרנציאל אחורי"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "4WD בלבד"
+        },
+        {
+          "item": "valve_clearance",
+          "action": "inspect",
+          "note": "מנוע 1.6 בלבד"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 105000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "4WD בלבד"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_tank_air_filter",
+          "action": "inspect",
+          "note": "מיקום העמודות משוחזר, ראה notes"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "מיקום העמודות משוחזר, ראה notes"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "dct_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect",
+          "note": "4WD בלבד"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "4WD בלבד, דיפרנציאל אחורי"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "4WD בלבד"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "drive_belt",
+      "action": "inspect",
+      "first_km": 90000,
+      "first_months": 72,
+      "then_every_km": 30000,
+      "then_every_months": 24
+    },
+    {
+      "item": "spark_plugs",
+      "action": "replace",
+      "every_km": 150000,
+      "note": "מנועי 1.6; במנוע 2.0 כל 165,000 ק\"מ"
+    },
+    {
+      "item": "coolant",
+      "action": "replace",
+      "first_km": 210000,
+      "first_months": 120,
+      "then_every_km": 30000,
+      "then_every_months": 24
+    },
+    {
+      "item": "cooling_system",
+      "action": "inspect",
+      "first_km": 60000,
+      "first_months": 48,
+      "then_every_km": 30000,
+      "then_every_months": 24
+    },
+    {
+      "item": "transmission_oil",
+      "action": "replace",
+      "every_km": 100000,
+      "note": "בתנאים רגילים ללא טיפול; בתנאי נהיגה קשים החלפה כל 100,000"
+    }
+  ],
+  "time_based": [],
+  "sources": [
+    {
+      "url": "https://www.manualpdf.co.il/hyundai/tucson-2016/%D7%9E%D7%93%D7%A8%D7%99%D7%9A?p=544",
+      "kind": "other",
+      "note": "עותק מקוון של ספר הרכב העברי של טוסון 2016 (הוצאת כלמוביל), עמודים 544-549 במראה (7-11 עד 7-16 בספר): תוכנית אחזקה רגילה ותנאים קשים"
+    },
+    {
+      "url": "https://www.hyundaimotors.co.il/maintenance/",
+      "kind": "importer",
+      "note": "ספריית ספרי הרכב של כלמוביל; ספר טוסון 2016-2020 אינו מופיע בה כקובץ"
+    }
+  ],
+  "status": "reviewed",
+  "notes": "הטבלה נלקחה מהספר העברי של טוסון TL (אתר מראה שמציג את שכבת הטקסט של ה-PDF). מיקום העמודות שוחזר מקואורדינטות הטקסט ומקווי הטבלה. בשתי שורות (מסנן אוויר של מיכל הדלק וצנרת דלק) הסימנים דבוקים לכותרת השורה ולכן רק מספרם ידוע (4 מתוך 8): הונח שהם בכל 30,000. נוזל בלמים מסומן בספר להחלפה בכל עמודה (כל 15,000). שורות הדיזל (D4HA) לא נכללו כי בישראל כמעט אין טוסון TL דיזל. רצועת הינע: בדיקה ראשונה ב-90,000 ק\"מ או 72 חודשים ואחר כך כל 30,000. נוזל גיר אוטומטי: בתנאים רגילים אין צורך בבדיקה; בתנאים קשים (כולל חום מעל 32 מעלות בפקקים) החלפה כל 100,000. גיר ידני/DCT, תיבת העברה ודיפרנציאל: להחליף אם שקעו במים. בתנאים קשים: שמן גיר ידני/DCT ודיפרנציאל כל 120,000 ק\"מ."
+}

@@ -1,0 +1,1746 @@
+{
+  "id": "chery-tiggo-9-phev-2025-2026-1.5t-phev",
+  "make": "Chery",
+  "make_he": "צ'רי",
+  "model": "Tiggo 9 PHEV",
+  "model_he": "טיגו 9 PHEV",
+  "generation": "Tiggo 9 PHEV",
+  "years": [
+    2025,
+    2026
+  ],
+  "engines": [
+    "1.5 TGDI PHEV (SQRH4J15) + DHT"
+  ],
+  "fuel": "plug-in-hybrid",
+  "importer": "פריסבי (צ'רי ישראל)",
+  "interval": {
+    "km": 15000,
+    "months": 12,
+    "note": "לפי ספר הרכב של היבואן: טיפול כל 15,000 ק\"מ או שנה; בתנאים קשים כל 7,500 ק\"מ או 6 חודשים"
+  },
+  "cycle_km": 240000,
+  "services": [
+    {
+      "km": 15000,
+      "items": [
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "לוח מחוונים ומולטימדיה"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "החלפה כל 60,000 ק\"מ (48 חודשים)"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "החלפה כל 30,000 ק\"מ (24 חודשים)"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "SN/SP 5W-30"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "שמן גיר ומסנן (תיבת DHT): החלפה כל 60,000 ק\"מ"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "חופשים במתלים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "חופשים בגל ההינע"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "ברגי חיזוק מרכב ותחתית הרכב (צינורות ומכלולים)"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "חופשים במערכת ההיגוי"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "לחץ אוויר, שחיקה וברגים"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "inspect",
+          "note": "החלפה כל 60,000 ק\"מ"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת מתח גבוה: חלודה או עיוות, ברגי קיבוע, שסתום אוורור, מחברי מתח גבוה ונמוך ורתמות"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "לוח מחוונים ומולטימדיה"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "החלפה כל 60,000 ק\"מ (48 חודשים)"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "החלפה כל 30,000 ק\"מ (24 חודשים)"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "SN/SP 5W-30"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "שמן גיר ומסנן (תיבת DHT): החלפה כל 60,000 ק\"מ"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "חופשים במתלים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "חופשים בגל ההינע"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "ברגי חיזוק מרכב ותחתית הרכב (צינורות ומכלולים)"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "חופשים במערכת ההיגוי"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "לחץ אוויר, שחיקה וברגים"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "inspect",
+          "note": "החלפה כל 60,000 ק\"מ"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת מתח גבוה: חלודה או עיוות, ברגי קיבוע, שסתום אוורור, מחברי מתח גבוה ונמוך ורתמות"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect",
+          "note": "בדיקת/כיוון פרונט כל 30,000 ק\"מ"
+        }
+      ]
+    },
+    {
+      "km": 45000,
+      "items": [
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "לוח מחוונים ומולטימדיה"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "החלפה כל 60,000 ק\"מ (48 חודשים)"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "החלפה כל 30,000 ק\"מ (24 חודשים)"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "SN/SP 5W-30"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "שמן גיר ומסנן (תיבת DHT): החלפה כל 60,000 ק\"מ"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "חופשים במתלים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "חופשים בגל ההינע"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "ברגי חיזוק מרכב ותחתית הרכב (צינורות ומכלולים)"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "חופשים במערכת ההיגוי"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "לחץ אוויר, שחיקה וברגים"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "inspect",
+          "note": "החלפה כל 60,000 ק\"מ"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת מתח גבוה: חלודה או עיוות, ברגי קיבוע, שסתום אוורור, מחברי מתח גבוה ונמוך ורתמות"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "לוח מחוונים ומולטימדיה"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "replace",
+          "note": "החלפה כל 60,000 ק\"מ (48 חודשים)"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "החלפה כל 30,000 ק\"מ (24 חודשים)"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "SN/SP 5W-30"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "replace",
+          "note": "שמן גיר ומסנן (תיבת DHT): החלפה כל 60,000 ק\"מ"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "חופשים במתלים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "חופשים בגל ההינע"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "ברגי חיזוק מרכב ותחתית הרכב (צינורות ומכלולים)"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "חופשים במערכת ההיגוי"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "לחץ אוויר, שחיקה וברגים"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "החלפה כל 60,000 ק\"מ"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת מתח גבוה: חלודה או עיוות, ברגי קיבוע, שסתום אוורור, מחברי מתח גבוה ונמוך ורתמות"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect",
+          "note": "בדיקת/כיוון פרונט כל 30,000 ק\"מ"
+        }
+      ]
+    },
+    {
+      "km": 75000,
+      "items": [
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "לוח מחוונים ומולטימדיה"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "החלפה כל 60,000 ק\"מ (48 חודשים)"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "החלפה כל 30,000 ק\"מ (24 חודשים)"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "SN/SP 5W-30"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "שמן גיר ומסנן (תיבת DHT): החלפה כל 60,000 ק\"מ"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "חופשים במתלים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "חופשים בגל ההינע"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "ברגי חיזוק מרכב ותחתית הרכב (צינורות ומכלולים)"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "חופשים במערכת ההיגוי"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "לחץ אוויר, שחיקה וברגים"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "inspect",
+          "note": "החלפה כל 60,000 ק\"מ"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת מתח גבוה: חלודה או עיוות, ברגי קיבוע, שסתום אוורור, מחברי מתח גבוה ונמוך ורתמות"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "לוח מחוונים ומולטימדיה"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "החלפה כל 60,000 ק\"מ (48 חודשים)"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "החלפה כל 30,000 ק\"מ (24 חודשים)"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "SN/SP 5W-30"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "שמן גיר ומסנן (תיבת DHT): החלפה כל 60,000 ק\"מ"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "חופשים במתלים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "חופשים בגל ההינע"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "ברגי חיזוק מרכב ותחתית הרכב (צינורות ומכלולים)"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "חופשים במערכת ההיגוי"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "לחץ אוויר, שחיקה וברגים"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "inspect",
+          "note": "החלפה כל 60,000 ק\"מ"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת מתח גבוה: חלודה או עיוות, ברגי קיבוע, שסתום אוורור, מחברי מתח גבוה ונמוך ורתמות"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect",
+          "note": "בדיקת/כיוון פרונט כל 30,000 ק\"מ"
+        }
+      ]
+    },
+    {
+      "km": 105000,
+      "items": [
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "לוח מחוונים ומולטימדיה"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "החלפה כל 60,000 ק\"מ (48 חודשים)"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "החלפה כל 30,000 ק\"מ (24 חודשים)"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "SN/SP 5W-30"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "שמן גיר ומסנן (תיבת DHT): החלפה כל 60,000 ק\"מ"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "חופשים במתלים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "חופשים בגל ההינע"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "ברגי חיזוק מרכב ותחתית הרכב (צינורות ומכלולים)"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "חופשים במערכת ההיגוי"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "לחץ אוויר, שחיקה וברגים"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "inspect",
+          "note": "החלפה כל 60,000 ק\"מ"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת מתח גבוה: חלודה או עיוות, ברגי קיבוע, שסתום אוורור, מחברי מתח גבוה ונמוך ורתמות"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "לוח מחוונים ומולטימדיה"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "replace",
+          "note": "החלפה כל 60,000 ק\"מ (48 חודשים)"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "החלפה כל 30,000 ק\"מ (24 חודשים)"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "SN/SP 5W-30"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "replace",
+          "note": "שמן גיר ומסנן (תיבת DHT): החלפה כל 60,000 ק\"מ"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "חופשים במתלים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "חופשים בגל ההינע"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "ברגי חיזוק מרכב ותחתית הרכב (צינורות ומכלולים)"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "חופשים במערכת ההיגוי"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "לחץ אוויר, שחיקה וברגים"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "החלפה כל 60,000 ק\"מ"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת מתח גבוה: חלודה או עיוות, ברגי קיבוע, שסתום אוורור, מחברי מתח גבוה ונמוך ורתמות"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect",
+          "note": "בדיקת/כיוון פרונט כל 30,000 ק\"מ"
+        }
+      ]
+    },
+    {
+      "km": 135000,
+      "items": [
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "לוח מחוונים ומולטימדיה"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "החלפה כל 60,000 ק\"מ (48 חודשים)"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "החלפה כל 30,000 ק\"מ (24 חודשים)"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "SN/SP 5W-30"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "שמן גיר ומסנן (תיבת DHT): החלפה כל 60,000 ק\"מ"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "חופשים במתלים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "חופשים בגל ההינע"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "ברגי חיזוק מרכב ותחתית הרכב (צינורות ומכלולים)"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "חופשים במערכת ההיגוי"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "לחץ אוויר, שחיקה וברגים"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "inspect",
+          "note": "החלפה כל 60,000 ק\"מ"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת מתח גבוה: חלודה או עיוות, ברגי קיבוע, שסתום אוורור, מחברי מתח גבוה ונמוך ורתמות"
+        }
+      ]
+    },
+    {
+      "km": 150000,
+      "items": [
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "לוח מחוונים ומולטימדיה"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "החלפה כל 60,000 ק\"מ (48 חודשים)"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "החלפה כל 30,000 ק\"מ (24 חודשים)"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "SN/SP 5W-30"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "שמן גיר ומסנן (תיבת DHT): החלפה כל 60,000 ק\"מ"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "חופשים במתלים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "חופשים בגל ההינע"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "ברגי חיזוק מרכב ותחתית הרכב (צינורות ומכלולים)"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "חופשים במערכת ההיגוי"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "לחץ אוויר, שחיקה וברגים"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "inspect",
+          "note": "החלפה כל 60,000 ק\"מ"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת מתח גבוה: חלודה או עיוות, ברגי קיבוע, שסתום אוורור, מחברי מתח גבוה ונמוך ורתמות"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect",
+          "note": "בדיקת/כיוון פרונט כל 30,000 ק\"מ"
+        }
+      ]
+    },
+    {
+      "km": 165000,
+      "items": [
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "לוח מחוונים ומולטימדיה"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "החלפה כל 60,000 ק\"מ (48 חודשים)"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "החלפה כל 30,000 ק\"מ (24 חודשים)"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "SN/SP 5W-30"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "שמן גיר ומסנן (תיבת DHT): החלפה כל 60,000 ק\"מ"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "חופשים במתלים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "חופשים בגל ההינע"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "ברגי חיזוק מרכב ותחתית הרכב (צינורות ומכלולים)"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "חופשים במערכת ההיגוי"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "לחץ אוויר, שחיקה וברגים"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "inspect",
+          "note": "החלפה כל 60,000 ק\"מ"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת מתח גבוה: חלודה או עיוות, ברגי קיבוע, שסתום אוורור, מחברי מתח גבוה ונמוך ורתמות"
+        }
+      ]
+    },
+    {
+      "km": 180000,
+      "items": [
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "לוח מחוונים ומולטימדיה"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "replace",
+          "note": "החלפה כל 60,000 ק\"מ (48 חודשים)"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "החלפה כל 30,000 ק\"מ (24 חודשים)"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "SN/SP 5W-30"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "replace",
+          "note": "שמן גיר ומסנן (תיבת DHT): החלפה כל 60,000 ק\"מ"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "חופשים במתלים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "חופשים בגל ההינע"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "ברגי חיזוק מרכב ותחתית הרכב (צינורות ומכלולים)"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "חופשים במערכת ההיגוי"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "לחץ אוויר, שחיקה וברגים"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "החלפה כל 60,000 ק\"מ"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת מתח גבוה: חלודה או עיוות, ברגי קיבוע, שסתום אוורור, מחברי מתח גבוה ונמוך ורתמות"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect",
+          "note": "בדיקת/כיוון פרונט כל 30,000 ק\"מ"
+        }
+      ]
+    },
+    {
+      "km": 195000,
+      "items": [
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "לוח מחוונים ומולטימדיה"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "החלפה כל 60,000 ק\"מ (48 חודשים)"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "החלפה כל 30,000 ק\"מ (24 חודשים)"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "SN/SP 5W-30"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "שמן גיר ומסנן (תיבת DHT): החלפה כל 60,000 ק\"מ"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "חופשים במתלים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "חופשים בגל ההינע"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "ברגי חיזוק מרכב ותחתית הרכב (צינורות ומכלולים)"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "חופשים במערכת ההיגוי"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "לחץ אוויר, שחיקה וברגים"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "inspect",
+          "note": "החלפה כל 60,000 ק\"מ"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת מתח גבוה: חלודה או עיוות, ברגי קיבוע, שסתום אוורור, מחברי מתח גבוה ונמוך ורתמות"
+        }
+      ]
+    },
+    {
+      "km": 210000,
+      "items": [
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "לוח מחוונים ומולטימדיה"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "החלפה כל 60,000 ק\"מ (48 חודשים)"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "החלפה כל 30,000 ק\"מ (24 חודשים)"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "SN/SP 5W-30"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "שמן גיר ומסנן (תיבת DHT): החלפה כל 60,000 ק\"מ"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "חופשים במתלים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "חופשים בגל ההינע"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "ברגי חיזוק מרכב ותחתית הרכב (צינורות ומכלולים)"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "חופשים במערכת ההיגוי"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "לחץ אוויר, שחיקה וברגים"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "inspect",
+          "note": "החלפה כל 60,000 ק\"מ"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת מתח גבוה: חלודה או עיוות, ברגי קיבוע, שסתום אוורור, מחברי מתח גבוה ונמוך ורתמות"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect",
+          "note": "בדיקת/כיוון פרונט כל 30,000 ק\"מ"
+        }
+      ]
+    },
+    {
+      "km": 225000,
+      "items": [
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "לוח מחוונים ומולטימדיה"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "החלפה כל 60,000 ק\"מ (48 חודשים)"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "החלפה כל 30,000 ק\"מ (24 חודשים)"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "SN/SP 5W-30"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "שמן גיר ומסנן (תיבת DHT): החלפה כל 60,000 ק\"מ"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "חופשים במתלים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "חופשים בגל ההינע"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "ברגי חיזוק מרכב ותחתית הרכב (צינורות ומכלולים)"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "חופשים במערכת ההיגוי"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "לחץ אוויר, שחיקה וברגים"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "inspect",
+          "note": "החלפה כל 60,000 ק\"מ"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת מתח גבוה: חלודה או עיוות, ברגי קיבוע, שסתום אוורור, מחברי מתח גבוה ונמוך ורתמות"
+        }
+      ]
+    },
+    {
+      "km": 240000,
+      "items": [
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "לוח מחוונים ומולטימדיה"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "replace",
+          "note": "החלפה כל 60,000 ק\"מ (48 חודשים)"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "החלפה כל 30,000 ק\"מ (24 חודשים)"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "SN/SP 5W-30"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "replace",
+          "note": "שמן גיר ומסנן (תיבת DHT): החלפה כל 60,000 ק\"מ"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "חופשים במתלים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "חופשים בגל ההינע"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "ברגי חיזוק מרכב ותחתית הרכב (צינורות ומכלולים)"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "חופשים במערכת ההיגוי"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "לחץ אוויר, שחיקה וברגים"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "החלפה כל 60,000 ק\"מ"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת מתח גבוה: חלודה או עיוות, ברגי קיבוע, שסתום אוורור, מחברי מתח גבוה ונמוך ורתמות"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect",
+          "note": "בדיקת/כיוון פרונט כל 30,000 ק\"מ"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "evap_system",
+      "action": "replace",
+      "every_km": 45000,
+      "note": "מסנן מיכל הקניסטר: כל 45,000 ק\"מ"
+    },
+    {
+      "item": "evap_system",
+      "action": "replace",
+      "every_km": 150000,
+      "note": "צינור הקניסטר: ב-150,000 ק\"מ"
+    },
+    {
+      "item": "fuel_lines",
+      "action": "replace",
+      "every_km": 75000,
+      "note": "צינור מילוי הדלק: כל 75,000 ק\"מ"
+    }
+  ],
+  "time_based": [],
+  "specs": {
+    "engine_oil": "SN 5W-30 או SP 5W-30",
+    "_note": "מספר הרכב העברי של כלמוביל"
+  },
+  "sources": [
+    {
+      "url": "https://cheryisrael.co.il/",
+      "kind": "importer",
+      "note": "אתר צ'רי ישראל (פריסבי) אינו מפרסם ספרי רכב או לוחות טיפולים; נבדק גם WordPress media API - רק מפרטים וקטלוגים"
+    },
+    {
+      "url": "https://res.cloudinary.com/colmobil/images/v1768203870/J7-PHEV-web/J7-PHEV-web.pdf",
+      "kind": "importer",
+      "note": "ספר רכב עברי JAECOO 7 PHEV (כלמוביל, מהדורת ינואר 2026), עמ' 276-277 תוכנית תחזוקה"
+    },
+    {
+      "url": "https://res.cloudinary.com/colmobil/images/v1744109858/J7-PHEV-OM_web_36923d3ea/J7-PHEV-OM_web_36923d3ea.pdf",
+      "kind": "importer",
+      "note": "מהדורה קודמת (ינואר 2025), עמ' 276-277 - נוזל קירור כל 30,000 ומצתים כל 45,000"
+    },
+    {
+      "url": "https://jaecoo.co.il/car-book/",
+      "kind": "importer",
+      "note": "עמוד \"ספר רכב\" באתר ג'אקו ישראל"
+    }
+  ],
+  "status": "draft",
+  "notes": "טיוטה - דגם אח: לא נמצא ספר רכב עברי או לוח טיפולים של היבואן ל-Tiggo 9 PHEV. הלוח הועתק מספר הרכב העברי של ג'אקו 7 PHEV (כלמוביל), שלפי קוד המנוע במאגר הרישוי חולק איתו את אותה יחידת הנעה. יש לוודא מול היבואן. הועתק מתוכנית התחזוקה בספר הרכב העברי של כלמוביל לג'אקו 7 PHEV (מהדורת ינואר 2026, עמ' 276-277; 16 עמודות של 15,000 ק\"מ). במהדורה הקודמת (ינואר 2025) נוזל הקירור הוחלף כל 30,000 ק\"מ והמצתים כל 45,000 ק\"מ; כאן לפי המהדורה החדשה (60,000 ק\"מ לשניהם). מסנן הקניסטר, צינור הקניסטר וצינור מילוי הדלק ב-long_interval. אין שורה למסנן מזגן בטבלה."
+}

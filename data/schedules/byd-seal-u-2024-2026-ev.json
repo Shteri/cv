@@ -1,0 +1,598 @@
+{
+  "id": "byd-seal-u-2024-2026-ev",
+  "make": "BYD",
+  "make_he": "בי.וויי.די",
+  "model": "Seal U EV",
+  "model_he": "סיל U חשמלית",
+  "generation": "SEAL U EV",
+  "years": [
+    2024,
+    2026
+  ],
+  "engines": [
+    "EV (TZ200XSA / TZ200XYM / TZ200XSAC)"
+  ],
+  "fuel": "electric",
+  "importer": "שלמה מוטורס",
+  "interval": {
+    "km": 20000,
+    "months": 12,
+    "note": "לפי ספר הנהג העברי: רוב הבדיקות כל 12 חודשים או 20,000 ק\"מ; חלק מהבדיקות פעם ראשונה ב-20,000 ואז כל 40,000 ק\"מ (24 חודשים), ובנהיגה קשה כל 20,000"
+  },
+  "cycle_km": 120000,
+  "services": [
+    {
+      "km": 20000,
+      "items": [
+        {
+          "item": "body_underside",
+          "action": "adjust",
+          "note": "בדיקה והידוק ברגי שלדה"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם ומתג בלם חניה חשמלי (EPB)"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "מתג EPB"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "גלגל ההגה ומוט ההגה; מפרקים כדוריים וגומיות; קורוזיה ביחידת הבקרה של ההגה החשמלי; נקודות הארקה ומחברי ההגה החשמלי (EPS)"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גומיות גל הינע"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלים קדמיים ואחוריים ומרווח מסבי גלגלים"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect",
+          "note": "בדיקת זוויות גלגלים קדמיים ואחוריים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "מצב צמיגים ולחץ אוויר כולל TPMS"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "מעצור דלת (שימון) ומנעול מכסה מנוע"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס נוזל קירור"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "החלפה כל שנתיים או 40,000 ק\"מ; בשאר הטיפולים בדיקה"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "קריאת תקלות במודולים ועדכון תוכנה"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת מתח גבוה: ברגי עיגון וחיבורים, כבלי מתח גבוה, דליפות ביחידת ההנעה, תוויות"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "שקע הטעינה"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect",
+          "note": "מסנן HEPA/פחם פעיל: בדיקה והחלפה לפי הצורך; בתנאים קשים כל 6 חודשים"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "פנסים, תאורת LED וכיוון אלומה"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "להבים ומתזים"
+        }
+      ]
+    },
+    {
+      "km": 40000,
+      "items": [
+        {
+          "item": "body_underside",
+          "action": "adjust",
+          "note": "בדיקה והידוק ברגי שלדה"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "פין מוביל בקליפר - כל 24 חודשים או 40,000 ק\"מ"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "נקודות הארקה ומחברי ההגה החשמלי (EPS)"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "מצב צמיגים ולחץ אוויר כולל TPMS"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "מעצור דלת (שימון) ומנעול מכסה מנוע"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס נוזל קירור"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "החלפה כל שנתיים או 40,000 ק\"מ; בשאר הטיפולים בדיקה"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "קריאת תקלות במודולים ועדכון תוכנה"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת מתח גבוה: ברגי עיגון וחיבורים, כבלי מתח גבוה, דליפות ביחידת ההנעה, תוויות"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "שקע הטעינה"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect",
+          "note": "מסנן HEPA/פחם פעיל: בדיקה והחלפה לפי הצורך; בתנאים קשים כל 6 חודשים"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "פנסים, תאורת LED וכיוון אלומה"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "להבים ומתזים"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "body_underside",
+          "action": "adjust",
+          "note": "בדיקה והידוק ברגי שלדה"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם ומתג בלם חניה חשמלי (EPB)"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "מתג EPB"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "גלגל ההגה ומוט ההגה; מפרקים כדוריים וגומיות; קורוזיה ביחידת הבקרה של ההגה החשמלי; נקודות הארקה ומחברי ההגה החשמלי (EPS)"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גומיות גל הינע"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלים קדמיים ואחוריים ומרווח מסבי גלגלים"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect",
+          "note": "בדיקת זוויות גלגלים קדמיים ואחוריים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "מצב צמיגים ולחץ אוויר כולל TPMS"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "מעצור דלת (שימון) ומנעול מכסה מנוע"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס נוזל קירור"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "החלפה כל שנתיים או 40,000 ק\"מ; בשאר הטיפולים בדיקה"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "קריאת תקלות במודולים ועדכון תוכנה"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת מתח גבוה: ברגי עיגון וחיבורים, כבלי מתח גבוה, דליפות ביחידת ההנעה, תוויות"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "שקע הטעינה"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect",
+          "note": "מסנן HEPA/פחם פעיל: בדיקה והחלפה לפי הצורך; בתנאים קשים כל 6 חודשים"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "פנסים, תאורת LED וכיוון אלומה"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "להבים ומתזים"
+        }
+      ]
+    },
+    {
+      "km": 80000,
+      "items": [
+        {
+          "item": "body_underside",
+          "action": "adjust",
+          "note": "בדיקה והידוק ברגי שלדה"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "פין מוביל בקליפר - כל 24 חודשים או 40,000 ק\"מ"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "נקודות הארקה ומחברי ההגה החשמלי (EPS)"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "מצב צמיגים ולחץ אוויר כולל TPMS"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "מעצור דלת (שימון) ומנעול מכסה מנוע"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס נוזל קירור"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "החלפה כל שנתיים או 40,000 ק\"מ; בשאר הטיפולים בדיקה"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "קריאת תקלות במודולים ועדכון תוכנה"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת מתח גבוה: ברגי עיגון וחיבורים, כבלי מתח גבוה, דליפות ביחידת ההנעה, תוויות"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "שקע הטעינה"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect",
+          "note": "מסנן HEPA/פחם פעיל: בדיקה והחלפה לפי הצורך; בתנאים קשים כל 6 חודשים"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "פנסים, תאורת LED וכיוון אלומה"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "להבים ומתזים"
+        }
+      ]
+    },
+    {
+      "km": 100000,
+      "items": [
+        {
+          "item": "body_underside",
+          "action": "adjust",
+          "note": "בדיקה והידוק ברגי שלדה"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם ומתג בלם חניה חשמלי (EPB)"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "מתג EPB"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "גלגל ההגה ומוט ההגה; מפרקים כדוריים וגומיות; קורוזיה ביחידת הבקרה של ההגה החשמלי; נקודות הארקה ומחברי ההגה החשמלי (EPS)"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גומיות גל הינע"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלים קדמיים ואחוריים ומרווח מסבי גלגלים"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect",
+          "note": "בדיקת זוויות גלגלים קדמיים ואחוריים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "מצב צמיגים ולחץ אוויר כולל TPMS"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "מעצור דלת (שימון) ומנעול מכסה מנוע"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס נוזל קירור"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "החלפה כל שנתיים או 40,000 ק\"מ; בשאר הטיפולים בדיקה"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "קריאת תקלות במודולים ועדכון תוכנה"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת מתח גבוה: ברגי עיגון וחיבורים, כבלי מתח גבוה, דליפות ביחידת ההנעה, תוויות"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "שקע הטעינה"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect",
+          "note": "מסנן HEPA/פחם פעיל: בדיקה והחלפה לפי הצורך; בתנאים קשים כל 6 חודשים"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "פנסים, תאורת LED וכיוון אלומה"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "להבים ומתזים"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "body_underside",
+          "action": "adjust",
+          "note": "בדיקה והידוק ברגי שלדה"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "פין מוביל בקליפר - כל 24 חודשים או 40,000 ק\"מ"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "נקודות הארקה ומחברי ההגה החשמלי (EPS)"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "מצב צמיגים ולחץ אוויר כולל TPMS"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "מעצור דלת (שימון) ומנעול מכסה מנוע"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס נוזל קירור"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "החלפה כל שנתיים או 40,000 ק\"מ; בשאר הטיפולים בדיקה"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "קריאת תקלות במודולים ועדכון תוכנה"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת מתח גבוה: ברגי עיגון וחיבורים, כבלי מתח גבוה, דליפות ביחידת ההנעה, תוויות"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "שקע הטעינה"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect",
+          "note": "מסנן HEPA/פחם פעיל: בדיקה והחלפה לפי הצורך; בתנאים קשים כל 6 חודשים"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "פנסים, תאורת LED וכיוון אלומה"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "להבים ומתזים"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "transmission_oil",
+      "action": "replace",
+      "first_km": 40000,
+      "first_months": 24,
+      "then_every_km": 48000,
+      "then_every_months": 24,
+      "note": "שמן תמסורת: פעם ראשונה אחרי 24 חודשים או 40,000 ק\"מ, אחר כך כל 24 חודשים או 48,000 ק\"מ"
+    },
+    {
+      "item": "coolant",
+      "action": "replace",
+      "every_km": 100000,
+      "every_months": 48,
+      "note": "נוזל קירור ארוך טווח: כל 4 שנים או 100,000 ק\"מ"
+    },
+    {
+      "item": "tire_rotation",
+      "action": "rotate",
+      "every_km": 10000,
+      "note": "רוטציה כל 10,000 ק\"מ; לחץ אוויר - פעם בחודש"
+    },
+    {
+      "item": "hybrid_system",
+      "action": "inspect",
+      "every_km": 72000,
+      "every_months": 6,
+      "note": "בדיקה וכיול של קיבולת סוללת המתח הגבוה: כל 6 חודשים או 72,000 ק\"מ (או טעינה מלאה ופריקה עצמית)"
+    }
+  ],
+  "time_based": [],
+  "specs": {
+    "_note": "ספר הנהג העברי אינו מפרט נוזלים בטבלת התחזוקה",
+    "battery": "סוללת Blade LFP; כיול קיבולת כל 6 חודשים או 72,000 ק\"מ"
+  },
+  "sources": [
+    {
+      "url": "https://www.byd.com/material/byd-site/eu/support/service/manual/new-seal-u-ev/BYD%20SEAL%20U%20EV%20%D7%9E%D7%93%D7%A8%D7%99%D7%9A%20%D7%9C%D7%9E%D7%A9%D7%AA%D7%9E%D7%A9-%D7%94%D7%92%D7%94%20%D7%91%D7%A6%D7%93%20%D7%A9%D7%9E%D7%90%D7%9C-HE.pdf",
+      "kind": "manufacturer",
+      "note": "ספר נהג עברי BYD SEAL U EV, עמ' 154-156 - לוח זמני התחזוקה"
+    }
+  ],
+  "status": "reviewed",
+  "notes": "ספר הנהג העברי של BYD Seal U EV (הגה שמאלי) מפרט טבלת פריטים עם מרווח לכל פריט ולא טבלת טיפולים; כאן סודר לטיפולים של 20,000 ק\"מ. אין שמן מנוע ואין החלפת מסנן מזגן קבועה (בדיקה והחלפה לפי הצורך). שמן תמסורת, נוזל קירור, רוטציה וכיול קיבולת הסוללה ב-long_interval."
+}

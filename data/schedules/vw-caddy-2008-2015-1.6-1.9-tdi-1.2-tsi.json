@@ -1,0 +1,481 @@
+{
+  "id": "vw-caddy-2008-2015-1.6-1.9-tdi-1.2-tsi",
+  "make": "Volkswagen",
+  "make_he": "פולקסווגן",
+  "model": "Caddy",
+  "model_he": "קאדי",
+  "generation": "3 (2K/2C)",
+  "years": [
+    2007,
+    2016
+  ],
+  "engines": [
+    "1.9 TDI (BLS)",
+    "1.6 TDI (CAY)",
+    "1.2 TSI (CBZ)"
+  ],
+  "fuel": "petrol-or-diesel",
+  "importer": "צ'מפיון מוטורס",
+  "interval": {
+    "km": 15000,
+    "months": 12,
+    "note": "מרווח קבוע לפי מדריך היצרן: החלפת שמן כל 15,000 ק\"מ או שנה"
+  },
+  "cycle_km": 120000,
+  "services": [
+    {
+      "km": 15000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "עובי רפידות ומצב דיסקים נבדקים בכל טיפול שמן"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "עובי רפידות ומצב דיסקים נבדקים בכל טיפול שמן"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "timing_belt",
+          "action": "inspect",
+          "note": "בדיקת רצועת תזמון במנועי דיזל במדינות מאובקות (גם כל שנתיים); במנועי בנזין 1.4/1.6 MPI מ-90,000 ואז כל 30,000"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 45000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "עובי רפידות ומצב דיסקים נבדקים בכל טיפול שמן"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "עובי רפידות ומצב דיסקים נבדקים בכל טיפול שמן"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "timing_belt",
+          "action": "inspect",
+          "note": "בדיקת רצועת תזמון במנועי דיזל במדינות מאובקות (גם כל שנתיים); במנועי בנזין 1.4/1.6 MPI מ-90,000 ואז כל 30,000"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "או כל שנתיים"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "בנזין בלבד; או כל 4 שנים"
+        },
+        {
+          "item": "dct_oil",
+          "action": "replace",
+          "note": "רק בתיבת DSG 02E"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 75000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "עובי רפידות ומצב דיסקים נבדקים בכל טיפול שמן"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "עובי רפידות ומצב דיסקים נבדקים בכל טיפול שמן"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "timing_belt",
+          "action": "inspect",
+          "note": "בדיקת רצועת תזמון במנועי דיזל במדינות מאובקות (גם כל שנתיים); במנועי בנזין 1.4/1.6 MPI מ-90,000 ואז כל 30,000"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace",
+          "note": "דיזל בלבד"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "או כל 6 שנים"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 105000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "עובי רפידות ומצב דיסקים נבדקים בכל טיפול שמן"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "עובי רפידות ומצב דיסקים נבדקים בכל טיפול שמן"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "או כל שנתיים"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "בנזין בלבד; או כל 4 שנים"
+        },
+        {
+          "item": "dct_oil",
+          "action": "replace",
+          "note": "רק בתיבת DSG 02E"
+        },
+        {
+          "item": "timing_belt",
+          "action": "replace",
+          "note": "רק 1.9 TDI עם מזרקי יחידה (BLS), כולל מותחן"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "timing_belt",
+      "action": "replace",
+      "every_km": 210000,
+      "note": "1.6/2.0 TDI קומון-רייל (CAY), כולל מותחן"
+    },
+    {
+      "item": "cabin_filter",
+      "action": "replace",
+      "every_months": 24
+    },
+    {
+      "item": "air_filter",
+      "action": "replace",
+      "every_months": 72
+    },
+    {
+      "item": "differential_oil",
+      "action": "replace",
+      "every_months": 36,
+      "note": "רק ב-4MOTION"
+    },
+    {
+      "item": "brake_fluid",
+      "action": "replace",
+      "first_months": 36,
+      "then_every_months": 24
+    }
+  ],
+  "time_based": [],
+  "sources": [
+    {
+      "url": "https://vwts.ru/vw/caddy3_2c/vw-caddy-3-maintenance-eng.pdf",
+      "kind": "manufacturer",
+      "note": "VW Caddy 2004/2011 Maintenance, מהדורה 09.2018: עמ' 9-11 מרווחים, עמ' 38-41 עבודות לפי זמן/ק\"מ, עמ' 42-43 ישראל ברשימת המדינות המאובקות"
+    },
+    {
+      "url": "https://vwts.ru/diesel-engine-vw-audi-skoda-repair-manual.html",
+      "kind": "other",
+      "note": "אינדקס ספרי תיקון מנועי דיזל של קבוצת פולקסווגן לפי קודי מנוע"
+    },
+    {
+      "url": "https://vwts.ru/petrol-engine-vw-audi-skoda-repair-manual.html",
+      "kind": "other",
+      "note": "אינדקס ספרי תיקון מנועים של קבוצת פולקסווגן לפי קודי מנוע (לשיוך קוד מנוע לנפח ומשפחה, למשל CHZ/DKR/DLA/DUS = 1.0 TSI, DAD/DPC/DFY/DXD = 1.5 TSI, CBZ = 1.2 TSI EA111, CAX = 1.4 TSI EA111, CGGB = 1.4 MPI עם רצועה)"
+    }
+  ],
+  "status": "draft",
+  "notes": "קבוצת פולקסווגן משתמשת באותן טבלאות שירות לכל הדגמים על אותה פלטפורמה ומשפחת מנוע, ולכן הקובץ נבנה מתבנית משותפת ומשויך לרכב לפי קוד המנוע ברישיון. אין לוח ישראלי לדור זה. הלוח לפי מדריך השירות של קאדי 2004/2011: החלפת שמן כל 15,000 ק\"מ או שנה, מסנן מזגן ומצתים כל 60,000, מסנן סולר ומסנן אוויר כל 90,000, רצועת תזמון 1.9 TDI (BLS) כל 120,000 ו-1.6/2.0 TDI (CAY) כל 210,000, עם בדיקת רצועה כל 30,000 במדינות מאובקות (ישראל ברשימה). הקובץ משמש גם לגרסת הבנזין 1.2 TSI (CBZ, שרשרת); שורות הדיזל לא חלות עליה."
+}

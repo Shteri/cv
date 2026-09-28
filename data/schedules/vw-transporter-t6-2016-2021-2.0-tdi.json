@@ -1,0 +1,666 @@
+{
+  "id": "vw-transporter-t6-2016-2021-2.0-tdi",
+  "make": "Volkswagen",
+  "make_he": "פולקסווגן",
+  "model": "Transporter / Caravelle T6",
+  "model_he": "טרנספורטר / קרוואל T6",
+  "generation": "T6 (SG)",
+  "years": [
+    2015,
+    2021
+  ],
+  "engines": [
+    "2.0 TDI (CXE/CXF/CXG/CXH)"
+  ],
+  "fuel": "diesel",
+  "importer": "צ'מפיון מוטורס",
+  "interval": {
+    "km": 20000,
+    "months": 12,
+    "note": "מרווח קבוע QI5 לפי מדריך היצרן: החלפת שמן כל 20,000 ק\"מ או שנה"
+  },
+  "cycle_km": 240000,
+  "services": [
+    {
+      "km": 20000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "עובי רפידות ומצב דיסקים"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 40000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "עובי רפידות ומצב דיסקים"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "timing_belt",
+          "action": "inspect",
+          "note": "בדיקת רצועת תזמון באזורים מאובקים"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "עובי רפידות ומצב דיסקים"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "dct_oil",
+          "action": "replace",
+          "note": "רק בתיבת DSG"
+        }
+      ]
+    },
+    {
+      "km": 80000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "עובי רפידות ומצב דיסקים"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "timing_belt",
+          "action": "inspect",
+          "note": "בדיקת רצועת תזמון באזורים מאובקים"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 100000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "עובי רפידות ומצב דיסקים"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "עובי רפידות ומצב דיסקים"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "dct_oil",
+          "action": "replace",
+          "note": "רק בתיבת DSG"
+        },
+        {
+          "item": "timing_belt",
+          "action": "replace",
+          "note": "רצועת תזמון, באזורים מאובקים"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace",
+          "note": "או כל 6 שנים"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 140000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "עובי רפידות ומצב דיסקים"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 160000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "עובי רפידות ומצב דיסקים"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "timing_belt",
+          "action": "inspect",
+          "note": "בדיקת רצועת תזמון באזורים מאובקים"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 180000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "עובי רפידות ומצב דיסקים"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "dct_oil",
+          "action": "replace",
+          "note": "רק בתיבת DSG"
+        }
+      ]
+    },
+    {
+      "km": 200000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "עובי רפידות ומצב דיסקים"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "timing_belt",
+          "action": "inspect",
+          "note": "בדיקת רצועת תזמון באזורים מאובקים"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 220000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "עובי רפידות ומצב דיסקים"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 240000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "עובי רפידות ומצב דיסקים"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "dct_oil",
+          "action": "replace",
+          "note": "רק בתיבת DSG"
+        },
+        {
+          "item": "timing_belt",
+          "action": "replace",
+          "note": "רצועת תזמון, באזורים מאובקים"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace",
+          "note": "או כל 6 שנים"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "air_filter",
+      "action": "replace",
+      "every_km": 30000,
+      "every_months": 24,
+      "note": "באזורים מאובקים"
+    },
+    {
+      "item": "cabin_filter",
+      "action": "replace",
+      "every_km": 30000,
+      "every_months": 12,
+      "note": "באזורים מאובקים"
+    },
+    {
+      "item": "fuel_filter",
+      "action": "replace",
+      "every_months": 72
+    },
+    {
+      "item": "differential_oil",
+      "action": "replace",
+      "every_months": 36,
+      "note": "שמן מצמד ההנעה הכפולה, רק ב-4MOTION"
+    },
+    {
+      "item": "brake_fluid",
+      "action": "replace",
+      "first_months": 36,
+      "then_every_months": 24
+    }
+  ],
+  "time_based": [],
+  "sources": [
+    {
+      "url": "https://vwts.ru/vw/t6/vw-t6-maintenance-eng.pdf",
+      "kind": "manufacturer",
+      "note": "VW Transporter 2016 Maintenance, מהדורה 10.2018: עמ' 6-7 מרווחים (QI5 החלפת שמן קבועה כל 20,000 ק\"מ או שנה, בדיקה לדיזל כל 40,000), עמ' 14-15 עבודות לפי זמן/ק\"מ, עמ' 17-18 ישראל ברשימת המדינות המאובקות"
+    },
+    {
+      "url": "https://www.championmotors.co.il/service-routine/",
+      "kind": "importer",
+      "note": "שגרת טיפולים תקופתיים של צ'מפיון מוטורס, טבלאות לפי נפח וסוג מנוע (15,000 עד 120,000 ק\"מ). הדף חסום לבוטים; נקרא בדפדפן אמיתי (Playwright) ב-28.9.2026 והטבלאות פוענחו מקוד הדף"
+    },
+    {
+      "url": "https://vwts.ru/diesel-engine-vw-audi-skoda-repair-manual.html",
+      "kind": "other",
+      "note": "אינדקס ספרי תיקון מנועי דיזל של קבוצת פולקסווגן לפי קודי מנוע"
+    }
+  ],
+  "status": "draft",
+  "notes": "קבוצת פולקסווגן משתמשת באותן טבלאות שירות לכל הדגמים על אותה פלטפורמה ומשפחת מנוע, ולכן הקובץ נבנה מתבנית משותפת ומשויך לרכב לפי קוד המנוע ברישיון. אין לוח ישראלי לדור זה (בשגרת צ'מפיון מופיעה רק T6.1). הלוח לפי מדריך השירות של טרנספורטר 2016 (T6), עמודת 'אזורים מאובקים' (ישראל ברשימה): החלפת שמן קבועה כל 20,000 ק\"מ או שנה (QI5), בדיקה כל 40,000, מסנן אוויר כל 30,000 או שנתיים ומסנן מזגן כל 30,000 או שנה (בלוח ארוך הטווח כי אינם על רשת ה-20,000), בדיקת רצועת תזמון כל 40,000 והחלפתה ב-120,000, מסנן סולר כל 120,000 או 6 שנים, שמן DSG כל 60,000, נוזל בלמים אחרי 3 שנים ואז כל שנתיים."
+}

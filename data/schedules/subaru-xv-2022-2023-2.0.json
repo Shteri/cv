@@ -1,0 +1,525 @@
+{
+  "id": "subaru-xv-2022-2023-2.0",
+  "make": "Subaru",
+  "make_he": "סובארו",
+  "model": "XV",
+  "model_he": "XV",
+  "generation": "GT facelift",
+  "years": [
+    2022,
+    2023
+  ],
+  "engines": [
+    "2.0 (FB20)"
+  ],
+  "fuel": "petrol",
+  "importer": "יפנאוטו (סובארו, קבוצת סמלת)",
+  "interval": {
+    "km": 15000,
+    "months": 12,
+    "note": "לפי תכנית התחזוקה בספר הרכב: 15,000 ק\"מ או 12 חודשים, המוקדם"
+  },
+  "cycle_km": 120000,
+  "services": [
+    {
+      "km": 15000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גומיות גל ההינע וחלקי מפרק הסרן"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "מערכת קירור, צינורות וחיבורים"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "מערכת דלק, צנרת וחיבורים"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "דיפרנציאל קדמי ואחורי"
+        },
+        {
+          "item": "cvt_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גומיות גל ההינע וחלקי מפרק הסרן"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect",
+          "note": "צנרת בלמים ובדיקת פעולת בלם החניה ובלם השירות"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 45000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גומיות גל ההינע וחלקי מפרק הסרן"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "מערכת קירור, צינורות וחיבורים"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "מערכת דלק, צנרת וחיבורים"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "differential_oil",
+          "action": "replace",
+          "note": "דיפרנציאל קדמי ואחורי"
+        },
+        {
+          "item": "cvt_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גומיות גל ההינע וחלקי מפרק הסרן"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect",
+          "note": "צנרת בלמים ובדיקת פעולת בלם החניה ובלם השירות"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 75000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גומיות גל ההינע וחלקי מפרק הסרן"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "מערכת קירור, צינורות וחיבורים"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "מערכת דלק, צנרת וחיבורים"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "דיפרנציאל קדמי ואחורי"
+        },
+        {
+          "item": "cvt_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גומיות גל ההינע וחלקי מפרק הסרן"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect",
+          "note": "צנרת בלמים ובדיקת פעולת בלם החניה ובלם השירות"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 105000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גומיות גל ההינע וחלקי מפרק הסרן"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "מערכת קירור, צינורות וחיבורים"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "מערכת דלק, צנרת וחיבורים"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "differential_oil",
+          "action": "replace",
+          "note": "דיפרנציאל קדמי ואחורי"
+        },
+        {
+          "item": "cvt_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גומיות גל ההינע וחלקי מפרק הסרן"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect",
+          "note": "צנרת בלמים ובדיקת פעולת בלם החניה ובלם השירות"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "coolant",
+      "action": "replace",
+      "first_km": 220000,
+      "first_months": 132,
+      "then_every_km": 120000,
+      "then_every_months": 72,
+      "note": "SUBARU Super Coolant"
+    },
+    {
+      "item": "fuel_filter",
+      "action": "replace",
+      "every_km": 90000
+    },
+    {
+      "item": "spark_plugs",
+      "action": "replace",
+      "every_km": 105000
+    }
+  ],
+  "time_based": [],
+  "sources": [
+    {
+      "url": "https://samelet.com/ebooks/Subaru_XV_crosstrek_carbook_082022.pdf",
+      "kind": "importer",
+      "note": "מדריך תפעול XV/Crosstrek מהדורת 08/2022 (סמלת), \"תכנית תחזוקה\" עמ' 11-3 עד 11-5 (עמודי PDF 373-375)"
+    },
+    {
+      "url": "https://subaru.co.il/services/owners-manuals/",
+      "kind": "importer",
+      "note": "עמוד ספרי הרכב של סובארו ישראל (מוגן Incapsula; הקבצים עצמם מתארחים בתיקייה הפתוחה samelet.com/ebooks של קבוצת סמלת)"
+    }
+  ],
+  "status": "reviewed",
+  "notes": "הועתק מ\"תכנית תחזוקה\" בספר הרכב העברי של היבואן. הטבלה בעמודות של 15,000 ק\"מ / 12 חודשים עד 120,000 ק\"מ / 96 חודשים; אחרי 120,000 ממשיכים מתחילת הטבלה ומוסיפים 120,000. ה = החלפה, ב = בדיקה (כיוון, תיקון או החלפה לפי הצורך), בצ = ביצוע, (מ) = טיפול מומלץ. שמן ומסנן בכל טיפול; מסנן אוויר מוחלף כל 45,000; נוזל בלמים כל 30,000; שמן דיפרנציאלים: בדיקה ב-30,000 והחלפה כל 60,000; נוזל CVT נבדק כל 30,000; מסנן דלק כל 90,000; מצתים כל 105,000; נוזל קירור: ראשון 220,000 או 11 שנים ואז כל 120,000 או 6 שנים. בתנאים קשים (אבק, גרירה, נסיעות קצרות, חוף הים) הבדיקות כל 15,000 ונוזל CVT מוחלף כל 45,000. במהדורה זו: רצועת האביזרים נבדקת בכל טיפול, מסנן אוויר נבדק כל 15,000 ומוחלף כל 45,000 או 36 חודשים, ומסנן מיזוג האוויר מוחלף בכל טיפול. מסב יחידת הטבור: טיפול מומלץ ב-120,000."
+}
