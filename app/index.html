@@ -118,6 +118,7 @@
   <!-- MY CAR: condition, repairs, documents -->
   <section class="screen" id="s-car" hidden>
     <div class="stack g-4"><h1>מצב הרכב</h1><p class="muted small" id="car-sub"></p></div>
+    <div id="car-start"></div>
     <div class="counts" id="car-counts"></div>
     <div class="card stack g-6">
       <div class="row between"><h3>לפי פריט</h3><span class="small muted">מה הוחלף, מתי, ומתי הבא</span></div>
@@ -703,9 +704,16 @@
     $("#car-sub").textContent = `${carName(car)} · ${fmt(car.km)} ק"מ${car.gov && car.gov.test_expiry ? ` · טסט עד ${fmtDate(car.gov.test_expiry)}` : ""}`;
     const n = k => rows.filter(r => r.status === k || (k === "ok" && r.status === "done")).length;
     $("#car-counts").innerHTML = `<div class="c overdue"><b class="num">${n("overdue")}</b><span>באיחור</span></div><div class="c soon"><b class="num">${n("soon")}</b><span>מתקרב</span></div><div class="c ok"><b class="num">${n("ok")}</b><span>בסדר</span></div><div class="c"><b class="num">${n("unknown")}</b><span>לא ידוע</span></div>`;
+    // Cold start: nothing is known yet, so lead with how to fill the picture instead of a wall of "?"
+    const known = rows.length - n("unknown");
+    $("#car-start").innerHTML = known ? "" : startCardHTML();
+    $("#car-counts").hidden = !known;
+    if (!known) { $("#car-state").innerHTML = `<details class="fold"><summary><span>הפריטים שנעקוב אחריהם (${rows.length})</span></summary>${rows.map(stateRow).join("")}</details>`; wireStart($("#car-start")); }
+    else {
     const attention = rows.filter(r => r.status !== "ok" && r.status !== "done"), fine = rows.filter(r => r.status === "ok" || r.status === "done");
     $("#car-state").innerHTML = (attention.map(stateRow).join("") || `<p class="small muted">הכל ידוע ובסדר.</p>`) + (fine.length ? `<details class="fold"><summary><span>בסדר (${fine.length})</span></summary>${fine.map(stateRow).join("")}</details>` : "") +
       (n("unknown") ? `<p class="small muted mt-8">"לא ידוע" = אין רשומה. העלה חשבונית או הוסף רשומה.</p>` : "");
+    }
     const docs = recs.flatMap(r => (r.receipts || (r.receipt ? [r.receipt] : [])).map(t => ({ t, r })));
     $("#car-docs-n").textContent = docs.length ? `${docs.length} מסמכים` : "";
     $("#car-docs").innerHTML = docs.map(d => `<button title="${d.r.kind === "service" ? "טיפול " + fmt(d.r.svcKm || d.r.km) : d.r.text}"><img src="${d.t}" alt="חשבונית"><span class="lb num">${d.r.date || fmt(d.r.km)}</span></button>`).join("");
@@ -713,7 +721,13 @@
     $("#car-repairs").innerHTML = reps.length ? reps.map(r => `<div class="hist"><div><b>${r.text || kindName[r.kind]}</b> <span class="small muted num">· ${fmt(r.km)} ק"מ${r.date ? " · " + monthName(new Date(r.date + "-01")) : ""}</span><br><span class="small muted">${(r.items || []).map(itemName).join(", ")}${r.garage ? " · " + r.garage : ""}</span></div><span class="amt num">${r.price ? "₪" + fmt(r.price) : ""}</span></div>`).join("") : `<p class="small muted">אין תיקונים רשומים.</p>`;
     $("#car-history").innerHTML = historyHTML(car);
   }
-  const carSummaryHTML = car => { const rows = carState(car); const c = k => rows.filter(r => r.status === k).length; const unknown = c("unknown"), known = rows.length - unknown; const attn = rows.filter(r => r.status === "overdue" || r.status === "soon"); return `
+  const startCardHTML = () => `<div class="card start stack g-12">
+      <h3>מצב הרכב מתחיל מהטיפול האחרון</h3>
+      <p class="small muted">עוד אין רשומות, אז לא ידוע מה הוחלף. רשום את הטיפול האחרון או העלה חשבוניות, וכל פריט יקבל תאריך, ק"מ ומועד הבא.</p>
+      <div class="row g-8"><button class="btn primary compact" data-start="log">רשום טיפול</button><label class="btn secondary compact" for="car-upload">העלה חשבוניות</label></div>
+    </div>`;
+  const wireStart = root => { const b = root && $("[data-start=log]", root); if (b) b.onclick = () => openLog(); };
+  const carSummaryHTML = car => { const rows = carState(car); const c = k => rows.filter(r => r.status === k).length; const unknown = c("unknown"), known = rows.length - unknown; const attn = rows.filter(r => r.status === "overdue" || r.status === "soon"); if (known === 0) return startCardHTML(); return `
     <div class="card stack g-12">
       <div class="row between"><h3>מצב הרכב</h3><button class="btn ghost fit bare" id="to-car">לפרטים</button></div>
       <div class="counts"><div class="c overdue${c("overdue") ? " hot" : ""}"><b class="num">${c("overdue")}</b><span>באיחור</span></div><div class="c soon"><b class="num">${c("soon")}</b><span>מתקרב</span></div><div class="c ok"><b class="num">${rows.filter(r => r.status === "ok" || r.status === "done").length}</b><span>בסדר</span></div><div class="c"><b class="num">${unknown}</b><span>לא ידוע</span></div></div>
@@ -787,6 +801,7 @@
       ${specsHTML(n.s)}`;
     $("#upd-km").onclick = openSheet;
     const tc = $("#to-car"); if (tc) tc.onclick = () => show("s-car");
+    wireStart($("#home-body"));
     const tg = $("#to-garages"); if (tg) tg.onclick = () => { renderGarages(); show("s-garages"); if (!S.city) openCitySheet(); };
     const gp = $("#gr-pick"); if (gp) gp.onclick = () => { renderGarages(); show("s-garages"); openCitySheet(); };
     if (GD) wireClaims($("#home-body"));
@@ -847,7 +862,7 @@
       <div class="stack g-2"><b>לבקש שיבדקו</b>${insp.map((it, i) => row(it, "i" + i)).join("")}</div>
       <details class="fold"><summary><span>לוודא לפני שמשלמים</span></summary>${gTips(s).map(([t, x], i) => `<div class="tip"><span class="i">${i + 1}</span><span><b>${t}</b><br><span class="muted">${x}</span></span></div>`).join("")}</details>
       ${priceHTML(s, svc)}
-      <div class="row g-8"><button class="btn secondary compact" data-copy="${km}" data-svc="${svc.km}">העתק רשימה</button><button class="btn primary compact" data-log="${km}">עשיתי את הטיפול</button></div>`;
+      <div class="row g-8"><button class="btn secondary compact" data-copy="${km}" data-svc="${svc.km}">העתק רשימה</button><button class="btn primary compact" data-log="${km}">עשיתי טיפול</button></div>`;
   }
   function copyChecklist(s, svc, km) {
     const car = S.cars[S.active], c = communityPrice(s, svc);
