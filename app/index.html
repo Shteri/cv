@@ -40,7 +40,11 @@
     font-family: "Heebo", "Segoe UI", Arial, sans-serif; font-size: 16px; line-height: 1.5;
     -webkit-font-smoothing: antialiased;
   }
-  * { box-sizing: border-box; }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  button, input, select, textarea, label, a { touch-action: manipulation; }
+  .row > * { min-width: 0; }
+  .t, .hist > div, .summary { min-width: 0; overflow-wrap: anywhere; }
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
   h1, h2, h3 { font-family: "Rubik", "Heebo", Arial, sans-serif; font-weight: 600; margin: 0; text-wrap: balance; line-height: 1.25; }
   h1 { font-size: 1.75rem; letter-spacing: -0.015em; } h2 { font-size: 1.25rem; } h3 { font-size: 1.05rem; }
   p { margin: 0; }
@@ -186,7 +190,7 @@
   .hist { display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; align-items: center; }
   .hist .amt { font-family: "Rubik", sans-serif; font-weight: 600; font-size: 1.05rem; }
   .field textarea { padding: 13px 14px; border: 1.5px solid var(--line); border-radius: 12px; background: var(--surface); width: 100%; font: inherit; color: var(--ink); resize: vertical; }
-  .sheet .panel { max-height: 92vh; overflow-y: auto; }
+  .sheet .panel { max-height: 92vh; overflow-y: auto; overscroll-behavior: contain; }
   .chk { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-top: 1px solid var(--line); cursor: pointer; }
   .chk:first-child { border-top: 0; }
   .chk input { width: 22px; height: 22px; margin: 2px 0 0; accent-color: var(--accent); flex: none; }
@@ -194,6 +198,14 @@
   .chk .note { font-size: .8rem; color: var(--muted); }
   .tip { display: flex; gap: 10px; padding: 8px 0; font-size: .9rem; }
   .tip .i { flex: none; width: 24px; height: 24px; border-radius: 50%; background: var(--accent-soft); color: var(--accent); display: grid; place-items: center; font-weight: 700; font-size: .8rem; }
+  .garage { display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; padding: 12px 0; border-top: 1px solid var(--line); align-items: start; }
+  .garage:first-child { border-top: 0; padding-top: 0; }
+  .garage .nm { font-weight: 600; }
+  .garage .meta { font-size: .8rem; color: var(--muted); display: flex; flex-wrap: wrap; gap: 4px 10px; }
+  .garage .amt { font-family: "Rubik", sans-serif; font-weight: 600; text-align: left; }
+  .tag { display: inline-block; font-size: .72rem; font-weight: 600; padding: 2px 8px; border-radius: 6px; background: var(--surface-2); color: var(--muted); }
+  .tag.mine { background: var(--accent-soft); color: var(--accent); }
+  .empty { display: flex; flex-direction: column; gap: 8px; padding: 14px; border: 1.5px dashed var(--line); border-radius: 14px; }
   @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 </style>
 
@@ -223,7 +235,7 @@
     </div>
     <div class="stack">
       <button class="btn secondary" id="auth-google">
-        <svg class="g" viewBox="0 0 24 24"><path fill="#EA4335" d="M12 10.2v3.9h5.5c-.2 1.3-1.6 3.8-5.5 3.8-3.3 0-6-2.7-6-6.1s2.7-6.1 6-6.1c1.9 0 3.1.8 3.9 1.5l2.6-2.5C16.9 3.1 14.7 2 12 2 6.5 2 2 6.5 2 12s4.5 10 10 10c5.8 0 9.6-4 9.6-9.7 0-.7-.1-1.1-.2-1.6H12z"/></svg>
+        <svg class="g" aria-hidden="true" viewBox="0 0 24 24"><path fill="#EA4335" d="M12 10.2v3.9h5.5c-.2 1.3-1.6 3.8-5.5 3.8-3.3 0-6-2.7-6-6.1s2.7-6.1 6-6.1c1.9 0 3.1.8 3.9 1.5l2.6-2.5C16.9 3.1 14.7 2 12 2 6.5 2 2 6.5 2 12s4.5 10 10 10c5.8 0 9.6-4 9.6-9.7 0-.7-.1-1.1-.2-1.6H12z"/></svg>
         המשך עם Google
       </button>
       <button class="btn primary" id="auth-guest">המשך כאורח</button>
@@ -245,7 +257,7 @@
       </div>
       <div class="plate-input">
         <span class="il">IL</span>
-        <input id="plate" inputmode="numeric" autocomplete="off" placeholder="12-345-67" maxlength="10" aria-label="מספר רכב">
+        <input id="plate" name="plate" inputmode="numeric" autocomplete="off" spellcheck="false" placeholder="12-345-67" maxlength="10" aria-label="מספר רכב">
       </div>
       <p class="err" id="plate-err" hidden>מספר רכב הוא 7 או 8 ספרות</p>
       <button class="btn primary" id="plate-go" data-busy="מזהה מול מאגר הרכב…" disabled>זהה את הרכב</button>
@@ -281,7 +293,7 @@
       </div>
       <div class="field">
         <label for="km">קילומטראז' נוכחי</label>
-        <input id="km" inputmode="numeric" placeholder="למשל 47500" class="num">
+        <input id="km" name="km" inputmode="numeric" autocomplete="off" placeholder="למשל 47500" class="num">
       </div>
       <div class="field">
         <label>כמה אתה נוסע בחודש בערך?</label>
@@ -294,7 +306,7 @@
       </div>
       <div class="field">
         <label for="last">מתי היה הטיפול האחרון? <span class="muted">(לא חובה)</span></label>
-        <input id="last" type="month">
+        <input id="last" name="last-service" type="month" autocomplete="off">
         <span class="hint">אם לא זוכר, נחשב לפי ק"מ בלבד.</span>
       </div>
       <button class="btn primary" id="km-go" disabled>סיום</button>
@@ -318,6 +330,20 @@
     </div>
     <div class="tl" id="tl-body"></div>
     <div class="card stack" id="tl-time"></div>
+  </section>
+
+  <!-- GARAGES -->
+  <section class="screen" id="s-garages" hidden>
+    <div class="topbar">
+      <div class="stack" style="gap:2px"><p class="eyebrow">מוסכים</p><h1 id="gr-title">מוסכים לרכב שלך</h1></div>
+      <button class="btn ghost" id="gr-back" style="width:auto">חזרה</button>
+    </div>
+    <p class="muted small" id="gr-sub"></p>
+    <div class="chips" id="gr-filter">
+      <button class="chip on" data-v="all">הכל</button><button class="chip" data-v="importer">מוסך יבואן</button><button class="chip" data-v="independent">מוסך פרטי</button>
+    </div>
+    <div class="card" id="gr-list"></div>
+    <p class="small muted">לפני שנכנסים למוסך חדש: לוודא שיש לו רישיון משרד התחבורה. <a href="https://www.gov.il/he/departments/dynamiccollectors/garages-and-licensing-institutes" target="_blank" rel="noopener" style="color:var(--accent)">חיפוש במאגר המוסכים המורשים</a>.</p>
   </section>
 
   <!-- PROFILE / SETTINGS -->
@@ -344,21 +370,21 @@
   </main>
   <nav class="nav" id="nav" hidden>
     <div class="inner">
-      <button data-go="home" class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>בית</button>
-      <button data-go="tl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M12 6a2 2 0 1 0 0 .01M12 12a2 2 0 1 0 0 .01M12 18a2 2 0 1 0 0 .01"/></svg>ציר טיפולים</button>
-      <button data-go="me"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>אני</button>
+      <button data-go="home" class="on"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>בית</button>
+      <button data-go="tl"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M12 6a2 2 0 1 0 0 .01M12 12a2 2 0 1 0 0 .01M12 18a2 2 0 1 0 0 .01"/></svg>ציר טיפולים</button>
+      <button data-go="me"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>אני</button>
     </div>
   </nav>
 
-  <div class="toast" id="toast"></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <div class="sheet" id="log">
     <div class="panel">
       <div class="row between"><h2>עשיתי טיפול</h2><button class="btn ghost" id="log-close" style="width:auto">סגור</button></div>
       <div class="field"><label for="log-svc">איזה טיפול</label><select id="log-svc"></select></div>
       <div class="row" style="gap:10px">
-        <div class="field" style="flex:1"><label for="log-date">מתי</label><input id="log-date" type="month"></div>
-        <div class="field" style="flex:1"><label for="log-km">ק"מ בטיפול</label><input id="log-km" inputmode="numeric" class="num"></div>
+        <div class="field" style="flex:1"><label for="log-date">מתי</label><input id="log-date" name="service-date" type="month" autocomplete="off"></div>
+        <div class="field" style="flex:1"><label for="log-km">ק"מ בטיפול</label><input id="log-km" name="service-km" inputmode="numeric" autocomplete="off" class="num"></div>
       </div>
       <div class="field"><label>איפה</label>
         <div class="seg" id="log-where">
@@ -366,11 +392,14 @@
         </div>
       </div>
       <div class="row" style="gap:10px" id="log-garage-row">
-        <div class="field" style="flex:1.4"><label for="log-garage">שם המוסך <span class="muted">(לא חובה)</span></label><input id="log-garage" placeholder="למשל טויוטה ראשל"צ"></div>
-        <div class="field" style="flex:1"><label for="log-city">עיר</label><input id="log-city" placeholder="ראשון לציון"></div>
+        <div class="field" style="flex:1.4"><label for="log-garage">שם המוסך <span class="muted">(לא חובה)</span></label><input id="log-garage" name="garage" autocomplete="off" placeholder="למשל טויוטה ראשל"צ"></div>
+        <div class="field" style="flex:1"><label for="log-city">עיר</label><input id="log-city" name="city" autocomplete="off" placeholder="ראשון לציון"></div>
       </div>
-      <div class="field"><label for="log-price">כמה שילמת (₪)</label><input id="log-price" inputmode="numeric" class="num" placeholder="למשל 890"><p class="err" id="log-price-err" hidden>כדי לשתף מחיר צריך להזין כמה שילמת, או לכבות את השיתוף.</p></div>
-      <div class="field"><label for="log-extra">מה עוד נעשה מעבר לטיפול הרגיל? <span class="muted">(לא חובה)</span></label><textarea id="log-extra" rows="2" placeholder="למשל רפידות קדמיות, מצבר"></textarea></div>
+      <div class="field"><label for="log-price">כמה שילמת (₪)</label><input id="log-price" name="price" inputmode="numeric" autocomplete="off" class="num" placeholder="למשל 890"><p class="err" id="log-price-err" hidden>כדי לשתף מחיר צריך להזין כמה שילמת, או לכבות את השיתוף.</p></div>
+      <div class="field"><label>היית חוזר למוסך הזה?</label>
+        <div class="seg" id="log-back"><button data-v="yes">כן</button><button data-v="no">לא</button><button data-v="" class="on">לא בטוח</button></div>
+      </div>
+      <div class="field"><label for="log-extra">מה עוד נעשה מעבר לטיפול הרגיל? <span class="muted">(לא חובה)</span></label><textarea id="log-extra" name="extras" rows="2" autocomplete="off" placeholder="למשל רפידות קדמיות, מצבר"></textarea></div>
       <div class="field"><label>צילום חשבונית <span class="muted">(לא חובה, עוזר לאמת מחירים)</span></label>
         <div class="receipt"><img id="log-thumb" alt="" hidden><label for="log-file" id="log-file-lbl">הוסף צילום</label><input id="log-file" type="file" accept="image/*"></div>
       </div>
@@ -382,7 +411,7 @@
   <div class="sheet" id="sheet">
     <div class="panel">
       <h2>עדכון קילומטראז'</h2>
-      <div class="field"><label for="sheet-km">מה על השעון עכשיו?</label><input id="sheet-km" inputmode="numeric" class="num"></div>
+      <div class="field"><label for="sheet-km">מה על השעון עכשיו?</label><input id="sheet-km" name="odometer" inputmode="numeric" autocomplete="off" class="num"></div>
       <button class="btn primary" id="sheet-save">שמור</button>
       <button class="btn ghost" id="sheet-close">ביטול</button>
     </div>
@@ -419,7 +448,8 @@
   const show = (id, fromHistory) => {
     if (!fromHistory && (!history.state || history.state.screen !== id)) { try { history.pushState({ screen: id }, "", "#" + id.replace(/^s-/, "")); } catch (e) {} }
     $$(".screen").forEach(s => s.hidden = s.id !== id);
-    const main = ["s-home", "s-tl", "s-me"].includes(id);
+    const main = ["s-home", "s-tl", "s-me", "s-garages"].includes(id);
+    if (id === "s-garages") renderGarages();
     $("#nav").hidden = !main;
     $$("#nav button").forEach(b => b.classList.toggle("on", "s-" + b.dataset.go === id));
     window.scrollTo(0, 0);
@@ -462,6 +492,7 @@
   }
   const longText = l => l.every_km ? `כל ${fmt(l.every_km)} ק"מ${l.every_months ? ` או ${l.every_months / 12} שנים` : ""}`
     : `ראשונה ב-${fmt(l.first_km || 0)} ק"מ${l.first_months ? ` או ${l.first_months / 12} שנים` : ""}${l.then_every_km ? `, אחר כך כל ${fmt(l.then_every_km)} ק"מ` : ""}${l.then_every_months ? ` או ${l.then_every_months / 12} שנים` : ""}`;
+  const fmtDate = iso => { try { return new Intl.DateTimeFormat("he-IL", { day: "2-digit", month: "2-digit", year: "numeric" }).format(new Date(iso)); } catch (e) { return iso; } };
   const monthName = d => new Intl.DateTimeFormat("he-IL", { month: "long", year: "numeric" }).format(d);
   const carName = car => { const s = schedById(car.schedule); return `${s.make_he} ${s.model_he} ${car.year}`; };
   const plateHTML = p => `<span class="plate"><span class="il">IL</span><span class="n">${p}</span></span>`;
@@ -525,7 +556,7 @@
         <div class="row between"><span class="muted">שנת ייצור</span><b class="num">${draft.year}</b></div>
         <div class="row between"><span class="muted">מנוע</span><b>${v && v.engine_cc ? v.engine_cc + ' סמ"ק · ' + (v.fuel || "") : s.engines[0]}</b></div>
         ${v && v.trim ? `<div class="row between"><span class="muted">רמת גימור</span><b>${v.trim}</b></div>` : ""}
-        ${v && v.test_expiry ? `<div class="row between"><span class="muted">טסט בתוקף עד</span><b class="num">${v.test_expiry.split("-").reverse().join(".")}</b></div>` : ""}
+        ${v && v.test_expiry ? `<div class="row between"><span class="muted">טסט בתוקף עד</span><b class="num">${fmtDate(v.test_expiry)}</b></div>` : ""}
         ${v && v.km_last_test ? `<div class="row between"><span class="muted">ק"מ בטסט האחרון</span><b class="num">${fmt(v.km_last_test)}</b></div>` : ""}
         <div class="row between"><span class="muted">יבואן</span><b>${s.importer}</b></div>
         <div class="row between"><span class="muted">מרווח טיפולים</span><b class="num">${fmt(s.interval.km)} ק"מ / ${s.interval.months} חודשים</b></div>
@@ -612,7 +643,8 @@
 
   // ---------- log a service ----------
   const whereName = { importer: "מוסך יבואן", independent: "מוסך פרטי", self: "בעצמי" };
-  let logWhere = "importer", logThumb = null;
+  let logWhere = "importer", logThumb = null, logBack = "";
+  $$("#log-back button").forEach(b => b.onclick = () => { $$("#log-back button").forEach(x => x.classList.remove("on")); b.classList.add("on"); logBack = b.dataset.v; });
   function openLog(preKm) {
     const car = S.cars[S.active], s = schedById(car.schedule), n = computeNext(car);
     const laps = Math.floor(Math.max(0, car.km - gridShift(s)) / s.cycle_km); const opts = [];
@@ -621,6 +653,7 @@
     $("#log-svc").innerHTML = opts.filter(k => k <= n.nextKm).map(k => `<option value="${k}" ${k === nearest ? "selected" : ""}>טיפול ${fmt(k)} ק"מ</option>`).join("");
     const d = new Date(); $("#log-date").value = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}`;
     $("#log-km").value = car.km; $("#log-price").value = ""; $("#log-garage").value = ""; $("#log-city").value = ""; $("#log-extra").value = "";
+    logBack = ""; $$("#log-back button").forEach(x => x.classList.toggle("on", x.dataset.v === ""));
     logThumb = null; $("#log-thumb").hidden = true; $("#log-file-lbl").textContent = "הוסף צילום"; $("#log-file").value = "";
     $("#log").classList.add("show");
   }
@@ -645,7 +678,7 @@
     $("#log-price-err").hidden = true;
     const e = { svcKm: +$("#log-svc").value, date: $("#log-date").value, km: +$("#log-km").value.replace(/\D/g, "") || car.km, where: logWhere,
       garage: $("#log-garage").value.trim(), city: $("#log-city").value.trim(), price: +$("#log-price").value.replace(/\D/g, "") || null,
-      extra: $("#log-extra").value.trim(), receipt: logThumb, share: $("#log-share").classList.contains("on"), at: Date.now() };
+      extra: $("#log-extra").value.trim(), receipt: logThumb, share: $("#log-share").classList.contains("on"), back: logBack || null, at: Date.now() };
     car.history = car.history || []; car.history.push(e);
     car.lastService = e.date || car.lastService; if (e.km > car.km) car.km = e.km;
     save(); $("#log").classList.remove("show"); renderAll();
@@ -678,9 +711,9 @@
     const hello = S.user && S.user.via === "google" ? `היי ${S.user.name}` : "היי";
     $("#home-avatar").textContent = (S.user && S.user.name[0]) || "א";
     $("#home-body").innerHTML = `
-      <div class="stack" style="gap:2px"><p class="eyebrow">${hello}</p><h2>${carName(car)}</h2></div>
+      <div class="stack" style="gap:2px"><p class="eyebrow">${hello}</p><h1 style="font-size:1.5rem">${carName(car)}</h1></div>
       <div class="card car-card">
-        ${car.gov && car.gov.test_expiry ? `<div class="row between small"><span class="muted">טסט בתוקף עד</span><b class="num">${car.gov.test_expiry.split("-").reverse().join(".")}</b></div>` : ""}
+        ${car.gov && car.gov.test_expiry ? `<div class="row between small"><span class="muted">טסט בתוקף עד</span><b class="num">${fmtDate(car.gov.test_expiry)}</b></div>` : ""}
         <div class="row between" style="flex-wrap:wrap; gap:10px">${car.plate ? plateHTML(car.plate) : `<span class="muted small">ללא מספר רכב</span>`}
           <div class="stack" style="gap:2px; align-items:flex-start"><span class="eyebrow">על השעון</span>${odoHTML(car.km)}</div></div>
         <div class="row" style="gap:8px">
@@ -713,6 +746,7 @@
       ${historyHTML(car)}
       ${(n.s.long_interval || []).filter(l => { const x = longNext(l, car.km); return x && x - car.km <= 15000; }).map(l => `<div class="banner">בקרוב גם: ${itemName(l.item)} (${longText(l)})</div>`).join("")}
       ${n.s.status === "draft" ? `<div class="banner">הלוח של הדגם הזה עדיין בטיוטה. המרווח לפי היבואן, תכולת הטיפולים בהמתנה לאימות מול ספר הרכב.</div>` : ""}
+      ${garagesHomeHTML(car)}
       ${specsHTML(n.s)}
       <div class="card stack" style="gap:8px">
         <p class="eyebrow">טוב לדעת</p>
@@ -720,6 +754,8 @@
         ${n.s.interval.note ? `<p class="small muted">${n.s.interval.note}</p>` : ""}
       </div>`;
     $("#upd-km").onclick = openSheet;
+    const tg = $("#to-garages"); if (tg) tg.onclick = () => { renderGarages(); show("s-garages"); };
+    const gl = $("#gr-log"); if (gl) gl.onclick = () => openLog();
     $("#to-garage").onclick = () => { show("s-tl"); const el = $(".tl-item.next"); if (el) el.scrollIntoView({ block: "start" }); };
     $("#done-svc").onclick = () => openLog();
     $$("[data-go]", $("#home-body")).forEach(b => b.onclick = () => show("s-" + b.dataset.go));
@@ -745,7 +781,7 @@
       <div class="tl-item ${r.state} ${r.state === "next" ? "open" : ""}">
         <div class="tl-dot">${r.state === "done" ? "✓" : ""}</div>
         <div class="tl-card">
-          <button class="tl-head"><span><span class="km num">${fmt(r.km)} ק"מ</span>${r.state === "next" ? ` <span class="status good" style="margin-right:6px">הבא</span>` : ""}<br><span class="summary">${summarize(r.svc.items)}</span></span><span class="chev">⌄</span></button>
+          <button class="tl-head"><span><span class="km num">${fmt(r.km)} ק"מ</span>${r.state === "next" ? ` <span class="status good" style="margin-right:6px">הבא</span>` : ""}<br><span class="summary">${summarize(r.svc.items)}</span></span><span class="chev" aria-hidden="true">⌄</span></button>
           <div class="tl-body stack">${r.state === "done" ? itemsHTML(r.svc.items) : checklistHTML(s, r.svc, r.km)}</div>
         </div>
       </div>`).join("");
@@ -791,6 +827,48 @@
     if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(txt).then(done).catch(fallback); else fallback();
   }
 
+  // ---------- garages for this car ----------
+  // Community reports come from other drivers with the same model. Until there is a server, the list is
+  // built from this device's own reports only, and the community part is empty on purpose.
+  function communityGarages(schedule) { return []; }
+  function garagesFor(car) {
+    const s = schedById(car.schedule);
+    const mine = (car.history || []).filter(h => h.garage && h.where !== "self");
+    const byKey = new Map();
+    for (const h of mine) {
+      const key = (h.garage + "|" + (h.city || "")).toLowerCase();
+      const g = byKey.get(key) || { name: h.garage, city: h.city || "", type: h.where, n: 0, prices: [], back: [], mine: true };
+      g.n++; if (h.price) g.prices.push(h.price); if (h.back) g.back.push(h.back === "yes"); byKey.set(key, g);
+    }
+    for (const g of communityGarages(s.id)) { const key = (g.name + "|" + (g.city || "")).toLowerCase(); const m = byKey.get(key); if (m) { m.n += g.n; m.prices.push(...g.prices); m.back.push(...g.back); } else byKey.set(key, { ...g, mine: false }); }
+    return [...byKey.values()].map(g => ({ ...g, avg: g.prices.length ? g.prices.reduce((a, b) => a + b, 0) / g.prices.length : null, backPct: g.back.length ? Math.round(100 * g.back.filter(Boolean).length / g.back.length) : null }))
+      .sort((a, b) => (b.backPct ?? -1) - (a.backPct ?? -1) || b.n - a.n);
+  }
+  const garageRow = g => `<div class="garage">
+      <div><div class="nm">${g.name}${g.mine ? ` <span class="tag mine">דיווחת</span>` : ""}</div>
+        <div class="meta"><span>${whereName[g.type] || ""}</span>${g.city ? `<span>${g.city}</span>` : ""}<span class="num">${g.n} ${g.n === 1 ? "דיווח" : "דיווחים"}</span>${g.backPct !== null ? `<span class="num">${g.backPct}% היו חוזרים</span>` : ""}</div></div>
+      <div class="amt num">${g.avg ? "₪" + fmt(g.avg) : ""}</div></div>`;
+  const garagesEmptyHTML = car => `<div class="empty">
+      <b>עוד אין דיווחים על מוסכים ל${schedById(car.schedule).model_he}</b>
+      <p class="small muted">המוסכים כאן מגיעים מנהגים עם אותו דגם שרשמו טיפול ושיתפו איפה עשו אותו. אתה יכול להיות הראשון: אחרי הביקור הבא לחץ "עשיתי טיפול" ורשום את שם המוסך.</p>
+      <button class="btn secondary" id="gr-log" style="padding:10px">רשום טיפול ומוסך</button></div>`;
+  const garagesHomeHTML = car => { const gs = garagesFor(car); return `
+    <div class="card stack" style="gap:8px">
+      <div class="row between"><p class="eyebrow">מוסכים לרכב שלך</p>${gs.length ? `<button class="btn ghost" id="to-garages" style="width:auto;padding:0">לכולם</button>` : ""}</div>
+      ${gs.length ? `<div>${gs.slice(0, 3).map(garageRow).join("")}</div>` : garagesEmptyHTML(car)}
+    </div>`; };
+  let grFilter = "all";
+  function renderGarages() {
+    const car = S.cars[S.active]; if (!car) return;
+    const s = schedById(car.schedule);
+    $("#gr-sub").textContent = `${carName(car)} · לפי דיווחים של נהגים עם ${s.make_he} ${s.model_he} ${s.years[0]}-${s.years[1]}`;
+    const gs = garagesFor(car).filter(g => grFilter === "all" || g.type === grFilter);
+    $("#gr-list").innerHTML = gs.length ? gs.map(garageRow).join("") : garagesEmptyHTML(car);
+    const b = $("#gr-log"); if (b) b.onclick = () => openLog();
+  }
+  $$("#gr-filter .chip").forEach(c => c.onclick = () => { $$("#gr-filter .chip").forEach(x => x.classList.remove("on")); c.classList.add("on"); grFilter = c.dataset.v; renderGarages(); });
+  $("#gr-back").onclick = () => history.length > 1 ? history.back() : show("s-home");
+
   // ---------- profile ----------
   function renderMe() {
     const u = S.user || { name: "אורח", via: "guest" };
@@ -809,7 +887,11 @@
   }
   $("#me-add").onclick = startAdd;
   $$(".toggle").forEach(t => t.onclick = () => { t.classList.toggle("on"); toast(t.classList.contains("on") ? "התראה הופעלה" : "התראה כבויה"); });
-  $("#me-reset").onclick = () => { store.clear(); S = { onboarded: false, user: null, cars: [], active: 0 }; onbI = 0; renderOnb(); show("s-onb"); };
+  let resetArmed = null;
+  $("#me-reset").onclick = () => {
+    if (!resetArmed) { resetArmed = setTimeout(() => { resetArmed = null; $("#me-reset").textContent = "איפוס האפליקציה (מוחק הכל במכשיר הזה)"; }, 5000); $("#me-reset").textContent = "בטוח? לחיצה נוספת תמחק את כל הנתונים במכשיר"; return; }
+    clearTimeout(resetArmed); resetArmed = null; $("#me-reset").textContent = "איפוס האפליקציה (מוחק הכל במכשיר הזה)";
+    store.clear(); S = { onboarded: false, user: null, cars: [], active: 0 }; onbI = 0; renderOnb(); show("s-onb"); };
 
   // ---------- km sheet ----------
   function openSheet() { $("#sheet-km").value = S.cars[S.active].km; $("#sheet").classList.add("show"); $("#sheet-km").focus(); }
