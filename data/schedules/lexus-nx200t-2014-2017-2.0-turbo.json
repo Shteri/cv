@@ -1,0 +1,666 @@
+{
+  "id": "lexus-nx200t-2014-2017-2.0-turbo",
+  "make": "Lexus",
+  "make_he": "לקסוס",
+  "model": "NX 200t",
+  "model_he": "NX 200t",
+  "generation": "AGZ10",
+  "years": [
+    2014,
+    2017
+  ],
+  "engines": [
+    "2.0 turbo (8AR-FTS)"
+  ],
+  "fuel": "petrol",
+  "importer": "יוניון מוטורס",
+  "interval": {
+    "km": 15000,
+    "months": 12,
+    "note": "לפי לוח האחזקה בספר הרכב העברי: טיפול כל 15,000 ק\"מ או 12 חודשים, המוקדם"
+  },
+  "cycle_km": 90000,
+  "services": [
+    {
+      "km": 15000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "כאשר מופיעה נורית תזכורת התחזוקה, ולכל המאוחר כל 15,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "יחד עם שמן המנוע"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "בדיקה כל 24 חודשים, החלפה כל 48 חודשים"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם ובלם חניה"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "בדיקה כל 12 חודשים, החלפה כל 24 חודשים"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "גלגל הגה, מוטות קישור ותיבת הגה"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלים, מפרקים כדוריים וכיסויי אבק"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "צמיגים ולחץ ניפוח"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "אורות, צופר, מגבים ומתזים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "בדיקת חלודה; בדיקת שטיח הרצפה"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "כאשר מופיעה נורית תזכורת התחזוקה, ולכל המאוחר כל 15,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "יחד עם שמן המנוע"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקת נוזל קירור"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "בדיקה כל 24 חודשים, החלפה כל 48 חודשים"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "מכסה מיכל הדלק, צינורות, חיבורים ושסתום בקרת אידוי"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם ובלם חניה"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "בדיקה כל 12 חודשים, החלפה כל 24 חודשים"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "גלגל הגה, מוטות קישור ותיבת הגה"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלים, מפרקים כדוריים וכיסויי אבק"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "בדיקת נוזל תיבת הילוכים אוטומטית"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "replace",
+          "note": "אם קיימת (4X4): החלפה כל 30,000 ק\"מ או 48 חודשים"
+        },
+        {
+          "item": "differential_oil",
+          "action": "replace",
+          "note": "דיפרנציאל קדמי: בדיקה; דיפרנציאל אחורי (אם קיים): החלפה כל 30,000 ק\"מ או 48 חודשים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "צמיגים ולחץ ניפוח"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "אורות, צופר, מגבים ומתזים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "בדיקת חלודה; בדיקת שטיח הרצפה"
+        }
+      ]
+    },
+    {
+      "km": 45000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "כאשר מופיעה נורית תזכורת התחזוקה, ולכל המאוחר כל 15,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "יחד עם שמן המנוע"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "בדיקה כל 24 חודשים, החלפה כל 48 חודשים"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect",
+          "note": "מיכל פחם"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם ובלם חניה"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "בדיקה כל 12 חודשים, החלפה כל 24 חודשים"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "גלגל הגה, מוטות קישור ותיבת הגה"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלים, מפרקים כדוריים וכיסויי אבק"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "צמיגים ולחץ ניפוח"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "אורות, צופר, מגבים ומתזים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "בדיקת חלודה; בדיקת שטיח הרצפה"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "כאשר מופיעה נורית תזכורת התחזוקה, ולכל המאוחר כל 15,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "יחד עם שמן המנוע"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקת נוזל קירור"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "בדיקה כל 24 חודשים, החלפה כל 48 חודשים"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "מכסה מיכל הדלק, צינורות, חיבורים ושסתום בקרת אידוי"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם ובלם חניה"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "בדיקה כל 12 חודשים, החלפה כל 24 חודשים"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "גלגל הגה, מוטות קישור ותיבת הגה"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלים, מפרקים כדוריים וכיסויי אבק"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "בדיקת נוזל תיבת הילוכים אוטומטית"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "replace",
+          "note": "אם קיימת (4X4): החלפה כל 30,000 ק\"מ או 48 חודשים"
+        },
+        {
+          "item": "differential_oil",
+          "action": "replace",
+          "note": "דיפרנציאל קדמי: בדיקה; דיפרנציאל אחורי (אם קיים): החלפה כל 30,000 ק\"מ או 48 חודשים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "צמיגים ולחץ ניפוח"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "אורות, צופר, מגבים ומתזים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "בדיקת חלודה; בדיקת שטיח הרצפה"
+        }
+      ]
+    },
+    {
+      "km": 75000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "כאשר מופיעה נורית תזכורת התחזוקה, ולכל המאוחר כל 15,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "יחד עם שמן המנוע"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace",
+          "note": "בלוח: החלפה ב-75,000 ק\"מ או 96 חודשים"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "בדיקה כל 24 חודשים, החלפה כל 48 חודשים"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם ובלם חניה"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "בדיקה כל 12 חודשים, החלפה כל 24 חודשים"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "גלגל הגה, מוטות קישור ותיבת הגה"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלים, מפרקים כדוריים וכיסויי אבק"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "צמיגים ולחץ ניפוח"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "אורות, צופר, מגבים ומתזים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "בדיקת חלודה; בדיקת שטיח הרצפה"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "כאשר מופיעה נורית תזכורת התחזוקה, ולכל המאוחר כל 15,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "יחד עם שמן המנוע"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקת נוזל קירור"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "בדיקה כל 24 חודשים, החלפה כל 48 חודשים"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "מכסה מיכל הדלק, צינורות, חיבורים ושסתום בקרת אידוי"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect",
+          "note": "מיכל פחם"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם ובלם חניה"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "בדיקה כל 12 חודשים, החלפה כל 24 חודשים"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "גלגל הגה, מוטות קישור ותיבת הגה"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלים, מפרקים כדוריים וכיסויי אבק"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "בדיקת נוזל תיבת הילוכים אוטומטית"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "replace",
+          "note": "אם קיימת (4X4): החלפה כל 30,000 ק\"מ או 48 חודשים"
+        },
+        {
+          "item": "differential_oil",
+          "action": "replace",
+          "note": "דיפרנציאל קדמי: בדיקה; דיפרנציאל אחורי (אם קיים): החלפה כל 30,000 ק\"מ או 48 חודשים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "צמיגים ולחץ ניפוח"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "אורות, צופר, מגבים ומתזים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "בדיקת חלודה; בדיקת שטיח הרצפה"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "drive_belt",
+      "action": "inspect",
+      "first_km": 105000,
+      "then_every_km": 15000,
+      "first_months": 72,
+      "then_every_months": 12
+    },
+    {
+      "item": "spark_plugs",
+      "action": "replace",
+      "every_km": 60000
+    },
+    {
+      "item": "vacuum_hose",
+      "action": "inspect",
+      "every_km": 200000,
+      "note": "משאבת ריק (ואקום) למגבר הבלמים: בדיקה כל 200,000 ק\"מ"
+    }
+  ],
+  "time_based": [],
+  "specs": {},
+  "sources": [
+    {
+      "url": "https://books.union-motors.co.il/LexusApp/api/files/154/download",
+      "kind": "importer",
+      "note": "ספר רכב NX200t בעברית (2014-2017), פרק 7-2, עמודים 92-93"
+    },
+    {
+      "url": "https://www.lexus.co.il/owners/maintenance/owner-books",
+      "kind": "importer",
+      "note": "דף ספרי הרכב של לקסוס ישראל"
+    }
+  ],
+  "status": "reviewed",
+  "notes": "הועתק מלוח האחזקה בספר הרכב העברי של NX200t (מנוע טורבו 2.0). מצתים כל 60,000 ק\"מ. מסנן דלק מסומן בלוח ב-75,000 ק\"מ (או 96 חודשים). בגרסת 4X4 שמן תיבת העברה ודיפרנציאל אחורי מוחלפים כל 30,000 ק\"מ."
+}

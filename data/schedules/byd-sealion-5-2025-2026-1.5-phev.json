@@ -1,0 +1,907 @@
+{
+  "id": "byd-sealion-5-2025-2026-1.5-phev",
+  "make": "BYD",
+  "make_he": "בי.וויי.די",
+  "model": "Sealion 5 DM-i",
+  "model_he": "סילאיון 5",
+  "generation": "SEALION 5 DM-i",
+  "years": [
+    2025,
+    2026
+  ],
+  "engines": [
+    "1.5 DM-i PHEV (BYD472QA)"
+  ],
+  "fuel": "plug-in-hybrid",
+  "importer": "שלמה מוטורס",
+  "interval": {
+    "km": 15000,
+    "months": 12,
+    "note": "לפי ספר הנהג: שמן ומסנן שמן כל 12 חודשים או 15,000 ק\"מ; רוב הבדיקות כל 24 חודשים או 30,000 ק\"מ"
+  },
+  "cycle_km": 180000,
+  "services": [
+    {
+      "km": 15000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect",
+          "note": "שלמות צינורות הקירור והידוק החיבורים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "שחיקת צמיגים; רוטציה לפי הצורך; בבלאי לא אחיד מעל 2 מ\"מ לבדוק זוויות"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "החלפה כל שנתיים או 30,000 ק\"מ; בשאר הטיפולים בדיקה"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "החלפה כל 12 חודשים או 15,000 ק\"מ; בתנאים קשים בדיקה נוספת"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "בדיקת כמות שמן גיר EHS"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect",
+          "note": "שלמות צינורות הקירור והידוק החיבורים"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "גלגל ההגה ומוט ההגה; קורוזיה ומחברי EPS"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "כיסוי אבק של גל ההינע"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלים קדמיים ואחוריים, פין כדורי וכיסוי"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס נוזל קירור"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "מגש סוללת המתח הגבוה, מגנים ושסתום אוורור; דליפות ביחידת ההנעה"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect",
+          "note": "בדיקה; בסביבה מאובקת להחליף לפי הצורך"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "דליפה במחברי צינור הפליטה"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "מכסה מילוי, צינור הדלק ומחברים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "שחיקת צמיגים; רוטציה לפי הצורך; בבלאי לא אחיד מעל 2 מ\"מ לבדוק זוויות"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "החלפה כל שנתיים או 30,000 ק\"מ; בשאר הטיפולים בדיקה"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "inspect",
+          "note": "מסנן דלק: הספר מציין 24 חודשים או 30,000 ק\"מ בלי לפרט בדיקה או החלפה"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "החלפה כל 12 חודשים או 15,000 ק\"מ; בתנאים קשים בדיקה נוספת"
+        },
+        {
+          "item": "evap_system",
+          "action": "replace",
+          "note": "מסנן האבק של מכל הפחם: כל שנתיים או 30,000 ק\"מ, או מוקדם יותר אם אקדח התדלוק נעצר שוב ושוב"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "בדיקת כמות שמן גיר EHS"
+        }
+      ]
+    },
+    {
+      "km": 45000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect",
+          "note": "שלמות צינורות הקירור והידוק החיבורים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "שחיקת צמיגים; רוטציה לפי הצורך; בבלאי לא אחיד מעל 2 מ\"מ לבדוק זוויות"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "החלפה כל שנתיים או 30,000 ק\"מ; בשאר הטיפולים בדיקה"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "החלפה כל 45,000 ק\"מ"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "החלפה כל 12 חודשים או 15,000 ק\"מ; בתנאים קשים בדיקה נוספת"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "בדיקת כמות שמן גיר EHS"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect",
+          "note": "שלמות צינורות הקירור והידוק החיבורים"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "גלגל ההגה ומוט ההגה; קורוזיה ומחברי EPS"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "כיסוי אבק של גל ההינע"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלים קדמיים ואחוריים, פין כדורי וכיסוי"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס נוזל קירור"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "מגש סוללת המתח הגבוה, מגנים ושסתום אוורור; דליפות ביחידת ההנעה"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect",
+          "note": "בדיקה; בסביבה מאובקת להחליף לפי הצורך"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "דליפה במחברי צינור הפליטה"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "מכסה מילוי, צינור הדלק ומחברים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "שחיקת צמיגים; רוטציה לפי הצורך; בבלאי לא אחיד מעל 2 מ\"מ לבדוק זוויות"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "החלפה כל שנתיים או 30,000 ק\"מ; בשאר הטיפולים בדיקה"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "inspect",
+          "note": "מסנן דלק: הספר מציין 24 חודשים או 30,000 ק\"מ בלי לפרט בדיקה או החלפה"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "החלפה כל 12 חודשים או 15,000 ק\"מ; בתנאים קשים בדיקה נוספת"
+        },
+        {
+          "item": "evap_system",
+          "action": "replace",
+          "note": "מסנן האבק של מכל הפחם: כל שנתיים או 30,000 ק\"מ, או מוקדם יותר אם אקדח התדלוק נעצר שוב ושוב"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "בדיקת כמות שמן גיר EHS"
+        }
+      ]
+    },
+    {
+      "km": 75000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect",
+          "note": "שלמות צינורות הקירור והידוק החיבורים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "שחיקת צמיגים; רוטציה לפי הצורך; בבלאי לא אחיד מעל 2 מ\"מ לבדוק זוויות"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "החלפה כל שנתיים או 30,000 ק\"מ; בשאר הטיפולים בדיקה"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "החלפה כל 12 חודשים או 15,000 ק\"מ; בתנאים קשים בדיקה נוספת"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "בדיקת כמות שמן גיר EHS"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect",
+          "note": "שלמות צינורות הקירור והידוק החיבורים"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "גלגל ההגה ומוט ההגה; קורוזיה ומחברי EPS"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "כיסוי אבק של גל ההינע"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלים קדמיים ואחוריים, פין כדורי וכיסוי"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס נוזל קירור"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "מגש סוללת המתח הגבוה, מגנים ושסתום אוורור; דליפות ביחידת ההנעה"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect",
+          "note": "בדיקה; בסביבה מאובקת להחליף לפי הצורך"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "דליפה במחברי צינור הפליטה"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "מכסה מילוי, צינור הדלק ומחברים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "שחיקת צמיגים; רוטציה לפי הצורך; בבלאי לא אחיד מעל 2 מ\"מ לבדוק זוויות"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "החלפה כל שנתיים או 30,000 ק\"מ; בשאר הטיפולים בדיקה"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "החלפה כל 45,000 ק\"מ"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "inspect",
+          "note": "מסנן דלק: הספר מציין 24 חודשים או 30,000 ק\"מ בלי לפרט בדיקה או החלפה"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "החלפה כל 12 חודשים או 15,000 ק\"מ; בתנאים קשים בדיקה נוספת"
+        },
+        {
+          "item": "evap_system",
+          "action": "replace",
+          "note": "מסנן האבק של מכל הפחם: כל שנתיים או 30,000 ק\"מ, או מוקדם יותר אם אקדח התדלוק נעצר שוב ושוב"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "בדיקת כמות שמן גיר EHS"
+        }
+      ]
+    },
+    {
+      "km": 105000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect",
+          "note": "שלמות צינורות הקירור והידוק החיבורים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "שחיקת צמיגים; רוטציה לפי הצורך; בבלאי לא אחיד מעל 2 מ\"מ לבדוק זוויות"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "החלפה כל שנתיים או 30,000 ק\"מ; בשאר הטיפולים בדיקה"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "החלפה כל 12 חודשים או 15,000 ק\"מ; בתנאים קשים בדיקה נוספת"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "בדיקת כמות שמן גיר EHS"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect",
+          "note": "שלמות צינורות הקירור והידוק החיבורים"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "גלגל ההגה ומוט ההגה; קורוזיה ומחברי EPS"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "כיסוי אבק של גל ההינע"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלים קדמיים ואחוריים, פין כדורי וכיסוי"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס נוזל קירור"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "מגש סוללת המתח הגבוה, מגנים ושסתום אוורור; דליפות ביחידת ההנעה"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect",
+          "note": "בדיקה; בסביבה מאובקת להחליף לפי הצורך"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "דליפה במחברי צינור הפליטה"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "מכסה מילוי, צינור הדלק ומחברים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "שחיקת צמיגים; רוטציה לפי הצורך; בבלאי לא אחיד מעל 2 מ\"מ לבדוק זוויות"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "החלפה כל שנתיים או 30,000 ק\"מ; בשאר הטיפולים בדיקה"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "inspect",
+          "note": "מסנן דלק: הספר מציין 24 חודשים או 30,000 ק\"מ בלי לפרט בדיקה או החלפה"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "החלפה כל 12 חודשים או 15,000 ק\"מ; בתנאים קשים בדיקה נוספת"
+        },
+        {
+          "item": "evap_system",
+          "action": "replace",
+          "note": "מסנן האבק של מכל הפחם: כל שנתיים או 30,000 ק\"מ, או מוקדם יותר אם אקדח התדלוק נעצר שוב ושוב"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "בדיקת כמות שמן גיר EHS"
+        }
+      ]
+    },
+    {
+      "km": 135000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect",
+          "note": "שלמות צינורות הקירור והידוק החיבורים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "שחיקת צמיגים; רוטציה לפי הצורך; בבלאי לא אחיד מעל 2 מ\"מ לבדוק זוויות"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "החלפה כל שנתיים או 30,000 ק\"מ; בשאר הטיפולים בדיקה"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "החלפה כל 45,000 ק\"מ"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "החלפה כל 12 חודשים או 15,000 ק\"מ; בתנאים קשים בדיקה נוספת"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "בדיקת כמות שמן גיר EHS"
+        }
+      ]
+    },
+    {
+      "km": 150000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect",
+          "note": "שלמות צינורות הקירור והידוק החיבורים"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "גלגל ההגה ומוט ההגה; קורוזיה ומחברי EPS"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "כיסוי אבק של גל ההינע"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלים קדמיים ואחוריים, פין כדורי וכיסוי"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס נוזל קירור"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "מגש סוללת המתח הגבוה, מגנים ושסתום אוורור; דליפות ביחידת ההנעה"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect",
+          "note": "בדיקה; בסביבה מאובקת להחליף לפי הצורך"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "דליפה במחברי צינור הפליטה"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "מכסה מילוי, צינור הדלק ומחברים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "שחיקת צמיגים; רוטציה לפי הצורך; בבלאי לא אחיד מעל 2 מ\"מ לבדוק זוויות"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "החלפה כל שנתיים או 30,000 ק\"מ; בשאר הטיפולים בדיקה"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "inspect",
+          "note": "מסנן דלק: הספר מציין 24 חודשים או 30,000 ק\"מ בלי לפרט בדיקה או החלפה"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "החלפה כל 12 חודשים או 15,000 ק\"מ; בתנאים קשים בדיקה נוספת"
+        },
+        {
+          "item": "evap_system",
+          "action": "replace",
+          "note": "מסנן האבק של מכל הפחם: כל שנתיים או 30,000 ק\"מ, או מוקדם יותר אם אקדח התדלוק נעצר שוב ושוב"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "בדיקת כמות שמן גיר EHS"
+        }
+      ]
+    },
+    {
+      "km": 165000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect",
+          "note": "שלמות צינורות הקירור והידוק החיבורים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "שחיקת צמיגים; רוטציה לפי הצורך; בבלאי לא אחיד מעל 2 מ\"מ לבדוק זוויות"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "החלפה כל שנתיים או 30,000 ק\"מ; בשאר הטיפולים בדיקה"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "החלפה כל 12 חודשים או 15,000 ק\"מ; בתנאים קשים בדיקה נוספת"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "בדיקת כמות שמן גיר EHS"
+        }
+      ]
+    },
+    {
+      "km": 180000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect",
+          "note": "שלמות צינורות הקירור והידוק החיבורים"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "גלגל ההגה ומוט ההגה; קורוזיה ומחברי EPS"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "כיסוי אבק של גל ההינע"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלים קדמיים ואחוריים, פין כדורי וכיסוי"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס נוזל קירור"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "מגש סוללת המתח הגבוה, מגנים ושסתום אוורור; דליפות ביחידת ההנעה"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect",
+          "note": "בדיקה; בסביבה מאובקת להחליף לפי הצורך"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "דליפה במחברי צינור הפליטה"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "מכסה מילוי, צינור הדלק ומחברים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "שחיקת צמיגים; רוטציה לפי הצורך; בבלאי לא אחיד מעל 2 מ\"מ לבדוק זוויות"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "החלפה כל שנתיים או 30,000 ק\"מ; בשאר הטיפולים בדיקה"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "החלפה כל 45,000 ק\"מ"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "inspect",
+          "note": "מסנן דלק: הספר מציין 24 חודשים או 30,000 ק\"מ בלי לפרט בדיקה או החלפה"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "החלפה כל 12 חודשים או 15,000 ק\"מ; בתנאים קשים בדיקה נוספת"
+        },
+        {
+          "item": "evap_system",
+          "action": "replace",
+          "note": "מסנן האבק של מכל הפחם: כל שנתיים או 30,000 ק\"מ, או מוקדם יותר אם אקדח התדלוק נעצר שוב ושוב"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "בדיקת כמות שמן גיר EHS"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "transmission_oil",
+      "action": "replace",
+      "every_km": 60000,
+      "every_months": 48,
+      "note": "שמן גיר EHS ומכלול המסנן: כל 4 שנים או 60,000 ק\"מ"
+    },
+    {
+      "item": "coolant",
+      "action": "replace",
+      "every_km": 90000,
+      "every_months": 72,
+      "note": "נוזל קירור ארוך טווח של המנוע ושל מנוע ההנעה: כל 6 שנים או 90,000 ק\"מ"
+    },
+    {
+      "item": "hybrid_system",
+      "action": "inspect",
+      "every_km": 72000,
+      "every_months": 6,
+      "note": "טעינה מלאה ופריקה (כיול עצמי) או בדיקת קיבולת במרכז שירות: לפחות כל 6 חודשים או 72,000 ק\"מ"
+    }
+  ],
+  "time_based": [],
+  "specs": {},
+  "sources": [
+    {
+      "url": "https://www.byd.com/material/%E3%80%90v1%E3%80%91byd-sealion-5-owner's-manual-left-hand-drive/BYD%20Sealion%205%20Owner's%20Manual-Left-hand%20Drive-20251202-HE.pdf",
+      "kind": "manufacturer",
+      "note": "ספר נהג עברי BYD SEALION 5 (דצמבר 2025), עמ' 182-183"
+    }
+  ],
+  "status": "reviewed",
+  "notes": "ספר הנהג של BYD Sealion 5 DM-i (DM-i) מפרט טבלת פריטים עם מרווח לכל פריט; כאן סודר לטיפולים של 15,000 ק\"מ. שמן גיר EHS, נוזלי קירור וכיול סוללה ב-long_interval. לפני הטיפול הראשון מומלץ לנסוע במצב ECO עם לפחות 50% שימוש במנוע (HEV), ואחריו לפחות 10%. לפי הספר גם אלמנט המסנן של תיבת ההילוכים מוחלף כל 4 שנים או 60,000 ק\"מ."
+}

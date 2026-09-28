@@ -1,0 +1,771 @@
+{
+  "id": "nissan-qashqai-2014-2021-1.5-diesel",
+  "make": "Nissan",
+  "make_he": "ניסאן",
+  "model": "Qashqai",
+  "model_he": "קשקאי",
+  "generation": "J11",
+  "years": [
+    2014,
+    2021
+  ],
+  "engines": [
+    "1.5 dCi (K9K)"
+  ],
+  "fuel": "diesel",
+  "importer": "פריסבי (קרסו מוטורס)",
+  "interval": {
+    "km": 15000,
+    "months": 12,
+    "note": "לפי הגיליון של ניסאן דרום אפריקה: בדיקות כל 15,000 ק\"מ; שמן, מסנן שמן ומסנן סולר כל 30,000 ק\"מ או 12 חודשים"
+  },
+  "cycle_km": 150000,
+  "services": [
+    {
+      "km": 15000,
+      "items": [
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "בדיקת מפלס ודליפות של נוזל הבלמים והמצמד"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect",
+          "note": "בגיר ידני: בדיקת נזילות"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect",
+          "note": "כיוון פרונט; לפי הצורך סבב ואיזון גלגלים"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "מערכות בלמים, מצמד ופליטה"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם, בלם חניה ומצמד: חופש, מהלך ותפקוד"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "כל 30,000 ק\"מ או 12 חודשים; מוקדם יותר אם מופיעה התראת שירות שמן"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace",
+          "note": "כל 30,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "החלפת נוזל בלמים כל 30,000 ק\"מ או 24 חודשים"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect",
+          "note": "צינורות ואקום של מגבר הבלמים, חיבורים ושסתום"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect",
+          "note": "בגיר ידני: בדיקת נזילות"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תיבת הגה ומוטות, חלקי סרן ומתלים, צירי הנעה קדמיים"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect",
+          "note": "כיוון פרונט; לפי הצורך סבב ואיזון גלגלים"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "מערכות בלמים, מצמד ופליטה"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם, בלם חניה ומצמד: חופש, מהלך ותפקוד"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "אם זרימת האוויר נחלשת או שהחלונות מתערפלים, להחליף מוקדם יותר"
+        }
+      ]
+    },
+    {
+      "km": 45000,
+      "items": [
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "בדיקת מפלס ודליפות של נוזל הבלמים והמצמד"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect",
+          "note": "בגיר ידני: בדיקת נזילות"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect",
+          "note": "כיוון פרונט; לפי הצורך סבב ואיזון גלגלים"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "מערכות בלמים, מצמד ופליטה"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם, בלם חניה ומצמד: חופש, מהלך ותפקוד"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "כל 30,000 ק\"מ או 12 חודשים; מוקדם יותר אם מופיעה התראת שירות שמן"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace",
+          "note": "כל 30,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "החלפת נוזל בלמים כל 30,000 ק\"מ או 24 חודשים"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect",
+          "note": "צינורות ואקום של מגבר הבלמים, חיבורים ושסתום"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect",
+          "note": "בגיר ידני: בדיקת נזילות"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תיבת הגה ומוטות, חלקי סרן ומתלים, צירי הנעה קדמיים"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect",
+          "note": "כיוון פרונט; לפי הצורך סבב ואיזון גלגלים"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "מערכות בלמים, מצמד ופליטה"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם, בלם חניה ומצמד: חופש, מהלך ותפקוד"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "אם זרימת האוויר נחלשת או שהחלונות מתערפלים, להחליף מוקדם יותר"
+        }
+      ]
+    },
+    {
+      "km": 75000,
+      "items": [
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "בדיקת מפלס ודליפות של נוזל הבלמים והמצמד"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect",
+          "note": "בגיר ידני: בדיקת נזילות"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect",
+          "note": "כיוון פרונט; לפי הצורך סבב ואיזון גלגלים"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "מערכות בלמים, מצמד ופליטה"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם, בלם חניה ומצמד: חופש, מהלך ותפקוד"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "כל 30,000 ק\"מ או 12 חודשים; מוקדם יותר אם מופיעה התראת שירות שמן"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace",
+          "note": "כל 30,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "החלפת נוזל בלמים כל 30,000 ק\"מ או 24 חודשים"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect",
+          "note": "צינורות ואקום של מגבר הבלמים, חיבורים ושסתום"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect",
+          "note": "בגיר ידני: בדיקת נזילות"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תיבת הגה ומוטות, חלקי סרן ומתלים, צירי הנעה קדמיים"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect",
+          "note": "כיוון פרונט; לפי הצורך סבב ואיזון גלגלים"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "מערכות בלמים, מצמד ופליטה"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם, בלם חניה ומצמד: חופש, מהלך ותפקוד"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "אם זרימת האוויר נחלשת או שהחלונות מתערפלים, להחליף מוקדם יותר"
+        }
+      ]
+    },
+    {
+      "km": 105000,
+      "items": [
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "בדיקת מפלס ודליפות של נוזל הבלמים והמצמד"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect",
+          "note": "בגיר ידני: בדיקת נזילות"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect",
+          "note": "כיוון פרונט; לפי הצורך סבב ואיזון גלגלים"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "מערכות בלמים, מצמד ופליטה"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם, בלם חניה ומצמד: חופש, מהלך ותפקוד"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "כל 30,000 ק\"מ או 12 חודשים; מוקדם יותר אם מופיעה התראת שירות שמן"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace",
+          "note": "כל 30,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "החלפת נוזל בלמים כל 30,000 ק\"מ או 24 חודשים"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect",
+          "note": "צינורות ואקום של מגבר הבלמים, חיבורים ושסתום"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect",
+          "note": "בגיר ידני: בדיקת נזילות"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תיבת הגה ומוטות, חלקי סרן ומתלים, צירי הנעה קדמיים"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect",
+          "note": "כיוון פרונט; לפי הצורך סבב ואיזון גלגלים"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "מערכות בלמים, מצמד ופליטה"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם, בלם חניה ומצמד: חופש, מהלך ותפקוד"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "אם זרימת האוויר נחלשת או שהחלונות מתערפלים, להחליף מוקדם יותר"
+        }
+      ]
+    },
+    {
+      "km": 135000,
+      "items": [
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "בדיקת מפלס ודליפות של נוזל הבלמים והמצמד"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect",
+          "note": "בגיר ידני: בדיקת נזילות"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect",
+          "note": "כיוון פרונט; לפי הצורך סבב ואיזון גלגלים"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "מערכות בלמים, מצמד ופליטה"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם, בלם חניה ומצמד: חופש, מהלך ותפקוד"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 150000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "כל 30,000 ק\"מ או 12 חודשים; מוקדם יותר אם מופיעה התראת שירות שמן"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace",
+          "note": "כל 30,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "החלפת נוזל בלמים כל 30,000 ק\"מ או 24 חודשים"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect",
+          "note": "צינורות ואקום של מגבר הבלמים, חיבורים ושסתום"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect",
+          "note": "בגיר ידני: בדיקת נזילות"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תיבת הגה ומוטות, חלקי סרן ומתלים, צירי הנעה קדמיים"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect",
+          "note": "כיוון פרונט; לפי הצורך סבב ואיזון גלגלים"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "מערכות בלמים, מצמד ופליטה"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם, בלם חניה ומצמד: חופש, מהלך ותפקוד"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "אם זרימת האוויר נחלשת או שהחלונות מתערפלים, להחליף מוקדם יותר"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "timing_belt",
+      "action": "replace",
+      "every_km": 90000,
+      "every_months": 48,
+      "note": "רצועת תזמון וגלגלות: מרווח מקסימלי; להחליף מיד אם באה במגע עם דלק"
+    },
+    {
+      "item": "drive_belt",
+      "action": "replace",
+      "every_km": 90000,
+      "every_months": 48,
+      "note": "רצועת אביזרים וגלגלות"
+    },
+    {
+      "item": "coolant",
+      "action": "replace",
+      "first_km": 150000,
+      "first_months": 96,
+      "then_every_km": 75000,
+      "then_every_months": 48,
+      "note": "בדיקת יחס התערובת כל 30,000 ק\"מ או 24 חודשים"
+    }
+  ],
+  "time_based": [],
+  "specs": {},
+  "sources": [
+    {
+      "url": "https://www.nissan-cdn.net/content/dam/Nissan/za/Maintenance/Qashqai.pdf",
+      "kind": "manufacturer",
+      "note": "Nissan South Africa, \"NISSAN QASHQAI 1.5ℓ DIESEL - PERIODIC MAINTENANCE\", עמודים 4-6"
+    },
+    {
+      "url": "https://www.nissan.co.il/service.html",
+      "kind": "importer",
+      "note": "אתרי ניסאן ישראל (nissan.co.il) ו-service.freesbe.com לא מפרסמים ספרי רכב או לוחות טיפולים (service.freesbe.com ו-freesbe.com מחזירים 403); לכן זהו לוח בינלאומי"
+    }
+  ],
+  "status": "draft",
+  "notes": "טיוטה מלוח ניסאן דרום אפריקה לקשקאי 1.5 דיזל (K9K). בגיליון הזה השמן והמסננים מתחלפים כל 30,000 ק\"מ או שנה, ורצועת התזמון כל 90,000 ק\"מ או 4 שנים. בתנאים מחמירים (אבק, נסיעות קצרות, חום קיצוני) חלק מהפריטים מתבצעים בתדירות כפולה, לפי טבלת התנאים המחמירים בגיליון."
+}

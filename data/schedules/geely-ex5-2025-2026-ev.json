@@ -1,0 +1,1007 @@
+{
+  "id": "geely-ex5-2025-2026-ev",
+  "make": "Geely",
+  "make_he": "ג'ילי",
+  "model": "EX5",
+  "model_he": "EX5",
+  "generation": "E245",
+  "years": [
+    2025,
+    2026
+  ],
+  "engines": [
+    "EV (TZ18 / TZ184XY101)"
+  ],
+  "fuel": "electric",
+  "importer": "גיאו מוביליטי (קבוצת יוניון)",
+  "interval": {
+    "km": 20000,
+    "months": 12,
+    "note": "לפי לוח האחזקה של היבואן: כל 20,000 ק\"מ או 12 חודשים"
+  },
+  "cycle_km": 200000,
+  "services": [
+    {
+      "km": 20000,
+      "items": [
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת מתח גבוה: בדיקה חזותית של המארז, בדיקת בידוד ובדיקה במחשב אבחון"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "מערכת ההנעה החשמלית, המטען המובנה וכל הרכב - סריקה במחשב אבחון"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "בדיקה חזותית של מערכת ההנעה והמטען המובנה; חלונות וצופר"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "תפקוד מערכת הבלמים ובלם החניה"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "החלפה כל 40,000 ק\"מ (24 חודשים); בשאר הטיפולים בדיקת מפלס"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "שימון צירים ומנעולי דלתות וידיות הדלת החשמליות"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "צירי הנעה"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תיבת הגה ומוטות קצה"
+        },
+        {
+          "item": "body_underside",
+          "action": "adjust",
+          "note": "הידוק ברגים ואומים במרכב"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בולמי זעזועים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 40000,
+      "items": [
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת מתח גבוה: בדיקה חזותית של המארז, בדיקת בידוד ובדיקה במחשב אבחון"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "מערכת ההנעה החשמלית, המטען המובנה וכל הרכב - סריקה במחשב אבחון"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "בדיקה חזותית של מערכת ההנעה והמטען המובנה; חלונות וצופר"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "תפקוד מערכת הבלמים ובלם החניה"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "החלפה כל 40,000 ק\"מ (24 חודשים); בשאר הטיפולים בדיקת מפלס"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "שימון צירים ומנעולי דלתות וידיות הדלת החשמליות"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "צירי הנעה"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תיבת הגה ומוטות קצה"
+        },
+        {
+          "item": "body_underside",
+          "action": "adjust",
+          "note": "הידוק ברגים ואומים במרכב"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בולמי זעזועים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת מתח גבוה: בדיקה חזותית של המארז, בדיקת בידוד ובדיקה במחשב אבחון"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "מערכת ההנעה החשמלית, המטען המובנה וכל הרכב - סריקה במחשב אבחון"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "בדיקה חזותית של מערכת ההנעה והמטען המובנה; חלונות וצופר"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "תפקוד מערכת הבלמים ובלם החניה"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "החלפה כל 40,000 ק\"מ (24 חודשים); בשאר הטיפולים בדיקת מפלס"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "שימון צירים ומנעולי דלתות וידיות הדלת החשמליות"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "צירי הנעה"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תיבת הגה ומוטות קצה"
+        },
+        {
+          "item": "body_underside",
+          "action": "adjust",
+          "note": "הידוק ברגים ואומים במרכב"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בולמי זעזועים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 80000,
+      "items": [
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת מתח גבוה: בדיקה חזותית של המארז, בדיקת בידוד ובדיקה במחשב אבחון"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "מערכת ההנעה החשמלית, המטען המובנה וכל הרכב - סריקה במחשב אבחון"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "בדיקה חזותית של מערכת ההנעה והמטען המובנה; חלונות וצופר"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "תפקוד מערכת הבלמים ובלם החניה"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "החלפה כל 40,000 ק\"מ (24 חודשים); בשאר הטיפולים בדיקת מפלס"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "שימון צירים ומנעולי דלתות וידיות הדלת החשמליות"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "צירי הנעה"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תיבת הגה ומוטות קצה"
+        },
+        {
+          "item": "body_underside",
+          "action": "adjust",
+          "note": "הידוק ברגים ואומים במרכב"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בולמי זעזועים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 100000,
+      "items": [
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת מתח גבוה: בדיקה חזותית של המארז, בדיקת בידוד ובדיקה במחשב אבחון"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "מערכת ההנעה החשמלית, המטען המובנה וכל הרכב - סריקה במחשב אבחון"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "בדיקה חזותית של מערכת ההנעה והמטען המובנה; חלונות וצופר"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "תפקוד מערכת הבלמים ובלם החניה"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "החלפה כל 40,000 ק\"מ (24 חודשים); בשאר הטיפולים בדיקת מפלס"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "שימון צירים ומנעולי דלתות וידיות הדלת החשמליות"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "צירי הנעה"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תיבת הגה ומוטות קצה"
+        },
+        {
+          "item": "body_underside",
+          "action": "adjust",
+          "note": "הידוק ברגים ואומים במרכב"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בולמי זעזועים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת מתח גבוה: בדיקה חזותית של המארז, בדיקת בידוד ובדיקה במחשב אבחון"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "מערכת ההנעה החשמלית, המטען המובנה וכל הרכב - סריקה במחשב אבחון"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "בדיקה חזותית של מערכת ההנעה והמטען המובנה; חלונות וצופר"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "תפקוד מערכת הבלמים ובלם החניה"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "החלפה כל 40,000 ק\"מ (24 חודשים); בשאר הטיפולים בדיקת מפלס"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "שימון צירים ומנעולי דלתות וידיות הדלת החשמליות"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "צירי הנעה"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תיבת הגה ומוטות קצה"
+        },
+        {
+          "item": "body_underside",
+          "action": "adjust",
+          "note": "הידוק ברגים ואומים במרכב"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בולמי זעזועים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 140000,
+      "items": [
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת מתח גבוה: בדיקה חזותית של המארז, בדיקת בידוד ובדיקה במחשב אבחון; בדיקת אטימות אוויר של מארז הסוללה (בתשלום נוסף)"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "מערכת ההנעה החשמלית, המטען המובנה וכל הרכב - סריקה במחשב אבחון"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "בדיקה חזותית של מערכת ההנעה והמטען המובנה; חלונות וצופר"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "תפקוד מערכת הבלמים ובלם החניה"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "החלפה כל 40,000 ק\"מ (24 חודשים); בשאר הטיפולים בדיקת מפלס"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "שימון צירים ומנעולי דלתות וידיות הדלת החשמליות"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "צירי הנעה"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תיבת הגה ומוטות קצה"
+        },
+        {
+          "item": "body_underside",
+          "action": "adjust",
+          "note": "הידוק ברגים ואומים במרכב"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בולמי זעזועים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 160000,
+      "items": [
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת מתח גבוה: בדיקה חזותית של המארז, בדיקת בידוד ובדיקה במחשב אבחון"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "מערכת ההנעה החשמלית, המטען המובנה וכל הרכב - סריקה במחשב אבחון"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "בדיקה חזותית של מערכת ההנעה והמטען המובנה; חלונות וצופר"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "תפקוד מערכת הבלמים ובלם החניה"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "החלפה כל 40,000 ק\"מ (24 חודשים); בשאר הטיפולים בדיקת מפלס"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "שימון צירים ומנעולי דלתות וידיות הדלת החשמליות"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "צירי הנעה"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תיבת הגה ומוטות קצה"
+        },
+        {
+          "item": "body_underside",
+          "action": "adjust",
+          "note": "הידוק ברגים ואומים במרכב"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בולמי זעזועים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 180000,
+      "items": [
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת מתח גבוה: בדיקה חזותית של המארז, בדיקת בידוד ובדיקה במחשב אבחון"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "מערכת ההנעה החשמלית, המטען המובנה וכל הרכב - סריקה במחשב אבחון"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "בדיקה חזותית של מערכת ההנעה והמטען המובנה; חלונות וצופר"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "תפקוד מערכת הבלמים ובלם החניה"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "החלפה כל 40,000 ק\"מ (24 חודשים); בשאר הטיפולים בדיקת מפלס"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "שימון צירים ומנעולי דלתות וידיות הדלת החשמליות"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "צירי הנעה"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תיבת הגה ומוטות קצה"
+        },
+        {
+          "item": "body_underside",
+          "action": "adjust",
+          "note": "הידוק ברגים ואומים במרכב"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בולמי זעזועים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 200000,
+      "items": [
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת מתח גבוה: בדיקה חזותית של המארז, בדיקת בידוד ובדיקה במחשב אבחון"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "מערכת ההנעה החשמלית, המטען המובנה וכל הרכב - סריקה במחשב אבחון"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "בדיקה חזותית של מערכת ההנעה והמטען המובנה; חלונות וצופר"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "תפקוד מערכת הבלמים ובלם החניה"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "החלפה כל 40,000 ק\"מ (24 חודשים); בשאר הטיפולים בדיקת מפלס"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "שימון צירים ומנעולי דלתות וידיות הדלת החשמליות"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "צירי הנעה"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תיבת הגה ומוטות קצה"
+        },
+        {
+          "item": "body_underside",
+          "action": "adjust",
+          "note": "הידוק ברגים ואומים במרכב"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בולמי זעזועים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "transmission_oil",
+      "action": "replace",
+      "every_km": 80000,
+      "every_months": 48,
+      "note": "שמן תיבת הפחתה: כל 80,000 ק\"מ או 48 חודשים"
+    },
+    {
+      "item": "coolant",
+      "action": "replace",
+      "every_km": 80000,
+      "every_months": 48,
+      "note": "נוזל קירור: כל 80,000 ק\"מ או 48 חודשים"
+    }
+  ],
+  "time_based": [],
+  "specs": {},
+  "sources": [
+    {
+      "url": "https://geely.co.il/wp-content/uploads/2026/03/עבור-מרכזי-השירות-E245-לוח-אחזקה-עברית.pdf",
+      "kind": "importer",
+      "note": "לוח אחזקה E245 (EX5) בעברית, עמוד 1"
+    },
+    {
+      "url": "https://geely.co.il/wp-content/uploads/2025/12/חוברת-אחריות-פרטי-EX5-E245-J1-17092025.pdf",
+      "kind": "importer",
+      "note": "חוברת אחריות פרטי EX5 E245-J1 (לא נבדקה לעומק)"
+    }
+  ],
+  "status": "reviewed",
+  "notes": "הועתק מלוח האחזקה העברי של גיאו מוביליטי ל-EX5 (E245, \"עבור מרכזי השירות\"). נוזל קירור ושמן תיבת הפחתה מוחלפים כל 80,000 ק\"מ או 48 חודשים (ב-long_interval); בשאר הטיפולים בדיקת נוזל קירור."
+}

@@ -46,9 +46,14 @@ const MAKES = [
   ["טויוטה", "Toyota"], ["אלפא", "Alfa Romeo"], ["יונדאי", "Hyundai"], ["קיה", "Kia"], ["סקודה", "Skoda"],
   ["מאזדה", "Mazda"], ["מזדה", "Mazda"], ["מיצובישי", "Mitsubishi"], ["פורד", "Ford"], ["סיאט", "Seat"],
   ["פולקסווגן", "Volkswagen"], ["סוזוקי", "Suzuki"], ["ניסאן", "Nissan"], ["הונדה", "Honda"],
-  ["שברולט", "Chevrolet"], ["סובארו", "Subaru"], ["רנו", "Renault"], ["פיג'ו", "Peugeot"],
+  ["שברולט", "Chevrolet"], ["סובארו", "Subaru"], ["רנו", "Renault"], ["פיג'ו", "Peugeot"], ["פיגו", "Peugeot"], ["די אס", "DS"],
   ["סיטרואן", "Citroen"], ["אופל", "Opel"], ["צ'רי", "Chery"], ["ב.מ.וו", "BMW"], ["מרצדס", "Mercedes-Benz"],
-  ["אאודי", "Audi"], ["וולוו", "Volvo"], ["לקסוס", "Lexus"], ["דאציה", "Dacia"], ["פיאט", "Fiat"],
+  ["אאודי", "Audi"], ["אודי", "Audi"], ["וולוו", "Volvo"], ["וולבו", "Volvo"], ["לקסוס", "Lexus"], ["דאציה", "Dacia"], ["דאצ'יה", "Dacia"], ["פיאט", "Fiat"],
+  ["ב מ וו", "BMW"], ["בי ווי די", "BYD"], ["ג'אקו", "Jaecoo"], ["מ.ג", "MG"], ["גילי", "Geely"], ["איסוזו", "Isuzu"], ["טסלה", "Tesla"],
+  ["מרוטי", "Suzuki"], ["דייהטסו", "Daihatsu"], ["אקספנג", "Xpeng"], ["קרייזלר", "Chrysler"], ["לינק אנד קו", "Lynk & Co"], ["ג'יפ", "Jeep"],
+  ["זיקר", "Zeekr"], ["רובר", "Land Rover"], ["לנדרובר", "Land Rover"], ["דיפאל", "Deepal"], ["סרס", "Seres"], ["קאדילאק", "Cadillac"], ["סאנגיונג", "SsangYong"],
+  ["קיי גי מוביליט", "KGM"], ["אומודה", "Omoda"], ["אורה", "ORA"], ["דיימלר", "Mercedes-Benz"], ["ליפמוטור", "Leapmotor"], ["מקסוס", "Maxus"],
+  ["דונגפנג", "Dongfeng"], ["קופרה", "Cupra"], ["פורשה", "Porsche"], ["סמארט", "Smart"], ["סקיוול", "Skywell"], ["ביואיק", "Buick"], ["איווייס", "Aiways"],
 ];
 export function normalizeMake(raw) {
   if (!raw) return null;

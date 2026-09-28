@@ -1,0 +1,622 @@
+{
+  "make": "Jeep",
+  "make_he": "ג'יפ",
+  "importer": "סמלת",
+  "id": "jeep-compass-2018-2020-1.4-multiair",
+  "model": "Compass",
+  "model_he": "קומפאס",
+  "years": [
+    2017,
+    2020
+  ],
+  "engines": [
+    "1.4 Turbo MultiAir 170 כ\"ס (55263623)"
+  ],
+  "fuel": "petrol",
+  "interval": {
+    "km": 15000,
+    "months": 12,
+    "note": "לפי ספר הרכב העברי: טיפול כל 15,000 ק\"מ או שנה; שמן ומסנן כל 30,000 ק\"מ, ומי שנוסע פחות מ-10,000 ק\"מ בשנה - כל שנה"
+  },
+  "cycle_km": 120000,
+  "services": [
+    {
+      "km": 15000,
+      "items": [
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "פליטה/עשן"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מומלץ (לא חובה) בטיפולי הביניים"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "פליטה/עשן"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "כולל צנרת וחלקי גומי"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "clean",
+          "note": "מנעולים"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 45000,
+      "items": [
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "פליטה/עשן"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מומלץ (לא חובה) בטיפולי הביניים"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "פליטה/עשן"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "כולל צנרת וחלקי גומי"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "clean",
+          "note": "מנעולים"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "timing_belt",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 75000,
+      "items": [
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "פליטה/עשן"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מומלץ (לא חובה) בטיפולי הביניים"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "פליטה/עשן"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "כולל צנרת וחלקי גומי"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "clean",
+          "note": "מנעולים"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 105000,
+      "items": [
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "פליטה/עשן"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מומלץ (לא חובה) בטיפולי הביניים"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "פליטה/עשן"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "כולל צנרת וחלקי גומי"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "clean",
+          "note": "מנעולים"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "timing_belt",
+          "action": "inspect"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "timing_belt",
+      "action": "replace",
+      "every_km": 120000,
+      "every_months": 72,
+      "note": "באזור מאובק או בתנאים קשים: 60,000 ק\"מ או 4 שנים"
+    },
+    {
+      "item": "drive_belt",
+      "action": "replace",
+      "every_km": 120000,
+      "every_months": 72,
+      "note": "באזור מאובק או בתנאים קשים: 60,000 ק\"מ או 4 שנים"
+    },
+    {
+      "item": "brake_fluid",
+      "action": "replace",
+      "every_months": 24
+    }
+  ],
+  "time_based": [],
+  "specs": {
+    "oil_capacity": "3.2 ליטר (1.4 Turbo MultiAir)",
+    "coolant": "Paraflu Up מהול 50%, 5.2 ליטר",
+    "fuel": "בנזין 95, מיכל 48 ליטר",
+    "timing": "רצועת תזמון: 120,000 ק\"מ או 6 שנים (בתנאים קשים 60,000/4 שנים)"
+  },
+  "sources": [
+    {
+      "url": "https://samelet.com/wp-content/uploads/2023/11/Fiat-500X.pdf",
+      "kind": "importer",
+      "note": "ספר רכב עברי פיאט 500X (סמלת), תכנית טיפולים ל-1.4 Turbo MultiAir עמ' 158-160 - רכב אח (פלטפורמה ומנוע משותפים)"
+    },
+    {
+      "url": "https://samelet.com/wp-content/uploads/2023/11/Jeep_renegede_shortguide_151020.pdf",
+      "kind": "importer",
+      "note": "לרנגייד יש באתר סמלת רק מדריך מקוצר; ספר עברי מלא לא נמצא"
+    }
+  ],
+  "status": "draft",
+  "notes": "ספר עברי מלא לדגם זה לא נמצא, ולכן נלקחה תכנית 500X מספר סמלת (אותו מנוע 1.4 טורבו MultiAir ואותה פלטפורמה). לפי ספר הרכב העברי של סמלת ל-500X עם מנוע 1.4 טורבו MultiAir. בכל טיפול (15,000/שנה): בדיקות צמיגים, תאורה, נוזלים, בלמים ומחשב. כל 30,000: שמן ומסנן, מצתים, מסנני אוויר ומזגן ונוזל בלמים. ב-60,000 וב-120,000 בדיקת רצועות. רצועת תזמון ורצועת אביזרים: 120,000 ק\"מ או 6 שנים. מי שנוסע פחות מ-10,000 ק\"מ בשנה מחליף שמן כל שנה."
+}

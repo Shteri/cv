@@ -252,6 +252,9 @@ input, select, textarea { font: inherit; color: var(--ink); }
 .fold > summary::-webkit-details-marker { display: none; }
 .fold > summary::after { content: ""; width: 8px; height: 8px; border-right: 2px solid var(--muted); border-bottom: 2px solid var(--muted); transform: rotate(45deg); transition: transform .35s var(--spring); margin-top: -4px; }
 .fold[open] > summary::after { transform: rotate(-135deg); margin-top: 4px; }
+.fold > summary + .chk { border-top: 0; }
+.fold-n { margin-inline-start: 6px; font: 500 .8rem/1 var(--font-text); color: var(--muted); font-variant-numeric: tabular-nums; }
+.insp-fold, .insp-fold + .fold { border-top: 1px solid var(--line); }
 
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; } }
 
@@ -333,6 +336,14 @@ label.btn { cursor: pointer; }
 .thumbs button { position: relative; padding: 0; border-radius: var(--r-field); overflow: hidden; }
 .thumbs .lb { position: absolute; bottom: 0; left: 0; right: 0; font-size: .65rem; background: color-mix(in srgb, var(--shade) 72%, transparent); color: var(--white); text-align: center; padding: 2px 4px; }
 
+/* Open recalls (feature session, 28.9.2026): a safety notice, so it borrows the critical status colour */
+.recall { border: 1.5px solid var(--crit); }
+.recall .rc { padding: 10px 0; border-top: 1px solid var(--line); }
+.recall .rc:first-of-type { border-top: 0; }
+.recall .rc .t { font-weight: 600; }
+.recall .acts { display: flex; gap: 8px; margin-top: 8px; flex-wrap: wrap; }
+.recall .acts .btn { width: auto; padding: 8px 14px; font-size: .9rem; }
+.ok-text { color: var(--good); }
 /* fixes from the walkthrough audit */
 /* sheet content must scroll, never shrink: flex children keep their natural height */
 .sheet .panel > * { flex-shrink: 0; }

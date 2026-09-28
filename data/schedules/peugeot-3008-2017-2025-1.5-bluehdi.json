@@ -1,0 +1,977 @@
+{
+  "make": "Peugeot",
+  "make_he": "פיג'ו",
+  "importer": "דוד לובינסקי",
+  "id": "peugeot-3008-2017-2025-1.5-bluehdi",
+  "model": "3008",
+  "model_he": "3008",
+  "generation": "P84",
+  "years": [
+    2017,
+    2025
+  ],
+  "engines": [
+    "1.5 BlueHDi (DV5RC/DV5RD, קוד YH01)"
+  ],
+  "fuel": "diesel",
+  "interval": {
+    "km": 15000,
+    "months": 12,
+    "note": "לפי ספר הרכב העברי של פיאט דובלו (סמלת, 2026, אותו רכב ומנוע כמו ברלינגו K9): טיפול כל 15,000 ק\"מ או שנה. גם ספר אופל העברי מציין לישראל 15,000 ק\"מ/שנה למנוע DV5"
+  },
+  "cycle_km": 120000,
+  "services": [
+    {
+      "km": 15000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "כולל כיוון מתזים"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "חופשים במערכת ההיגוי"
+        },
+        {
+          "item": "adblue",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "ניקוי קטבים"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "קריאת תקלות ואיפוס מחשב טיפולים"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "אטימות בולמים"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "בדיקת רצועה ומותחן"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "כולל כיוון מתזים"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "חופשים במערכת ההיגוי"
+        },
+        {
+          "item": "adblue",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "ניקוי קטבים"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "קריאת תקלות ואיפוס מחשב טיפולים"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "אטימות בולמים"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "בדיקת רצועה ומותחן"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "באזור מאובק: כל 10,000 ק\"מ"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "door_hinges",
+          "action": "clean",
+          "note": "ניקוי ושימון מנעולים ומסילות דלת הזזה"
+        }
+      ]
+    },
+    {
+      "km": 45000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "כולל כיוון מתזים"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "חופשים במערכת ההיגוי"
+        },
+        {
+          "item": "adblue",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "ניקוי קטבים"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "קריאת תקלות ואיפוס מחשב טיפולים"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "אטימות בולמים"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "בדיקת רצועה ומותחן"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "כולל כיוון מתזים"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "חופשים במערכת ההיגוי"
+        },
+        {
+          "item": "adblue",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "ניקוי קטבים"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "קריאת תקלות ואיפוס מחשב טיפולים"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "אטימות בולמים"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "בדיקת רצועה ומותחן"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "באזור מאובק: כל 10,000 ק\"מ"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "door_hinges",
+          "action": "clean",
+          "note": "ניקוי ושימון מנעולים ומסילות דלת הזזה"
+        }
+      ]
+    },
+    {
+      "km": 75000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "כולל כיוון מתזים"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "חופשים במערכת ההיגוי"
+        },
+        {
+          "item": "adblue",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "ניקוי קטבים"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "קריאת תקלות ואיפוס מחשב טיפולים"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "אטימות בולמים"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "בדיקת רצועה ומותחן"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "כולל כיוון מתזים"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "חופשים במערכת ההיגוי"
+        },
+        {
+          "item": "adblue",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "ניקוי קטבים"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "קריאת תקלות ואיפוס מחשב טיפולים"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "אטימות בולמים"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "בדיקת רצועה ומותחן"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "באזור מאובק: כל 10,000 ק\"מ"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "door_hinges",
+          "action": "clean",
+          "note": "ניקוי ושימון מנעולים ומסילות דלת הזזה"
+        }
+      ]
+    },
+    {
+      "km": 105000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "כולל כיוון מתזים"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "חופשים במערכת ההיגוי"
+        },
+        {
+          "item": "adblue",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "ניקוי קטבים"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "קריאת תקלות ואיפוס מחשב טיפולים"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "אטימות בולמים"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "בדיקת רצועה ומותחן"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "כולל כיוון מתזים"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "חופשים במערכת ההיגוי"
+        },
+        {
+          "item": "adblue",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "ניקוי קטבים"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "קריאת תקלות ואיפוס מחשב טיפולים"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "אטימות בולמים"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "בדיקת רצועה ומותחן"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "באזור מאובק: כל 10,000 ק\"מ"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "door_hinges",
+          "action": "clean",
+          "note": "ניקוי ושימון מנעולים ומסילות דלת הזזה"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "timing_belt",
+      "action": "replace",
+      "every_km": 120000,
+      "every_months": 60,
+      "note": "יחד עם משאבת המים"
+    },
+    {
+      "item": "drive_belt",
+      "action": "replace",
+      "every_km": 120000,
+      "every_months": 60,
+      "note": "רצועה ומותחן"
+    },
+    {
+      "item": "brake_fluid",
+      "action": "replace",
+      "every_months": 24,
+      "note": "ללא קשר לק\"מ"
+    },
+    {
+      "item": "coolant",
+      "action": "inspect",
+      "first_km": 120000,
+      "first_months": 48,
+      "then_every_km": 15000,
+      "then_every_months": 12,
+      "note": "בדיקת pH; החלפה כשהערך נמוך מ-6.3"
+    }
+  ],
+  "time_based": [],
+  "specs": {
+    "engine_oil": "SAE 5W-30 ACEA C3 (מפרט פיאט 9.55535/03)",
+    "oil_capacity": "כ-4 ליטר עם מסנן (נוסעים); 5.3 ליטר (מסחרי)",
+    "coolant": "Freecor DSC מהול 50% במים מזוקקים",
+    "brake_fluid": "DOT 4",
+    "timing": "רצועת תזמון: החלפה כל 120,000 ק\"מ או 5 שנים",
+    "_note": "נתוני נוזלים מספר הדובלו העברי; בברלינגו/פרטנר/קומבו הכמויות עשויות להיות שונות"
+  },
+  "sources": [
+    {
+      "url": "https://samelet.com/wp-content/uploads/2024/02/Fiat_Doblo_carbook_062026.pdf",
+      "kind": "importer",
+      "note": "ספר רכב עברי פיאט דובלו (סמלת, 06/2026), תכנית טיפולים למנוע דיזל 1.5, עמ' 252-254 (PDF 253-255). רכב אח של ברלינגו K9 עם אותו מנוע"
+    },
+    {
+      "url": "https://books.union-motors.co.il/app/api/files/1190/download",
+      "kind": "importer",
+      "note": "לוח אחזקה של טויוטה פרואייס סיטי (יוניון מוטורס, 07/2021), מנוע DV5RD/DV5RC, עמודות 15,000 ק\"מ עד 210,000"
+    },
+    {
+      "url": "https://public-servicebox.opel.com/OVddb/OV/he_IL/Corsa_F/2017_2022/2021_05/manual_user/ID-OCRFOLSE2105-he_11_online.pdf",
+      "kind": "importer",
+      "note": "ספר הנהג העברי של אופל קורסה F (2021), עמ' 205: ישראל בקבוצת מדינות 4, טיפול כל 15,000 ק\"מ או שנה למנועי EB2 1.2 ו-DV5 1.5"
+    },
+    {
+      "url": "https://media-peugeot.lubit.co.il/wp-content/uploads/2023/06/Warranty-Peugeot-3Y-01.2024_Web-%D7%9E%D7%95%D7%A0%D7%92%D7%A9.pdf",
+      "kind": "importer",
+      "note": "חוברת אחריות ושירות של לובינסקי (פיג'ו; זהה בסיטרואן/אופל): אין בה טבלת ק\"מ; תכנית הטיפולים האישית נמסרת עם הרכב. דפי ספרי הרכב ב-lubinski.clearmash.com חסומים (Cloudflare 403)"
+    }
+  ],
+  "status": "draft",
+  "notes": "היבואן לובינסקי לא מפרסם לוח טיפולים (התכנית נמסרת אישית עם הרכב), ולכן הלוח נלקח מספר הרכב העברי של פיאט דובלו החדש, שהוא אותו רכב (פלטפורמת K9) עם אותו מנוע 1.5 BlueHDi. בכל טיפול: שמן ומסנן ובדיקות; כל 30,000: מסנני סולר, אוויר ומזגן. רצועת תזמון ומשאבת מים וגם רצועת אביזרים: 120,000 ק\"מ או 5 שנים. לוח היבואן יוניון לטויוטה פרואייס סיטי (אותו רכב ומנוע) מחמיר פחות: רצועת תזמון 180,000 ק\"מ/10 שנים ורצועת אביזרים לראשונה ב-120,000 ואחר כך כל 160,000. נוזל בלמים כל שנתיים. בדיקת סתימת מסנן חלקיקים מ-120,000 ק\"מ או 5 שנים ובכל טיפול אחר כך."
+}

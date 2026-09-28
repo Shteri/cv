@@ -1,0 +1,531 @@
+{
+  "id": "vw-transporter-t61-2021-2025-2.0-tdi",
+  "make": "Volkswagen",
+  "make_he": "פולקסווגן",
+  "model": "Transporter / Caravelle T6.1",
+  "model_he": "טרנספורטר / קרוואל T6.1",
+  "generation": "T6.1",
+  "years": [
+    2021,
+    2025
+  ],
+  "engines": [
+    "2.0 TDI (DNA)"
+  ],
+  "fuel": "diesel",
+  "importer": "צ'מפיון מוטורס",
+  "interval": {
+    "km": 20000,
+    "months": 12,
+    "note": "לפי טבלת צ'מפיון לרכב מסחרי T6.1: טיפול כל 20,000 ק\"מ"
+  },
+  "cycle_km": 240000,
+  "services": [
+    {
+      "km": 20000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "קדמיות ואחוריות, כולל מצב הדיסקים"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 40000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "קדמיות ואחוריות, כולל מצב הדיסקים"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "timing_belt",
+          "action": "inspect",
+          "note": "בדיקת רצועת תזמון, מותחן וגלגלת סרק"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "קדמיות ואחוריות, כולל מצב הדיסקים"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "replace",
+          "note": "שמן תיבת הילוכים ומסנן"
+        },
+        {
+          "item": "drive_belt",
+          "action": "replace",
+          "note": "רצועת מנוע"
+        }
+      ]
+    },
+    {
+      "km": 80000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "קדמיות ואחוריות, כולל מצב הדיסקים"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "timing_belt",
+          "action": "replace",
+          "note": "רצועת תזמון עם מותחן וגלגלת סרק"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 100000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "קדמיות ואחוריות, כולל מצב הדיסקים"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "קדמיות ואחוריות, כולל מצב הדיסקים"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace",
+          "note": "מסנן סולר"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "replace",
+          "note": "שמן תיבת הילוכים ומסנן"
+        },
+        {
+          "item": "drive_belt",
+          "action": "replace",
+          "note": "רצועת מנוע"
+        },
+        {
+          "item": "timing_belt",
+          "action": "inspect",
+          "note": "בדיקת רצועת תזמון, מותחן וגלגלת סרק"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 140000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "קדמיות ואחוריות, כולל מצב הדיסקים"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 160000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "קדמיות ואחוריות, כולל מצב הדיסקים"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "timing_belt",
+          "action": "replace",
+          "note": "רצועת תזמון עם מותחן וגלגלת סרק"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 180000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "קדמיות ואחוריות, כולל מצב הדיסקים"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "replace",
+          "note": "שמן תיבת הילוכים ומסנן"
+        },
+        {
+          "item": "drive_belt",
+          "action": "replace",
+          "note": "רצועת מנוע"
+        }
+      ]
+    },
+    {
+      "km": 200000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "קדמיות ואחוריות, כולל מצב הדיסקים"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "timing_belt",
+          "action": "inspect",
+          "note": "בדיקת רצועת תזמון, מותחן וגלגלת סרק"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 220000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "קדמיות ואחוריות, כולל מצב הדיסקים"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 240000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "קדמיות ואחוריות, כולל מצב הדיסקים"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace",
+          "note": "מסנן סולר"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "replace",
+          "note": "שמן תיבת הילוכים ומסנן"
+        },
+        {
+          "item": "drive_belt",
+          "action": "replace",
+          "note": "רצועת מנוע"
+        },
+        {
+          "item": "timing_belt",
+          "action": "replace",
+          "note": "רצועת תזמון עם מותחן וגלגלת סרק"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "air_filter",
+      "action": "replace",
+      "every_km": 30000,
+      "every_months": 24,
+      "note": "כולל ניקוי בית המסנן"
+    },
+    {
+      "item": "cabin_filter",
+      "action": "replace",
+      "every_km": 30000,
+      "every_months": 12
+    },
+    {
+      "item": "brake_fluid",
+      "action": "replace",
+      "every_months": 24,
+      "note": "נוזל בלמים ומצמד"
+    },
+    {
+      "item": "differential_oil",
+      "action": "replace",
+      "every_months": 24,
+      "note": "שמן מצמד ההנעה הכפולה (הלדקס), רק ב-4MOTION"
+    }
+  ],
+  "time_based": [],
+  "sources": [
+    {
+      "url": "https://www.championmotors.co.il/service-routine/",
+      "kind": "importer",
+      "note": "שגרת טיפולים תקופתיים של צ'מפיון מוטורס, טבלאות לפי נפח וסוג מנוע (15,000 עד 120,000 ק\"מ). הדף חסום לבוטים; נקרא בדפדפן אמיתי (Playwright) ב-28.9.2026 והטבלאות פוענחו מקוד הדף"
+    },
+    {
+      "url": "https://vwts.ru/diesel-engine-vw-audi-skoda-repair-manual.html",
+      "kind": "other",
+      "note": "אינדקס ספרי תיקון מנועי דיזל של קבוצת פולקסווגן לפי קודי מנוע"
+    }
+  ],
+  "status": "reviewed",
+  "notes": "קבוצת פולקסווגן משתמשת באותן טבלאות שירות לכל הדגמים על אותה פלטפורמה ומשפחת מנוע, ולכן הקובץ נבנה מתבנית משותפת ומשויך לרכב לפי קוד המנוע ברישיון. הלוח הועתק מטבלת 'Transporter T6.1' בשגרת הטיפולים של צ'מפיון מוטורס (רכב מסחרי): טיפול כל 20,000 ק\"מ עד 240,000. לפי הערת היבואן, נתוני רצועת התזמון מותאמים לקוד מנוע DNAA (נכון לאוקטובר 2024). מסנני האוויר והמזגן מוחלפים לפי 30,000 ק\"מ ולכן מופיעים בלוח ארוך הטווח. בדיקות המצבר, התאורה, הצמיגים, מערכת הבלמים והקירור כל 40,000 ק\"מ הוספו כהערכה כללית של בדיקת רכב ואינן בטבלת היבואן."
+}

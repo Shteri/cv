@@ -1,0 +1,1127 @@
+{
+  "id": "isuzu-d-max-2012-2020-2.5-1.9-diesel",
+  "make": "Isuzu",
+  "make_he": "איסוזו",
+  "model": "D-Max",
+  "model_he": "די-מקס (פיק-אפ)",
+  "generation": "RT (2nd gen)",
+  "years": [
+    2012,
+    2020
+  ],
+  "engines": [
+    "2.5 (4JK1-TC)",
+    "1.9 Blue Power (RZ4E-TC)",
+    "3.0 (4JJ1-TC)"
+  ],
+  "fuel": "diesel",
+  "importer": "יוניברסל מוטורס ישראל",
+  "interval": {
+    "km": 10000,
+    "months": 12,
+    "note": "לפי ספר הבעלים של איסוזו בריטניה: בדיקות כל 10,000 ק\"מ או 12 חודשים; שמן ומסנן כל 20,000 ק\"מ או 24 חודשים"
+  },
+  "cycle_km": 120000,
+  "services": [
+    {
+      "km": 10000,
+      "items": [
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "חיבורים ומפרקים; גירוז בגרסת 4X4"
+        },
+        {
+          "item": "differential_oil",
+          "action": "replace",
+          "note": "קדמי ואחורי: החלפה ראשונה ב-10,000 ואחר כך כל 40,000"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בדיקת חופש מסבי רכזות בכל טיפול; קפיצים, בולמים ותותבים כל 20,000"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "חיזוק אומי גלגלים בכל טיפול; לחץ ונזק כל 20,000"
+        }
+      ]
+    },
+    {
+      "km": 20000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect",
+          "note": "כל הצינורות בתא המנוע"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "כולל מיכל הדלק"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "ריכוז נוזל הקירור"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "clutch",
+          "action": "inspect",
+          "note": "גיר ידני: נוזל מצמד (החלפה כל 40,000) ומהלך הדוושה"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect",
+          "note": "גיר ידני"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect",
+          "note": "4X4"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי: בדיקת דליפות"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "חיבורים ומפרקים; גירוז בגרסת 4X4"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גומיות ציר קדמי, בית סרן וצירים"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בדיקת חופש מסבי רכזות בכל טיפול; קפיצים, בולמים ותותבים כל 20,000"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "חיזוק אומי גלגלים בכל טיפול; לחץ ונזק כל 20,000"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "חיבורים ומפרקים; גירוז בגרסת 4X4"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בדיקת חופש מסבי רכזות בכל טיפול; קפיצים, בולמים ותותבים כל 20,000"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "חיזוק אומי גלגלים בכל טיפול; לחץ ונזק כל 20,000"
+        }
+      ]
+    },
+    {
+      "km": 40000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect",
+          "note": "כל הצינורות בתא המנוע"
+        },
+        {
+          "item": "valve_clearance",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "כולל מיכל הדלק"
+        },
+        {
+          "item": "coolant",
+          "action": "replace",
+          "note": "עם נוזל קירור מומלץ של איסוזו"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "clutch",
+          "action": "inspect",
+          "note": "גיר ידני: נוזל מצמד (החלפה כל 40,000) ומהלך הדוושה"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect",
+          "note": "גיר ידני"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect",
+          "note": "4X4"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי: בדיקת דליפות"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "חיבורים ומפרקים; גירוז בגרסת 4X4"
+        },
+        {
+          "item": "differential_oil",
+          "action": "replace",
+          "note": "קדמי ואחורי: החלפה ראשונה ב-10,000 ואחר כך כל 40,000"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גומיות ציר קדמי, בית סרן וצירים"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בדיקת חופש מסבי רכזות בכל טיפול; קפיצים, בולמים ותותבים כל 20,000"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "חיזוק אומי גלגלים בכל טיפול; לחץ ונזק כל 20,000"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 50000,
+      "items": [
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "חיבורים ומפרקים; גירוז בגרסת 4X4"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בדיקת חופש מסבי רכזות בכל טיפול; קפיצים, בולמים ותותבים כל 20,000"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "חיזוק אומי גלגלים בכל טיפול; לחץ ונזק כל 20,000"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect",
+          "note": "כל הצינורות בתא המנוע"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "כולל מיכל הדלק"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "ריכוז נוזל הקירור"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "clutch",
+          "action": "inspect",
+          "note": "גיר ידני: נוזל מצמד (החלפה כל 40,000) ומהלך הדוושה"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect",
+          "note": "גיר ידני"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect",
+          "note": "4X4"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי: בדיקת דליפות"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "חיבורים ומפרקים; גירוז בגרסת 4X4"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גומיות ציר קדמי, בית סרן וצירים"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בדיקת חופש מסבי רכזות בכל טיפול; קפיצים, בולמים ותותבים כל 20,000"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "חיזוק אומי גלגלים בכל טיפול; לחץ ונזק כל 20,000"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 70000,
+      "items": [
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "חיבורים ומפרקים; גירוז בגרסת 4X4"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בדיקת חופש מסבי רכזות בכל טיפול; קפיצים, בולמים ותותבים כל 20,000"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "חיזוק אומי גלגלים בכל טיפול; לחץ ונזק כל 20,000"
+        }
+      ]
+    },
+    {
+      "km": 80000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect",
+          "note": "כל הצינורות בתא המנוע"
+        },
+        {
+          "item": "valve_clearance",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "כולל מיכל הדלק"
+        },
+        {
+          "item": "coolant",
+          "action": "replace",
+          "note": "עם נוזל קירור מומלץ של איסוזו"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "clutch",
+          "action": "inspect",
+          "note": "גיר ידני: נוזל מצמד (החלפה כל 40,000) ומהלך הדוושה"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect",
+          "note": "גיר ידני"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect",
+          "note": "4X4"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי: בדיקת דליפות"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "חיבורים ומפרקים; גירוז בגרסת 4X4"
+        },
+        {
+          "item": "differential_oil",
+          "action": "replace",
+          "note": "קדמי ואחורי: החלפה ראשונה ב-10,000 ואחר כך כל 40,000"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גומיות ציר קדמי, בית סרן וצירים"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בדיקת חופש מסבי רכזות בכל טיפול; קפיצים, בולמים ותותבים כל 20,000"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "חיזוק אומי גלגלים בכל טיפול; לחץ ונזק כל 20,000"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "חיבורים ומפרקים; גירוז בגרסת 4X4"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בדיקת חופש מסבי רכזות בכל טיפול; קפיצים, בולמים ותותבים כל 20,000"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "חיזוק אומי גלגלים בכל טיפול; לחץ ונזק כל 20,000"
+        }
+      ]
+    },
+    {
+      "km": 100000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect",
+          "note": "כל הצינורות בתא המנוע"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "כולל מיכל הדלק"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "ריכוז נוזל הקירור"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "clutch",
+          "action": "inspect",
+          "note": "גיר ידני: נוזל מצמד (החלפה כל 40,000) ומהלך הדוושה"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect",
+          "note": "גיר ידני"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect",
+          "note": "4X4"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי: בדיקת דליפות"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "חיבורים ומפרקים; גירוז בגרסת 4X4"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גומיות ציר קדמי, בית סרן וצירים"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בדיקת חופש מסבי רכזות בכל טיפול; קפיצים, בולמים ותותבים כל 20,000"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "חיזוק אומי גלגלים בכל טיפול; לחץ ונזק כל 20,000"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 110000,
+      "items": [
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "חיבורים ומפרקים; גירוז בגרסת 4X4"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בדיקת חופש מסבי רכזות בכל טיפול; קפיצים, בולמים ותותבים כל 20,000"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "חיזוק אומי גלגלים בכל טיפול; לחץ ונזק כל 20,000"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect",
+          "note": "כל הצינורות בתא המנוע"
+        },
+        {
+          "item": "valve_clearance",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "כולל מיכל הדלק"
+        },
+        {
+          "item": "coolant",
+          "action": "replace",
+          "note": "עם נוזל קירור מומלץ של איסוזו"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "clutch",
+          "action": "inspect",
+          "note": "גיר ידני: נוזל מצמד (החלפה כל 40,000) ומהלך הדוושה"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect",
+          "note": "גיר ידני"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect",
+          "note": "4X4"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי: בדיקת דליפות"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "חיבורים ומפרקים; גירוז בגרסת 4X4"
+        },
+        {
+          "item": "differential_oil",
+          "action": "replace",
+          "note": "קדמי ואחורי: החלפה ראשונה ב-10,000 ואחר כך כל 40,000"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גומיות ציר קדמי, בית סרן וצירים"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בדיקת חופש מסבי רכזות בכל טיפול; קפיצים, בולמים ותותבים כל 20,000"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "חיזוק אומי גלגלים בכל טיפול; לחץ ונזק כל 20,000"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "transmission_oil",
+      "action": "inspect",
+      "every_km": 100000,
+      "every_months": 60,
+      "note": "גיר אוטומטי"
+    }
+  ],
+  "time_based": [],
+  "sources": [
+    {
+      "url": "https://www.isuzu.co.uk/wp-content/uploads/2024/05/isuzu-d-max-owners-manual-combined-17my.pdf",
+      "kind": "manufacturer",
+      "note": "Isuzu UK, D-Max 17MY Owner's Manual, \"Maintenance Schedule: TFR/S 86 (4JK1-TCY)\" עמ' 6-123 עד 6-125 (עמודי PDF 583-585); טבלת RZ4E בעמ' 6-126 עד 6-128"
+    },
+    {
+      "url": "https://www.isuzu.co.uk/d-max-community/owners-manuals/",
+      "kind": "manufacturer",
+      "note": "ספריית ספרי הבעלים של איסוזו בריטניה"
+    }
+  ],
+  "status": "draft",
+  "notes": "טיוטה: לא נמצא ספר רכב או שירות עברי של יוניברסל מוטורס (isuzu.co.il חוסם גישה אוטומטית). הלוח נבנה מטבלת התחזוקה בספר הבעלים הבריטי לדי-מקס RT (מנוע 2.5 4JK1; הטבלה ל-1.9 RZ4E באותו ספר דומה). הטבלה משלבת מרווחים של 10,000 ו-20,000 ק\"מ: בדיקות בלמים, גל הינע ואומי גלגלים כל 10,000 או 12 חודשים; שמן ומסנן, מסנן מזגן ורוב הבדיקות כל 20,000 או 24 חודשים; מרווח שסתומים, מסנן אוויר, נוזל קירור, נוזל בלמים ונוזל מצמד מוחלפים כל 40,000 או 48 חודשים; שמן דיפרנציאלים: החלפה ראשונה ב-10,000 ואחר כך כל 40,000; שמן הגה כוח כל 80,000; גריז מסבי רכזת קדמיים כל 30,000 או 36 חודשים; צינור הגה כוח כל 100,000 או 10 שנים; נוזל גיר אוטומטי נבדק כל 100,000 או 60 חודשים; מסנן סולר מוחלף כשנורית המסנן נדלקת. בישראל ייתכן שהיבואן עובד במרווח אחר (למשל 15,000) - לאמת. דגמי 2004-2011 (TF) אינם מכוסים."
+}

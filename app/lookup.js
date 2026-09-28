@@ -49,6 +49,48 @@
     } finally { if (t) clearTimeout(t); }
   }
 
+  // Open recalls for one vehicle. Two MoT datasets on data.gov.il, joined on RECALL_ID:
+  //  - "כלי רכב שלא ביצעו ריקול": one row per plate x recall that is still open
+  //  - "הודעות יצרני הרכב RECALL": the notice itself (importer, phone, website, how it is fixed)
+  const OPEN_RECALLS = "36bf1404-0be4-49d2-82dc-2f1ead4a8b93";
+  const RECALL_NOTICES = "2c33523f-87aa-44ec-a736-edbb0a82975e";
+  const clean = v => String(v == null ? "" : v).replace(/\s+/g, " ").trim();
+  const siteUrl = v => { const u = clean(v).toLowerCase(); if (!u) return ""; return /^https?:\/\//.test(u) ? u : "https://" + u; };
+  async function ckan(f, resource, filters, limit, signal) {
+    const url = `${CKAN}?resource_id=${resource}&filters=${encodeURIComponent(JSON.stringify(filters))}&limit=${limit}`;
+    const res = await f(url, { signal });
+    if (!res.ok) throw new Error("http_" + res.status);
+    const json = await res.json();
+    return (json && json.result && json.result.records) || [];
+  }
+  async function fetchRecalls(plate, { timeoutMs = 8000, fetchImpl } = {}) {
+    const digits = normalizePlate(plate);
+    if (digits.length < 7 || digits.length > 8) throw new Error("bad_plate");
+    const f = fetchImpl || global.fetch;
+    const ctrl = typeof AbortController !== "undefined" ? new AbortController() : null;
+    const t = ctrl && setTimeout(() => ctrl.abort(), timeoutMs);
+    try {
+      const open = await ckan(f, OPEN_RECALLS, { MISPAR_RECHEV: Number(digits) }, 50, ctrl && ctrl.signal);
+      const ids = [...new Set(open.map(r => r.RECALL_ID))];
+      const notices = ids.length ? await ckan(f, RECALL_NOTICES, { RECALL_ID: ids }, 100, ctrl && ctrl.signal).catch(() => []) : [];
+      const byId = new Map(notices.map(n => [n.RECALL_ID, n]));
+      return ids.map(id => {
+        const o = open.find(r => r.RECALL_ID === id), n = byId.get(id) || {};
+        return {
+          id,
+          kind: clean(o.SUG_RECALL || n.SUG_RECALL),          // e.g. "תקלה סידרתית בטיחותית"
+          system: clean(o.SUG_TAKALA || n.SUG_TAKALA),        // e.g. "מנוע ומערכותיו"
+          text: clean(n.TEUR_TAKALA || o.TEUR_TAKALA),
+          fix: clean(n.OFEN_TIKUN),                           // e.g. "החלפה" | "בדיקה"
+          opened: clean(o.TAARICH_PTICHA).slice(0, 10) || null,
+          importer: clean(n.YEVUAN_TEUR),
+          phone: clean(n.TELEPHONE),
+          website: siteUrl(n.WEBSITE)
+        };
+      }).sort((a, b) => String(b.opened).localeCompare(String(a.opened)));
+    } finally { if (t) clearTimeout(t); }
+  }
+
   // The registry writes the maker with its country ("טויוטה יפן", "יונדאי קוריאה", "מזדה יפן").
   // Strip it and map to the English make names used in data/registry_map.json and data/models.json.
   const MAKES = [
@@ -89,5 +131,5 @@
     return { status: makeKnown ? (nameKnown ? "unsupported_year" : "unsupported_model") : "unsupported_make", make };
   }
 
-  global.TipulitLookup = { normalizePlate, normalizeRecord, normalizeMake, fetchVehicle, resolveSchedule, VEHICLES };
+  global.TipulitLookup = { normalizePlate, normalizeRecord, normalizeMake, fetchVehicle, fetchRecalls, resolveSchedule, VEHICLES };
 })(typeof window !== "undefined" ? window : globalThis);

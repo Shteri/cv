@@ -1,0 +1,869 @@
+{
+  "id": "jaecoo-7-2024-2025-1.6t",
+  "make": "Jaecoo",
+  "make_he": "ג'אקו",
+  "model": "Jaecoo 7",
+  "model_he": "ג'אקו 7",
+  "generation": "Jaecoo 7",
+  "years": [
+    2024,
+    2025
+  ],
+  "engines": [
+    "1.6 TGDI (SQRF4J16F) + 7DCT"
+  ],
+  "fuel": "petrol",
+  "importer": "כלמוביל",
+  "interval": {
+    "km": 15000,
+    "months": 12,
+    "note": "לפי ספר הרכב של היבואן: טבלת תחזוקה בעמודות של 15,000 ק\"מ או 12 חודשים; טיפול ראשון ב-15,000 ק\"מ או 12 חודשים"
+  },
+  "cycle_km": 120000,
+  "services": [
+    {
+      "km": 15000,
+      "items": [
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "מחוונים ומולטימדיה"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "להבים קדמיים ואחורי"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "יעילות קירור ומערכת מיזוג"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "כל שנה או 10,000 ק\"מ - בכל טיפול"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס ונקודת קפיאה"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס וריכוז מים"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "dct_oil",
+          "action": "inspect",
+          "note": "נוזל תיבת הילוכים 730DHB: כל 60,000 ק\"מ; בשאר הטיפולים מפלס"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "מתח מצבר"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בולמי זעזועים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גל הינע וגומיות"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "מומנט ברגי שלדה, עוקת שמן ובורג ניקוז, גוף תיבת ההילוכים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תיבת הגה, עמוד הגה, מוטות ומפרקים כדוריים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "מראה, סוליה, לחץ (כולל חלופי) ומומנט ברגי גלגל"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "כל שנה או 10,000 ק\"מ - בכל טיפול"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "מחוונים ומולטימדיה"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "להבים קדמיים ואחורי"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "יעילות קירור ומערכת מיזוג"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "כל שנה או 10,000 ק\"מ - בכל טיפול"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס ונקודת קפיאה"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס וריכוז מים"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "dct_oil",
+          "action": "inspect",
+          "note": "נוזל תיבת הילוכים 730DHB: כל 60,000 ק\"מ; בשאר הטיפולים מפלס"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "מתח מצבר"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בולמי זעזועים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גל הינע וגומיות"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "מומנט ברגי שלדה, עוקת שמן ובורג ניקוז, גוף תיבת ההילוכים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תיבת הגה, עמוד הגה, מוטות ומפרקים כדוריים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "מראה, סוליה, לחץ (כולל חלופי) ומומנט ברגי גלגל"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "כל שנה או 10,000 ק\"מ - בכל טיפול"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 45000,
+      "items": [
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "מחוונים ומולטימדיה"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "להבים קדמיים ואחורי"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "יעילות קירור ומערכת מיזוג"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "כל שנה או 10,000 ק\"מ - בכל טיפול"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס ונקודת קפיאה"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס וריכוז מים"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "dct_oil",
+          "action": "inspect",
+          "note": "נוזל תיבת הילוכים 730DHB: כל 60,000 ק\"מ; בשאר הטיפולים מפלס"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "מתח מצבר"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בולמי זעזועים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גל הינע וגומיות"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "מומנט ברגי שלדה, עוקת שמן ובורג ניקוז, גוף תיבת ההילוכים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תיבת הגה, עמוד הגה, מוטות ומפרקים כדוריים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "מראה, סוליה, לחץ (כולל חלופי) ומומנט ברגי גלגל"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "כל שנה או 10,000 ק\"מ - בכל טיפול"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "מחוונים ומולטימדיה"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "להבים קדמיים ואחורי"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "יעילות קירור ומערכת מיזוג"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "כל שנה או 10,000 ק\"מ - בכל טיפול"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס ונקודת קפיאה"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס וריכוז מים"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "dct_oil",
+          "action": "replace",
+          "note": "נוזל תיבת הילוכים 730DHB: כל 60,000 ק\"מ; בשאר הטיפולים מפלס"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "מתח מצבר"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בולמי זעזועים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גל הינע וגומיות"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "מומנט ברגי שלדה, עוקת שמן ובורג ניקוז, גוף תיבת ההילוכים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תיבת הגה, עמוד הגה, מוטות ומפרקים כדוריים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "מראה, סוליה, לחץ (כולל חלופי) ומומנט ברגי גלגל"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "כל שנה או 10,000 ק\"מ - בכל טיפול"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 75000,
+      "items": [
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "מחוונים ומולטימדיה"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "להבים קדמיים ואחורי"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "יעילות קירור ומערכת מיזוג"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "כל שנה או 10,000 ק\"מ - בכל טיפול"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס ונקודת קפיאה"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס וריכוז מים"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "dct_oil",
+          "action": "inspect",
+          "note": "נוזל תיבת הילוכים 730DHB: כל 60,000 ק\"מ; בשאר הטיפולים מפלס"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "מתח מצבר"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בולמי זעזועים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גל הינע וגומיות"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "מומנט ברגי שלדה, עוקת שמן ובורג ניקוז, גוף תיבת ההילוכים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תיבת הגה, עמוד הגה, מוטות ומפרקים כדוריים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "מראה, סוליה, לחץ (כולל חלופי) ומומנט ברגי גלגל"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "כל שנה או 10,000 ק\"מ - בכל טיפול"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "מחוונים ומולטימדיה"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "להבים קדמיים ואחורי"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "יעילות קירור ומערכת מיזוג"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "כל שנה או 10,000 ק\"מ - בכל טיפול"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס ונקודת קפיאה"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס וריכוז מים"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "dct_oil",
+          "action": "inspect",
+          "note": "נוזל תיבת הילוכים 730DHB: כל 60,000 ק\"מ; בשאר הטיפולים מפלס"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "מתח מצבר"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בולמי זעזועים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גל הינע וגומיות"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "מומנט ברגי שלדה, עוקת שמן ובורג ניקוז, גוף תיבת ההילוכים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תיבת הגה, עמוד הגה, מוטות ומפרקים כדוריים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "מראה, סוליה, לחץ (כולל חלופי) ומומנט ברגי גלגל"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "כל שנה או 10,000 ק\"מ - בכל טיפול"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 105000,
+      "items": [
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "מחוונים ומולטימדיה"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "להבים קדמיים ואחורי"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "יעילות קירור ומערכת מיזוג"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "כל שנה או 10,000 ק\"מ - בכל טיפול"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס ונקודת קפיאה"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס וריכוז מים"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "dct_oil",
+          "action": "inspect",
+          "note": "נוזל תיבת הילוכים 730DHB: כל 60,000 ק\"מ; בשאר הטיפולים מפלס"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "מתח מצבר"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בולמי זעזועים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גל הינע וגומיות"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "מומנט ברגי שלדה, עוקת שמן ובורג ניקוז, גוף תיבת ההילוכים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תיבת הגה, עמוד הגה, מוטות ומפרקים כדוריים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "מראה, סוליה, לחץ (כולל חלופי) ומומנט ברגי גלגל"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "כל שנה או 10,000 ק\"מ - בכל טיפול"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "מחוונים ומולטימדיה"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "להבים קדמיים ואחורי"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "יעילות קירור ומערכת מיזוג"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "כל שנה או 10,000 ק\"מ - בכל טיפול"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס ונקודת קפיאה"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס וריכוז מים"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "dct_oil",
+          "action": "replace",
+          "note": "נוזל תיבת הילוכים 730DHB: כל 60,000 ק\"מ; בשאר הטיפולים מפלס"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "מתח מצבר"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בולמי זעזועים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גל הינע וגומיות"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "מומנט ברגי שלדה, עוקת שמן ובורג ניקוז, גוף תיבת ההילוכים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תיבת הגה, עמוד הגה, מוטות ומפרקים כדוריים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "מראה, סוליה, לחץ (כולל חלופי) ומומנט ברגי גלגל"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "כל שנה או 10,000 ק\"מ - בכל טיפול"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "brake_fluid",
+      "action": "replace",
+      "every_km": 40000,
+      "every_months": 24,
+      "note": "נוזל בלמים: כל שנתיים או 40,000 ק\"מ"
+    },
+    {
+      "item": "fuel_filter",
+      "action": "replace",
+      "every_km": 30000,
+      "note": "מסנן דלק חיצוני (אם קיים): כל 30,000 ק\"מ; המסנן שבמשאבה אינו דורש תחזוקה"
+    },
+    {
+      "item": "tire_rotation",
+      "action": "rotate",
+      "every_km": 10000,
+      "note": "סבב צמיגים מומלץ כל 10,000 ק\"מ"
+    }
+  ],
+  "time_based": [],
+  "specs": {},
+  "sources": [
+    {
+      "url": "https://res.cloudinary.com/colmobil/images/v1760942734/J5_OM_web/J5_OM_web.pdf",
+      "kind": "importer",
+      "note": "ספר רכב עברי JAECOO 5 (כלמוביל, ספטמבר 2025), עמ' 216-218"
+    }
+  ],
+  "status": "draft",
+  "notes": "טיוטה - דגם אח: לא נמצא ספר רכב עברי או לוח טיפולים של היבואן ל-Jaecoo 7. הלוח הועתק מספר הרכב העברי של ג'אקו 5 (בנזין, מנוע SQRF4J16C ותיבת 730DHB) (כלמוביל), שלפי קוד המנוע במאגר הרישוי חולק איתו את אותה יחידת הנעה. יש לוודא מול היבואן. הועתק מתוכנית התחזוקה בספר הרכב העברי של כלמוביל לג'אקו 5 (בנזין, עמ' 216-218). מסנן אוויר ומסנן מזגן: החלפה כל שנה או 10,000 ק\"מ - ולכן בכל טיפול. נוזל בלמים כל שנתיים או 40,000 ק\"מ (ב-long_interval)."
+}

@@ -1,0 +1,1192 @@
+{
+  "id": "chery-tiggo-7-hev-2026-1.5-hev",
+  "make": "Chery",
+  "make_he": "צ'רי",
+  "model": "Tiggo 7 HEV",
+  "model_he": "טיגו 7 היברידי",
+  "generation": "Tiggo 7 HEV",
+  "years": [
+    2026,
+    2026
+  ],
+  "engines": [
+    "1.5 hybrid (SQRH4J15) + DHT"
+  ],
+  "fuel": "hybrid",
+  "importer": "פריסבי (צ'רי ישראל)",
+  "interval": {
+    "km": 10000,
+    "months": 12,
+    "note": "לפי ספר הרכב של היבואן: טבלת התחזוקה בעמודות של 10,000 ק\"מ או 12 חודשים"
+  },
+  "cycle_km": 120000,
+  "services": [
+    {
+      "km": 10000,
+      "items": [
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס ונקודת קפיאה"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "החלפה כל שנתיים או 40,000 ק\"מ; בשאר הטיפולים מפלס וריכוז מים"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "נוזל תיבת הילוכים 130HHB: כל 4 שנים או 60,000 ק\"מ; בשאר הטיפולים מפלס"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "מתח מצבר"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בולמי זעזועים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גל הינע וגומיות"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "מומנט ברגי שלדה, עוקת שמן ובורג ניקוז, גוף תיבת ההילוכים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תיבת הגה, עמוד הגה, מוטות ומפרקים כדוריים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "מראה, סוליה, לחץ (כולל חלופי) ומומנט ברגי גלגל"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "צנרת נוזלים ורתמות חיווט"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת מתח גבוה: חלודה או עיוות, ברגי קיבוע, שסתום אוורור, מחברי מתח גבוה ונמוך ורתמות"
+        }
+      ]
+    },
+    {
+      "km": 20000,
+      "items": [
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס ונקודת קפיאה"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "החלפה כל שנתיים או 40,000 ק\"מ; בשאר הטיפולים מפלס וריכוז מים"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "נוזל תיבת הילוכים 130HHB: כל 4 שנים או 60,000 ק\"מ; בשאר הטיפולים מפלס"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "מתח מצבר"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בולמי זעזועים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גל הינע וגומיות"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "מומנט ברגי שלדה, עוקת שמן ובורג ניקוז, גוף תיבת ההילוכים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תיבת הגה, עמוד הגה, מוטות ומפרקים כדוריים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "מראה, סוליה, לחץ (כולל חלופי) ומומנט ברגי גלגל"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "צנרת נוזלים ורתמות חיווט"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת מתח גבוה: חלודה או עיוות, ברגי קיבוע, שסתום אוורור, מחברי מתח גבוה ונמוך ורתמות"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס ונקודת קפיאה"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "החלפה כל שנתיים או 40,000 ק\"מ; בשאר הטיפולים מפלס וריכוז מים"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "נוזל תיבת הילוכים 130HHB: כל 4 שנים או 60,000 ק\"מ; בשאר הטיפולים מפלס"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "מתח מצבר"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בולמי זעזועים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גל הינע וגומיות"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "מומנט ברגי שלדה, עוקת שמן ובורג ניקוז, גוף תיבת ההילוכים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תיבת הגה, עמוד הגה, מוטות ומפרקים כדוריים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "מראה, סוליה, לחץ (כולל חלופי) ומומנט ברגי גלגל"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "צנרת נוזלים ורתמות חיווט"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת מתח גבוה: חלודה או עיוות, ברגי קיבוע, שסתום אוורור, מחברי מתח גבוה ונמוך ורתמות"
+        }
+      ]
+    },
+    {
+      "km": 40000,
+      "items": [
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס ונקודת קפיאה"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "החלפה כל שנתיים או 40,000 ק\"מ; בשאר הטיפולים מפלס וריכוז מים"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "נוזל תיבת הילוכים 130HHB: כל 4 שנים או 60,000 ק\"מ; בשאר הטיפולים מפלס"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "מתח מצבר"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בולמי זעזועים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גל הינע וגומיות"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "מומנט ברגי שלדה, עוקת שמן ובורג ניקוז, גוף תיבת ההילוכים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תיבת הגה, עמוד הגה, מוטות ומפרקים כדוריים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "מראה, סוליה, לחץ (כולל חלופי) ומומנט ברגי גלגל"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "צנרת נוזלים ורתמות חיווט"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת מתח גבוה: חלודה או עיוות, ברגי קיבוע, שסתום אוורור, מחברי מתח גבוה ונמוך ורתמות"
+        }
+      ]
+    },
+    {
+      "km": 50000,
+      "items": [
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס ונקודת קפיאה"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "החלפה כל שנתיים או 40,000 ק\"מ; בשאר הטיפולים מפלס וריכוז מים"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "נוזל תיבת הילוכים 130HHB: כל 4 שנים או 60,000 ק\"מ; בשאר הטיפולים מפלס"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "מתח מצבר"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בולמי זעזועים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גל הינע וגומיות"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "מומנט ברגי שלדה, עוקת שמן ובורג ניקוז, גוף תיבת ההילוכים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תיבת הגה, עמוד הגה, מוטות ומפרקים כדוריים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "מראה, סוליה, לחץ (כולל חלופי) ומומנט ברגי גלגל"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "צנרת נוזלים ורתמות חיווט"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת מתח גבוה: חלודה או עיוות, ברגי קיבוע, שסתום אוורור, מחברי מתח גבוה ונמוך ורתמות"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס ונקודת קפיאה"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "החלפה כל שנתיים או 40,000 ק\"מ; בשאר הטיפולים מפלס וריכוז מים"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "replace",
+          "note": "נוזל תיבת הילוכים 130HHB: כל 4 שנים או 60,000 ק\"מ; בשאר הטיפולים מפלס"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "מתח מצבר"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בולמי זעזועים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גל הינע וגומיות"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "מומנט ברגי שלדה, עוקת שמן ובורג ניקוז, גוף תיבת ההילוכים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תיבת הגה, עמוד הגה, מוטות ומפרקים כדוריים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "מראה, סוליה, לחץ (כולל חלופי) ומומנט ברגי גלגל"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "צנרת נוזלים ורתמות חיווט"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת מתח גבוה: חלודה או עיוות, ברגי קיבוע, שסתום אוורור, מחברי מתח גבוה ונמוך ורתמות"
+        }
+      ]
+    },
+    {
+      "km": 70000,
+      "items": [
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס ונקודת קפיאה"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "החלפה כל שנתיים או 40,000 ק\"מ; בשאר הטיפולים מפלס וריכוז מים"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "נוזל תיבת הילוכים 130HHB: כל 4 שנים או 60,000 ק\"מ; בשאר הטיפולים מפלס"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "מתח מצבר"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בולמי זעזועים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גל הינע וגומיות"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "מומנט ברגי שלדה, עוקת שמן ובורג ניקוז, גוף תיבת ההילוכים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תיבת הגה, עמוד הגה, מוטות ומפרקים כדוריים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "מראה, סוליה, לחץ (כולל חלופי) ומומנט ברגי גלגל"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "צנרת נוזלים ורתמות חיווט"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת מתח גבוה: חלודה או עיוות, ברגי קיבוע, שסתום אוורור, מחברי מתח גבוה ונמוך ורתמות"
+        }
+      ]
+    },
+    {
+      "km": 80000,
+      "items": [
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס ונקודת קפיאה"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "החלפה כל שנתיים או 40,000 ק\"מ; בשאר הטיפולים מפלס וריכוז מים"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "נוזל תיבת הילוכים 130HHB: כל 4 שנים או 60,000 ק\"מ; בשאר הטיפולים מפלס"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "מתח מצבר"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בולמי זעזועים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גל הינע וגומיות"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "מומנט ברגי שלדה, עוקת שמן ובורג ניקוז, גוף תיבת ההילוכים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תיבת הגה, עמוד הגה, מוטות ומפרקים כדוריים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "מראה, סוליה, לחץ (כולל חלופי) ומומנט ברגי גלגל"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "צנרת נוזלים ורתמות חיווט"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת מתח גבוה: חלודה או עיוות, ברגי קיבוע, שסתום אוורור, מחברי מתח גבוה ונמוך ורתמות"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס ונקודת קפיאה"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "החלפה כל שנתיים או 40,000 ק\"מ; בשאר הטיפולים מפלס וריכוז מים"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "נוזל תיבת הילוכים 130HHB: כל 4 שנים או 60,000 ק\"מ; בשאר הטיפולים מפלס"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "מתח מצבר"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בולמי זעזועים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גל הינע וגומיות"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "מומנט ברגי שלדה, עוקת שמן ובורג ניקוז, גוף תיבת ההילוכים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תיבת הגה, עמוד הגה, מוטות ומפרקים כדוריים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "מראה, סוליה, לחץ (כולל חלופי) ומומנט ברגי גלגל"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "צנרת נוזלים ורתמות חיווט"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת מתח גבוה: חלודה או עיוות, ברגי קיבוע, שסתום אוורור, מחברי מתח גבוה ונמוך ורתמות"
+        }
+      ]
+    },
+    {
+      "km": 100000,
+      "items": [
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס ונקודת קפיאה"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "החלפה כל שנתיים או 40,000 ק\"מ; בשאר הטיפולים מפלס וריכוז מים"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "נוזל תיבת הילוכים 130HHB: כל 4 שנים או 60,000 ק\"מ; בשאר הטיפולים מפלס"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "מתח מצבר"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בולמי זעזועים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גל הינע וגומיות"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "מומנט ברגי שלדה, עוקת שמן ובורג ניקוז, גוף תיבת ההילוכים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תיבת הגה, עמוד הגה, מוטות ומפרקים כדוריים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "מראה, סוליה, לחץ (כולל חלופי) ומומנט ברגי גלגל"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "צנרת נוזלים ורתמות חיווט"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת מתח גבוה: חלודה או עיוות, ברגי קיבוע, שסתום אוורור, מחברי מתח גבוה ונמוך ורתמות"
+        }
+      ]
+    },
+    {
+      "km": 110000,
+      "items": [
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס ונקודת קפיאה"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "החלפה כל שנתיים או 40,000 ק\"מ; בשאר הטיפולים מפלס וריכוז מים"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "נוזל תיבת הילוכים 130HHB: כל 4 שנים או 60,000 ק\"מ; בשאר הטיפולים מפלס"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "מתח מצבר"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בולמי זעזועים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גל הינע וגומיות"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "מומנט ברגי שלדה, עוקת שמן ובורג ניקוז, גוף תיבת ההילוכים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תיבת הגה, עמוד הגה, מוטות ומפרקים כדוריים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "מראה, סוליה, לחץ (כולל חלופי) ומומנט ברגי גלגל"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "צנרת נוזלים ורתמות חיווט"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת מתח גבוה: חלודה או עיוות, ברגי קיבוע, שסתום אוורור, מחברי מתח גבוה ונמוך ורתמות"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס ונקודת קפיאה"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "החלפה כל שנתיים או 40,000 ק\"מ; בשאר הטיפולים מפלס וריכוז מים"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "replace",
+          "note": "נוזל תיבת הילוכים 130HHB: כל 4 שנים או 60,000 ק\"מ; בשאר הטיפולים מפלס"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "מתח מצבר"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בולמי זעזועים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גל הינע וגומיות"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "מומנט ברגי שלדה, עוקת שמן ובורג ניקוז, גוף תיבת ההילוכים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תיבת הגה, עמוד הגה, מוטות ומפרקים כדוריים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "מראה, סוליה, לחץ (כולל חלופי) ומומנט ברגי גלגל"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "צנרת נוזלים ורתמות חיווט"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת מתח גבוה: חלודה או עיוות, ברגי קיבוע, שסתום אוורור, מחברי מתח גבוה ונמוך ורתמות"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "coolant",
+      "action": "replace",
+      "every_km": 80000,
+      "every_months": 48,
+      "note": "נוזל קירור: כל 4 שנים או 80,000 ק\"מ"
+    },
+    {
+      "item": "transmission_oil",
+      "action": "replace",
+      "every_months": 48,
+      "note": "נוזל תיבת הילוכים 130HHB: כל 4 שנים (אם לא הגיע ל-60,000 ק\"מ)"
+    },
+    {
+      "item": "brake_fluid",
+      "action": "replace",
+      "every_months": 24,
+      "note": "נוזל בלמים: כל שנתיים (אם לא הגיע ל-40,000 ק\"מ)"
+    },
+    {
+      "item": "tire_rotation",
+      "action": "rotate",
+      "every_km": 10000,
+      "note": "סבב צמיגים מומלץ כל 10,000 ק\"מ"
+    }
+  ],
+  "time_based": [],
+  "specs": {},
+  "sources": [
+    {
+      "url": "https://cheryisrael.co.il/",
+      "kind": "importer",
+      "note": "אתר צ'רי ישראל (פריסבי) אינו מפרסם ספרי רכב או לוחות טיפולים; נבדק גם WordPress media API - רק מפרטים וקטלוגים"
+    },
+    {
+      "url": "https://res.cloudinary.com/colmobil/images/v1768203261/J5-HEV_OM-2025_web/J5-HEV_OM-2025_web.pdf",
+      "kind": "importer",
+      "note": "ספר רכב עברי JAECOO 5 HEV 2025 (כלמוביל), עמ' 230-231"
+    }
+  ],
+  "status": "draft",
+  "notes": "טיוטה - דגם אח: לא נמצא ספר רכב עברי או לוח טיפולים של היבואן ל-Tiggo 7 HEV. הלוח הועתק מספר הרכב העברי של ג'אקו 5 HEV (כלמוביל), שלפי קוד המנוע במאגר הרישוי חולק איתו את אותה יחידת הנעה. יש לוודא מול היבואן. הועתק מתוכנית התחזוקה בספר הרכב העברי של כלמוביל לג'אקו 5 HEV (2025, עמ' 230-231; 10 עמודות של 10,000 ק\"מ). פריטים שמרווחם נתון בטקסט (נוזל בלמים 40,000, נוזל גיר 60,000, מצתים 30,000) שובצו בטבלה; נוזל קירור (4 שנים או 80,000) ב-long_interval."
+}

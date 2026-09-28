@@ -1,0 +1,747 @@
+{
+  "id": "nissan-almera-2012-2016-1.5-1.6",
+  "make": "Nissan",
+  "make_he": "ניסאן",
+  "model": "Almera",
+  "model_he": "אלמרה",
+  "generation": "N17",
+  "years": [
+    2012,
+    2016
+  ],
+  "engines": [
+    "1.6 (HR16DE)",
+    "1.5 (HR15DE)"
+  ],
+  "fuel": "petrol",
+  "importer": "פריסבי (קרסו מוטורס)",
+  "interval": {
+    "km": 15000,
+    "months": 12,
+    "note": "לפי הגיליון של ניסאן דרום אפריקה לאלמרה 1.5: טיפול כל 15,000 ק\"מ או 12 חודשים"
+  },
+  "cycle_km": 120000,
+  "services": [
+    {
+      "km": 15000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "בדיקת מפלס ודליפות של נוזל הבלמים והמצמד"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect",
+          "note": "בגיר ידני: בדיקת נזילות"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect",
+          "note": "כיוון פרונט; לפי הצורך סבב ואיזון גלגלים"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "מערכות בלמים, מצמד ופליטה"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם, בלם חניה ומצמד: חופש, מהלך ותפקוד"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "סיכה של מנעולים, צירים ותפס מכסה המנוע"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי: בדיקת נזילות"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "להחליף אם נמצאה פגומה"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "החלפת נוזל בלמים כל 30,000 ק\"מ או 24 חודשים"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect",
+          "note": "צינורות ואקום של מגבר הבלמים, חיבורים ושסתום"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect",
+          "note": "בגיר ידני: בדיקת נזילות"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תיבת הגה ומוטות, חלקי סרן ומתלים, צירי הנעה קדמיים"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect",
+          "note": "כיוון פרונט; לפי הצורך סבב ואיזון גלגלים"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "מערכות בלמים, מצמד ופליטה"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם, בלם חניה ומצמד: חופש, מהלך ותפקוד"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "סיכה של מנעולים, צירים ותפס מכסה המנוע"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי: בדיקת נזילות"
+        }
+      ]
+    },
+    {
+      "km": 45000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "בדיקת מפלס ודליפות של נוזל הבלמים והמצמד"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect",
+          "note": "בגיר ידני: בדיקת נזילות"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect",
+          "note": "כיוון פרונט; לפי הצורך סבב ואיזון גלגלים"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "מערכות בלמים, מצמד ופליטה"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם, בלם חניה ומצמד: חופש, מהלך ותפקוד"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "סיכה של מנעולים, צירים ותפס מכסה המנוע"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי: בדיקת נזילות"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "להחליף אם נמצאה פגומה"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "החלפת נוזל בלמים כל 30,000 ק\"מ או 24 חודשים"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect",
+          "note": "צינורות ואקום של מגבר הבלמים, חיבורים ושסתום"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect",
+          "note": "בגיר ידני: בדיקת נזילות"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תיבת הגה ומוטות, חלקי סרן ומתלים, צירי הנעה קדמיים"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect",
+          "note": "כיוון פרונט; לפי הצורך סבב ואיזון גלגלים"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "מערכות בלמים, מצמד ופליטה"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם, בלם חניה ומצמד: חופש, מהלך ותפקוד"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "סיכה של מנעולים, צירים ותפס מכסה המנוע"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי: בדיקת נזילות"
+        }
+      ]
+    },
+    {
+      "km": 75000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "בדיקת מפלס ודליפות של נוזל הבלמים והמצמד"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect",
+          "note": "בגיר ידני: בדיקת נזילות"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect",
+          "note": "כיוון פרונט; לפי הצורך סבב ואיזון גלגלים"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "מערכות בלמים, מצמד ופליטה"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם, בלם חניה ומצמד: חופש, מהלך ותפקוד"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "סיכה של מנעולים, צירים ותפס מכסה המנוע"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי: בדיקת נזילות"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "להחליף אם נמצאה פגומה"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "מצתי אירידיום; מסומן ב-90,000"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "החלפת נוזל בלמים כל 30,000 ק\"מ או 24 חודשים"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect",
+          "note": "צינורות ואקום של מגבר הבלמים, חיבורים ושסתום"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect",
+          "note": "בגיר ידני: בדיקת נזילות"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תיבת הגה ומוטות, חלקי סרן ומתלים, צירי הנעה קדמיים"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect",
+          "note": "כיוון פרונט; לפי הצורך סבב ואיזון גלגלים"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "מערכות בלמים, מצמד ופליטה"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם, בלם חניה ומצמד: חופש, מהלך ותפקוד"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "סיכה של מנעולים, צירים ותפס מכסה המנוע"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי: בדיקת נזילות"
+        }
+      ]
+    },
+    {
+      "km": 105000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "בדיקת מפלס ודליפות של נוזל הבלמים והמצמד"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect",
+          "note": "בגיר ידני: בדיקת נזילות"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect",
+          "note": "כיוון פרונט; לפי הצורך סבב ואיזון גלגלים"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "מערכות בלמים, מצמד ופליטה"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם, בלם חניה ומצמד: חופש, מהלך ותפקוד"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "סיכה של מנעולים, צירים ותפס מכסה המנוע"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי: בדיקת נזילות"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "להחליף אם נמצאה פגומה"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "החלפת נוזל בלמים כל 30,000 ק\"מ או 24 חודשים"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect",
+          "note": "צינורות ואקום של מגבר הבלמים, חיבורים ושסתום"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect",
+          "note": "בגיר ידני: בדיקת נזילות"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תיבת הגה ומוטות, חלקי סרן ומתלים, צירי הנעה קדמיים"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect",
+          "note": "כיוון פרונט; לפי הצורך סבב ואיזון גלגלים"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "מערכות בלמים, מצמד ופליטה"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם, בלם חניה ומצמד: חופש, מהלך ותפקוד"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "סיכה של מנעולים, צירים ותפס מכסה המנוע"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי: בדיקת נזילות"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "coolant",
+      "action": "replace",
+      "first_km": 150000,
+      "first_months": 96,
+      "then_every_km": 75000,
+      "then_every_months": 48,
+      "note": "בדיקת יחס התערובת כל 30,000 ק\"מ או 24 חודשים"
+    },
+    {
+      "item": "spark_plugs",
+      "action": "replace",
+      "every_km": 90000
+    }
+  ],
+  "time_based": [],
+  "specs": {},
+  "sources": [
+    {
+      "url": "https://www.nissan-cdn.net/content/dam/Nissan/za/Maintenance/Almera.pdf",
+      "kind": "manufacturer",
+      "note": "Nissan South Africa, \"NISSAN ALMERA 1.5ℓ PETROL - PERIODIC MAINTENANCE\", עמודים 1-3"
+    },
+    {
+      "url": "https://www.nissan.co.il/service.html",
+      "kind": "importer",
+      "note": "אתרי ניסאן ישראל (nissan.co.il) ו-service.freesbe.com לא מפרסמים ספרי רכב או לוחות טיפולים (service.freesbe.com ו-freesbe.com מחזירים 403); לכן זהו לוח בינלאומי"
+    }
+  ],
+  "status": "draft",
+  "notes": "טיוטה: לוח ניסאן דרום אפריקה לאלמרה N17 עם מנוע 1.5 (HR15DE). האלמרה שנמכרה בישראל (מתוצרת מקסיקו) היא אותו דור עם מנוע 1.6 מאותה משפחה (HR16DE), ולכן זה דגם אחות. בגיליון אין שורה למסנן מזגן. בתנאים מחמירים (אבק, נסיעות קצרות, חום קיצוני) חלק מהפריטים מתבצעים בתדירות כפולה, לפי טבלת התנאים המחמירים בגיליון."
+}

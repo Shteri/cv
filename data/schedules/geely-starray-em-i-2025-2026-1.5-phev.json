@@ -1,0 +1,1329 @@
+{
+  "id": "geely-starray-em-i-2025-2026-1.5-phev",
+  "make": "Geely",
+  "make_he": "ג'ילי",
+  "model": "Starray EM-i",
+  "model_he": "סטארריי EM-i",
+  "generation": "P145",
+  "years": [
+    2025,
+    2026
+  ],
+  "engines": [
+    "1.5 PHEV (BHE15-DFN)"
+  ],
+  "fuel": "plug-in-hybrid",
+  "importer": "גיאו מוביליטי (קבוצת יוניון)",
+  "interval": {
+    "km": 15000,
+    "months": 12,
+    "note": "לפי חוברת האחריות והלוח של היבואן: כל 15,000 ק\"מ או 12 חודשים; בתנאים קשים שמן ומסנן כל 10,000 ק\"מ"
+  },
+  "cycle_km": 150000,
+  "services": [
+    {
+      "km": 15000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "מיכל, צנרת וחיבורים"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect",
+          "note": "מסנן פחם פעיל (קניסטר) - החלפה לפי long_interval"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "inspect",
+          "note": "החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת מתח גבוה: בדיקה חזותית, בדיקת בידוד ובדיקה במחשב"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "מנוע, יחידת ההנעה החשמלית, המטען וכל הרכב - סריקה במחשב אבחון"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "יחידת ההנעה והמטען: בדיקה חזותית; חלונות וצופר"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "תפקוד בלמים ובלם חניה"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "החלפה כל 30,000 ק\"מ (24 חודשים)"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect",
+          "note": "ניקוי בכל טיפול והחלפה לפי הצורך"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "שימון צירים, מנעולים וידיות דלת חשמליות"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גלי הינע"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "adjust",
+          "note": "הידוק ברגי מרכב"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בולמי זעזועים"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "מיכל, צנרת וחיבורים"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect",
+          "note": "מסנן פחם פעיל (קניסטר) - החלפה לפי long_interval"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת מתח גבוה: בדיקה חזותית, בדיקת בידוד ובדיקה במחשב"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "מנוע, יחידת ההנעה החשמלית, המטען וכל הרכב - סריקה במחשב אבחון"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "יחידת ההנעה והמטען: בדיקה חזותית; חלונות וצופר"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "תפקוד בלמים ובלם חניה"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "החלפה כל 30,000 ק\"מ (24 חודשים)"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect",
+          "note": "ניקוי בכל טיפול והחלפה לפי הצורך"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "שימון צירים, מנעולים וידיות דלת חשמליות"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גלי הינע"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "adjust",
+          "note": "הידוק ברגי מרכב"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בולמי זעזועים"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 45000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "מיכל, צנרת וחיבורים"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect",
+          "note": "מסנן פחם פעיל (קניסטר) - החלפה לפי long_interval"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "inspect",
+          "note": "החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת מתח גבוה: בדיקה חזותית, בדיקת בידוד ובדיקה במחשב"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "מנוע, יחידת ההנעה החשמלית, המטען וכל הרכב - סריקה במחשב אבחון"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "יחידת ההנעה והמטען: בדיקה חזותית; חלונות וצופר"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "תפקוד בלמים ובלם חניה"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "החלפה כל 30,000 ק\"מ (24 חודשים)"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect",
+          "note": "ניקוי בכל טיפול והחלפה לפי הצורך"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "שימון צירים, מנעולים וידיות דלת חשמליות"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גלי הינע"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "adjust",
+          "note": "הידוק ברגי מרכב"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בולמי זעזועים"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "מיכל, צנרת וחיבורים"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect",
+          "note": "מסנן פחם פעיל (קניסטר) - החלפה לפי long_interval"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת מתח גבוה: בדיקה חזותית, בדיקת בידוד ובדיקה במחשב"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "מנוע, יחידת ההנעה החשמלית, המטען וכל הרכב - סריקה במחשב אבחון"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "יחידת ההנעה והמטען: בדיקה חזותית; חלונות וצופר"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "תפקוד בלמים ובלם חניה"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "החלפה כל 30,000 ק\"מ (24 חודשים)"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect",
+          "note": "ניקוי בכל טיפול והחלפה לפי הצורך"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "שימון צירים, מנעולים וידיות דלת חשמליות"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גלי הינע"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "adjust",
+          "note": "הידוק ברגי מרכב"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בולמי זעזועים"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 75000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "מיכל, צנרת וחיבורים"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect",
+          "note": "מסנן פחם פעיל (קניסטר) - החלפה לפי long_interval"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "inspect",
+          "note": "החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת מתח גבוה: בדיקה חזותית, בדיקת בידוד ובדיקה במחשב"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "מנוע, יחידת ההנעה החשמלית, המטען וכל הרכב - סריקה במחשב אבחון"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "יחידת ההנעה והמטען: בדיקה חזותית; חלונות וצופר"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "תפקוד בלמים ובלם חניה"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "החלפה כל 30,000 ק\"מ (24 חודשים)"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect",
+          "note": "ניקוי בכל טיפול והחלפה לפי הצורך"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "שימון צירים, מנעולים וידיות דלת חשמליות"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גלי הינע"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "adjust",
+          "note": "הידוק ברגי מרכב"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בולמי זעזועים"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "מיכל, צנרת וחיבורים"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect",
+          "note": "מסנן פחם פעיל (קניסטר) - החלפה לפי long_interval"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת מתח גבוה: בדיקה חזותית, בדיקת בידוד ובדיקה במחשב"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "מנוע, יחידת ההנעה החשמלית, המטען וכל הרכב - סריקה במחשב אבחון"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "יחידת ההנעה והמטען: בדיקה חזותית; חלונות וצופר"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "תפקוד בלמים ובלם חניה"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "החלפה כל 30,000 ק\"מ (24 חודשים)"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect",
+          "note": "ניקוי בכל טיפול והחלפה לפי הצורך"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "שימון צירים, מנעולים וידיות דלת חשמליות"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גלי הינע"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "adjust",
+          "note": "הידוק ברגי מרכב"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בולמי זעזועים"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 105000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "מיכל, צנרת וחיבורים"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect",
+          "note": "מסנן פחם פעיל (קניסטר) - החלפה לפי long_interval"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "inspect",
+          "note": "החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת מתח גבוה: בדיקה חזותית, בדיקת בידוד ובדיקה במחשב"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "מנוע, יחידת ההנעה החשמלית, המטען וכל הרכב - סריקה במחשב אבחון"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "יחידת ההנעה והמטען: בדיקה חזותית; חלונות וצופר"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "תפקוד בלמים ובלם חניה"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "החלפה כל 30,000 ק\"מ (24 חודשים)"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect",
+          "note": "ניקוי בכל טיפול והחלפה לפי הצורך"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "שימון צירים, מנעולים וידיות דלת חשמליות"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גלי הינע"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "adjust",
+          "note": "הידוק ברגי מרכב"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בולמי זעזועים"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "מיכל, צנרת וחיבורים"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect",
+          "note": "מסנן פחם פעיל (קניסטר) - החלפה לפי long_interval"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת מתח גבוה: בדיקה חזותית, בדיקת בידוד ובדיקה במחשב"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "מנוע, יחידת ההנעה החשמלית, המטען וכל הרכב - סריקה במחשב אבחון"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "יחידת ההנעה והמטען: בדיקה חזותית; חלונות וצופר"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "תפקוד בלמים ובלם חניה"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "החלפה כל 30,000 ק\"מ (24 חודשים)"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect",
+          "note": "ניקוי בכל טיפול והחלפה לפי הצורך"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "שימון צירים, מנעולים וידיות דלת חשמליות"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גלי הינע"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "adjust",
+          "note": "הידוק ברגי מרכב"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בולמי זעזועים"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 135000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "מיכל, צנרת וחיבורים"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect",
+          "note": "מסנן פחם פעיל (קניסטר) - החלפה לפי long_interval"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "inspect",
+          "note": "החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת מתח גבוה: בדיקה חזותית, בדיקת בידוד ובדיקה במחשב"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "מנוע, יחידת ההנעה החשמלית, המטען וכל הרכב - סריקה במחשב אבחון"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "יחידת ההנעה והמטען: בדיקה חזותית; חלונות וצופר"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "תפקוד בלמים ובלם חניה"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "החלפה כל 30,000 ק\"מ (24 חודשים)"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect",
+          "note": "ניקוי בכל טיפול והחלפה לפי הצורך"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "שימון צירים, מנעולים וידיות דלת חשמליות"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גלי הינע"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "adjust",
+          "note": "הידוק ברגי מרכב"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בולמי זעזועים"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 150000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "מיכל, צנרת וחיבורים"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect",
+          "note": "מסנן פחם פעיל (קניסטר) - החלפה לפי long_interval"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת מתח גבוה: בדיקה חזותית, בדיקת בידוד ובדיקה במחשב; בדיקת אטימות אוויר של מארז הסוללה"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "מנוע, יחידת ההנעה החשמלית, המטען וכל הרכב - סריקה במחשב אבחון"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "יחידת ההנעה והמטען: בדיקה חזותית; חלונות וצופר"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "תפקוד בלמים ובלם חניה"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "החלפה כל 30,000 ק\"מ (24 חודשים)"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect",
+          "note": "ניקוי בכל טיפול והחלפה לפי הצורך"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "שימון צירים, מנעולים וידיות דלת חשמליות"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גלי הינע"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "adjust",
+          "note": "הידוק ברגי מרכב"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בולמי זעזועים"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "coolant",
+      "action": "replace",
+      "every_km": 90000,
+      "every_months": 48,
+      "note": "נוזל קירור מנוע: כל 90,000 ק\"מ או 48 חודשים"
+    },
+    {
+      "item": "transmission_oil",
+      "action": "replace",
+      "every_km": 90000,
+      "every_months": 48,
+      "note": "שמן תיבת הפחתה (Shell E-Fluids E6 iDHTF): כל 90,000 ק\"מ או 48 חודשים"
+    },
+    {
+      "item": "evap_system",
+      "action": "replace",
+      "every_km": 60000,
+      "every_months": 36,
+      "note": "מסנן פחם פעיל: כל 60,000 ק\"מ או 36 חודשים"
+    }
+  ],
+  "time_based": [],
+  "specs": {
+    "engine_oil": "API SP 0W-20",
+    "brake_fluid": "DOT4",
+    "coolant": "נוזל קירור על בסיס גליקול שאושר ע\"י Geely",
+    "_note": "מתוך חוברת האחריות StarRay EM-i (עמ' 13)"
+  },
+  "sources": [
+    {
+      "url": "https://geely.co.il/wp-content/uploads/2026/03/STAR-RAY-P145-לוח-אחזקה-עברית.pdf",
+      "kind": "importer",
+      "note": "לוח אחזקה P145 בעברית (2 עמודים, 10 עמודות של 15,000 ק\"מ)"
+    },
+    {
+      "url": "https://geely.co.il/wp-content/uploads/2025/12/STARRAYEM-i_Warranty-Booklet-HEB.pdf",
+      "kind": "importer",
+      "note": "חוברת אחריות StarRay EM-i, עמ' 2 ו-11-13"
+    }
+  ],
+  "status": "reviewed",
+  "notes": "הועתק מלוח האחזקה העברי STAR RAY P145 ומתוכנית התחזוקה בחוברת האחריות (עמ' 11-13). מסנן המזגן נבדק ומנוקה בכל טיפול ומוחלף לפי הצורך. למנוע יש מד איכות שמן - מחליפים גם כשהאיכות יורדת מתחת ל-10%."
+}

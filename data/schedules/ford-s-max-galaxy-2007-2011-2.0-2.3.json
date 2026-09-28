@@ -1,0 +1,242 @@
+{
+  "make": "Ford",
+  "make_he": "פורד",
+  "importer": "דלק מוטורס",
+  "id": "ford-s-max-galaxy-2007-2011-2.0-2.3",
+  "model": "S-Max / Galaxy",
+  "model_he": "אס-מקס / גלקסי",
+  "generation": "WA6",
+  "years": [
+    2007,
+    2011
+  ],
+  "engines": [
+    "2.0 Duratec",
+    "2.3 Duratec",
+    "2.0 TDCi"
+  ],
+  "fuel": "petrol-or-diesel",
+  "interval": {
+    "km": 15000,
+    "months": 12,
+    "note": "לפי תוכנית הטיפול של דלק מוטורס: התראה בלוח המחוונים, 15,000 ק\"מ או 12 חודשים, המוקדם"
+  },
+  "cycle_km": 120000,
+  "services": [
+    {
+      "km": 15000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 45000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace",
+          "note": "מסנן דלק מנוע דיזל: שנים3  ק\"מ או45,000"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace"
+        },
+        {
+          "item": "dct_oil",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 75000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace",
+          "note": "מסנן דלק מנוע דיזל: שנים3  ק\"מ או45,000"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 105000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace"
+        },
+        {
+          "item": "dct_oil",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "coolant",
+      "action": "replace",
+      "every_months": 120
+    },
+    {
+      "item": "fuel_filter",
+      "action": "replace",
+      "note": "ליטר2.3 מסנן דלק מנוע בנזין: שנים6  ק\"מ או135,000",
+      "every_km": 135000,
+      "every_months": 72
+    },
+    {
+      "item": "timing_belt",
+      "action": "replace",
+      "note": "רצועת תזמון מנוע דיזל: שנים6  ק\"מ או135,000",
+      "every_km": 135000,
+      "every_months": 72
+    },
+    {
+      "item": "valve_clearance",
+      "action": "adjust",
+      "note": "מרווח שסתומים מנוע בנזין: ק\"מ בדוק רעשים, כוונן במידת הצורך135,000",
+      "every_km": 135000
+    }
+  ],
+  "time_based": [],
+  "specs": {
+    "_note": "מפרטי הנוזלים מתוך תוכנית הטיפול (מק\"טי Ford WSS): שמן מנוע בנזיןWSS-M2C948-B  מפרט5W20 צמיגות; שמן מנוע דיזלWSS-M2C913-D  מפרט5W30 צמיגות; נוזל קירורWSS-M97B57-A2 גוון צהוב מפרט; שמן תיבת הילוכים אוטומטיתWSS-M2C924-A; שמן תיבת הילוכים רובוטיתWSS-M2C936-A; שמן הגהWSS-M2C204-A2 :גוון ירוק מפרט; 2012 נוזל בלמים עד ייצורDOT 4 Super; 2012 נוזל בלמים מייצורDOT 4 Low Viscosety"
+  },
+  "sources": [
+    {
+      "url": "https://delekmotorscoil.sharepoint.com/:b:/s/Techtrain/Ebk1RGiTMUZCpiptoaXfl8ABQVZENvTrjPSe7HOKrJpk7g?download=1",
+      "kind": "importer",
+      "note": "PDF תוכנית טיפול 'Ford_Smax_Galaxy_2007_2011.pdf' של דלק מוטורס (קישור SharePoint מתוך הדף; מפרט טיפולים | פורד אסמקס/גלקסי | חודשים12  ק״מ או15,000 טיפול כל | ליטר2.0  ליט)"
+    },
+    {
+      "url": "https://www.ford.co.il/תוכנית-טיפול/שירות",
+      "kind": "importer",
+      "note": "תוכנית טיפול לפי דגם ושנת עלייה לכביש: התראה בלוח המחוונים / 15,000 ק\"מ / שנה, המוקדם"
+    }
+  ],
+  "status": "reviewed",
+  "notes": "הועתק מתוכנית הטיפול (עמוד אחד: פריט ומרווח). הלוח מציג 8 טיפולים של 15,000 ק\"מ; פריטים עם מרווח ארוך יותר ב-long_interval. דיזל: מסנן דלק 45,000/3 שנים, רצועת תזמון 135,000/6 שנים; 2.3 בנזין: מסנן דלק 135,000/6 שנים."
+}

@@ -1,0 +1,231 @@
+{
+  "make": "Ford",
+  "make_he": "פורד",
+  "importer": "דלק מוטורס",
+  "id": "ford-fiesta-2008-2018-1.0-1.6",
+  "model": "Fiesta",
+  "model_he": "פיאסטה",
+  "generation": "Mk7 (B299)",
+  "years": [
+    2008,
+    2018
+  ],
+  "engines": [
+    "1.0 EcoBoost (SFJA/SFJB)",
+    "1.25 Duratec (SNJB/SNJA)",
+    "1.4 Duratec (SPJA)",
+    "1.6 Ti-VCT (IQJA)"
+  ],
+  "fuel": "petrol",
+  "interval": {
+    "km": 15000,
+    "months": 12,
+    "note": "לפי תוכנית הטיפול של דלק מוטורס: התראה בלוח המחוונים, 15,000 ק\"מ או 12 חודשים, המוקדם"
+  },
+  "cycle_km": 120000,
+  "services": [
+    {
+      "km": 15000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 45000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 75000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 105000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace"
+        },
+        {
+          "item": "timing_belt",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "coolant",
+      "action": "replace",
+      "every_km": 150000,
+      "every_months": 60
+    },
+    {
+      "item": "coolant",
+      "action": "replace",
+      "every_months": 120
+    },
+    {
+      "item": "timing_belt",
+      "action": "replace",
+      "every_km": 195000,
+      "every_months": 120
+    },
+    {
+      "item": "drive_belt",
+      "action": "replace",
+      "every_km": 195000,
+      "every_months": 120
+    }
+  ],
+  "time_based": [],
+  "specs": {
+    "_note": "מפרטי הנוזלים מתוך תוכנית הטיפול (מק\"טי Ford WSS): שמן מנועWSS-M2C948-B  מפרט5W20 צמיגות; נוזל קירורWSS-M97B57-A2 גוון צהוב מפרט; שמן תיבת הילוכים אוטומטיתMercon LV; שמן תיבת הילוכים ידניתWSS-M2C200-C; שמן תיבת הילוכים רובוטיתWSS-M2C200-D2; 2012 נוזל בלמים עד ייצורDOT 4 Super; 2012 נוזל בלמים מייצורDOT 4 Low Viscosety"
+  },
+  "sources": [
+    {
+      "url": "https://delekmotorscoil.sharepoint.com/:b:/s/Techtrain/ESSwpvQKdNNGlzS0XnZELLsBYYpPWTZhXn1zkcyCQluTCg?download=1",
+      "kind": "importer",
+      "note": "PDF תוכנית טיפול 'Ford_Fiesta_2008_2018.pdf' של דלק מוטורס (קישור SharePoint מתוך הדף; מפרט טיפולים | פורד פיאסטה | חודשים12  ק\"מ או15,000 טיפול | ליטר1.0/1.25/1.4/1.6)"
+    },
+    {
+      "url": "https://www.ford.co.il/תוכנית-טיפול/שירות",
+      "kind": "importer",
+      "note": "תוכנית טיפול לפי דגם ושנת עלייה לכביש: התראה בלוח המחוונים / 15,000 ק\"מ / שנה, המוקדם"
+    }
+  ],
+  "status": "reviewed",
+  "notes": "הועתק מתוכנית הטיפול (עמוד אחד: פריט ומרווח). הלוח מציג 8 טיפולים של 15,000 ק\"מ; פריטים עם מרווח ארוך יותר ב-long_interval. מנוע 1.0 EcoBoost: נוזל קירור 150,000 או 5 שנים, מצתים 60,000, רצועות תזמון ואביזרים 195,000 או 10 שנים; שאר המנועים: רצועות 120,000 או 5 שנים."
+}

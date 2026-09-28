@@ -1,0 +1,906 @@
+{
+  "id": "jaecoo-8-2025-2026-1.5t-phev",
+  "make": "Jaecoo",
+  "make_he": "ג'אקו",
+  "model": "Jaecoo 8 PHEV",
+  "model_he": "ג'אקו 8 פלאג-אין",
+  "generation": "J8 SHS",
+  "years": [
+    2025,
+    2026
+  ],
+  "engines": [
+    "1.5 TGDI PHEV (SQRH4J15) + DHT"
+  ],
+  "fuel": "plug-in-hybrid",
+  "importer": "כלמוביל",
+  "interval": {
+    "km": 15000,
+    "months": 12,
+    "note": "לפי ספר הרכב של היבואן: כל 15,000 ק\"מ או שנה; בתנאים קשים כל 7,500 ק\"מ או 6 חודשים"
+  },
+  "cycle_km": 120000,
+  "services": [
+    {
+      "km": 15000,
+      "items": [
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "מחוונים, מולטימדיה, צנרת ורתמות חיווט"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "להבים קדמיים ואחורי"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "יעילות קירור ומערכת מיזוג"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "החלפה כל 60,000 ק\"מ; בשאר הטיפולים מפלס ונקודת קפיאה"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "החלפה כל 30,000 ק\"מ; בשאר הטיפולים מפלס וריכוז מים"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "נוזל תיבת ההילוכים ומסנן חיצוני: בטבלה ב-60,000; בהערה - 4 שנים או 40,000 ק\"מ"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בולמי זעזועים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גל הינע וגומיות"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "מומנט ברגי שלדה, עוקת שמן ובורג ניקוז, גוף תיבת ההילוכים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תיבת הגה, עמוד הגה, מוטות ומפרקים כדוריים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "מראה, סוליה, לחץ (כולל גלגל חלופי) ומומנט ברגי גלגל"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "inspect",
+          "note": "החלפה כל 60,000 ק\"מ"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת מתח גבוה: חלודה או עיוות, ברגי קיבוע, שסתום אוורור, מחברי מתח גבוה ונמוך ורתמות"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "מחוונים, מולטימדיה, צנרת ורתמות חיווט"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "להבים קדמיים ואחורי"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "יעילות קירור ומערכת מיזוג"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "החלפה כל 60,000 ק\"מ; בשאר הטיפולים מפלס ונקודת קפיאה"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "החלפה כל 30,000 ק\"מ; בשאר הטיפולים מפלס וריכוז מים"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "נוזל תיבת ההילוכים ומסנן חיצוני: בטבלה ב-60,000; בהערה - 4 שנים או 40,000 ק\"מ"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בולמי זעזועים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גל הינע וגומיות"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "מומנט ברגי שלדה, עוקת שמן ובורג ניקוז, גוף תיבת ההילוכים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תיבת הגה, עמוד הגה, מוטות ומפרקים כדוריים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "מראה, סוליה, לחץ (כולל גלגל חלופי) ומומנט ברגי גלגל"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "inspect",
+          "note": "החלפה כל 60,000 ק\"מ"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת מתח גבוה: חלודה או עיוות, ברגי קיבוע, שסתום אוורור, מחברי מתח גבוה ונמוך ורתמות"
+        }
+      ]
+    },
+    {
+      "km": 45000,
+      "items": [
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "מחוונים, מולטימדיה, צנרת ורתמות חיווט"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "להבים קדמיים ואחורי"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "יעילות קירור ומערכת מיזוג"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "החלפה כל 60,000 ק\"מ; בשאר הטיפולים מפלס ונקודת קפיאה"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "החלפה כל 30,000 ק\"מ; בשאר הטיפולים מפלס וריכוז מים"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "נוזל תיבת ההילוכים ומסנן חיצוני: בטבלה ב-60,000; בהערה - 4 שנים או 40,000 ק\"מ"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בולמי זעזועים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גל הינע וגומיות"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "מומנט ברגי שלדה, עוקת שמן ובורג ניקוז, גוף תיבת ההילוכים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תיבת הגה, עמוד הגה, מוטות ומפרקים כדוריים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "מראה, סוליה, לחץ (כולל גלגל חלופי) ומומנט ברגי גלגל"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "inspect",
+          "note": "החלפה כל 60,000 ק\"מ"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת מתח גבוה: חלודה או עיוות, ברגי קיבוע, שסתום אוורור, מחברי מתח גבוה ונמוך ורתמות"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "מחוונים, מולטימדיה, צנרת ורתמות חיווט"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "להבים קדמיים ואחורי"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "יעילות קירור ומערכת מיזוג"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "replace",
+          "note": "החלפה כל 60,000 ק\"מ; בשאר הטיפולים מפלס ונקודת קפיאה"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "החלפה כל 30,000 ק\"מ; בשאר הטיפולים מפלס וריכוז מים"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "replace",
+          "note": "נוזל תיבת ההילוכים ומסנן חיצוני: בטבלה ב-60,000; בהערה - 4 שנים או 40,000 ק\"מ"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בולמי זעזועים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גל הינע וגומיות"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "מומנט ברגי שלדה, עוקת שמן ובורג ניקוז, גוף תיבת ההילוכים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תיבת הגה, עמוד הגה, מוטות ומפרקים כדוריים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "מראה, סוליה, לחץ (כולל גלגל חלופי) ומומנט ברגי גלגל"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "החלפה כל 60,000 ק\"מ"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת מתח גבוה: חלודה או עיוות, ברגי קיבוע, שסתום אוורור, מחברי מתח גבוה ונמוך ורתמות"
+        }
+      ]
+    },
+    {
+      "km": 75000,
+      "items": [
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "מחוונים, מולטימדיה, צנרת ורתמות חיווט"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "להבים קדמיים ואחורי"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "יעילות קירור ומערכת מיזוג"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "החלפה כל 60,000 ק\"מ; בשאר הטיפולים מפלס ונקודת קפיאה"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "החלפה כל 30,000 ק\"מ; בשאר הטיפולים מפלס וריכוז מים"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "נוזל תיבת ההילוכים ומסנן חיצוני: בטבלה ב-60,000; בהערה - 4 שנים או 40,000 ק\"מ"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בולמי זעזועים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גל הינע וגומיות"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "מומנט ברגי שלדה, עוקת שמן ובורג ניקוז, גוף תיבת ההילוכים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תיבת הגה, עמוד הגה, מוטות ומפרקים כדוריים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "מראה, סוליה, לחץ (כולל גלגל חלופי) ומומנט ברגי גלגל"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "inspect",
+          "note": "החלפה כל 60,000 ק\"מ"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת מתח גבוה: חלודה או עיוות, ברגי קיבוע, שסתום אוורור, מחברי מתח גבוה ונמוך ורתמות"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "מחוונים, מולטימדיה, צנרת ורתמות חיווט"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "להבים קדמיים ואחורי"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "יעילות קירור ומערכת מיזוג"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "החלפה כל 60,000 ק\"מ; בשאר הטיפולים מפלס ונקודת קפיאה"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "החלפה כל 30,000 ק\"מ; בשאר הטיפולים מפלס וריכוז מים"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "נוזל תיבת ההילוכים ומסנן חיצוני: בטבלה ב-60,000; בהערה - 4 שנים או 40,000 ק\"מ"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בולמי זעזועים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גל הינע וגומיות"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "מומנט ברגי שלדה, עוקת שמן ובורג ניקוז, גוף תיבת ההילוכים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תיבת הגה, עמוד הגה, מוטות ומפרקים כדוריים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "מראה, סוליה, לחץ (כולל גלגל חלופי) ומומנט ברגי גלגל"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "inspect",
+          "note": "החלפה כל 60,000 ק\"מ"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת מתח גבוה: חלודה או עיוות, ברגי קיבוע, שסתום אוורור, מחברי מתח גבוה ונמוך ורתמות"
+        }
+      ]
+    },
+    {
+      "km": 105000,
+      "items": [
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "מחוונים, מולטימדיה, צנרת ורתמות חיווט"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "להבים קדמיים ואחורי"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "יעילות קירור ומערכת מיזוג"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "החלפה כל 60,000 ק\"מ; בשאר הטיפולים מפלס ונקודת קפיאה"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "החלפה כל 30,000 ק\"מ; בשאר הטיפולים מפלס וריכוז מים"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "נוזל תיבת ההילוכים ומסנן חיצוני: בטבלה ב-60,000; בהערה - 4 שנים או 40,000 ק\"מ"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בולמי זעזועים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גל הינע וגומיות"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "מומנט ברגי שלדה, עוקת שמן ובורג ניקוז, גוף תיבת ההילוכים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תיבת הגה, עמוד הגה, מוטות ומפרקים כדוריים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "מראה, סוליה, לחץ (כולל גלגל חלופי) ומומנט ברגי גלגל"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "inspect",
+          "note": "החלפה כל 60,000 ק\"מ"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת מתח גבוה: חלודה או עיוות, ברגי קיבוע, שסתום אוורור, מחברי מתח גבוה ונמוך ורתמות"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "מחוונים, מולטימדיה, צנרת ורתמות חיווט"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "להבים קדמיים ואחורי"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "יעילות קירור ומערכת מיזוג"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "replace",
+          "note": "החלפה כל 60,000 ק\"מ; בשאר הטיפולים מפלס ונקודת קפיאה"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "החלפה כל 30,000 ק\"מ; בשאר הטיפולים מפלס וריכוז מים"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "replace",
+          "note": "נוזל תיבת ההילוכים ומסנן חיצוני: בטבלה ב-60,000; בהערה - 4 שנים או 40,000 ק\"מ"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בולמי זעזועים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גל הינע וגומיות"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "מומנט ברגי שלדה, עוקת שמן ובורג ניקוז, גוף תיבת ההילוכים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תיבת הגה, עמוד הגה, מוטות ומפרקים כדוריים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "מראה, סוליה, לחץ (כולל גלגל חלופי) ומומנט ברגי גלגל"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "החלפה כל 60,000 ק\"מ"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת מתח גבוה: חלודה או עיוות, ברגי קיבוע, שסתום אוורור, מחברי מתח גבוה ונמוך ורתמות"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "tire_rotation",
+      "action": "rotate",
+      "every_km": 10000,
+      "note": "סבב צמיגים מומלץ כל 10,000 ק\"מ (אופטימלי 5,000-7,000)"
+    },
+    {
+      "item": "fuel_filter",
+      "action": "replace",
+      "every_km": 30000,
+      "note": "מסנן דלק חיצוני (אם קיים): כל 30,000 ק\"מ; המסנן שבמשאבה אינו דורש תחזוקה"
+    }
+  ],
+  "time_based": [],
+  "specs": {},
+  "sources": [
+    {
+      "url": "https://res.cloudinary.com/colmobil/images/v1768203756/J8-PHEV_OM_2025-web/J8-PHEV_OM_2025-web.pdf",
+      "kind": "importer",
+      "note": "ספר רכב עברי JAECOO 8 PHEV 2025 (כלמוביל), עמ' 276-279"
+    }
+  ],
+  "status": "reviewed",
+  "notes": "הועתק מתוכנית התחזוקה בספר הרכב העברי של כלמוביל לג'אקו 8 PHEV (2025, עמ' 277-279; 10 עמודות של 15,000 ק\"מ). כל הפריטים חוזרים במחזור של 60,000 ק\"מ ולכן המחזור כאן 120,000. בטבלה נוזל תיבת ההילוכים מסומן להחלפה ב-60,000 וב-120,000, אך בהערה לידו כתוב 4 שנים או 40,000 ק\"מ - כדאי לוודא מול היבואן."
+}

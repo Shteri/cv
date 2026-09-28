@@ -1,0 +1,37 @@
+import sys; sys.path.insert(0,'.')
+from gen import build, HY
+A8='IIIIIIII'; Q='.I.I.I.I'
+build(dict(HY, id="hyundai-kona-2020-2022-1.6-hybrid", model="Kona Hybrid", model_he="קונה היברידית", generation="OS HEV",
+  years=[2020,2022], engines=["1.6 GDI hybrid (Kappa, G4LE)"], fuel="hybrid",
+  interval={"km":15000,"months":12,"note":"לפי ספר הרכב של היבואן: 15,000 ק\"מ או 12 חודשים, המוקדם מביניהם"},
+  cycle_km=120000,
+  sources=[{"url":"https://res.cloudinary.com/colmobil/images/v1716384065/ספר-רכב-יונדאי-קונה-היברידית-2022_77902dc66/ספר-רכב-יונדאי-קונה-היברידית-2022_77902dc66.pdf","kind":"importer","note":"ספר רכב קונה היברידית 2022 של כלמוביל, עמודי PDF 477-480 (9-8 עד 9-11), טבלה סרוקה"}],
+  status="reviewed",
+  notes="מסנן אוויר: בדיקה בכל טיפול והחלפה כל 45,000. רצועת HSG: בדיקה בכל טיפול והחלפה כל 105,000 ק\"מ או 48 חודשים. תוסף דלק כל 15,000 ק\"מ (אין פריט ברשימה). נוזל מפעיל מצמד המנוע מוחלף כל 30,000 וצנרת המפעיל נבדקת בכל טיפול. נוזל בלמים מוחלף כל 30,000. נוזל גיר DCT: בדיקה ב-60,000 וב-120,000, ולהחליף אם הגיר שקע במים. מצתים כל 165,000 ק\"מ.",
+  ),
+ [("engine_oil","RRRRRRRR"),("oil_filter","RRRRRRRR"),("air_filter","IIRIIRII"),
+  ("evap_system","...I...I"),("fuel_tank_air_filter","...I...I"),("vacuum_hose",A8),("fuel_filter","...I...I"),("fuel_lines","...I...I"),
+  ("hsg_belt",A8),("dct_oil","...I...I"),("clutch_actuator_fluid","IRIRIRIR"),("battery_12v",A8),("brake_lines",A8),
+  ("pedals",Q),("parking_brake",Q),("brake_fluid","IRIRIRIR"),("brake_pads",A8),("brake_discs",A8),
+  ("steering",A8),("cv_boots",Q),("tires",A8),("suspension",A8),("body_underside",A8,"הידוק ברגים ואומים בשלדה ובמרכב"),
+  ("ac_refrigerant",A8),("ac_system",A8),("cabin_filter",".R.R.R.R"),("exhaust",Q)],
+ long_interval=[{"item":"hsg_belt","action":"replace","every_km":105000,"every_months":48},
+  {"item":"spark_plugs","action":"replace","every_km":165000},
+  {"item":"cooling_system","action":"inspect","first_km":60000,"first_months":48,"then_every_km":30000,"then_every_months":24},
+  {"item":"coolant","action":"replace","first_km":210000,"first_months":120,"then_every_km":30000,"then_every_months":24}])
+
+build(dict(HY, id="hyundai-kona-2023-2026-1.6-hybrid", model="Kona Hybrid", model_he="קונה היברידית", generation="SX2 HEV",
+  years=[2023,2026], engines=["Smartstream G1.6 GDI hybrid (G4LL/G4LM)"], fuel="hybrid",
+  interval={"km":15000,"months":12,"note":"לפי ספר הרכב של היבואן: 15,000 ק\"מ או 12 חודשים, המוקדם מביניהם"},
+  cycle_km=120000,
+  sources=[{"url":"https://res.cloudinary.com/colmobil/images/v1731940122/KONA-hybrid-web-low-2023/KONA-hybrid-web-low-2023.pdf","kind":"importer","note":"ספר רכב קונה היברידית 2023 של כלמוביל, עמודי PDF 544-545 (9-9, 9-10), טבלה סרוקה"},
+           {"url":"https://res.cloudinary.com/colmobil/images/v1777977578/KONA-hybrid-2026-web-low-1_30738826c5/KONA-hybrid-2026-web-low-1_30738826c5.pdf","kind":"importer","note":"ספר קונה היברידית 2026, עמ' PDF 553-554: אותה טבלה"}],
+  status="reviewed",
+  notes="אותה טבלה בספרי 2023, 2024 ו-2026. רצועת HSG: בדיקה בכל טיפול והחלפה ב-60,000 וב-120,000 (בכותרת: 48 חודשים או 105 אלף ק\"מ). מסנן אוויר ושמן מוחלפים בכל טיפול. מסנן מזגן ונוזל בלמים מוחלפים כל 45,000. מסנן האוויר של מיכל הדלק מוחלף כל 60,000. נוזל קירור: החלפה ראשונה ב-195,000 ק\"מ ואחר כך כל 30,000 ק\"מ או שנתיים. מצתים כל 150,000 ק\"מ."),
+ [("engine_oil","RRRRRRRR"),("oil_filter","RRRRRRRR"),("hsg_belt","IIIRIIIR"),("air_filter","RRRRRRRR"),
+  ("evap_system","...I...I"),("vacuum_hose",A8),("fuel_tank_air_filter","...R...R"),("fuel_lines","...I...I"),
+  ("cooling_system",A8),("battery_12v",A8),("brake_lines",A8),("pedals",A8),("parking_brake",A8),("brake_fluid","IIRIIRII"),
+  ("brake_pads",A8),("brake_discs",A8),("steering",A8),("cv_boots",A8),("tires",A8),("suspension",A8),
+  ("cabin_filter","IIRIIRII"),("exhaust",A8)],
+ long_interval=[{"item":"spark_plugs","action":"replace","every_km":150000},
+  {"item":"coolant","action":"replace","first_km":195000,"then_every_km":30000,"then_every_months":24}])

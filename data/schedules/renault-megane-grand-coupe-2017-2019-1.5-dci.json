@@ -1,0 +1,474 @@
+{
+  "make": "Renault",
+  "make_he": "רנו",
+  "importer": "פריסבי (קרסו)",
+  "id": "renault-megane-grand-coupe-2017-2019-1.5-dci",
+  "model": "Megane Grand Coupe",
+  "model_he": "מגאן גראנד קופה",
+  "generation": "IV",
+  "years": [
+    2017,
+    2019
+  ],
+  "engines": [
+    "1.5 dCi (K9K)"
+  ],
+  "fuel": "diesel",
+  "interval": {
+    "km": 15000,
+    "months": 12,
+    "note": "לפי טבלת רנו אוסטרליה לקנגו 1.5 דיזל: טיפולים ב-15,000, 30,000, 45,000... ק\"מ; מסננים כל 30,000 או שנתיים. משך הזמן בין טיפולים (שנה) לפי מדיניות השירות הכללית בעמוד"
+  },
+  "cycle_km": 120000,
+  "services": [
+    {
+      "km": 15000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "או כל שנתיים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "או כל שנתיים"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace",
+          "note": "או כל שנתיים"
+        }
+      ]
+    },
+    {
+      "km": 45000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "או כל שנתיים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "או כל שנתיים"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace",
+          "note": "או כל שנתיים"
+        }
+      ]
+    },
+    {
+      "km": 75000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "או כל שנתיים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "או כל שנתיים"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace",
+          "note": "או כל שנתיים"
+        }
+      ]
+    },
+    {
+      "km": 105000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "או כל שנתיים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "או כל שנתיים"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace",
+          "note": "או כל שנתיים"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "timing_belt",
+      "action": "replace",
+      "every_km": 120000,
+      "every_months": 48,
+      "note": "ערכת רצועת תזמון וערכת רצועת אביזרים"
+    },
+    {
+      "item": "drive_belt",
+      "action": "replace",
+      "every_km": 120000,
+      "every_months": 48
+    },
+    {
+      "item": "coolant",
+      "action": "replace",
+      "every_km": 120000,
+      "every_months": 48
+    },
+    {
+      "item": "brake_fluid",
+      "action": "replace",
+      "every_km": 120000,
+      "every_months": 48
+    }
+  ],
+  "time_based": [],
+  "specs": {
+    "timing": "רצועת תזמון: 120,000 ק\"מ או 4 שנים (טבלת רנו אוסטרליה, קנגו 1.5 דיזל)"
+  },
+  "sources": [
+    {
+      "url": "https://www.renault.com.au/capped-price-servicing/",
+      "kind": "manufacturer",
+      "note": "Renault Australia, Capped Price Servicing: טבלת \"Renault Kangoo 1.5 Diesel\" (מנוע K9K) - מרווחי מסננים, רצועות, נוזל קירור ונוזל בלמים"
+    },
+    {
+      "url": "https://www.renault.co.il/",
+      "kind": "importer",
+      "note": "אתרי renault.co.il ו-dacia.co.il חסומים מסביבת הענן (Incapsula 403, גם בדפדפן Playwright); ספר עברי או לוח טיפולים של היבואן לא נמצאו"
+    }
+  ],
+  "status": "draft",
+  "notes": "לוח היבואן בישראל לא נמצא. המרווחים לקוחים מטבלת השירות הרשמית של רנו אוסטרליה לקנגו עם מנוע 1.5 dCi (K9K), אותו מנוע שבדגם זה. טיפול כל 15,000 ק\"מ: שמן ומסנן. כל 30,000 ק\"מ או שנתיים: מסנני אוויר, מזגן וסולר. ערכת רצועת תזמון ורצועת אביזרים, נוזל קירור ונוזל בלמים: כל 120,000 ק\"מ או 4 שנים. רשימת הבדיקות הכלליות בכל טיפול (צמיגים, תאורה, בלמים, מפלסים, קריאת מחשב) איננה מפורטת בעמוד המקור ונוספה כבדיקות שגרה; ההחלפות והמרווחים לקוחים מהמקור. בדגמים החדשים יותר (מגאן IV, קדג'אר) יש חיישן מצב שמן שעשוי להקדים טיפול."
+}

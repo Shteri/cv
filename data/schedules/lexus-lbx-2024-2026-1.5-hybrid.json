@@ -1,0 +1,1229 @@
+{
+  "make": "Lexus",
+  "make_he": "לקסוס",
+  "importer": "יוניון מוטורס",
+  "id": "lexus-lbx-2024-2026-1.5-hybrid",
+  "model": "LBX",
+  "model_he": "LBX",
+  "generation": "MAYH10",
+  "years": [
+    2024,
+    2026
+  ],
+  "engines": [
+    "1.5 hybrid (M15A-FXE)"
+  ],
+  "fuel": "hybrid",
+  "interval": {
+    "km": 15000,
+    "months": 12,
+    "note": "לפי הגיליון: תנאי פעולה רגילים 15,000 ק\"מ או 12 חודשים; בתנאים מחמירים שמן ומסנן כל 7,500 ק\"מ או 6 חודשים"
+  },
+  "cycle_km": 150000,
+  "services": [
+    {
+      "km": 15000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי הגיליון: בהופעת התראת החלפת שמן, או לאחר 15,000 ק\"מ, או לאחר 12 חודשים (הקודם); בתנאים מחמירים 7,500 ק\"מ או 6 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "לפי הגיליון: בהופעת התראת החלפת שמן, או לאחר 15,000 ק\"מ, או לאחר 12 חודשים (הקודם); בתנאים מחמירים 7,500 ק\"מ או 6 חודשים"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 48 , : 24"
+        },
+        {
+          "item": "hybrid_battery_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 24 , : 12"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 24"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי הגיליון: בהופעת התראת החלפת שמן, או לאחר 15,000 ק\"מ, או לאחר 12 חודשים (הקודם); בתנאים מחמירים 7,500 ק\"מ או 6 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "לפי הגיליון: בהופעת התראת החלפת שמן, או לאחר 15,000 ק\"מ, או לאחר 12 חודשים (הקודם); בתנאים מחמירים 7,500 ק\"מ או 6 חודשים"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 24"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 48 , : 24"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 24"
+        },
+        {
+          "item": "hybrid_battery_filter",
+          "action": "clean"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "תדירות בחודשים לפי הגיליון: : 24 , : 12"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 24"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "cvt_oil",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 24"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        }
+      ]
+    },
+    {
+      "km": 45000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי הגיליון: בהופעת התראת החלפת שמן, או לאחר 15,000 ק\"מ, או לאחר 12 חודשים (הקודם); בתנאים מחמירים 7,500 ק\"מ או 6 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "לפי הגיליון: בהופעת התראת החלפת שמן, או לאחר 15,000 ק\"מ, או לאחר 12 חודשים (הקודם); בתנאים מחמירים 7,500 ק\"מ או 6 חודשים"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 48 , : 24"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 24"
+        },
+        {
+          "item": "hybrid_battery_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 24 , : 12"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 24"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי הגיליון: בהופעת התראת החלפת שמן, או לאחר 15,000 ק\"מ, או לאחר 12 חודשים (הקודם); בתנאים מחמירים 7,500 ק\"מ או 6 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "לפי הגיליון: בהופעת התראת החלפת שמן, או לאחר 15,000 ק\"מ, או לאחר 12 חודשים (הקודם); בתנאים מחמירים 7,500 ק\"מ או 6 חודשים"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 24"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "תדירות בחודשים לפי הגיליון: : 48 , : 24"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 24"
+        },
+        {
+          "item": "hybrid_battery_filter",
+          "action": "clean"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "תדירות בחודשים לפי הגיליון: : 24 , : 12"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 24"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "cvt_oil",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 24"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        }
+      ]
+    },
+    {
+      "km": 75000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי הגיליון: בהופעת התראת החלפת שמן, או לאחר 15,000 ק\"מ, או לאחר 12 חודשים (הקודם); בתנאים מחמירים 7,500 ק\"מ או 6 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "לפי הגיליון: בהופעת התראת החלפת שמן, או לאחר 15,000 ק\"מ, או לאחר 12 חודשים (הקודם); בתנאים מחמירים 7,500 ק\"מ או 6 חודשים"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace",
+          "note": "תדירות בחודשים לפי הגיליון: : 96"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 48 , : 24"
+        },
+        {
+          "item": "hybrid_battery_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 24 , : 12"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 24"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי הגיליון: בהופעת התראת החלפת שמן, או לאחר 15,000 ק\"מ, או לאחר 12 חודשים (הקודם); בתנאים מחמירים 7,500 ק\"מ או 6 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "לפי הגיליון: בהופעת התראת החלפת שמן, או לאחר 15,000 ק\"מ, או לאחר 12 חודשים (הקודם); בתנאים מחמירים 7,500 ק\"מ או 6 חודשים"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 24"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 48 , : 24"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 24"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 24"
+        },
+        {
+          "item": "hybrid_battery_filter",
+          "action": "clean"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "תדירות בחודשים לפי הגיליון: : 24 , : 12"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 24"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "cvt_oil",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 24"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        }
+      ]
+    },
+    {
+      "km": 105000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי הגיליון: בהופעת התראת החלפת שמן, או לאחר 15,000 ק\"מ, או לאחר 12 חודשים (הקודם); בתנאים מחמירים 7,500 ק\"מ או 6 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "לפי הגיליון: בהופעת התראת החלפת שמן, או לאחר 15,000 ק\"מ, או לאחר 12 חודשים (הקודם); בתנאים מחמירים 7,500 ק\"מ או 6 חודשים"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 48 , : 24"
+        },
+        {
+          "item": "hybrid_battery_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 24 , : 12"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 24"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי הגיליון: בהופעת התראת החלפת שמן, או לאחר 15,000 ק\"מ, או לאחר 12 חודשים (הקודם); בתנאים מחמירים 7,500 ק\"מ או 6 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "לפי הגיליון: בהופעת התראת החלפת שמן, או לאחר 15,000 ק\"מ, או לאחר 12 חודשים (הקודם); בתנאים מחמירים 7,500 ק\"מ או 6 חודשים"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 24"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "תדירות בחודשים לפי הגיליון: : 48 , : 24"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 24"
+        },
+        {
+          "item": "hybrid_battery_filter",
+          "action": "clean"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "תדירות בחודשים לפי הגיליון: : 24 , : 12"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 24"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "cvt_oil",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 24"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        }
+      ]
+    },
+    {
+      "km": 135000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי הגיליון: בהופעת התראת החלפת שמן, או לאחר 15,000 ק\"מ, או לאחר 12 חודשים (הקודם); בתנאים מחמירים 7,500 ק\"מ או 6 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "לפי הגיליון: בהופעת התראת החלפת שמן, או לאחר 15,000 ק\"מ, או לאחר 12 חודשים (הקודם); בתנאים מחמירים 7,500 ק\"מ או 6 חודשים"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 48 , : 24"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 24"
+        },
+        {
+          "item": "hybrid_battery_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 24 , : 12"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 24"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        }
+      ]
+    },
+    {
+      "km": 150000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי הגיליון: בהופעת התראת החלפת שמן, או לאחר 15,000 ק\"מ, או לאחר 12 חודשים (הקודם); בתנאים מחמירים 7,500 ק\"מ או 6 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "לפי הגיליון: בהופעת התראת החלפת שמן, או לאחר 15,000 ק\"מ, או לאחר 12 חודשים (הקודם); בתנאים מחמירים 7,500 ק\"מ או 6 חודשים"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 24"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace",
+          "note": "תדירות בחודשים לפי הגיליון: : 96"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 48 , : 24"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 24"
+        },
+        {
+          "item": "hybrid_battery_filter",
+          "action": "clean"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "תדירות בחודשים לפי הגיליון: : 24 , : 12"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 24"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "cvt_oil",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 24"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "coolant",
+      "action": "replace",
+      "first_km": 240000,
+      "then_every_km": 75000,
+      "note": "נוזל קירור מערכת היברידית/ממיר"
+    },
+    {
+      "item": "coolant",
+      "action": "replace",
+      "first_km": 150000,
+      "then_every_km": 75000,
+      "note": "נוזל קירור מנוע (SLLC)"
+    }
+  ],
+  "time_based": [],
+  "specs": {
+    "_note": "שמן, נוזל קירור ונוזל בלמים מהגיליון של היבואן; שאר הפריטים ידע כללי, לאימות",
+    "engine_oil": "API SL/SM/SN, 0W-16, 0W-20, 5W-30 או 10W-30 (לפי הגיליון)",
+    "coolant": "Toyota SLLC (ורוד), לא לערבב",
+    "brake_fluid": "DOT 3 או DOT 4 (FMVSS 116)",
+    "fuel": "בנזין 95 אוקטן",
+    "timing": "שרשרת, ללא החלפה מתוכננת",
+    "tire_pressure": "לפי המדבקה בעמוד הדלת",
+    "warranty": "יוניון מוטורס: 3 שנים או 100,000 ק\"מ (ידע כללי, לאימות)",
+    "tires": "205/65 R16 או 215/50 R18",
+    "spare": "ערכת תיקון",
+    "battery": "מצבר עזר 12V קטן (לא מצבר רגיל) + סוללה היברידית; בדיקת סוללה שנתית תנאי לאחריות הסוללה"
+  },
+  "sources": [
+    {
+      "url": "https://books.union-motors.co.il/LexusApp/api/files/36/download",
+      "kind": "importer",
+      "note": "ספר הרכב העברי של לקסוס (LBX 2024, 524 עמודים; עמוד 378) מפנה לחוברת השירות ואין בו לוח אחזקה"
+    },
+    {
+      "url": "https://books.union-motors.co.il/app (fileId 340, connectionId ?)",
+      "kind": "importer",
+      "note": "דגם אחות: לוח אחזקה של יוניון מוטורס 'YARIS CROSS HV' (דגמים Yaris Cross Hybrid, שנים 2021-2023); דגם מנוע בגיליון: None"
+    },
+    {
+      "url": "https://books.union-motors.co.il/app (fileId 354, connectionId ?)",
+      "kind": "importer",
+      "note": "דגם אחות: לוח אחזקה נוסף 'יאריס קרוס היברידי' (2023-2025), אותו מבנה"
+    },
+    {
+      "url": "https://www.toyota.co.il/owners/parts-and-accessories/owners-manuals",
+      "kind": "importer",
+      "note": "דגם אחות: מרכז ספרות הרכב של טויוטה ישראל (בחירת דגם ושנה); המסמכים נשלפים מ-books.union-motors.co.il"
+    }
+  ],
+  "status": "draft",
+  "notes": "טיוטה: ספר הרכב העברי של לקסוס LBX לא כולל לוח אחזקה (מפנה ל\"חוברת השירות של לקסוס\", שלא נמצאה ברשת). הלוח כאן הועתק מלוח האחזקה הישראלי של טויוטה יאריס קרוס היברידית 2021-2025 (M15A-FXE, GA-B), שחולק עם הדגם את המנוע ואת הפלטפורמה. כדאי לאמת מול מרכז השירות של לקסוס. הערת המקור: הועתק מלוח האחזקה הישראלי של יוניון מוטורס (10 עמודות של 15,000 ק\"מ). פעולות: I בדיקה, R החלפה, C ניקוי, T הידוק, L/G גירוז (נרשם כבדיקה)."
+}
