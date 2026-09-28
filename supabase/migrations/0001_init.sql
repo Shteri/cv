@@ -13,10 +13,10 @@ create table if not exists public.profiles (
 );
 alter table public.profiles enable row level security;
 create policy "profiles: own row" on public.profiles
-  for all using (auth.uid() = id) with check (auth.uid() = id);
+  for all to authenticated using ((select auth.uid()) = id) with check ((select auth.uid()) = id);
 
 create or replace function public.handle_new_user() returns trigger
-language plpgsql security definer set search_path = public as $$
+language plpgsql security definer set search_path = '' as $$
 begin
   insert into public.profiles (id, display_name)
   values (new.id, coalesce(new.raw_user_meta_data->>'full_name', new.raw_user_meta_data->>'name'))
@@ -44,7 +44,7 @@ create table if not exists public.cars (
 create index if not exists cars_user_idx on public.cars(user_id);
 alter table public.cars enable row level security;
 create policy "cars: own rows" on public.cars
-  for all using (auth.uid() = user_id) with check (auth.uid() = user_id);
+  for all to authenticated using ((select auth.uid()) = user_id) with check ((select auth.uid()) = user_id);
 
 -- ---------- records ----------
 create table if not exists public.records (
@@ -71,9 +71,10 @@ create table if not exists public.records (
   unique (car_id, client_id)
 );
 create index if not exists records_car_idx on public.records(car_id);
+create index if not exists records_user_idx on public.records(user_id);
 alter table public.records enable row level security;
 create policy "records: own rows" on public.records
-  for all using (auth.uid() = user_id) with check (auth.uid() = user_id);
+  for all to authenticated using ((select auth.uid()) = user_id) with check ((select auth.uid()) = user_id);
 
 -- ---------- community: anonymized price and garage reports ----------
 -- Copied from records with share = true. No user id, no plate, no free text.
@@ -97,7 +98,7 @@ alter table public.price_reports enable row level security;
 -- Nobody reads rows directly; aggregates are exposed through the functions below.
 
 create or replace function public.sync_price_report() returns trigger
-language plpgsql security definer set search_path = public as $$
+language plpgsql security definer set search_path = '' as $$
 declare sched text;
 begin
   select schedule_id into sched from public.cars where id = new.car_id;
@@ -118,7 +119,7 @@ create trigger records_sync_price_report after insert or update on public.record
 -- Median and quartiles per garage type for one scheduled service. Buckets under 3 reports are hidden.
 create or replace function public.community_prices(p_schedule_id text, p_svc_km int)
 returns table ("where" text, n bigint, p25 numeric, med numeric, p75 numeric, verified bigint, latest timestamptz)
-language sql security definer set search_path = public stable as $$
+language sql security definer set search_path = '' stable as $$
   select "where", count(*) as n,
          percentile_cont(0.25) within group (order by price) as p25,
          percentile_cont(0.5)  within group (order by price) as med,
@@ -134,7 +135,7 @@ $$;
 -- Garages other drivers of the same model reported. Needs a name; grouped by name + city.
 create or replace function public.community_garages(p_schedule_id text)
 returns table (garage text, city text, "where" text, n bigint, avg_price numeric, back_pct numeric, latest timestamptz)
-language sql security definer set search_path = public stable as $$
+language sql security definer set search_path = '' stable as $$
   select garage, coalesce(city,'') as city, "where", count(*) as n,
          round(avg(price)) as avg_price,
          round(100.0 * count(*) filter (where back = 'yes') / nullif(count(*) filter (where back is not null), 0)) as back_pct,
@@ -146,15 +147,19 @@ language sql security definer set search_path = public stable as $$
   limit 50;
 $$;
 
+revoke execute on function public.community_prices(text, int) from public;
+revoke execute on function public.community_garages(text) from public;
 grant execute on function public.community_prices(text, int) to anon, authenticated;
 grant execute on function public.community_garages(text) to anon, authenticated;
+revoke execute on function public.sync_price_report() from public, anon, authenticated;
+revoke execute on function public.handle_new_user() from public, anon, authenticated;
 
 -- ---------- storage: receipts ----------
 insert into storage.buckets (id, name, public) values ('receipts', 'receipts', false)
 on conflict (id) do nothing;
-create policy "receipts: own folder read" on storage.objects for select
-  using (bucket_id = 'receipts' and (storage.foldername(name))[1] = auth.uid()::text);
-create policy "receipts: own folder write" on storage.objects for insert
-  with check (bucket_id = 'receipts' and (storage.foldername(name))[1] = auth.uid()::text);
-create policy "receipts: own folder delete" on storage.objects for delete
-  using (bucket_id = 'receipts' and (storage.foldername(name))[1] = auth.uid()::text);
+create policy "receipts: own folder read" on storage.objects for select to authenticated
+  using (bucket_id = 'receipts' and (storage.foldername(name))[1] = (select auth.uid())::text);
+create policy "receipts: own folder write" on storage.objects for insert to authenticated
+  with check (bucket_id = 'receipts' and (storage.foldername(name))[1] = (select auth.uid())::text);
+create policy "receipts: own folder delete" on storage.objects for delete to authenticated
+  using (bucket_id = 'receipts' and (storage.foldername(name))[1] = (select auth.uid())::text);
