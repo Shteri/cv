@@ -1,0 +1,543 @@
+{
+  "make": "Opel",
+  "make_he": "אופל",
+  "model": "Corsa",
+  "model_he": "קורסה",
+  "fuel": "petrol",
+  "importer": "קבוצת שלמה (יבואנית אופל 2010-2019; מאז 2019 דוד לובינסקי)",
+  "time_based": [],
+  "status": "draft",
+  "specs": {
+    "_note": "הספר האנגלי (504809) מפרט החלפת רצועת תזמון ובדיקת מרווח שסתומים רק למנועים Z16LEL/Z16LER/Z17DTR, והחלפת מסנן דלק בנזין רק ל-Z16LEL/Z16LER; מנועי 1.2/1.4 אינם ברשימות אלה"
+  },
+  "id": "opel-corsa-2008-2015-1.2-1.4",
+  "generation": "Corsa D",
+  "years": [
+    2008,
+    2015
+  ],
+  "engines": [
+    "1.2 (A12XER)",
+    "1.4 (Z14XEP/A14XER)"
+  ],
+  "interval": {
+    "km": 30000,
+    "months": 12,
+    "note": "ספר הנהג העברי של קורסה D (2013) משייך את ישראל לתכנית האירופית: 30,000 ק\"מ או שנה. הטבלה נלקחה מהספר האנגלי"
+  },
+  "cycle_km": 150000,
+  "services": [
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "נוריות אזהרה, תאורה ואיתות; גם מנעולי הגה והתנעה"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "מגבים, מתזי שמשה ופנסים; כיוון לפי הצורך"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס והגנת קיפאון; השלמה לפי הצורך"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect",
+          "note": "דליפות והידוק"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס (בשנים שבהן לא מוחלף)"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "הידוק הדקים"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "בדיקת מערכות במחשב ואיפוס תצוגת הטיפול"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "מרכב וציפוי תחתון; נזקים נרשמים בפנקס השירות"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "דליפות במדחס המזגן, יחד עם בדיקה חזותית של מנוע ותיבה"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "גומיות ההגה, מוטות ההגה, קצוות מוט ומפרקים כדוריים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "בדיקת נעילה מרכזית; בשירות השני והרביעי גם שימון צירים, מנעולים ותפסים"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "נוריות אזהרה, תאורה ואיתות; גם מנעולי הגה והתנעה"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "מגבים, מתזי שמשה ופנסים; כיוון לפי הצורך"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס והגנת קיפאון; השלמה לפי הצורך"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect",
+          "note": "דליפות והידוק"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "הידוק הדקים"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "בדיקת מערכות במחשב ואיפוס תצוגת הטיפול"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מסנן אבקנים או פחם פעיל"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "בדיקה חזותית"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "parking_brake",
+          "action": "adjust",
+          "note": "בדיקה וכיוון לפי הצורך"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלים קדמיים ואחוריים"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "מרכב וציפוי תחתון; נזקים נרשמים בפנקס השירות"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "בדיקה חזותית של בלמים קדמיים ואחוריים"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "דליפות במדחס המזגן, יחד עם בדיקה חזותית של מנוע ותיבה"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "גומיות ההגה, מוטות ההגה, קצוות מוט ומפרקים כדוריים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "מצב ולחץ כולל גלגל חלופי; שחרור והידוק ברגי גלגל ל-110 ניוטון-מטר"
+        },
+        {
+          "item": "lights",
+          "action": "adjust",
+          "note": "כיוון פנסים ראשיים"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "בדיקת נעילה מרכזית; בשירות השני והרביעי גם שימון צירים, מנעולים ותפסים"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "נוריות אזהרה, תאורה ואיתות; גם מנעולי הגה והתנעה"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "מגבים, מתזי שמשה ופנסים; כיוון לפי הצורך"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס והגנת קיפאון; השלמה לפי הצורך"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect",
+          "note": "דליפות והידוק"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס (בשנים שבהן לא מוחלף)"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "הידוק הדקים"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "בדיקת מערכות במחשב ואיפוס תצוגת הטיפול"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "מרכב וציפוי תחתון; נזקים נרשמים בפנקס השירות"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "דליפות במדחס המזגן, יחד עם בדיקה חזותית של מנוע ותיבה"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "גומיות ההגה, מוטות ההגה, קצוות מוט ומפרקים כדוריים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "בדיקת נעילה מרכזית; בשירות השני והרביעי גם שימון צירים, מנעולים ותפסים"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "נוריות אזהרה, תאורה ואיתות; גם מנעולי הגה והתנעה"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "מגבים, מתזי שמשה ופנסים; כיוון לפי הצורך"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס והגנת קיפאון; השלמה לפי הצורך"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect",
+          "note": "דליפות והידוק"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "הידוק הדקים"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "בדיקת מערכות במחשב ואיפוס תצוגת הטיפול"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מסנן אבקנים או פחם פעיל"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "בדיקה חזותית"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "parking_brake",
+          "action": "adjust",
+          "note": "בדיקה וכיוון לפי הצורך"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלים קדמיים ואחוריים"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "מרכב וציפוי תחתון; נזקים נרשמים בפנקס השירות"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "בדיקה חזותית של בלמים קדמיים ואחוריים"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "דליפות במדחס המזגן, יחד עם בדיקה חזותית של מנוע ותיבה"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "גומיות ההגה, מוטות ההגה, קצוות מוט ומפרקים כדוריים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "מצב ולחץ כולל גלגל חלופי; שחרור והידוק ברגי גלגל ל-110 ניוטון-מטר"
+        },
+        {
+          "item": "lights",
+          "action": "adjust",
+          "note": "כיוון פנסים ראשיים"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "בדיקת נעילה מרכזית; בשירות השני והרביעי גם שימון צירים, מנעולים ותפסים"
+        }
+      ]
+    },
+    {
+      "km": 150000,
+      "items": [
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "נוריות אזהרה, תאורה ואיתות; גם מנעולי הגה והתנעה"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "מגבים, מתזי שמשה ופנסים; כיוון לפי הצורך"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס והגנת קיפאון; השלמה לפי הצורך"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect",
+          "note": "דליפות והידוק"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס (בשנים שבהן לא מוחלף)"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "הידוק הדקים"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "בדיקת מערכות במחשב ואיפוס תצוגת הטיפול"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "מרכב וציפוי תחתון; נזקים נרשמים בפנקס השירות"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "דליפות במדחס המזגן, יחד עם בדיקה חזותית של מנוע ותיבה"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "גומיות ההגה, מוטות ההגה, קצוות מוט ומפרקים כדוריים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "בדיקת נעילה מרכזית; בשירות השני והרביעי גם שימון צירים, מנעולים ותפסים"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "air_filter",
+      "action": "replace",
+      "every_km": 60000,
+      "every_months": 48
+    },
+    {
+      "item": "spark_plugs",
+      "action": "replace",
+      "every_km": 60000,
+      "every_months": 48
+    },
+    {
+      "item": "brake_fluid",
+      "action": "replace",
+      "every_months": 24,
+      "note": "יחד עם נוזל המצמד בתיבה ידנית רובוטית; ללא קשר לק\"מ"
+    },
+    {
+      "item": "brake_drums",
+      "action": "inspect",
+      "every_km": 60000,
+      "every_months": 48,
+      "note": "פירוק תופים, ניקוי ובדיקה חזותית"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.manualslib.com/manual/504809/Opel-Corsa.html?page=238",
+      "kind": "manufacturer",
+      "note": "Opel Corsa D owner's manual (EN, manualslib 504809): \"Service schedule Europe\" printed pp. 232-234 (30,000 km columns) and \"International service schedule\" pp. 235-237 (15,000 km columns), site pages 238-243. This edition lists Z-series engines (Z12XEP/Z14XEP family), not the later A14XER/B14XER."
+    },
+    {
+      "url": "https://public-servicebox.opel.com/OVddb/OV/he_IL/Corsa_D/2010_2016/2013/manual_user/om_corsa_kta-2656_11-heb_eu_my13_ed0612_16_he_il_online%5Bcorsa%5D.pdf",
+      "kind": "importer",
+      "note": "ספר הנהג העברי של קורסה D (שנתון 2013), עמ' 176 (דף 178 בקובץ): ישראל מופיעה ברשימת מדינות תכנית הטיפולים האירופית, טיפול כל 30,000 ק\"מ או שנה. אין בספר טבלת פריטים"
+    }
+  ],
+  "notes": "טבלת פריטים מתוך ספר הנהג האנגלי של קורסה D (טבלת אירופה, חמש עמודות של 30,000 ק\"מ או שנה), עם המרווח שספר הנהג העברי קובע לישראל. בכל טיפול: שמן ומסנן, בדיקת מחשב, נוזלים, תאורה, הגה ומרכב. בכל שנייה (60,000 ק\"מ): מסנן מזגן, בלמים, מתלים, צנרת, פליטה, בלם יד, צמיגים וכיוון פנסים. מסנן אוויר ומצתים כל 60,000 ק\"מ או 4 שנים, נוזל בלמים כל שנתיים. במהדורת הספר שנבדקה מופיעים מנועי Z ולא A14XER, ולכן זו טיוטה. בספר העברי של קורסה E (2015 ואילך) ישראל כבר בתכנית הבינלאומית של 15,000 ק\"מ."
+}
