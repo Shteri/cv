@@ -93,6 +93,8 @@ for (const f of ["home.png", "timeline.png", "condition.png", "welcome.css"]) co
 // Garage dashboard at /garage/ (desktop, for the garage office). Static: data, engine and cloud come from the root.
 mkdirSync(out + "garage", { recursive: true });
 for (const f of ["index.html", "garage.css"]) copyFileSync(root + "app/garage/" + f, out + "garage/" + f);
+// Public pages for garage customers (no sign-in): online booking and extra-work approval.
+for (const d of ["book", "approve"]) { mkdirSync(out + d, { recursive: true }); copyFileSync(root + "app/" + d + "/index.html", out + d + "/index.html"); }
 writeFileSync(out + "manifest.webmanifest", JSON.stringify({
   name: "Tipulit", short_name: "Tipulit", lang: "he", dir: "rtl", start_url: "./", scope: "./", display: "standalone",
   background_color: "#111418", theme_color: "#111418",

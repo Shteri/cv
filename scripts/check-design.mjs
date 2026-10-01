@@ -15,10 +15,10 @@ const root = new URL("../", import.meta.url).pathname;
 const read = f => readFileSync(root + f, "utf8");
 const TOKENS = "app/styles/tokens.css";
 const CSS = ["app/styles/brand.css", "app/styles/app.css", "app/welcome/welcome.css", "app/garage/garage.css"];
-const HTML = { "app/index.html": ["app/styles/brand.css", "app/styles/app.css"], "app/welcome/index.html": ["app/styles/brand.css", "app/welcome/welcome.css"], "app/garage/index.html": ["app/styles/brand.css", "app/garage/garage.css"] };
+const HTML = { "app/index.html": ["app/styles/brand.css", "app/styles/app.css"], "app/welcome/index.html": ["app/styles/brand.css", "app/welcome/welcome.css"], "app/garage/index.html": ["app/styles/brand.css", "app/garage/garage.css"], "app/book/index.html": ["app/styles/brand.css", "app/garage/garage.css"], "app/approve/index.html": ["app/styles/brand.css", "app/garage/garage.css"] };
 
 // Custom properties that markup or scripts set at runtime (documented in DESIGN.md, "Design in code").
-const RUNTIME = new Set(["--brand-size", "--i", "--k", "--r", "--s", "--c", "--n", "--h", "--x", "--y", "--mx", "--my", "--rx", "--ry", "--p", "--drag", "--vt", "--spin"]);
+const RUNTIME = new Set(["--brand-size", "--i", "--k", "--r", "--s", "--c", "--n", "--h", "--x", "--y", "--mx", "--my", "--rx", "--ry", "--p", "--drag", "--vt", "--spin", "--bays", "--rows"]);
 // Classes that exist only as behaviour hooks for scripts or tests; they carry no styling on purpose.
 const HOOKS = new Set(["magnetic", "js"]);
 

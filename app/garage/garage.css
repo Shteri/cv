@@ -142,8 +142,9 @@ h2 { font: 700 1.2rem/1.3 var(--font-display); margin: 0; }
 
 /* print: only the counter sign */
 @media print {
-  body.printing > *:not(#dlg-invite) { display: none !important; }
-  body.printing #dlg-invite { position: static; box-shadow: none; width: auto; }
+  body.printing > *:not(dialog[open]) { display: none !important; }
+  body.printing dialog[open] { position: static; box-shadow: none; width: auto; }
+  body.printing dialog[open] .grid2, body.printing dialog[open] .check, body.printing dialog[open] .field, body.printing dialog[open] .dlg-actions, body.printing dialog[open] p.muted { display: none; }
   body.printing .dlg-head, body.printing .invite-side { display: none; }
   body.printing .invite { display: block; }
   body.printing .poster { border: 0; padding: 40px; }
@@ -199,3 +200,49 @@ h3 { font: 700 1.05rem/1.3 var(--font-display); margin: 0; }
 .tbl.fc { min-width: 640px; }
 
 @media (max-width: 960px) { .cust-grid { grid-template-columns: 1fr; } .grid3 { grid-template-columns: 1fr 1fr; } }
+
+/* ---------- calendar (phase 2) ---------- */
+.day-nav { display: flex; gap: 4px; }
+#cal-date { min-width: 220px; }
+#cal-pick { padding: 8px 10px; border: 1px solid var(--line); border-radius: var(--r-field); background: var(--surface); }
+.kpis.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.cal-wrap { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-card); box-shadow: var(--shadow); overflow-x: auto; }
+.cal { display: grid; grid-template-columns: 64px repeat(var(--bays, 2), minmax(170px, 1fr)); grid-template-rows: 40px repeat(var(--rows, 18), 34px); min-width: 520px; position: relative; }
+.cal-h { grid-row: 1; grid-column: var(--c); display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: .85rem; color: var(--muted); background: var(--surface-2); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 2; }
+.cal-corner { grid-column: 1; }
+.cal-t { grid-column: 1; grid-row: var(--r); font-size: .75rem; color: var(--muted); padding: 2px 8px; font-family: var(--font-display); }
+.cal-cell { grid-row: var(--r); grid-column: var(--c); border-inline-start: 1px solid var(--line); border-top: 1px dashed color-mix(in srgb, var(--line) 60%, transparent); }
+.cal-cell.hour { border-top: 1px solid var(--line); }
+.cal-cell:hover { background: var(--accent-soft); }
+.appt { grid-row: var(--r) / span var(--s); grid-column: var(--c); margin: 2px 4px; padding: 6px 8px; border-radius: var(--r-field); text-align: start; display: flex; flex-direction: column; gap: 1px; overflow: hidden; z-index: 1; font-size: .8rem; line-height: 1.3;
+  background: var(--surface-2); border: 1px solid var(--line-strong); border-inline-start: 4px solid var(--unknown); }
+.appt b { font-size: .88rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.appt span { color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.appt .st { font-weight: 600; }
+.appt:hover { border-color: var(--ink); }
+.appt[data-st="booked"] { border-inline-start-color: var(--accent-deep); background: var(--accent-soft); }
+.appt[data-st="arrived"], .appt[data-st="in_progress"] { border-inline-start-color: var(--ink); background: var(--surface); }
+.appt[data-st="waiting_approval"] { border-inline-start-color: var(--warn); background: var(--warn-soft); }
+.appt[data-st="waiting_approval"] .st { color: var(--warn); }
+.appt[data-st="ready"] { border-inline-start-color: var(--good); background: var(--good-soft); }
+.appt[data-st="ready"] .st { color: var(--good); }
+.appt[data-st="done"] { opacity: .6; }
+.appt.off { opacity: .45; text-decoration: line-through; }
+.ap-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.ap-actions .btn svg { width: 16px; height: 16px; }
+.stack-sm { display: flex; flex-direction: column; gap: 6px; }
+.approval { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; padding: 8px 10px; border: 1px solid var(--line); border-radius: var(--r-field); }
+.approval > span:first-child { flex: 1; }
+
+/* ---------- public pages: /book/ and /approve/ (no sign-in) ---------- */
+.public { max-width: 640px; margin: 0 auto; padding: 24px 16px 48px; display: flex; flex-direction: column; gap: 18px; }
+.stack-md { display: flex; flex-direction: column; gap: 14px; }
+.btn.big { min-height: 52px; font-size: 1.05rem; }
+.big-line { font-size: 1.15rem; font-weight: 600; margin: 0; }
+.chips.scroll-x { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; padding-bottom: 2px; }
+.chips.scroll-x::-webkit-scrollbar { display: none; }
+.chips.scroll-x .chip { flex: none; }
+.tbl.lines-view { min-width: 0; }
+.tbl tfoot td { border-top: 1px solid var(--line); padding: 12px 14px; }
+.public h1 { font-size: 1.6rem; }
+.public p { margin: 0; }

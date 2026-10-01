@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>קביעת תור למוסך</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="../icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Hebrew:wght@400;500;600&family=Rubik:wght@500;600;700&family=Unbounded:wght@600&display=swap">
+<link rel="stylesheet" href="../styles/tokens.css">
+<link rel="stylesheet" href="../styles/brand.css">
+<link rel="stylesheet" href="../garage/garage.css">
+</head>
+<body>
+<main class="public" id="main">
+  <a class="brand" href="../" aria-label="Tipulit"><span class="brand-word" lang="en" dir="ltr">tipulit</span></a>
+  <section class="box" id="b-load"><p class="muted">טוען…</p></section>
+  <section class="stack-md" id="b-form" hidden>
+    <div><p class="muted small">קביעת תור</p><h1 id="b-name"></h1><p class="muted" id="b-addr"></p></div>
+    <div class="demo-note" id="b-demo" hidden>מצב הדגמה: שום תור לא נקבע באמת.</div>
+    <div class="field"><span>מה צריך</span><div class="seg" id="b-kind"><button type="button" data-v="service" class="on">טיפול</button><button type="button" data-v="repair">תקלה</button><button type="button" data-v="test">הכנה לטסט</button><button type="button" data-v="other">אחר</button></div></div>
+    <div class="field"><span>יום</span><div class="chips scroll-x" id="b-days"></div></div>
+    <div class="field"><span>שעה</span><div class="chips" id="b-slots"></div><p class="muted small" id="b-noslots" hidden>אין שעות פנויות ביום הזה. נסו יום אחר.</p></div>
+    <div class="grid2">
+      <label class="field"><span>שם</span><input id="b-cust" autocomplete="name"></label>
+      <label class="field"><span>טלפון</span><input id="b-phone" inputmode="tel" autocomplete="tel"></label>
+      <label class="field"><span>מספר רכב <span class="muted">(לא חובה)</span></span><input id="b-plate" inputmode="numeric" class="num" autocomplete="off"></label>
+      <label class="field"><span>הערה <span class="muted">(לא חובה)</span></span><input id="b-note" autocomplete="off" placeholder="למשל רעש מהבלמים"></label>
+    </div>
+    <p class="err" id="b-err" hidden></p>
+    <button class="btn primary big" id="b-go">קבע תור</button>
+    <p class="muted small">המוסך מקבל את השם, הטלפון ומספר הרכב כדי לתאם איתכם את התור.</p>
+  </section>
+  <section class="box stack-md" id="b-done" hidden>
+    <h1>התור נקבע</h1>
+    <p id="b-when" class="big-line"></p>
+    <p class="muted" id="b-where"></p>
+    <div class="dlg-actions start"><button class="btn" id="b-ics">הוספה ליומן</button><a class="btn" id="b-waze" target="_blank" rel="noopener">ניווט</a><a class="btn" id="b-call">התקשרות למוסך</a></div>
+  </section>
+  <section class="box stack-md" id="b-closed" hidden>
+    <h1 id="b-closed-title"></h1>
+    <p class="muted" id="b-closed-text"></p>
+    <a class="btn primary" id="b-closed-call" hidden>התקשרות למוסך</a>
+  </section>
+</main>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script src="../config.js"></script>
+<script src="../cloud.js"></script>
+<script>
+(function () {
+  const Cloud = window.TipulitCloud || { enabled: false };
+  const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const esc = x => String(x ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
+  const q = new URLSearchParams(location.search), demo = q.has("demo"), gid = q.get("g");
+  const toMin = t => { const [h, m] = t.split(":").map(Number); return h * 60 + m; };
+  const pad = n => String(n).padStart(2, "0");
+  const dayLabel = d => new Intl.DateTimeFormat("he-IL", { weekday: "short", day: "numeric", month: "numeric" }).format(d);
+  const STEP = 30;
+  let info = null, kind = "service", day = null, slot = null;
+  const show = id => { for (const x of ["b-load", "b-form", "b-done", "b-closed"]) $("#" + x).hidden = x !== id; };
+  function closed(title, text) { show("b-closed"); $("#b-closed-title").textContent = title; $("#b-closed-text").textContent = text; if (info && info.phone) { const a = $("#b-closed-call"); a.hidden = false; a.href = "tel:" + info.phone.replace(/[^\d+*#]/g, ""); } }
+  // free slots for a day: inside opening hours, at least 30 minutes ahead, with a free bay
+  function slotsFor(d) {
+    const h = info.hours[d.getDay()]; if (!h) return [];
+    const out = [], len = info.slot_minutes, busy = info.busy.map(([s, m]) => [Date.parse(s), Date.parse(s) + m * 60000]);
+    for (let m = toMin(h.open); m + len <= toMin(h.close); m += STEP) {
+      const s = new Date(d); s.setHours(Math.floor(m / 60), m % 60, 0, 0); const e = s.getTime() + len * 60000;
+      if (s.getTime() < Date.now() + 30 * 60000) continue;
+      if (busy.filter(([bs, be]) => bs < e && be > s.getTime()).length >= info.bays) continue;
+      out.push(s);
+    }
+    return out;
+  }
+  function renderDays() {
+    const days = []; const d = new Date(); d.setHours(0, 0, 0, 0);
+    for (let i = 0; i < 30 && days.length < 14; i++) { const x = new Date(d); x.setDate(d.getDate() + i); if (info.hours[x.getDay()] && slotsFor(x).length) days.push(x); }
+    if (!day || !days.some(x => x.getTime() === day.getTime())) day = days[0] || null;
+    $("#b-days").innerHTML = days.map(x => `<button type="button" class="chip ${day && x.getTime() === day.getTime() ? "on" : ""}" data-d="${x.getTime()}">${dayLabel(x)}</button>`).join("") || `<p class="muted small">אין תורים פנויים בשבועיים הקרובים.</p>`;
+    $$("#b-days .chip").forEach(b => b.onclick = () => { day = new Date(+b.dataset.d); slot = null; renderDays(); });
+    renderSlots();
+  }
+  function renderSlots() {
+    const list = day ? slotsFor(day) : [];
+    $("#b-slots").innerHTML = list.map(s => `<button type="button" class="chip ${slot && s.getTime() === slot.getTime() ? "on" : ""}" data-s="${s.getTime()}">${pad(s.getHours())}:${pad(s.getMinutes())}</button>`).join("");
+    $("#b-noslots").hidden = !!list.length || !day;
+    $$("#b-slots .chip").forEach(b => b.onclick = () => { slot = new Date(+b.dataset.s); renderSlots(); });
+  }
+  $$("#b-kind button").forEach(b => b.onclick = () => { kind = b.dataset.v; $$("#b-kind button").forEach(x => x.classList.toggle("on", x === b)); });
+  $("#b-go").onclick = async () => {
+    const err = m => { $("#b-err").textContent = m; $("#b-err").hidden = false; };
+    $("#b-err").hidden = true;
+    const name = $("#b-cust").value.trim(), phone = $("#b-phone").value.trim();
+    if (!slot) return err("בחרו יום ושעה.");
+    if (!name) return err("צריך שם.");
+    if (phone.replace(/\D/g, "").length < 9) return err("צריך מספר טלפון.");
+    const b = $("#b-go"); b.disabled = true;
+    try {
+      if (!demo) await Cloud.bookAppointment({ garageId: info.id, startsAt: slot.toISOString(), name, phone, plate: $("#b-plate").value, kind, note: $("#b-note").value });
+      try { localStorage.setItem("tipulit-book", JSON.stringify({ name, phone, plate: $("#b-plate").value })); } catch (e) {}
+      done();
+    } catch (e) {
+      const m = String(e.message || e);
+      if (/slot taken/.test(m)) { err("השעה הזו נתפסה עכשיו. בחרו שעה אחרת."); info.busy.push([slot.toISOString(), info.slot_minutes]); slot = null; renderDays(); }
+      else if (/too many/.test(m)) err("כבר יש לכם 3 תורים פתוחים במוסך הזה.");
+      else if (/opening hours|out of range/.test(m)) err("השעה הזו לא זמינה. בחרו שעה אחרת.");
+      else if (/closed/.test(m)) err("המוסך הפסיק לקבל תורים אונליין. התקשרו אליו.");
+      else err("לא הצלחנו לקבוע את התור. נסו שוב.");
+    }
+    b.disabled = false;
+  };
+  function done() {
+    show("b-done");
+    $("#b-when").textContent = new Intl.DateTimeFormat("he-IL", { weekday: "long", day: "numeric", month: "long", hour: "2-digit", minute: "2-digit" }).format(slot);
+    const addr = [info.address, info.city].filter(Boolean).join(", ");
+    $("#b-where").textContent = `${info.name}${addr ? ", " + addr : ""}`;
+    $("#b-waze").href = "https://waze.com/ul?q=" + encodeURIComponent(addr || info.name) + "&navigate=yes";
+    if (info.phone) $("#b-call").href = "tel:" + info.phone.replace(/[^\d+*#]/g, ""); else $("#b-call").hidden = true;
+    $("#b-ics").onclick = () => {
+      const f = d => d.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, ""), end = new Date(slot.getTime() + info.slot_minutes * 60000);
+      const ics = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Tipulit//HE", "BEGIN:VEVENT", "UID:" + slot.getTime() + "@tipulit", "DTSTAMP:" + f(new Date()), "DTSTART:" + f(slot), "DTEND:" + f(end), "SUMMARY:תור במוסך " + info.name, "LOCATION:" + addr, "END:VEVENT", "END:VCALENDAR"].join("\r\n");
+      const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([ics], { type: "text/calendar" })); a.download = "tor.ics"; document.body.appendChild(a); a.click(); a.remove();
+    };
+  }
+  async function start() {
+    if (demo) {
+      const h = { open: "08:00", close: "17:00" };
+      info = { id: "demo", name: "מוסך הדגמה", city: "חולון", address: "הפלד 40", phone: "03-0000000", hours: { 0: h, 1: h, 2: h, 3: h, 4: h, 5: { open: "08:00", close: "13:00" }, 6: null }, bays: 2, slot_minutes: 60, enabled: true, busy: [] };
+      $("#b-demo").hidden = false;
+    } else {
+      if (!gid || !/^[0-9a-f-]{36}$/i.test(gid)) return closed("הקישור לא תקין", "בקשו מהמוסך קישור חדש.");
+      if (!Cloud.enabled) return closed("אין חיבור", "נסו שוב בעוד רגע.");
+      try { info = await Cloud.bookingInfo(gid); } catch (e) { return closed("אין חיבור", "נסו שוב בעוד רגע."); }
+      if (!info) return closed("המוסך לא נמצא", "בקשו מהמוסך קישור חדש.");
+      if (!info.enabled) return closed(info.name, "המוסך לא מקבל כרגע תורים אונליין. אפשר להתקשר ולתאם.");
+    }
+    show("b-form");
+    $("#b-name").textContent = info.name; $("#b-addr").textContent = [info.address, info.city].filter(Boolean).join(", ");
+    let saved = {}; try { saved = JSON.parse(localStorage.getItem("tipulit-book") || "{}"); } catch (e) {}
+    $("#b-cust").value = q.get("name") || saved.name || ""; $("#b-phone").value = q.get("phone") || saved.phone || ""; $("#b-plate").value = q.get("plate") || saved.plate || "";
+    renderDays();
+  }
+  start();
+})();
+</script>
+</body>
+</html>

@@ -168,7 +168,10 @@
     return data.id;
   }
   async function myGarageLinks() {
-    const { data, error } = await sb.from("garage_links").select("id, car_id, allow_contact, share_history, show_garage_names, phone, first_name, created_at, garage_profiles(id, name, city, phone, whatsapp)").order("created_at");
+    const cols = g => `id, car_id, allow_contact, share_history, show_garage_names, phone, first_name, created_at, garage_profiles(id, name, city, phone, whatsapp${g})`;
+    let { data, error } = await sb.from("garage_links").select(cols(", booking_enabled")).order("created_at");
+    // booking_enabled arrives with migration 0006; until then read the links without it
+    if (error && /booking_enabled/.test(error.message)) ({ data, error } = await sb.from("garage_links").select(cols("")).order("created_at"));
     if (error) { if (/relation|does not exist|schema cache/i.test(error.message)) return []; throw error; }
     return data || [];
   }
@@ -215,6 +218,19 @@
     return out;
   }
 
+  // ---------- calendar, online booking, extra-work approvals (migration 0006) ----------
+  const appointments = (garageId, fromIso, toIso) => sb.from("appointments").select("*").eq("garage_id", garageId).gte("starts_at", fromIso).lt("starts_at", toIso).order("starts_at").then(must);
+  // Existing rows are patched by id (a partial upsert would trip NOT NULL columns); new rows are inserted.
+  const saveAppointment = ({ id, ...row }) => (id ? sb.from("appointments").update({ ...row, updated_at: new Date().toISOString() }).eq("id", id) : sb.from("appointments").insert(row)).select("*").single().then(must);
+  const approvalsFor = garageId => sb.from("work_approvals").select("*").eq("garage_id", garageId).order("created_at", { ascending: false }).limit(200).then(must);
+  const createApproval = row => sb.from("work_approvals").insert(row).select("*").single().then(must);
+  const updateGarageSettings = (id, patch) => sb.from("garage_profiles").update({ ...patch, updated_at: new Date().toISOString() }).eq("id", id).select("*").single().then(must);
+  // public (no sign-in)
+  const bookingInfo = garageId => sb.rpc("booking_info", { p_garage: garageId }).then(must);
+  const bookAppointment = a => sb.rpc("book_appointment", { p_garage: a.garageId, p_starts_at: a.startsAt, p_name: a.name, p_phone: a.phone, p_plate: a.plate || "", p_kind: a.kind || "service", p_note: a.note || "" }).then(must);
+  const approvalGet = id => sb.rpc("approval_get", { p_id: id }).then(must);
+  const approvalDecide = (id, approve) => sb.rpc("approval_decide", { p_id: id, p_approve: !!approve }).then(must);
+
   // ---------- plate lock (migration 0004) ----------
   const digits = p => String(p || "").replace(/\D/g, "");
   async function plateStatus(plate) { const { data, error } = await sb.rpc("plate_status", { p_plate: digits(plate) }); if (error) throw error; return data; }
@@ -242,5 +258,5 @@
     return data;
   }
 
-  g.TipulitCloud = { enabled, authError, hasAuthParams, currentUser, onAuth, signInWithGoogle, signOut, handleRedirect, loadCars, saveCar, deleteCar, communityPrices, communityGarages, extractReceipt, myGarageProfiles, garageProfiles, saveGarageProfile, deleteGarageProfile, photoUrl, startPhoneVerify, confirmPhoneVerify, claimGarage, pendingGarageClaims, setGarageStatus, garagePublic, joinGarage, myGarageLinks, updateGarageLink, leaveGarage, pendingGarageEntries, decideGarageEntry, garageCustomers, garageAddEntry, plateStatus, claimPlate, requestPlate, pendingPlateRequests, decidePlateRequest, garageBook, garageCarHistory, workOrders, addCustomer, updateCustomer, deleteCustomer, addGarageCar, updateGarageCar, saveWorkOrder, sendWorkOrder, importCustomers };
+  g.TipulitCloud = { enabled, authError, hasAuthParams, currentUser, onAuth, signInWithGoogle, signOut, handleRedirect, loadCars, saveCar, deleteCar, communityPrices, communityGarages, extractReceipt, myGarageProfiles, garageProfiles, saveGarageProfile, deleteGarageProfile, photoUrl, startPhoneVerify, confirmPhoneVerify, claimGarage, pendingGarageClaims, setGarageStatus, garagePublic, joinGarage, myGarageLinks, updateGarageLink, leaveGarage, pendingGarageEntries, decideGarageEntry, garageCustomers, garageAddEntry, plateStatus, claimPlate, requestPlate, pendingPlateRequests, decidePlateRequest, garageBook, garageCarHistory, workOrders, addCustomer, updateCustomer, deleteCustomer, addGarageCar, updateGarageCar, saveWorkOrder, sendWorkOrder, importCustomers, appointments, saveAppointment, approvalsFor, createApproval, updateGarageSettings, bookingInfo, bookAppointment, approvalGet, approvalDecide };
 })(window);

@@ -43,7 +43,11 @@ filled in, every feature below switches on.
    automatic ownership check against data.gov.il; if the extension is unavailable the check is skipped and
    transfers go through the manual (licence photo) path. Existing duplicate plates: the earliest registration keeps it.
 8. **Garage book** (customers the garage owns, work orders, shared history): run `migrations/0005_garage_book.sql`.
-9. **Point the app at the project**: in `app/config.js` set `SUPABASE_URL` and
+9. **Appointments** (calendar per bay, public booking link, extra-work approval link): run
+   `migrations/0006_appointments.sql`. The public pages `/book/` and `/approve/` call
+   `booking_info`, `book_appointment`, `approval_get` and `approval_decide` without sign-in;
+   they never return names or phones of other customers.
+10. **Point the app at the project**: in `app/config.js` set `SUPABASE_URL` and
    `SUPABASE_ANON_KEY` (Project Settings → API). The anon key is public by design;
    row-level security is what protects the data. Rebuild and push.
 

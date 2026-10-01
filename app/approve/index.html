@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>אישור עבודה במוסך</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="../icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Hebrew:wght@400;500;600&family=Rubik:wght@500;600;700&family=Unbounded:wght@600&display=swap">
+<link rel="stylesheet" href="../styles/tokens.css">
+<link rel="stylesheet" href="../styles/brand.css">
+<link rel="stylesheet" href="../garage/garage.css">
+</head>
+<body>
+<main class="public" id="main">
+  <a class="brand" href="../" aria-label="Tipulit"><span class="brand-word" lang="en" dir="ltr">tipulit</span></a>
+  <section class="box" id="a-load"><p class="muted">טוען…</p></section>
+  <section class="stack-md" id="a-view" hidden>
+    <div><p class="muted small" id="a-garage"></p><h1>אישור עבודה נוספת</h1><p class="muted" id="a-car"></p></div>
+    <div class="demo-note" id="a-demo" hidden>מצב הדגמה: שום דבר לא נשלח למוסך.</div>
+    <p class="big-line" id="a-msg"></p>
+    <div class="table-wrap"><table class="tbl lines-view"><tbody id="a-lines"></tbody><tfoot><tr><td><b>סה"כ</b></td><td class="num-col num"><b id="a-total"></b></td></tr></tfoot></table></div>
+    <div class="dlg-actions start" id="a-actions"><button class="btn primary big" id="a-yes">מאשר/ת</button><button class="btn big" id="a-no">לא עכשיו</button></div>
+    <div class="box" id="a-result" hidden></div>
+    <p class="muted small" id="a-help"></p>
+  </section>
+  <section class="box stack-md" id="a-missing" hidden><h1>הבקשה לא נמצאה</h1><p class="muted">ייתכן שהקישור לא שלם. בקשו מהמוסך לשלוח אותו שוב.</p></section>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script src="../config.js"></script>
+<script src="../cloud.js"></script>
+<script>
+(function () {
+  const Cloud = window.TipulitCloud || { enabled: false };
+  const $ = s => document.querySelector(s);
+  const esc = x => String(x ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
+  const fmt = n => Math.round(n).toLocaleString("he-IL");
+  const q = new URLSearchParams(location.search), demo = q.has("demo"), id = q.get("id");
+  let ap = null;
+  const show = s => { for (const x of ["a-load", "a-view", "a-missing"]) $("#" + x).hidden = x !== s; };
+  function render() {
+    show("a-view");
+    $("#a-garage").textContent = ap.garage; $("#a-car").textContent = ap.car || ""; $("#a-msg").textContent = ap.message || "המוסך מבקש את אישורך לעבודה הבאה:";
+    $("#a-lines").innerHTML = (ap.lines || []).map(l => `<tr><td>${esc(l.desc)}</td><td class="num-col num">${l.price ? "₪" + fmt(l.price) : ""}</td></tr>`).join("");
+    $("#a-total").textContent = "₪" + fmt(ap.total || 0);
+    const decided = ap.status !== "pending";
+    $("#a-actions").hidden = decided; $("#a-result").hidden = !decided;
+    if (decided) $("#a-result").innerHTML = ap.status === "approved" ? `<b>אישרת את העבודה.</b><p class="muted small">המוסך קיבל את האישור${ap.decided_at ? " ב-" + new Date(ap.decided_at).toLocaleString("he-IL") : ""}.</p>` : `<b>העבודה לא אושרה.</b><p class="muted small">המוסך יודע שלא לבצע אותה. אפשר להתקשר אליו אם תרצו לשנות.</p>`;
+    $("#a-help").innerHTML = ap.garage_phone ? `שאלות? <a href="tel:${esc(ap.garage_phone.replace(/[^\d+*#]/g, ""))}">התקשרו למוסך</a>` : "";
+  }
+  async function decide(yes) {
+    if (!yes && !confirm("לא לבצע את העבודה הזו?")) return;
+    $("#a-yes").disabled = $("#a-no").disabled = true;
+    try { ap.status = demo ? (yes ? "approved" : "declined") : await Cloud.approvalDecide(ap.id, yes); ap.decided_at = new Date().toISOString(); render(); }
+    catch (e) { alert("לא הצלחנו לשלוח. נסו שוב."); }
+    $("#a-yes").disabled = $("#a-no").disabled = false;
+  }
+  $("#a-yes").onclick = () => decide(true); $("#a-no").onclick = () => decide(false);
+  (async () => {
+    if (demo) { ap = { id: "demo", garage: "מוסך הדגמה", garage_phone: "03-0000000", car: "קיה פיקנטו 2019", message: "רפידות הבלם הקדמיות שחוקות ומומלץ להחליף אותן עכשיו.", lines: [{ desc: "רפידות בלם קדמיות", price: 380 }, { desc: "עבודה", price: 150 }], total: 530, status: "pending" }; $("#a-demo").hidden = false; return render(); }
+    if (!id || !/^[0-9a-f-]{36}$/i.test(id) || !Cloud.enabled) return show("a-missing");
+    try { ap = await Cloud.approvalGet(id); } catch (e) { ap = null; }
+    if (!ap) return show("a-missing");
+    render();
+  })();
+})();
+</script>
+</body>
+</html>
