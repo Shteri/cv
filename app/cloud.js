@@ -65,7 +65,15 @@
     return (cars || []).map(c => { const car = rowCar(c); car.history = (recs || []).filter(r => r.car_id === c.id).map(r => rowRecord(r, (r.receipt_paths || []).map(p => urlByPath[p]).filter(Boolean))); return car; });
   }
 
-  async function saveCar(car) {
+  // Saves for the same car run one after another. Sign-in saves every car while the debounced auto-sync may
+  // fire too; run concurrently, two inserts for a car with no cloudId would create two rows.
+  const saving = new WeakMap();
+  function saveCar(car) {
+    const next = (saving.get(car) || Promise.resolve()).catch(() => {}).then(() => saveCarNow(car));
+    saving.set(car, next);
+    return next;
+  }
+  async function saveCarNow(car) {
     const uid = (await currentUser())?.id; if (!uid) return;
     const row = carRow(car, uid);
     const { data, error } = await sb.from("cars").upsert(row, { onConflict: "id" }).select("id").single();
@@ -144,6 +152,41 @@
   async function pendingGarageClaims() { const { data, error } = await sb.rpc("pending_garage_claims"); if (error) throw error; return data || []; }
   async function setGarageStatus(id, status) { const { error } = await sb.rpc("set_garage_status", { p_id: id, p_status: status }); if (error) throw error; }
 
+  // ---------- garage customers (migration 0003) ----------
+  // Driver side: link a car to a verified garage (consent), list/revoke links, decide on visits a garage logged.
+  async function garagePublic(id) {
+    const { data, error } = await sb.from("garage_profiles").select("id, garage_id, name, city, address, phone").eq("id", id).eq("status", "verified").maybeSingle();
+    if (error) throw error;
+    return data;
+  }
+  async function joinGarage({ garageId, carCloudId, firstName, phone, allowContact }) {
+    const uid = (await currentUser())?.id; if (!uid) throw new Error("not signed in");
+    const row = { garage_id: garageId, car_id: carCloudId, user_id: uid, first_name: firstName || null, phone: phone || null, allow_contact: !!allowContact };
+    const { data, error } = await sb.from("garage_links").upsert(row, { onConflict: "garage_id,car_id" }).select("id").single();
+    if (error) throw error;
+    return data.id;
+  }
+  async function myGarageLinks() {
+    const { data, error } = await sb.from("garage_links").select("id, car_id, allow_contact, phone, first_name, created_at, garage_profiles(id, name, city, phone, whatsapp)").order("created_at");
+    if (error) { if (/relation|does not exist|schema cache/i.test(error.message)) return []; throw error; }
+    return data || [];
+  }
+  async function updateGarageLink(id, patch) { const { error } = await sb.from("garage_links").update(patch).eq("id", id); if (error) throw error; }
+  async function leaveGarage(id) { const { error } = await sb.from("garage_links").delete().eq("id", id); if (error) throw error; }
+  async function pendingGarageEntries() {
+    const { data, error } = await sb.from("garage_entries").select("id, car_id, kind, svc_km, km, date, price, text, where, created_at, garage_profiles(name, city)").eq("status", "pending").order("created_at");
+    if (error) { if (/relation|does not exist|schema cache/i.test(error.message)) return []; throw error; }
+    return data || [];
+  }
+  async function decideGarageEntry(id, accept) { const { error } = await sb.rpc("decide_garage_entry", { p_id: id, p_accept: !!accept }); if (error) throw error; }
+  // Garage side: customers of a verified garage the caller owns, and logging a visit for one of them.
+  async function garageCustomers(garageId) { const { data, error } = await sb.rpc("garage_customers", { p_garage: garageId }); if (error) throw error; return data || []; }
+  async function garageAddEntry(linkId, e) {
+    const { data, error } = await sb.rpc("garage_add_entry", { p_link: linkId, p_kind: e.kind, p_svc_km: e.svcKm || null, p_km: e.km, p_date: e.date || "", p_price: e.price || null, p_text: e.text || "", p_where: e.where || null });
+    if (error) throw error;
+    return data;
+  }
+
   // ---------- receipt extraction (Edge Function -> Claude vision) ----------
   async function extractReceipt(dataUrl, context) {
     const { data, error } = await sb.functions.invoke("extract-receipt", { body: { image_base64: dataUrlToBase64(dataUrl), media_type: mediaOf(dataUrl), context } });
@@ -152,5 +195,5 @@
     return data;
   }
 
-  g.TipulitCloud = { enabled, authError, hasAuthParams, currentUser, onAuth, signInWithGoogle, signOut, handleRedirect, loadCars, saveCar, deleteCar, communityPrices, communityGarages, extractReceipt, myGarageProfiles, garageProfiles, saveGarageProfile, deleteGarageProfile, photoUrl, startPhoneVerify, confirmPhoneVerify, claimGarage, pendingGarageClaims, setGarageStatus };
+  g.TipulitCloud = { enabled, authError, hasAuthParams, currentUser, onAuth, signInWithGoogle, signOut, handleRedirect, loadCars, saveCar, deleteCar, communityPrices, communityGarages, extractReceipt, myGarageProfiles, garageProfiles, saveGarageProfile, deleteGarageProfile, photoUrl, startPhoneVerify, confirmPhoneVerify, claimGarage, pendingGarageClaims, setGarageStatus, garagePublic, joinGarage, myGarageLinks, updateGarageLink, leaveGarage, pendingGarageEntries, decideGarageEntry, garageCustomers, garageAddEntry };
 })(window);

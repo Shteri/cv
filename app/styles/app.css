@@ -352,3 +352,12 @@ label.btn { cursor: pointer; }
 .row > .btn.fit { flex: none; }
 /* cold-start card: the first thing a new user should do, in the accent */
 .card.start { border-color: color-mix(in srgb, var(--accent) 45%, var(--line)); background: radial-gradient(120% 90% at 100% 0%, color-mix(in srgb, var(--accent) 12%, transparent), transparent 60%), var(--surface); }
+
+/* Garage customers (feature session, 1.10.2026) */
+.tag.warn { background: var(--warn-soft); color: var(--warn); }
+.tag.crit { background: var(--crit-soft); color: var(--crit); }
+/* a QR code must stay dark on light in both themes so phone cameras read it */
+.qr { align-self: center; width: min(240px, 70vw); padding: 12px; border-radius: var(--r-field); background: var(--white); }
+.qr svg { display: block; width: 100%; height: auto; }
+.qr svg rect { fill: var(--white); }
+.qr svg path { fill: var(--shade); }

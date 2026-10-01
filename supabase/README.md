@@ -35,7 +35,11 @@ filled in, every feature below switches on.
    Automatic verification by SMS needs an SMS provider (Authentication → Providers → Phone, e.g. Twilio)
    and the Edge Function: `supabase functions deploy claim-garage`. Until then, claims stay "pending"
    and you approve them from the app after calling the registry phone.
-6. **Point the app at the project**: in `app/config.js` set `SUPABASE_URL` and
+6. **Garage customers** (drivers share a car with a garage, the garage sees who is due): run
+   `migrations/0003_garage_customers.sql` in the SQL editor. Nothing else to configure.
+   To check the migrations and permissions locally before running them: `sh scripts/test-db.sh`
+   (needs Postgres installed; applies every migration to a throwaway database and runs `supabase/tests/rls-*.sql`).
+7. **Point the app at the project**: in `app/config.js` set `SUPABASE_URL` and
    `SUPABASE_ANON_KEY` (Project Settings → API). The anon key is public by design;
    row-level security is what protects the data. Rebuild and push.
 
@@ -47,6 +51,8 @@ filled in, every feature below switches on.
 | Receipt photos | bucket `receipts/<user-id>/...` | Only the owning user |
 | Garage profiles | `garage_profiles` | Owner edits; everyone reads rows with status `verified` |
 | Garage photos | bucket `garage-photos/<user-id>/...` | Public read, owner writes |
+| Driver-garage links | `garage_links` | The driver only. The garage reads a minimal view through `garage_customers()`: car, estimated km inputs, test expiry, and name and phone only if the driver allowed contact |
+| Visits a garage logged | `garage_entries` | The driver of that car; the garage writes through `garage_add_entry()` and sees only counts and last visit |
 | Shared price and garage reports | `price_reports` | Nobody directly; only the aggregate functions `community_prices` and `community_garages` (no user id, no plate, no free text; buckets under 3 reports are hidden) |
 
 ## Local development
