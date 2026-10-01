@@ -301,7 +301,8 @@
         <div class="field grow"><label for="join-phone">טלפון</label><input id="join-phone" name="tel" inputmode="tel" autocomplete="tel" placeholder="05x-xxxxxxx"></div>
       </div>
       <div class="row between"><span class="small">המוסך יכול לפנות אליי לגבי טיפולים</span><button class="toggle on" id="join-contact" aria-label="הסכמה לפניות מהמוסך"></button></div>
-      <p class="small muted">המוסך יראה את הרכב, ק"מ משוער, הטיפול הבא ותוקף הטסט. לא חשבוניות ולא טיפולים במוסכים אחרים. אפשר להפסיק בכל רגע ב"אני".</p>
+      <div class="row between"><span class="small">לשתף את כל היסטוריית הטיפולים, גם ממוסכים אחרים<br><span class="muted">בלי מחירים. שמות מוסכים אחרים מוסתרים.</span></span><button class="toggle" id="join-history" aria-label="שיתוף היסטוריית הטיפולים"></button></div>
+      <p class="small muted">המוסך יראה את הרכב, ק"מ משוער, הטיפול הבא ותוקף הטסט. לא חשבוניות. אפשר לשנות או להפסיק בכל רגע ב"אני".</p>
       <p class="err" id="join-err" hidden></p>
       <button class="btn primary" id="join-go" data-busy="מצטרף…">הצטרף</button>
     </div>
@@ -819,7 +820,7 @@
   const historyHTML = car => { const h = (car.history || []).slice().sort((a, b) => b.km - a.km || b.at - a.at); if (!h.length) return `<p class="small muted px-4">עוד אין רשומות.</p>`; return `
     <div class="card stack"><p class="eyebrow">כל הרשומות</p>
       ${h.map(e => `<div class="hist">
-        <div><b class="num">${e.kind === "service" || !e.kind ? "טיפול " + fmt(e.svcKm || e.km) : e.text || kindName[e.kind]}</b> <span class="small muted num">· ${fmt(e.km)} ק"מ${e.date ? " · " + monthName(new Date(e.date + "-01")) : ""}</span><br>
+        <div><b class="num">${e.kind === "service" || !e.kind ? "טיפול " + fmt(e.svcKm || e.km) : e.text || kindName[e.kind]}</b> <span class="small muted num">· ${fmt(e.km)} ק"מ${e.date ? " · " + monthName(new Date(e.date + "-01")) : ""}</span>${e.source === "garage" ? ` <span class="tag ver" title="נרשם על ידי המוסך ואושר על ידך">מאומת</span>` : ""}<br>
           <span class="small muted">${whereName[e.where] || ""}${e.garage ? " · " + e.garage : ""}${e.city ? " · " + e.city : ""}${(e.items || []).length ? " · " + e.items.length + " פריטים" : ""}${e.extra ? " · " + e.extra : ""}</span></div>
         <div class="row g-8">${(e.receipts && e.receipts[0]) || e.receipt ? `<img class="hist-thumb" src="${(e.receipts && e.receipts[0]) || e.receipt}" alt="חשבונית">` : ""}<span class="amt num">${e.price ? "₪" + fmt(e.price) : ""}</span></div>
       </div>`).join("")}
@@ -1310,11 +1311,12 @@
     $("#join-car-row").hidden = S.cars.length < 2;
     $("#join-first").value = (S.user.name || "").split(" ")[0];
     $("#join-phone").value = S.phone || "";
-    $("#join-contact").classList.add("on"); $("#join-err").hidden = true;
+    $("#join-contact").classList.add("on"); $("#join-history").classList.remove("on"); $("#join-err").hidden = true;
     $("#joinsheet").classList.add("show");
   }
   $("#join-cancel").onclick = () => { clearJoin(); $("#joinsheet").classList.remove("show"); };
   $("#join-contact").onclick = () => $("#join-contact").classList.toggle("on");
+  $("#join-history").onclick = () => $("#join-history").classList.toggle("on");
   $("#join-go").onclick = async () => {
     const b = $("#join-go"), allow = $("#join-contact").classList.contains("on"), phone = $("#join-phone").value.trim();
     const err = m => { $("#join-err").textContent = m; $("#join-err").hidden = false; };
@@ -1323,7 +1325,7 @@
     try {
       const car = S.cars[+$("#join-car").value || 0];
       if (!car.cloudId) await Cloud.saveCar(car);
-      await Cloud.joinGarage({ garageId: joinRow.id, carCloudId: car.cloudId, firstName: $("#join-first").value.trim(), phone, allowContact: allow });
+      await Cloud.joinGarage({ garageId: joinRow.id, carCloudId: car.cloudId, firstName: $("#join-first").value.trim(), phone, allowContact: allow, shareHistory: $("#join-history").classList.contains("on") });
       if (phone) S.phone = phone;
       save(); clearJoin(); myLinks = null;
       $("#joinsheet").classList.remove("show"); toast("הצטרפת ל" + joinRow.name); renderMyLinks();
@@ -1340,8 +1342,12 @@
     el.hidden = false;
     el.innerHTML = `<h3>משותף עם מוסכים</h3><div class="list">${myLinks.map(l => { const car = S.cars.find(c => c.cloudId === l.car_id), g = l.garage_profiles || {}; return `<div class="stack g-6">
         <div><b>${esc(g.name || "מוסך")}</b><br><span class="small muted">${esc(g.city || "")}${car ? " · " + esc(carName(car)) : ""}</span></div>
-        <div class="row g-8">${l.phone ? `<button class="btn secondary" data-lk-contact="${l.id}">${l.allow_contact ? "בלי פניות" : "אפשר פניות"}</button>` : ""}<button class="btn ghost" data-lk-leave="${l.id}">הפסק שיתוף</button></div></div>`; }).join("")}</div>`;
+        <span class="small muted">${l.allow_contact ? "יכול לפנות אליך" : "בלי פניות"} · ${l.share_history ? `רואה את כל ההיסטוריה${l.show_garage_names ? ", כולל שמות מוסכים" : ""}` : "רואה רק את מה שעשה בעצמו"}</span>
+        <div class="row g-8 wrap">${l.phone ? `<button class="btn secondary" data-lk-contact="${l.id}">${l.allow_contact ? "בלי פניות" : "אפשר פניות"}</button>` : ""}<button class="btn secondary" data-lk-hist="${l.id}">${l.share_history ? "הסתר היסטוריה" : "שתף היסטוריה"}</button>${l.share_history ? `<button class="btn secondary" data-lk-names="${l.id}">${l.show_garage_names ? "הסתר שמות מוסכים" : "הצג שמות מוסכים"}</button>` : ""}<button class="btn ghost" data-lk-leave="${l.id}">הפסק שיתוף</button></div></div>`; }).join("")}</div>`;
     $$("[data-lk-contact]", el).forEach(b => b.onclick = async () => { const l = myLinks.find(x => x.id === b.dataset.lkContact); try { await Cloud.updateGarageLink(l.id, { allow_contact: !l.allow_contact }); l.allow_contact = !l.allow_contact; renderMyLinks(); toast(l.allow_contact ? "המוסך יכול לפנות אליך" : "המוסך לא יפנה אליך"); } catch (e) { toast("נכשל: " + e.message); } });
+    const flip = (attr, key, on, off) => $$(`[${attr}]`, el).forEach(b => b.onclick = async () => { const l = myLinks.find(x => x.id === b.getAttribute(attr)); try { await Cloud.updateGarageLink(l.id, { [key]: !l[key] }); l[key] = !l[key]; renderMyLinks(); toast(l[key] ? on : off); } catch (e) { toast("נכשל: " + e.message); } });
+    flip("data-lk-hist", "share_history", "המוסך יראה את כל ההיסטוריה", "המוסך יראה רק את מה שעשה בעצמו");
+    flip("data-lk-names", "show_garage_names", "שמות המוסכים יוצגו", "שמות המוסכים מוסתרים");
     $$("[data-lk-leave]", el).forEach(b => b.onclick = async () => { if (!b.dataset.armed) { b.dataset.armed = "1"; b.textContent = "בטוח? לחיצה נוספת"; return; } try { await Cloud.leaveGarage(b.dataset.lkLeave); myLinks = null; toast("השיתוף הופסק"); renderMyLinks(); } catch (e) { toast("נכשל: " + e.message); } });
   }
 

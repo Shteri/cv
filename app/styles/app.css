@@ -361,3 +361,6 @@ label.btn { cursor: pointer; }
 .qr svg { display: block; width: 100%; height: auto; }
 .qr svg rect { fill: var(--white); }
 .qr svg path { fill: var(--shade); }
+
+/* garage book: wrapping button rows on the profile screen (feature session) */
+.row.wrap { flex-wrap: wrap; }

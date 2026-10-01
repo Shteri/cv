@@ -160,15 +160,15 @@
     if (error) throw error;
     return data;
   }
-  async function joinGarage({ garageId, carCloudId, firstName, phone, allowContact }) {
+  async function joinGarage({ garageId, carCloudId, firstName, phone, allowContact, shareHistory }) {
     const uid = (await currentUser())?.id; if (!uid) throw new Error("not signed in");
-    const row = { garage_id: garageId, car_id: carCloudId, user_id: uid, first_name: firstName || null, phone: phone || null, allow_contact: !!allowContact };
+    const row = { garage_id: garageId, car_id: carCloudId, user_id: uid, first_name: firstName || null, phone: phone || null, allow_contact: !!allowContact, share_history: !!shareHistory };
     const { data, error } = await sb.from("garage_links").upsert(row, { onConflict: "garage_id,car_id" }).select("id").single();
     if (error) throw error;
     return data.id;
   }
   async function myGarageLinks() {
-    const { data, error } = await sb.from("garage_links").select("id, car_id, allow_contact, phone, first_name, created_at, garage_profiles(id, name, city, phone, whatsapp)").order("created_at");
+    const { data, error } = await sb.from("garage_links").select("id, car_id, allow_contact, share_history, show_garage_names, phone, first_name, created_at, garage_profiles(id, name, city, phone, whatsapp)").order("created_at");
     if (error) { if (/relation|does not exist|schema cache/i.test(error.message)) return []; throw error; }
     return data || [];
   }
@@ -186,6 +186,33 @@
     const { data, error } = await sb.rpc("garage_add_entry", { p_link: linkId, p_kind: e.kind, p_svc_km: e.svcKm || null, p_km: e.km, p_date: e.date || "", p_price: e.price || null, p_text: e.text || "", p_where: e.where || null });
     if (error) throw error;
     return data;
+  }
+
+  // ---------- garage book (migration 0005): the garage's own customers, cars and work orders ----------
+  const must = ({ data, error }) => { if (error) throw error; return data; };
+  const garageBook = garageId => sb.rpc("garage_book", { p_garage: garageId }).then(must);
+  const garageCarHistory = garageCarId => sb.rpc("garage_car_history", { p_garage_car: garageCarId }).then(must);
+  const workOrders = garageId => sb.from("work_orders").select("*").eq("garage_id", garageId).order("date", { ascending: false }).then(must);
+  const addCustomer = row => sb.from("garage_customers").insert(row).select("id").single().then(must);
+  const updateCustomer = (id, patch) => sb.from("garage_customers").update({ ...patch, updated_at: new Date().toISOString() }).eq("id", id).then(must);
+  const deleteCustomer = id => sb.from("garage_customers").delete().eq("id", id).then(must);
+  const addGarageCar = row => sb.from("garage_cars").insert(row).select("id").single().then(must);
+  const updateGarageCar = (id, patch) => sb.from("garage_cars").update(patch).eq("id", id).then(must);
+  const saveWorkOrder = row => sb.from("work_orders").upsert(row).select("*").single().then(must);
+  const sendWorkOrder = (id, where) => sb.rpc("work_order_send", { p_work_order: id, p_where: where }).then(must);
+  // Bulk import: customers first (ids come back in order), then their cars.
+  async function importCustomers(garageId, rows) {
+    const out = { added: 0, skipped: 0 };
+    for (let i = 0; i < rows.length; i += 200) {
+      const chunk = rows.slice(i, i + 200);
+      const custs = must(await sb.from("garage_customers").insert(chunk.map(r => ({ garage_id: garageId, name: r.name, phone: r.phone || null, contact_consent: !!r.consent, source: "import", notes: r.notes || null }))).select("id"));
+      for (let k = 0; k < chunk.length; k++) {
+        const r = chunk[k];
+        const { error } = await sb.from("garage_cars").insert({ garage_id: garageId, customer_id: custs[k].id, plate: r.plate || null, schedule_id: r.schedule_id || null, year: r.year || null, km: r.km || null, km_month: r.km_month || 1500, last_service: r.last_service || null, test_expiry: r.test_expiry || null, gov: r.gov || null });
+        if (error) { out.skipped++; await sb.from("garage_customers").delete().eq("id", custs[k].id); } else out.added++;
+      }
+    }
+    return out;
   }
 
   // ---------- plate lock (migration 0004) ----------
@@ -215,5 +242,5 @@
     return data;
   }
 
-  g.TipulitCloud = { enabled, authError, hasAuthParams, currentUser, onAuth, signInWithGoogle, signOut, handleRedirect, loadCars, saveCar, deleteCar, communityPrices, communityGarages, extractReceipt, myGarageProfiles, garageProfiles, saveGarageProfile, deleteGarageProfile, photoUrl, startPhoneVerify, confirmPhoneVerify, claimGarage, pendingGarageClaims, setGarageStatus, garagePublic, joinGarage, myGarageLinks, updateGarageLink, leaveGarage, pendingGarageEntries, decideGarageEntry, garageCustomers, garageAddEntry, plateStatus, claimPlate, requestPlate, pendingPlateRequests, decidePlateRequest };
+  g.TipulitCloud = { enabled, authError, hasAuthParams, currentUser, onAuth, signInWithGoogle, signOut, handleRedirect, loadCars, saveCar, deleteCar, communityPrices, communityGarages, extractReceipt, myGarageProfiles, garageProfiles, saveGarageProfile, deleteGarageProfile, photoUrl, startPhoneVerify, confirmPhoneVerify, claimGarage, pendingGarageClaims, setGarageStatus, garagePublic, joinGarage, myGarageLinks, updateGarageLink, leaveGarage, pendingGarageEntries, decideGarageEntry, garageCustomers, garageAddEntry, plateStatus, claimPlate, requestPlate, pendingPlateRequests, decidePlateRequest, garageBook, garageCarHistory, workOrders, addCustomer, updateCustomer, deleteCustomer, addGarageCar, updateGarageCar, saveWorkOrder, sendWorkOrder, importCustomers };
 })(window);
