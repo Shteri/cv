@@ -826,7 +826,7 @@
       by.set(it.item, e);
     }
     const items = [...by.values()].sort((a, b) => b.n - a.n);
-    for (const e of items) { const ps = [...e.parts].map(([id, need]) => ({ p: partById(id), need })); e.stock = ps.reduce((a, x) => a + (+x.p.stock || 0), 0); e.short = ps.reduce((a, x) => a + shortOf(x.p, x.need), 0); e.unit = ps.length && ps.every(x => x.p.unit === "liter") ? "liter" : "unit"; e.linked = ps.length > 0; }
+    for (const e of items) { const ps = [...e.parts].map(([id, need]) => ({ p: partById(id), need })); e.stock = ps.reduce((a, x) => a + (+x.p.stock || 0), 0); e.short = ps.reduce((a, x) => a + shortOf(x.p, x.need), 0); e.covered = ps.every(x => (+x.p.stock || 0) >= x.need + (+x.p.min_stock || 0)); e.unit = ps.length && ps.every(x => x.p.unit === "liter") ? "liter" : "unit"; e.linked = ps.length > 0; }
     return { due, items };
   }
   function renderForecast() {
@@ -834,7 +834,7 @@
     $("#fc-sub").textContent = f.due.length ? `${f.due.length} רכבים מגיעים לטיפול ב-${st.fcDays} הימים הקרובים או כבר באיחור.` : "";
     $("#fc-rows").innerHTML = f.items.map(e => `<tr><td><b>${esc(itemName(e.item))}</b>${e.item === "engine_oil" && e.litersKnown ? `<div class="sub">כ-${fmt(e.liters)} ליטר ל-${e.litersKnown} מתוך ${e.n} רכבים</div>` : ""}</td><td class="num-col num"><b>${e.n}</b></td>
       <td class="num-col num">${e.linked ? qtyOf(e.stock, e.unit) : `<span class="sub">אין במלאי</span>`}${e.linked && e.unmatched ? `<div class="sub">${e.unmatched} רכבים בלי חלק מתאים</div>` : ""}</td>
-      <td class="num-col num">${e.linked ? (e.short ? `<b class="warn-text">${qtyOf(e.short, e.unit)}</b>` : `<span class="tag ok">יש</span>`) : ""}</td><td><div class="tags">${[...e.models].sort((a, b) => b[1] - a[1]).map(([m, n]) => `<span class="tag"><bdi>${esc(m)}</bdi> ×${n}</span>`).join("")}</div></td></tr>`).join("");
+      <td class="num-col num">${e.linked ? (e.short ? `<b class="warn-text">${qtyOf(e.short, e.unit)}</b>` : e.covered ? `<span class="tag ok">יש</span>` : `<span class="tag">הוזמן</span>`) : ""}</td><td><div class="tags">${[...e.models].sort((a, b) => b[1] - a[1]).map(([m, n]) => `<span class="tag"><bdi>${esc(m)}</bdi> ×${n}</span>`).join("")}</div></td></tr>`).join("");
     $("#fc-empty").hidden = !!f.items.length; $("#fc-empty").innerHTML = `<p class="muted">אין טיפולים צפויים בתקופה הזו.</p>`;
     $$("#fc-window .chip").forEach(b => b.classList.toggle("on", +b.dataset.d === st.fcDays));
   }
