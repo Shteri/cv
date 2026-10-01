@@ -212,6 +212,7 @@
       <button class="btn secondary" id="me-add">הוסף רכב</button>
     </div>
     <div class="card stack" id="me-links" hidden></div>
+    <div class="card stack" id="me-plates" hidden></div>
     <div class="card stack" id="me-garages" hidden></div>
     <div class="card stack">
       <h3>תזכורות</h3>
@@ -335,10 +336,25 @@
       <button class="btn primary" id="gx-save" data-busy="שולח…">שלח ללקוח לאישור</button>
     </div>
   </div>
+  <!-- plate registered on another account -->
+  <div class="sheet" id="platesheet">
+    <div class="panel stack g-10">
+      <div class="row between"><h2>המספר רשום בחשבון אחר</h2><button class="btn ghost fit" id="pl-close" data-close>ביטול</button></div>
+      <p class="small muted">כל מספר רכב יכול להיות רק בחשבון אחד. אם קנית את <span id="pl-plate" class="num"></span> לאחרונה, נבדוק מול משרד התחבורה ונעביר אותו אליך. ההיסטוריה של הבעלים הקודמים לא עוברת.</p>
+      <button class="btn primary" id="pl-claim" data-busy="בודק מול משרד התחבורה…">קניתי את הרכב, תבדקו</button>
+      <div class="stack g-8" id="pl-manual" hidden>
+        <p class="small">לא הצלחנו לאשר אוטומטית, למשל כי הבעלות עברה החודש. צלם את רישיון הרכב, בצד שמופיע בו שם הבעלים, ונאשר ידנית.</p>
+        <div class="receipt"><img id="pl-thumb" alt="" hidden><label for="pl-file" id="pl-file-lbl">צילום רישיון הרכב</label><input id="pl-file" type="file" accept="image/*"></div>
+        <p class="err" id="pl-err" hidden></p>
+        <button class="btn secondary" id="pl-send" data-busy="שולח…">שלח לבדיקה</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script src="data.js"></script>
 <script src="lookup.js"></script>
+<script src="engine.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
 <script src="config.js"></script>
 <script src="cloud.js"></script>
@@ -372,7 +388,7 @@
   } catch (e) {}
   const Cloud = window.TipulitCloud || { enabled: false };
   let syncT = null;
-  const save = () => { store.set(S); if (Cloud.enabled && S.user && S.user.via === "google") { clearTimeout(syncT); syncT = setTimeout(() => Promise.all(S.cars.map(c => Cloud.saveCar(c))).then(() => store.set(S)).catch(e => console.warn("sync failed", e)), 800); } };
+  const save = () => { store.set(S); if (Cloud.enabled && S.user && S.user.via === "google") { clearTimeout(syncT); syncT = setTimeout(() => { const held = S.cars.filter(c => c.plateHold).length; Promise.all(S.cars.map(c => Cloud.saveCar(c))).then(() => { store.set(S); if (S.cars.filter(c => c.plateHold).length !== held && !$("#s-home").hidden) renderHome(); }).catch(e => console.warn("sync failed", e)); }, 800); } };
 
   // ---------- helpers ----------
   const schedById = id => D.schedules.find(s => s.id === id);
@@ -400,30 +416,9 @@
   // Maintenance engine: given a schedule and a car, compute the next service.
   // Schedules may start at a different km than the interval (Hyundai i10/i20: first 15,000, then every 20,000).
   // We shift the odometer by (first - interval) so the grid becomes regular, then map back to real km.
-  const gridShift = s => (s.first_service_km || s.interval.km) - s.interval.km;
-  function computeNext(car) {
-    const s = schedById(car.schedule);
-    const cyc = s.cycle_km, shift = gridShift(s);
-    const k = Math.max(0, car.km - shift);
-    const rel = k % cyc, laps = Math.floor(k / cyc);
-    let svc = s.services.find(x => (x.km - shift) > rel);
-    let nextKm;
-    if (svc) nextKm = laps * cyc + svc.km;
-    else { svc = s.services[0]; nextKm = (laps + 1) * cyc + svc.km; }
-    const remainKm = nextKm - car.km;
-    const monthsByKm = remainKm / car.kmMonth;
-    let dueDate = new Date(); dueDate.setMonth(dueDate.getMonth() + Math.floor(monthsByKm));
-    let byTime = null;
-    if (car.lastService) {
-      byTime = new Date(car.lastService + "-01"); byTime.setMonth(byTime.getMonth() + s.interval.months);
-      if (byTime < dueDate) dueDate = byTime;
-    }
-    const prevKm = nextKm - s.interval.km;
-    const progress = Math.min(1, Math.max(0, (car.km - prevKm) / s.interval.km));
-    const daysLeft = Math.round((dueDate - new Date()) / 86400000);
-    const level = remainKm <= 0 || daysLeft <= 0 ? "crit" : (remainKm <= 1500 || daysLeft <= 30) ? "warn" : "good";
-    return { s, svc, nextKm, remainKm, dueDate, byTime, progress, daysLeft, level };
-  }
+  // The engine lives in engine.js so the garage dashboard computes exactly the same thing.
+  const gridShift = TipulitEngine.gridShift;
+  const computeNext = car => TipulitEngine.next(schedById(car.schedule), car);
   // Long-interval items (plugs every 150,000; coolant first at 210,000 then every 30,000): next due km for a car.
   function longNext(l, km) {
     if (l.every_km) return Math.ceil((km + 1) / l.every_km) * l.every_km;
@@ -481,6 +476,8 @@
     if (user && lastAuthUid === user.id && event !== "SIGNED_IN") return; // ignore repeats (INITIAL_SESSION after SIGNED_IN, etc.)
     lastAuthUid = user ? user.id : null;
     if (!user) { if (S.user && S.user.via === "google" && !S.user.demo) { S.user = { name: "אורח", via: "guest" }; save(); renderAll(); } return; }
+    // Sign-in started from the garage dashboard comes back here when /garage/ is not an allowed redirect: go back.
+    try { const back = sessionStorage.getItem("tipulit-return"); if (back && back !== location.pathname) { sessionStorage.removeItem("tipulit-return"); location.replace(back); return; } } catch (e) {}
     S.user = { name: user.user_metadata?.full_name || user.user_metadata?.name || user.email.split("@")[0], email: user.email, via: "google", id: user.id };
     try { if (/[?&#](code|access_token)=/.test(location.href)) history.replaceState({ screen: "s-home" }, "", location.pathname + "#home"); } catch (e) {}
     toast("מחובר: " + S.user.name); myProfiles = null; cloudProfiles = {}; myLinks = null; gEntries = null; loadMyProfiles().catch(() => {});
@@ -489,6 +486,10 @@
       if (cloudCars.length) {
         // cloud is the source of truth; local cars that never synced are pushed
         const unsynced = S.cars.filter(c => !c.cloudId);
+        // Some state lives only on this device; keep it when the cloud copy replaces the local one.
+        for (const cc of cloudCars) { const lc = S.cars.find(c => c.cloudId === cc.cloudId); if (!lc) continue;
+          for (const k of ["plateHold", "plateRequested", "plateReleasedSeen", "recalls", "recallsDone"]) if (lc[k] !== undefined) cc[k] = lc[k];
+          if (lc.plateHold && lc.plate) cc.plate = lc.plate; }
         S.cars = cloudCars.concat(unsynced);
         for (const c of unsynced) await Cloud.saveCar(c);
       } else for (const c of S.cars) await Cloud.saveCar(c);
@@ -583,11 +584,22 @@
   let kmMonth = 1500;
   $$("#km-month .chip").forEach(c => c.onclick = () => { $$("#km-month .chip").forEach(x => x.classList.remove("on")); c.classList.add("on"); kmMonth = +c.dataset.v; });
   $("#km").addEventListener("input", e => { e.target.value = e.target.value.replace(/\D/g, ""); $("#km-go").disabled = !e.target.value; });
-  $("#km-go").onclick = () => {
+  $("#km-go").onclick = async () => {
     const car = { ...draft, km: +$("#km").value, kmMonth, lastService: $("#last").value || null, added: Date.now() };
+    // One plate, one account: a signed-in user checks the plate first (guests are checked when they sign in).
+    if (car.plate && signedIn() && Cloud.plateStatus) {
+      const b = $("#km-go"); b.disabled = true;
+      let st = null; try { st = await Cloud.plateStatus(car.plate); } catch (e) {}
+      b.disabled = false;
+      if (st === "mine") { toast("הרכב הזה כבר בחשבון שלך"); return; }
+      if (st === "taken") { openPlateSheet(car, true); return; }
+    }
+    addCar(car);
+  };
+  function addCar(car) {
     S.cars.push(car); S.active = S.cars.length - 1; save();
     renderAll(); show("s-home"); toast("הרכב נוסף"); maybeJoin();
-  };
+  }
 
   // ---------- community prices (example data, deterministic) ----------
   // Real version: aggregate anonymous reports server-side by schedule id + service km + garage type + city.
@@ -857,6 +869,7 @@
     $("#home-avatar").textContent = (S.user && S.user.name[0]) || "א";
     $("#home-body").innerHTML = `
       <div class="car-head"><div class="stack g-2"><p class="eyebrow">${hello}</p><h1 class="car-title">${carName(car)}</h1></div>${car.plate ? plateHTML(car.plate) : ""}</div>
+      ${plateNoticeHTML(car)}
       ${recallsHTML(car)}
       ${entriesHTML(car)}
       <div class="card car-card">
@@ -903,6 +916,7 @@
     if (GD) wireClaims($("#home-body"));
     $("#to-garage").onclick = () => { show("s-tl"); const el = $(".tl-item.next"); if (el) el.scrollIntoView({ block: "start" }); };
     $("#done-svc").onclick = () => openLog();
+    wirePlateNotice(car); recheckHold(car);
     wireRecalls($("#home-body")); ensureRecalls(car); wireEntries($("#home-body")); loadGarageEntries();
     $$("[data-go]", $("#home-body")).forEach(b => b.onclick = () => show("s-" + b.dataset.go));
   }
@@ -1210,7 +1224,7 @@
     const mine = await loadMyProfiles();
     const st = { pending: ["בבדיקה", "warn"], verified: ["מאומת", "good"], rejected: ["נדחה", "crit"] };
     el.innerHTML = `<h3>המוסך שלי</h3>` + (mine.length ? `<div class="list">${mine.map(p => `<button class="row between row-btn" data-gp="${p.id}"><span><b>${esc(p.name)}</b><br><span class="small muted">${esc(p.city)}</span></span><span class="status ${st[p.status][1]}">${st[p.status][0]}</span></button>`).join("")}</div>` : `<p class="small muted">יש לך מוסך מורשה? מצא אותו ברשימת המוסכים ולחץ "זה המוסך שלי".</p>`) +
-      mine.filter(p => p.status === "verified").map(p => `<div class="row g-8"><button class="btn primary" data-gc="${p.id}">הלקוחות של ${esc(p.name)}</button><button class="btn secondary fit" data-inv="${p.id}">הזמן</button></div>`).join("") +
+      mine.filter(p => p.status === "verified").map(p => `<div class="row g-8"><button class="btn primary" data-gc="${p.id}">הלקוחות של ${esc(p.name)}</button><button class="btn secondary fit" data-inv="${p.id}">הזמן</button></div><a class="btn ghost" href="garage/">לוח לקוחות למחשב</a>`).join("") +
       `<button class="btn secondary" id="me-garage-find">${mine.length ? "הוסף מוסך נוסף" : "לרשימת המוסכים"}</button><div id="me-claims"></div>`;
     $$("[data-gp]", el).forEach(b => b.onclick = () => openGarageEdit(mine.find(p => p.id === b.dataset.gp)));
     $$("[data-gc]", el).forEach(b => b.onclick = () => openGarageCustomers(mine.find(p => p.id === b.dataset.gc)));
@@ -1231,7 +1245,7 @@
       ${u.via === "guest" ? `<button class="btn secondary" id="me-google">התחבר עם Google${Cloud.enabled ? "" : " (דמו)"}</button>` : `<button class="btn ghost" id="me-logout">התנתק</button>`}${Cloud.enabled ? "" : `<p class="small muted">ללא שרת: דיווחי הקהילה הם נתוני דוגמה.</p>`}`;
     const g = $("#me-google"); if (g) g.onclick = () => Cloud.enabled ? Cloud.signInWithGoogle().catch(e => toast("ההתחברות נכשלה: " + e.message)) : (S.user = { name: "מקס", email: "max@gmail.com", via: "google", demo: true }, save(), renderAll(), toast("התחברות לדוגמה. שרת עדיין לא מחובר"));
     const lo = $("#me-logout"); if (lo) lo.onclick = async () => { if (Cloud.enabled) { try { await Cloud.signOut(); } catch (e) {} } S.user = { name: "אורח", via: "guest" }; save(); renderAll(); };
-    renderMyGarages(); renderMyLinks();
+    renderMyGarages(); renderMyLinks(); renderPlateRequests();
     $("#me-cars").innerHTML = S.cars.map((c, i) => `<button class="row between row-btn" data-i="${i}">
       <span><b>${carName(c)}</b><br><span class="small muted num">${fmt(c.km)} ק"מ</span></span>${i === S.active ? `<span class="status good">פעיל</span>` : `<span class="small muted">בחר</span>`}</button>`).join("");
     $$("#me-cars button").forEach(b => b.onclick = () => { S.active = +b.dataset.i; save(); renderAll(); show("s-home"); });
@@ -1488,6 +1502,77 @@
   $("#inv-close").onclick = () => $("#invite").classList.remove("show");
   $("#invite").onclick = e => { if (e.target.id === "invite") $("#invite").classList.remove("show"); };
   $("#gentry").onclick = e => { if (e.target.id === "gentry") $("#gentry").classList.remove("show"); };
+
+  // ---------- plate lock: one plate, one account (migration 0004) ----------
+  // Before adding a car with a plate, a signed-in user checks it. If it is taken, the sheet offers the transfer:
+  // automatic when the MoT ownership history shows a sale after the plate was registered, otherwise a licence photo.
+  let plFor = null, plPhoto = null; // { car, adding }
+  function openPlateSheet(car, adding) {
+    plFor = { car, adding }; plPhoto = null;
+    $("#pl-plate").textContent = car.plate; $("#pl-manual").hidden = true; $("#pl-err").hidden = true;
+    $("#pl-thumb").hidden = true; $("#pl-file").value = ""; $("#pl-file-lbl").textContent = "צילום רישיון הרכב";
+    $("#pl-claim").hidden = false; $("#platesheet").classList.add("show");
+  }
+  const closePlate = () => $("#platesheet").classList.remove("show");
+  $("#pl-close").onclick = closePlate;
+  function plateDone(car, adding, hold) {
+    car.plateHold = !!hold; closePlate();
+    if (adding) addCar(car); else { save(); renderHome(); }
+  }
+  $("#pl-claim").onclick = async () => {
+    const b = $("#pl-claim"); b.disabled = true; b.classList.add("busy");
+    try {
+      const r = await Cloud.claimPlate(plFor.car.plate);
+      if (r === "released" || r === "free" || r === "mine") { toast(r === "released" ? "בדקנו: הבעלות עברה. המספר עבר אליך" : "המספר פנוי"); plateDone(plFor.car, plFor.adding, false); }
+      else { $("#pl-claim").hidden = true; $("#pl-manual").hidden = false; }
+    } catch (e) { $("#pl-claim").hidden = true; $("#pl-manual").hidden = false; }
+    b.disabled = false; b.classList.remove("busy");
+  };
+  $("#pl-file").onchange = async e => { const f = e.target.files[0]; if (!f) return; plPhoto = await shrink(f, 1400); $("#pl-thumb").src = plPhoto; $("#pl-thumb").hidden = false; $("#pl-file-lbl").textContent = "החלף צילום"; };
+  $("#pl-send").onclick = async () => {
+    if (!plPhoto) { $("#pl-err").textContent = "צריך צילום של רישיון הרכב."; $("#pl-err").hidden = false; return; }
+    const b = $("#pl-send"); b.disabled = true; b.classList.add("busy");
+    try { await Cloud.requestPlate(plFor.car.plate, plPhoto); toast("נשלח. נאשר תוך יום עבודה"); plFor.car.plateRequested = true; plateDone(plFor.car, plFor.adding, true); }
+    catch (e) { $("#pl-err").textContent = "השליחה נכשלה: " + (e.message || e); $("#pl-err").hidden = false; }
+    b.disabled = false; b.classList.remove("busy");
+  };
+  // Home: plate held by another account, or released to the car's new owner.
+  const plateNoticeHTML = car => car.plateHold ? `
+    <div class="card stack g-6">
+      <div class="row between"><p class="eyebrow">מספר הרכב</p><span class="status warn">${car.plateRequested ? "בבדיקה" : "רשום בחשבון אחר"}</span></div>
+      <p class="small">${car.plateRequested ? `שלחת בקשה להעביר את ${esc(car.plate)} אליך. עד האישור הרכב נשמר בלי המספר.` : `${esc(car.plate)} רשום בחשבון אחר. אם קנית את הרכב, אפשר להעביר אותו אליך.`}</p>
+      ${car.plateRequested ? "" : `<button class="btn secondary" id="pl-open">קניתי את הרכב</button>`}
+    </div>` : car.plateReleased && !car.plateReleasedSeen ? `
+    <div class="card stack g-6">
+      <p class="eyebrow">הרכב עבר בעלות</p>
+      <p class="small">${esc(car.plateReleased)} עבר לבעלים חדשים, והמספר עבר לחשבון שלהם. ההיסטוריה שלך נשארה כאן.</p>
+      <div class="row g-8"><button class="btn secondary" id="pl-seen">הבנתי</button><button class="btn ghost" id="pl-remove">הסר את הרכב</button></div>
+    </div>` : "";
+  function wirePlateNotice(car) {
+    const o = $("#pl-open"); if (o) o.onclick = () => openPlateSheet(car, false);
+    const s = $("#pl-seen"); if (s) s.onclick = () => { car.plateReleasedSeen = true; save(); renderHome(); };
+    const r = $("#pl-remove"); if (r) r.onclick = async () => { if (!r.dataset.armed) { r.dataset.armed = "1"; r.textContent = "בטוח? לחיצה נוספת"; return; } if (Cloud.enabled && car.cloudId) { try { await Cloud.deleteCar(car); } catch (e) {} } S.cars.splice(S.cars.indexOf(car), 1); S.active = 0; save(); if (S.cars.length) { renderAll(); show("s-home"); } else startAdd(); };
+  }
+  // A hold clears itself once the plate is free (the admin approved, or the other account removed the car).
+  const holdChecked = new Set();
+  function recheckHold(car) {
+    if (!car.plateHold || !signedIn() || !Cloud.plateStatus || holdChecked.has(car)) return;
+    holdChecked.add(car);
+    Cloud.plateStatus(car.plate).then(st => { if (st === "free" || st === "mine") { car.plateHold = false; car.plateRequested = false; save(); renderHome(); toast("מספר הרכב עבר אליך"); } }).catch(() => {});
+  }
+  // Admin: licence photos waiting for a decision (profile screen).
+  async function renderPlateRequests() {
+    const el = $("#me-plates"); if (!el) return;
+    if (!signedIn() || !Cloud.pendingPlateRequests) { el.hidden = true; return; }
+    let list = []; try { list = await Cloud.pendingPlateRequests(); } catch (e) {}
+    if (!list.length) { el.hidden = true; return; }
+    el.hidden = false;
+    el.innerHTML = `<h3>בקשות על מספרי רכב (מנהל)</h3><div class="list">${list.map(r => `<div class="stack g-6"><div><b class="num">${esc(fmtPlate(r.plate))}</b><br><span class="small muted">${esc(r.requester_email || "")} · רשום אצל מישהו אחר מ-${r.holder_since ? fmtDate(r.holder_since) : "לא ידוע"}</span></div>
+      ${r.photo_url ? `<a href="${esc(r.photo_url)}" target="_blank" rel="noopener"><img class="hist-thumb" src="${esc(r.photo_url)}" alt="רישיון רכב"></a>` : ""}
+      <div class="row g-8"><button class="btn primary" data-pr-ok="${r.id}">אשר העברה</button><button class="btn ghost" data-pr-no="${r.id}">דחה</button></div></div>`).join("")}</div>`;
+    $$("[data-pr-ok]", el).forEach(b => b.onclick = async () => { try { await Cloud.decidePlateRequest(b.dataset.prOk, true); toast("המספר שוחרר"); } catch (e) { toast("נכשל: " + e.message); } renderPlateRequests(); });
+    $$("[data-pr-no]", el).forEach(b => b.onclick = async () => { try { await Cloud.decidePlateRequest(b.dataset.prNo, false); } catch (e) { toast("נכשל: " + e.message); } renderPlateRequests(); });
+  }
 
   function renderAll() { if (S.city && !GD) loadGarageDir().then(() => renderHome()).catch(() => {}); renderHome(); renderTL(); renderMe(); if (!$("#s-car").hidden) renderCar(); if (!$("#s-garages").hidden) renderGarages(); }
   // Migrate cars saved with a schedule id that no longer exists (ids are renamed as data improves).

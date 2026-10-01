@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tipulit למוסכים</title>
+<meta name="description" content="הלקוחות שלך, מי מגיע לטיפול ומתי, לפי לוח היבואן של כל רכב.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="../icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Hebrew:wght@400;500;600&family=Rubik:wght@500;600;700&family=Unbounded:wght@600&display=swap">
+<link rel="stylesheet" href="../styles/tokens.css">
+<link rel="stylesheet" href="../styles/brand.css">
+<link rel="stylesheet" href="garage.css">
+</head>
+<body>
+<header class="bar">
+  <div class="bar-in">
+    <a class="brand" href="./" aria-label="Tipulit"><span class="brand-word" lang="en" dir="ltr">tipulit</span></a>
+    <span class="bar-tag">למוסכים</span>
+    <div class="bar-garage" id="bar-garage"></div>
+    <div class="bar-user" id="bar-user"></div>
+  </div>
+</header>
+
+<main class="page" id="main">
+  <!-- signed out / no garage / loading -->
+  <section class="gate" id="gate" hidden>
+    <h1 id="gate-title">לוח הלקוחות של המוסך</h1>
+    <p class="muted" id="gate-text">מי מהלקוחות שלך מגיע לטיפול, למי פג הטסט ולמי יש ריקול פתוח. לפי לוח היבואן של כל רכב.</p>
+    <div class="gate-actions" id="gate-actions"></div>
+  </section>
+
+  <!-- dashboard -->
+  <section class="dash" id="dash" hidden>
+    <div class="demo-note" id="demo-note" hidden>מצב הדגמה: לקוחות לדוגמה, שום הודעה לא נשלחת. <a href="./">ליציאה</a></div>
+    <div class="head">
+      <div>
+        <h1 id="g-name">המוסך</h1>
+        <p class="muted" id="g-sub"></p>
+      </div>
+      <div class="head-actions">
+        <button class="btn" id="btn-csv">ייצוא לאקסל</button>
+        <button class="btn primary" id="btn-invite">הזמנת לקוחות</button>
+      </div>
+    </div>
+
+    <div class="kpis" id="kpis"></div>
+
+    <div class="toolbar">
+      <div class="search"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><input id="q" type="search" autocomplete="off" placeholder="חיפוש לפי שם, דגם, לוחית או טלפון" aria-label="חיפוש לקוח"></div>
+      <div class="chips" id="filters"></div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="tbl" id="tbl">
+        <thead>
+          <tr>
+            <th><button class="sort" data-sort="name">לקוח</button></th>
+            <th>רכב</th>
+            <th class="num-col"><button class="sort" data-sort="km">ק"מ משוער</button></th>
+            <th><button class="sort" data-sort="due">טיפול הבא</button></th>
+            <th><button class="sort" data-sort="test">טסט</button></th>
+            <th>מצב</th>
+            <th class="act-col"><span class="sr">פעולות</span></th>
+          </tr>
+        </thead>
+        <tbody id="rows"></tbody>
+      </table>
+      <div class="empty" id="empty" hidden></div>
+    </div>
+    <p class="foot muted">ק"מ משוער = הק"מ האחרון שהלקוח עדכן, ועוד הקצב החודשי שלו מאז. מועד הטיפול לפי לוח היבואן של הדגם, או לפי הזמן מהטיפול האחרון, המוקדם מביניהם.</p>
+  </section>
+</main>
+
+<!-- message preview (used in demo, and to edit before sending) -->
+<dialog class="dlg" id="dlg-msg">
+  <form method="dialog" class="dlg-in">
+    <div class="dlg-head"><h2>הודעה ל<span id="msg-to"></span></h2><button class="x" value="close" aria-label="סגור">×</button></div>
+    <textarea id="msg-text" rows="5"></textarea>
+    <p class="muted small" id="msg-note"></p>
+    <div class="dlg-actions"><button class="btn" value="close">ביטול</button><button class="btn" type="button" id="msg-copy">העתק</button><a class="btn primary" id="msg-send" target="_blank" rel="noopener">פתח בוואטסאפ</a></div>
+  </form>
+</dialog>
+
+<!-- log a visit -->
+<dialog class="dlg" id="dlg-visit">
+  <form method="dialog" class="dlg-in" id="visit-form">
+    <div class="dlg-head"><h2>רישום ביקור</h2><button class="x" value="close" aria-label="סגור">×</button></div>
+    <p class="muted" id="v-who"></p>
+    <div class="seg" id="v-kind"><button type="button" data-v="service" class="on">טיפול תקופתי</button><button type="button" data-v="repair">תיקון</button></div>
+    <div class="grid2">
+      <label class="field" id="v-svc-row"><span>איזה טיפול</span><select id="v-svc"></select></label>
+      <label class="field"><span>ק"מ</span><input id="v-km" inputmode="numeric" class="num" autocomplete="off"></label>
+      <label class="field"><span>חודש</span><input id="v-date" type="month"></label>
+      <label class="field"><span>מחיר (₪)</span><input id="v-price" inputmode="numeric" class="num" autocomplete="off"></label>
+    </div>
+    <label class="field"><span>מה נעשה</span><input id="v-text" autocomplete="off"></label>
+    <div class="seg" id="v-where"><button type="button" data-v="independent" class="on">מוסך פרטי</button><button type="button" data-v="importer">מוסך יבואן</button></div>
+    <p class="err" id="v-err" hidden></p>
+    <p class="muted small">הביקור נשלח ללקוח, ונכנס להיסטוריה שלו אחרי שהוא מאשר.</p>
+    <div class="dlg-actions"><button class="btn" value="close">ביטול</button><button class="btn primary" type="button" id="v-save">שלח ללקוח</button></div>
+  </form>
+</dialog>
+
+<!-- invite: link + printable QR sign -->
+<dialog class="dlg wide" id="dlg-invite">
+  <form method="dialog" class="dlg-in">
+    <div class="dlg-head"><h2>הזמנת לקוחות</h2><button class="x" value="close" aria-label="סגור">×</button></div>
+    <div class="invite">
+      <div class="poster" id="poster">
+        <p class="poster-kicker">סרקו עם המצלמה</p>
+        <p class="poster-title">תזכורת לפני כל טיפול,<br>לפי ספר היבואן</p>
+        <div class="qr" id="qr"></div>
+        <p class="poster-garage" id="poster-garage"></p>
+        <span class="brand poster-brand" aria-label="Tipulit"><span class="brand-word" lang="en" dir="ltr">tipulit</span></span>
+      </div>
+      <div class="invite-side">
+        <label class="field"><span>קישור הצטרפות</span><input id="inv-link" readonly dir="ltr"></label>
+        <div class="dlg-actions start"><button class="btn" type="button" id="inv-copy">העתק קישור</button><a class="btn" id="inv-wa" target="_blank" rel="noopener">שלח בוואטסאפ</a><button class="btn primary" type="button" id="inv-print">הדפס שלט לדלפק</button></div>
+        <p class="muted small">לקוח שסורק מצטרף בשני צעדים: מאשר מה הוא משתף, ובוחר אם מותר לכם לפנות אליו. הוא מופיע כאן מיד.</p>
+      </div>
+    </div>
+  </form>
+</dialog>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="../data.js"></script>
+<script src="../lookup.js"></script>
+<script src="../engine.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script src="../config.js"></script>
+<script src="../cloud.js"></script>
+<script>
+(function () {
+  const D = window.TIPULIT_DATA, Cloud = window.TipulitCloud || { enabled: false }, E = window.TipulitEngine;
+  const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const fmt = n => Math.round(n).toLocaleString("he-IL");
+  const esc = x => String(x ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
+  const fmtDate = iso => { try { return new Intl.DateTimeFormat("he-IL", { day: "2-digit", month: "2-digit", year: "2-digit" }).format(new Date(iso)); } catch (e) { return iso; } };
+  const monthName = d => new Intl.DateTimeFormat("he-IL", { month: "long", year: "numeric" }).format(d);
+  const fmtPlate = d => d.length <= 7 ? d.replace(/(\d{2})(\d{3})(\d{2})/, "$1-$2-$3") : d.replace(/(\d{3})(\d{2})(\d{3})/, "$1-$2-$3");
+  const schedById = id => D.schedules.find(s => s.id === id);
+  const toastEl = $("#toast"); let toastT;
+  const toast = m => { toastEl.textContent = m; toastEl.classList.add("show"); clearTimeout(toastT); toastT = setTimeout(() => toastEl.classList.remove("show"), 2400); };
+  const telHref = p => "tel:" + p.replace(/[^\d+*#]/g, "");
+  const waHref = (p, text) => "https://wa.me/" + p.replace(/\D/g, "").replace(/^0/, "972") + (text ? "?text=" + encodeURIComponent(text) : "");
+  const theModel = m => /^[A-Za-z0-9]/.test(m) ? "ה-" + m : "ה" + m;
+  const ico = {
+    wa: `<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20l1.3-3.9A8 8 0 1 1 8.2 19z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.5-2-1-1 1a4 4 0 0 1-2-2l1-1-1-2z"/></svg>`,
+    phone: `<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>`,
+    wrench: `<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg>`
+  };
+  const demo = new URLSearchParams(location.search).has("demo");
+
+  // ---------- state ----------
+  const st = { garage: null, garages: [], rows: [], recalls: {}, filter: "all", sort: "due", q: "" };
+  const monthsSince = iso => iso ? Math.max(0, (Date.now() - Date.parse(iso)) / (30.44 * 86400000)) : 0;
+  function view(r) {
+    const s = schedById(r.schedule_id), kmMonth = r.km_month || 1500;
+    const estKm = Math.round((r.km || 0) + kmMonth * monthsSince(r.car_updated_at));
+    let n = null; try { if (s) n = E.next(s, { km: estKm, kmMonth, lastService: r.last_service }); } catch (e) {}
+    const testDays = r.test_expiry ? Math.round((Date.parse(r.test_expiry) - Date.now()) / 86400000) : null;
+    const plateDigits = (r.plate || "").replace(/\D/g, "");
+    return { ...r, s, estKm, n, testDays, plateDigits, plate: plateDigits ? fmtPlate(plateDigits) : "",
+      lapsed: monthsSince(r.last_visit || r.linked_at) > 12,
+      model: s ? `${s.make_he} ${s.model_he}` : (r.schedule_id || "רכב") };
+  }
+  const recallsOf = c => st.recalls[c.plateDigits] || [];
+  const isDue = c => c.n && c.n.level === "warn";
+  const isOver = c => c.n && c.n.level === "crit";
+  const isTest = c => c.testDays !== null && c.testDays <= 45;
+  const FILTERS = [["all", "כל הלקוחות"], ["due", "מגיעים לטיפול"], ["over", "באיחור"], ["test", "טסט קרוב"], ["recall", "ריקול פתוח"], ["lapsed", "לא היו מעל שנה"], ["contact", "אפשר לפנות"]];
+  const match = (c, f) => f === "all" || (f === "due" && isDue(c)) || (f === "over" && isOver(c)) || (f === "test" && isTest(c)) || (f === "recall" && recallsOf(c).length) || (f === "lapsed" && c.lapsed) || (f === "contact" && c.phone);
+
+  // The message follows the reason this customer is on screen.
+  function message(c) {
+    // full name reads naturally with the definite article: "הטויוטה קורולה", "המאזדה 3"
+    const hi = `היי${c.first_name ? " " + c.first_name : ""}, כאן ${st.garage.name}. `, m = c.s ? `${c.s.make_he} ${c.s.model_he}` : "רכב";
+    const f = st.filter;
+    if (f === "recall" || (f === "all" && recallsOf(c).length)) return hi + `לרכב שלך (${c.model} ${c.year || ""}) יש ריקול פתוח של היצרן. התיקון בלי תשלום במרכזי השירות של היבואן. רוצה שנתאם?`;
+    if (f === "test" || (f === "all" && isTest(c) && !isOver(c) && !isDue(c))) return hi + `הטסט של ${theModel(m)} שלך בתוקף עד ${fmtDate(c.test_expiry)}. רוצה שנכין אותו לטסט?`;
+    if (f === "lapsed") return hi + `מזמן לא ראינו את ${theModel(m)} שלך. לפי לוח היבואן ${c.n ? `הטיפול הבא הוא ${fmt(c.n.nextKm)} ק"מ` : "כדאי לבדוק מתי הטיפול הבא"}. רוצה לקבוע תור?`;
+    if (isOver(c)) return hi + `לפי לוח היבואן ${theModel(m)} שלך כבר עבר את מועד טיפול ${fmt(c.n.nextKm)}. רוצה לקבוע תור?`;
+    if (c.n) return hi + `לפי לוח היבואן ${theModel(m)} שלך מגיע לטיפול ${fmt(c.n.nextKm)} בסביבות ${monthName(c.n.dueDate)}. רוצה לקבוע תור?`;
+    return hi + "רוצה לקבוע תור לטיפול?";
+  }
+
+  // ---------- render ----------
+  function renderKpis() {
+    const r = st.rows, c = f => r.filter(x => match(x, f)).length;
+    const tiles = [["all", r.length, "לקוחות"], ["due", c("due"), "מגיעים לטיפול בחודש הקרוב"], ["over", c("over"), "באיחור לטיפול"], ["test", c("test"), "טסט ב-45 יום"], ["recall", c("recall"), "ריקול פתוח"]];
+    $("#kpis").innerHTML = tiles.map(([f, n, t]) => `<button class="kpi ${f} ${st.filter === f ? "on" : ""}" data-f="${f}"><b class="num">${n}</b><span>${t}</span></button>`).join("");
+    $$("#kpis .kpi").forEach(b => b.onclick = () => setFilter(b.dataset.f));
+    $("#filters").innerHTML = FILTERS.map(([f, t]) => `<button class="chip ${st.filter === f ? "on" : ""}" data-f="${f}">${t}${f !== "all" ? ` <span class="num">${c(f)}</span>` : ""}</button>`).join("");
+    $$("#filters .chip").forEach(b => b.onclick = () => setFilter(b.dataset.f));
+  }
+  const order = {
+    due: c => c.n ? (isOver(c) ? -1e6 : 0) + c.n.daysLeft : 1e6,
+    name: c => c.first_name || "", km: c => -c.estKm, test: c => c.testDays === null ? 1e6 : c.testDays
+  };
+  function rowsList() {
+    const q = st.q.trim().toLowerCase().replace(/-/g, "");
+    const key = order[st.sort] || order.due;
+    return st.rows.filter(c => match(c, st.filter))
+      .filter(c => !q || [c.first_name, c.model, c.plateDigits, (c.phone || "").replace(/\D/g, "")].join(" ").toLowerCase().replace(/-/g, "").includes(q))
+      .sort((a, b) => { const x = key(a), y = key(b); return typeof x === "string" ? x.localeCompare(y, "he") : x - y; });
+  }
+  function renderRows() {
+    renderKpis();
+    $$(".sort").forEach(b => b.classList.toggle("on", b.dataset.sort === st.sort));
+    const list = rowsList();
+    $("#rows").innerHTML = list.map(c => {
+      const rc = recallsOf(c);
+      const due = c.n ? (c.n.remainKm <= 0 ? 'עבר בק"מ' : c.n.daysLeft <= 0 ? "עבר הזמן" : monthName(c.n.dueDate)) : "";
+      return `<tr>
+        <td><b>${esc(c.first_name || "לקוח")}</b>${c.phone ? `<div class="sub num" dir="ltr">${esc(c.phone)}</div>` : `<div class="sub">בלי הסכמה לפניות</div>`}</td>
+        <td>${esc(c.model)} ${c.year || ""}${c.plate ? `<div class="sub"><span class="plate-mini num">${esc(c.plate)}</span></div>` : ""}</td>
+        <td class="num-col num">${fmt(c.estKm)}</td>
+        <td>${c.n ? `<b class="num">${fmt(c.n.nextKm)}</b><div class="sub">${due}${c.n.remainKm > 0 && c.n.daysLeft > 0 ? ` · עוד ${fmt(c.n.remainKm)} ק"מ` : ""}</div>` : `<span class="sub">אין לוח</span>`}</td>
+        <td>${c.test_expiry ? `<span class="${isTest(c) ? "warn-text" : ""}">${fmtDate(c.test_expiry)}</span>` : `<span class="sub">לא ידוע</span>`}</td>
+        <td><div class="tags">${isOver(c) ? `<span class="tag crit">באיחור</span>` : isDue(c) ? `<span class="tag warn">מגיע לטיפול</span>` : `<span class="tag ok">בזמן</span>`}${isTest(c) ? `<span class="tag warn">${c.testDays < 0 ? "טסט פג" : "טסט קרוב"}</span>` : ""}${rc.length ? `<span class="tag crit" title="${esc(rc.map(x => x.system).join(", "))}">ריקול</span>` : ""}${c.lapsed ? `<span class="tag">לא היה שנה</span>` : ""}${c.pending ? `<span class="tag mine">ממתין לאישור</span>` : ""}</div></td>
+        <td class="act-col"><div class="acts">${c.phone ? `<button class="ib" data-msg="${c.link_id}" title="הודעת וואטסאפ" aria-label="הודעת וואטסאפ ל${esc(c.first_name || "לקוח")}">${ico.wa}</button><a class="ib" href="${telHref(c.phone)}" title="חיוג" aria-label="חיוג">${ico.phone}</a>` : ""}<button class="ib" data-visit="${c.link_id}" title="רישום ביקור" aria-label="רישום ביקור">${ico.wrench}</button></div></td>
+      </tr>`; }).join("");
+    $$("[data-msg]").forEach(b => b.onclick = () => openMsg(find(b.dataset.msg)));
+    $$("[data-visit]").forEach(b => b.onclick = () => openVisit(find(b.dataset.visit)));
+    const empty = $("#empty");
+    if (!st.rows.length) { empty.hidden = false; empty.innerHTML = `<b>עדיין אין לקוחות</b><p class="muted">הדפיסו את השלט לדלפק או שלחו את קישור ההצטרפות. כל לקוח שמצטרף מופיע כאן עם מועד הטיפול הבא.</p><button class="btn primary" id="empty-invite">הזמנת לקוחות</button>`; $("#empty-invite").onclick = openInvite; }
+    else if (!list.length) { empty.hidden = false; empty.innerHTML = `<p class="muted">אין לקוחות בסינון הזה.</p>`; }
+    else empty.hidden = true;
+  }
+  const find = id => st.rows.find(c => c.link_id === id);
+  function setFilter(f) { st.filter = f; renderRows(); }
+  $("#q").oninput = e => { st.q = e.target.value; renderRows(); };
+  $$(".sort").forEach(b => b.onclick = () => { st.sort = b.dataset.sort; renderRows(); });
+
+  // ---------- message ----------
+  let msgFor = null;
+  function openMsg(c) {
+    msgFor = c; $("#msg-to").textContent = c.first_name || "הלקוח"; $("#msg-text").value = message(c);
+    $("#msg-note").textContent = demo ? "מצב הדגמה: ההודעה לא נשלחת. בגרסה האמיתית הכפתור פותח את הוואטסאפ של המוסך עם ההודעה מוכנה." : "ההודעה נפתחת בוואטסאפ של המוסך. אפשר לערוך לפני השליחה.";
+    syncMsg(); $("#dlg-msg").showModal();
+  }
+  const syncMsg = () => { const a = $("#msg-send"); if (demo) { a.removeAttribute("href"); a.classList.add("disabled"); } else { a.href = waHref(msgFor.phone, $("#msg-text").value); a.classList.remove("disabled"); } };
+  $("#msg-text").oninput = syncMsg;
+  $("#msg-send").onclick = e => { if (demo) { e.preventDefault(); toast("בהדגמה לא נשלחות הודעות"); } else $("#dlg-msg").close(); };
+  $("#msg-copy").onclick = () => copy($("#msg-text").value, "ההודעה הועתקה");
+  function copy(text, ok) { const done = () => toast(ok); if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done).catch(() => fallbackCopy(text, done)); else fallbackCopy(text, done); }
+  function fallbackCopy(text, done) { const t = document.createElement("textarea"); t.value = text; document.body.appendChild(t); t.select(); try { document.execCommand("copy"); done(); } catch (e) {} t.remove(); }
+
+  // ---------- visit ----------
+  let vFor = null, vKind = "service", vWhere = "independent";
+  function setSeg(id, v) { $$(`#${id} button`).forEach(b => b.classList.toggle("on", b.dataset.v === v)); }
+  function openVisit(c) {
+    vFor = c; $("#v-who").textContent = `${c.first_name || "לקוח"} · ${c.model} ${c.year || ""}${c.plate ? " · " + c.plate : ""}`;
+    let opts = [];
+    if (c.s) { const s = c.s, sh = E.gridShift(s), laps = Math.floor(Math.max(0, c.estKm - sh) / s.cycle_km); for (let lap = Math.max(0, laps - 1); lap <= laps + 1; lap++) for (const sv of s.services) opts.push(lap * s.cycle_km + sv.km); }
+    opts = [...new Set(opts)].filter(k => Math.abs(k - c.estKm) <= 30000).sort((a, b) => a - b);
+    const near = opts.reduce((a, b) => Math.abs(b - c.estKm) < Math.abs(a - c.estKm) ? b : a, opts[0]);
+    $("#v-svc").innerHTML = opts.map(k => `<option value="${k}" ${k === near ? "selected" : ""}>טיפול ${fmt(k)} ק"מ</option>`).join("") + `<option value="">טיפול אחר</option>`;
+    const d = new Date(); $("#v-date").value = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}`;
+    $("#v-km").value = c.estKm; $("#v-price").value = ""; $("#v-text").value = ""; $("#v-err").hidden = true;
+    try { vWhere = localStorage.getItem("tipulit-gx-where-" + st.garage.id) || "independent"; } catch (e) {}
+    vKind = "service"; setSeg("v-kind", vKind); setSeg("v-where", vWhere); $("#v-svc-row").hidden = false;
+    $("#dlg-visit").showModal();
+  }
+  $$("#v-kind button").forEach(b => b.onclick = () => { vKind = b.dataset.v; setSeg("v-kind", vKind); $("#v-svc-row").hidden = vKind !== "service"; });
+  $$("#v-where button").forEach(b => b.onclick = () => { vWhere = b.dataset.v; setSeg("v-where", vWhere); });
+  $("#v-save").onclick = async () => {
+    const km = +$("#v-km").value.replace(/\D/g, ""), text = $("#v-text").value.trim(), price = +$("#v-price").value.replace(/\D/g, "") || null;
+    const err = m => { $("#v-err").textContent = m; $("#v-err").hidden = false; };
+    if (!km) return err('צריך ק"מ.');
+    if (vKind === "repair" && !text) return err("כתבו בקצרה מה נעשה.");
+    const b = $("#v-save"); b.disabled = true;
+    try {
+      if (!demo) await Cloud.garageAddEntry(vFor.link_id, { kind: vKind, svcKm: vKind === "service" ? (+$("#v-svc").value || null) : null, km, date: $("#v-date").value, price, text, where: vWhere });
+      try { localStorage.setItem("tipulit-gx-where-" + st.garage.id, vWhere); } catch (e) {}
+      vFor.pending = (vFor.pending || 0) + 1;
+      $("#dlg-visit").close(); toast(demo ? "בהדגמה: הביקור היה נשלח ללקוח לאישור" : "נשלח ללקוח לאישור"); renderRows();
+    } catch (e) { err("השמירה נכשלה: " + (e.message || e)); }
+    b.disabled = false;
+  };
+
+  // ---------- invite ----------
+  const joinUrl = id => location.origin + location.pathname.replace(/garage\/[^/]*$/, "") + "?join=" + id;
+  let qrLib = null;
+  const loadQr = () => qrLib || (qrLib = new Promise((res, rej) => { const sc = document.createElement("script"); sc.src = "https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"; sc.onload = () => res(window.qrcode); sc.onerror = () => { qrLib = null; rej(new Error("qr")); }; document.head.appendChild(sc); }));
+  function openInvite() {
+    const url = demo ? location.origin + "/?join=demo" : joinUrl(st.garage.id);
+    $("#inv-link").value = url; $("#poster-garage").textContent = st.garage.name;
+    $("#inv-wa").href = "https://wa.me/?text=" + encodeURIComponent(`הצטרפו ל${st.garage.name} בטיפולית: תזכורת לפני כל טיפול לפי ספר היבואן, וכל הטיפולים במקום אחד. ${url}`);
+    $("#qr").innerHTML = `<p class="muted small">טוען…</p>`;
+    loadQr().then(qrcode => { const q = qrcode(0, "M"); q.addData(url); q.make(); $("#qr").innerHTML = q.createSvgTag({ cellSize: 6, margin: 1, scalable: true }); }).catch(() => { $("#qr").innerHTML = `<p class="muted small">ה-QR לא נטען. אפשר להעתיק את הקישור.</p>`; });
+    $("#dlg-invite").showModal();
+  }
+  $("#btn-invite").onclick = openInvite;
+  $("#inv-copy").onclick = () => copy($("#inv-link").value, "הקישור הועתק");
+  $("#inv-print").onclick = () => { document.body.classList.add("printing"); window.print(); setTimeout(() => document.body.classList.remove("printing"), 500); };
+
+  // ---------- CSV export (opens in Excel; BOM keeps Hebrew readable) ----------
+  $("#btn-csv").onclick = () => {
+    const list = rowsList(), q = v => `"${String(v ?? "").replace(/"/g, '""')}"`;
+    const head = ["שם", "טלפון", "מותר לפנות", "דגם", "שנה", "לוחית", "ק\"מ משוער", "טיפול הבא", "מועד משוער", "תוקף טסט", "ריקול פתוח"];
+    const lines = list.map(c => [c.first_name, c.phone || "", c.phone ? "כן" : "לא", c.model, c.year || "", c.plate, c.estKm, c.n ? c.n.nextKm : "", c.n ? c.n.dueDate.toISOString().slice(0, 10) : "", c.test_expiry || "", recallsOf(c).map(x => x.system).join(" / ")].map(q).join(","));
+    const blob = new Blob(["﻿" + [head.map(q).join(","), ...lines].join("\r\n")], { type: "text/csv;charset=utf-8" });
+    const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = `לקוחות-${st.garage.name}-${new Date().toISOString().slice(0, 10)}.csv`; document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+    toast(`ייצאתי ${list.length} לקוחות`);
+  };
+
+  // ---------- recalls (MoT open-recall registry, by plate) ----------
+  async function loadRecalls() {
+    if (demo || !window.TipulitLookup || !TipulitLookup.fetchRecalls) return;
+    const plates = [...new Set(st.rows.map(c => c.plateDigits).filter(Boolean))];
+    for (let i = 0; i < plates.length; i += 4) {
+      await Promise.all(plates.slice(i, i + 4).map(p => TipulitLookup.fetchRecalls(p).then(r => { st.recalls[p] = r; }).catch(() => {})));
+      renderRows();
+    }
+  }
+
+  // ---------- screens ----------
+  function showGate(title, text, actions) {
+    $("#dash").hidden = true; $("#gate").hidden = false;
+    $("#gate-title").textContent = title; $("#gate-text").textContent = text; $("#gate-actions").innerHTML = actions;
+  }
+  function showDash() {
+    $("#gate").hidden = true; $("#dash").hidden = false; $("#demo-note").hidden = !demo;
+    $("#g-name").textContent = st.garage.name;
+    $("#g-sub").textContent = [st.garage.address, st.garage.city].filter(Boolean).join(", ");
+    $("#bar-garage").innerHTML = st.garages.length > 1 ? `<select id="g-pick" aria-label="בחירת מוסך">${st.garages.map(g => `<option value="${g.id}" ${g.id === st.garage.id ? "selected" : ""}>${esc(g.name)}</option>`).join("")}</select>` : "";
+    const gp = $("#g-pick"); if (gp) gp.onchange = () => openGarage(st.garages.find(g => g.id === gp.value));
+    renderRows();
+  }
+  async function openGarage(g) {
+    st.garage = g; st.rows = []; st.recalls = {}; st.filter = "all";
+    showDash(); $("#rows").innerHTML = `<tr><td colspan="7" class="muted">טוען לקוחות…</td></tr>`;
+    try { st.rows = (await Cloud.garageCustomers(g.id)).map(view); }
+    catch (e) { showGate("הטעינה נכשלה", /schema cache|does not exist/i.test(e.message || "") ? "השרת עדיין לא מוכן ללוח הלקוחות." : (e.message || String(e)), `<a class="btn" href="./">נסה שוב</a>`); return; }
+    renderRows(); loadRecalls();
+  }
+  function renderUser(u) {
+    $("#bar-user").innerHTML = demo ? `<a class="btn small" href="./">יציאה מההדגמה</a>` : u ? `<span class="muted small">${esc(u.email)}</span><button class="btn small" id="sign-out">התנתק</button>` : "";
+    const so = $("#sign-out"); if (so) so.onclick = async () => { try { await Cloud.signOut(); } catch (e) {} location.reload(); };
+  }
+  const signInBtn = `<button class="btn primary" id="sign-in">התחברות עם Google</button>`;
+  function wireSignIn() { const b = $("#sign-in"); if (b) b.onclick = () => { try { sessionStorage.setItem("tipulit-return", location.pathname); } catch (e) {} Cloud.signInWithGoogle().catch(e => toast("ההתחברות נכשלה: " + e.message)); }; }
+
+  async function start() {
+    if (demo) { st.garages = [st.garage = DEMO.garage]; st.rows = DEMO.rows().map(view); st.recalls = DEMO.recalls; renderUser(null); showDash(); return; }
+    if (!Cloud.enabled) { showGate("השרת לא מחובר", "אפשר לראות איך זה נראה בהדגמה.", `<a class="btn primary" href="?demo">הדגמה</a>`); return; }
+    if (Cloud.hasAuthParams) { const r = await Cloud.handleRedirect(); if (r.error) toast("ההתחברות נכשלה: " + (r.error.message || r.error)); try { history.replaceState(null, "", location.pathname); } catch (e) {} }
+    const u = await Cloud.currentUser(); renderUser(u);
+    if (!u) { showGate("לוח הלקוחות של המוסך", "מי מהלקוחות שלך מגיע לטיפול, למי פג הטסט ולמי יש ריקול פתוח. לפי לוח היבואן של כל רכב.", signInBtn + `<a class="btn" href="?demo">הדגמה בלי התחברות</a>`); wireSignIn(); return; }
+    let mine = []; try { mine = await Cloud.myGarageProfiles(); } catch (e) {}
+    st.garages = mine.filter(p => p.status === "verified");
+    if (!st.garages.length) {
+      const pending = mine.some(p => p.status === "pending");
+      showGate(pending ? "המוסך שלך בבדיקה" : "עוד אין לך מוסך מאומת", pending ? "אחרי שנאמת שהמוסך שלך, לוח הלקוחות ייפתח כאן." : "מצאו את המוסך שלכם ברשימת המוסכים באפליקציה ולחצו \"זה המוסך שלי\".", `<a class="btn primary" href="../">לאפליקציה</a><a class="btn" href="?demo">הדגמה</a>`);
+      return;
+    }
+    let last = null; try { last = localStorage.getItem("tipulit-garage"); } catch (e) {}
+    const g = st.garages.find(x => x.id === last) || st.garages[0];
+    try { localStorage.setItem("tipulit-garage", g.id); } catch (e) {}
+    openGarage(g);
+  }
+
+  // ---------- demo data: realistic customers, nothing is sent ----------
+  const DEMO = (() => {
+    const pick = ["toyota-corolla", "kia-picanto", "hyundai-i10", "hyundai-tucson", "mazda-3", "skoda-octavia", "kia-sportage", "toyota-yaris", "hyundai-i20", "mazda-cx-5", "kia-niro", "toyota-rav4"];
+    const scheds = pick.map(p => D.schedules.filter(s => s.id.startsWith(p + "-"))).filter(a => a.length).map(a => a[Math.floor(a.length / 2)]);
+    const names = ["דני", "מיכל", "יוסי", "רונית", "אבי", "נועה", "משה", "שירה", "איתי", "ליאת", "עומר", "תמר", "רועי", "הדס", "אלון", "מאיה", "גיא", "יעל", "עידו", "אורית", "ניר", "קרן", "שי", "ענבל", "בני", "סיגל", "אסף", "דנה", "חיים", "רחל", "תומר", "אורנה"];
+    let seed = 7; const rnd = () => (seed = (seed * 9301 + 49297) % 233280) / 233280;
+    const iso = days => new Date(Date.now() + days * 86400000).toISOString();
+    const make = () => names.map((name, i) => {
+      const s = scheds[i % scheds.length], year = Math.max(s.years[0], Math.min(s.years[1], 2014 + Math.floor(rnd() * 11)));
+      const kmMonth = [800, 1200, 1500, 1500, 2000, 2500][Math.floor(rnd() * 6)], age = 2026 - year;
+      return { link_id: "demo-" + i, first_name: name, phone: rnd() < .85 ? `05${Math.floor(rnd() * 9)}-${String(1000000 + Math.floor(rnd() * 8999999)).slice(0, 7)}` : null,
+        allow_contact: true, plate: String(10000000 + Math.floor(rnd() * 89999999)).slice(0, year >= 2017 ? 8 : 7), schedule_id: s.id, year,
+        km: Math.round((age * kmMonth * 12 * (0.85 + rnd() * .3)) / 100) * 100, km_month: kmMonth, last_service: rnd() < .75 ? iso(-(20 + Math.floor(rnd() * 360))).slice(0, 7) : null,
+        test_expiry: iso(-20 + Math.floor(rnd() * 330)).slice(0, 10), car_updated_at: iso(-Math.floor(rnd() * 120)), linked_at: iso(-Math.floor(30 + rnd() * 700)),
+        last_visit: rnd() < .7 ? iso(-Math.floor(rnd() * 500)) : null, pending: 0 };
+    });
+    const sample = make();
+    const rows = () => sample.map(r => ({ ...r }));
+    const recalls = {};
+    for (const i of [2, 9, 17]) recalls[sample[i].plate] = [{ system: ["כריות אוויר", "מערכת בלימה", "חשמל ומיזוג"][i % 3] }];
+    return { garage: { id: "demo", name: "מוסך הדגמה", city: "חולון", address: "הפלד 40" }, rows, recalls };
+  })();
+
+  start().catch(e => showGate("משהו השתבש", e.message || String(e), `<a class="btn" href="./">נסה שוב</a>`));
+})();
+</script>
+</body>
+</html>

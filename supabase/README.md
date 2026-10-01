@@ -39,7 +39,10 @@ filled in, every feature below switches on.
    `migrations/0003_garage_customers.sql` in the SQL editor. Nothing else to configure.
    To check the migrations and permissions locally before running them: `sh scripts/test-db.sh`
    (needs Postgres installed; applies every migration to a throwaway database and runs `supabase/tests/rls-*.sql`).
-7. **Point the app at the project**: in `app/config.js` set `SUPABASE_URL` and
+7. **One plate, one account**: run `migrations/0004_plate_lock.sql`. It enables the `http` extension for the
+   automatic ownership check against data.gov.il; if the extension is unavailable the check is skipped and
+   transfers go through the manual (licence photo) path. Existing duplicate plates: the earliest registration keeps it.
+8. **Point the app at the project**: in `app/config.js` set `SUPABASE_URL` and
    `SUPABASE_ANON_KEY` (Project Settings → API). The anon key is public by design;
    row-level security is what protects the data. Rebuild and push.
 
@@ -53,6 +56,7 @@ filled in, every feature below switches on.
 | Garage photos | bucket `garage-photos/<user-id>/...` | Public read, owner writes |
 | Driver-garage links | `garage_links` | The driver only. The garage reads a minimal view through `garage_customers()`: car, estimated km inputs, test expiry, and name and phone only if the driver allowed contact |
 | Visits a garage logged | `garage_entries` | The driver of that car; the garage writes through `garage_add_entry()` and sees only counts and last visit |
+| Plate transfer requests | `plate_requests`, bucket `plate-proofs` | The requester and the admin |
 | Shared price and garage reports | `price_reports` | Nobody directly; only the aggregate functions `community_prices` and `community_garages` (no user id, no plate, no free text; buckets under 3 reports are hidden) |
 
 ## Local development

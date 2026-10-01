@@ -51,6 +51,7 @@ mkdirSync(out, { recursive: true });
 writeFileSync(out + "index.html", html);
 copyFileSync(root + "app/data.js", out + "data.js");
 copyFileSync(root + "app/lookup.js", out + "lookup.js");
+copyFileSync(root + "app/engine.js", out + "engine.js");
 copyFileSync(root + "app/config.js", out + "config.js");
 copyFileSync(root + "app/cloud.js", out + "cloud.js");
 mkdirSync(out + "styles", { recursive: true });
@@ -89,6 +90,9 @@ writeFileSync(out + "welcome/index.html", readFileSync(welcomeSrc + "index.html"
   .replace("{{CATALOG}}", () => catalogJSON)
   .replace(/\{\{ICON:([a-z-]+)\}\}/g, (m, n) => readFileSync(welcomeSrc + "icons/" + n + ".svg", "utf8").replace("<svg ", '<svg aria-hidden="true" focusable="false" ')));
 for (const f of ["home.png", "timeline.png", "condition.png", "welcome.css"]) copyFileSync(welcomeSrc + f, out + "welcome/" + f);
+// Garage dashboard at /garage/ (desktop, for the garage office). Static: data, engine and cloud come from the root.
+mkdirSync(out + "garage", { recursive: true });
+for (const f of ["index.html", "garage.css"]) copyFileSync(root + "app/garage/" + f, out + "garage/" + f);
 writeFileSync(out + "manifest.webmanifest", JSON.stringify({
   name: "Tipulit", short_name: "Tipulit", lang: "he", dir: "rtl", start_url: "./", scope: "./", display: "standalone",
   background_color: "#111418", theme_color: "#111418",
@@ -96,10 +100,10 @@ writeFileSync(out + "manifest.webmanifest", JSON.stringify({
   icons: [{ src: "icon-192.png", sizes: "192x192", type: "image/png" }, { src: "icon-512.png", sizes: "512x512", type: "image/png" }, { src: "icon.svg", sizes: "any", type: "image/svg+xml" }]
 }, null, 2));
 // Content hash, so rebuilding unchanged sources yields identical files (no churn in git or in the service worker).
-const version = createHash("sha1").update(html).update(readFileSync(root + "app/data.js")).update(readFileSync(root + "app/lookup.js")).update(readFileSync(root + "app/cloud.js")).update(readFileSync(root + "app/config.js")).update(readFileSync(root + "app/styles/tokens.css")).update(readFileSync(root + "app/styles/brand.css")).update(readFileSync(root + "app/styles/app.css")).digest("hex").slice(0, 10);
+const version = createHash("sha1").update(html).update(readFileSync(root + "app/data.js")).update(readFileSync(root + "app/lookup.js")).update(readFileSync(root + "app/engine.js")).update(readFileSync(root + "app/cloud.js")).update(readFileSync(root + "app/config.js")).update(readFileSync(root + "app/styles/tokens.css")).update(readFileSync(root + "app/styles/brand.css")).update(readFileSync(root + "app/styles/app.css")).digest("hex").slice(0, 10);
 writeFileSync(out + "sw.js", `// Minimal offline cache for the app shell. Version: ${version}
 const CACHE = "tipulit-${version}";
-const ASSETS = ["./", "./index.html", "./styles/tokens.css", "./styles/brand.css", "./styles/app.css", "./data.js", "./lookup.js", "./config.js", "./cloud.js", "./manifest.webmanifest", "./icon.svg", "./icon-192.png", "./icon-512.png"];
+const ASSETS = ["./", "./index.html", "./styles/tokens.css", "./styles/brand.css", "./styles/app.css", "./data.js", "./lookup.js", "./engine.js", "./config.js", "./cloud.js", "./manifest.webmanifest", "./icon.svg", "./icon-192.png", "./icon-512.png"];
 self.addEventListener("install", e => { e.waitUntil(caches.open(CACHE).then(c => c.addAll(ASSETS)).then(() => self.skipWaiting())); });
 self.addEventListener("activate", e => { e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k !== CACHE).map(k => caches.delete(k)))).then(() => self.clients.claim())); });
 self.addEventListener("fetch", e => {

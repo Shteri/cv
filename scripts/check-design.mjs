@@ -14,8 +14,8 @@ import { readFileSync } from "node:fs";
 const root = new URL("../", import.meta.url).pathname;
 const read = f => readFileSync(root + f, "utf8");
 const TOKENS = "app/styles/tokens.css";
-const CSS = ["app/styles/brand.css", "app/styles/app.css", "app/welcome/welcome.css"];
-const HTML = { "app/index.html": ["app/styles/brand.css", "app/styles/app.css"], "app/welcome/index.html": ["app/styles/brand.css", "app/welcome/welcome.css"] };
+const CSS = ["app/styles/brand.css", "app/styles/app.css", "app/welcome/welcome.css", "app/garage/garage.css"];
+const HTML = { "app/index.html": ["app/styles/brand.css", "app/styles/app.css"], "app/welcome/index.html": ["app/styles/brand.css", "app/welcome/welcome.css"], "app/garage/index.html": ["app/styles/brand.css", "app/garage/garage.css"] };
 
 // Custom properties that markup or scripts set at runtime (documented in DESIGN.md, "Design in code").
 const RUNTIME = new Set(["--brand-size", "--i", "--k", "--r", "--s", "--c", "--n", "--h", "--x", "--y", "--mx", "--my", "--rx", "--ry", "--p", "--drag", "--vt", "--spin"]);

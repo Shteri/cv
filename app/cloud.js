@@ -48,9 +48,9 @@
 
   // ---------- cars and records ----------
   // App car -> row
-  const carRow = (car, uid) => ({ id: car.cloudId || undefined, user_id: uid, plate: (car.plate || "").replace(/\D/g, "") || null, schedule_id: car.schedule, year: car.year || null, km: car.km || 0, km_month: car.kmMonth || 1500, last_service: car.lastService || null, gov: car.gov || null, updated_at: new Date().toISOString() });
+  const carRow = (car, uid) => ({ id: car.cloudId || undefined, user_id: uid, plate: car.plateHold ? null : ((car.plate || "").replace(/\D/g, "") || null), schedule_id: car.schedule, year: car.year || null, km: car.km || 0, km_month: car.kmMonth || 1500, last_service: car.lastService || null, gov: car.gov || null, updated_at: new Date().toISOString() });
   // Row -> app car (records attached separately)
-  const rowCar = r => ({ cloudId: r.id, plate: r.plate ? fmtPlate(r.plate) : "", schedule: r.schedule_id, year: r.year, km: r.km, kmMonth: r.km_month, lastService: r.last_service, gov: r.gov, history: [], added: Date.parse(r.created_at) });
+  const rowCar = r => ({ cloudId: r.id, plate: r.plate ? fmtPlate(r.plate) : "", plateReleased: r.released_plate ? fmtPlate(r.released_plate) : null, schedule: r.schedule_id, year: r.year, km: r.km, kmMonth: r.km_month, lastService: r.last_service, gov: r.gov, history: [], added: Date.parse(r.created_at) });
   const fmtPlate = d => d.length <= 7 ? d.replace(/(\d{2})(\d{3})(\d{2})/, "$1-$2-$3") : d.replace(/(\d{3})(\d{2})(\d{3})/, "$1-$2-$3");
   const rowRecord = (r, urls) => ({ id: r.client_id || r.id, cloudId: r.id, kind: r.kind, svcKm: r.svc_km, text: r.text || "", items: r.items || [], date: r.date, km: r.km, where: r.where, garage: r.garage || "", city: r.city || "", price: r.price, back: r.back, extra: r.extra || "", receiptPaths: r.receipt_paths || [], receipts: urls || [], receipt: (urls || [])[0] || null, share: r.share, source: r.source, at: Date.parse(r.created_at), synced: true });
 
@@ -75,8 +75,9 @@
   }
   async function saveCarNow(car) {
     const uid = (await currentUser())?.id; if (!uid) return;
-    const row = carRow(car, uid);
-    const { data, error } = await sb.from("cars").upsert(row, { onConflict: "id" }).select("id").single();
+    let { data, error } = await sb.from("cars").upsert(carRow(car, uid), { onConflict: "id" }).select("id").single();
+    // 23505 on cars_plate_unique: the plate is registered on another account (migration 0004).
+    if (error && error.code === "23505" && !car.plateHold) { car.plateHold = true; ({ data, error } = await sb.from("cars").upsert(carRow(car, uid), { onConflict: "id" }).select("id").single()); }
     if (error) throw error;
     car.cloudId = data.id;
     for (const rec of car.history || []) {
@@ -187,6 +188,25 @@
     return data;
   }
 
+  // ---------- plate lock (migration 0004) ----------
+  const digits = p => String(p || "").replace(/\D/g, "");
+  async function plateStatus(plate) { const { data, error } = await sb.rpc("plate_status", { p_plate: digits(plate) }); if (error) throw error; return data; }
+  async function claimPlate(plate) { const { data, error } = await sb.rpc("claim_plate", { p_plate: digits(plate) }); if (error) throw error; return data; }
+  async function requestPlate(plate, photoDataUrl, note) {
+    const uid = (await currentUser())?.id; if (!uid) throw new Error("not signed in");
+    let photo_path = null;
+    if (photoDataUrl) { photo_path = `${uid}/${digits(plate)}-${Date.now()}.jpg`; const { error } = await sb.storage.from("plate-proofs").upload(photo_path, await dataUrlToBlob(photoDataUrl), { contentType: "image/jpeg" }); if (error) throw error; }
+    const { error } = await sb.from("plate_requests").insert({ plate: digits(plate), requester_id: uid, photo_path, note: note || null });
+    if (error) throw error;
+  }
+  async function pendingPlateRequests() {
+    const { data, error } = await sb.rpc("pending_plate_requests"); if (error) throw error;
+    const paths = (data || []).map(r => r.photo_path).filter(Boolean); let urls = {};
+    if (paths.length) { const { data: s } = await sb.storage.from("plate-proofs").createSignedUrls(paths, 3600); for (const u of s || []) if (u.signedUrl) urls[u.path] = u.signedUrl; }
+    return (data || []).map(r => ({ ...r, photo_url: urls[r.photo_path] || null }));
+  }
+  async function decidePlateRequest(id, approve) { const { error } = await sb.rpc("decide_plate_request", { p_id: id, p_approve: !!approve }); if (error) throw error; }
+
   // ---------- receipt extraction (Edge Function -> Claude vision) ----------
   async function extractReceipt(dataUrl, context) {
     const { data, error } = await sb.functions.invoke("extract-receipt", { body: { image_base64: dataUrlToBase64(dataUrl), media_type: mediaOf(dataUrl), context } });
@@ -195,5 +215,5 @@
     return data;
   }
 
-  g.TipulitCloud = { enabled, authError, hasAuthParams, currentUser, onAuth, signInWithGoogle, signOut, handleRedirect, loadCars, saveCar, deleteCar, communityPrices, communityGarages, extractReceipt, myGarageProfiles, garageProfiles, saveGarageProfile, deleteGarageProfile, photoUrl, startPhoneVerify, confirmPhoneVerify, claimGarage, pendingGarageClaims, setGarageStatus, garagePublic, joinGarage, myGarageLinks, updateGarageLink, leaveGarage, pendingGarageEntries, decideGarageEntry, garageCustomers, garageAddEntry };
+  g.TipulitCloud = { enabled, authError, hasAuthParams, currentUser, onAuth, signInWithGoogle, signOut, handleRedirect, loadCars, saveCar, deleteCar, communityPrices, communityGarages, extractReceipt, myGarageProfiles, garageProfiles, saveGarageProfile, deleteGarageProfile, photoUrl, startPhoneVerify, confirmPhoneVerify, claimGarage, pendingGarageClaims, setGarageStatus, garagePublic, joinGarage, myGarageLinks, updateGarageLink, leaveGarage, pendingGarageEntries, decideGarageEntry, garageCustomers, garageAddEntry, plateStatus, claimPlate, requestPlate, pendingPlateRequests, decidePlateRequest };
 })(window);
