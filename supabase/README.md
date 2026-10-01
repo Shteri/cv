@@ -47,7 +47,11 @@ filled in, every feature below switches on.
    `migrations/0006_appointments.sql`. The public pages `/book/` and `/approve/` call
    `booking_info`, `book_appointment`, `approval_get` and `approval_decide` without sign-in;
    they never return names or phones of other customers.
-10. **Point the app at the project**: in `app/config.js` set `SUPABASE_URL` and
+10. **Inventory and invoices** (parts, suppliers, purchase orders, stock ledger, Morning invoices): run
+    `migrations/0007_inventory_billing.sql`, then deploy the invoicing function:
+    `supabase functions deploy issue-document`. Each garage connects its own Morning account in the
+    dashboard; the API secret is stored write-only (`billing_save`) and read only by the function.
+11. **Point the app at the project**: in `app/config.js` set `SUPABASE_URL` and
    `SUPABASE_ANON_KEY` (Project Settings → API). The anon key is public by design;
    row-level security is what protects the data. Rebuild and push.
 

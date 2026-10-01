@@ -50,6 +50,8 @@
       <button class="tab on" role="tab" data-tab="customers" aria-selected="true">לקוחות</button>
       <button class="tab" role="tab" data-tab="calendar" aria-selected="false">יומן</button>
       <button class="tab" role="tab" data-tab="order" aria-selected="false">מה להזמין</button>
+      <button class="tab" role="tab" data-tab="stock" aria-selected="false">מלאי</button>
+      <button class="tab" role="tab" data-tab="billing" aria-selected="false">חשבוניות</button>
     </div>
 
     <div class="view" id="view-customers">
@@ -95,17 +97,45 @@
     <div class="view" id="view-order" hidden>
       <div class="toolbar">
         <div class="chips" id="fc-window"><button class="chip" data-d="14">שבועיים</button><button class="chip on" data-d="30">30 יום</button><button class="chip" data-d="60">60 יום</button></div>
-        <button class="btn" id="fc-csv">ייצוא רשימת הזמנה</button>
+        <div class="head-actions"><button class="btn" id="fc-csv">ייצוא רשימת הזמנה</button><button class="btn primary" id="fc-po">צור הזמנות רכש</button></div>
       </div>
       <p class="muted" id="fc-sub"></p>
       <div class="table-wrap">
         <table class="tbl fc">
-          <thead><tr><th>פריט</th><th class="num-col">כמות</th><th>לפי דגם ומנוע</th></tr></thead>
+          <thead><tr><th>פריט</th><th class="num-col">רכבים</th><th class="num-col">במלאי</th><th class="num-col">להזמין</th><th>לפי דגם ומנוע</th></tr></thead>
           <tbody id="fc-rows"></tbody>
         </table>
         <div class="empty" id="fc-empty" hidden></div>
       </div>
-      <p class="foot muted">לפי הטיפול הבא של כל רכב בלוח היבואן. שמן: הכמות מצוינת רק לדגמים שהקיבולת שלהם ידועה. בשלב הבא אפשר יהיה לחבר את הפריטים למק"טים של המלאי שלכם.</p>
+      <p class="foot muted">לפי הטיפול הבא של כל רכב בלוח היבואן. להזמין = מה שצריך לטיפולים, ועוד המינימום שהגדרתם, פחות מה שיש במלאי ומה שכבר הוזמן. כדי לחשב, קשרו כל חלק במלאי לפריט בטיפול (למשל מסנן שמן). שמן: לפי הקיבולת בספר, ו-4.5 ליטר כשהיא לא ידועה.</p>
+    </div>
+
+    <div class="view" id="view-stock" hidden>
+      <div class="kpis four" id="st-kpis"></div>
+      <div class="toolbar">
+        <div class="seg" id="st-seg"><button type="button" data-v="parts" class="on">חלקים</button><button type="button" data-v="pos">הזמנות רכש</button><button type="button" data-v="sups">ספקים</button></div>
+        <div class="search"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><input id="st-q" type="search" autocomplete="off" placeholder="חיפוש לפי מק&quot;ט, שם או דגם" aria-label="חיפוש במלאי"></div>
+        <div class="head-actions"><button class="btn" id="st-low">הזמן מה שחסר</button><button class="btn primary" id="st-new">חלק חדש</button></div>
+      </div>
+      <div class="table-wrap">
+        <table class="tbl" id="st-tbl"><thead id="st-head"></thead><tbody id="st-rows"></tbody></table>
+        <div class="empty" id="st-empty" hidden></div>
+      </div>
+      <p class="foot muted" id="st-foot"></p>
+    </div>
+
+    <div class="view" id="view-billing" hidden>
+      <div class="kpis three" id="bi-kpis"></div>
+      <div class="toolbar">
+        <input type="month" class="date-in" id="bi-month" aria-label="חודש">
+        <div class="head-actions"><button class="btn" id="bi-csv">ייצוא לרואה החשבון</button><button class="btn" id="bi-settings">חיבור למערכת חשבוניות</button></div>
+      </div>
+      <div class="box" id="bi-open-box" hidden><div class="row-between"><h3>עבודות בלי חשבונית</h3><span class="muted small">60 הימים האחרונים</span></div><div class="stack-sm" id="bi-open"></div></div>
+      <div class="table-wrap">
+        <table class="tbl"><thead><tr><th>תאריך</th><th>מספר</th><th>מסמך</th><th>לקוח</th><th class="num-col">סכום</th><th>תשלום</th><th class="act-col"><span class="sr">פעולות</span></th></tr></thead><tbody id="bi-rows"></tbody></table>
+        <div class="empty" id="bi-empty" hidden></div>
+      </div>
+      <p class="foot muted">החשבוניות מופקות בחשבון המורנינג של המוסך, עם המספור והדיווח שלו. אם אתם מפיקים חשבוניות במערכת אחרת, אפשר לרשום כאן את המספר כדי לדעת מה שולם.</p>
     </div>
   </section>
 </main>
@@ -158,9 +188,10 @@
     <div class="field"><span>מה הוחלף</span><div class="chips" id="wo-items"></div></div>
     <div class="field"><span>שורות</span>
       <table class="lines">
-        <thead><tr><th>סוג</th><th>תיאור</th><th class="num-col">כמות</th><th class="num-col">מחיר ליחידה</th><th class="num-col">סה"כ</th><th></th></tr></thead>
+        <thead><tr><th>סוג</th><th>תיאור (או מק"ט מהמלאי)</th><th class="num-col">כמות</th><th class="num-col">מחיר ליחידה</th><th class="num-col">סה"כ</th><th></th></tr></thead>
         <tbody id="wo-lines"></tbody>
       </table>
+      <datalist id="wo-parts"></datalist>
       <div class="dlg-actions start"><button class="btn small" type="button" id="wo-add-part">+ חלק</button><button class="btn small" type="button" id="wo-add-labor">+ עבודה</button></div>
     </div>
     <div class="row-between"><label class="field grow"><span>הערות</span><input id="wo-notes" autocomplete="off"></label><div class="total">סה"כ <b class="num" id="wo-total">₪0</b></div></div>
@@ -169,7 +200,7 @@
       <div class="seg" id="wo-where"><button type="button" data-v="independent" class="on">מוסך פרטי</button><button type="button" data-v="importer">מוסך יבואן</button></div>
     </div>
     <p class="err" id="wo-err" hidden></p>
-    <div class="dlg-actions"><button class="btn" value="close">ביטול</button><button class="btn primary" type="button" id="wo-save">שמור</button></div>
+    <div class="dlg-actions"><button class="btn" value="close">ביטול</button><button class="btn" type="button" id="wo-save-inv">שמור והפק חשבונית</button><button class="btn primary" type="button" id="wo-save">שמור</button></div>
   </form>
 </dialog>
 
@@ -303,6 +334,115 @@
   </form>
 </dialog>
 
+
+<!-- part -->
+<dialog class="dlg wide" id="dlg-part">
+  <form method="dialog" class="dlg-in">
+    <div class="dlg-head"><h2 id="pt-title">חלק חדש</h2><button class="x" value="close" aria-label="סגור">×</button></div>
+    <div class="grid3">
+      <label class="field"><span>מק"ט</span><input id="pt-sku" autocomplete="off" dir="ltr"></label>
+      <label class="field"><span>שם</span><input id="pt-name" autocomplete="off" placeholder="למשל מסנן שמן MANN W712"></label>
+      <label class="field"><span>פריט בטיפול</span><select id="pt-item"></select></label>
+      <label class="field"><span>מותג</span><input id="pt-brand" autocomplete="off"></label>
+      <label class="field"><span>מתאים ל</span><input id="pt-fits" autocomplete="off" placeholder="דגמים או מנועים, למשל קורולה, i10"></label>
+      <label class="field"><span>ספק</span><select id="pt-sup"></select></label>
+      <label class="field"><span>מחיר קנייה ליחידה</span><input id="pt-cost" inputmode="decimal" class="num" autocomplete="off" placeholder="₪"></label>
+      <label class="field"><span>מחיר ללקוח (כולל מע"מ)</span><input id="pt-price" inputmode="decimal" class="num" autocomplete="off" placeholder="₪"></label>
+      <label class="field"><span>מיקום במחסן</span><input id="pt-loc" autocomplete="off" placeholder="מדף 3"></label>
+      <label class="field"><span>מינימום במלאי</span><input id="pt-min" inputmode="decimal" class="num" autocomplete="off"></label>
+      <label class="field" id="pt-stock-row"><span>כמה יש עכשיו</span><input id="pt-stock" inputmode="decimal" class="num" autocomplete="off"></label>
+      <div class="field"><span>יחידה</span><div class="seg" id="pt-unit"><button type="button" data-v="unit" class="on">יחידות</button><button type="button" data-v="liter">ליטרים</button></div></div>
+    </div>
+    <div class="field" id="pt-moves-row" hidden><span>תנועות אחרונות</span><div class="stack-sm" id="pt-moves"></div></div>
+    <p class="err" id="pt-err" hidden></p>
+    <div class="dlg-actions"><button class="btn" type="button" id="pt-del">מחק</button><button class="btn" value="close">ביטול</button><button class="btn primary" type="button" id="pt-save">שמור</button></div>
+  </form>
+</dialog>
+
+<!-- stock count -->
+<dialog class="dlg" id="dlg-count">
+  <form method="dialog" class="dlg-in">
+    <div class="dlg-head"><h2>ספירה: <span id="ct-name"></span></h2><button class="x" value="close" aria-label="סגור">×</button></div>
+    <p class="muted small" id="ct-now"></p>
+    <label class="field"><span>כמה יש בפועל</span><input id="ct-qty" inputmode="decimal" class="num" autocomplete="off"></label>
+    <label class="field"><span>הערה</span><input id="ct-note" autocomplete="off" placeholder="ספירה, נשבר, החזרה לספק…"></label>
+    <p class="err" id="ct-err" hidden></p>
+    <div class="dlg-actions"><button class="btn" value="close">ביטול</button><button class="btn primary" type="button" id="ct-save">עדכן</button></div>
+  </form>
+</dialog>
+
+<!-- supplier -->
+<dialog class="dlg" id="dlg-sup">
+  <form method="dialog" class="dlg-in">
+    <div class="dlg-head"><h2 id="sp-title">ספק חדש</h2><button class="x" value="close" aria-label="סגור">×</button></div>
+    <div class="grid2">
+      <label class="field"><span>שם</span><input id="sp-name" autocomplete="off"></label>
+      <label class="field"><span>איש קשר</span><input id="sp-contact" autocomplete="off"></label>
+      <label class="field"><span>טלפון / וואטסאפ</span><input id="sp-phone" inputmode="tel" autocomplete="off"></label>
+      <label class="field"><span>מייל</span><input id="sp-email" type="email" autocomplete="off" dir="ltr"></label>
+    </div>
+    <label class="field"><span>הערות</span><input id="sp-notes" autocomplete="off" placeholder="ימי אספקה, תנאי תשלום"></label>
+    <p class="err" id="sp-err" hidden></p>
+    <div class="dlg-actions"><button class="btn" type="button" id="sp-del">מחק</button><button class="btn" value="close">ביטול</button><button class="btn primary" type="button" id="sp-save">שמור</button></div>
+  </form>
+</dialog>
+
+<!-- purchase order -->
+<dialog class="dlg wide" id="dlg-po">
+  <form method="dialog" class="dlg-in">
+    <div class="dlg-head"><h2 id="po-title">הזמנת רכש</h2><button class="x" value="close" aria-label="סגור">×</button></div>
+    <div class="row-between"><label class="field grow"><span>ספק</span><select id="po-sup"></select></label><span class="tag" id="po-status"></span></div>
+    <table class="lines">
+      <thead><tr><th>חלק</th><th class="num-col">כמות</th><th class="num-col" id="po-recv-h">התקבל</th><th class="num-col">מחיר ליחידה</th><th class="num-col">סה"כ</th><th></th></tr></thead>
+      <tbody id="po-lines"></tbody>
+    </table>
+    <datalist id="po-parts"></datalist>
+    <div class="row-between"><button class="btn small" type="button" id="po-add">+ שורה</button><div class="total">סה"כ <b class="num" id="po-total">₪0</b></div></div>
+    <label class="field"><span>הערה לספק</span><input id="po-note" autocomplete="off"></label>
+    <p class="muted small" id="po-hint"></p>
+    <p class="err" id="po-err" hidden></p>
+    <div class="dlg-actions" id="po-actions"></div>
+  </form>
+</dialog>
+
+<!-- invoice for a work order -->
+<dialog class="dlg wide" id="dlg-inv">
+  <form method="dialog" class="dlg-in">
+    <div class="dlg-head"><h2>חשבונית</h2><button class="x" value="close" aria-label="סגור">×</button></div>
+    <p class="muted" id="iv-who"></p>
+    <div class="row-between"><div class="seg" id="iv-kind"><button type="button" data-v="invoice_receipt" class="on">חשבונית מס קבלה</button><button type="button" data-v="tax_invoice">חשבונית מס</button><button type="button" data-v="receipt">קבלה</button></div><div class="total">סה"כ <b class="num" id="iv-total">₪0</b></div></div>
+    <div class="field" id="iv-pay-row"><span>אמצעי תשלום</span><div class="chips" id="iv-pay"><button type="button" class="chip on" data-v="card">אשראי</button><button type="button" class="chip" data-v="cash">מזומן</button><button type="button" class="chip" data-v="transfer">העברה</button><button type="button" class="chip" data-v="app">ביט / פייבוקס</button><button type="button" class="chip" data-v="check">צ'ק</button></div></div>
+    <div class="box" id="iv-morning">
+      <label class="field"><span>מייל ללקוח (לא חובה, מורנינג ישלח את המסמך)</span><input id="iv-email" type="email" autocomplete="off" dir="ltr"></label>
+      <p class="muted small" id="iv-morning-note"></p>
+      <div class="dlg-actions start"><button class="btn primary" type="button" id="iv-issue">הפק במורנינג</button></div>
+    </div>
+    <div class="box" id="iv-manual">
+      <p class="small" id="iv-manual-note"></p>
+      <div class="row-between"><label class="field grow"><span>מספר המסמך מהמערכת שלכם</span><input id="iv-number" autocomplete="off" class="num"></label><button class="btn" type="button" id="iv-record">רשום</button></div>
+    </div>
+    <p class="err" id="iv-err" hidden></p>
+    <div class="dlg-actions"><button class="btn" value="close">סגור</button></div>
+  </form>
+</dialog>
+
+<!-- invoicing provider -->
+<dialog class="dlg wide" id="dlg-billing">
+  <form method="dialog" class="dlg-in">
+    <div class="dlg-head"><h2>חיבור למורנינג (חשבונית ירוקה)</h2><button class="x" value="close" aria-label="סגור">×</button></div>
+    <p class="muted small">החשבוניות יוצאות מהחשבון של המוסך במורנינג, עם המספור, מספר ההקצאה והדיווח לרשויות. את המפתחות יוצרים במורנינג, בהגדרות באזור המפתחים (API). המפתח הסודי נשמר בשרת ולא מוצג שוב, גם לא לכם.</p>
+    <div class="grid2">
+      <label class="field"><span>מזהה (ID)</span><input id="bl-id" autocomplete="off" dir="ltr"></label>
+      <label class="field"><span>מפתח סודי (Secret)</span><input id="bl-secret" type="password" autocomplete="new-password" dir="ltr"></label>
+    </div>
+    <label class="check"><input type="checkbox" id="bl-exempt"> עוסק פטור (מפיקים קבלות בלבד)</label>
+    <label class="check"><input type="checkbox" id="bl-sandbox"> חשבון ניסיון של מורנינג (sandbox)</label>
+    <p class="muted small" id="bl-state"></p>
+    <p class="err" id="bl-err" hidden></p>
+    <div class="dlg-actions"><button class="btn" type="button" id="bl-del">נתק</button><button class="btn" type="button" id="bl-test">בדוק חיבור</button><button class="btn primary" type="button" id="bl-save">שמור</button></div>
+  </form>
+</dialog>
+
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script src="../data.js"></script>
@@ -339,7 +479,7 @@
   const api = demo ? null : Cloud;
 
   // ---------- state ----------
-  const st = { garage: null, garages: [], rows: [], wos: [], recalls: {}, filter: "all", sort: "due", q: "", tab: "customers", fcDays: 30 };
+  const st = { garage: null, garages: [], rows: [], wos: [], recalls: {}, filter: "all", sort: "due", q: "", tab: "customers", fcDays: 30, parts: [], sups: [], pos: [], moves: [], invoices: [], billing: null };
   const monthsSince = iso => iso ? Math.max(0, (Date.now() - Date.parse(iso)) / (30.44 * 86400000)) : 0;
   function view(r) {
     const s = schedById(r.schedule_id), kmMonth = r.km_month || 1500;
@@ -417,8 +557,10 @@
   $$(".tab").forEach(t => t.onclick = () => showTab(t.dataset.tab));
   function showTab(tab) {
     st.tab = tab; $$(".tab").forEach(x => { x.classList.toggle("on", x.dataset.tab === tab); x.setAttribute("aria-selected", x.dataset.tab === tab ? "true" : "false"); });
-    for (const v of ["customers", "calendar", "order"]) $("#view-" + v).hidden = tab !== v;
+    for (const v of ["customers", "calendar", "order", "stock", "billing"]) $("#view-" + v).hidden = tab !== v;
     if (tab === "order") renderForecast();
+    if (tab === "stock") renderStock();
+    if (tab === "billing") renderBilling();
     if (tab === "calendar") loadDay();
     calPolling(tab === "calendar");
   }
@@ -468,10 +610,11 @@
         <div class="tl-head"><b>${x.w.kind === "service" && x.w.svc_km ? "טיפול " + fmt(x.w.svc_km) : x.w.kind === "repair" ? "תיקון" : "ביקור"}</b><span class="tag mine">אצלנו</span>${x.w.entry_id ? `<span class="tag ok">נשלח ללקוח</span>` : ""}<span class="muted small num">${x.w.date ? fmtDate(x.w.date) : ""}${x.w.km ? " · " + fmt(x.w.km) + ' ק"מ' : ""}</span></div>
         ${(x.w.items || []).length ? `<div class="small">${x.w.items.map(itemName).join(", ")}</div>` : ""}
         ${(x.w.lines || []).length ? `<div class="muted small">${x.w.lines.map(l => `${esc(l.desc)}${l.qty > 1 ? " ×" + l.qty : ""}${l.price ? " ₪" + fmt(l.price * (l.qty || 1)) : ""}`).join(" · ")}</div>` : ""}
-        ${x.w.notes ? `<div class="muted small">${esc(x.w.notes)}</div>` : ""}${x.w.total ? `<div class="small"><b class="num">₪${fmt(x.w.total)}</b></div>` : ""}</div>`
+        ${x.w.notes ? `<div class="muted small">${esc(x.w.notes)}</div>` : ""}${x.w.total ? `<div class="row-between"><b class="num small">₪${fmt(x.w.total)}</b>${invOf(x.w.id) ? `<span class="tag ok">${DOC[invOf(x.w.id).kind]} ${esc(invOf(x.w.id).number || "")}</span>` : `<button type="button" class="btn small" data-inv="${x.w.id}">חשבונית</button>`}</div>` : ""}</div>`
       : `<div class="tl-row other">
         <div class="tl-head"><b>${x.r.kind === "service" && x.r.svc_km ? "טיפול " + fmt(x.r.svc_km) : x.r.kind === "repair" ? (esc(x.r.text) || "תיקון") : "רשומה"}</b><span class="tag">${esc(x.r.garage || "בלי מוסך")}</span>${x.r.verified ? `<span class="tag ok">מאומת</span>` : `<span class="tag">רשם הלקוח</span>`}<span class="muted small num">${x.r.date || ""}${x.r.km ? " · " + fmt(x.r.km) + ' ק"מ' : ""}</span></div>
         ${(x.r.items || []).length ? `<div class="small">${x.r.items.map(itemName).join(", ")}</div>` : ""}</div>`).join("") || `<p class="muted small">עדיין אין ביקורים. כרטיס עבודה ייכנס לכאן.</p>`;
+    $$("#cc-timeline [data-inv]").forEach(b => b.onclick = () => openInvoice(st.wos.find(w => w.id === b.dataset.inv)));
   }
   $("#cc-save").onclick = async () => {
     const patch = { name: $("#cc-in-name").value.trim() || "לקוח", notes: $("#cc-in-notes").value.trim() || null };
@@ -498,29 +641,45 @@
   function fillFromService() {
     const km = +$("#wo-svc").value, c = woFor;
     woItems = new Set(); woLines = woLines.filter(l => l.type === "labor" || l.manual);
-    if (woKind === "service" && c.s && km) { const sv = svcAt(c.s, km); if (sv) for (const i of sv.items.filter(i => i.action === "replace")) { woItems.add(i.item); woLines.unshift({ type: "part", desc: itemName(i.item), qty: 1, price: "", item: i.item }); } }
+    if (woKind === "service" && c.s && km) { const sv = svcAt(c.s, km); if (sv) for (const i of sv.items.filter(i => i.action === "replace").reverse()) { woItems.add(i.item); woLines.unshift(partLine(i.item)); } }
     if (!woLines.some(l => l.type === "labor")) woLines.push({ type: "labor", desc: woKind === "service" ? "עבודה, טיפול תקופתי" : "עבודה", qty: 1, price: "" });
     renderWoItems(); renderWoLines();
   }
   function renderWoItems() {
     const pool = new Set([...woItems, ...(woFor.s ? woFor.s.services.flatMap(sv => sv.items.filter(i => i.action === "replace").map(i => i.item)) : []), "battery_12v", "brake_pads", "brake_discs", "wipers"].filter(k => D.items[k]));
     $("#wo-items").innerHTML = [...pool].map(k => `<button type="button" class="chip ${woItems.has(k) ? "on" : ""}" data-it="${k}">${esc(itemName(k))}</button>`).join("");
-    $$("#wo-items .chip").forEach(b => b.onclick = () => { const k = b.dataset.it; if (woItems.has(k)) { woItems.delete(k); woLines = woLines.filter(l => l.item !== k); } else { woItems.add(k); woLines.splice(woLines.findIndex(l => l.type === "labor") >= 0 ? woLines.findIndex(l => l.type === "labor") : woLines.length, 0, { type: "part", desc: itemName(k), qty: 1, price: "", item: k }); } renderWoItems(); renderWoLines(); });
+    $$("#wo-items .chip").forEach(b => b.onclick = () => { const k = b.dataset.it; if (woItems.has(k)) { woItems.delete(k); woLines = woLines.filter(l => l.item !== k); } else { woItems.add(k); woLines.splice(woLines.findIndex(l => l.type === "labor") >= 0 ? woLines.findIndex(l => l.type === "labor") : woLines.length, 0, partLine(k)); } renderWoItems(); renderWoLines(); });
   }
+  // a service item becomes a line with the matching stock part (name, price, liters of oil) when there is one
+  function partLine(item) {
+    const p = partFor(item, woFor);
+    return { type: "part", desc: p ? p.name : itemName(item), qty: itemQty(item, p, woFor), price: p && p.price != null ? p.price : "", item, part_id: p ? p.id : null };
+  }
+  const typeTag = l => l.type === "labor" ? `<span class="tag mine">עבודה</span>` : l.part_id && partById(l.part_id) ? `<span class="tag ok" title="במלאי: ${esc(qtyOf(partById(l.part_id).stock, partById(l.part_id).unit))}">מהמלאי</span>` : `<span class="tag">חלק</span>`;
   const lineTotal = l => (+l.qty || 0) * (+String(l.price).replace(/[^\d.]/g, "") || 0);
   function renderWoLines() {
-    $("#wo-lines").innerHTML = woLines.map((l, i) => `<tr><td><span class="tag ${l.type === "labor" ? "mine" : ""}">${l.type === "labor" ? "עבודה" : "חלק"}</span></td>
-      <td><input data-i="${i}" data-k="desc" value="${esc(l.desc)}" autocomplete="off"></td>
+    $("#wo-lines").innerHTML = woLines.map((l, i) => `<tr><td data-ty="${i}">${typeTag(l)}</td>
+      <td><input data-i="${i}" data-k="desc" value="${esc(l.part_id && partById(l.part_id) ? partLabel(partById(l.part_id)) : l.desc)}" autocomplete="off" ${l.type === "part" ? `list="wo-parts"` : ""}></td>
       <td class="num-col"><input class="num qty" data-i="${i}" data-k="qty" value="${esc(l.qty)}" inputmode="decimal" autocomplete="off"></td>
       <td class="num-col"><input class="num price" data-i="${i}" data-k="price" value="${esc(l.price)}" inputmode="decimal" placeholder="₪" autocomplete="off"></td>
       <td class="num-col num" data-tot="${i}">${lineTotal(l) ? "₪" + fmt(lineTotal(l)) : ""}</td><td><button type="button" class="x" data-del="${i}" aria-label="מחק שורה">×</button></td></tr>`).join("");
-    $$("#wo-lines input").forEach(x => x.oninput = () => { const l = woLines[x.dataset.i]; l[x.dataset.k] = x.value; l.manual = true; $(`[data-tot="${x.dataset.i}"]`).textContent = lineTotal(l) ? "₪" + fmt(lineTotal(l)) : ""; woTotal(); });
+    $$("#wo-lines input").forEach(x => x.oninput = () => {
+      const l = woLines[x.dataset.i]; l[x.dataset.k] = x.value; l.manual = true;
+      if (x.dataset.k === "desc" && l.type === "part") {
+        const p = st.parts.find(q => q.active !== false && partLabel(q) === x.value);
+        if (p) { l.part_id = p.id; l.desc = p.name; if (l.price === "" && p.price != null) { l.price = p.price; $(`#wo-lines input[data-i="${x.dataset.i}"][data-k="price"]`).value = p.price; } }
+        else if (l.part_id && x.value !== partLabel(partById(l.part_id) || {}) ) l.part_id = null;
+        $(`[data-ty="${x.dataset.i}"]`).innerHTML = typeTag(l);
+      }
+      $(`[data-tot="${x.dataset.i}"]`).textContent = lineTotal(l) ? "₪" + fmt(lineTotal(l)) : ""; woTotal();
+    });
     $$("#wo-lines [data-del]").forEach(b => b.onclick = () => { const l = woLines.splice(+b.dataset.del, 1)[0]; if (l.item) woItems.delete(l.item); renderWoItems(); renderWoLines(); });
     woTotal();
   }
   const woTotal = () => { const t = woLines.reduce((a, l) => a + lineTotal(l), 0); $("#wo-total").textContent = "₪" + fmt(t); return Math.round(t); };
   function openWo(c) {
     if (!c) return; woFor = c; woLines = []; woItems = new Set();
+    $("#wo-parts").innerHTML = st.parts.filter(p => p.active !== false).map(p => `<option value="${esc(partLabel(p))}">${esc(qtyOf(p.stock, p.unit))} במלאי</option>`).join("");
     $("#wo-who").textContent = `${c.name || "לקוח"} · ${c.model} ${c.year || ""}${c.plate ? " · " + c.plate : ""}`;
     const opts = svcOptions(c), near = opts.length ? opts.reduce((a, b) => Math.abs(b - c.estKm) < Math.abs(a - c.estKm) ? b : a, opts[0]) : null;
     $("#wo-svc").innerHTML = opts.map(k => `<option value="${k}" ${k === near ? "selected" : ""}>טיפול ${fmt(k)} ק"מ</option>`).join("") + `<option value="">טיפול אחר</option>`;
@@ -537,15 +696,23 @@
   $("#wo-svc").onchange = fillFromService;
   $("#wo-add-part").onclick = () => { woLines.splice(Math.max(0, woLines.findIndex(l => l.type === "labor")), 0, { type: "part", desc: "", qty: 1, price: "", manual: true }); renderWoLines(); };
   $("#wo-add-labor").onclick = () => { woLines.push({ type: "labor", desc: "עבודה", qty: 1, price: "", manual: true }); renderWoLines(); };
-  $("#wo-save").onclick = async () => {
+  $("#wo-save").onclick = () => saveWo(false);
+  $("#wo-save-inv").onclick = () => saveWo(true);
+  async function saveWo(invoice) {
     const km = +digits($("#wo-km").value) || null, err = m => { $("#wo-err").textContent = m; $("#wo-err").hidden = false; };
     if (!km) return err('צריך ק"מ.');
     if (!woLines.some(l => l.desc.trim())) return err("צריך לפחות שורה אחת.");
     const row = { garage_id: st.garage.id, garage_car_id: woFor.car_id, kind: woKind, svc_km: woKind === "service" ? (+$("#wo-svc").value || null) : null, km, date: $("#wo-date").value || today(),
-      items: [...woItems], lines: woLines.filter(l => l.desc.trim()).map(l => ({ type: l.type, desc: l.desc.trim(), qty: +l.qty || 1, price: +String(l.price).replace(/[^\d.]/g, "") || 0 })), total: woTotal() || null, notes: $("#wo-notes").value.trim() || null };
-    const b = $("#wo-save"); b.disabled = true;
+      items: [...woItems], lines: woLines.filter(l => String(l.desc).trim()).map(l => ({ type: l.type, desc: String(l.desc).trim(), qty: +l.qty || 1, price: +String(l.price).replace(/[^\d.]/g, "") || 0, ...(l.part_id ? { part_id: l.part_id } : {}) })), total: woTotal() || null, notes: $("#wo-notes").value.trim() || null };
+    if (invoice && !row.total) return err("אין סכום לחשבונית.");
+    const b = $("#wo-save"), b2 = $("#wo-save-inv"); b.disabled = b2.disabled = true;
     try {
       const saved = demo ? { ...row, id: "wo-" + Date.now(), created_at: new Date().toISOString() } : await api.saveWorkOrder(row);
+      // parts taken from stock leave the inventory
+      if (row.lines.some(l => l.part_id)) {
+        if (demo) { for (const l of row.lines.filter(x => x.part_id)) { const p = partById(l.part_id); if (p) await moveStock(p, -l.qty, "use", null, { work_order_id: saved.id }); } }
+        else { try { await api.woConsume(saved.id); await refreshParts(); } catch (e) { toast("כרטיס העבודה נשמר, אבל המלאי לא עודכן"); } }
+      }
       let sent = false;
       if (woFor.linked && $("#wo-send").checked) { if (!demo) saved.entry_id = await api.sendWorkOrder(saved.id, woWhere); else saved.entry_id = "demo"; sent = true; woFor.pending = (woFor.pending || 0) + 1; }
       try { localStorage.setItem("tipulit-gx-where-" + st.garage.id, woWhere); } catch (e) {}
@@ -556,9 +723,10 @@
       st.wos.unshift(saved);
       if (woAppt) { const ap = woAppt; woAppt = null; ap.work_order_id = saved.id; try { if (!demo) await api.saveAppointment({ id: ap.id, garage_id: ap.garage_id, work_order_id: saved.id }); } catch (e) {} }
       $("#dlg-wo").close(); toast(sent ? (demo ? "נשמר. בהדגמה: היה נשלח ללקוח לאישור" : "נשמר ונשלח ללקוח לאישור") : "כרטיס העבודה נשמר"); renderRows();
+      if (invoice) openInvoice(saved);
     } catch (e) { err("השמירה נכשלה: " + (e.message || e)); }
-    b.disabled = false;
-  };
+    b.disabled = b2.disabled = false;
+  }
 
   // ---------- add a customer by plate (registry fills model, year, test) ----------
   let adCar = null;
@@ -646,26 +814,396 @@
   // ---------- what to order: parts for the services coming up ----------
   const oilLiters = s => { const t = s && s.specs && s.specs.oil_capacity; if (!t) return null; const m = t.match(/(\d+(?:\.\d+)?)\s*ליטר/g); if (!m || m.length !== 1) { const all = t.match(/\d+(?:\.\d+)?/g); return all && all.length === 1 ? +all[0] : null; } return +m[0].match(/\d+(?:\.\d+)?/)[0]; };
   const engineLabel = s => `${s.make_he} ${s.model_he}${s.engines && s.engines[0] ? " " + (s.engines[0].name || s.engines[0].code || s.engines[0]) : ""}`;
+  // per maintenance item, and per stock part when the garage linked one (need = what the coming services take)
   function forecast(days) {
     const until = Date.now() + days * 86400000, due = st.rows.filter(c => c.n && (c.n.level === "crit" || c.n.dueDate.getTime() <= until));
     const by = new Map();
     for (const c of due) for (const it of c.n.svc.items.filter(i => i.action === "replace")) {
-      const e = by.get(it.item) || { item: it.item, n: 0, models: new Map(), liters: 0, litersKnown: 0 };
+      const e = by.get(it.item) || { item: it.item, n: 0, models: new Map(), liters: 0, litersKnown: 0, parts: new Map(), unmatched: 0 };
       e.n++; const lbl = engineLabel(c.s); e.models.set(lbl, (e.models.get(lbl) || 0) + 1);
       if (it.item === "engine_oil") { const l = oilLiters(c.s); if (l) { e.liters += l; e.litersKnown++; } }
+      const p = partFor(it.item, c); if (p) e.parts.set(p.id, (e.parts.get(p.id) || 0) + itemQty(it.item, p, c)); else e.unmatched++;
       by.set(it.item, e);
     }
-    return { due, items: [...by.values()].sort((a, b) => b.n - a.n) };
+    const items = [...by.values()].sort((a, b) => b.n - a.n);
+    for (const e of items) { const ps = [...e.parts].map(([id, need]) => ({ p: partById(id), need })); e.stock = ps.reduce((a, x) => a + (+x.p.stock || 0), 0); e.short = ps.reduce((a, x) => a + shortOf(x.p, x.need), 0); e.unit = ps.length && ps.every(x => x.p.unit === "liter") ? "liter" : "unit"; e.linked = ps.length > 0; }
+    return { due, items };
   }
   function renderForecast() {
     const f = forecast(st.fcDays);
     $("#fc-sub").textContent = f.due.length ? `${f.due.length} רכבים מגיעים לטיפול ב-${st.fcDays} הימים הקרובים או כבר באיחור.` : "";
-    $("#fc-rows").innerHTML = f.items.map(e => `<tr><td><b>${esc(itemName(e.item))}</b>${e.item === "engine_oil" && e.litersKnown ? `<div class="sub">כ-${fmt(e.liters)} ליטר ל-${e.litersKnown} מתוך ${e.n} רכבים</div>` : ""}</td><td class="num-col num"><b>${e.n}</b></td><td><div class="tags">${[...e.models].sort((a, b) => b[1] - a[1]).map(([m, n]) => `<span class="tag"><bdi>${esc(m)}</bdi> ×${n}</span>`).join("")}</div></td></tr>`).join("");
+    $("#fc-rows").innerHTML = f.items.map(e => `<tr><td><b>${esc(itemName(e.item))}</b>${e.item === "engine_oil" && e.litersKnown ? `<div class="sub">כ-${fmt(e.liters)} ליטר ל-${e.litersKnown} מתוך ${e.n} רכבים</div>` : ""}</td><td class="num-col num"><b>${e.n}</b></td>
+      <td class="num-col num">${e.linked ? qtyOf(e.stock, e.unit) : `<span class="sub">אין במלאי</span>`}${e.linked && e.unmatched ? `<div class="sub">${e.unmatched} רכבים בלי חלק מתאים</div>` : ""}</td>
+      <td class="num-col num">${e.linked ? (e.short ? `<b class="warn-text">${qtyOf(e.short, e.unit)}</b>` : `<span class="tag ok">יש</span>`) : ""}</td><td><div class="tags">${[...e.models].sort((a, b) => b[1] - a[1]).map(([m, n]) => `<span class="tag"><bdi>${esc(m)}</bdi> ×${n}</span>`).join("")}</div></td></tr>`).join("");
     $("#fc-empty").hidden = !!f.items.length; $("#fc-empty").innerHTML = `<p class="muted">אין טיפולים צפויים בתקופה הזו.</p>`;
     $$("#fc-window .chip").forEach(b => b.classList.toggle("on", +b.dataset.d === st.fcDays));
   }
   $$("#fc-window .chip").forEach(b => b.onclick = () => { st.fcDays = +b.dataset.d; renderForecast(); });
-  $("#fc-csv").onclick = () => { const f = forecast(st.fcDays), q = v => `"${String(v ?? "").replace(/"/g, '""')}"`; download(`הזמנה-${st.fcDays}-יום-${today()}.csv`, [["פריט", "כמות", "פירוט"].map(q).join(","), ...f.items.map(e => [itemName(e.item), e.n, [...e.models].map(([m, n]) => `${m} ×${n}`).join(" / ")].map(q).join(","))]); toast("רשימת ההזמנה יוצאה"); };
+  $("#fc-po").onclick = async () => {
+    const f = forecast(st.fcDays), lines = [];
+    for (const e of f.items) for (const [id, need] of e.parts) { const p = partById(id), q = shortOf(p, need); if (q > 0) lines.push({ part_id: p.id, sku: p.sku || null, name: p.name, qty: q, cost: p.cost ?? null }); }
+    const unlinked = f.items.filter(e => !e.linked).length;
+    if (!lines.length) return toast(unlinked ? `אין מה להזמין לפי המלאי. ${unlinked} פריטים לא מקושרים לחלק במלאי.` : "יש במלאי את כל מה שצריך");
+    try { const n = await createDrafts(lines, `לטיפולים ב-${st.fcDays} הימים הקרובים`); showTab("stock"); stSeg = "pos"; renderStock(); toast(`${n} טיוטות הזמנה נוצרו${unlinked ? `. ${unlinked} פריטים לא מקושרים למלאי` : ""}`); }
+    catch (e) { toast("יצירת ההזמנה נכשלה: " + (e.message || e)); }
+  };
+  $("#fc-csv").onclick = () => { const f = forecast(st.fcDays), q = v => `"${String(v ?? "").replace(/"/g, '""')}"`; download(`הזמנה-${st.fcDays}-יום-${today()}.csv`, [["פריט", "רכבים", "במלאי", "להזמין", "פירוט"].map(q).join(","), ...f.items.map(e => [itemName(e.item), e.n, e.linked ? nf(e.stock) : "", e.linked ? nf(e.short) : "", [...e.models].map(([m, n]) => `${m} ×${n}`).join(" / ")].map(q).join(","))]); toast("רשימת ההזמנה יוצאה"); };
+
+  // ---------- inventory: parts, suppliers, purchase orders (stock is a ledger on the server) ----------
+  const numIn = v => { const n = parseFloat(String(v ?? "").replace(/[^\d.-]/g, "")); return Number.isFinite(n) ? n : null; };
+  const nf = n => (+n || 0).toLocaleString("he-IL", { maximumFractionDigits: 2 });
+  const money = n => "₪" + nf(Math.round((+n || 0) * 100) / 100);
+  const qtyOf = (n, unit) => nf(n) + (unit === "liter" ? " ל'" : "");
+  const partLabel = p => p.name + (p.sku ? " · " + p.sku : "");
+  const partById = id => st.parts.find(p => p.id === id);
+  const supById = id => st.sups.find(x => x.id === id);
+  const isLow = p => p.active !== false && (+p.min_stock || 0) > 0 && (+p.stock || 0) < (+p.min_stock || 0);
+  const PO_ST = { draft: ["טיוטה", ""], sent: ["נשלחה", "warn"], received: ["התקבלה", "ok"], cancelled: ["בוטלה", "crit"] };
+  const MOVE = { receive: "התקבל", use: "כרטיס עבודה", adjust: "עדכון ידני" };
+  // the part a car's service item takes: same maintenance item, preferring parts whose "fits" names the car
+  function partFor(item, c) {
+    const list = st.parts.filter(p => p.active !== false && p.item_key === item); if (list.length < 2) return list[0] || null;
+    const words = c && c.s ? [c.s.make_he, c.s.model_he, ...(c.s.engines || []).map(e => e && (e.code || e.name || e))].filter(Boolean).map(w => String(w).toLowerCase()) : [];
+    const score = p => { const f = String(p.fits || "").toLowerCase(); return f ? words.filter(w => f.includes(w)).length : 0; };
+    return list.slice().sort((a, b) => score(b) - score(a) || (+b.stock || 0) - (+a.stock || 0))[0];
+  }
+  const itemQty = (item, p, c) => item === "engine_oil" && p && p.unit === "liter" ? (oilLiters(c && c.s) || 4.5) : 1;
+  // already ordered from a supplier and not yet received
+  const onOrder = id => st.pos.filter(o => o.status === "sent").reduce((a, o) => a + (o.lines || []).filter(l => l.part_id === id).reduce((b, l) => b + (+l.qty || 0), 0), 0);
+  const shortOf = (p, need) => Math.ceil(Math.max(0, need + (+p.min_stock || 0) - (+p.stock || 0) - onOrder(p.id)));
+  async function refreshParts() { if (!demo) { try { st.parts = await api.parts(st.garage.id); } catch (e) {} } }
+
+  let stSeg = "parts";
+  function renderStock() {
+    const live = st.parts.filter(p => p.active !== false), low = live.filter(isLow), open = st.pos.filter(o => o.status === "draft" || o.status === "sent");
+    $("#st-kpis").innerHTML = `<div class="kpi"><b class="num">${live.length}</b><span>חלקים במלאי</span></div><div class="kpi ${low.length ? "due" : ""}"><b class="num">${low.length}</b><span>מתחת למינימום</span></div><div class="kpi"><b class="num">${open.length}</b><span>הזמנות פתוחות</span></div><div class="kpi"><b class="num">${money(live.reduce((a, p) => a + Math.max(0, +p.stock || 0) * (+p.cost || 0), 0))}</b><span>ערך המלאי (מחיר קנייה)</span></div>`;
+    setSeg("st-seg", stSeg);
+    const q = $("#st-q").value.trim().toLowerCase();
+    $("#st-new").textContent = stSeg === "sups" ? "ספק חדש" : stSeg === "pos" ? "הזמנה חדשה" : "חלק חדש";
+    $("#st-low").hidden = stSeg === "sups";
+    let head = "", rows = "", n = 0, emptyText = "";
+    if (stSeg === "parts") {
+      const list = live.filter(p => !q || [p.sku, p.name, p.fits, p.brand, p.item_key && itemName(p.item_key)].join(" ").toLowerCase().includes(q))
+        .sort((a, b) => isLow(b) - isLow(a) || a.name.localeCompare(b.name, "he"));
+      n = list.length;
+      head = `<tr><th>מק"ט</th><th>חלק</th><th>פריט בטיפול</th><th class="num-col">במלאי</th><th class="num-col">מינימום</th><th class="num-col">קנייה</th><th class="num-col">ללקוח</th><th>ספק</th><th class="act-col"><span class="sr">פעולות</span></th></tr>`;
+      rows = list.map(p => `<tr><td class="num" dir="ltr">${esc(p.sku || "")}</td><td><button class="name-link" data-part="${p.id}">${esc(p.name)}</button>${p.fits || p.location ? `<div class="sub">${esc([p.fits, p.location].filter(Boolean).join(" · "))}</div>` : ""}</td>
+        <td>${p.item_key ? esc(itemName(p.item_key)) : `<span class="sub">לא מקושר</span>`}</td>
+        <td class="num-col num"><b class="${isLow(p) ? "warn-text" : ""}">${qtyOf(p.stock, p.unit)}</b>${isLow(p) ? `<div class="sub"><span class="tag warn">חסר</span></div>` : ""}</td>
+        <td class="num-col num">${+p.min_stock ? qtyOf(p.min_stock, p.unit) : ""}</td><td class="num-col num">${p.cost != null ? money(p.cost) : ""}</td><td class="num-col num">${p.price != null ? money(p.price) : ""}</td>
+        <td>${esc((supById(p.supplier_id) || {}).name || "")}</td><td class="act-col"><button class="btn small" data-count="${p.id}">ספירה</button></td></tr>`).join("");
+      emptyText = live.length ? "אין חלקים בחיפוש הזה." : "עדיין אין חלקים. הוסיפו את מה שיש במחסן וקשרו כל חלק לפריט בטיפול, כדי שהתחזית תדע מה להזמין.";
+    } else if (stSeg === "pos") {
+      const list = st.pos.filter(o => !q || [o.number, (supById(o.supplier_id) || {}).name, ...(o.lines || []).map(l => l.name + " " + (l.sku || ""))].join(" ").toLowerCase().includes(q));
+      n = list.length;
+      head = `<tr><th>מס'</th><th>ספק</th><th>תאריך</th><th>מה</th><th class="num-col">סכום</th><th>מצב</th></tr>`;
+      rows = list.map(o => `<tr><td class="num"><button class="name-link" data-po="${o.id}">#${o.number || "?"}</button></td><td>${esc((supById(o.supplier_id) || {}).name || "בלי ספק")}</td><td class="num">${fmtDate(o.received_at || o.sent_at || o.created_at)}</td>
+        <td><div class="sub">${esc((o.lines || []).slice(0, 3).map(l => `${l.name} ×${nf(l.qty)}`).join(", "))}${(o.lines || []).length > 3 ? ` ועוד ${o.lines.length - 3}` : ""}</div></td><td class="num-col num">${money(o.total)}</td><td><span class="tag ${PO_ST[o.status][1]}">${PO_ST[o.status][0]}</span></td></tr>`).join("");
+      emptyText = "עדיין אין הזמנות. \"הזמן מה שחסר\" יוצר טיוטה לכל ספק לפי המינימום, ומלשונית \"מה להזמין\" אפשר להזמין לפי הטיפולים הקרובים.";
+    } else {
+      const list = st.sups.filter(x => !q || [x.name, x.contact, x.phone, x.email].join(" ").toLowerCase().includes(q));
+      n = list.length;
+      head = `<tr><th>ספק</th><th>איש קשר</th><th>טלפון</th><th>מייל</th><th class="num-col">חלקים</th><th class="act-col"><span class="sr">פעולות</span></th></tr>`;
+      rows = list.map(x => `<tr><td><button class="name-link" data-sup="${x.id}">${esc(x.name)}</button>${x.notes ? `<div class="sub">${esc(x.notes)}</div>` : ""}</td><td>${esc(x.contact || "")}</td><td class="num" dir="ltr">${esc(x.phone || "")}</td><td dir="ltr">${esc(x.email || "")}</td>
+        <td class="num-col num">${st.parts.filter(p => p.supplier_id === x.id && p.active !== false).length}</td><td class="act-col"><div class="acts">${x.phone ? `<a class="ib" href="${waHref(x.phone)}" target="_blank" rel="noopener" aria-label="וואטסאפ לספק">${ico.wa}</a><a class="ib" href="${telHref(x.phone)}" aria-label="חיוג לספק">${ico.phone}</a>` : ""}</div></td></tr>`).join("");
+      emptyText = "עדיין אין ספקים.";
+    }
+    $("#st-head").innerHTML = head; $("#st-rows").innerHTML = rows;
+    $("#st-empty").hidden = !!n; $("#st-empty").innerHTML = `<p class="muted">${emptyText}</p>`;
+    $("#st-foot").textContent = stSeg === "parts" ? "המלאי יורד לבד כששומרים כרטיס עבודה עם חלק מהמלאי, ועולה כשמאשרים קבלה של הזמנה. ספירה מתקנת את הכמות ונרשמת בהיסטוריה של החלק." : stSeg === "pos" ? "שליחה לספק פותחת וואטסאפ עם רשימת ההזמנה. בקבלת הסחורה מסמנים מה הגיע בפועל, והמלאי והמחיר מתעדכנים." : "";
+    $$("#st-rows [data-part]").forEach(b => b.onclick = () => openPart(partById(b.dataset.part)));
+    $$("#st-rows [data-count]").forEach(b => b.onclick = () => openCount(partById(b.dataset.count)));
+    $$("#st-rows [data-po]").forEach(b => b.onclick = () => openPo(st.pos.find(o => o.id === b.dataset.po)));
+    $$("#st-rows [data-sup]").forEach(b => b.onclick = () => openSup(supById(b.dataset.sup)));
+  }
+  $$("#st-seg button").forEach(b => b.onclick = () => { stSeg = b.dataset.v; renderStock(); });
+  $("#st-q").oninput = renderStock;
+  $("#st-new").onclick = () => stSeg === "sups" ? openSup(null) : stSeg === "pos" ? openPo(null) : openPart(null);
+  $("#st-low").onclick = async () => {
+    const lines = st.parts.filter(isLow).map(p => ({ part_id: p.id, sku: p.sku || null, name: p.name, qty: Math.ceil(2 * p.min_stock - p.stock - onOrder(p.id)), cost: p.cost ?? null })).filter(l => l.qty > 0);
+    if (!lines.length) return toast(st.parts.some(isLow) ? "מה שחסר כבר הוזמן" : "אין חלקים מתחת למינימום");
+    const n = await createDrafts(lines, "השלמת מלאי"); stSeg = "pos"; renderStock(); toast(`${n} טיוטות הזמנה, עד פי 2 מהמינימום`);
+  };
+
+  // one draft per supplier; lines for a supplier that already has a draft are added to it
+  async function createDrafts(lines, note) {
+    const groups = new Map();
+    for (const l of lines) { const p = partById(l.part_id), k = (p && p.supplier_id) || ""; if (!groups.has(k)) groups.set(k, []); groups.get(k).push(l); }
+    let n = 0;
+    for (const [sup, ls] of groups) {
+      const prev = st.pos.find(o => o.status === "draft" && (o.supplier_id || "") === sup);
+      const merged = prev ? [...prev.lines] : [];
+      for (const l of ls) { const m = merged.find(x => x.part_id && x.part_id === l.part_id); if (m) m.qty = Math.max(+m.qty || 0, l.qty); else merged.push(l); }
+      const row = { ...(prev ? { id: prev.id } : { garage_id: st.garage.id, status: "draft", note }), supplier_id: sup || null, lines: merged, total: poSum(merged) };
+      await savePo(row); n++;
+    }
+    return n;
+  }
+  const poSum = lines => Math.round(lines.reduce((a, l) => a + (+l.qty || 0) * (+l.cost || 0), 0) * 100) / 100;
+  async function savePo(row) {
+    let saved;
+    if (demo) { const prev = row.id && st.pos.find(o => o.id === row.id); saved = prev ? Object.assign(prev, row) : { ...row, id: "dpo-" + Date.now() + Math.random().toString(36).slice(2, 6), number: Math.max(0, ...st.pos.map(o => o.number || 0)) + 1, created_at: new Date().toISOString() }; }
+    else saved = await api.savePurchaseOrder(row);
+    const i = st.pos.findIndex(o => o.id === saved.id); if (i >= 0) st.pos[i] = saved; else st.pos.unshift(saved);
+    return saved;
+  }
+
+  // ---------- part ----------
+  let ptEdit = null, ptUnit = "unit";
+  function openPart(p) {
+    ptEdit = p || null; const x = p || {};
+    $("#pt-title").textContent = p ? p.name : "חלק חדש";
+    $("#pt-item").innerHTML = `<option value="">לא קשור לטיפול</option>` + Object.entries(D.items).sort((a, b) => a[1].he.localeCompare(b[1].he, "he")).map(([k, v]) => `<option value="${k}">${esc(v.he)}</option>`).join("");
+    $("#pt-sup").innerHTML = `<option value="">בלי ספק</option>` + st.sups.map(s2 => `<option value="${s2.id}">${esc(s2.name)}</option>`).join("");
+    $("#pt-sku").value = x.sku || ""; $("#pt-name").value = x.name || ""; $("#pt-item").value = x.item_key || ""; $("#pt-brand").value = x.brand || ""; $("#pt-fits").value = x.fits || "";
+    $("#pt-sup").value = x.supplier_id || ""; $("#pt-cost").value = x.cost ?? ""; $("#pt-price").value = x.price ?? ""; $("#pt-loc").value = x.location || ""; $("#pt-min").value = x.min_stock ? nf(x.min_stock) : "";
+    $("#pt-stock").value = ""; $("#pt-stock-row").hidden = !!p; ptUnit = x.unit || "unit"; setSeg("pt-unit", ptUnit);
+    $("#pt-err").hidden = true; $("#pt-del").hidden = !p; delete $("#pt-del").dataset.armed; $("#pt-del").textContent = "מחק";
+    $("#pt-moves-row").hidden = !p; $("#pt-moves").innerHTML = "";
+    if (p) (demo ? Promise.resolve(st.moves.filter(m => m.part_id === p.id)) : api.partMoves(p.id)).then(ms => {
+      $("#pt-moves").innerHTML = ms.slice(0, 12).map(m => `<div class="approval"><span>${MOVE[m.reason]}${m.note ? " · " + esc(m.note) : ""}${m.purchase_order_id ? ` · הזמנה #${(st.pos.find(o => o.id === m.purchase_order_id) || {}).number || ""}` : ""}</span><b class="num ${m.qty < 0 ? "warn-text" : ""}" dir="ltr">${m.qty > 0 ? "+" : ""}${nf(m.qty)}</b><span class="muted small">${fmtDate(m.created_at)}</span></div>`).join("") || `<p class="muted small">אין תנועות עדיין.</p>`;
+    }).catch(() => { $("#pt-moves").innerHTML = ""; });
+    $("#dlg-part").showModal(); $(p ? "#pt-name" : "#pt-sku").focus();
+  }
+  $$("#pt-unit button").forEach(b => b.onclick = () => { ptUnit = b.dataset.v; setSeg("pt-unit", ptUnit); });
+  $("#pt-item").onchange = () => { if ($("#pt-item").value === "engine_oil" && !ptEdit) { ptUnit = "liter"; setSeg("pt-unit", ptUnit); } if (!$("#pt-name").value.trim() && $("#pt-item").value) $("#pt-name").value = itemName($("#pt-item").value); };
+  $("#pt-save").onclick = async () => {
+    const err = m => { $("#pt-err").textContent = m; $("#pt-err").hidden = false; };
+    const name = $("#pt-name").value.trim(); if (!name) return err("צריך שם.");
+    const sku = $("#pt-sku").value.trim();
+    if (sku && st.parts.some(p => p.id !== (ptEdit && ptEdit.id) && (p.sku || "").toLowerCase() === sku.toLowerCase())) return err('המק"ט הזה כבר קיים במלאי.');
+    const row = { sku: sku || null, name, item_key: $("#pt-item").value || null, brand: $("#pt-brand").value.trim() || null, fits: $("#pt-fits").value.trim() || null, unit: ptUnit,
+      min_stock: numIn($("#pt-min").value) || 0, cost: numIn($("#pt-cost").value), price: numIn($("#pt-price").value), supplier_id: $("#pt-sup").value || null, location: $("#pt-loc").value.trim() || null };
+    const opening = ptEdit ? 0 : numIn($("#pt-stock").value) || 0;
+    const b = $("#pt-save"); b.disabled = true;
+    try {
+      let saved;
+      if (demo) { saved = ptEdit ? Object.assign(ptEdit, row) : { ...row, id: "dpt-" + Date.now(), garage_id: "demo", stock: 0, active: true }; }
+      else saved = await api.savePart(ptEdit ? { id: ptEdit.id, ...row } : { garage_id: st.garage.id, ...row });
+      if (!ptEdit) st.parts.push(saved); else Object.assign(ptEdit, saved);
+      if (opening) await moveStock(saved, opening, "adjust", "מלאי פתיחה");
+      $("#dlg-part").close(); toast(ptEdit ? "החלק עודכן" : "החלק נוסף"); renderStock();
+    } catch (e) { err(/duplicate|unique/i.test(e.message || "") ? 'המק"ט הזה כבר קיים במלאי.' : "השמירה נכשלה: " + (e.message || e)); }
+    b.disabled = false;
+  };
+  $("#pt-del").onclick = async () => {
+    const b = $("#pt-del"); if (!b.dataset.armed) { b.dataset.armed = "1"; b.textContent = "בטוח? לחיצה נוספת"; return; }
+    try { if (!demo) await api.deletePart(ptEdit.id); st.parts = st.parts.filter(p => p !== ptEdit); $("#dlg-part").close(); toast("החלק נמחק"); renderStock(); }
+    catch (e) { $("#pt-err").textContent = "המחיקה נכשלה: " + (e.message || e); $("#pt-err").hidden = false; }
+  };
+  async function moveStock(p, qty, reason, note, extra = {}) {
+    if (!qty) return;
+    const row = { garage_id: st.garage.id, part_id: p.id, qty, reason, note: note || null, ...extra };
+    if (demo) st.moves.unshift({ ...row, id: "dmv-" + Date.now(), created_at: new Date().toISOString() }); else await api.addStockMove(row);
+    p.stock = Math.round(((+p.stock || 0) + qty) * 100) / 100;
+  }
+
+  // ---------- count ----------
+  let ctFor = null;
+  function openCount(p) { ctFor = p; $("#ct-name").textContent = p.name; $("#ct-now").textContent = `לפי המערכת: ${qtyOf(p.stock, p.unit)}`; $("#ct-qty").value = ""; $("#ct-note").value = "ספירה"; $("#ct-err").hidden = true; $("#dlg-count").showModal(); $("#ct-qty").focus(); }
+  $("#ct-save").onclick = async () => {
+    const actual = numIn($("#ct-qty").value); if (actual === null || actual < 0) { $("#ct-err").textContent = "צריך כמות."; $("#ct-err").hidden = false; return; }
+    try { await moveStock(ctFor, Math.round((actual - (+ctFor.stock || 0)) * 100) / 100, "adjust", $("#ct-note").value.trim()); $("#dlg-count").close(); toast("המלאי עודכן"); renderStock(); }
+    catch (e) { $("#ct-err").textContent = "העדכון נכשל: " + (e.message || e); $("#ct-err").hidden = false; }
+  };
+
+  // ---------- supplier ----------
+  let spEdit = null;
+  function openSup(x) {
+    spEdit = x || null; const v = x || {};
+    $("#sp-title").textContent = x ? x.name : "ספק חדש";
+    for (const k of ["name", "contact", "phone", "email", "notes"]) $("#sp-" + k).value = v[k] || "";
+    $("#sp-err").hidden = true; $("#sp-del").hidden = !x; delete $("#sp-del").dataset.armed; $("#sp-del").textContent = "מחק";
+    $("#dlg-sup").showModal(); $("#sp-name").focus();
+  }
+  $("#sp-save").onclick = async () => {
+    const row = Object.fromEntries(["name", "contact", "phone", "email", "notes"].map(k => [k, $("#sp-" + k).value.trim() || null]));
+    if (!row.name) { $("#sp-err").textContent = "צריך שם."; $("#sp-err").hidden = false; return; }
+    try {
+      const saved = demo ? (spEdit ? Object.assign(spEdit, row) : { ...row, id: "dsp-" + Date.now() }) : await api.saveSupplier(spEdit ? { id: spEdit.id, ...row } : { garage_id: st.garage.id, ...row });
+      if (!spEdit) st.sups.push(saved); else Object.assign(spEdit, saved);
+      $("#dlg-sup").close(); toast("נשמר"); renderStock();
+    } catch (e) { $("#sp-err").textContent = "השמירה נכשלה: " + (e.message || e); $("#sp-err").hidden = false; }
+  };
+  $("#sp-del").onclick = async () => {
+    const b = $("#sp-del"); if (!b.dataset.armed) { b.dataset.armed = "1"; b.textContent = "בטוח? לחיצה נוספת"; return; }
+    try { if (!demo) await api.deleteSupplier(spEdit.id); st.sups = st.sups.filter(x => x !== spEdit); for (const p of st.parts) if (p.supplier_id === spEdit.id) p.supplier_id = null; $("#dlg-sup").close(); toast("הספק נמחק"); renderStock(); }
+    catch (e) { $("#sp-err").textContent = "המחיקה נכשלה: " + (e.message || e); $("#sp-err").hidden = false; }
+  };
+
+  // ---------- purchase order ----------
+  let poEdit = null, poLines = [], poRecv = false;
+  function openPo(o) {
+    poEdit = o || null; poRecv = false;
+    poLines = o ? o.lines.map(l => ({ ...l, recv: l.received ?? l.qty })) : [{ part_id: null, name: "", sku: null, qty: 1, cost: null }];
+    $("#po-sup").innerHTML = `<option value="">בלי ספק</option>` + st.sups.map(x => `<option value="${x.id}">${esc(x.name)}</option>`).join("");
+    $("#po-sup").value = (o && o.supplier_id) || ""; $("#po-note").value = (o && o.note) || "";
+    $("#po-parts").innerHTML = st.parts.filter(p => p.active !== false).map(p => `<option value="${esc(partLabel(p))}"></option>`).join("");
+    $("#po-err").hidden = true; renderPo(); $("#dlg-po").showModal();
+  }
+  function renderPo() {
+    const o = poEdit, status = o ? o.status : "draft", ro = status === "received" || status === "cancelled" || (status === "sent" && !poRecv);
+    $("#po-title").textContent = o ? `הזמנת רכש #${o.number || ""}` : "הזמנת רכש חדשה";
+    $("#po-status").textContent = PO_ST[status][0]; $("#po-status").className = "tag " + PO_ST[status][1];
+    $("#po-sup").disabled = status !== "draft"; $("#po-note").disabled = status !== "draft";
+    const showRecv = poRecv || status === "received"; $("#po-recv-h").hidden = !showRecv;
+    $("#po-lines").innerHTML = poLines.map((l, i) => `<tr><td><input data-i="${i}" data-k="name" list="po-parts" value="${esc(l.part_id && partById(l.part_id) ? partLabel(partById(l.part_id)) : l.name)}" autocomplete="off" ${ro || poRecv ? "disabled" : ""} placeholder="מק&quot;ט או שם"></td>
+      <td class="num-col"><input class="num qty" data-i="${i}" data-k="qty" value="${esc(l.qty)}" inputmode="decimal" autocomplete="off" ${ro || poRecv ? "disabled" : ""}></td>
+      <td class="num-col" ${showRecv ? "" : "hidden"}><input class="num qty" data-i="${i}" data-k="recv" value="${esc(l.recv ?? "")}" inputmode="decimal" autocomplete="off" ${poRecv && l.part_id ? "" : "disabled"}></td>
+      <td class="num-col"><input class="num price" data-i="${i}" data-k="cost" value="${esc(l.cost ?? "")}" inputmode="decimal" placeholder="₪" autocomplete="off" ${ro ? "disabled" : ""}></td>
+      <td class="num-col num" data-pot="${i}">${(+l.qty || 0) * (+l.cost || 0) ? money((+l.qty || 0) * (+l.cost || 0)) : ""}</td><td>${ro || poRecv ? "" : `<button type="button" class="x" data-del="${i}" aria-label="מחק שורה">×</button>`}</td></tr>`).join("");
+    $$("#po-lines input").forEach(x => x.oninput = () => {
+      const l = poLines[x.dataset.i];
+      if (x.dataset.k === "name") { const p = st.parts.find(q => partLabel(q) === x.value); if (p) { l.part_id = p.id; l.name = p.name; l.sku = p.sku || null; if (l.cost == null || l.cost === "") { l.cost = p.cost; renderPo(); return; } } else { l.part_id = null; l.name = x.value; l.sku = null; } }
+      else l[x.dataset.k] = numIn(x.value);
+      $(`[data-pot="${x.dataset.i}"]`).textContent = (+l.qty || 0) * (+l.cost || 0) ? money((+l.qty || 0) * (+l.cost || 0)) : ""; $("#po-total").textContent = money(poSum(poLines));
+    });
+    $$("#po-lines [data-del]").forEach(b => b.onclick = () => { poLines.splice(+b.dataset.del, 1); renderPo(); });
+    $("#po-add").hidden = status !== "draft";
+    $("#po-total").textContent = money(poSum(poLines));
+    $("#po-hint").textContent = poRecv ? "סמנו כמה הגיע מכל חלק. אפשר לתקן גם את המחיר. שורות בלי חלק מהמלאי לא נכנסות למלאי." : status === "draft" ? "בחרו חלק מהמלאי (לפי מק\"ט או שם) כדי שבקבלה הוא ייכנס למלאי." : "";
+    const A = [];
+    if (status === "draft") A.push(o ? `<button class="btn" type="button" id="po-x">מחק טיוטה</button>` : "", `<button class="btn" type="button" id="po-save">שמור טיוטה</button>`, `<button class="btn primary" type="button" id="po-send">שלח לספק</button>`);
+    else if (status === "sent" && !poRecv) A.push(`<button class="btn" type="button" id="po-cancel">בטל הזמנה</button>`, `<button class="btn" type="button" id="po-resend">שלח שוב</button>`, `<button class="btn primary" type="button" id="po-recv">קבלת סחורה</button>`);
+    else if (poRecv) A.push(`<button class="btn" type="button" id="po-back">חזרה</button>`, `<button class="btn primary" type="button" id="po-confirm">אישור קבלה</button>`);
+    A.push(`<button class="btn" value="close">סגור</button>`);
+    $("#po-actions").innerHTML = A.join("");
+    const on = (id, f) => { const b = $(id); if (b) b.onclick = f; };
+    on("#po-save", () => poPersist("draft").then(() => toast("הטיוטה נשמרה")).catch(poErr));
+    on("#po-send", () => poPersist("sent").then(sendPo).catch(poErr));
+    on("#po-resend", () => sendPo(poEdit));
+    on("#po-recv", () => { poRecv = true; renderPo(); });
+    on("#po-back", () => { poRecv = false; renderPo(); });
+    on("#po-cancel", () => poPersist("cancelled").then(() => toast("ההזמנה בוטלה")).catch(poErr));
+    on("#po-x", async () => { try { if (!demo) await api.deletePurchaseOrder(poEdit.id); st.pos = st.pos.filter(x => x !== poEdit); $("#dlg-po").close(); renderStock(); toast("הטיוטה נמחקה"); } catch (e) { poErr(e); } });
+    on("#po-confirm", receivePo);
+  }
+  const poErr = e => { $("#po-err").textContent = "נכשל: " + (e.message || e); $("#po-err").hidden = false; };
+  async function poPersist(status) {
+    const lines = poLines.filter(l => (l.name || "").trim() && +l.qty > 0).map(l => ({ part_id: l.part_id || null, sku: l.sku || null, name: l.name.trim(), qty: +l.qty, cost: l.cost == null || l.cost === "" ? null : +l.cost }));
+    if (!lines.length) throw new Error("אין שורות");
+    const row = { ...(poEdit ? { id: poEdit.id } : { garage_id: st.garage.id }), supplier_id: $("#po-sup").value || null, note: $("#po-note").value.trim() || null, lines, total: poSum(lines), status, ...(status === "sent" ? { sent_at: new Date().toISOString() } : {}) };
+    poEdit = await savePo(row); poLines = poEdit.lines.map(l => ({ ...l, recv: l.qty })); renderPo(); renderStock();
+    return poEdit;
+  }
+  function sendPo(o) {
+    const sup = supById(o.supplier_id) || {};
+    const text = `שלום${sup.contact ? " " + sup.contact.split(" ")[0] : ""}, הזמנה #${o.number || ""} מ${st.garage.name}:\n` + o.lines.map(l => `• ${l.name}${l.sku ? ` (${l.sku})` : ""} × ${nf(l.qty)}`).join("\n") + (o.note ? `\n${o.note}` : "") + "\nתודה!";
+    if (sup.phone) openMsgText(sup.name, sup.phone, text); else copy(text, "אין טלפון לספק. ההזמנה הועתקה");
+  }
+  async function receivePo() {
+    const lines = poLines.filter(l => l.part_id).map(l => ({ part_id: l.part_id, qty: +l.recv || 0, cost: l.cost == null || l.cost === "" ? null : +l.cost }));
+    const b = $("#po-confirm"); b.disabled = true;
+    try {
+      if (demo) {
+        for (const l of lines) { const p = partById(l.part_id); if (p && l.qty > 0) { await moveStock(p, l.qty, "receive", null, { purchase_order_id: poEdit.id }); if (l.cost != null) p.cost = l.cost; } }
+        Object.assign(poEdit, { status: "received", received_at: new Date().toISOString(), lines: poEdit.lines.map(x => ({ ...x, received: (lines.find(l => l.part_id === x.part_id) || {}).qty || 0 })) });
+      } else { const o = await api.receivePurchaseOrder(poEdit.id, lines); Object.assign(poEdit, o); await refreshParts(); }
+      poRecv = false; poLines = poEdit.lines.map(l => ({ ...l, recv: l.received })); renderPo(); renderStock(); renderForecastIfOpen(); toast("הסחורה נכנסה למלאי");
+    } catch (e) { poErr(e); }
+    b.disabled = false;
+  }
+  const renderForecastIfOpen = () => { if (st.tab === "order") renderForecast(); };
+
+  // ---------- invoices ----------
+  const DOC = { invoice_receipt: "חשבונית מס קבלה", tax_invoice: "חשבונית מס", receipt: "קבלה", other: "מסמך" };
+  const PAY = { card: "אשראי", cash: "מזומן", transfer: "העברה", app: "ביט / פייבוקס", check: "צ'ק", other: "אחר", unpaid: "לא שולם" };
+  const invOf = woId => st.invoices.find(x => x.work_order_id === woId);
+  const woLabel = w => { const c = car(w.garage_car_id); return `${c ? (c.name || "לקוח") + " · " + c.model : "רכב"}${w.kind === "service" && w.svc_km ? " · טיפול " + fmt(w.svc_km) : w.kind === "repair" ? " · תיקון" : ""}`; };
+  let ivFor = null, ivKind = "invoice_receipt", ivPay = "card";
+  function openInvoice(w) {
+    ivFor = w; const c = car(w.garage_car_id), b = st.billing, prev = invOf(w.id);
+    $("#iv-who").textContent = `${woLabel(w)}${w.date ? " · " + fmtDate(w.date) : ""}`;
+    $("#iv-total").textContent = money(w.total);
+    ivKind = b && b.vat_exempt ? "receipt" : "invoice_receipt"; setSeg("iv-kind", ivKind);
+    $$("#iv-kind button").forEach(x => x.hidden = !!(b && b.vat_exempt) && x.dataset.v !== "receipt");
+    $("#iv-pay-row").hidden = false; $$("#iv-pay .chip").forEach(x => x.classList.toggle("on", x.dataset.v === ivPay));
+    const connected = !!(b && b.has_secret);
+    $("#iv-morning").hidden = !connected; $("#iv-email").value = "";
+    $("#iv-morning-note").innerHTML = prev ? invLine(prev) : demo ? "בהדגמה לא מופק מסמך אמיתי." : b && b.sandbox ? "חשבון ניסיון של מורנינג: המסמך לא אמיתי." : "המסמך יוצא מחשבון המורנינג שלכם, עם המספור שלו.";
+    $("#iv-issue").disabled = !!prev;
+    $("#iv-manual-note").innerHTML = connected ? "מפיקים במערכת אחרת? רשמו כאן את מספר המסמך." : `אין חיבור למערכת חשבוניות. <button type="button" class="name-link" id="iv-connect">חיבור למורנינג</button>, או רשמו כאן מספר של מסמך שהפקתם במערכת אחרת.`;
+    const cn = $("#iv-connect"); if (cn) cn.onclick = () => { $("#dlg-inv").close(); openBillingSettings(); };
+    $("#iv-number").value = ""; $("#iv-record").disabled = !!prev; $("#iv-err").hidden = true;
+    if (prev && !connected) $("#iv-manual-note").innerHTML = invLine(prev);
+    if (!c) toast("הרכב של כרטיס העבודה לא נמצא");
+    $("#dlg-inv").showModal();
+  }
+  const invLine = x => `כבר יש ${DOC[x.kind]} מספר <b class="num">${esc(x.number || "?")}</b>${x.url ? ` · <a href="${esc(x.url)}" target="_blank" rel="noopener">פתיחת המסמך</a>` : ""}`;
+  $$("#iv-kind button").forEach(b => b.onclick = () => { ivKind = b.dataset.v; setSeg("iv-kind", ivKind); $("#iv-pay-row").hidden = ivKind === "tax_invoice"; });
+  $$("#iv-pay .chip").forEach(b => b.onclick = () => { ivPay = b.dataset.v; $$("#iv-pay .chip").forEach(x => x.classList.toggle("on", x === b)); });
+  const ivErr = m => { $("#iv-err").textContent = m; $("#iv-err").hidden = false; };
+  function invoiceIssued(x) { st.invoices.unshift(x); $("#iv-morning-note").innerHTML = invLine(x); $("#iv-issue").disabled = $("#iv-record").disabled = true; renderBilling(); const cb = $(`#cc-timeline [data-inv="${x.work_order_id}"]`); if (cb) cb.outerHTML = `<span class="tag ok">${DOC[x.kind]} ${esc(x.number || "")}</span>`; }
+  $("#iv-issue").onclick = async () => {
+    const w = ivFor, c = car(w.garage_car_id), b = $("#iv-issue"); b.disabled = true; $("#iv-err").hidden = true;
+    try {
+      let x;
+      if (demo) x = { id: "div-" + Date.now(), garage_id: "demo", work_order_id: w.id, kind: ivKind, provider: "morning", number: String(20000 + st.invoices.length + 1), url: null, customer_name: c && c.name, total: w.total, payment: ivKind === "tax_invoice" ? "unpaid" : ivPay, issued_at: new Date().toISOString() };
+      else { const r = await api.issueDocument({ work_order_id: w.id, kind: ivKind, payment: ivPay, email: $("#iv-email").value.trim() || null, label: c ? `${c.model} ${c.year || ""}`.trim() : null }); x = r.invoice; if (r.warning) toast(r.warning); }
+      invoiceIssued(x); toast(`הופקה ${DOC[x.kind]} ${x.number || ""}`);
+    } catch (e) { b.disabled = false; ivErr(/no invoicing account/.test(e.message) ? "אין חיבור למורנינג." : /Failed to send|not found|FunctionsFetchError|FunctionsRelayError/i.test(e.message) ? "שירות החשבוניות לא זמין כרגע. נסו שוב בעוד רגע." : "ההפקה נכשלה: " + e.message); }
+  };
+  $("#iv-record").onclick = async () => {
+    const number = $("#iv-number").value.trim(); if (!number) return ivErr("צריך מספר מסמך.");
+    const w = ivFor, c = car(w.garage_car_id);
+    const row = { garage_id: st.garage.id, work_order_id: w.id, kind: ivKind, provider: "manual", number, customer_name: (c && c.name) || null, total: w.total, payment: ivKind === "tax_invoice" ? "unpaid" : ivPay };
+    try { const x = demo ? { ...row, id: "div-" + Date.now(), issued_at: new Date().toISOString() } : await api.recordInvoice(row); invoiceIssued(x); toast("נרשם"); }
+    catch (e) { ivErr("הרישום נכשל: " + (e.message || e)); }
+  };
+
+  // ---------- billing tab ----------
+  const ym = d => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}`;
+  function renderBilling() {
+    if (!$("#bi-month").value) $("#bi-month").value = ym(new Date());
+    const m = $("#bi-month").value, list = st.invoices.filter(x => (x.issued_at || "").slice(0, 7) === m || ym(new Date(x.issued_at)) === m);
+    const since = Date.now() - 60 * 86400000, open = st.wos.filter(w => !invOf(w.id) && w.total > 0 && Date.parse(w.date || w.created_at) >= since);
+    $("#bi-kpis").innerHTML = `<div class="kpi"><b class="num">${money(list.reduce((a, x) => a + (+x.total || 0), 0))}</b><span>הופק בחודש הזה</span></div><div class="kpi"><b class="num">${list.length}</b><span>מסמכים</span></div><div class="kpi ${open.length ? "due" : ""}"><b class="num">${open.length}</b><span>עבודות בלי חשבונית</span></div>`;
+    $("#bi-open-box").hidden = !open.length;
+    $("#bi-open").innerHTML = open.slice(0, 12).map(w => `<div class="approval"><span>${esc(woLabel(w))} · <span class="muted small num">${w.date ? fmtDate(w.date) : ""}</span></span><b class="num">${money(w.total)}</b><button type="button" class="btn small" data-inv="${w.id}">הפק חשבונית</button></div>`).join("") + (open.length > 12 ? `<p class="muted small">ועוד ${open.length - 12}</p>` : "");
+    $$("#bi-open [data-inv]").forEach(b => b.onclick = () => openInvoice(st.wos.find(w => w.id === b.dataset.inv)));
+    $("#bi-rows").innerHTML = list.map(x => `<tr><td class="num">${fmtDate(x.issued_at)}</td><td class="num">${esc(x.number || "")}</td><td>${DOC[x.kind]}${x.provider === "manual" ? ` <span class="tag">נרשם ידנית</span>` : ""}</td><td>${esc(x.customer_name || "")}</td><td class="num-col num">${money(x.total)}</td><td>${PAY[x.payment] || ""}</td>
+      <td class="act-col"><div class="acts">${x.url ? `<a class="btn small" href="${esc(x.url)}" target="_blank" rel="noopener">פתח</a>` : ""}${x.provider === "manual" ? `<button type="button" class="btn small" data-unrec="${x.id}">מחק</button>` : ""}</div></td></tr>`).join("");
+    $("#bi-empty").hidden = !!list.length; $("#bi-empty").innerHTML = `<p class="muted">אין מסמכים בחודש הזה.</p>`;
+    $$("#bi-rows [data-unrec]").forEach(b => b.onclick = async () => { if (!b.dataset.armed) { b.dataset.armed = "1"; b.textContent = "בטוח?"; return; } try { if (!demo) await api.deleteInvoice(b.dataset.unrec); st.invoices = st.invoices.filter(x => x.id !== b.dataset.unrec); renderBilling(); } catch (e) { toast("נכשל: " + (e.message || e)); } });
+    $("#bi-settings").textContent = st.billing && st.billing.has_secret ? "מחובר למורנינג" : "חיבור למורנינג";
+  }
+  $("#bi-month").onchange = renderBilling;
+  $("#bi-csv").onclick = () => {
+    const m = $("#bi-month").value, list = st.invoices.filter(x => ym(new Date(x.issued_at)) === m), q = v => `"${String(v ?? "").replace(/"/g, '""')}"`;
+    download(`חשבוניות-${st.garage.name}-${m}.csv`, [["תאריך", "מספר", "מסמך", "לקוח", "סכום", "תשלום", "מקור"].map(q).join(","), ...list.map(x => [String(x.issued_at).slice(0, 10), x.number, DOC[x.kind], x.customer_name, x.total, PAY[x.payment] || "", x.provider === "manual" ? "ידני" : "מורנינג"].map(q).join(","))]);
+    toast(`ייצאתי ${list.length} מסמכים`);
+  };
+  $("#bi-settings").onclick = () => openBillingSettings();
+  function openBillingSettings() {
+    const b = st.billing || {};
+    $("#bl-id").value = b.api_id || ""; $("#bl-secret").value = ""; $("#bl-secret").placeholder = b.has_secret ? "שמור. השאירו ריק כדי לא לשנות" : "";
+    $("#bl-exempt").checked = !!b.vat_exempt; $("#bl-sandbox").checked = !!b.sandbox; $("#bl-err").hidden = true;
+    $("#bl-state").textContent = b.has_secret ? `מחובר${b.sandbox ? " (חשבון ניסיון)" : ""}.` : "לא מחובר.";
+    $("#bl-del").hidden = !b.has_secret; $("#bl-test").hidden = !b.has_secret;
+    $("#dlg-billing").showModal();
+  }
+  const blErr = m => { $("#bl-err").textContent = m; $("#bl-err").hidden = false; };
+  $("#bl-save").onclick = async () => {
+    const v = { api_id: $("#bl-id").value.trim(), secret: $("#bl-secret").value.trim(), sandbox: $("#bl-sandbox").checked, vat_exempt: $("#bl-exempt").checked };
+    if (!v.api_id) return blErr("צריך מזהה.");
+    if (!v.secret && !(st.billing && st.billing.has_secret)) return blErr("צריך מפתח סודי.");
+    try {
+      if (demo) st.billing = { api_id: v.api_id, has_secret: true, sandbox: v.sandbox, vat_exempt: v.vat_exempt };
+      else { await api.billingSave(st.garage.id, v); st.billing = await api.billing(st.garage.id); }
+      $("#bl-secret").value = ""; openBillingSettings(); toast("נשמר"); renderBilling();
+    } catch (e) { blErr("השמירה נכשלה: " + (e.message || e)); }
+  };
+  $("#bl-test").onclick = async () => {
+    const b = $("#bl-test"); b.disabled = true; $("#bl-err").hidden = true;
+    try { if (!demo) await api.issueDocument({ garage_id: st.garage.id, test: true }); $("#bl-state").textContent = "החיבור עובד."; }
+    catch (e) { blErr(/auth/.test(e.message) ? "מורנינג דחה את המפתחות. בדקו את המזהה והמפתח הסודי." : "הבדיקה נכשלה: " + e.message); }
+    b.disabled = false;
+  };
+  $("#bl-del").onclick = async () => {
+    const b = $("#bl-del"); if (!b.dataset.armed) { b.dataset.armed = "1"; b.textContent = "בטוח? לחיצה נוספת"; return; }
+    delete b.dataset.armed; b.textContent = "נתק";
+    try { if (!demo) await api.billingDelete(st.garage.id); st.billing = null; openBillingSettings(); renderBilling(); toast("החיבור נותק"); } catch (e) { blErr("נכשל: " + (e.message || e)); }
+  };
 
   // ---------- calendar: one column per bay, one row per slot ----------
   const STATUS = { booked: "נקבע", arrived: "הגיע", in_progress: "בעבודה", waiting_approval: "ממתין לאישור", ready: "מוכן לאיסוף", done: "נמסר", cancelled: "בוטל", no_show: "לא הגיע" };
@@ -748,6 +1286,7 @@
       phone ? `<button type="button" class="btn" id="ap-wa">${ico.wa} וואטסאפ</button><a class="btn" href="${telHref(phone)}">${ico.phone} חיוג</a>` : "",
       c ? `<button type="button" class="btn" id="ap-card">כרטיס לקוח</button><button type="button" class="btn" id="ap-wo">${wo ? "כרטיס עבודה (פתוח)" : "כרטיס עבודה"}</button>` : `<button type="button" class="btn" id="ap-addcust">הוסף ללקוחות</button>`,
       `<button type="button" class="btn" id="ap-approve">בקש אישור לעבודה נוספת</button>`,
+      wo ? `<button type="button" class="btn" id="ap-inv">${invOf(wo.id) ? "חשבונית " + esc(invOf(wo.id).number || "") : "חשבונית"}</button>` : "",
       phone ? `<button type="button" class="btn primary" id="ap-ready">הרכב מוכן, עדכן את הלקוח</button>` : ""
     ].join("");
     const wa = $("#ap-wa"); if (wa) wa.onclick = () => openMsgText(a.customer_name, phone, `היי ${a.customer_name.split(" ")[0]}, כאן ${st.garage.name}. `);
@@ -755,9 +1294,10 @@
     const wb = $("#ap-wo"); if (wb) wb.onclick = () => { $("#dlg-appt").close(); woAppt = a; openWo(c); };
     const ad = $("#ap-addcust"); if (ad) ad.onclick = () => { $("#dlg-appt").close(); openAdd({ plate: a.plate, name: a.customer_name, phone: a.phone }); };
     $("#ap-approve").onclick = () => openApproval(a);
+    const iv = $("#ap-inv"); if (iv) iv.onclick = () => openInvoice(wo);
     const rd = $("#ap-ready"); if (rd) rd.onclick = async () => {
       await setApptStatus("ready");
-      const total = wo && wo.total ? ` הסכום לתשלום: ₪${fmt(wo.total)}.` : "";
+      const inv = wo && invOf(wo.id), total = wo && wo.total ? ` הסכום לתשלום: ₪${fmt(wo.total)}.${inv && inv.url ? ` החשבונית: ${inv.url}` : ""}` : "";
       openMsgText(a.customer_name, phone, `היי ${a.customer_name.split(" ")[0]}, כאן ${st.garage.name}. הרכב${c ? ` (${c.model})` : ""} מוכן לאיסוף.${total} נתראה!`);
     };
     const mine = (demo ? DEMO.approvals : cal.approvals).filter(x => x.appointment_id === a.id);
@@ -921,11 +1461,13 @@
     renderRows();
   }
   async function reload() {
-    const [book, wos] = await Promise.all([api.garageBook(st.garage.id), api.workOrders(st.garage.id).catch(() => [])]);
-    st.rows = book.map(view); st.wos = wos;
+    // inventory and invoices arrive with migration 0007; an older server (or cached cloud.js) just shows them empty
+    const id = st.garage.id, soft = (f, empty = []) => Promise.resolve().then(f).catch(() => empty);
+    const [book, wos, parts, sups, pos, invoices, billing] = await Promise.all([api.garageBook(id), soft(() => api.workOrders(id)), soft(() => api.parts(id)), soft(() => api.suppliers(id)), soft(() => api.purchaseOrders(id)), soft(() => api.invoices(id)), soft(() => api.billing(id), null)]);
+    Object.assign(st, { rows: book.map(view), wos, parts, sups, pos, invoices, billing });
   }
   async function openGarage(g) {
-    st.garage = g; st.rows = []; st.wos = []; st.recalls = {}; st.filter = "all";
+    st.garage = g; st.rows = []; st.wos = []; st.recalls = {}; st.filter = "all"; Object.assign(st, { parts: [], sups: [], pos: [], invoices: [], billing: null });
     try { localStorage.setItem("tipulit-garage", g.id); } catch (e) {}
     showDash(); $("#rows").innerHTML = `<tr><td colspan="7" class="muted">טוען לקוחות…</td></tr>`;
     try { await reload(); }
@@ -940,7 +1482,7 @@
   function wireSignIn() { const b = $("#sign-in"); if (b) b.onclick = () => { try { sessionStorage.setItem("tipulit-return", location.pathname); } catch (e) {} Cloud.signInWithGoogle().catch(e => toast("ההתחברות נכשלה: " + e.message)); }; }
 
   async function start() {
-    if (demo) { st.garages = [st.garage = DEMO.garage]; st.rows = DEMO.rows.map(view); st.wos = DEMO.wos; st.recalls = DEMO.recalls; renderUser(null); showDash(); return; }
+    if (demo) { st.garages = [st.garage = DEMO.garage]; st.rows = DEMO.rows.map(view); st.wos = DEMO.wos; st.recalls = DEMO.recalls; Object.assign(st, { parts: DEMO.parts, sups: DEMO.sups, pos: DEMO.pos, moves: [], invoices: DEMO.invoices, billing: DEMO.billing }); renderUser(null); showDash(); return; }
     if (!Cloud.enabled) { showGate("השרת לא מחובר", "אפשר לראות איך זה נראה בהדגמה.", `<a class="btn primary" href="?demo">הדגמה</a>`); return; }
     if (Cloud.hasAuthParams) { const r = await Cloud.handleRedirect(); if (r.error) toast("ההתחברות נכשלה: " + (r.error.message || r.error)); try { history.replaceState(null, "", location.pathname); } catch (e) {} }
     const u = await Cloud.currentUser(); renderUser(u);
@@ -1009,7 +1551,33 @@
     const lastDone = appts.filter(a => a.id.startsWith("dap-0-") && a.status === "done").pop(); if (lastDone) lastDone.status = "ready";
     const wa = appts.find(a => a.status === "waiting_approval");
     if (wa) approvals.push({ id: "daw-1", appointment_id: wa.id, message: "רפידות הבלם הקדמיות שחוקות", lines: [{ desc: "רפידות בלם קדמיות", price: 380 }, { desc: "עבודה", price: 150 }], total: 530, status: "pending", created_at: new Date().toISOString() });
-    return { garage: { id: "demo", name: "מוסך הדגמה", city: "חולון", address: "הפלד 40", bays: 3, slot_minutes: 60, booking_enabled: true, hours: {} }, rows, wos, history, recalls, appts, approvals };
+    // inventory: common service parts, two suppliers, one order on the way and one received; some invoices
+    const sups = [{ id: "dsp-1", name: "חלפים מרכז", contact: "אבי", phone: "03-5550101", email: null, notes: "אספקה למחרת" }, { id: "dsp-2", name: "שמנים ישיר", contact: "רינה", phone: "054-5550202", email: null, notes: null }];
+    const P = (id, sku, name, item_key, stock, min, cost, price, sup, extra = {}) => ({ id, garage_id: "demo", sku, name, item_key, stock, min_stock: min, cost, price, supplier_id: sup, unit: "unit", active: true, brand: null, fits: null, location: null, ...extra });
+    const parts = [
+      P("dpt-1", "OIL-5W30-208", "שמן מנוע 5W-30 (חבית)", "engine_oil", 46, 40, 28, 52, "dsp-2", { unit: "liter", location: "חבית 1" }),
+      P("dpt-2", "OIL-0W20-208", "שמן מנוע 0W-20 (חבית)", "engine_oil", 18, 30, 34, 62, "dsp-2", { unit: "liter", fits: "טויוטה, קיה נירו, יונדאי", location: "חבית 2" }),
+      P("dpt-3", "W712/95", "מסנן שמן MANN W712/95", "oil_filter", 9, 6, 24, 60, "dsp-1", { fits: "סקודה, מאזדה", location: "מדף 1" }),
+      P("dpt-4", "90915-YZZE1", "מסנן שמן טויוטה", "oil_filter", 3, 6, 22, 55, "dsp-1", { fits: "טויוטה קורולה, יאריס, RAV4", location: "מדף 1" }),
+      P("dpt-5", "26300-35505", "מסנן שמן יונדאי/קיה", "oil_filter", 12, 6, 18, 50, "dsp-1", { fits: "יונדאי, קיה", location: "מדף 1" }),
+      P("dpt-6", "CU-2939", "מסנן מזגן", "cabin_filter", 4, 5, 30, 90, "dsp-1", { location: "מדף 2" }),
+      P("dpt-7", "C-27009", "מסנן אוויר", "air_filter", 7, 4, 35, 95, "dsp-1", { location: "מדף 2" }),
+      P("dpt-8", "DOT4-1L", "נוזל בלמים DOT4", "brake_fluid", 2, 3, 25, 70, "dsp-2", { unit: "liter" }),
+      P("dpt-9", "NGK-ILKAR7", "מצת NGK", "spark_plugs", 16, 8, 32, 75, "dsp-1"),
+      P("dpt-10", "BAT-60", "מצבר 60 אמפר", "battery_12v", 2, 2, 290, 520, "dsp-1"),
+      P("dpt-11", "BP-F-COR", "רפידות בלם קדמיות קורולה", "brake_pads", 2, 2, 140, 320, "dsp-1", { fits: "טויוטה קורולה" }),
+    ];
+    const pos = [
+      { id: "dpo-2", garage_id: "demo", number: 2, supplier_id: "dsp-1", status: "sent", note: null, sent_at: iso(-1), created_at: iso(-1), lines: [{ part_id: "dpt-4", sku: "90915-YZZE1", name: "מסנן שמן טויוטה", qty: 10, cost: 22 }, { part_id: "dpt-6", sku: "CU-2939", name: "מסנן מזגן", qty: 6, cost: 30 }], total: 400 },
+      { id: "dpo-1", garage_id: "demo", number: 1, supplier_id: "dsp-2", status: "received", note: null, sent_at: iso(-12), received_at: iso(-10), created_at: iso(-12), lines: [{ part_id: "dpt-1", sku: "OIL-5W30-208", name: "שמן מנוע 5W-30 (חבית)", qty: 60, cost: 28, received: 60 }], total: 1680 },
+    ];
+    const pays = ["card", "card", "cash", "transfer", "app"];
+    const invoices = wos.filter(w => Date.parse(w.date) > Date.now() - 400 * 86400000).slice(0, 9).map((w, i) => ({ id: "div-" + i, garage_id: "demo", work_order_id: w.id, kind: "invoice_receipt", provider: i % 4 === 3 ? "manual" : "morning", number: String(i % 4 === 3 ? 5400 + i : 20000 + i), url: null, customer_name: rows.find(r => r.car_id === w.garage_car_id).name, total: w.total, payment: pays[i % 5], issued_at: w.date + "T12:00:00Z" }));
+    // a few recent visits without an invoice yet, so the billing tab has something to do
+    rows.slice(0, 3).forEach((r, i) => { const s = schedById(r.schedule_id), sv = s.services[0], items = sv.items.filter(x => x.action === "replace").map(x => x.item); const lines = [...items.map(k => ({ type: "part", desc: itemName(k), qty: 1, price: 60 + i * 15 })), { type: "labor", desc: "עבודה, טיפול תקופתי", qty: 1, price: 320 }]; wos.unshift({ id: "dwo-r" + i, garage_car_id: r.car_id, kind: "service", svc_km: sv.km, km: r.km, date: iso(-(i * 3 + 1)).slice(0, 10), items, lines, total: lines.reduce((a, l) => a + l.price, 0), notes: null, entry_id: null }); });
+    // this month's invoices
+    wos.filter(w => w.id.startsWith("dwo-")).slice(3, 7).forEach((w, i) => invoices.unshift({ id: "divm-" + i, garage_id: "demo", work_order_id: null, kind: "invoice_receipt", provider: "morning", number: String(20100 + i), url: null, customer_name: rows[(i * 5 + 4) % rows.length].name, total: 480 + i * 130, payment: pays[i], issued_at: new Date(Date.now() - i * 5 * 3600000).toISOString() }));
+    return { garage: { id: "demo", name: "מוסך הדגמה", city: "חולון", address: "הפלד 40", bays: 3, slot_minutes: 60, booking_enabled: true, hours: {} }, rows, wos, history, recalls, appts, approvals, parts, sups, pos, invoices, billing: { api_id: "demo", has_secret: true, sandbox: false, vat_exempt: false } };
   })();
 
   start().catch(e => showGate("משהו השתבש", e.message || String(e), `<a class="btn" href="./">נסה שוב</a>`));

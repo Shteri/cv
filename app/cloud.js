@@ -225,6 +225,34 @@
   const approvalsFor = garageId => sb.from("work_approvals").select("*").eq("garage_id", garageId).order("created_at", { ascending: false }).limit(200).then(must);
   const createApproval = row => sb.from("work_approvals").insert(row).select("*").single().then(must);
   const updateGarageSettings = (id, patch) => sb.from("garage_profiles").update({ ...patch, updated_at: new Date().toISOString() }).eq("id", id).select("*").single().then(must);
+  // ---------- inventory, purchase orders, invoices (migration 0007) ----------
+  // rows with an id are patched, rows without are inserted
+  const upsertRow = table => ({ id, ...row }) => (id ? sb.from(table).update(row).eq("id", id) : sb.from(table).insert(row)).select("*").single().then(must);
+  const listOf = (table, order, asc = false) => garageId => sb.from(table).select("*").eq("garage_id", garageId).order(order, { ascending: asc }).limit(2000).then(must);
+  const parts = listOf("parts", "name", true), suppliers = listOf("suppliers", "name", true), purchaseOrders = listOf("purchase_orders", "created_at"), invoices = listOf("invoices", "issued_at");
+  const savePart = row => upsertRow("parts")({ ...row, ...(row.id ? { updated_at: new Date().toISOString() } : {}) });
+  const deletePart = id => sb.from("parts").delete().eq("id", id).then(must);
+  const saveSupplier = upsertRow("suppliers");
+  const deleteSupplier = id => sb.from("suppliers").delete().eq("id", id).then(must);
+  const savePurchaseOrder = row => upsertRow("purchase_orders")({ ...row, ...(row.id ? { updated_at: new Date().toISOString() } : {}) });
+  const deletePurchaseOrder = id => sb.from("purchase_orders").delete().eq("id", id).then(must);
+  const receivePurchaseOrder = (id, lines) => sb.rpc("po_receive", { p_po: id, p_lines: lines }).then(must);
+  const addStockMove = row => sb.from("stock_moves").insert(row).select("*").single().then(must);
+  const partMoves = partId => sb.from("stock_moves").select("*").eq("part_id", partId).order("created_at", { ascending: false }).limit(30).then(must);
+  const woConsume = woId => sb.rpc("wo_consume", { p_wo: woId }).then(must);
+  const recordInvoice = row => sb.from("invoices").insert(row).select("*").single().then(must);
+  const deleteInvoice = id => sb.from("invoices").delete().eq("id", id).then(must);
+  const billing = garageId => sb.from("garage_billing").select("garage_id, provider, api_id, has_secret, sandbox, vat_exempt, updated_at").eq("garage_id", garageId).maybeSingle().then(must);
+  const billingDelete = garageId => sb.from("garage_billing").delete().eq("garage_id", garageId).then(must);
+  const billingSave = (garageId, b) => sb.rpc("billing_save", { p_garage: garageId, p_api_id: b.api_id || "", p_secret: b.secret || "", p_sandbox: !!b.sandbox, p_vat_exempt: !!b.vat_exempt }).then(must);
+  // issues through the garage's Morning account (edge function issue-document); the reply carries the provider's error text
+  async function issueDocument(body) {
+    const { data, error } = await sb.functions.invoke("issue-document", { body });
+    if (error) { let m = error.message; try { const j = await error.context.json(); m = j.error || m; } catch (e) {} throw new Error(m); }
+    if (data && data.error) throw new Error(data.error);
+    return data;
+  }
+
   // public (no sign-in)
   const bookingInfo = garageId => sb.rpc("booking_info", { p_garage: garageId }).then(must);
   const bookAppointment = a => sb.rpc("book_appointment", { p_garage: a.garageId, p_starts_at: a.startsAt, p_name: a.name, p_phone: a.phone, p_plate: a.plate || "", p_kind: a.kind || "service", p_note: a.note || "" }).then(must);
@@ -258,5 +286,5 @@
     return data;
   }
 
-  g.TipulitCloud = { enabled, authError, hasAuthParams, currentUser, onAuth, signInWithGoogle, signOut, handleRedirect, loadCars, saveCar, deleteCar, communityPrices, communityGarages, extractReceipt, myGarageProfiles, garageProfiles, saveGarageProfile, deleteGarageProfile, photoUrl, startPhoneVerify, confirmPhoneVerify, claimGarage, pendingGarageClaims, setGarageStatus, garagePublic, joinGarage, myGarageLinks, updateGarageLink, leaveGarage, pendingGarageEntries, decideGarageEntry, garageCustomers, garageAddEntry, plateStatus, claimPlate, requestPlate, pendingPlateRequests, decidePlateRequest, garageBook, garageCarHistory, workOrders, addCustomer, updateCustomer, deleteCustomer, addGarageCar, updateGarageCar, saveWorkOrder, sendWorkOrder, importCustomers, appointments, saveAppointment, approvalsFor, createApproval, updateGarageSettings, bookingInfo, bookAppointment, approvalGet, approvalDecide };
+  g.TipulitCloud = { enabled, authError, hasAuthParams, currentUser, onAuth, signInWithGoogle, signOut, handleRedirect, loadCars, saveCar, deleteCar, communityPrices, communityGarages, extractReceipt, myGarageProfiles, garageProfiles, saveGarageProfile, deleteGarageProfile, photoUrl, startPhoneVerify, confirmPhoneVerify, claimGarage, pendingGarageClaims, setGarageStatus, garagePublic, joinGarage, myGarageLinks, updateGarageLink, leaveGarage, pendingGarageEntries, decideGarageEntry, garageCustomers, garageAddEntry, plateStatus, claimPlate, requestPlate, pendingPlateRequests, decidePlateRequest, garageBook, garageCarHistory, workOrders, addCustomer, updateCustomer, deleteCustomer, addGarageCar, updateGarageCar, saveWorkOrder, sendWorkOrder, importCustomers, appointments, saveAppointment, approvalsFor, createApproval, updateGarageSettings, bookingInfo, bookAppointment, approvalGet, approvalDecide, parts, suppliers, purchaseOrders, invoices, savePart, deletePart, saveSupplier, deleteSupplier, savePurchaseOrder, deletePurchaseOrder, receivePurchaseOrder, addStockMove, partMoves, woConsume, recordInvoice, deleteInvoice, billing, billingSave, billingDelete, issueDocument };
 })(window);
