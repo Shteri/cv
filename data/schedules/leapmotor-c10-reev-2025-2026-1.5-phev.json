@@ -1,0 +1,1082 @@
+{
+  "id": "leapmotor-c10-reev-2025-2026-1.5-phev",
+  "make": "Leapmotor",
+  "make_he": "ליפמוטור",
+  "model": "C10 REEV",
+  "model_he": "C10 מאריך טווח",
+  "generation": "C10 REEV",
+  "years": [
+    2025,
+    2026
+  ],
+  "engines": [
+    "1.5 מאריך טווח (H15R) + מנוע חשמלי"
+  ],
+  "fuel": "plug-in-hybrid",
+  "importer": "סמלת",
+  "interval": {
+    "km": 15000,
+    "months": 12,
+    "note": "לפי תכנית התחזוקה בספר הנהג העברי של C10 REEV (נובמבר 2025): כל 15,000 ק\"מ או 12 חודשים"
+  },
+  "cycle_km": 150000,
+  "services": [
+    {
+      "km": 15000,
+      "items": [
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת המתח הגבוה: מארז, מחברים וכבלי הארקה, ברגי חיבור לשלדה, ניקוי תחתית המארז, שסתום איזון לחץ וצינור קירור, נתוני הסוללה, אטמים ותוויות"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "מומנט ברגים ואומים חשופים"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect",
+          "note": "צינורות בלמים גמישים וקשיחים"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "בדיקת מפלס (החלפה ב-long_interval)"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "כיסוי אטימה של מנגנון ההיגוי"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "כיסוי אטימה של גל ההינע"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "צירים, עצרי דלת, בוכנות גז, דלתית שקע הטעינה ומכסה פתח הדלק"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "לחץ אוויר ובלאי"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקת מפלס"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "מנוע ההנעה והגנרטור: כבלי הארקה, ברגי חיבור, מעטפת, תושבות בקר, מחברים ורתמות מתח גבוה ונמוך; חיווט ובידוד"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "תיבת ההפחתה: בדיקת דליפות"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "מנוע הבנזין (מאריך טווח): בדיקת דליפות שמן ומסנן שמן, ברגי חלקים חיצוניים"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "צנרת הקירור, משאבת המים, אבנית וניקוי המצנן"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "תאורה, צופר, מגבים ומתזים"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "תפקוד המיזוג ודליפות; בידוד והארקה של המדחס"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "בטבלה: כל שנה או 15,000 ק\"מ"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "גרסת תוכנת יחידות הבקרה"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת המתח הגבוה: מארז, מחברים וכבלי הארקה, ברגי חיבור לשלדה, ניקוי תחתית המארז, שסתום איזון לחץ וצינור קירור, נתוני הסוללה, אטמים ותוויות"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "מומנט ברגים ואומים חשופים"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect",
+          "note": "צינורות בלמים גמישים וקשיחים"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "בדיקת מפלס (החלפה ב-long_interval)"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "כיסוי אטימה של מנגנון ההיגוי"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "כיסוי אטימה של גל ההינע"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "צירים, עצרי דלת, בוכנות גז, דלתית שקע הטעינה ומכסה פתח הדלק"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "לחץ אוויר ובלאי"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקת מפלס"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "מנוע ההנעה והגנרטור: כבלי הארקה, ברגי חיבור, מעטפת, תושבות בקר, מחברים ורתמות מתח גבוה ונמוך; חיווט ובידוד"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "תיבת ההפחתה: בדיקת דליפות"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "מנוע הבנזין (מאריך טווח): בדיקת דליפות שמן ומסנן שמן, ברגי חלקים חיצוניים"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "צנרת הקירור, משאבת המים, אבנית וניקוי המצנן"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "תאורה, צופר, מגבים ומתזים"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "תפקוד המיזוג ודליפות; בידוד והארקה של המדחס"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "בטבלה: כל שנה או 15,000 ק\"מ"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "גרסת תוכנת יחידות הבקרה"
+        }
+      ]
+    },
+    {
+      "km": 45000,
+      "items": [
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת המתח הגבוה: מארז, מחברים וכבלי הארקה, ברגי חיבור לשלדה, ניקוי תחתית המארז, שסתום איזון לחץ וצינור קירור, נתוני הסוללה, אטמים ותוויות"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "מומנט ברגים ואומים חשופים"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect",
+          "note": "צינורות בלמים גמישים וקשיחים"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "בדיקת מפלס (החלפה ב-long_interval)"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "כיסוי אטימה של מנגנון ההיגוי"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "כיסוי אטימה של גל ההינע"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "צירים, עצרי דלת, בוכנות גז, דלתית שקע הטעינה ומכסה פתח הדלק"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "לחץ אוויר ובלאי"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקת מפלס"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "מנוע ההנעה והגנרטור: כבלי הארקה, ברגי חיבור, מעטפת, תושבות בקר, מחברים ורתמות מתח גבוה ונמוך; חיווט ובידוד"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "תיבת ההפחתה: בדיקת דליפות"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "מנוע הבנזין (מאריך טווח): בדיקת דליפות שמן ומסנן שמן, ברגי חלקים חיצוניים"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "צנרת הקירור, משאבת המים, אבנית וניקוי המצנן"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "תאורה, צופר, מגבים ומתזים"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "תפקוד המיזוג ודליפות; בידוד והארקה של המדחס"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "בטבלה: כל שנה או 15,000 ק\"מ"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "גרסת תוכנת יחידות הבקרה"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת המתח הגבוה: מארז, מחברים וכבלי הארקה, ברגי חיבור לשלדה, ניקוי תחתית המארז, שסתום איזון לחץ וצינור קירור, נתוני הסוללה, אטמים ותוויות"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "מומנט ברגים ואומים חשופים"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect",
+          "note": "צינורות בלמים גמישים וקשיחים"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "בדיקת מפלס (החלפה ב-long_interval)"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "כיסוי אטימה של מנגנון ההיגוי"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "כיסוי אטימה של גל ההינע"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "צירים, עצרי דלת, בוכנות גז, דלתית שקע הטעינה ומכסה פתח הדלק"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "לחץ אוויר ובלאי"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקת מפלס"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "מנוע ההנעה והגנרטור: כבלי הארקה, ברגי חיבור, מעטפת, תושבות בקר, מחברים ורתמות מתח גבוה ונמוך; חיווט ובידוד"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "תיבת ההפחתה: בדיקת דליפות"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "מנוע הבנזין (מאריך טווח): בדיקת דליפות שמן ומסנן שמן, ברגי חלקים חיצוניים"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "צנרת הקירור, משאבת המים, אבנית וניקוי המצנן"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "תאורה, צופר, מגבים ומתזים"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "תפקוד המיזוג ודליפות; בידוד והארקה של המדחס"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "בטבלה: כל שנה או 15,000 ק\"מ"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "גרסת תוכנת יחידות הבקרה"
+        }
+      ]
+    },
+    {
+      "km": 75000,
+      "items": [
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת המתח הגבוה: מארז, מחברים וכבלי הארקה, ברגי חיבור לשלדה, ניקוי תחתית המארז, שסתום איזון לחץ וצינור קירור, נתוני הסוללה, אטמים ותוויות"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "מומנט ברגים ואומים חשופים"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect",
+          "note": "צינורות בלמים גמישים וקשיחים"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "בדיקת מפלס (החלפה ב-long_interval)"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "כיסוי אטימה של מנגנון ההיגוי"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "כיסוי אטימה של גל ההינע"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "צירים, עצרי דלת, בוכנות גז, דלתית שקע הטעינה ומכסה פתח הדלק"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "לחץ אוויר ובלאי"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקת מפלס"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "מנוע ההנעה והגנרטור: כבלי הארקה, ברגי חיבור, מעטפת, תושבות בקר, מחברים ורתמות מתח גבוה ונמוך; חיווט ובידוד"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "תיבת ההפחתה: בדיקת דליפות"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "מנוע הבנזין (מאריך טווח): בדיקת דליפות שמן ומסנן שמן, ברגי חלקים חיצוניים"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "צנרת הקירור, משאבת המים, אבנית וניקוי המצנן"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "תאורה, צופר, מגבים ומתזים"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "תפקוד המיזוג ודליפות; בידוד והארקה של המדחס"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "בטבלה: כל שנה או 15,000 ק\"מ"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "גרסת תוכנת יחידות הבקרה"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת המתח הגבוה: מארז, מחברים וכבלי הארקה, ברגי חיבור לשלדה, ניקוי תחתית המארז, שסתום איזון לחץ וצינור קירור, נתוני הסוללה, אטמים ותוויות"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "מומנט ברגים ואומים חשופים"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect",
+          "note": "צינורות בלמים גמישים וקשיחים"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "בדיקת מפלס (החלפה ב-long_interval)"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "כיסוי אטימה של מנגנון ההיגוי"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "כיסוי אטימה של גל ההינע"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "צירים, עצרי דלת, בוכנות גז, דלתית שקע הטעינה ומכסה פתח הדלק"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "לחץ אוויר ובלאי"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקת מפלס"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "מנוע ההנעה והגנרטור: כבלי הארקה, ברגי חיבור, מעטפת, תושבות בקר, מחברים ורתמות מתח גבוה ונמוך; חיווט ובידוד"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "תיבת ההפחתה: בדיקת דליפות"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "מנוע הבנזין (מאריך טווח): בדיקת דליפות שמן ומסנן שמן, ברגי חלקים חיצוניים"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "צנרת הקירור, משאבת המים, אבנית וניקוי המצנן"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "תאורה, צופר, מגבים ומתזים"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "תפקוד המיזוג ודליפות; בידוד והארקה של המדחס"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "בטבלה: כל שנה או 15,000 ק\"מ"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "גרסת תוכנת יחידות הבקרה"
+        }
+      ]
+    },
+    {
+      "km": 105000,
+      "items": [
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת המתח הגבוה: מארז, מחברים וכבלי הארקה, ברגי חיבור לשלדה, ניקוי תחתית המארז, שסתום איזון לחץ וצינור קירור, נתוני הסוללה, אטמים ותוויות"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "מומנט ברגים ואומים חשופים"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect",
+          "note": "צינורות בלמים גמישים וקשיחים"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "בדיקת מפלס (החלפה ב-long_interval)"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "כיסוי אטימה של מנגנון ההיגוי"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "כיסוי אטימה של גל ההינע"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "צירים, עצרי דלת, בוכנות גז, דלתית שקע הטעינה ומכסה פתח הדלק"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "לחץ אוויר ובלאי"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקת מפלס"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "מנוע ההנעה והגנרטור: כבלי הארקה, ברגי חיבור, מעטפת, תושבות בקר, מחברים ורתמות מתח גבוה ונמוך; חיווט ובידוד"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "תיבת ההפחתה: בדיקת דליפות"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "מנוע הבנזין (מאריך טווח): בדיקת דליפות שמן ומסנן שמן, ברגי חלקים חיצוניים"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "צנרת הקירור, משאבת המים, אבנית וניקוי המצנן"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "תאורה, צופר, מגבים ומתזים"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "תפקוד המיזוג ודליפות; בידוד והארקה של המדחס"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "בטבלה: כל שנה או 15,000 ק\"מ"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "גרסת תוכנת יחידות הבקרה"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת המתח הגבוה: מארז, מחברים וכבלי הארקה, ברגי חיבור לשלדה, ניקוי תחתית המארז, שסתום איזון לחץ וצינור קירור, נתוני הסוללה, אטמים ותוויות"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "מומנט ברגים ואומים חשופים"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect",
+          "note": "צינורות בלמים גמישים וקשיחים"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "בדיקת מפלס (החלפה ב-long_interval)"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "כיסוי אטימה של מנגנון ההיגוי"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "כיסוי אטימה של גל ההינע"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "צירים, עצרי דלת, בוכנות גז, דלתית שקע הטעינה ומכסה פתח הדלק"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "לחץ אוויר ובלאי"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקת מפלס"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "מנוע ההנעה והגנרטור: כבלי הארקה, ברגי חיבור, מעטפת, תושבות בקר, מחברים ורתמות מתח גבוה ונמוך; חיווט ובידוד"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "תיבת ההפחתה: בדיקת דליפות"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "מנוע הבנזין (מאריך טווח): בדיקת דליפות שמן ומסנן שמן, ברגי חלקים חיצוניים"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "צנרת הקירור, משאבת המים, אבנית וניקוי המצנן"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "תאורה, צופר, מגבים ומתזים"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "תפקוד המיזוג ודליפות; בידוד והארקה של המדחס"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "בטבלה: כל שנה או 15,000 ק\"מ"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "גרסת תוכנת יחידות הבקרה"
+        }
+      ]
+    },
+    {
+      "km": 135000,
+      "items": [
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת המתח הגבוה: מארז, מחברים וכבלי הארקה, ברגי חיבור לשלדה, ניקוי תחתית המארז, שסתום איזון לחץ וצינור קירור, נתוני הסוללה, אטמים ותוויות"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "מומנט ברגים ואומים חשופים"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect",
+          "note": "צינורות בלמים גמישים וקשיחים"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "בדיקת מפלס (החלפה ב-long_interval)"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "כיסוי אטימה של מנגנון ההיגוי"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "כיסוי אטימה של גל ההינע"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "צירים, עצרי דלת, בוכנות גז, דלתית שקע הטעינה ומכסה פתח הדלק"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "לחץ אוויר ובלאי"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקת מפלס"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "מנוע ההנעה והגנרטור: כבלי הארקה, ברגי חיבור, מעטפת, תושבות בקר, מחברים ורתמות מתח גבוה ונמוך; חיווט ובידוד"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "תיבת ההפחתה: בדיקת דליפות"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "מנוע הבנזין (מאריך טווח): בדיקת דליפות שמן ומסנן שמן, ברגי חלקים חיצוניים"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "צנרת הקירור, משאבת המים, אבנית וניקוי המצנן"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "תאורה, צופר, מגבים ומתזים"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "תפקוד המיזוג ודליפות; בידוד והארקה של המדחס"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "בטבלה: כל שנה או 15,000 ק\"מ"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "גרסת תוכנת יחידות הבקרה"
+        }
+      ]
+    },
+    {
+      "km": 150000,
+      "items": [
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת המתח הגבוה: מארז, מחברים וכבלי הארקה, ברגי חיבור לשלדה, ניקוי תחתית המארז, שסתום איזון לחץ וצינור קירור, נתוני הסוללה, אטמים ותוויות"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "מומנט ברגים ואומים חשופים"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect",
+          "note": "צינורות בלמים גמישים וקשיחים"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "בדיקת מפלס (החלפה ב-long_interval)"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "כיסוי אטימה של מנגנון ההיגוי"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "כיסוי אטימה של גל ההינע"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "צירים, עצרי דלת, בוכנות גז, דלתית שקע הטעינה ומכסה פתח הדלק"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "לחץ אוויר ובלאי"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקת מפלס"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "מנוע ההנעה והגנרטור: כבלי הארקה, ברגי חיבור, מעטפת, תושבות בקר, מחברים ורתמות מתח גבוה ונמוך; חיווט ובידוד"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "תיבת ההפחתה: בדיקת דליפות"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "מנוע הבנזין (מאריך טווח): בדיקת דליפות שמן ומסנן שמן, ברגי חלקים חיצוניים"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "צנרת הקירור, משאבת המים, אבנית וניקוי המצנן"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "תאורה, צופר, מגבים ומתזים"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "תפקוד המיזוג ודליפות; בידוד והארקה של המדחס"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "בטבלה: כל שנה או 15,000 ק\"מ"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "גרסת תוכנת יחידות הבקרה"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "engine_oil",
+      "action": "replace",
+      "every_km": 10000,
+      "every_months": 12,
+      "note": "שמן מנוע: לפי הטקסט כל שנה או 10,000 ק\"מ (בספר מודפס '10,00'), וגם כשמופיעה הודעת 'Oil Change Required' - תוך 600 ק\"מ"
+    },
+    {
+      "item": "oil_filter",
+      "action": "replace",
+      "every_km": 10000,
+      "every_months": 12,
+      "note": "יחד עם שמן המנוע"
+    },
+    {
+      "item": "air_filter",
+      "action": "replace",
+      "every_km": 20000,
+      "every_months": 24,
+      "note": "ניקוי כל שנה (בסביבה מאובקת כל 10,000 ק\"מ), החלפה כל שנתיים או 20,000 ק\"מ"
+    },
+    {
+      "item": "spark_plugs",
+      "action": "replace",
+      "every_km": 40000,
+      "note": "מצתים כל 40,000 ק\"מ"
+    },
+    {
+      "item": "fuel_tank_air_filter",
+      "action": "replace",
+      "every_km": 20000,
+      "every_months": 12,
+      "note": "מסנן מיכל הפחם הפעיל: כל שנה או 20,000 ק\"מ"
+    },
+    {
+      "item": "brake_fluid",
+      "action": "replace",
+      "every_km": 40000,
+      "every_months": 24,
+      "note": "נוזל בלמים DOT 4: כל שנתיים או 40,000 ק\"מ"
+    },
+    {
+      "item": "coolant",
+      "action": "replace",
+      "every_km": 45000,
+      "every_months": 48,
+      "note": "נוזל קירור: בטבלה כל 4 שנים או 45,000 ק\"מ (בטקסט 40,000)"
+    },
+    {
+      "item": "transmission_oil",
+      "action": "replace",
+      "every_km": 60000,
+      "note": "שמן תיבת ההפחתה ומסנן: כל 60,000 ק\"מ"
+    },
+    {
+      "item": "tire_rotation",
+      "action": "rotate",
+      "every_km": 10000,
+      "note": "סבב צמיגים כל 10,000 ק\"מ"
+    }
+  ],
+  "time_based": [],
+  "specs": {
+    "brake_fluid": "DOT 4",
+    "tire_pressure": "ללא עומס: 2.5 בר מלפנים, 2.7 בר מאחור; עם עומס: 2.7 בר",
+    "battery": "סוללת הנעה + מצבר 12V"
+  },
+  "sources": [
+    {
+      "url": "https://samelet.com/wp-content/uploads/2024/10/LEAP-C10-REEV-NOV2025-חדש-עם-שגרת-טיפולים.pdf",
+      "kind": "importer",
+      "note": "מדריך למשתמש C10 REEV בעברית (נובמבר 2025, 'חדש עם שגרת טיפולים'): שגרת הטיפולים עמ' 165-167 בקובץ, תכנית תחזוקה עמ' 168-170"
+    }
+  ],
+  "status": "reviewed",
+  "notes": "לפי ספר הנהג העברי של סמלת ל-C10 עם מאריך טווח (מנוע בנזין 1.5 שמשמש כגנרטור). טבלת הבדיקות היא כל 15,000 ק\"מ או שנה, עם החלפת מסנן מזגן. פריטי המנוע לפי הטקסט: שמן ומסנן כל שנה או 10,000 ק\"מ (או לפי הודעת הרכב), מסנן אוויר כל שנתיים/20,000, מצתים כל 40,000, מסנן מיכל פחם כל שנה/20,000. נוזל בלמים כל שנתיים/40,000, נוזל קירור כל 4 שנים/45,000 (בטקסט 40,000), שמן תיבת ההפחתה ומסנן כל 60,000. בספר יש אי-התאמות בין הטקסט לטבלה (מסנן מזגן 10,000 מול 15,000, שמן '10,00'); נבחרו הערכים שמצוינים לעיל."
+}

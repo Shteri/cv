@@ -1,0 +1,340 @@
+{
+  "id": "xpeng-g9-2024-2026-ev",
+  "make": "Xpeng",
+  "make_he": "אקספנג",
+  "model": "G9",
+  "model_he": "G9",
+  "generation": "G9",
+  "years": [
+    2024,
+    2026
+  ],
+  "engines": [
+    "EV (TZ220XSEDM / TZ230XY01E)"
+  ],
+  "fuel": "electric",
+  "importer": "פריסבי",
+  "interval": {
+    "km": 20000,
+    "months": 12,
+    "note": "לפי ספר התחזוקה האירופי הכללי של XPENG: טיפול כל 12 חודשים או 20,000 ק\"מ; הטור השני (טיפול מורחב) כל 24 חודשים או 40,000 ק\"מ"
+  },
+  "cycle_km": 40000,
+  "services": [
+    {
+      "km": 20000,
+      "items": [
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת ההנעה: מראה חיצוני, ריח, מחברים ורתמות מתח גבוה ונמוך, מומנט ברגים, שסתום איזון/נשימה; מתג השירות נבדק רק בטיפול B"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "מנועי ההנעה, רתמות, צנרת בקרת טמפרטורה, שקעי טעינה ופונקציות חשמל ברכב"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "תאורה חיצונית, פנימית וצופר"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "קריאת תקלות ובדיקת/עדכון גרסת תוכנה"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "בלם חניה חשמלי (EPB)"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect",
+          "note": "דיסקים וקליפרים"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "מהלך דוושת הבלם"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "חופש בהגה, עמוד היגוי, מנוע EPS, מוטות ומפרקים"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect",
+          "note": "השלמה"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "בדיקה ושימון מנעולים, צירים ומעצורים, מכסה מנוע ותא מטען"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "חלודה במרכב, אטמים וחלונות"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "מפלס/מראה שמן תיבת ההפחתה"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גלי הינע וכיסויי אבק"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "צמיגים, חישוקים ומומנט אומים"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate",
+          "note": "אם נדרש"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect",
+          "note": "בדיקת בלאי לא אחיד; כיוון לפי הצורך"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלים, בולמים, קפיצים ומסבי גלגלים; מומנט ברגי שלדה"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "צנרת, משאבת מים, מאוורר, תריס ומצנן (ניקוי)"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "מדחס, צנרת, ניקוי מעבה, ניקוז המאייד ורתמת PTC"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "clean",
+          "note": "טיפול A: ניקוי; טיפול B: החלפה (לא יותר משנתיים)"
+        }
+      ]
+    },
+    {
+      "km": 40000,
+      "items": [
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת ההנעה: מראה חיצוני, ריח, מחברים ורתמות מתח גבוה ונמוך, מומנט ברגים, שסתום איזון/נשימה; מתג השירות נבדק רק בטיפול B"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "מנועי ההנעה, רתמות, צנרת בקרת טמפרטורה, שקעי טעינה ופונקציות חשמל ברכב"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "תאורה חיצונית, פנימית וצופר"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "קריאת תקלות ובדיקת/עדכון גרסת תוכנה"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "בלם חניה חשמלי (EPB)"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect",
+          "note": "דיסקים וקליפרים"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "מהלך דוושת הבלם"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "חופש בהגה, עמוד היגוי, מנוע EPS, מוטות ומפרקים"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect",
+          "note": "השלמה"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "בדיקה ושימון מנעולים, צירים ומעצורים, מכסה מנוע ותא מטען"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "חלודה במרכב, אטמים וחלונות"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "מפלס/מראה שמן תיבת ההפחתה"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גלי הינע וכיסויי אבק"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "צמיגים, חישוקים ומומנט אומים"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate",
+          "note": "אם נדרש"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect",
+          "note": "בדיקת בלאי לא אחיד; כיוון לפי הצורך"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלים, בולמים, קפיצים ומסבי גלגלים; מומנט ברגי שלדה"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "צנרת, משאבת מים, מאוורר, תריס ומצנן (ניקוי)"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "מדחס, צנרת, ניקוי מעבה, ניקוז המאייד ורתמת PTC"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "טיפול A: ניקוי; טיפול B: החלפה (לא יותר משנתיים)"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "transmission_oil",
+      "action": "replace",
+      "every_km": 80000,
+      "every_months": 48,
+      "note": "שמן תיבת ההפחתה - כל 80,000 ק\"מ או 48 חודשים"
+    },
+    {
+      "item": "coolant",
+      "action": "replace",
+      "every_km": 120000,
+      "every_months": 72,
+      "note": "נוזל קירור - כל 120,000 ק\"מ או 72 חודשים"
+    },
+    {
+      "item": "wipers",
+      "action": "replace",
+      "every_km": 5000,
+      "every_months": 3,
+      "note": "פריט מומלץ לפי הצורך: להבי מגבים כל 3 חודשים או 5,000 ק\"מ"
+    },
+    {
+      "item": "tires",
+      "action": "inspect",
+      "every_km": 5000,
+      "every_months": 3,
+      "note": "פריט מומלץ: בדיקת לחץ ובלאי לא אחיד כל 3 חודשים או 5,000 ק\"מ"
+    }
+  ],
+  "time_based": [],
+  "specs": {
+    "battery": "סוללת הנעה + מצבר 12V",
+    "_note": "טיוטה - לפי מסמך אירופי כללי לכל דגמי XPENG, לא נבדק מול ספר היבואן"
+  },
+  "sources": [
+    {
+      "url": "https://edge.sitecorecloud.io/hedinitaban27a1-hedin8837-prod5c4b-4604/media/Project/Hedin/Distribution-Cars/shared/user-manual/XPENG-Benutzer--und-Wartungshandbuch.pdf",
+      "kind": "manufacturer",
+      "note": "XPENG Benutzer- und Wartungshandbuch (für Deutschland), חל על כל דגמי XPENG הנמכרים באיחוד האירופי; טבלת התחזוקה עמ' 15-21 (כל 12 חודשים/20,000 ק\"מ וכל 24 חודשים/40,000 ק\"מ; שמן תיבה 48 חודשים/80,000; נוזל קירור 72 חודשים/120,000)"
+    },
+    {
+      "url": "https://s3.eu-central-1.amazonaws.com/datamotive-sulu-assets/xpeng-rotterdam/03/warranty-and-maintenance-manual-g6-for-eu.pdf",
+      "kind": "manufacturer",
+      "note": "ספר האחריות והתחזוקה האירופי של G6 - אותה טבלה כמו במסמך הגרמני הכללי, עמ' 11-18"
+    }
+  ],
+  "status": "draft",
+  "notes": "אתר היבואן (פריסבי) לא זמין מכאן ולא נמצא ספר עברי ל-G9. ספר האחריות והתחזוקה הגרמני של XPENG חל על כל דגמי המותג באיחוד האירופי, ותוכנו זהה לספר של G6, ולכן זו טיוטה לפי אותה טבלה: טיפול A כל 20,000 ק\"מ/שנה וטיפול B כל 40,000 ק\"מ/שנתיים (בטיפול B מוחלפים נוזל הבלמים ומסנן המזגן). שמן תיבת ההפחתה כל 80,000 ק\"מ/4 שנים ונוזל קירור כל 120,000 ק\"מ/6 שנים. בתנאי שימוש קשים (אבק, חום מעל 40 מעלות, הרים, שימוש מסחרי) יש לטפל לעתים קרובות יותר."
+}

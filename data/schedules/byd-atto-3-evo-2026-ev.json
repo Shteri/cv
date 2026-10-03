@@ -1,0 +1,125 @@
+{
+  "id": "byd-atto-3-evo-2026-ev",
+  "make": "BYD",
+  "make_he": "בי.ווי.די",
+  "model": "Atto 3 EVO",
+  "model_he": "אטו 3 EVO",
+  "generation": "ATTO 3 EVO",
+  "years": [
+    2026,
+    2026
+  ],
+  "engines": [
+    "EV (TZ200XYT)"
+  ],
+  "fuel": "electric",
+  "importer": "שלמה מוטורס",
+  "interval": {
+    "km": 20000,
+    "months": 24,
+    "note": "לפי ספר הנהג העברי של ATTO 3 EVO: בדיקות כל 24 חודשים; המרחק כתוב בחלק מהשורות '20,000 מייל' ובחלק '20,000 ק\"מ' - נבחר 20,000 ק\"מ"
+  },
+  "cycle_km": 20000,
+  "services": [
+    {
+      "km": 20000,
+      "items": [
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות וצלחות בלם"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "גלגל ההגה ומוט הקישור; פין תפוח וגומיות"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "מגף גל ההינע"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלים קדמיים ואחוריים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "מצב ולחץ ניפוח כולל TPMS; כיוון גלגלים כשבלאי לא אחיד מעל 2 מ\"מ; סבב לפי הצורך"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "קורוזיה ולכלוך במחברי EPS ובנקודת ההארקה של רתמת החיווט"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס במיכל העיבוי"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "בליטות או עיוותים במגש סוללת המתח הגבוה, מוט ההגנה, המגן ושסתום הפריקה; נזילות מיחידת הכוח"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect",
+          "note": "בדיקה כל 24 חודשים או 20,000 ק\"מ; בתנאים קשים כל חצי שנה, החלפה לפי הצורך"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "בדיקה בכל טיפול והחלפה כל 24 חודשים או 20,000 ק\"מ"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "transmission_oil",
+      "action": "replace",
+      "first_km": 20000,
+      "first_months": 24,
+      "then_every_km": 30000,
+      "then_every_months": 24,
+      "note": "שמן הגיר ומסנן: פעם ראשונה אחרי 24 חודשים או 20,000 ק\"מ, אחר כך כל 24 חודשים או 30,000 ק\"מ"
+    },
+    {
+      "item": "coolant",
+      "action": "replace",
+      "every_km": 60000,
+      "every_months": 72,
+      "note": "נוזל קירור אורגני ארוך טווח של מנוע ההנעה: כל 6 שנים או '60,000 מייל' לפי הספר (כ-96,000 ק\"מ); נרשם כאן 60,000 ק\"מ כערך שמרני"
+    }
+  ],
+  "time_based": [],
+  "specs": {
+    "battery": "סוללת הנעה + מצבר 12V",
+    "_note": "טיוטה - יחידות המרחק בספר אינן עקביות (מייל/ק\"מ)"
+  },
+  "sources": [
+    {
+      "url": "https://www.byd.com/material/__EU/0820atto3evo/ATTO%203%20EVO%20Owner's%20Manual-Left-hand%20Drive-20260427-HE.pdf",
+      "kind": "manufacturer",
+      "note": "ספר נהג עברי ATTO 3 EVO (BYD אירופה, 27.04.2026), מידע תחזוקה עמ' 173-174 בקובץ (172-173 בספר)"
+    },
+    {
+      "url": "https://www.byd.com/material/__EU/0820atto3evo/ATTO%203%20EVO%20Gebruikershandleiding-linksgestuurd-20260605-NL.pdf",
+      "kind": "manufacturer",
+      "note": "הספר ההולנדי (06/2026) עמ' 230: אותה טבלה ואותו ערבוב של 'mijl' ו-'km'"
+    }
+  ],
+  "status": "draft",
+  "notes": "לפי ספר הנהג העברי של ATTO 3 EVO שמפרסמת BYD אירופה. הבדיקות התקופתיות כל 24 חודשים; ברוב השורות המרחק מופיע כ-'20,000 מייל' אבל בשורות של מסנן המזגן, נוזל הבלמים ושמן הגיר כ-'20,000 ק\"מ' (כך גם בגרסה האנגלית וההולנדית). לכן זו טיוטה עם מרווח 20,000 ק\"מ או שנתיים. נוזל בלמים מוחלף בכל טיפול; שמן הגיר והמסנן בפעם הראשונה ב-20,000 ק\"מ ואחר כך כל 30,000 ק\"מ (או שנתיים); נוזל הקירור כל 6 שנים. יש לאמת מול היבואן (שלמה מוטורס)."
+}

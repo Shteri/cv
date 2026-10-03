@@ -1,0 +1,860 @@
+{
+  "id": "deepal-s07-2025-2026-ev",
+  "make": "Deepal",
+  "make_he": "דיפאל",
+  "model": "S07",
+  "model_he": "S07",
+  "generation": "S07 EV",
+  "years": [
+    2025,
+    2026
+  ],
+  "engines": [
+    "EV (XTDM16)"
+  ],
+  "fuel": "electric",
+  "importer": "מכשירי תנועה ומכוניות (2004)",
+  "interval": {
+    "km": 20000,
+    "months": 12,
+    "note": "לפי טבלת הטיפולים בחוברת האחריות והשירות של היבואן: כל 20,000 ק\"מ או 12 חודשים"
+  },
+  "cycle_km": 200000,
+  "services": [
+    {
+      "km": 20000,
+      "items": [
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "מכלול מנוע ההנעה: מחברים, ברגי הארקה וקיבוע, צנרת הקירור שלו וניקיון חיצוני"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "דליפות שמן ממשטחי החיבור של המנוע ותיבת ההפחתה, אטמים ופקקים"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת המתח הגבוה: נזק למעטפת, ברגי קיבוע, בדיקת בידוד והפרש מתחים בין התאים; ברגים, מחברים ומעטפת של רתמות המתח הגבוה; כיוון/תיקון לפי הצורך"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות וקליפרים מלפנים ומאחור"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "מצב ולחץ אוויר (כיוון), חישוקים וברגי גלגלים"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "ברגים ואומים של המרכב והשלדה"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "חופש והידוקים"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "clean",
+          "note": "ניקוי אבק מפני המעבה והמאייד"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מסנן המזגן (בטבלה: בדיקה/החלפה בכל טיפול)"
+        }
+      ]
+    },
+    {
+      "km": 40000,
+      "items": [
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "מכלול מנוע ההנעה: מחברים, ברגי הארקה וקיבוע, צנרת הקירור שלו וניקיון חיצוני"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "דליפות שמן ממשטחי החיבור של המנוע ותיבת ההפחתה, אטמים ופקקים"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת המתח הגבוה: נזק למעטפת, ברגי קיבוע, בדיקת בידוד והפרש מתחים בין התאים; ברגים, מחברים ומעטפת של רתמות המתח הגבוה; כיוון/תיקון לפי הצורך"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות וקליפרים מלפנים ומאחור"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "מצב ולחץ אוויר (כיוון), חישוקים וברגי גלגלים"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "ברגים ואומים של המרכב והשלדה"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "חופש והידוקים"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "חיווט, מחברים ותאורה של אביזרי החשמל"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect",
+          "note": "כמות גז המזגן"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "מדחס, מייבש וצנרת המיזוג; ניקוי אבק מהמעבה ומהמאייד"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "מעגל נוזל הקירור של מערכת המיזוג"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect",
+          "note": "צנרת ואביזרי מערכת הקירור, כולל כיוון/הידוק"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מסנן המזגן (בטבלה: בדיקה/החלפה בכל טיפול)"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "מכלול מנוע ההנעה: מחברים, ברגי הארקה וקיבוע, צנרת הקירור שלו וניקיון חיצוני"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "דליפות שמן ממשטחי החיבור של המנוע ותיבת ההפחתה, אטמים ופקקים"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת המתח הגבוה: נזק למעטפת, ברגי קיבוע, בדיקת בידוד והפרש מתחים בין התאים; ברגים, מחברים ומעטפת של רתמות המתח הגבוה; כיוון/תיקון לפי הצורך"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות וקליפרים מלפנים ומאחור"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "מצב ולחץ אוויר (כיוון), חישוקים וברגי גלגלים"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate",
+          "note": "בטבלה מסומן R לצד בדיקה וכיוון בשורת הצמיגים; פורש כאן כהצלבה"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "ברגים ואומים של המרכב והשלדה"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "חופש והידוקים"
+        },
+        {
+          "item": "coolant",
+          "action": "replace"
+        },
+        {
+          "item": "ac_system",
+          "action": "clean",
+          "note": "ניקוי אבק מפני המעבה והמאייד"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מסנן המזגן (בטבלה: בדיקה/החלפה בכל טיפול)"
+        }
+      ]
+    },
+    {
+      "km": 80000,
+      "items": [
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "מכלול מנוע ההנעה: מחברים, ברגי הארקה וקיבוע, צנרת הקירור שלו וניקיון חיצוני"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "דליפות שמן ממשטחי החיבור של המנוע ותיבת ההפחתה, אטמים ופקקים"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת המתח הגבוה: נזק למעטפת, ברגי קיבוע, בדיקת בידוד והפרש מתחים בין התאים; ברגים, מחברים ומעטפת של רתמות המתח הגבוה; כיוון/תיקון לפי הצורך"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות וקליפרים מלפנים ומאחור"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "מצב ולחץ אוויר (כיוון), חישוקים וברגי גלגלים"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate",
+          "note": "בטבלה מסומן R לצד בדיקה וכיוון בשורת הצמיגים; פורש כאן כהצלבה"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "ברגים ואומים של המרכב והשלדה"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "חופש והידוקים"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "חיווט, מחברים ותאורה של אביזרי החשמל"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect",
+          "note": "כמות גז המזגן"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "מדחס, מייבש וצנרת המיזוג; ניקוי אבק מהמעבה ומהמאייד"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "מעגל נוזל הקירור של מערכת המיזוג"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect",
+          "note": "צנרת ואביזרי מערכת הקירור, כולל כיוון/הידוק"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מסנן המזגן (בטבלה: בדיקה/החלפה בכל טיפול)"
+        }
+      ]
+    },
+    {
+      "km": 100000,
+      "items": [
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "מכלול מנוע ההנעה: מחברים, ברגי הארקה וקיבוע, צנרת הקירור שלו וניקיון חיצוני"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "דליפות שמן ממשטחי החיבור של המנוע ותיבת ההפחתה, אטמים ופקקים"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת המתח הגבוה: נזק למעטפת, ברגי קיבוע, בדיקת בידוד והפרש מתחים בין התאים; ברגים, מחברים ומעטפת של רתמות המתח הגבוה; כיוון/תיקון לפי הצורך"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות וקליפרים מלפנים ומאחור"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "מצב ולחץ אוויר (כיוון), חישוקים וברגי גלגלים"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate",
+          "note": "בטבלה מסומן R לצד בדיקה וכיוון בשורת הצמיגים; פורש כאן כהצלבה"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "ברגים ואומים של המרכב והשלדה"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "חופש והידוקים"
+        },
+        {
+          "item": "coolant",
+          "action": "replace"
+        },
+        {
+          "item": "ac_system",
+          "action": "clean",
+          "note": "ניקוי אבק מפני המעבה והמאייד"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מסנן המזגן (בטבלה: בדיקה/החלפה בכל טיפול)"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "מכלול מנוע ההנעה: מחברים, ברגי הארקה וקיבוע, צנרת הקירור שלו וניקיון חיצוני"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "דליפות שמן ממשטחי החיבור של המנוע ותיבת ההפחתה, אטמים ופקקים"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת המתח הגבוה: נזק למעטפת, ברגי קיבוע, בדיקת בידוד והפרש מתחים בין התאים; ברגים, מחברים ומעטפת של רתמות המתח הגבוה; כיוון/תיקון לפי הצורך"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות וקליפרים מלפנים ומאחור"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "מצב ולחץ אוויר (כיוון), חישוקים וברגי גלגלים"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate",
+          "note": "בטבלה מסומן R לצד בדיקה וכיוון בשורת הצמיגים; פורש כאן כהצלבה"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "ברגים ואומים של המרכב והשלדה"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "חופש והידוקים"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "חיווט, מחברים ותאורה של אביזרי החשמל"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect",
+          "note": "כמות גז המזגן"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "מדחס, מייבש וצנרת המיזוג; ניקוי אבק מהמעבה ומהמאייד"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "מעגל נוזל הקירור של מערכת המיזוג"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect",
+          "note": "צנרת ואביזרי מערכת הקירור, כולל כיוון/הידוק"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מסנן המזגן (בטבלה: בדיקה/החלפה בכל טיפול)"
+        }
+      ]
+    },
+    {
+      "km": 140000,
+      "items": [
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "מכלול מנוע ההנעה: מחברים, ברגי הארקה וקיבוע, צנרת הקירור שלו וניקיון חיצוני"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "דליפות שמן ממשטחי החיבור של המנוע ותיבת ההפחתה, אטמים ופקקים"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת המתח הגבוה: נזק למעטפת, ברגי קיבוע, בדיקת בידוד והפרש מתחים בין התאים; ברגים, מחברים ומעטפת של רתמות המתח הגבוה; כיוון/תיקון לפי הצורך"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות וקליפרים מלפנים ומאחור"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "מצב ולחץ אוויר (כיוון), חישוקים וברגי גלגלים"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate",
+          "note": "בטבלה מסומן R לצד בדיקה וכיוון בשורת הצמיגים; פורש כאן כהצלבה"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "ברגים ואומים של המרכב והשלדה"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "חופש והידוקים"
+        },
+        {
+          "item": "coolant",
+          "action": "replace"
+        },
+        {
+          "item": "ac_system",
+          "action": "clean",
+          "note": "ניקוי אבק מפני המעבה והמאייד"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מסנן המזגן (בטבלה: בדיקה/החלפה בכל טיפול)"
+        }
+      ]
+    },
+    {
+      "km": 160000,
+      "items": [
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "מכלול מנוע ההנעה: מחברים, ברגי הארקה וקיבוע, צנרת הקירור שלו וניקיון חיצוני"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "דליפות שמן ממשטחי החיבור של המנוע ותיבת ההפחתה, אטמים ופקקים"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת המתח הגבוה: נזק למעטפת, ברגי קיבוע, בדיקת בידוד והפרש מתחים בין התאים; ברגים, מחברים ומעטפת של רתמות המתח הגבוה; כיוון/תיקון לפי הצורך"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות וקליפרים מלפנים ומאחור"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "מצב ולחץ אוויר (כיוון), חישוקים וברגי גלגלים"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate",
+          "note": "בטבלה מסומן R לצד בדיקה וכיוון בשורת הצמיגים; פורש כאן כהצלבה"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "ברגים ואומים של המרכב והשלדה"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "חופש והידוקים"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "חיווט, מחברים ותאורה של אביזרי החשמל"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect",
+          "note": "כמות גז המזגן"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "מדחס, מייבש וצנרת המיזוג; ניקוי אבק מהמעבה ומהמאייד"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "מעגל נוזל הקירור של מערכת המיזוג"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect",
+          "note": "צנרת ואביזרי מערכת הקירור, כולל כיוון/הידוק"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מסנן המזגן (בטבלה: בדיקה/החלפה בכל טיפול)"
+        }
+      ]
+    },
+    {
+      "km": 180000,
+      "items": [
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "מכלול מנוע ההנעה: מחברים, ברגי הארקה וקיבוע, צנרת הקירור שלו וניקיון חיצוני"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "דליפות שמן ממשטחי החיבור של המנוע ותיבת ההפחתה, אטמים ופקקים"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת המתח הגבוה: נזק למעטפת, ברגי קיבוע, בדיקת בידוד והפרש מתחים בין התאים; ברגים, מחברים ומעטפת של רתמות המתח הגבוה; כיוון/תיקון לפי הצורך"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות וקליפרים מלפנים ומאחור"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "מצב ולחץ אוויר (כיוון), חישוקים וברגי גלגלים"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate",
+          "note": "בטבלה מסומן R לצד בדיקה וכיוון בשורת הצמיגים; פורש כאן כהצלבה"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "ברגים ואומים של המרכב והשלדה"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "חופש והידוקים"
+        },
+        {
+          "item": "coolant",
+          "action": "replace"
+        },
+        {
+          "item": "ac_system",
+          "action": "clean",
+          "note": "ניקוי אבק מפני המעבה והמאייד"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מסנן המזגן (בטבלה: בדיקה/החלפה בכל טיפול)"
+        }
+      ]
+    },
+    {
+      "km": 200000,
+      "items": [
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "מכלול מנוע ההנעה: מחברים, ברגי הארקה וקיבוע, צנרת הקירור שלו וניקיון חיצוני"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "דליפות שמן ממשטחי החיבור של המנוע ותיבת ההפחתה, אטמים ופקקים"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "סוללת המתח הגבוה: נזק למעטפת, ברגי קיבוע, בדיקת בידוד והפרש מתחים בין התאים; ברגים, מחברים ומעטפת של רתמות המתח הגבוה; כיוון/תיקון לפי הצורך"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות וקליפרים מלפנים ומאחור"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "מצב ולחץ אוויר (כיוון), חישוקים וברגי גלגלים"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate",
+          "note": "בטבלה מסומן R לצד בדיקה וכיוון בשורת הצמיגים; פורש כאן כהצלבה"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "ברגים ואומים של המרכב והשלדה"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "חופש והידוקים"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "חיווט, מחברים ותאורה של אביזרי החשמל"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect",
+          "note": "כמות גז המזגן"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "מדחס, מייבש וצנרת המיזוג; ניקוי אבק מהמעבה ומהמאייד"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "מעגל נוזל הקירור של מערכת המיזוג"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect",
+          "note": "צנרת ואביזרי מערכת הקירור, כולל כיוון/הידוק"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מסנן המזגן (בטבלה: בדיקה/החלפה בכל טיפול)"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "transmission_oil",
+      "action": "replace",
+      "every_km": 60000,
+      "every_months": 36,
+      "note": "שמן תיבת ההפחתה של מנוע ההנעה: כל 3 שנים או 60,000 ק\"מ"
+    }
+  ],
+  "time_based": [],
+  "specs": {
+    "tires": "235/55 R19 או 255/45 R20 (אין גלגל חלופי)",
+    "tire_pressure": "2.7 בר מלפנים ומאחור; בעומס מלא 2.9 בר מאחור",
+    "spare": "אין גלגל חלופי",
+    "battery": "סוללת הנעה + מצבר 12V"
+  },
+  "sources": [
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0910/1656/0946/files/2026.pdf?v=1783953306",
+      "kind": "importer",
+      "note": "חוברת אחריות ושירות Deepal S07 (מק\"ט CH 28981124, עדכון 01, 07/2026): טבלת טיפולים תקופתית עמ' 14-16 בקובץ"
+    },
+    {
+      "url": "https://cdn.shopify.com/s/files/1/0910/1656/0946/files/DEEPAL_S07_ver1_WEB_3bde21a4-f1cd-48b7-933c-587f2ba36d36.pdf?v=1740909916",
+      "kind": "importer",
+      "note": "מדריך תפעול ושירות S07 בעברית: צמיגים, לחצים ובלמים עמ' 288"
+    },
+    {
+      "url": "https://www.changan.co.il/pages/%D7%A1%D7%A4%D7%A8%D7%99-%D7%A8%D7%9B%D7%91-%D7%95%D7%9B%D7%AA%D7%91-%D7%90%D7%97%D7%A8%D7%99%D7%95%D7%AA",
+      "kind": "importer",
+      "note": "עמוד 'ספרי רכב וכתב אחריות' באתר צ'אנגן ישראל"
+    }
+  ],
+  "status": "reviewed",
+  "notes": "לפי טבלת הטיפולים בחוברת האחריות והשירות העברית של היבואן ל-S07 (07/2026). טיפול כל 20,000 ק\"מ או שנה עם בדיקות של מנוע ההנעה, סוללת המתח הגבוה, הבלמים, ההיגוי והצמיגים, ניקוי מעבה ומאייד והחלפת מסנן מזגן. נוזל הבלמים מוחלף כל 40,000 ק\"מ; נוזל הקירור מוחלף לראשונה ב-60,000 ק\"מ ואחר כך כל 40,000 ק\"מ (100, 140, 180 אלף) - כפי שמופיע בטבלה; שמן תיבת ההפחתה כל 3 שנים או 60,000 ק\"מ. הצלבת גלגלים מסומנת בטבלה מ-60,000 ק\"מ. בתנאי שימוש קשים (נסיעות קצרות רבות, דרכים משובשות, בוציות או מאובקות) יש להקדים בדיקות והחלפות."
+}

@@ -1,0 +1,140 @@
+{
+  "id": "dongfeng-box-2025-2026-ev",
+  "make": "Dongfeng",
+  "make_he": "דונגפנג",
+  "model": "Box",
+  "model_he": "בוקס",
+  "generation": "BOX",
+  "years": [
+    2025,
+    2026
+  ],
+  "engines": [
+    "EV (TZ180XSD70)"
+  ],
+  "fuel": "electric",
+  "importer": "דלק מוטורס",
+  "interval": {
+    "km": 30000,
+    "months": 24,
+    "note": "לפי תוכנית הטיפולים של היבואן: טיפול כל 30,000 ק\"מ או 24 חודשים, או כשמופיעה התראה בלוח המחוונים"
+  },
+  "cycle_km": 180000,
+  "services": [
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "coolant",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "replace",
+          "note": "שמן תיבת ההפחתה"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "coolant",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 150000,
+      "items": [
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 180000,
+      "items": [
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "coolant",
+          "action": "replace"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "replace",
+          "note": "שמן תיבת ההפחתה"
+        }
+      ]
+    }
+  ],
+  "long_interval": [],
+  "time_based": [],
+  "specs": {
+    "coolant": "אתילן גליקול, נקודת קיפאון 40- מעלות",
+    "brake_fluid": "DOT 4",
+    "battery": "סוללת הנעה + מצבר 12V",
+    "_note": "שמן תיבת ההפחתה: 75W סינתטי מלא (לפי מפרט הטיפולים של היבואן)"
+  },
+  "sources": [
+    {
+      "url": "https://dongfeng.co.il/service-plan/",
+      "kind": "importer",
+      "note": "עמוד 'תוכנית טיפול לרכב' של דונגפנג ישראל; הקובץ 'Dongfeng_Box_2025_and_up' (מפרט טיפולים, עמוד אחד) נטען מרשימת CSV באתר ומאוחסן ב-SharePoint של דלק מוטורס"
+    },
+    {
+      "url": "https://dongfeng.co.il/%d7%a9%d7%99%d7%a8%d7%95%d7%aa-%d7%95%d7%90%d7%97%d7%a8%d7%99%d7%95%d7%aa/",
+      "kind": "importer",
+      "note": "עמוד שירות ואחריות: שגרת טיפולים ל-BOX כל שנתיים או 30,000 ק\"מ"
+    },
+    {
+      "url": "https://delekmotorscoil.sharepoint.com/:b:/s/Techtrain/EYikrwlVHGlMmzJ1AXCMlCIBcrYJXkRWsfZTmXKK0c8qnw?download=1",
+      "kind": "importer",
+      "note": "הקובץ עצמו (250857 39609 Dongfeng_Box_2025_and_up.pdf); נפתח עם curl ושמירת עוגיות (FedAuth אנונימי)"
+    }
+  ],
+  "status": "reviewed",
+  "notes": "לפי מפרט הטיפולים של היבואן (דלק מוטורס) ל-BOX מודל 2025 ואילך. טיפול כל 30,000 ק\"מ או שנתיים: בכל טיפול מוחלף מסנן המזגן; נוזל בלמים ונוזל קירור כל 60,000 ק\"מ או 4 שנים; שמן תיבת ההפחתה כל 90,000 ק\"מ או 6 שנים. המפרט מפרט רק פריטים להחלפה; הבדיקות הכלליות בכל טיפול אינן מפורטות בו. רפידות ודיסקים מוחלפים לפי בלאי."
+}

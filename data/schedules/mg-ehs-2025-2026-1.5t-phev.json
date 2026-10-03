@@ -1,0 +1,155 @@
+{
+  "id": "mg-ehs-2025-2026-1.5t-phev",
+  "make": "MG",
+  "make_he": "אם.ג'י",
+  "model": "EHS PHEV",
+  "model_he": "EHS פלאג-אין",
+  "generation": "HS PHEV דור 2 (2024 ואילך)",
+  "years": [
+    2025,
+    2026
+  ],
+  "engines": [
+    "1.5T PHEV (15FKE)"
+  ],
+  "fuel": "plug-in-hybrid",
+  "importer": "קאר איסט (קבוצת לובינסקי)",
+  "interval": {
+    "km": 24000,
+    "months": 12,
+    "note": "לפי טבלת השירות של MG בריטניה ל-HS פלאג-אין (2024 ואילך): כל 15,000 מייל (כ-24,000 ק\"מ) או 12 חודשים"
+  },
+  "cycle_km": 120000,
+  "services": [
+    {
+      "km": 24000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "כולל אטם בורג הניקוז"
+        }
+      ]
+    },
+    {
+      "km": 48000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "כולל אטם בורג הניקוז"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 72000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "כולל אטם בורג הניקוז"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 96000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "כולל אטם בורג הניקוז"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "replace",
+          "note": "שמן תיבת ההילוכים ההיברידית"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "כולל אטם בורג הניקוז"
+        },
+        {
+          "item": "coolant",
+          "action": "replace"
+        }
+      ]
+    }
+  ],
+  "long_interval": [],
+  "time_based": [],
+  "specs": {
+    "_note": "טיוטה - לפי MG בריטניה, לא נבדק מול ספר היבואן"
+  },
+  "sources": [
+    {
+      "url": "https://www.mg.co.uk/servicing",
+      "kind": "manufacturer",
+      "note": "MG Motor UK, Service Schedules - טבלת 'MG HS Plug-in Hybrid (2024 onwards)', 5 שנים/75,000 מייל"
+    },
+    {
+      "url": "https://mg-israel.co.il/guide-books/",
+      "kind": "importer",
+      "note": "עמוד ספרי הרכב של MG ישראל; הספרים נשלחים רק אחרי מילוי מספר טלפון בטופס ולא נפתחו (ב-REST של האתר נדרשת התחברות)"
+    }
+  ],
+  "status": "draft",
+  "notes": "ספרי הנהג של MG ישראל נשלחים רק דרך טופס ולא נפתחו, ולכן זו טיוטה לפי טבלת השירות של MG בריטניה ל-HS פלאג-אין (2024 ואילך), שהוא ה-EHS מהדור החדש (קוד מנוע 15FKE ברישוי, שונה מ-15E4E של הדור הקודם). המרווח בבריטניה 15,000 מייל או שנה, הומר ל-24,000 ק\"מ. שמן ומסנן בכל טיפול; מסנן אוויר, מסנן מזגן ונוזל בלמים כל שנתיים; מצתים בטיפול השלישי; מסנן דלק ושמן תיבה בטיפול הרביעי; נוזל קירור בטיפול החמישי. בטבלה הבריטית מוחלפות גם סוללות המפתחות כל שנתיים."
+}
