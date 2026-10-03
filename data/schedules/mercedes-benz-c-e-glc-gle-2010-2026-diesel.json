@@ -1,0 +1,351 @@
+{
+  "make": "Mercedes-Benz",
+  "make_he": "מרצדס-בנץ",
+  "importer": "כלמוביל",
+  "interval": {
+    "km": 20000,
+    "months": 12,
+    "note": "לפי מרצדס קנדה: טיפול A ראשון בכ-20,000 ק\"מ או שנה, ואחריו טיפול B ושוב A לסירוגין, כל 20,000 ק\"מ או שנה (המוקדם). מחוון ASSYST PLUS ברכב קובע בפועל"
+  },
+  "cycle_km": 80000,
+  "long_interval": [],
+  "sources": [
+    {
+      "url": "https://www.mercedes-benz.ca/en/owners/service-maintenance",
+      "kind": "manufacturer",
+      "note": "מרצדס-בנץ קנדה (רשמי, ק\"מ), פרק Maintenance Schedule: טיפול A ראשון בכ-20,000 ק\"מ או שנה, טיפול B שנה/20,000 ק\"מ אחריו, לסירוגין; רשימת העבודות בכל טיפול. נקרא בדפדפן (Playwright) ב-3.10.2026"
+    },
+    {
+      "url": "https://www.mbusa.com/en/owners/service-maintenance",
+      "kind": "manufacturer",
+      "note": "מרצדס-בנץ ארה\"ב (רשמי), Service Intervals: טיפול B כולל החלפת מסנן אבק/מסנן משולב והחלפת נוזל בלמים; מרווחים במיילים (10,000/20,000)"
+    },
+    {
+      "url": "https://www.mercedes-benz.ca/content/dam/mb-nafta/ca/owners/operators-manual/2023/SB_MY21-23_PC%20except%20463_ENG_2135842421_ALL.pdf",
+      "kind": "manufacturer",
+      "note": "חוברת שירות קנדית 2021-2023: מפרטת סוגי עבודות אך מפנה לתצוגת ASSYST PLUS ולספר השירות הדיגיטלי לגבי המרווחים (אין בה מספרים)"
+    },
+    {
+      "url": "https://www.mercedes-benz.co.il/site/car-books/",
+      "kind": "importer",
+      "note": "דף ספרי הרכב של כלמוביל/מרצדס ישראל: הספרים נשלחים רק בטופס עם קפצ'ה ודוא\"ל, לא הושגו"
+    }
+  ],
+  "status": "draft",
+  "specs": {
+    "_note": "לא נמצאו נתוני שמנים ונוזלים במקורות שנפתחו; יש לבדוק בספר הרכב"
+  },
+  "id": "mercedes-benz-c-e-glc-gle-2010-2026-diesel",
+  "model": "C / E / GLC / GLE / ML / GLS / B / S (דיזל)",
+  "model_he": "C / E / GLC / GLE / ML / GLS / B / S דיזל",
+  "generation": "W204/W205/W206, W212/W213, X253, W166/V167, X167, W246/W247",
+  "years": [
+    2010,
+    2026
+  ],
+  "engines": [
+    "2.1/2.2 טורבו דיזל (OM651)",
+    "2.0 טורבו דיזל (OM654)",
+    "3.0 V6 טורבו דיזל (OM642)",
+    "2.9 שישה בטור טורבו דיזל (OM656)"
+  ],
+  "fuel": "diesel",
+  "services": [
+    {
+      "km": 20000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "adblue",
+          "action": "inspect",
+          "note": "השלמת AdBlue (דיזל בלבד)"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מסנן אבק לתא הנוסעים, בדגמים שבהם קיים"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "כולל צופר"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקת מפלסי נוזלים והשלמה"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "מגבים ומערכת שטיפה"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "כולל גלגל חלופי"
+        },
+        {
+          "item": "battery_12v",
+          "action": "replace",
+          "note": "סוללת השלט (מפתח)"
+        }
+      ]
+    },
+    {
+      "km": 40000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "adblue",
+          "action": "inspect",
+          "note": "השלמת AdBlue (דיזל בלבד)"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מסנן משולב (פחם פעיל)"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "לפי דף השירות האמריקאי של מרצדס (טיפול B)"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate",
+          "note": "כשמתאים לרכב"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "מערכת ההינע - בלאי ונזק"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "דליפות במכלולים העיקריים"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "רצועת Poly-V"
+        },
+        {
+          "item": "lights",
+          "action": "adjust",
+          "note": "כיוון פנסים ראשיים"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקת מפלסי נוזלים והשלמה"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "adblue",
+          "action": "inspect",
+          "note": "השלמת AdBlue (דיזל בלבד)"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מסנן אבק לתא הנוסעים, בדגמים שבהם קיים"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "כולל צופר"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקת מפלסי נוזלים והשלמה"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "מגבים ומערכת שטיפה"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "כולל גלגל חלופי"
+        },
+        {
+          "item": "battery_12v",
+          "action": "replace",
+          "note": "סוללת השלט (מפתח)"
+        }
+      ]
+    },
+    {
+      "km": 80000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "adblue",
+          "action": "inspect",
+          "note": "השלמת AdBlue (דיזל בלבד)"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מסנן משולב (פחם פעיל)"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "לפי דף השירות האמריקאי של מרצדס (טיפול B)"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate",
+          "note": "כשמתאים לרכב"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "מערכת ההינע - בלאי ונזק"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "דליפות במכלולים העיקריים"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "רצועת Poly-V"
+        },
+        {
+          "item": "lights",
+          "action": "adjust",
+          "note": "כיוון פנסים ראשיים"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקת מפלסי נוזלים והשלמה"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        }
+      ]
+    }
+  ],
+  "notes": "טיוטה. ספרי הרכב והשירות של כלמוביל לא נמצאו ברשת (נשלחים רק בטופס), ואתרי מרצדס באירופה חסומים מכאן. המרווחים כאן מתוך דף השירות הרשמי של מרצדס-בנץ קנדה (שוק בק\"מ): טיפולי A ו-B לסירוגין, כל 20,000 ק\"מ או שנה. ברכבי מרצדס מחוון השירות (ASSYST PLUS) מחשב את מועד הטיפול לפי נסועה, זמן ואופן נהיגה, והוא שקובע; בשווקים אחרים המרווח המרבי עשוי להיות שונה. החלפת נוזל בלמים בטיפול B לקוחה מדף השירות האמריקאי של מרצדס. מצתים, מסנן אוויר, נוזל קירור ושמן גיר לא מפורטים במקורות שנפתחו ולכן לא נכללו - יש לבצע לפי מחוון השירות והמוסך המורשה. מסנן דלק אינו מפורט במקור הקנדי לרכבים פרטיים; יש לבדוק במוסך.",
+  "time_based": []
+}

@@ -1,0 +1,136 @@
+{
+  "make": "Land Rover",
+  "make_he": "לנד רובר",
+  "importer": "לנד רובר ישראל",
+  "id": "land-rover-discovery-4-range-rover-sport-2014-2019-3.0-diesel",
+  "model": "Discovery 4 / Range Rover Sport (3.0 דיזל)",
+  "model_he": "דיסקברי 4 / ריינג' רובר ספורט דיזל",
+  "generation": "L319 / L494",
+  "years": [
+    2014,
+    2019
+  ],
+  "engines": [
+    "3.0 V6 טורבו דיזל (306DT)"
+  ],
+  "fuel": "diesel",
+  "interval": {
+    "km": 26000,
+    "months": 12,
+    "note": "לפי ספר הבעלים (תוכנית 1, כולל ישראל): Range Rover, Range Rover Sport ו-Discovery בכל המנועים - כל 26,000 ק\"מ או 12 חודשים, טיפולי A ו-B לסירוגין"
+  },
+  "cycle_km": 104000,
+  "services": [
+    {
+      "km": 26000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "טיפול A"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "תוכן מלא לפי גיליון הבדיקה של המוסך המורשה"
+        }
+      ]
+    },
+    {
+      "km": 52000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "טיפול B"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "תוכן מלא לפי גיליון הבדיקה של המוסך המורשה"
+        }
+      ]
+    },
+    {
+      "km": 78000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "טיפול A"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "תוכן מלא לפי גיליון הבדיקה של המוסך המורשה"
+        }
+      ]
+    },
+    {
+      "km": 104000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "טיפול B"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "תוכן מלא לפי גיליון הבדיקה של המוסך המורשה"
+        }
+      ]
+    }
+  ],
+  "long_interval": [],
+  "time_based": [
+    {
+      "item": "brake_fluid",
+      "action": "replace",
+      "note": "כל 3 שנים ללא תלות בנסועה",
+      "months": 36
+    },
+    {
+      "item": "coolant",
+      "action": "replace",
+      "note": "כל 10 שנים ללא תלות בנסועה",
+      "months": 120
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://topix.landrover.jlrext.com/topix/service/procedure/565244/PDF/a806dc91-9031-45a6-a5ea-74c66d780252/en_GB",
+      "kind": "manufacturer",
+      "note": "ספר בעלים של לנד רובר (TOPIx), 'Online service history and service intervals', Service Interval Plan 1 משנת דגם 16 - ישראל ברשימת המדינות: RR/RR Sport/Discovery כל המנועים 26,000 ק\"מ או 12 חודשים; Evoque/Discovery Sport 2.0 בנזין 16,000 ק\"מ או 12 חודשים; טיפולי A/B לסירוגין"
+    },
+    {
+      "url": "https://topix.landrover.jlrext.com/topix/service/procedure/418654/PDF/3b36d456-d7da-48a9-adc6-4ac77e49b363/en_GB",
+      "kind": "manufacturer",
+      "note": "ספר בעלים של לנד רובר (TOPIx), אותו פרק לשנת דגם 14 - ישראל ברשימה; טבלת נוזלים: נוזל בלמים כל 3 שנים ונוזל קירור כל 10 שנים ללא תלות בנסועה (Freelander 2, Discovery, Evoque, RR Sport, RR)"
+    },
+    {
+      "url": "https://www.landrover.co.il/ownership/servicing/overview",
+      "kind": "importer",
+      "note": "דף השירות של לנד רובר ישראל: מחוון מרווחי שירות גמיש, ללא מספרים"
+    }
+  ],
+  "status": "draft",
+  "specs": {},
+  "notes": "טיוטה. המרווחים מתוך פרק השירות של ספר הבעלים של לנד רובר (מערכת TOPIx של JLR), שבו ישראל מופיעה ברשימת המדינות של תוכנית המרווחים. מחוון השירות ברכב עשוי להקדים את הטיפול לפי סגנון הנהיגה, והוא קובע. תוכן טיפולי A ו-B מפורט ב'גיליון הבדיקה' של המוסך ולא בספר, ולכן כאן מופיעים רק החלפת שמן ומסנן (שבוצעו בכל טיפול) ונוזלי הבלמים והקירור לפי הזמן. בתנאי שימוש קשים (אבק, שטח, גרירה, חום) נדרש שירות תכוף יותר."
+}

@@ -1,0 +1,606 @@
+{
+  "make": "BMW",
+  "make_he": "ב.מ.וו",
+  "importer": "כמור",
+  "id": "bmw-b38-b48-b58-2015-2026-petrol",
+  "model": "סדרות 1/2/3/4/5/7, X1/X2/X3/X4/X5/X6, Z4",
+  "model_he": "118i / 318i / 320i / 330i / 520i / 530i / X1 / X2 / X3 / X4 / X5 / X6 / Z4",
+  "generation": "F/G/U (2015 ואילך)",
+  "years": [
+    2015,
+    2026
+  ],
+  "engines": [
+    "1.5 טורבו 3 צילינדרים (B38)",
+    "2.0 טורבו (B48)",
+    "3.0 טורבו שישה בטור (B58)"
+  ],
+  "fuel": "petrol",
+  "interval": {
+    "km": 16000,
+    "months": 12,
+    "note": "ב.מ.וו עובדת לפי מחוון CBS שמחשב את מועד החלפת השמן. בחוברת האמריקאית כל טיפול שמן הוא בערך 10,000 מייל (כ-16,000 ק\"מ), ובדוגמת התצוגה שבה הטיפול הבא מופיע שנה אחרי המסירה. המחוון ברכב קובע"
+  },
+  "cycle_km": 192000,
+  "services": [
+    {
+      "km": 16000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "לחץ ניפוח ואיפוס חיישני לחץ"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "הודעות Check Control ונורות אזהרה; איפוס CBS"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 32000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "לחץ ניפוח ואיפוס חיישני לחץ"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "הודעות Check Control ונורות אזהרה; איפוס CBS"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מסנן מיקרו לתא הנוסעים, בכל טיפול שמן שני"
+        },
+        {
+          "item": "battery_12v",
+          "action": "replace",
+          "note": "סוללות השלט"
+        }
+      ]
+    },
+    {
+      "km": 48000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "לחץ ניפוח ואיפוס חיישני לחץ"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "הודעות Check Control ונורות אזהרה; איפוס CBS"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 64000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "לחץ ניפוח ואיפוס חיישני לחץ"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "הודעות Check Control ונורות אזהרה; איפוס CBS"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מסנן מיקרו לתא הנוסעים, בכל טיפול שמן שני"
+        },
+        {
+          "item": "battery_12v",
+          "action": "replace",
+          "note": "סוללות השלט"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "בכל טיפול שמן רביעי; לעתים קרובות יותר בתנאי אבק"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "מצב טעינה"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס וריכוז"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "תיבת הילוכים, סרן, צנרת דלק ופליטה"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בולמים (ויזואלי) ונסיעת מבחן"
+        }
+      ]
+    },
+    {
+      "km": 80000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "לחץ ניפוח ואיפוס חיישני לחץ"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "הודעות Check Control ונורות אזהרה; איפוס CBS"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 96000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "לחץ ניפוח ואיפוס חיישני לחץ"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "הודעות Check Control ונורות אזהרה; איפוס CBS"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מסנן מיקרו לתא הנוסעים, בכל טיפול שמן שני"
+        },
+        {
+          "item": "battery_12v",
+          "action": "replace",
+          "note": "סוללות השלט"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "בכל טיפול שמן שישי (כ-60,000 מייל)"
+        }
+      ]
+    },
+    {
+      "km": 112000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "לחץ ניפוח ואיפוס חיישני לחץ"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "הודעות Check Control ונורות אזהרה; איפוס CBS"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 128000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "לחץ ניפוח ואיפוס חיישני לחץ"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "הודעות Check Control ונורות אזהרה; איפוס CBS"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מסנן מיקרו לתא הנוסעים, בכל טיפול שמן שני"
+        },
+        {
+          "item": "battery_12v",
+          "action": "replace",
+          "note": "סוללות השלט"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "בכל טיפול שמן רביעי; לעתים קרובות יותר בתנאי אבק"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "מצב טעינה"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס וריכוז"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "תיבת הילוכים, סרן, צנרת דלק ופליטה"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בולמים (ויזואלי) ונסיעת מבחן"
+        }
+      ]
+    },
+    {
+      "km": 144000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "לחץ ניפוח ואיפוס חיישני לחץ"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "הודעות Check Control ונורות אזהרה; איפוס CBS"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 160000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "לחץ ניפוח ואיפוס חיישני לחץ"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "הודעות Check Control ונורות אזהרה; איפוס CBS"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מסנן מיקרו לתא הנוסעים, בכל טיפול שמן שני"
+        },
+        {
+          "item": "battery_12v",
+          "action": "replace",
+          "note": "סוללות השלט"
+        }
+      ]
+    },
+    {
+      "km": 176000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "לחץ ניפוח ואיפוס חיישני לחץ"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "הודעות Check Control ונורות אזהרה; איפוס CBS"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 192000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "לחץ ניפוח ואיפוס חיישני לחץ"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "הודעות Check Control ונורות אזהרה; איפוס CBS"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מסנן מיקרו לתא הנוסעים, בכל טיפול שמן שני"
+        },
+        {
+          "item": "battery_12v",
+          "action": "replace",
+          "note": "סוללות השלט"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "בכל טיפול שמן רביעי; לעתים קרובות יותר בתנאי אבק"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "מצב טעינה"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס וריכוז"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "תיבת הילוכים, סרן, צנרת דלק ופליטה"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בולמים (ויזואלי) ונסיעת מבחן"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "בכל טיפול שמן שישי (כ-60,000 מייל)"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "transmission_oil",
+      "action": "replace",
+      "every_km": 96000,
+      "note": "בחוברת 2025: X1/X2 בלבד, בערך 60,000-72,000 מייל (כ-96,000-115,000 ק\"מ). בשאר הדגמים שמן לטווח ארוך"
+    }
+  ],
+  "time_based": [
+    {
+      "item": "brake_fluid",
+      "action": "replace",
+      "note": "לפי מחוון CBS (מבוסס זמן); בדוגמת התצוגה בחוברת ההחלפה הראשונה כשלוש שנים מהמסירה",
+      "months": 36
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.bmwusa.com/content/dam/bmw/marketUS/common/warranty-books/2025/BMW_MY25_Maintenance_with_BEVs.pdf",
+      "kind": "manufacturer",
+      "note": "חוברת אחזקה של ב.מ.וו ארה\"ב 2025, עמ' 10-16 (Maintenance Service Summary): מסנן מיזוג בכל טיפול שמן שני (כ-20,000 מייל), מסנן אוויר ברביעי (כ-40,000 מייל), מצתים בשישי (כ-60,000 מייל), שמן גיר X1/X2 כ-60,000-72,000 מייל; עמ' 7 דוגמת תצוגה: שמן בעוד 10,000 מייל ושנה, נוזל בלמים 3 שנים"
+    },
+    {
+      "url": "https://di-uploads-pod15.s3.us-east-1.amazonaws.com/bmwofescondido/uploads/2021/05/5A1BC92_21MY_BMW_Maintenance_FINAL_Print_withCover_111220.pdf",
+      "kind": "manufacturer",
+      "note": "עותק של חוברת האחזקה של ב.מ.וו ארה\"ב לשנת 2021 (מאתר סוכנות), עמ' 9-14: אותו סדר פעולות, כולל דגמי 330e/530e/X3 30e/X5 45e; נוזלי קירור ותיבות הילוכים מוגדרים 'לטווח ארוך'"
+    },
+    {
+      "url": "https://www.bmw.co.il/",
+      "kind": "importer",
+      "note": "אתרי כמור (bmw.co.il, kamor.co.il, mini.co.il) חסומים מכאן (502 בפרוקסי); לא נמצא מסמך של היבואן"
+    }
+  ],
+  "status": "draft",
+  "specs": {
+    "_note": "שמן לפי ספר הרכב (שמן סינתטי מאושר ב.מ.וו); נוזל קירור ושמן גיר לטווח ארוך לפי החוברת"
+  },
+  "notes": "טיוטה. אתרי כמור חסומים מכאן ולא נמצא ספר שירות ישראלי. הלוח בנוי מחוברות האחזקה הרשמיות של ב.מ.וו בארה\"ב (2021, 2025): השמן מוחלף לפי מחוון CBS, ופריטים נלווים מוחלפים בטיפול שמן מסוים - מסנן מיזוג בכל שני, מסנן אוויר בכל רביעי, מצתים בכל שישי. הק\"מ כאן הם המרת ה'בערך 10,000 מייל' של החוברת; ברכב ישראלי/אירופי מחוון CBS עשוי לתת מרווח ארוך או קצר יותר, והוא שקובע. נוזל קירור ושמן תיבת הילוכים מוגדרים בחוברת כ'לטווח ארוך' (מוחלפים רק בתיקון), למעט האמור בהערות. נוזל בלמים לפי המחוון."
+}

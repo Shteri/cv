@@ -1,0 +1,677 @@
+{
+  "make": "Mercedes-Benz",
+  "make_he": "מרצדס-בנץ",
+  "importer": "כלמוביל",
+  "id": "mercedes-benz-sprinter-2018-2026-diesel",
+  "model": "Sprinter",
+  "model_he": "ספרינטר",
+  "generation": "VS30 (907/910)",
+  "years": [
+    2018,
+    2026
+  ],
+  "engines": [
+    "2.0 טורבו דיזל (OM654)",
+    "2.1 טורבו דיזל (OM651)",
+    "3.0 V6 טורבו דיזל (OM642)"
+  ],
+  "fuel": "diesel",
+  "interval": {
+    "km": 32000,
+    "months": 24,
+    "note": "לפי החוברת האמריקאית: טיפולי A ו-B לסירוגין כל 20,000 מייל (כ-32,000 ק\"מ) או שנתיים, המוקדם. מחוון השירות ברכב קובע"
+  },
+  "cycle_km": 256000,
+  "services": [
+    {
+      "km": 32000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect",
+          "note": "השלמה"
+        },
+        {
+          "item": "adblue",
+          "action": "inspect",
+          "note": "מילוי מיכל AdBlue"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "בדיקת תפקוד בלם שירות ובלם חניה"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "כולל גלגל חלופי"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "כל שנתיים לפי החוברת (כל טיפול כזה הוא בערך שנתיים)"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 64000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect",
+          "note": "השלמה"
+        },
+        {
+          "item": "adblue",
+          "action": "inspect",
+          "note": "מילוי מיכל AdBlue"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "בדיקת תפקוד בלם שירות ובלם חניה"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "כולל גלגל חלופי"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "כל שנתיים לפי החוברת (כל טיפול כזה הוא בערך שנתיים)"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect",
+          "note": "בגרסת 4x4 בלבד"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "כל רצועות Poly-V"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "כל הרכיבים הגלויים בתא המנוע - נזק ודליפות"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "תאורה חיצונית"
+        },
+        {
+          "item": "lights",
+          "action": "adjust",
+          "note": "כיוון גובה פנסים"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "גירוז צירי דלתות אחוריות (בקוד W54)"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "מגבים קדמיים ואחוריים ומערכות שטיפה"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מסנן אבק/פחם למיזוג; גם מסנן מזגן הגג האחורי אם קיים"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "פתחי ניקוז ברצפה באזור הדלת ההזזה"
+        }
+      ]
+    },
+    {
+      "km": 96000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect",
+          "note": "השלמה"
+        },
+        {
+          "item": "adblue",
+          "action": "inspect",
+          "note": "מילוי מיכל AdBlue"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "בדיקת תפקוד בלם שירות ובלם חניה"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "כולל גלגל חלופי"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "כל שנתיים לפי החוברת (כל טיפול כזה הוא בערך שנתיים)"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 128000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect",
+          "note": "השלמה"
+        },
+        {
+          "item": "adblue",
+          "action": "inspect",
+          "note": "מילוי מיכל AdBlue"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "בדיקת תפקוד בלם שירות ובלם חניה"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "כולל גלגל חלופי"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "כל שנתיים לפי החוברת (כל טיפול כזה הוא בערך שנתיים)"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect",
+          "note": "בגרסת 4x4 בלבד"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "כל רצועות Poly-V"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "כל הרכיבים הגלויים בתא המנוע - נזק ודליפות"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "תאורה חיצונית"
+        },
+        {
+          "item": "lights",
+          "action": "adjust",
+          "note": "כיוון גובה פנסים"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "גירוז צירי דלתות אחוריות (בקוד W54)"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "מגבים קדמיים ואחוריים ומערכות שטיפה"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מסנן אבק/פחם למיזוג; גם מסנן מזגן הגג האחורי אם קיים"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "פתחי ניקוז ברצפה באזור הדלת ההזזה"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "בדיקת יעילות מסנן חלקיקים (DPF) במחשב, בכל טיפול אחרי 100,000 מייל"
+        }
+      ]
+    },
+    {
+      "km": 160000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect",
+          "note": "השלמה"
+        },
+        {
+          "item": "adblue",
+          "action": "inspect",
+          "note": "מילוי מיכל AdBlue"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "בדיקת תפקוד בלם שירות ובלם חניה"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "כולל גלגל חלופי"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "כל שנתיים לפי החוברת (כל טיפול כזה הוא בערך שנתיים)"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "בדיקת יעילות מסנן חלקיקים (DPF) במחשב, בכל טיפול אחרי 100,000 מייל"
+        }
+      ]
+    },
+    {
+      "km": 192000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect",
+          "note": "השלמה"
+        },
+        {
+          "item": "adblue",
+          "action": "inspect",
+          "note": "מילוי מיכל AdBlue"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "בדיקת תפקוד בלם שירות ובלם חניה"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "כולל גלגל חלופי"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "כל שנתיים לפי החוברת (כל טיפול כזה הוא בערך שנתיים)"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect",
+          "note": "בגרסת 4x4 בלבד"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "כל רצועות Poly-V"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "כל הרכיבים הגלויים בתא המנוע - נזק ודליפות"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "תאורה חיצונית"
+        },
+        {
+          "item": "lights",
+          "action": "adjust",
+          "note": "כיוון גובה פנסים"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "גירוז צירי דלתות אחוריות (בקוד W54)"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "מגבים קדמיים ואחוריים ומערכות שטיפה"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מסנן אבק/פחם למיזוג; גם מסנן מזגן הגג האחורי אם קיים"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "פתחי ניקוז ברצפה באזור הדלת ההזזה"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "בדיקת יעילות מסנן חלקיקים (DPF) במחשב, בכל טיפול אחרי 100,000 מייל"
+        }
+      ]
+    },
+    {
+      "km": 224000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect",
+          "note": "השלמה"
+        },
+        {
+          "item": "adblue",
+          "action": "inspect",
+          "note": "מילוי מיכל AdBlue"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "בדיקת תפקוד בלם שירות ובלם חניה"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "כולל גלגל חלופי"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "כל שנתיים לפי החוברת (כל טיפול כזה הוא בערך שנתיים)"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "בדיקת יעילות מסנן חלקיקים (DPF) במחשב, בכל טיפול אחרי 100,000 מייל"
+        }
+      ]
+    },
+    {
+      "km": 256000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect",
+          "note": "השלמה"
+        },
+        {
+          "item": "adblue",
+          "action": "inspect",
+          "note": "מילוי מיכל AdBlue"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "בדיקת תפקוד בלם שירות ובלם חניה"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "כולל גלגל חלופי"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "כל שנתיים לפי החוברת (כל טיפול כזה הוא בערך שנתיים)"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect",
+          "note": "בגרסת 4x4 בלבד"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "כל רצועות Poly-V"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "כל הרכיבים הגלויים בתא המנוע - נזק ודליפות"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "תאורה חיצונית"
+        },
+        {
+          "item": "lights",
+          "action": "adjust",
+          "note": "כיוון גובה פנסים"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "גירוז צירי דלתות אחוריות (בקוד W54)"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "בדיקת יעילות מסנן חלקיקים (DPF) במחשב, בכל טיפול אחרי 100,000 מייל"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "air_filter",
+      "action": "replace",
+      "every_km": 96000,
+      "every_months": 48,
+      "note": "60,000 מייל או 4 שנים"
+    },
+    {
+      "item": "drive_belt",
+      "action": "replace",
+      "every_km": 128000,
+      "every_months": 48,
+      "note": "רצועת Poly-V: 80,000 מייל או 4 שנים"
+    },
+    {
+      "item": "coolant",
+      "action": "replace",
+      "first_km": 354000,
+      "first_months": 180,
+      "then_every_months": 36,
+      "note": "220,000 מייל או 15 שנים, ואחר כך כל 3 שנים"
+    },
+    {
+      "item": "parking_brake",
+      "action": "inspect",
+      "every_km": 257000,
+      "every_months": 60,
+      "note": "קריאת מונה הפעלות בלם חניה חשמלי (קוד B25): 160,000 מייל או 5 שנים"
+    }
+  ],
+  "time_based": [
+    {
+      "item": "brake_fluid",
+      "action": "replace",
+      "months": 24
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.mbvans.com/content/dam/mb-vans/us/brochures/2025%20MB%20Vans%20Fleet%20and%20RV%20Brochure.pdf",
+      "kind": "manufacturer",
+      "note": "מרצדס-בנץ ואנס ארה\"ב, חוברת צי ו-RV 2025, עמ' 3-4 'Detailed Maintenance Sheets' (ספרינטר דיזל): טיפולי A/B כל 20,000 מייל או שנתיים, עד 160,000 מייל; פריטים לפי זמן/נסועה. המיילים הומרו לק\"מ (1 מייל = 1.609 ק\"מ, מעוגל)"
+    },
+    {
+      "url": "https://www.mercedes-benz-vans.ca/content/dam/mb-vans/ca/brochures/en/Sprinter%20Warranty%20Book_MY2024_Ed%20A_EN.pdf",
+      "kind": "manufacturer",
+      "note": "ספר אחריות ספרינטר קנדה 2024: מפנה לחוברת השירות לגבי המרווחים (אין בו טבלה)"
+    },
+    {
+      "url": "https://www.mercedes-benz.co.il/site/car-books/",
+      "kind": "importer",
+      "note": "דף ספרי הרכב של כלמוביל/מרצדס ישראל: הספרים נשלחים רק בטופס עם קפצ'ה ודוא\"ל, לא הושגו"
+    }
+  ],
+  "status": "draft",
+  "specs": {
+    "_note": "לא נמצאו נתוני שמנים ונוזלים במקורות שנפתחו"
+  },
+  "notes": "טיוטה. ספר השירות הישראלי של ספרינטר לא נמצא. הלוח מתוך גיליונות התחזוקה המפורטים של מרצדס-בנץ ואנס בארה\"ב (ספרינטר דיזל, חוברת 2025), שבהם טיפולי A ו-B לסירוגין כל 20,000 מייל או שנתיים; המיילים הומרו לק\"מ ועוגלו. בשוק האירופי או הישראלי המרווח עשוי להיות שונה, ומחוון השירות ברכב קובע. מסנן דלק מוחלף בכל טיפול לפי הגיליון. במסלולי עבודה קשים (סרק ממושך, ביודיזל) המרווחים קצרים יותר."
+}
