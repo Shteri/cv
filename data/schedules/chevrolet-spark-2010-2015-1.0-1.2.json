@@ -1,0 +1,1803 @@
+{
+  "make": "Chevrolet",
+  "make_he": "שברולט",
+  "importer": "יו.אם.איי",
+  "id": "chevrolet-spark-2010-2015-1.0-1.2",
+  "model": "Spark",
+  "model_he": "ספארק",
+  "generation": "M300",
+  "years": [
+    2010,
+    2015
+  ],
+  "engines": [
+    "1.2 (B12D1)",
+    "1.0 (B10D1)"
+  ],
+  "fuel": "petrol",
+  "interval": {
+    "km": 12000,
+    "months": 12,
+    "note": "לפי ספר הנהג של GM (צפון אמריקה): כל 12,000 ק\"מ סבב צמיגים ובדיקות; שמן ומסנן לפי מחוון חיי השמן ולפחות פעם בשנה"
+  },
+  "cycle_km": 240000,
+  "services": [
+    {
+      "km": 12000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון חיי השמן, ולפחות פעם בשנה"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "עם החלפת השמן"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "בדיקה חזותית לדליפות נוזלים"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "מערכת הבלמים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "כולל רכיבי שלדה"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect",
+          "note": "מערכות ריסון"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "כולל מגני חום"
+        },
+        {
+          "item": "door_hinges",
+          "action": "clean",
+          "note": "סיכה של רכיבי מרכב"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 24000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון חיי השמן, ולפחות פעם בשנה"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "עם החלפת השמן"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "בדיקה חזותית לדליפות נוזלים"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "מערכת הבלמים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "כולל רכיבי שלדה"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect",
+          "note": "מערכות ריסון"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "כולל מגני חום"
+        },
+        {
+          "item": "door_hinges",
+          "action": "clean",
+          "note": "סיכה של רכיבי מרכב"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 36000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון חיי השמן, ולפחות פעם בשנה"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "עם החלפת השמן"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "בדיקה חזותית לדליפות נוזלים"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "מערכת הבלמים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "כולל רכיבי שלדה"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect",
+          "note": "מערכות ריסון"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "כולל מגני חום"
+        },
+        {
+          "item": "door_hinges",
+          "action": "clean",
+          "note": "סיכה של רכיבי מרכב"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "או כל שנתיים"
+        }
+      ]
+    },
+    {
+      "km": 48000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון חיי השמן, ולפחות פעם בשנה"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "עם החלפת השמן"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "בדיקה חזותית לדליפות נוזלים"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "מערכת הבלמים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "כולל רכיבי שלדה"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect",
+          "note": "מערכות ריסון"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "כולל מגני חום"
+        },
+        {
+          "item": "door_hinges",
+          "action": "clean",
+          "note": "סיכה של רכיבי מרכב"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "נוזל בלמים/מצמד, או כל שנתיים"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון חיי השמן, ולפחות פעם בשנה"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "עם החלפת השמן"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "בדיקה חזותית לדליפות נוזלים"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "מערכת הבלמים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "כולל רכיבי שלדה"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect",
+          "note": "מערכות ריסון"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "כולל מגני חום"
+        },
+        {
+          "item": "door_hinges",
+          "action": "clean",
+          "note": "סיכה של רכיבי מרכב"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 72000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון חיי השמן, ולפחות פעם בשנה"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "עם החלפת השמן"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "בדיקה חזותית לדליפות נוזלים"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "מערכת הבלמים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "כולל רכיבי שלדה"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect",
+          "note": "מערכות ריסון"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "כולל מגני חום"
+        },
+        {
+          "item": "door_hinges",
+          "action": "clean",
+          "note": "סיכה של רכיבי מרכב"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "או כל שנתיים"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "או כל 4 שנים"
+        }
+      ]
+    },
+    {
+      "km": 84000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון חיי השמן, ולפחות פעם בשנה"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "עם החלפת השמן"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "בדיקה חזותית לדליפות נוזלים"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "מערכת הבלמים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "כולל רכיבי שלדה"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect",
+          "note": "מערכות ריסון"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "כולל מגני חום"
+        },
+        {
+          "item": "door_hinges",
+          "action": "clean",
+          "note": "סיכה של רכיבי מרכב"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 96000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון חיי השמן, ולפחות פעם בשנה"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "עם החלפת השמן"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "בדיקה חזותית לדליפות נוזלים"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "מערכת הבלמים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "כולל רכיבי שלדה"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect",
+          "note": "מערכות ריסון"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "כולל מגני חום"
+        },
+        {
+          "item": "door_hinges",
+          "action": "clean",
+          "note": "סיכה של רכיבי מרכב"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "נוזל בלמים/מצמד, או כל שנתיים"
+        }
+      ]
+    },
+    {
+      "km": 108000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון חיי השמן, ולפחות פעם בשנה"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "עם החלפת השמן"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "בדיקה חזותית לדליפות נוזלים"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "מערכת הבלמים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "כולל רכיבי שלדה"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect",
+          "note": "מערכות ריסון"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "כולל מגני חום"
+        },
+        {
+          "item": "door_hinges",
+          "action": "clean",
+          "note": "סיכה של רכיבי מרכב"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "או כל שנתיים"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון חיי השמן, ולפחות פעם בשנה"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "עם החלפת השמן"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "בדיקה חזותית לדליפות נוזלים"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "מערכת הבלמים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "כולל רכיבי שלדה"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect",
+          "note": "מערכות ריסון"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "כולל מגני חום"
+        },
+        {
+          "item": "door_hinges",
+          "action": "clean",
+          "note": "סיכה של רכיבי מרכב"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 132000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון חיי השמן, ולפחות פעם בשנה"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "עם החלפת השמן"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "בדיקה חזותית לדליפות נוזלים"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "מערכת הבלמים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "כולל רכיבי שלדה"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect",
+          "note": "מערכות ריסון"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "כולל מגני חום"
+        },
+        {
+          "item": "door_hinges",
+          "action": "clean",
+          "note": "סיכה של רכיבי מרכב"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 144000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון חיי השמן, ולפחות פעם בשנה"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "עם החלפת השמן"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "בדיקה חזותית לדליפות נוזלים"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "מערכת הבלמים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "כולל רכיבי שלדה"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect",
+          "note": "מערכות ריסון"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "כולל מגני חום"
+        },
+        {
+          "item": "door_hinges",
+          "action": "clean",
+          "note": "סיכה של רכיבי מרכב"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "או כל שנתיים"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "או כל 4 שנים"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "נוזל בלמים/מצמד, או כל שנתיים"
+        }
+      ]
+    },
+    {
+      "km": 156000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון חיי השמן, ולפחות פעם בשנה"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "עם החלפת השמן"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "בדיקה חזותית לדליפות נוזלים"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "מערכת הבלמים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "כולל רכיבי שלדה"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect",
+          "note": "מערכות ריסון"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "כולל מגני חום"
+        },
+        {
+          "item": "door_hinges",
+          "action": "clean",
+          "note": "סיכה של רכיבי מרכב"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "replace",
+          "note": "גיר אוטומטי"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "רצועת משאבת מים/אלטרנטור: מתיחה ובלאי"
+        }
+      ]
+    },
+    {
+      "km": 168000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון חיי השמן, ולפחות פעם בשנה"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "עם החלפת השמן"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "בדיקה חזותית לדליפות נוזלים"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "מערכת הבלמים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "כולל רכיבי שלדה"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect",
+          "note": "מערכות ריסון"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "כולל מגני חום"
+        },
+        {
+          "item": "door_hinges",
+          "action": "clean",
+          "note": "סיכה של רכיבי מרכב"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 180000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון חיי השמן, ולפחות פעם בשנה"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "עם החלפת השמן"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "בדיקה חזותית לדליפות נוזלים"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "מערכת הבלמים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "כולל רכיבי שלדה"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect",
+          "note": "מערכות ריסון"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "כולל מגני חום"
+        },
+        {
+          "item": "door_hinges",
+          "action": "clean",
+          "note": "סיכה של רכיבי מרכב"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "או כל שנתיים"
+        }
+      ]
+    },
+    {
+      "km": 192000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון חיי השמן, ולפחות פעם בשנה"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "עם החלפת השמן"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "בדיקה חזותית לדליפות נוזלים"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "מערכת הבלמים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "כולל רכיבי שלדה"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect",
+          "note": "מערכות ריסון"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "כולל מגני חום"
+        },
+        {
+          "item": "door_hinges",
+          "action": "clean",
+          "note": "סיכה של רכיבי מרכב"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "נוזל בלמים/מצמד, או כל שנתיים"
+        }
+      ]
+    },
+    {
+      "km": 204000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון חיי השמן, ולפחות פעם בשנה"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "עם החלפת השמן"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "בדיקה חזותית לדליפות נוזלים"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "מערכת הבלמים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "כולל רכיבי שלדה"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect",
+          "note": "מערכות ריסון"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "כולל מגני חום"
+        },
+        {
+          "item": "door_hinges",
+          "action": "clean",
+          "note": "סיכה של רכיבי מרכב"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 216000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון חיי השמן, ולפחות פעם בשנה"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "עם החלפת השמן"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "בדיקה חזותית לדליפות נוזלים"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "מערכת הבלמים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "כולל רכיבי שלדה"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect",
+          "note": "מערכות ריסון"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "כולל מגני חום"
+        },
+        {
+          "item": "door_hinges",
+          "action": "clean",
+          "note": "סיכה של רכיבי מרכב"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "או כל שנתיים"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "או כל 4 שנים"
+        }
+      ]
+    },
+    {
+      "km": 228000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון חיי השמן, ולפחות פעם בשנה"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "עם החלפת השמן"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "בדיקה חזותית לדליפות נוזלים"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "מערכת הבלמים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "כולל רכיבי שלדה"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect",
+          "note": "מערכות ריסון"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "כולל מגני חום"
+        },
+        {
+          "item": "door_hinges",
+          "action": "clean",
+          "note": "סיכה של רכיבי מרכב"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 240000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון חיי השמן, ולפחות פעם בשנה"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "עם החלפת השמן"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "בדיקה חזותית לדליפות נוזלים"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "מערכת הבלמים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "כולל רכיבי שלדה"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect",
+          "note": "מערכות ריסון"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "כולל מגני חום"
+        },
+        {
+          "item": "door_hinges",
+          "action": "clean",
+          "note": "סיכה של רכיבי מרכב"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "replace",
+          "note": "ניקוז ומילוי, או כל 5 שנים"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "רצועת מדחס המזגן"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "נוזל בלמים/מצמד, או כל שנתיים"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "coolant",
+      "action": "replace",
+      "every_km": 240000,
+      "every_months": 60
+    },
+    {
+      "item": "brake_fluid",
+      "action": "replace",
+      "every_km": 48000,
+      "every_months": 24,
+      "note": "נוזל בלמים ומצמד"
+    }
+  ],
+  "time_based": [],
+  "specs": {},
+  "sources": [
+    {
+      "url": "https://cdn.dealereprocess.org/cdn/servicemanuals/chevrolet/2014-spark.pdf",
+      "kind": "manufacturer",
+      "note": "2014 Chevrolet Spark Owner's Manual (GM, US/Canada), Maintenance Schedule pp. 11-3 to 11-6 (PDF 305-308), טבלת Normal"
+    },
+    {
+      "url": "https://www.chevrolet.co.il/",
+      "kind": "importer",
+      "note": "אתר chevrolet.co.il ואתר umigroup.co.il מחזירים Cloudflare 403; ספר עברי או לוח טיפולים של היבואן לא נמצאו"
+    }
+  ],
+  "status": "draft",
+  "notes": "הלוח לקוח מספר הנהג האמריקאי של GM, טבלת \"שירותים נדרשים - רגיל\" (הספר מציג ק\"מ במקור). ספר עברי של היבואן לא נמצא. מרווח השמן נקבע לפי מחוון חיי השמן של הרכב, ולפחות פעם בשנה; ייתכן שהיבואן בישראל קובע מרווח קבוע אחר. בכל 12,000 ק\"מ: סבב צמיגים ובדיקות (מפלסים, מגבים, צמיגים, דליפות, מסנן אוויר, בלמים, היגוי ומתלים, מערכות ריסון, דלק ופליטה) וסיכת מרכב. מסנן מזגן כל 36,000 או שנתיים; מסנן אוויר כל 72,000 או 4 שנים; מצתים ושמן גיר אוטומטי ב-156,000; נוזל בלמים/מצמד כל 48,000 או שנתיים; נוזל קירור ב-240,000 או 5 שנים. בטבלת \"שימוש קשה\" (נסיעה עירונית צפופה במזג אוויר חם) שמן הגיר האוטומטי מוחלף כל 72,000 ק\"מ. הספר האמריקאי מכסה את מנוע 1.2 (B12D1, בארה\"ב LL0); מנוע 1.0 (B10D1) מאותה משפחה נמכר רק מחוץ לצפון אמריקה, והלוח הוחל עליו כדגם אח."
+}

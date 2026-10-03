@@ -1,0 +1,747 @@
+{
+  "make": "Fiat",
+  "make_he": "פיאט",
+  "importer": "סמלת",
+  "id": "fiat-500e-2021-2026-ev",
+  "model": "500e",
+  "model_he": "500 חשמלית",
+  "generation": "332",
+  "years": [
+    2021,
+    2026
+  ],
+  "engines": [
+    "מנוע חשמלי (קוד 46348460)"
+  ],
+  "fuel": "electric",
+  "interval": {
+    "km": 15000,
+    "months": 12,
+    "note": "לפי טבלת \"תוכנית טיפולי שירות\" בספר הרכב העברי של סמלת: טיפול כל 15,000 ק\"מ או שנה, 10 טיפולים עד 150,000 ק\"מ / 10 שנים"
+  },
+  "cycle_km": 150000,
+  "services": [
+    {
+      "km": 15000,
+      "items": [
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "כולל לחץ אוויר ותוקף ערכת תיקון הצמיגים"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "כולל נוריות בלוח המחוונים"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס נוזל הקירור של מערכת ההנעה; השלמה לפי הצורך"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "בדיקת מערכות הרכב במחשב האבחון (בקרה, סוללת מתח גבוה)"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "בציוד ייעודי"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "בלמי דיסק קדמיים: מצב, בלאי ותקינות מחוון הבלאי"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect",
+          "note": "בלמי תוף אחוריים: מצב ובלאי"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "בדיקה חזותית של שקע הטעינה"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "צבע, הגנת גחון, צנרת קשיחה וגמישה (בלמים, מיזוג), חלקי גומי"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "מצב הלהבים, פעולת המתזים וכיוונם"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מומלץ; באזורים מאובקים חובה כל 15,000 ק\"מ"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "כולל לחץ אוויר ותוקף ערכת תיקון הצמיגים"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "כולל נוריות בלוח המחוונים"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס נוזל הקירור של מערכת ההנעה; השלמה לפי הצורך"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "בדיקת מערכות הרכב במחשב האבחון (בקרה, סוללת מתח גבוה)"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "בציוד ייעודי"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "בלמי דיסק קדמיים: מצב, בלאי ותקינות מחוון הבלאי"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect",
+          "note": "בלמי תוף אחוריים: מצב ובלאי"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "בדיקה חזותית של שקע הטעינה"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "כל שנתיים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "door_hinges",
+          "action": "clean",
+          "note": "ניקוי ושימון מנעולי מכסה המנוע ותא המטען; בדיקת ניקיון החיבורים"
+        }
+      ]
+    },
+    {
+      "km": 45000,
+      "items": [
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "כולל לחץ אוויר ותוקף ערכת תיקון הצמיגים"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "כולל נוריות בלוח המחוונים"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס נוזל הקירור של מערכת ההנעה; השלמה לפי הצורך"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "בדיקת מערכות הרכב במחשב האבחון (בקרה, סוללת מתח גבוה)"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "בציוד ייעודי"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "בלמי דיסק קדמיים: מצב, בלאי ותקינות מחוון הבלאי"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect",
+          "note": "בלמי תוף אחוריים: מצב ובלאי"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "בדיקה חזותית של שקע הטעינה"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "צבע, הגנת גחון, צנרת קשיחה וגמישה (בלמים, מיזוג), חלקי גומי"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "מצב הלהבים, פעולת המתזים וכיוונם"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מומלץ; באזורים מאובקים חובה כל 15,000 ק\"מ"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "כולל לחץ אוויר ותוקף ערכת תיקון הצמיגים"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "כולל נוריות בלוח המחוונים"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס נוזל הקירור של מערכת ההנעה; השלמה לפי הצורך"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "בדיקת מערכות הרכב במחשב האבחון (בקרה, סוללת מתח גבוה)"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "בציוד ייעודי"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "בלמי דיסק קדמיים: מצב, בלאי ותקינות מחוון הבלאי"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect",
+          "note": "בלמי תוף אחוריים: מצב ובלאי"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "בדיקה חזותית של שקע הטעינה"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "כל שנתיים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "door_hinges",
+          "action": "clean",
+          "note": "ניקוי ושימון מנעולי מכסה המנוע ותא המטען; בדיקת ניקיון החיבורים"
+        }
+      ]
+    },
+    {
+      "km": 75000,
+      "items": [
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "כולל לחץ אוויר ותוקף ערכת תיקון הצמיגים"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "כולל נוריות בלוח המחוונים"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס נוזל הקירור של מערכת ההנעה; השלמה לפי הצורך"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "בדיקת מערכות הרכב במחשב האבחון (בקרה, סוללת מתח גבוה)"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "בציוד ייעודי"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "בלמי דיסק קדמיים: מצב, בלאי ותקינות מחוון הבלאי"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect",
+          "note": "בלמי תוף אחוריים: מצב ובלאי"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "בדיקה חזותית של שקע הטעינה"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "צבע, הגנת גחון, צנרת קשיחה וגמישה (בלמים, מיזוג), חלקי גומי"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "מצב הלהבים, פעולת המתזים וכיוונם"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מומלץ; באזורים מאובקים חובה כל 15,000 ק\"מ"
+        },
+        {
+          "item": "ecall_battery",
+          "action": "replace",
+          "note": "סוללת UConnect Box, כל 5 שנים"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "כולל לחץ אוויר ותוקף ערכת תיקון הצמיגים"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "כולל נוריות בלוח המחוונים"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס נוזל הקירור של מערכת ההנעה; השלמה לפי הצורך"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "בדיקת מערכות הרכב במחשב האבחון (בקרה, סוללת מתח גבוה)"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "בציוד ייעודי"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "בלמי דיסק קדמיים: מצב, בלאי ותקינות מחוון הבלאי"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect",
+          "note": "בלמי תוף אחוריים: מצב ובלאי"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "בדיקה חזותית של שקע הטעינה"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "כל שנתיים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "door_hinges",
+          "action": "clean",
+          "note": "ניקוי ושימון מנעולי מכסה המנוע ותא המטען; בדיקת ניקיון החיבורים"
+        }
+      ]
+    },
+    {
+      "km": 105000,
+      "items": [
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "כולל לחץ אוויר ותוקף ערכת תיקון הצמיגים"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "כולל נוריות בלוח המחוונים"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס נוזל הקירור של מערכת ההנעה; השלמה לפי הצורך"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "בדיקת מערכות הרכב במחשב האבחון (בקרה, סוללת מתח גבוה)"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "בציוד ייעודי"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "בלמי דיסק קדמיים: מצב, בלאי ותקינות מחוון הבלאי"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect",
+          "note": "בלמי תוף אחוריים: מצב ובלאי"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "בדיקה חזותית של שקע הטעינה"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "צבע, הגנת גחון, צנרת קשיחה וגמישה (בלמים, מיזוג), חלקי גומי"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "מצב הלהבים, פעולת המתזים וכיוונם"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מומלץ; באזורים מאובקים חובה כל 15,000 ק\"מ"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "כולל לחץ אוויר ותוקף ערכת תיקון הצמיגים"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "כולל נוריות בלוח המחוונים"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס נוזל הקירור של מערכת ההנעה; השלמה לפי הצורך"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "בדיקת מערכות הרכב במחשב האבחון (בקרה, סוללת מתח גבוה)"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "בציוד ייעודי"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "בלמי דיסק קדמיים: מצב, בלאי ותקינות מחוון הבלאי"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect",
+          "note": "בלמי תוף אחוריים: מצב ובלאי"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "בדיקה חזותית של שקע הטעינה"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "כל שנתיים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "door_hinges",
+          "action": "clean",
+          "note": "ניקוי ושימון מנעולי מכסה המנוע ותא המטען; בדיקת ניקיון החיבורים"
+        }
+      ]
+    },
+    {
+      "km": 135000,
+      "items": [
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "כולל לחץ אוויר ותוקף ערכת תיקון הצמיגים"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "כולל נוריות בלוח המחוונים"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס נוזל הקירור של מערכת ההנעה; השלמה לפי הצורך"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "בדיקת מערכות הרכב במחשב האבחון (בקרה, סוללת מתח גבוה)"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "בציוד ייעודי"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "בלמי דיסק קדמיים: מצב, בלאי ותקינות מחוון הבלאי"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect",
+          "note": "בלמי תוף אחוריים: מצב ובלאי"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "בדיקה חזותית של שקע הטעינה"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "צבע, הגנת גחון, צנרת קשיחה וגמישה (בלמים, מיזוג), חלקי גומי"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "מצב הלהבים, פעולת המתזים וכיוונם"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מומלץ; באזורים מאובקים חובה כל 15,000 ק\"מ"
+        }
+      ]
+    },
+    {
+      "km": 150000,
+      "items": [
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "כולל לחץ אוויר ותוקף ערכת תיקון הצמיגים"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "כולל נוריות בלוח המחוונים"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס נוזל הקירור של מערכת ההנעה; השלמה לפי הצורך"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "בדיקת מערכות הרכב במחשב האבחון (בקרה, סוללת מתח גבוה)"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "בציוד ייעודי"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "בלמי דיסק קדמיים: מצב, בלאי ותקינות מחוון הבלאי"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect",
+          "note": "בלמי תוף אחוריים: מצב ובלאי"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "בדיקה חזותית של שקע הטעינה"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "כל שנתיים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "door_hinges",
+          "action": "clean",
+          "note": "ניקוי ושימון מנעולי מכסה המנוע ותא המטען; בדיקת ניקיון החיבורים"
+        },
+        {
+          "item": "ecall_battery",
+          "action": "replace",
+          "note": "סוללת UConnect Box, כל 5 שנים"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "brake_fluid",
+      "action": "replace",
+      "every_km": 30000,
+      "every_months": 24
+    },
+    {
+      "item": "ecall_battery",
+      "action": "replace",
+      "every_months": 60,
+      "note": "סוללת UConnect Box, ללא קשר לק\"מ"
+    }
+  ],
+  "time_based": [],
+  "specs": {
+    "_note": "רכב חשמלי: אין שמן מנוע ומסנני מנוע. בגרסת הקבריולט נבדקת גם פעולת הגג הרך ומסילותיו בכל טיפול"
+  },
+  "sources": [
+    {
+      "url": "https://samelet.com/wp-content/uploads/2023/11/Fiat_Fiat-E_carbook_072021.pdf",
+      "kind": "importer",
+      "note": "ספר הרכב העברי של פיאט 500 חשמלית (סמלת, 07/2021): פרק טיפול ותחזוקה, \"תוכנית טיפולי שירות\" עמ' 218-220 (PDF 219-221)"
+    }
+  ],
+  "status": "reviewed",
+  "notes": "הלוח לקוח מספר הרכב העברי של היבואן סמלת. בכל טיפול (15,000 ק\"מ או שנה): בדיקת צמיגים, תאורה, מפלסי נוזלים, מחשב אבחון, מצבר 12 וולט, בלמים קדמיים ואחוריים ושקע הטעינה. בטיפולים האי-זוגיים: בדיקה חזותית של המרכב והגחון ושל המגבים, ומסנן מזגן מומלץ (חובה באזור מאובק). בטיפולים הזוגיים (כל שנתיים): החלפת נוזל בלמים ומסנן מזגן, ושימון מנעולי מכסה המנוע ותא המטען. סוללת מערכת UConnect Box מוחלפת כל 5 שנים. בגרסת הקבריולט בודקים גם את הגג הרך בכל טיפול."
+}

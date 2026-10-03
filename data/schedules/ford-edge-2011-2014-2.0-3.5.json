@@ -1,0 +1,203 @@
+{
+  "make": "Ford",
+  "make_he": "פורד",
+  "importer": "דלק מוטורס",
+  "id": "ford-edge-2011-2014-2.0-3.5",
+  "model": "Edge",
+  "model_he": "אדג'",
+  "generation": "1st gen facelift",
+  "years": [
+    2011,
+    2014
+  ],
+  "engines": [
+    "2.0 בנזין",
+    "3.5 V6"
+  ],
+  "fuel": "petrol",
+  "interval": {
+    "km": 15000,
+    "months": 12,
+    "note": "טיפול כל 15,000 ק\"מ או 12 חודשים (מנועי בנזין 2.0/3.5, שנות ייצור 2011-2014)"
+  },
+  "cycle_km": 120000,
+  "services": [
+    {
+      "km": 15000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "כל 15,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "כל 15,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 45000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "כל 15,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "כל 15,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 75000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "כל 15,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "כל 15,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 105000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "כל 15,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "כל 15,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "coolant",
+      "action": "replace",
+      "first_km": 160000,
+      "first_months": 72,
+      "then_every_km": 80000,
+      "then_every_months": 36
+    },
+    {
+      "item": "spark_plugs",
+      "action": "replace",
+      "every_km": 160000
+    },
+    {
+      "item": "differential_oil",
+      "action": "replace",
+      "every_km": 240000,
+      "note": "סרן אחורי"
+    }
+  ],
+  "time_based": [],
+  "specs": {
+    "engine_oil": "3.5: 5W-20 (WSS-M2C970-A1); 2.0: 5W-30 (WSS-M2C971-A1)",
+    "coolant": "צהוב, מפרט WSS-M97B57-A2",
+    "brake_fluid": "DOT 4 Low Viscosity"
+  },
+  "sources": [
+    {
+      "url": "https://delekmotorscoil.sharepoint.com/:b:/s/Techtrain/EaEwy2zeqdNLsHhm6nXqdWABWi-_D3RtxR0zUOIE7VLvLA?download=1",
+      "kind": "importer",
+      "note": "PDF תוכנית טיפול Ford_Edge_2011_2014.pdf של דלק מוטורס (עמוד אחד: פריט ומרווח). טיפול כל 15,000 ק\"מ או 12 חודשים (מנועי בנזין 2.0/3.5, שנות ייצור 2011-2014)"
+    },
+    {
+      "url": "https://www.ford.co.il/תוכנית-טיפול/שירות",
+      "kind": "importer",
+      "note": "דף תוכניות הטיפול של דלק מוטורס; קישורי ה-PDF לכל דגם נמצאים במשתנה data בדף"
+    }
+  ],
+  "status": "reviewed",
+  "notes": "הלוח מתוכנית הטיפול הרשמית של היבואן דלק מוטורס (עמוד אחד: פריט ומרווח). התוכנית לא מפרטת בדיקות שגרה, ולכן מופיעים רק הפריטים שבה. שמן ומסנן כל 15,000 ק\"מ או שנה; מסנן מזגן כל 30,000; מסנן אוויר כל 45,000; מצתים 160,000; שמן סרן אחורי 240,000; נוזל קירור לראשונה ב-160,000 או 6 שנים ואחר כך כל 80,000 או 3 שנים."
+}

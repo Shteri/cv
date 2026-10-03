@@ -1,0 +1,721 @@
+{
+  "make": "Peugeot",
+  "make_he": "פיג'ו",
+  "importer": "דוד לובינסקי",
+  "id": "peugeot-3008-5008-2016-2019-1.6-bluehdi",
+  "model": "3008 / 5008 / 208 / 2008 / 301",
+  "model_he": "3008 / 5008 / 208 / 2008 / 301",
+  "years": [
+    2016,
+    2019
+  ],
+  "engines": [
+    "1.6 BlueHDi 100/120 (DV6F, קודים BH01, BH02)"
+  ],
+  "fuel": "diesel",
+  "interval": {
+    "km": 15000,
+    "months": 12,
+    "note": "תכנית פיג'ו למנוע 1.6 HDi/BlueHDi: בתנאים קשים טיפול כל 15,000 ק\"מ או שנה (בתנאים רגילים באירופה 25,000 ק\"מ או שנה). גם ספר אופל העברי מציין לישראל 15,000 ק\"מ/שנה למנועי PSA"
+  },
+  "cycle_km": 120000,
+  "services": [
+    {
+      "km": 15000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "כולל צופר ובדיקות בתוך הרכב"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "בדיקת בטיחות של מערכת הבלמים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "בדיקת אטימות מערכות ותיבת ההילוכים מתחת לרכב"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect",
+          "note": "השלמה לפי הצורך"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס, השלמה לפי הצורך"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "קריאת מחשבים ואיפוס מחוון הטיפול"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "clean",
+          "note": "ניקוז מים ממסנן הסולר (לפי ציוד)"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "או כל שנה"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "כולל צופר ובדיקות בתוך הרכב"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "בדיקת בטיחות של מערכת הבלמים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "בדיקת אטימות מערכות ותיבת ההילוכים מתחת לרכב"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect",
+          "note": "השלמה לפי הצורך"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס, השלמה לפי הצורך"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "קריאת מחשבים ואיפוס מחוון הטיפול"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "clean",
+          "note": "ניקוז מים ממסנן הסולר (לפי ציוד)"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "או כל שנה"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace",
+          "note": "או כל 4 שנים"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "או כל 4 שנים"
+        }
+      ]
+    },
+    {
+      "km": 45000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "כולל צופר ובדיקות בתוך הרכב"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "בדיקת בטיחות של מערכת הבלמים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "בדיקת אטימות מערכות ותיבת ההילוכים מתחת לרכב"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect",
+          "note": "השלמה לפי הצורך"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס, השלמה לפי הצורך"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "קריאת מחשבים ואיפוס מחוון הטיפול"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "clean",
+          "note": "ניקוז מים ממסנן הסולר (לפי ציוד)"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "או כל שנה"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "כולל צופר ובדיקות בתוך הרכב"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "בדיקת בטיחות של מערכת הבלמים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "בדיקת אטימות מערכות ותיבת ההילוכים מתחת לרכב"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect",
+          "note": "השלמה לפי הצורך"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס, השלמה לפי הצורך"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "קריאת מחשבים ואיפוס מחוון הטיפול"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "clean",
+          "note": "ניקוז מים ממסנן הסולר (לפי ציוד)"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "או כל שנה"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace",
+          "note": "או כל 4 שנים"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "או כל 4 שנים"
+        }
+      ]
+    },
+    {
+      "km": 75000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "כולל צופר ובדיקות בתוך הרכב"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "בדיקת בטיחות של מערכת הבלמים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "בדיקת אטימות מערכות ותיבת ההילוכים מתחת לרכב"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect",
+          "note": "השלמה לפי הצורך"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס, השלמה לפי הצורך"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "קריאת מחשבים ואיפוס מחוון הטיפול"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "clean",
+          "note": "ניקוז מים ממסנן הסולר (לפי ציוד)"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "או כל שנה"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "כולל צופר ובדיקות בתוך הרכב"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "בדיקת בטיחות של מערכת הבלמים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "בדיקת אטימות מערכות ותיבת ההילוכים מתחת לרכב"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect",
+          "note": "השלמה לפי הצורך"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס, השלמה לפי הצורך"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "קריאת מחשבים ואיפוס מחוון הטיפול"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "clean",
+          "note": "ניקוז מים ממסנן הסולר (לפי ציוד)"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "או כל שנה"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace",
+          "note": "או כל 4 שנים"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "או כל 4 שנים"
+        }
+      ]
+    },
+    {
+      "km": 105000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "כולל צופר ובדיקות בתוך הרכב"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "בדיקת בטיחות של מערכת הבלמים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "בדיקת אטימות מערכות ותיבת ההילוכים מתחת לרכב"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect",
+          "note": "השלמה לפי הצורך"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס, השלמה לפי הצורך"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "קריאת מחשבים ואיפוס מחוון הטיפול"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "clean",
+          "note": "ניקוז מים ממסנן הסולר (לפי ציוד)"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "או כל שנה"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "כולל צופר ובדיקות בתוך הרכב"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "בדיקת בטיחות של מערכת הבלמים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "בדיקת אטימות מערכות ותיבת ההילוכים מתחת לרכב"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect",
+          "note": "השלמה לפי הצורך"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס, השלמה לפי הצורך"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "קריאת מחשבים ואיפוס מחוון הטיפול"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "clean",
+          "note": "ניקוז מים ממסנן הסולר (לפי ציוד)"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "או כל שנה"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace",
+          "note": "או כל 4 שנים"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "או כל 4 שנים"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "brake_fluid",
+      "action": "replace",
+      "every_months": 24,
+      "note": "כל שנתיים ללא קשר לק\"מ"
+    },
+    {
+      "item": "coolant",
+      "action": "inspect",
+      "first_km": 120000,
+      "first_months": 48,
+      "then_every_km": 15000,
+      "then_every_months": 12,
+      "note": "בדיקת pH של נוזל הקירור"
+    },
+    {
+      "item": "exhaust",
+      "action": "inspect",
+      "first_km": 90000,
+      "then_every_km": 15000,
+      "note": "בדיקת מפלס התוסף של מסנן החלקיקים (FAP)"
+    },
+    {
+      "item": "exhaust",
+      "action": "inspect",
+      "first_km": 150000,
+      "then_every_km": 15000,
+      "note": "בדיקת סתימה של מסנן החלקיקים"
+    },
+    {
+      "item": "timing_belt",
+      "action": "replace",
+      "every_km": 165000,
+      "every_months": 120,
+      "note": "ערכת רצועת תזמון יחד עם משאבת המים"
+    },
+    {
+      "item": "drive_belt",
+      "action": "replace",
+      "every_km": 165000,
+      "every_months": 120,
+      "note": "ערכת רצועת אביזרים (רצועה ומותחנים)"
+    },
+    {
+      "item": "drive_belt",
+      "action": "replace",
+      "every_km": 120000,
+      "every_months": 72,
+      "note": "החלפת רצועת האביזרים בלבד - בגרסאות e-HDi 115 ו-BlueHDi 120 (לא בגרסאות 75-100 כ\"ס)"
+    }
+  ],
+  "time_based": [],
+  "specs": {
+    "engine_oil": "0W-30 בתקן PSA B71 2312 (ACEA C1/C2); החוברת מתירה גם 5W-30 B71 2290",
+    "timing": "רצועת תזמון: 165,000 ק\"מ או 10 שנים בתנאים קשים (175,000 ק\"מ בתנאים רגילים)",
+    "_note": "ערכים מדפי תכנית האחזקה של פיג'ו צרפת (2016) לאותו מנוע. בדפים ישנים יותר (לפני 2012) הופיעו מרווחים אחרים, למשל רצועת תזמון 240,000 ק\"מ"
+  },
+  "sources": [
+    {
+      "url": "https://www.forum-peugeot.com/wp-content/uploads/2016/08/planentretien3081.6hdi92.pdf",
+      "kind": "manufacturer",
+      "note": "Peugeot France, PLAN D'ENTRETIEN אישי ל-308 T9 1.6 HDi 92 FAP (עותק סרוק של דף היצרן באתר forum-peugeot.com); עמודת \"Conditions d'utilisation sévères\""
+    },
+    {
+      "url": "https://www.forum-peugeot.com/wp-content/uploads/2016/09/planentretien3008hdi100.pdf",
+      "kind": "manufacturer",
+      "note": "Peugeot France, PLAN D'ENTRETIEN אישי ל-3008 P84 1.6 BlueHDi 100 (עותק סרוק של דף היצרן באתר forum-peugeot.com); עמודת \"Conditions d'utilisation sévères\""
+    },
+    {
+      "url": "https://www.forum-peugeot.com/wp-content/uploads/2016/09/planentretien3008bluehdi120eat.pdf",
+      "kind": "manufacturer",
+      "note": "Peugeot France, PLAN D'ENTRETIEN אישי ל-3008 P84 1.6 BlueHDi 120 EAT6 (עותק סרוק של דף היצרן באתר forum-peugeot.com); עמודת \"Conditions d'utilisation sévères\""
+    },
+    {
+      "url": "https://www.forum-peugeot.com/wp-content/uploads/2016/08/planentretien3081.6hdi115.pdf",
+      "kind": "manufacturer",
+      "note": "Peugeot France, PLAN D'ENTRETIEN אישי ל-308 T9 1.6 e-HDi 115 FAP (עותק סרוק של דף היצרן באתר forum-peugeot.com); עמודת \"Conditions d'utilisation sévères\""
+    },
+    {
+      "url": "https://www.autojm.fr/pdf/notices/PEUGEOT/carnet-entretien-peugeot.pdf",
+      "kind": "manufacturer",
+      "note": "Peugeot France, Carnet d'entretien et de garanties (03-2014, 14CPE0010A), עמ' 11-12 (PDF 13-14): רשימת הפעולות הקבועות בכל טיפול, והגדרת תנאי שימוש קשים (כולל שהייה ממושכת בארץ מאובקת)"
+    },
+    {
+      "url": "https://public-servicebox.opel.com/OVddb/OV/he_IL/Corsa_F/2017_2022/2021_05/manual_user/ID-OCRFOLSE2105-he_11_online.pdf",
+      "kind": "importer",
+      "note": "ספר הנהג העברי של אופל קורסה F (לובינסקי), עמ' 205: ישראל בקבוצת מדינות שבה הטיפול כל 15,000 ק\"מ או שנה למנועי PSA (EB2, DV5) - תואם את עמודת \"תנאים קשים\" של PSA"
+    },
+    {
+      "url": "https://media-peugeot.lubit.co.il/wp-content/uploads/2023/06/Warranty-Peugeot-3Y-01.2024_Web-%D7%9E%D7%95%D7%A0%D7%92%D7%A9.pdf",
+      "kind": "importer",
+      "note": "חוברת האחריות של לובינסקי: אין בה טבלת ק\"מ; תכנית הטיפולים האישית נמסרת עם הרכב. ספרי הרכב ב-lubinski.clearmash.com חסומים (Cloudflare 403), ואתרי peugeot.co.il / citroen.co.il מחזירים 403"
+    }
+  ],
+  "status": "draft",
+  "notes": "לוח היבואן (לובינסקי) לא פורסם ולא נמצא. הלוח נבנה מדף \"תכנית אחזקה\" רשמי של פיג'ו צרפת לאותו מנוע, לפי עמודת תנאי שימוש קשים: חוברת האחריות והאחזקה של פיג'ו מגדירה שהייה ממושכת בארץ מאובקת, נסיעות עירוניות ונסיעות קצרות כתנאים קשים, וזה המצב בישראל. בכל טיפול לפי חוברת פיג'ו: החלפת שמן ומסנן שמן, בדיקות בתוך הרכב (צופר, בלם חניה), בדיקות בטיחות מתחת לרכב (בלמים, היגוי) ובדיקת אטימות מערכות ותיבת הילוכים, בדיקת צמיגים ותאורה, בדיקות מתחת למכסה המנוע עם השלמת נוזלים, קריאת מחשבים ואיפוס מחוון הטיפול. כל טיפול (15,000 ק\"מ או שנה): גם מסנן מזגן וניקוז מים ממסנן הסולר. כל 30,000 ק\"מ או 4 שנים: מסנן סולר ומסנן אוויר. נוזל בלמים כל שנתיים. בדיקת pH של נוזל הקירור לראשונה ב-120,000 ק\"מ או 4 שנים ואחר כך בכל טיפול. מסנן חלקיקים: בדיקת מפלס התוסף מ-90,000 ק\"מ ובדיקת סתימה מ-150,000 ק\"מ, ואחר כך בכל טיפול. רצועת תזמון עם משאבת מים וערכת רצועת אביזרים: 165,000 ק\"מ או 10 שנים; בגרסאות 115/120 כ\"ס רצועת האביזרים מוחלפת גם ב-120,000 ק\"מ או 6 שנים. הדפים שנמצאו הם של דגמי פיג'ו; סיטרואן משתמשת באותם מנועים ובאותה תכנית של קבוצת PSA. בעיקר 3008/5008 דור שני (P84/P87) עם 1.6 BlueHDi 120 ותיבה אוטומטית EAT6, וגם 208/2008/301 עם 1.6 BlueHDi."
+}

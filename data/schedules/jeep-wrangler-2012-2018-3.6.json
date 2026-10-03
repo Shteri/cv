@@ -1,0 +1,1326 @@
+{
+  "make": "Jeep",
+  "make_he": "ג'יפ",
+  "importer": "סמלת",
+  "id": "jeep-wrangler-2012-2018-3.6",
+  "model": "Wrangler",
+  "model_he": "רנגלר",
+  "generation": "JK",
+  "years": [
+    2012,
+    2018
+  ],
+  "engines": [
+    "3.6 V6 Pentastar (קוד רישוי G)"
+  ],
+  "fuel": "petrol",
+  "interval": {
+    "km": 16000,
+    "months": 12,
+    "note": "לפי ספר הנהג האמריקאי של ג'יפ: שמן ומסנן לפי מחוון החלפת השמן, ובשום מקרה לא יותר מ-16,000 ק\"מ או 12 חודשים; בשימוש קשה (אבק ושטח, סרק ממושך) כל 6,500 ק\"מ"
+  },
+  "cycle_km": 240000,
+  "services": [
+    {
+      "km": 16000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון החלפת השמן, ולא יותר מ-16,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "ניקוי והידוק קטבים לפי הצורך"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות ונעלי בלם"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect",
+          "note": "דיסקים ותופים"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "רמת ההגנה של נוזל הקירור"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "בנסיעה באבק או בשטח"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי עם מדיד"
+        },
+        {
+          "item": "door_hinges",
+          "action": "clean",
+          "note": "גירוז מנעולי הדלתות לפי הצורך"
+        }
+      ]
+    },
+    {
+      "km": 32000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון החלפת השמן, ולא יותר מ-16,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "ניקוי והידוק קטבים לפי הצורך"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות ונעלי בלם"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect",
+          "note": "דיסקים ותופים"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "רמת ההגנה של נוזל הקירור"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "בנסיעה באבק או בשטח"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי עם מדיד"
+        },
+        {
+          "item": "door_hinges",
+          "action": "clean",
+          "note": "גירוז מנעולי הדלתות לפי הצורך"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "מפרקים הומוקינטיים ואוניברסליים"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלה קדמי וקצוות מוטות היגוי; החלפה לפי הצורך"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "adjust",
+          "note": "בגרסאות עם בלמי דיסק בארבעת הגלגלים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "שמן סרן קדמי ואחורי"
+        }
+      ]
+    },
+    {
+      "km": 48000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון החלפת השמן, ולא יותר מ-16,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "ניקוי והידוק קטבים לפי הצורך"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות ונעלי בלם"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect",
+          "note": "דיסקים ותופים"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "רמת ההגנה של נוזל הקירור"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "בנסיעה באבק או בשטח"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי עם מדיד"
+        },
+        {
+          "item": "door_hinges",
+          "action": "clean",
+          "note": "גירוז מנעולי הדלתות לפי הצורך"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 64000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון החלפת השמן, ולא יותר מ-16,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "ניקוי והידוק קטבים לפי הצורך"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות ונעלי בלם"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect",
+          "note": "דיסקים ותופים"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "רמת ההגנה של נוזל הקירור"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "בנסיעה באבק או בשטח"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי עם מדיד"
+        },
+        {
+          "item": "door_hinges",
+          "action": "clean",
+          "note": "גירוז מנעולי הדלתות לפי הצורך"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "מפרקים הומוקינטיים ואוניברסליים"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלה קדמי וקצוות מוטות היגוי; החלפה לפי הצורך"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "adjust",
+          "note": "בגרסאות עם בלמי דיסק בארבעת הגלגלים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 80000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון החלפת השמן, ולא יותר מ-16,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "ניקוי והידוק קטבים לפי הצורך"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות ונעלי בלם"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect",
+          "note": "דיסקים ותופים"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "רמת ההגנה של נוזל הקירור"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "בנסיעה באבק או בשטח"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי עם מדיד"
+        },
+        {
+          "item": "door_hinges",
+          "action": "clean",
+          "note": "גירוז מנעולי הדלתות לפי הצורך"
+        }
+      ]
+    },
+    {
+      "km": 96000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון החלפת השמן, ולא יותר מ-16,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "ניקוי והידוק קטבים לפי הצורך"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות ונעלי בלם"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect",
+          "note": "דיסקים ותופים"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "רמת ההגנה של נוזל הקירור"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "בנסיעה באבק או בשטח"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי עם מדיד"
+        },
+        {
+          "item": "door_hinges",
+          "action": "clean",
+          "note": "גירוז מנעולי הדלתות לפי הצורך"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "מפרקים הומוקינטיים ואוניברסליים"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלה קדמי וקצוות מוטות היגוי; החלפה לפי הצורך"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "adjust",
+          "note": "בגרסאות עם בלמי דיסק בארבעת הגלגלים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "שמן סרן קדמי ואחורי"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 112000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון החלפת השמן, ולא יותר מ-16,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "ניקוי והידוק קטבים לפי הצורך"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות ונעלי בלם"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect",
+          "note": "דיסקים ותופים"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "רמת ההגנה של נוזל הקירור"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "בנסיעה באבק או בשטח"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי עם מדיד"
+        },
+        {
+          "item": "door_hinges",
+          "action": "clean",
+          "note": "גירוז מנעולי הדלתות לפי הצורך"
+        }
+      ]
+    },
+    {
+      "km": 128000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון החלפת השמן, ולא יותר מ-16,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "ניקוי והידוק קטבים לפי הצורך"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות ונעלי בלם"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect",
+          "note": "דיסקים ותופים"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "רמת ההגנה של נוזל הקירור"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "בנסיעה באבק או בשטח"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי עם מדיד"
+        },
+        {
+          "item": "door_hinges",
+          "action": "clean",
+          "note": "גירוז מנעולי הדלתות לפי הצורך"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "מפרקים הומוקינטיים ואוניברסליים"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלה קדמי וקצוות מוטות היגוי; החלפה לפי הצורך"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "adjust",
+          "note": "בגרסאות עם בלמי דיסק בארבעת הגלגלים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 144000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון החלפת השמן, ולא יותר מ-16,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "ניקוי והידוק קטבים לפי הצורך"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות ונעלי בלם"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect",
+          "note": "דיסקים ותופים"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "רמת ההגנה של נוזל הקירור"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "בנסיעה באבק או בשטח"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי עם מדיד"
+        },
+        {
+          "item": "door_hinges",
+          "action": "clean",
+          "note": "גירוז מנעולי הדלתות לפי הצורך"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 160000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון החלפת השמן, ולא יותר מ-16,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "ניקוי והידוק קטבים לפי הצורך"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות ונעלי בלם"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect",
+          "note": "דיסקים ותופים"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "רמת ההגנה של נוזל הקירור"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "בנסיעה באבק או בשטח"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי עם מדיד"
+        },
+        {
+          "item": "door_hinges",
+          "action": "clean",
+          "note": "גירוז מנעולי הדלתות לפי הצורך"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "מפרקים הומוקינטיים ואוניברסליים"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלה קדמי וקצוות מוטות היגוי; החלפה לפי הצורך"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "adjust",
+          "note": "בגרסאות עם בלמי דיסק בארבעת הגלגלים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "שמן סרן קדמי ואחורי"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "לפי ק\"מ בלבד"
+        },
+        {
+          "item": "coolant",
+          "action": "replace",
+          "note": "שטיפה והחלפה (או 10 שנים)"
+        },
+        {
+          "item": "pcv_valve",
+          "action": "inspect",
+          "note": "החלפה לפי הצורך"
+        }
+      ]
+    },
+    {
+      "km": 176000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון החלפת השמן, ולא יותר מ-16,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "ניקוי והידוק קטבים לפי הצורך"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות ונעלי בלם"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect",
+          "note": "דיסקים ותופים"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "רמת ההגנה של נוזל הקירור"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "בנסיעה באבק או בשטח"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי עם מדיד"
+        },
+        {
+          "item": "door_hinges",
+          "action": "clean",
+          "note": "גירוז מנעולי הדלתות לפי הצורך"
+        }
+      ]
+    },
+    {
+      "km": 192000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון החלפת השמן, ולא יותר מ-16,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "ניקוי והידוק קטבים לפי הצורך"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות ונעלי בלם"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect",
+          "note": "דיסקים ותופים"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "רמת ההגנה של נוזל הקירור"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "בנסיעה באבק או בשטח"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי עם מדיד"
+        },
+        {
+          "item": "door_hinges",
+          "action": "clean",
+          "note": "גירוז מנעולי הדלתות לפי הצורך"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "מפרקים הומוקינטיים ואוניברסליים"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלה קדמי וקצוות מוטות היגוי; החלפה לפי הצורך"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "adjust",
+          "note": "בגרסאות עם בלמי דיסק בארבעת הגלגלים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "replace",
+          "note": "גיר אוטומטי, שמן ומסנן"
+        }
+      ]
+    },
+    {
+      "km": 208000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון החלפת השמן, ולא יותר מ-16,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "ניקוי והידוק קטבים לפי הצורך"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות ונעלי בלם"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect",
+          "note": "דיסקים ותופים"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "רמת ההגנה של נוזל הקירור"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "בנסיעה באבק או בשטח"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי עם מדיד"
+        },
+        {
+          "item": "door_hinges",
+          "action": "clean",
+          "note": "גירוז מנעולי הדלתות לפי הצורך"
+        }
+      ]
+    },
+    {
+      "km": 224000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון החלפת השמן, ולא יותר מ-16,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "ניקוי והידוק קטבים לפי הצורך"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות ונעלי בלם"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect",
+          "note": "דיסקים ותופים"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "רמת ההגנה של נוזל הקירור"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "בנסיעה באבק או בשטח"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי עם מדיד"
+        },
+        {
+          "item": "door_hinges",
+          "action": "clean",
+          "note": "גירוז מנעולי הדלתות לפי הצורך"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "מפרקים הומוקינטיים ואוניברסליים"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלה קדמי וקצוות מוטות היגוי; החלפה לפי הצורך"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "adjust",
+          "note": "בגרסאות עם בלמי דיסק בארבעת הגלגלים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "שמן סרן קדמי ואחורי"
+        }
+      ]
+    },
+    {
+      "km": 240000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון החלפת השמן, ולא יותר מ-16,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "ניקוי והידוק קטבים לפי הצורך"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות ונעלי בלם"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect",
+          "note": "דיסקים ותופים"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "רמת ההגנה של נוזל הקירור"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "בנסיעה באבק או בשטח"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי עם מדיד"
+        },
+        {
+          "item": "door_hinges",
+          "action": "clean",
+          "note": "גירוז מנעולי הדלתות לפי הצורך"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant",
+          "action": "replace",
+          "note": "שטיפה והחלפה"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "coolant",
+      "action": "replace",
+      "every_km": 240000,
+      "every_months": 120,
+      "note": "שטיפה והחלפה ב-10 שנים או 240,000 ק\"מ, המוקדם"
+    },
+    {
+      "item": "spark_plugs",
+      "action": "replace",
+      "every_km": 160000,
+      "note": "לפי ק\"מ בלבד"
+    }
+  ],
+  "time_based": [],
+  "specs": {
+    "_note": "הטבלה מתחילה בשנה 2 (32,000 ק\"מ); בטיפול הראשון מבוצעים רק פריטי \"בכל החלפת שמן\""
+  },
+  "sources": [
+    {
+      "url": "https://cdn.dealereprocess.org/cdn/servicemanuals/jeep/2016-wrangler.pdf",
+      "kind": "manufacturer",
+      "note": "2016 Jeep Wrangler Owner's Manual (FCA US), Maintenance Schedules, עמ' 665-670 (PDF 667-672); עמודות במייל ובק\"מ"
+    }
+  ],
+  "status": "draft",
+  "notes": "ספר עברי לרנגלר JK לא נמצא; הלוח לקוח מספר הנהג האמריקאי של רנגלר 2016 עם מנוע 3.6 V6. שמן ומסנן לפי מחוון החלפת השמן, לכל היותר כל 16,000 ק\"מ או שנה (בשימוש באבק ובשטח כל 6,500 ק\"מ); בכל החלפה גם סבב צמיגים ובדיקת מצבר, בלמים, מערכת קירור, פליטה ושמן גיר. כל שנתיים (32,000 ק\"מ): מסנן מזגן, בדיקת מפרקים, מתלה קדמי, בטנות בלם. מסנן אוויר כל 48,000 ק\"מ. מצתים ב-160,000 ק\"מ; נוזל קירור ב-10 שנים או 240,000 ק\"מ; שמן גיר אוטומטי ב-192,000 ק\"מ. בשימוש קשה (מונית, צי, שטח, גרירה, נסיעה מהירה ממושכת בחום) הספר מקדים את החלפת שמן הגיר, תיבת ההעברה והסרנים (למשל גיר אוטומטי ב-96,000 ק\"מ, שמן סרנים ב-64,000 ק\"מ)."
+}

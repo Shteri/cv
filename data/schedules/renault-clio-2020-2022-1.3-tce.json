@@ -1,0 +1,278 @@
+{
+  "make": "Renault",
+  "make_he": "רנו",
+  "importer": "פריסבי (קרסו)",
+  "id": "renault-clio-2020-2022-1.3-tce",
+  "model": "Clio",
+  "model_he": "קליאו",
+  "generation": "V (BF)",
+  "years": [
+    2020,
+    2022
+  ],
+  "engines": [
+    "1.3 TCe (H5H)"
+  ],
+  "fuel": "petrol",
+  "interval": {
+    "km": 30000,
+    "months": 12,
+    "note": "לפי רנו אוסטרליה (קדג'אר, ארקנה וקפצ'ור מ-2021): טיפול כל 12 חודשים או 30,000 ק\"מ; חיישן מצב השמן עשוי להקדים טיפול"
+  },
+  "cycle_km": 120000,
+  "services": [
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "או כל 4 שנים"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "או כל 4 שנים"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "drive_belt",
+      "action": "replace",
+      "every_km": 120000,
+      "every_months": 48,
+      "note": "ערכת רצועת אביזרים"
+    },
+    {
+      "item": "coolant",
+      "action": "replace",
+      "every_km": 120000,
+      "every_months": 48
+    },
+    {
+      "item": "brake_fluid",
+      "action": "replace",
+      "every_km": 120000,
+      "every_months": 48
+    }
+  ],
+  "time_based": [],
+  "specs": {
+    "timing": "שרשרת תזמון (מנוע 1.3 TCe H5H), אין החלפה בטבלה"
+  },
+  "sources": [
+    {
+      "url": "https://www.renault.com.au/capped-price-servicing/",
+      "kind": "manufacturer",
+      "note": "Renault Australia, Capped Price Servicing: טבלת \"Renault Kadjar, Arkana & Captur (MY21 onwards)\" (מנוע 1.3 TCe H5H)"
+    },
+    {
+      "url": "https://www.renault.co.il/",
+      "kind": "importer",
+      "note": "אתרי renault.co.il ו-dacia.co.il חסומים מסביבת הענן (Incapsula 403, גם בדפדפן Playwright); ספר עברי או לוח טיפולים של היבואן לא נמצאו"
+    }
+  ],
+  "status": "draft",
+  "notes": "קליאו 5 עם מנוע 1.3 TCe (H5H), אותו מנוע של קפצ'ור/ארקנה; הלוח זהה לקובץ של קפצ'ור 2020 ומבוסס על אותה טבלה של רנו אוסטרליה (שאינה כוללת את קליאו). לוח היבואן בישראל לא נמצא. לפי טבלת רנו אוסטרליה למנוע 1.3 TCe: טיפול כל שנה או 30,000 ק\"מ עם החלפת שמן, מסנן אוויר ומסנן מזגן. מצתים כל 60,000 או 4 שנים. ערכת רצועת אביזרים, נוזל קירור ונוזל בלמים כל 120,000 או 4 שנים. מערכת חיישן השמן ברכב עשויה לדרוש טיפול מוקדם יותר, והיבואן בישראל עשוי לקבוע מרווח קצר יותר. רשימת הבדיקות הכלליות בכל טיפול (צמיגים, תאורה, בלמים, מפלסים, קריאת מחשב) איננה מפורטת בעמוד המקור ונוספה כבדיקות שגרה; ההחלפות והמרווחים לקוחים מהמקור. "
+}

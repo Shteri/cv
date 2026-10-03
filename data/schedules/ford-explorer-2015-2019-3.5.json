@@ -1,0 +1,186 @@
+{
+  "make": "Ford",
+  "make_he": "פורד",
+  "importer": "דלק מוטורס",
+  "id": "ford-explorer-2015-2019-3.5",
+  "model": "Explorer",
+  "model_he": "אקספלורר",
+  "generation": "U502 facelift",
+  "years": [
+    2015,
+    2019
+  ],
+  "engines": [
+    "3.5 V6"
+  ],
+  "fuel": "petrol",
+  "interval": {
+    "km": 15000,
+    "months": 12,
+    "note": "טיפול כשמופיעה הודעת OIL CHANGE REQUIRED, או 15,000 ק\"מ או 12 חודשים (מנוע 3.5, שנות ייצור 2015-2018)"
+  },
+  "cycle_km": 90000,
+  "services": [
+    {
+      "km": 15000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי הודעה בלוח השעונים, או 15,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי הודעה בלוח השעונים, או 15,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "או שנתיים"
+        }
+      ]
+    },
+    {
+      "km": 45000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי הודעה בלוח השעונים, או 15,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "אם לא הוחלף קודם"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי הודעה בלוח השעונים, או 15,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "או שנתיים"
+        }
+      ]
+    },
+    {
+      "km": 75000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי הודעה בלוח השעונים, או 15,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי הודעה בלוח השעונים, או 15,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "או שנתיים"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "אם לא הוחלף קודם"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "coolant",
+      "action": "replace",
+      "first_km": 165000,
+      "first_months": 72,
+      "then_every_km": 75000,
+      "then_every_months": 36
+    },
+    {
+      "item": "spark_plugs",
+      "action": "replace",
+      "every_km": 150000
+    },
+    {
+      "item": "transmission_oil",
+      "action": "replace",
+      "every_km": 240000
+    },
+    {
+      "item": "differential_oil",
+      "action": "replace",
+      "every_km": 240000,
+      "note": "סרן אחורי"
+    },
+    {
+      "item": "drive_belt",
+      "action": "replace",
+      "every_km": 165000
+    }
+  ],
+  "time_based": [],
+  "specs": {
+    "engine_oil": "5W-20 (WSS-M2C970-A1)",
+    "coolant": "צהוב, מפרט WSS-M97B57-A2",
+    "brake_fluid": "DOT 4 Low Viscosity",
+    "_note": "בתוכנית גם מסנן אוויר למושב מקורר כל 45,000 ק\"מ (אין לו פריט ברשימה). באתר היבואן התוכנית מוצגת לשנים 2012-2019"
+  },
+  "sources": [
+    {
+      "url": "https://delekmotorscoil.sharepoint.com/:b:/s/Techtrain/EbZsbgRC-zRLvxAFs9LNYwAB33wp0lNs3rpwLSIIXW0glQ?download=1",
+      "kind": "importer",
+      "note": "PDF תוכנית טיפול Ford_Explorer_2015_2018.pdf של דלק מוטורס (עמוד אחד: פריט ומרווח). טיפול כשמופיעה הודעת OIL CHANGE REQUIRED, או 15,000 ק\"מ או 12 חודשים (מנוע 3.5, שנות ייצור 2015-2018)"
+    },
+    {
+      "url": "https://www.ford.co.il/תוכנית-טיפול/שירות",
+      "kind": "importer",
+      "note": "דף תוכניות הטיפול של דלק מוטורס; קישורי ה-PDF לכל דגם נמצאים במשתנה data בדף"
+    }
+  ],
+  "status": "reviewed",
+  "notes": "הלוח מתוכנית הטיפול הרשמית של היבואן דלק מוטורס (עמוד אחד: פריט ומרווח). התוכנית לא מפרטת בדיקות שגרה, ולכן מופיעים רק הפריטים שבה. שמן ומסנן לפי הודעה בלוח השעונים או כל 15,000 ק\"מ או שנה; מסנן מזגן כל 30,000 או שנתיים; מסנן אוויר ומסנן אוויר של המושב המקורר כל 45,000; מצתים 150,000; רצועת אביזרים 165,000; שמן גיר ושמן סרן אחורי 240,000; נוזל קירור לראשונה ב-165,000 או 6 שנים ואחר כך כל 75,000 או 3 שנים."
+}

@@ -1,0 +1,210 @@
+{
+  "make": "Ford",
+  "make_he": "פורד",
+  "importer": "דלק מוטורס",
+  "id": "ford-explorer-2020-2026-2.3-3.0",
+  "model": "Explorer",
+  "model_he": "אקספלורר",
+  "generation": "U625",
+  "years": [
+    2020,
+    2026
+  ],
+  "engines": [
+    "2.3 בנזין",
+    "3.0 V6 בנזין"
+  ],
+  "fuel": "petrol",
+  "interval": {
+    "km": 20000,
+    "months": 12,
+    "note": "טיפול כשמופיעה הודעת OIL CHANGE REQUIRED, או 20,000 ק\"מ או 12 חודשים (מנועי בנזין 2.3/3.0, משנת ייצור 2020)"
+  },
+  "cycle_km": 120000,
+  "services": [
+    {
+      "km": 20000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי הודעה בלוח השעונים, או 20,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "כל 20,000 ק\"מ"
+        }
+      ]
+    },
+    {
+      "km": 40000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי הודעה בלוח השעונים, או 20,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "כל 20,000 ק\"מ"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי הודעה בלוח השעונים, או 20,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "כל 20,000 ק\"מ"
+        }
+      ]
+    },
+    {
+      "km": 80000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי הודעה בלוח השעונים, או 20,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "כל 20,000 ק\"מ"
+        }
+      ]
+    },
+    {
+      "km": 100000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי הודעה בלוח השעונים, או 20,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "כל 20,000 ק\"מ"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי הודעה בלוח השעונים, או 20,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "כל 20,000 ק\"מ"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "coolant",
+      "action": "replace",
+      "first_km": 320000,
+      "first_months": 120,
+      "then_every_km": 160000,
+      "then_every_months": 60
+    },
+    {
+      "item": "air_filter",
+      "action": "replace",
+      "every_km": 30000
+    },
+    {
+      "item": "spark_plugs",
+      "action": "replace",
+      "every_km": 160000
+    },
+    {
+      "item": "transmission_oil",
+      "action": "replace",
+      "every_km": 240000
+    },
+    {
+      "item": "differential_oil",
+      "action": "replace",
+      "every_km": 240000,
+      "note": "סרן אחורי"
+    },
+    {
+      "item": "brake_fluid",
+      "action": "replace",
+      "every_months": 36
+    },
+    {
+      "item": "drive_belt",
+      "action": "inspect",
+      "first_km": 160000,
+      "then_every_km": 40000,
+      "note": "בדיקה לראשונה ב-160,000 ואחר כך בכל טיפול שני; החלפה לפי הצורך"
+    },
+    {
+      "item": "drive_belt",
+      "action": "replace",
+      "every_km": 240000,
+      "note": "בכל מקרה"
+    }
+  ],
+  "time_based": [],
+  "specs": {
+    "engine_oil": "5W-30 (WSS-M2C971-A1)",
+    "coolant": "צהוב, מפרט WSS-M97B57-A2",
+    "brake_fluid": "DOT 4 Low Viscosity",
+    "_note": "גיר אוטומטי Mercon ULV; סרן אחורי 75W-80; סרן קדמי 75W-140 (לפי התוכנית)"
+  },
+  "sources": [
+    {
+      "url": "https://delekmotorscoil.sharepoint.com/:b:/s/Techtrain/EX-NvTIFF9RNpKXz0fce6qwBCpdaYi9tstN50ORIIbimOQ?download=1",
+      "kind": "importer",
+      "note": "PDF תוכנית טיפול Ford_Explorer_2020_And_Up.pdf של דלק מוטורס (עמוד אחד: פריט ומרווח). טיפול כשמופיעה הודעת OIL CHANGE REQUIRED, או 20,000 ק\"מ או 12 חודשים (מנועי בנזין 2.3/3.0, משנת ייצור 2020)"
+    },
+    {
+      "url": "https://www.ford.co.il/תוכנית-טיפול/שירות",
+      "kind": "importer",
+      "note": "דף תוכניות הטיפול של דלק מוטורס; קישורי ה-PDF לכל דגם נמצאים במשתנה data בדף"
+    }
+  ],
+  "status": "reviewed",
+  "notes": "הלוח מתוכנית הטיפול הרשמית של היבואן דלק מוטורס (עמוד אחד: פריט ומרווח). התוכנית לא מפרטת בדיקות שגרה, ולכן מופיעים רק הפריטים שבה. שמן ומסנן לפי הודעה בלוח השעונים או כל 20,000 ק\"מ או שנה; מסנן מזגן כל 20,000; מסנן אוויר כל 30,000; נוזל בלמים כל 3 שנים; מצתים 160,000; שמן גיר ושמן סרן אחורי 240,000; רצועת אביזרים: בדיקה מ-160,000 והחלפה ב-240,000; נוזל קירור לראשונה ב-320,000 או 10 שנים ואחר כך כל 160,000 או 5 שנים."
+}

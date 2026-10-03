@@ -1,0 +1,234 @@
+{
+  "make": "Ford",
+  "make_he": "פורד",
+  "importer": "דלק מוטורס",
+  "id": "ford-ranger-2023-2026-diesel",
+  "model": "Ranger",
+  "model_he": "ריינג'ר",
+  "generation": "P703",
+  "years": [
+    2023,
+    2026
+  ],
+  "engines": [
+    "דיזל"
+  ],
+  "fuel": "diesel",
+  "interval": {
+    "km": 20000,
+    "months": 24,
+    "note": "טיפול כשמופיעה הודעה בלוח השעונים, או 20,000 ק\"מ או 24 חודשים (מנוע דיזל, משנת ייצור 2023)"
+  },
+  "cycle_km": 120000,
+  "services": [
+    {
+      "km": 20000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי הודעה בלוח השעונים, או 20,000 ק\"מ או 24 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "inspect",
+          "note": "ניקוז מים; החלפה אם נורית המים בסולר לא כבתה אחרי הניקוז"
+        }
+      ]
+    },
+    {
+      "km": 40000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי הודעה בלוח השעונים, או 20,000 ק\"מ או 24 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "inspect",
+          "note": "ניקוז מים; החלפה אם נורית המים בסולר לא כבתה אחרי הניקוז"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "או 4 שנים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "או 4 שנים"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי הודעה בלוח השעונים, או 20,000 ק\"מ או 24 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "inspect",
+          "note": "ניקוז מים; החלפה אם נורית המים בסולר לא כבתה אחרי הניקוז"
+        }
+      ]
+    },
+    {
+      "km": 80000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי הודעה בלוח השעונים, או 20,000 ק\"מ או 24 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "inspect",
+          "note": "ניקוז מים; החלפה אם נורית המים בסולר לא כבתה אחרי הניקוז"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "או 4 שנים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "או 4 שנים"
+        }
+      ]
+    },
+    {
+      "km": 100000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי הודעה בלוח השעונים, או 20,000 ק\"מ או 24 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "inspect",
+          "note": "ניקוז מים; החלפה אם נורית המים בסולר לא כבתה אחרי הניקוז"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי הודעה בלוח השעונים, או 20,000 ק\"מ או 24 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "inspect",
+          "note": "ניקוז מים; החלפה אם נורית המים בסולר לא כבתה אחרי הניקוז"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "או 4 שנים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "או 4 שנים"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "coolant",
+      "action": "replace",
+      "every_months": 120
+    },
+    {
+      "item": "timing_belt",
+      "action": "replace",
+      "every_km": 160000,
+      "every_months": 72
+    },
+    {
+      "item": "drive_belt",
+      "action": "replace",
+      "every_km": 240000,
+      "every_months": 120
+    },
+    {
+      "item": "transmission_oil",
+      "action": "replace",
+      "every_km": 240000,
+      "every_months": 120,
+      "note": "שמן ומסנן"
+    },
+    {
+      "item": "differential_oil",
+      "action": "replace",
+      "every_km": 240000,
+      "every_months": 120,
+      "note": "סרן קדמי ואחורי"
+    },
+    {
+      "item": "transfer_case_oil",
+      "action": "replace",
+      "every_km": 240000,
+      "every_months": 120
+    },
+    {
+      "item": "brake_fluid",
+      "action": "replace",
+      "every_months": 24
+    }
+  ],
+  "time_based": [],
+  "specs": {
+    "engine_oil": "5W-30 (WSS-M2C913-D)",
+    "coolant": "צהוב, מפרט WSS-M97B57-A2",
+    "brake_fluid": "DOT 4 Low Viscosity",
+    "timing": "רצועת תזמון: 160,000 ק\"מ או 6 שנים"
+  },
+  "sources": [
+    {
+      "url": "https://delekmotorscoil.sharepoint.com/:b:/s/Techtrain/EYv1xArxEvROph7WazGGsN8BKDOm4Mi06hUva00DQHoZZA?download=1",
+      "kind": "importer",
+      "note": "PDF תוכנית טיפול Ford_Ranger_Diesel_2023_And_Up.pdf של דלק מוטורס (עמוד אחד: פריט ומרווח). טיפול כשמופיעה הודעה בלוח השעונים, או 20,000 ק\"מ או 24 חודשים (מנוע דיזל, משנת ייצור 2023)"
+    },
+    {
+      "url": "https://www.ford.co.il/תוכנית-טיפול/שירות",
+      "kind": "importer",
+      "note": "דף תוכניות הטיפול של דלק מוטורס; קישורי ה-PDF לכל דגם נמצאים במשתנה data בדף"
+    }
+  ],
+  "status": "reviewed",
+  "notes": "הלוח מתוכנית הטיפול הרשמית של היבואן דלק מוטורס (עמוד אחד: פריט ומרווח). התוכנית לא מפרטת בדיקות שגרה, ולכן מופיעים רק הפריטים שבה. שמן ומסנן לפי הודעה בלוח השעונים או כל 20,000 ק\"מ או שנתיים; ניקוז מים ממסנן הסולר; מסנני אוויר ומזגן כל 40,000 או 4 שנים; נוזל בלמים כל שנתיים; רצועת תזמון 160,000 או 6 שנים; נוזל קירור כל 10 שנים; רצועת אביזרים, שמן גיר, שמני סרנים ותיבת העברה 240,000 או 10 שנים."
+}
