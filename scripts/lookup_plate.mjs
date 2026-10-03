@@ -53,7 +53,7 @@ const MAKES = [
   ["מרוטי", "Suzuki"], ["דייהטסו", "Daihatsu"], ["אקספנג", "Xpeng"], ["קרייזלר", "Chrysler"], ["לינק אנד קו", "Lynk & Co"], ["ג'יפ", "Jeep"],
   ["זיקר", "Zeekr"], ["רובר", "Land Rover"], ["לנדרובר", "Land Rover"], ["דיפאל", "Deepal"], ["סרס", "Seres"], ["קאדילאק", "Cadillac"], ["סאנגיונג", "SsangYong"],
   ["קיי גי מוביליט", "KGM"], ["אומודה", "Omoda"], ["אורה", "ORA"], ["דיימלר", "Mercedes-Benz"], ["ליפמוטור", "Leapmotor"], ["מקסוס", "Maxus"],
-  ["דונגפנג", "Dongfeng"], ["קופרה", "Cupra"], ["פורשה", "Porsche"], ["סמארט", "Smart"], ["סקיוול", "Skywell"], ["ביואיק", "Buick"], ["איווייס", "Aiways"],
+  ["דונגפנג", "Dongfeng"], ["קופרה", "Cupra"], ["פורשה", "Porsche"], ["סמארט", "Smart"], ["סקיוול", "Skywell"], ["ביואיק", "Buick"], ["איווייס", "Aiways"], ["איויאיסי", "EVEC"],
 ];
 export function normalizeMake(raw) {
   if (!raw) return null;
