@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="he" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+{{FONTS}}
+      :root {
+        --bg: #05070a;
+        --y: #f7c948;           /* plate yellow, the brand accent, used as neon */
+        --y-rgb: 247, 201, 72;
+        --ink: #f3f4f6;
+        --muted: #9ba2ac;
+        --good: #3fd58b;
+        --crit: #ff5a4e;
+        --unknown: #8a919c;
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--bg); }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; background: var(--bg); color: var(--ink); direction: rtl; font-family: "IBM Plex Sans Hebrew", sans-serif; }
+      .clip { position: absolute; inset: 0; }
+
+      /* ---------- HUD backdrop ---------- */
+      .glow { position: absolute; left: -200px; right: -200px; top: -300px; height: 1100px; background: radial-gradient(closest-side, rgba(var(--y-rgb), 0.16), rgba(var(--y-rgb), 0)); }
+      .floor { position: absolute; left: -540px; width: 2160px; top: 1180px; height: 1100px; transform-origin: 50% 0; transform: perspective(700px) rotateX(72deg);
+        background-image: linear-gradient(rgba(var(--y-rgb), 0.22) 2px, transparent 2px), linear-gradient(90deg, rgba(var(--y-rgb), 0.22) 2px, transparent 2px);
+        background-size: 90px 90px; -webkit-mask-image: linear-gradient(180deg, transparent, #000 35%, #000 70%, transparent); mask-image: linear-gradient(180deg, transparent, #000 35%, #000 70%, transparent); }
+      .scan { position: absolute; inset: 0; background: repeating-linear-gradient(0deg, rgba(255,255,255,0.028) 0 1px, transparent 1px 4px); pointer-events: none; }
+      .vig { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 45%, rgba(0,0,0,0) 55%, rgba(0,0,0,0.75) 100%); }
+      .corner { position: absolute; width: 70px; height: 70px; border-color: rgba(var(--y-rgb), 0.7); border-style: solid; border-width: 0; }
+      .c-tl { left: 34px; top: 34px; border-left-width: 3px; border-top-width: 3px; }
+      .c-tr { right: 34px; top: 34px; border-right-width: 3px; border-top-width: 3px; }
+      .c-bl { left: 34px; bottom: 34px; border-left-width: 3px; border-bottom-width: 3px; }
+      .c-br { right: 34px; bottom: 34px; border-right-width: 3px; border-bottom-width: 3px; }
+      .code { font-family: "Rubik", sans-serif; font-weight: 500; font-size: 22px; letter-spacing: 0.32em; color: rgba(var(--y-rgb), 0.85); direction: ltr; text-transform: uppercase; }
+      .hud-tl { position: absolute; left: 120px; top: 52px; }
+      .hud-tr { position: absolute; right: 120px; top: 52px; }
+      .hud-b { position: absolute; left: 0; right: 0; bottom: 52px; text-align: center; }
+      #holo { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+      .flash { position: absolute; inset: 0; background: radial-gradient(closest-side, rgba(255, 244, 214, 0.9), rgba(var(--y-rgb), 0.25) 60%, rgba(0,0,0,0)); opacity: 0; }
+
+      /* ---------- type ---------- */
+      .big { position: absolute; left: 60px; right: 60px; text-align: center; font-family: "Rubik", sans-serif; font-weight: 800; letter-spacing: -0.03em; line-height: 1.02; }
+      .big .w { display: inline-block; }
+      .big .y { color: var(--y); text-shadow: 0 0 40px rgba(var(--y-rgb), 0.55); }
+      .hook1 { top: 230px; font-size: 118px; } .hook2 { top: 1500px; font-size: 118px; }
+      .guess { top: 1540px; font-size: 92px; }
+      .qm { position: absolute; font-family: "Rubik", sans-serif; font-weight: 800; font-size: 120px; color: var(--y); text-shadow: 0 0 30px rgba(var(--y-rgb), 0.7); opacity: 0; }
+      .brand { display: flex; align-items: center; justify-content: center; direction: ltr; font-family: "Unbounded", sans-serif; font-weight: 600; letter-spacing: -0.03em; color: #fff; line-height: 1; text-shadow: 0 0 50px rgba(255,255,255,0.25); }
+      .brand .ch { display: inline-block; }
+      .brand .dot { display: inline-block; width: 0.3em; height: 0.3em; margin-left: 0.08em; border-radius: 0.07em; background: var(--y); align-self: flex-end; margin-bottom: 0.08em; box-shadow: 0 0 30px rgba(var(--y-rgb), 0.9); }
+      .logo { position: absolute; left: 0; right: 0; top: 760px; }
+      .logo .brand { font-size: 176px; }
+      .knows { position: absolute; left: 0; right: 0; top: 1010px; text-align: center; font-family: "Rubik", sans-serif; font-weight: 800; font-size: 84px; }
+      .sweep { position: absolute; left: -400px; top: 700px; width: 260px; height: 380px; background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.55), rgba(255,255,255,0)); transform: skewX(-18deg); opacity: 0; mix-blend-mode: overlay; }
+
+      /* ---------- section header ---------- */
+      .head { position: absolute; left: 70px; right: 70px; top: 150px; display: flex; flex-direction: column; gap: 14px; opacity: 0; }
+      .head .code { font-size: 24px; }
+      .head h2 { font-family: "Rubik", sans-serif; font-weight: 800; font-size: 80px; letter-spacing: -0.03em; line-height: 1.05; }
+      .head h2 .w { display: inline-block; }
+      .head .bar { display: block; height: 4px; width: 140px; background: var(--y); box-shadow: 0 0 20px rgba(var(--y-rgb), 0.8); transform-origin: 100% 50%; }
+
+      /* ---------- phone with real dark-mode screens ---------- */
+      .phone { position: absolute; left: 292px; top: 470px; width: 496px; height: 1041px; padding: 14px; border-radius: 76px; background: #0d1015;
+        border: 2px solid rgba(var(--y-rgb), 0.55); box-shadow: 0 0 0 1px rgba(255,255,255,0.06) inset, 0 0 60px rgba(var(--y-rgb), 0.25), 0 60px 120px rgba(0,0,0,0.6); opacity: 0; }
+      .screen { position: relative; width: 468px; height: 1013px; border-radius: 62px; overflow: hidden; background: #08090b; }
+      .layer { position: absolute; left: 0; top: 0; width: 468px; height: 1013px; }
+      .layer img, .strip img { position: absolute; left: 0; top: 0; display: block; width: 468px; height: 1013px; }
+      .strip { position: absolute; left: 0; top: 0; width: 468px; height: 1700px; }
+      #L-cond, #L-gar { opacity: 0; }
+      .spot { position: absolute; display: block; border-radius: 14px; border: 2px solid var(--y); box-shadow: 0 0 0 1600px rgba(3, 4, 6, 0.72), 0 0 24px rgba(var(--y-rgb), 0.8); opacity: 0; }
+      .spot.crit { border-color: var(--crit); box-shadow: 0 0 0 1600px rgba(3, 4, 6, 0.72), 0 0 24px rgba(255, 90, 78, 0.8); }
+
+      /* lens: the spotted UI, enlarged in place and lifted toward the camera */
+      .lens { position: absolute; display: block; border-radius: 22px; background-repeat: no-repeat; opacity: 0; z-index: 5;
+        box-shadow: 0 0 0 3px var(--y), 0 0 50px rgba(var(--y-rgb), 0.45), 0 40px 90px rgba(0,0,0,0.7); }
+      .lens.crit { box-shadow: 0 0 0 3px var(--crit), 0 0 50px rgba(255, 90, 78, 0.45), 0 40px 90px rgba(0,0,0,0.7); }
+      .tag { position: absolute; left: 70px; right: 70px; z-index: 6; display: flex; align-items: center; gap: 18px; opacity: 0; }
+      .tag .ln { display: block; width: 60px; height: 3px; background: var(--y); box-shadow: 0 0 14px rgba(var(--y-rgb), 0.9); }
+      .tag .tx { font-family: "Rubik", sans-serif; font-weight: 700; font-size: 50px; text-shadow: 0 4px 30px rgba(0,0,0,0.9); }
+      .tag .tx .y { color: var(--y); }
+      .tag.crit .ln { background: var(--crit); box-shadow: 0 0 14px rgba(255, 90, 78, 0.9); }
+      .tag.crit .tx .y { color: var(--crit); }
+      .stat { position: absolute; left: 60px; right: 60px; text-align: center; z-index: 6; opacity: 0; }
+      .stat .n { font-family: "Rubik", sans-serif; font-weight: 800; font-size: 150px; letter-spacing: -0.04em; color: var(--y); text-shadow: 0 0 50px rgba(var(--y-rgb), 0.6); line-height: 1; direction: ltr; }
+      .stat .l { font-family: "Rubik", sans-serif; font-weight: 700; font-size: 46px; margin-top: 8px; }
+      .stamp { position: absolute; left: 60px; right: 60px; top: 1560px; text-align: center; z-index: 7; font-family: "Rubik", sans-serif; font-weight: 800; font-size: 86px; color: #fff; opacity: 0; }
+      .stamp .y { color: var(--crit); text-shadow: 0 0 36px rgba(255, 90, 78, 0.7); }
+
+      /* hologram part labels (follow the rotating car) */
+      .plab { position: absolute; display: flex; align-items: center; gap: 14px; padding: 14px 24px; border-radius: 14px; transform-origin: 50% 50%;
+        background: rgba(8, 10, 14, 0.82); border: 2px solid var(--good); font-family: "Rubik", sans-serif; font-weight: 700; font-size: 38px; white-space: nowrap; opacity: 0; box-shadow: 0 0 30px rgba(63, 213, 139, 0.35); }
+      .plab .st { font-family: "IBM Plex Sans Hebrew", sans-serif; font-weight: 500; font-size: 30px; color: var(--good); }
+      .plab.crit { border-color: var(--crit); box-shadow: 0 0 30px rgba(255, 90, 78, 0.45); } .plab.crit .st { color: var(--crit); }
+      .plab.unk { border-color: var(--unknown); box-shadow: none; } .plab.unk .st { color: var(--unknown); }
+
+      /* CTA */
+      .cta { position: absolute; left: 0; right: 0; top: 900px; display: flex; flex-direction: column; align-items: center; gap: 40px; }
+      .cta .brand { font-size: 140px; opacity: 0; }
+      .cta .tg { font-family: "Rubik", sans-serif; font-weight: 800; font-size: 72px; opacity: 0; }
+      .plate { display: flex; direction: ltr; height: 132px; border: 5px solid #101214; border-radius: 18px; overflow: hidden; background: var(--y); box-shadow: 0 0 60px rgba(var(--y-rgb), 0.45); opacity: 0; }
+      .plate .il { width: 60px; background: #1747a8; color: #fff; font-family: "Rubik", sans-serif; font-weight: 700; font-size: 26px; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 14px; }
+      .plate .pn { width: 480px; padding: 0 30px; font-family: "Rubik", sans-serif; font-weight: 700; font-size: 78px; letter-spacing: 0.06em; color: #101214; display: flex; align-items: center; justify-content: center; }
+      .plate .d { display: inline-block; opacity: 0; }
+      .btn { padding: 30px 90px; border-radius: 999px; background: var(--y); color: #101214; font-family: "Rubik", sans-serif; font-weight: 800; font-size: 56px; box-shadow: 0 0 60px rgba(var(--y-rgb), 0.6); opacity: 0; }
+      .url { font-family: "Rubik", sans-serif; font-weight: 500; font-size: 38px; color: var(--muted); direction: ltr; opacity: 0; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="32.2" data-width="1080" data-height="1920">
+      <span class="glow"></span>
+      <div class="floor" id="floor" data-layout-allow-overflow></div>
+      <canvas id="holo" width="1080" height="1920"></canvas>
+
+      <!-- Hook + logo -->
+      <section id="s-hook" class="clip" data-start="0" data-duration="5.4" data-track-index="0">
+        <div class="big hook1" id="hook1"><span class="w">מתי</span> <span class="w">הטיפול</span> <span class="w y">הבא</span></div>
+        <div class="big hook2" id="hook2"><span class="w">של</span> <span class="w">הרכב</span> <span class="w">שלך<span class="y">?</span></span></div>
+        <div class="big guess" id="guess"><span class="w">רוב</span> <span class="w">הנהגים</span> <span class="w y">מנחשים.</span></div>
+        <span class="qm" id="q1">?</span><span class="qm" id="q2">?</span><span class="qm" id="q3">?</span>
+        <span class="flash" id="flash1"></span>
+        <div class="logo" id="logo"><div class="brand" aria-label="Tipulit"><span class="ch">t</span><span class="ch">i</span><span class="ch">p</span><span class="ch">u</span><span class="ch">l</span><span class="ch">i</span><span class="ch">t</span><span class="dot" id="logo-dot"></span></div></div>
+        <span class="sweep" id="sweep"></span>
+        <div class="knows" id="knows"><span class="w">טיפולית</span> <span class="w y">יודעת.</span></div>
+      </section>
+
+      <!-- The app at work -->
+      <section id="s-main" class="clip" data-start="5.1" data-duration="21.7" data-track-index="1">
+        <div class="phone" id="phone">
+          <div class="screen">
+            <div class="layer" id="L-home"><div class="strip" id="strip"><img src="capture/v_home.png" alt="" /><img src="capture/v_next.png" alt="" id="img-next" />
+              <span class="spot" id="sp-plate"></span><span class="spot" id="sp-items"></span><span class="spot" id="sp-hero"></span></div></div>
+            <div class="layer" id="L-cond"><img src="capture/v_condition.png" alt="" /><span class="spot crit" id="sp-row"></span></div>
+            <div class="layer" id="L-gar"><img src="capture/v_garages.png" alt="" /><span class="spot" id="sp-city"></span><span class="spot" id="sp-g1"></span></div>
+          </div>
+        </div>
+        <span class="lens" id="ln-plate"></span>
+        <span class="lens" id="ln-oil"></span>
+        <span class="lens" id="ln-brake"></span>
+        <span class="lens" id="ln-hero"></span>
+        <span class="lens crit" id="ln-row"></span>
+        <span class="lens" id="ln-city"></span>
+        <span class="lens" id="ln-g1"></span>
+
+        <div class="head" id="h1"><span class="code">01 // smart reminder</span><h2><span class="w">תזכורת</span> <span class="w">לפני</span> <span class="w">כל</span> <span class="w">טיפול</span></h2><span class="bar"></span></div>
+        <div class="head" id="h2"><span class="code">02 // vehicle health</span><h2><span class="w">מצב</span> <span class="w">הרכב,</span> <span class="w">פריט</span> <span class="w">אחרי</span> <span class="w">פריט</span></h2><span class="bar"></span></div>
+        <div class="head" id="h3"><span class="code">03 // garages</span><h2><span class="w">מוסך</span> <span class="w">מורשה</span> <span class="w">ליד</span> <span class="w">הבית</span></h2><span class="bar"></span></div>
+
+        <div class="tag" id="t-plate"><span class="ln"></span><span class="tx">מזהים <span class="y">דגם, שנה ומנוע</span></span></div>
+        <div class="tag" id="t-items"><span class="ln"></span><span class="tx">מה מחליפים, <span class="y">לפי ספר היבואן</span></span></div>
+        <div class="stat" id="st-km"><div class="n num" id="kmn">7,700</div><div class="l">ק"מ לטיפול הבא</div></div>
+        <div class="tag" id="t-time"><span class="ln"></span><span class="tx">או לפי הזמן: <span class="y">עד נובמבר 2026</span></span></div>
+        <div class="plab" id="pl-oil"><span>שמן מנוע</span><span class="st">בסדר</span></div>
+        <div class="plab crit" id="pl-brk"><span>נוזל בלמים</span><span class="st">באיחור</span></div>
+        <div class="plab unk" id="pl-tir"><span>צמיגים</span><span class="st">לא ידוע</span></div>
+        <div class="tag crit" id="t-row"><span class="ln"></span><span class="tx">נוזל בלמים: <span class="y">באיחור מ-45,200 ק"מ</span></span></div>
+        <div class="stamp" id="stamp">לפני שזה <span class="y">עולה ביוקר</span></div>
+        <div class="tag" id="t-city"><span class="ln"></span><span class="tx">מוסכים <span class="y">בעיר שלך</span></span></div>
+        <div class="stat" id="st-gar"><div class="n num" id="garc">4,963</div><div class="l">מוסכים מורשים, ממאגר משרד התחבורה</div></div>
+        <div class="tag" id="t-g1"><span class="ln"></span><span class="tx">המלצות <span class="y">מנהגים עם אותו דגם</span></span></div>
+      </section>
+
+      <!-- CTA -->
+      <section id="s-cta" class="clip" data-start="26.6" data-duration="5.6" data-track-index="2">
+        <div class="cta">
+          <div class="brand" id="cta-brand" aria-label="Tipulit"><span class="ch">t</span><span class="ch">i</span><span class="ch">p</span><span class="ch">u</span><span class="ch">l</span><span class="ch">i</span><span class="ch">t</span><span class="dot"></span></div>
+          <div class="tg" id="cta-tg">הרכב שלך, <span class="y-t">בזמן.</span></div>
+          <div class="plate" id="plate"><span class="il">IL</span><span class="pn"><span class="d">1</span><span class="d">2</span><span class="d">-</span><span class="d">3</span><span class="d">4</span><span class="d">5</span><span class="d">-</span><span class="d">6</span><span class="d">7</span></span></div>
+          <div class="btn" id="cta-btn">נסו עכשיו</div>
+          <div class="url" id="cta-url">tipulit.netlify.app</div>
+        </div>
+      </section>
+
+      <!-- HUD chrome over everything -->
+      <span class="scan" data-layout-allow-occlusion></span><span class="vig" data-layout-allow-occlusion></span>
+      <span class="corner c-tl"></span><span class="corner c-tr"></span><span class="corner c-bl"></span><span class="corner c-br"></span>
+      <div class="code hud-tl">tipulit.os</div>
+      <div class="code hud-tr" id="tc">00:00</div>
+      <div class="code hud-b" id="hudb">service scan · il</div>
+
+      <!-- Narration -->
+{{VO}}
+      <!-- Sound design on the key beats -->
+      <audio id="sfx-pop1" src="assets/sfx/pop.wav" data-start="4.3" data-duration="0.17" data-volume="0.5"></audio>
+      <audio id="sfx-tk1" src="assets/sfx/tick.wav" data-start="6.0" data-duration="0.09" data-volume="0.7"></audio>
+      <audio id="sfx-tk2" src="assets/sfx/tick.wav" data-start="7.75" data-duration="0.09" data-volume="0.7"></audio>
+      <audio id="sfx-counter1" src="assets/sfx/counter.wav" data-start="10.45" data-duration="1.05" data-volume="0.3"></audio>
+      <audio id="sfx-tk3" src="assets/sfx/tick.wav" data-start="12.0" data-duration="0.09" data-volume="0.7"></audio>
+      <audio id="sfx-fill" src="assets/sfx/fill.wav" data-start="13.6" data-duration="1.3" data-volume="0.25"></audio>
+      <audio id="sfx-snap1" src="assets/sfx/snap.wav" data-start="16.6" data-duration="0.16" data-volume="0.7"></audio>
+      <audio id="sfx-snap2" src="assets/sfx/snap.wav" data-start="19.35" data-duration="0.16" data-volume="0.7"></audio>
+      <audio id="sfx-pop2" src="assets/sfx/pop.wav" data-start="22.1" data-duration="0.17" data-volume="0.45"></audio>
+      <audio id="sfx-counter2" src="assets/sfx/counter.wav" data-start="23.4" data-duration="1.05" data-volume="0.3"></audio>
+      <audio id="sfx-star" src="assets/sfx/star.wav" data-start="25.25" data-duration="0.07" data-volume="1"></audio>
+      <audio id="sfx-chime" src="assets/sfx/chime.wav" data-start="30.95" data-duration="0.95" data-volume="0.4"></audio>
+    </div>
+
+    <script>
+{{HOLO}}
+    </script>
+    <script>
+      // Screens are 1170x2532 (390x844 @3x), shown 468px wide in the phone (screen origin 306,484 in the frame).
+      const K = 468 / 1170, SX = 306, SY = 484, NEXT_OFF = 1677;
+      const px = v => v * K;
+      const $ = id => document.getElementById(id);
+      const set = (id, props) => { const e = $(id); for (const [k, v] of Object.entries(props)) e.style.setProperty(k, v); };
+      const sbox = (r, pad = 8, yOff = 0) => ({ left: px(r[0] - pad) + "px", top: px(r[1] - pad + yOff) + "px", width: px(r[2] + pad * 2) + "px", height: px(r[3] + pad * 2) + "px" });
+      set("img-next", { top: px(NEXT_OFF) + "px" });
+      set("sp-plate", sbox([48, 352, 426, 118], 10));
+      set("sp-items", sbox([96, 805, 978, 1180], 6, NEXT_OFF));
+      set("sp-hero", sbox([96, 190, 978, 520], 6, NEXT_OFF));
+      set("sp-row", sbox([70, 820, 1030, 218], 6));
+      set("sp-city", sbox([846, 282, 276, 119], 8));
+      set("sp-g1", sbox([62, 992, 1046, 262], 6));
+      // Lens: crop of the screenshot shown at `s` x its phone size, centred on the spot (clamped into the frame)
+      function lens(id, img, r, s, cy) {
+        const w = r[2] * K * s, h = r[3] * K * s, bs = 468 * s, cx = 540;
+        set(id, { left: cx - w / 2 + "px", top: cy - h / 2 + "px", width: w + "px", height: h + "px", "background-image": `url(capture/${img})`,
+          "background-size": `${bs}px auto`, "background-position": `${-r[0] * K * s}px ${-r[1] * K * s}px` });
+      }
+      lens("ln-plate", "v_home.png", [48, 352, 426, 118], 3.4, 1160);
+      lens("ln-oil", "v_next.png", [96, 805, 978, 269], 2.15, 1150);
+      lens("ln-brake", "v_next.png", [96, 1756, 978, 215], 2.15, 1450);
+      lens("ln-hero", "v_next.png", [96, 190, 978, 520], 2.15, 1000);
+      lens("ln-row", "v_condition.png", [70, 820, 1030, 218], 2.05, 1150);
+      lens("ln-city", "v_garages.png", [846, 282, 276, 119], 4.2, 1080);
+      lens("ln-g1", "v_garages.png", [62, 992, 1046, 262], 2.0, 1150);
+      for (const [id, top] of [["t-plate", 1330], ["t-items", 1620], ["st-km", 1340], ["t-time", 1620], ["t-row", 1360], ["t-city", 1270], ["st-gar", 1360], ["t-g1", 1360]]) set(id, { top: top + "px" });
+
+      // ---------- hologram car, driven by the timeline clock ----------
+      const car = Holo.build(), hctx = $("holo").getContext("2d");
+      const cl = (v, a = 0, b = 1) => Math.max(a, Math.min(b, v));
+      const ramp = (t, a, b) => cl((t - a) / (b - a));
+      const ease = x => x * x * (3 - 2 * x);
+      function holoAt(t) {
+        // returns draw params for time t, or null when hidden
+        let p = null;
+        if (t < 5.3) {
+          const out = ease(ramp(t, 4.05, 4.6));
+          const flick = t > 2.9 && t < 4.0 ? 0.55 + 0.45 * Math.abs(Math.sin(t * 37)) : 1;
+          p = { yaw: 0.25 + t * 0.12, pitch: 0.26, scale: 205 - out * 60, dist: 9, cx: 540, cy: 1030, reveal: ease(ramp(t, 0.05, 1.6)), scan: (t * 0.55) % 1.3, alpha: (1 - out * 0.85) * flick };
+          if (t > 4.6) p.alpha = 0.15 * (1 - ramp(t, 4.9, 5.3));
+        } else if (t > 12.4 && t < 19.0) {
+          const a = ease(ramp(t, 12.45, 13.2)) * (1 - ease(ramp(t, 18.4, 18.95)));
+          p = { yaw: 0.3 + (t - 12.4) * 0.07, pitch: 0.26, scale: 195, dist: 9, cx: 560, cy: 990, reveal: 1, scan: t > 13.5 && t < 15.3 ? ramp(t, 13.5, 15.3) * 1.2 : null, alpha: a,
+            parts: { engine: ramp(t, 15.7, 15.95), brakes: ramp(t, 16.5, 16.75) * (0.75 + 0.25 * Math.abs(Math.sin(t * 6))), tires: ramp(t, 17.4, 17.65) },
+            partColor: { engine: "63, 213, 139", brakes: "255, 90, 78", tires: "160, 166, 176" } };
+        } else if (t > 26.6) {
+          const a = ease(ramp(t, 26.7, 27.4));
+          p = { yaw: 0.25 + (t - 26.6) * 0.09, pitch: 0.22, scale: 150, dist: 9, cx: 540, cy: 640, reveal: 1, scan: ((t - 26.6) * 0.45) % 1.3, alpha: a * 0.95 };
+        }
+        return p;
+      }
+      function placeLabel(id, v, p, dx, dy, on) {
+        const q = Holo.at(v, p);
+        set(id, { left: q[0] + dx + "px", top: q[1] + dy + "px" });
+        $(id).style.setProperty("opacity", String(on * (p ? p.alpha : 0)));
+      }
+      function render(t) {
+        const p = holoAt(t);
+        if (p) Holo.draw(hctx, car, p); else hctx.clearRect(0, 0, 1080, 1920);
+        const P = p || { alpha: 0, yaw: 0, pitch: 0, scale: 1, dist: 9, cx: 0, cy: 0 };
+        placeLabel("pl-oil", car.anchors.engine, P, -150, -170, t > 12 && t < 19.1 ? ramp(t, 15.8, 16.05) : 0);
+        placeLabel("pl-brk", car.anchors.brakes, P, -160, 70, t > 12 && t < 19.1 ? ramp(t, 16.6, 16.85) : 0);
+        placeLabel("pl-tir", car.anchors.tires, P, -110, 70, t > 12 && t < 19.1 ? ramp(t, 17.5, 17.75) : 0);
+        const s = Math.floor(t), f = Math.floor((t - s) * 30);
+        $("tc").textContent = `00:${String(s).padStart(2, "0")}:${String(f).padStart(2, "0")}`;
+      }
+
+      const tl = gsap.timeline({ paused: true });
+      const calm = "power3.out", snap = "power4.out", move = "power3.inOut";
+      const clock = { t: 0 };
+      tl.to(clock, { t: 32.2, duration: 32.2, ease: "none", onUpdate: () => render(clock.t) }, 0);
+      tl.fromTo("#floor", { backgroundPosition: "0px 0px" }, { backgroundPosition: "0px 900px", duration: 32.2, ease: "none" }, 0);
+
+      const slam = (sel, t, st = 0.09) => tl.fromTo(sel, { opacity: 0, scale: 1.7, filter: "blur(16px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.32, stagger: st, ease: snap }, t);
+      const out = (sel, t, d = 0.25) => tl.to(sel, { opacity: 0, scale: 0.92, filter: "blur(10px)", duration: d, ease: "power2.in" }, t);
+      function headIn(id, t) {
+        tl.set("#" + id, { opacity: 1 }, t);
+        tl.fromTo(`#${id} .code`, { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.4, ease: calm }, t);
+        slam(`#${id} .w`, t + 0.08, 0.06);
+        tl.fromTo(`#${id} .bar`, { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: snap }, t + 0.25);
+      }
+      const headOut = (id, t) => tl.to("#" + id, { opacity: 0, y: -30, duration: 0.3, ease: "power2.in" }, t);
+      const spotIn = (id, t) => tl.fromTo("#" + id, { opacity: 0, scale: 1.25 }, { opacity: 1, scale: 1, duration: 0.35, ease: snap }, t);
+      const fade = (id, t, d = 0.25) => tl.to("#" + id, { opacity: 0, duration: d }, t);
+      const lensIn = (id, t) => tl.fromTo("#" + id, { opacity: 0, scale: 0.45, rotationX: 35, z: -300, transformPerspective: 1400 }, { opacity: 1, scale: 1, rotationX: 0, z: 0, duration: 0.5, ease: snap }, t);
+      const lensOut = (id, t) => tl.to("#" + id, { opacity: 0, scale: 0.5, rotationX: -25, duration: 0.3, ease: "power2.in" }, t);
+      const tagIn = (id, t) => { tl.fromTo("#" + id, { opacity: 0, x: 60 }, { opacity: 1, x: 0, duration: 0.4, ease: snap }, t); tl.fromTo(`#${id} .ln`, { scaleX: 0 }, { scaleX: 1, duration: 0.4, ease: snap }, t); };
+
+      // ---------- A. hook (VO 1 at 0.2, VO 2 at 2.1) ----------
+      const hw1 = document.querySelectorAll("#hook1 .w"), hw2 = document.querySelectorAll("#hook2 .w");
+      [0.3, 0.55, 0.92].forEach((t, i) => slam(hw1[i], t));
+      [1.16, 1.3, 1.6].forEach((t, i) => slam(hw2[i], t));
+      out(["#hook1", "#hook2"], 2.0);
+      const gw = document.querySelectorAll("#guess .w");
+      [2.2, 2.46, 2.9].forEach((t, i) => slam(gw[i], t));
+      [["q1", 250, 820, 3.0], ["q2", 790, 900, 3.2], ["q3", 520, 700, 3.4]].forEach(([id, x, y, t]) => {
+        set(id, { left: x + "px", top: y + "px" });
+        tl.fromTo("#" + id, { opacity: 0, scale: 0.3, rotation: -20 }, { opacity: 1, scale: 1, rotation: 8, duration: 0.35, ease: "back.out(2)" }, t);
+        tl.to("#" + id, { opacity: 0, y: -60, duration: 0.3 }, 4.05);
+      });
+      out("#guess", 4.05);
+      tl.fromTo("#flash1", { opacity: 0 }, { opacity: 1, duration: 0.08 }, 4.25); tl.to("#flash1", { opacity: 0, duration: 0.5 }, 4.33);
+      slam("#logo .ch", 4.26, 0.035);
+      tl.fromTo("#logo-dot", { scale: 0 }, { scale: 1, duration: 0.35, ease: "back.out(2)" }, 4.45);
+      tl.fromTo("#sweep", { opacity: 0, x: 0 }, { opacity: 1, x: 1500, duration: 0.6, ease: "power2.inOut" }, 4.4);
+      slam("#knows .w", 4.6, 0.12);
+      tl.to(["#logo", "#knows"], { opacity: 0, scale: 1.25, filter: "blur(14px)", duration: 0.3, ease: "power2.in" }, 5.1);
+
+      // ---------- C. reminder (VO 3 at 5.3) ----------
+      headIn("h1", 5.25);
+      tl.fromTo("#phone", { opacity: 0, y: 500, z: -600, rotationX: 40, rotationY: -25, transformPerspective: 2400 }, { opacity: 1, y: 0, z: 0, rotationX: 4, rotationY: -8, duration: 0.8, ease: snap }, 5.2);
+      tl.to("#phone", { rotationY: 7, rotationX: 2, duration: 6.4, ease: "sine.inOut" }, 6.0);
+      spotIn("sp-plate", 5.85); lensIn("ln-plate", 5.95); tagIn("t-plate", 6.15);
+      fade("sp-plate", 7.0); lensOut("ln-plate", 7.0); fade("t-plate", 7.0);
+      tl.to("#strip", { y: -px(NEXT_OFF), duration: 0.6, ease: move }, 7.0);
+      spotIn("sp-items", 7.65); lensIn("ln-oil", 7.7); lensIn("ln-brake", 8.05); tagIn("t-items", 8.3);
+      fade("sp-items", 9.5); lensOut("ln-oil", 9.5); lensOut("ln-brake", 9.55); fade("t-items", 9.5);
+      spotIn("sp-hero", 9.75); lensIn("ln-hero", 9.85);
+      tl.fromTo("#st-km", { opacity: 0, scale: 1.4 }, { opacity: 1, scale: 1, duration: 0.4, ease: snap }, 10.45);
+      const kmv = { v: 0 }; tl.to(kmv, { v: 7700, duration: 1.0, ease: "power2.out", onUpdate: () => { $("kmn").textContent = new Intl.NumberFormat("he-IL").format(Math.round(kmv.v / 100) * 100); } }, 10.45);
+      tagIn("t-time", 11.95);
+      fade("sp-hero", 12.35); lensOut("ln-hero", 12.35); fade("st-km", 12.35); fade("t-time", 12.35);
+      headOut("h1", 12.3);
+
+      // ---------- D. condition (VO 4 at 12.6) ----------
+      headIn("h2", 12.55);
+      tl.to("#phone", { x: -330, scale: 0.62, rotationY: 32, opacity: 0.12, duration: 0.6, ease: move }, 12.4);
+      tl.set("#L-cond", { opacity: 1 }, 13.0); tl.set("#L-home", { opacity: 0 }, 13.0);
+      tl.to("#phone", { x: 0, scale: 1, rotationY: -6, opacity: 1, duration: 0.6, ease: move }, 18.45);
+      spotIn("sp-row", 19.05); lensIn("ln-row", 19.15); tagIn("t-row", 19.35);
+      tl.fromTo("#stamp", { opacity: 0, scale: 1.6, filter: "blur(12px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.35, ease: snap }, 20.05);
+      tl.fromTo("#stamp", { x: -6 }, { x: 6, duration: 0.05, repeat: 5, yoyo: true, ease: "none" }, 20.4);
+      fade("sp-row", 21.2); lensOut("ln-row", 21.2); fade("t-row", 21.2); out("#stamp", 21.2);
+      headOut("h2", 21.15);
+
+      // ---------- E. garages (VO 5 at 21.45) ----------
+      headIn("h3", 21.45);
+      tl.to("#phone", { rotationY: 90, duration: 0.22, ease: "power2.in" }, 21.3);
+      tl.set("#L-gar", { opacity: 1 }, 21.52); tl.set("#L-cond", { opacity: 0 }, 21.52);
+      tl.fromTo("#phone", { rotationY: -90 }, { rotationY: -6, duration: 0.4, ease: snap, immediateRender: false }, 21.52);
+      spotIn("sp-city", 22.0); lensIn("ln-city", 22.05); tagIn("t-city", 22.3);
+      fade("sp-city", 23.15); lensOut("ln-city", 23.15); fade("t-city", 23.15);
+      tl.fromTo("#st-gar", { opacity: 0, scale: 1.4 }, { opacity: 1, scale: 1, duration: 0.4, ease: snap }, 23.3);
+      const gv = { v: 0 }; tl.to(gv, { v: 4963, duration: 1.1, ease: "power2.out", onUpdate: () => { $("garc").textContent = new Intl.NumberFormat("he-IL").format(Math.round(gv.v)); } }, 23.35);
+      tl.to("#phone", { opacity: 0.22, duration: 0.3 }, 23.2); tl.to("#phone", { opacity: 1, duration: 0.3 }, 24.85);
+      fade("st-gar", 24.85);
+      spotIn("sp-g1", 25.05); lensIn("ln-g1", 25.15); tagIn("t-g1", 25.35);
+      fade("sp-g1", 26.45); lensOut("ln-g1", 26.45); fade("t-g1", 26.45);
+      headOut("h3", 26.4);
+      tl.to("#phone", { opacity: 0, y: 400, rotationX: 40, duration: 0.45, ease: "power2.in" }, 26.4);
+
+      // ---------- F. CTA (VO 6 at 26.85) ----------
+      tl.set("#cta-brand", { opacity: 1 }, 26.9);
+      slam("#cta-brand .ch", 26.9, 0.035);
+      slam("#cta-tg", 28.35);
+      tl.to("#cta-tg .y-t", { color: "#f7c948", duration: 0.3 }, 29.4);
+      tl.fromTo("#plate", { opacity: 0, rotationX: -80, transformPerspective: 900 }, { opacity: 1, rotationX: 0, duration: 0.45, ease: snap }, 29.0);
+      tl.to("#plate .d", { opacity: 1, duration: 0.05, stagger: 0.08 }, 29.3);
+      tl.fromTo("#cta-btn", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.45, ease: "back.out(1.8)" }, 30.9);
+      tl.fromTo("#cta-url", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 31.2);
+
+      render(0);
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>
