@@ -126,6 +126,8 @@
       <span class="glow"></span>
       <div class="floor" id="floor" data-layout-allow-overflow></div>
       <canvas id="holo" width="1080" height="1920"></canvas>
+      <!-- vignette darkens the backdrop edges only; over the scenes it would dim the headings near the top -->
+      <span class="vig"></span>
 
       <!-- Hook + logo -->
       <section id="s-hook" class="clip" data-start="0" data-duration="4.6" data-track-index="0">
@@ -203,7 +205,7 @@
         </div>
       </section>
 
-      <span class="scan" data-layout-allow-occlusion></span><span class="vig" data-layout-allow-occlusion></span>
+      <span class="scan" data-layout-allow-occlusion></span>
       <span class="corner c-tl"></span><span class="corner c-tr"></span><span class="corner c-bl"></span><span class="corner c-br"></span>
       <div class="code hud-tl">tipulit.os / garage</div>
       <div class="code hud-tr" id="tc">00:00</div>
