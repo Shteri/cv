@@ -1,0 +1,744 @@
+{
+  "id": "fiat-qubo-2009-2018-1.4",
+  "make": "Fiat",
+  "make_he": "פיאט",
+  "model": "Qubo",
+  "model_he": "קובו",
+  "generation": "225",
+  "years": [
+    2009,
+    2018
+  ],
+  "engines": [
+    "1.4 8V (350A1000)"
+  ],
+  "fuel": "petrol",
+  "importer": "סמלת",
+  "interval": {
+    "km": 30000,
+    "months": 24,
+    "note": "לפי ספר הנהג האנגלי של קובו: טיפול כל 30,000 ק\"מ או שנתיים; באזור מאובק או בנסיעה מועטה שמן כל שנה ומסננים כל 15,000"
+  },
+  "cycle_km": 180000,
+  "services": [
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "מצב טעינה"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "מצב ולחץ, וערכת תיקון אם קיימת"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקה והשלמת נוזלים"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "פליטת מזהמים"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "מערכות הזנה וניהול מנוע דרך שקע האבחון"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "מרכב והגנת תחתית"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גומיות, שרוולים ותותבים"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "מגבים ומתזים"
+        },
+        {
+          "item": "door_hinges",
+          "action": "clean",
+          "note": "מנעולי מכסה מנוע ומסילות הדלת הזזה"
+        },
+        {
+          "item": "parking_brake",
+          "action": "adjust"
+        },
+        {
+          "item": "pedals",
+          "action": "adjust",
+          "note": "דוושת מצמד"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות קדמיות ומחוון הבלאי"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "כל 12 חודשים אם נוסעים פחות מ-10,000 ק\"מ בשנה, בעיר או באזור מאובק"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "באזור מאובק כל 15,000 ק\"מ"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "באזור מאובק כל 15,000 ק\"מ"
+        },
+        {
+          "item": "drive_belt",
+          "action": "adjust",
+          "note": "רק בגרסאות בלי מותחן אוטומטי (או כל שנתיים)"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "מצב טעינה"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "מצב ולחץ, וערכת תיקון אם קיימת"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקה והשלמת נוזלים"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "פליטת מזהמים"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "מערכות הזנה וניהול מנוע דרך שקע האבחון"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "מרכב והגנת תחתית"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גומיות, שרוולים ותותבים"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "מגבים ומתזים"
+        },
+        {
+          "item": "door_hinges",
+          "action": "clean",
+          "note": "מנעולי מכסה מנוע ומסילות הדלת הזזה"
+        },
+        {
+          "item": "parking_brake",
+          "action": "adjust"
+        },
+        {
+          "item": "pedals",
+          "action": "adjust",
+          "note": "דוושת מצמד"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות קדמיות ומחוון הבלאי"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "כל 12 חודשים אם נוסעים פחות מ-10,000 ק\"מ בשנה, בעיר או באזור מאובק"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "באזור מאובק כל 15,000 ק\"מ"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "באזור מאובק כל 15,000 ק\"מ"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "מצב טעינה"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "מצב ולחץ, וערכת תיקון אם קיימת"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקה והשלמת נוזלים"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "פליטת מזהמים"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "מערכות הזנה וניהול מנוע דרך שקע האבחון"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "מרכב והגנת תחתית"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גומיות, שרוולים ותותבים"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "מגבים ומתזים"
+        },
+        {
+          "item": "door_hinges",
+          "action": "clean",
+          "note": "מנעולי מכסה מנוע ומסילות הדלת הזזה"
+        },
+        {
+          "item": "parking_brake",
+          "action": "adjust"
+        },
+        {
+          "item": "pedals",
+          "action": "adjust",
+          "note": "דוושת מצמד"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות קדמיות ומחוון הבלאי"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "כל 12 חודשים אם נוסעים פחות מ-10,000 ק\"מ בשנה, בעיר או באזור מאובק"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "באזור מאובק כל 15,000 ק\"מ"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "באזור מאובק כל 15,000 ק\"מ"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "מצב טעינה"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "מצב ולחץ, וערכת תיקון אם קיימת"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקה והשלמת נוזלים"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "פליטת מזהמים"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "מערכות הזנה וניהול מנוע דרך שקע האבחון"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "מרכב והגנת תחתית"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גומיות, שרוולים ותותבים"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "מגבים ומתזים"
+        },
+        {
+          "item": "door_hinges",
+          "action": "clean",
+          "note": "מנעולי מכסה מנוע ומסילות הדלת הזזה"
+        },
+        {
+          "item": "parking_brake",
+          "action": "adjust"
+        },
+        {
+          "item": "pedals",
+          "action": "adjust",
+          "note": "דוושת מצמד"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות קדמיות ומחוון הבלאי"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "כל 12 חודשים אם נוסעים פחות מ-10,000 ק\"מ בשנה, בעיר או באזור מאובק"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "באזור מאובק כל 15,000 ק\"מ"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "באזור מאובק כל 15,000 ק\"מ"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 150000,
+      "items": [
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "מצב טעינה"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "מצב ולחץ, וערכת תיקון אם קיימת"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקה והשלמת נוזלים"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "פליטת מזהמים"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "מערכות הזנה וניהול מנוע דרך שקע האבחון"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "מרכב והגנת תחתית"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גומיות, שרוולים ותותבים"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "מגבים ומתזים"
+        },
+        {
+          "item": "door_hinges",
+          "action": "clean",
+          "note": "מנעולי מכסה מנוע ומסילות הדלת הזזה"
+        },
+        {
+          "item": "parking_brake",
+          "action": "adjust"
+        },
+        {
+          "item": "pedals",
+          "action": "adjust",
+          "note": "דוושת מצמד"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות קדמיות ומחוון הבלאי"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "כל 12 חודשים אם נוסעים פחות מ-10,000 ק\"מ בשנה, בעיר או באזור מאובק"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "באזור מאובק כל 15,000 ק\"מ"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "באזור מאובק כל 15,000 ק\"מ"
+        },
+        {
+          "item": "drive_belt",
+          "action": "adjust",
+          "note": "רק בגרסאות בלי מותחן אוטומטי (או כל שנתיים)"
+        }
+      ]
+    },
+    {
+      "km": 180000,
+      "items": [
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "מצב טעינה"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "מצב ולחץ, וערכת תיקון אם קיימת"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקה והשלמת נוזלים"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "פליטת מזהמים"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "מערכות הזנה וניהול מנוע דרך שקע האבחון"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "מרכב והגנת תחתית"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גומיות, שרוולים ותותבים"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "מגבים ומתזים"
+        },
+        {
+          "item": "door_hinges",
+          "action": "clean",
+          "note": "מנעולי מכסה מנוע ומסילות הדלת הזזה"
+        },
+        {
+          "item": "parking_brake",
+          "action": "adjust"
+        },
+        {
+          "item": "pedals",
+          "action": "adjust",
+          "note": "דוושת מצמד"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות קדמיות ומחוון הבלאי"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "כל 12 חודשים אם נוסעים פחות מ-10,000 ק\"מ בשנה, בעיר או באזור מאובק"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "באזור מאובק כל 15,000 ק\"מ"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "באזור מאובק כל 15,000 ק\"מ"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "engine_oil",
+      "action": "replace",
+      "every_months": 12,
+      "note": "בנסיעה עירונית, פחות מ-10,000 ק\"מ בשנה או באזור מאובק"
+    },
+    {
+      "item": "timing_belt",
+      "action": "replace",
+      "every_km": 120000,
+      "every_months": 72,
+      "note": "באזור מאובק או בשימוש קשה (עיר, סרק ממושך): לכל היותר 60,000 ק\"מ, ולכל המאוחר כל 4 שנים"
+    },
+    {
+      "item": "drive_belt",
+      "action": "replace",
+      "every_km": 120000,
+      "every_months": 72,
+      "note": "באזור מאובק או בשימוש קשה (עיר, סרק ממושך): לכל היותר 60,000 ק\"מ, ולכל המאוחר כל 4 שנים"
+    },
+    {
+      "item": "brake_fluid",
+      "action": "replace",
+      "every_months": 24,
+      "note": "ללא קשר לק\"מ"
+    }
+  ],
+  "time_based": [],
+  "sources": [
+    {
+      "url": "https://www.manualslib.com/manual/1883346/Fiat-Qubo.html?page=132",
+      "kind": "manufacturer",
+      "note": "Fiat Qubo owner handbook EN (manualslib 1883346, Euro 6 edition): \"Service schedule - Euro 6 petrol versions - Natural Power versions\", printed pp. 130-133 (site pages 132-135); demanding use p. 137 (site page 139)"
+    },
+    {
+      "url": "https://samelet.com/wp-content/uploads/2023/11/Fiat_500_500C_carbook_042021-1.pdf",
+      "kind": "importer",
+      "note": "ספר הרכב העברי של סמלת לפיאט 500 (אותו פורמט תכנית טיפולים של פיאט); לפונטו, קובו ודובלו מדור זה לא נמצא ספר עברי (סבב 3 סרק 219 קבצים באתר סמלת)"
+    }
+  ],
+  "status": "draft",
+  "notes": "לקובו לא נמצא ספר עברי; הלוח לפי ספר הנהג האנגלי של פיאט (מהדורת יורו 6). טיפול כל 30,000 ק\"מ או שנתיים: שמן ומסנן, מצתים, מסנני אוויר ומזגן, ובדיקות מצבר, צמיגים, תאורה, נוזלים, בלמים, צנרת, גומיות ומחשב. כל 60,000: בדיקת תופי בלם ורצועת אביזרים. רצועת תזמון ורצועת אביזרים כל 120,000 ק\"מ או 6 שנים, ובאזור מאובק עד 60,000 או 4 שנים. נוזל בלמים כל שנתיים. הספר מורה להחליף שמן כל שנה ומסנני אוויר ומזגן כל 15,000 ק\"מ באזור מאובק או בנסיעה עירונית - כדאי לבדוק עם המוסך. טיוטה: ספר יצרן לשוק האירופי."
+}

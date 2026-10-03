@@ -1,0 +1,524 @@
+{
+  "id": "opel-mokka-2013-2018-1.4-turbo",
+  "make": "Opel",
+  "make_he": "אופל",
+  "model": "Mokka / Mokka X",
+  "model_he": "מוקה / מוקה X",
+  "generation": "J13",
+  "years": [
+    2013,
+    2018
+  ],
+  "engines": [
+    "1.4 Turbo (A14NET/B14NET)"
+  ],
+  "fuel": "petrol",
+  "importer": "קבוצת שלמה (יבואנית אופל 2010-2019; מאז 2019 דוד לובינסקי)",
+  "interval": {
+    "km": 15000,
+    "months": 12,
+    "note": "ספרי הנהג העבריים של אופל מ-2013 ואילך: ישראל אינה ברשימת המדינות האירופיות ולכן חל המרווח הבינלאומי, 15,000 ק\"מ או שנה"
+  },
+  "cycle_km": 75000,
+  "services": [
+    {
+      "km": 15000,
+      "items": [
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "בדיקה חזותית של יחידות בקרה, תאורה ואיתות וכריות אוויר; מנעול הגה ומתג התנעה"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "מגבים ומתזי שמשה ופנסים"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס והגנת קיפאון; השלמה לפי הצורך"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס; השלמה לפי הצורך"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "הידוק הדקים ועין הסוללה"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect",
+          "note": "בהגה הידראולי: דליפות ומפלס שמן"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "מרכב והגנת קורוזיה בתחתית; נזקים נרשמים בפנקס השירות"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "בדיקה חזותית של בלמים קדמיים ואחוריים"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "דליפות במדחס המזגן, יחד עם בדיקת דליפות במנוע ובתיבה"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גומיות ההגה, מוטות ההגה וצירי ההנעה"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "קצוות מוטות הגה ומפרקים כדוריים"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "בדיקה חזותית של יחידות בקרה, תאורה ואיתות וכריות אוויר; מנעול הגה ומתג התנעה"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "מגבים ומתזי שמשה ופנסים"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס והגנת קיפאון; השלמה לפי הצורך"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "הידוק הדקים ועין הסוללה"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מסנן אבקנים או פחם פעיל"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "בדיקה חזותית של רצועת האביזרים"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect",
+          "note": "בהגה הידראולי: דליפות ומפלס שמן"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "עיגון הגלגלים וקפיצי המתלים מלפנים ומאחור"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect",
+          "note": "צנרת וצינורות לחץ של הבלמים"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "מרכב והגנת קורוזיה בתחתית; נזקים נרשמים בפנקס השירות"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "בדיקה חזותית של בלמים קדמיים ואחוריים"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "דליפות במדחס המזגן, יחד עם בדיקת דליפות במנוע ובתיבה"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גומיות ההגה, מוטות ההגה וצירי ההנעה"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "קצוות מוטות הגה ומפרקים כדוריים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "מצב ולחץ (כולל גלגל חלופי או ערכת תיקון); שחרור והידוק מחדש של ברגי הגלגלים"
+        },
+        {
+          "item": "lights",
+          "action": "adjust",
+          "note": "כיוון פנסים ראשיים"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "שימון צירי דלתות, מעצורים, צילינדר מנעול, תפסים ומנעול מכסה מנוע"
+        }
+      ]
+    },
+    {
+      "km": 45000,
+      "items": [
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "בדיקה חזותית של יחידות בקרה, תאורה ואיתות וכריות אוויר; מנעול הגה ומתג התנעה"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "מגבים ומתזי שמשה ופנסים"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס והגנת קיפאון; השלמה לפי הצורך"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס; השלמה לפי הצורך"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "הידוק הדקים ועין הסוללה"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect",
+          "note": "בהגה הידראולי: דליפות ומפלס שמן"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "מרכב והגנת קורוזיה בתחתית; נזקים נרשמים בפנקס השירות"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "בדיקה חזותית של בלמים קדמיים ואחוריים"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "דליפות במדחס המזגן, יחד עם בדיקת דליפות במנוע ובתיבה"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גומיות ההגה, מוטות ההגה וצירי ההנעה"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "קצוות מוטות הגה ומפרקים כדוריים"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "בדיקה חזותית של יחידות בקרה, תאורה ואיתות וכריות אוויר; מנעול הגה ומתג התנעה"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "מגבים ומתזי שמשה ופנסים"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס והגנת קיפאון; השלמה לפי הצורך"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "הידוק הדקים ועין הסוללה"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מסנן אבקנים או פחם פעיל"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "בדיקה חזותית של רצועת האביזרים"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect",
+          "note": "בהגה הידראולי: דליפות ומפלס שמן"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "עיגון הגלגלים וקפיצי המתלים מלפנים ומאחור"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect",
+          "note": "צנרת וצינורות לחץ של הבלמים"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "מרכב והגנת קורוזיה בתחתית; נזקים נרשמים בפנקס השירות"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "בדיקה חזותית של בלמים קדמיים ואחוריים"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "דליפות במדחס המזגן, יחד עם בדיקת דליפות במנוע ובתיבה"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גומיות ההגה, מוטות ההגה וצירי ההנעה"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "קצוות מוטות הגה ומפרקים כדוריים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "מצב ולחץ (כולל גלגל חלופי או ערכת תיקון); שחרור והידוק מחדש של ברגי הגלגלים"
+        },
+        {
+          "item": "lights",
+          "action": "adjust",
+          "note": "כיוון פנסים ראשיים"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "שימון צירי דלתות, מעצורים, צילינדר מנעול, תפסים ומנעול מכסה מנוע"
+        }
+      ]
+    },
+    {
+      "km": 75000,
+      "items": [
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "בדיקה חזותית של יחידות בקרה, תאורה ואיתות וכריות אוויר; מנעול הגה ומתג התנעה"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "מגבים ומתזי שמשה ופנסים"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס והגנת קיפאון; השלמה לפי הצורך"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס; השלמה לפי הצורך"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "הידוק הדקים ועין הסוללה"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect",
+          "note": "בהגה הידראולי: דליפות ומפלס שמן"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "מרכב והגנת קורוזיה בתחתית; נזקים נרשמים בפנקס השירות"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "בדיקה חזותית של בלמים קדמיים ואחוריים"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "דליפות במדחס המזגן, יחד עם בדיקת דליפות במנוע ובתיבה"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גומיות ההגה, מוטות ההגה וצירי ההנעה"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "קצוות מוטות הגה ומפרקים כדוריים"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "air_filter",
+      "action": "replace",
+      "every_km": 60000,
+      "every_months": 48
+    },
+    {
+      "item": "spark_plugs",
+      "action": "replace",
+      "every_km": 60000,
+      "every_months": 48
+    },
+    {
+      "item": "brake_fluid",
+      "action": "replace",
+      "every_months": 24,
+      "note": "יחד עם נוזל המצמד; ללא קשר לק\"מ"
+    }
+  ],
+  "time_based": [],
+  "specs": {
+    "_note": "הטבלה אינה מפרטת סוג שמן או החלפת נוזל קירור; ההחלפות הנוספות לפי המנוע מופיעות בלוח הארוך"
+  },
+  "sources": [
+    {
+      "url": "https://www.manualslib.com/manual/936387/Opel-2011-Insignia.html?page=193",
+      "kind": "manufacturer",
+      "note": "Opel Insignia owner's manual (EN, edition 2011, manualslib 936387): \"International service schedule\", printed pp. 193-196 (site pages 193-196), five columns of 15,000 km / 1 year; additional operations p. 197. Insignia lists A16XER/A18XER/A16LET/A20NHT/A28NET and diesels."
+    },
+    {
+      "url": "https://public-servicebox.opel.com/OVddb/OV/he_IL/Mokka_X/2011_2016/2014_5/manual_user/om_mokka_kta-2749_2-heb_eu_my14_ed0114_5_he_il_online%5BMokka%5D.pdf",
+      "kind": "importer",
+      "note": "ספר הנהג העברי באתר אופל, עמוד 189 בקובץ: ישראל אינה ברשימה האירופית; מרווח בינלאומי 15,000 ק\"מ או שנה. אין טבלת פריטים"
+    },
+    {
+      "url": "https://public-servicebox.opel.com/OVddb/OV/he_IL/Mokka_X/2017_2022/2017/manual_user/ID-OMKAOLSE1608-he_16_online.pdf",
+      "kind": "importer",
+      "note": "ספר הנהג העברי באתר אופל, עמוד 208 בקובץ: מוקה X: אותו מרווח בינלאומי"
+    }
+  ],
+  "status": "draft",
+  "notes": "טבלת הפריטים לקוחה מטבלת השירות הבינלאומית בספר הנהג האנגלי של אופל אינסיגניה (מהדורת 2011), מאותו דור של אופל; ספרי הנהג של אסטרה, מוקה, מריבה וזאפירה מתקופה זו (בעברית ובאנגלית) מפנים למוסך ואינם כוללים טבלה. בכל טיפול (כל 15,000 ק\"מ או שנה): שמן ומסנן, בדיקת נוזלים ומצבר, תאורה, הגה, גומיות, בלמים, מרכב ודליפות במנוע ובמזגן. בכל טיפול שני (30,000 ק\"מ): מסנן מזגן, רצועת אביזרים (בדיקה), מתלים, צנרת בלמים ודלק, פליטה, צמיגים, כיוון פנסים ושימון צירים. מסנן אוויר ומצתים כל 60,000 ק\"מ או 4 שנים, נוזל בלמים ומצמד כל שנתיים. בתנאי שימוש קשים (אבק, חום, נסיעות קצרות) היצרן מקצר מרווחים. מנוע 1.4 טורבו (A14NET/B14NET) אינו מופיע ברשימות ההחלפה של רצועות התזמון והאביזרים ובכיוון השסתומים בטבלה, ולכן לא נוספו לו שורות כאלה.  טיוטה: טבלת פריטים של דגם אחר מאותו דור."
+}

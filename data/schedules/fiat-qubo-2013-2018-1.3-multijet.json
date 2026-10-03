@@ -1,0 +1,576 @@
+{
+  "id": "fiat-qubo-2013-2018-1.3-multijet",
+  "make": "Fiat",
+  "make_he": "פיאט",
+  "model": "Qubo",
+  "model_he": "קובו",
+  "generation": "225",
+  "years": [
+    2013,
+    2018
+  ],
+  "engines": [
+    "1.3 Multijet (199A9000/225A2000)"
+  ],
+  "fuel": "diesel",
+  "importer": "סמלת",
+  "interval": {
+    "km": 35000,
+    "months": 24,
+    "note": "לפי ספר הנהג האנגלי של קובו (דיזל יורו 6): טיפול כל 35,000 ק\"מ או שנתיים; שמן לפי מחוון"
+  },
+  "cycle_km": 175000,
+  "services": [
+    {
+      "km": 35000,
+      "items": [
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "מצב טעינה"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקה והשלמת נוזלים"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "פליטת מזהמים"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "שקע האבחון; גם מצב השמן"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "מגבים ומתזים"
+        },
+        {
+          "item": "door_hinges",
+          "action": "clean",
+          "note": "מנעולי מכסה מנוע ומסילות הדלת הזזה"
+        },
+        {
+          "item": "parking_brake",
+          "action": "adjust"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי הודעת המחוון ולכל המאוחר כל 24 חודשים; בנסיעה עירונית כל 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "רק בגרסת 80 כ\"ס עם תיבת Dualogic"
+        }
+      ]
+    },
+    {
+      "km": 70000,
+      "items": [
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "מצב טעינה"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקה והשלמת נוזלים"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "פליטת מזהמים"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "שקע האבחון; גם מצב השמן"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "מגבים ומתזים"
+        },
+        {
+          "item": "door_hinges",
+          "action": "clean",
+          "note": "מנעולי מכסה מנוע ומסילות הדלת הזזה"
+        },
+        {
+          "item": "parking_brake",
+          "action": "adjust"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי הודעת המחוון ולכל המאוחר כל 24 חודשים; בנסיעה עירונית כל 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace",
+          "note": "בדלק באיכות נמוכה מהתקן: כל 35,000"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "רק בגרסת 80 כ\"ס עם תיבת Dualogic"
+        }
+      ]
+    },
+    {
+      "km": 105000,
+      "items": [
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "מצב טעינה"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקה והשלמת נוזלים"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "פליטת מזהמים"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "שקע האבחון; גם מצב השמן"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "מגבים ומתזים"
+        },
+        {
+          "item": "door_hinges",
+          "action": "clean",
+          "note": "מנעולי מכסה מנוע ומסילות הדלת הזזה"
+        },
+        {
+          "item": "parking_brake",
+          "action": "adjust"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי הודעת המחוון ולכל המאוחר כל 24 חודשים; בנסיעה עירונית כל 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "רק בגרסת 80 כ\"ס עם תיבת Dualogic"
+        }
+      ]
+    },
+    {
+      "km": 140000,
+      "items": [
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "מצב טעינה"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקה והשלמת נוזלים"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "פליטת מזהמים"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "שקע האבחון; גם מצב השמן"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "מגבים ומתזים"
+        },
+        {
+          "item": "door_hinges",
+          "action": "clean",
+          "note": "מנעולי מכסה מנוע ומסילות הדלת הזזה"
+        },
+        {
+          "item": "parking_brake",
+          "action": "adjust"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי הודעת המחוון ולכל המאוחר כל 24 חודשים; בנסיעה עירונית כל 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace",
+          "note": "בדלק באיכות נמוכה מהתקן: כל 35,000"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "רק בגרסת 80 כ\"ס עם תיבת Dualogic"
+        }
+      ]
+    },
+    {
+      "km": 175000,
+      "items": [
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "מצב טעינה"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקה והשלמת נוזלים"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "פליטת מזהמים"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "שקע האבחון; גם מצב השמן"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "מגבים ומתזים"
+        },
+        {
+          "item": "door_hinges",
+          "action": "clean",
+          "note": "מנעולי מכסה מנוע ומסילות הדלת הזזה"
+        },
+        {
+          "item": "parking_brake",
+          "action": "adjust"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי הודעת המחוון ולכל המאוחר כל 24 חודשים; בנסיעה עירונית כל 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "רק בגרסת 80 כ\"ס עם תיבת Dualogic"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "engine_oil",
+      "action": "replace",
+      "every_months": 12,
+      "note": "בנסיעה עירונית בעיקר"
+    },
+    {
+      "item": "drive_belt",
+      "action": "replace",
+      "every_km": 120000,
+      "every_months": 72,
+      "note": "באזור מאובק או בשימוש קשה (עיר, סרק ממושך): לכל היותר 60,000 ק\"מ, ולכל המאוחר כל 4 שנים"
+    },
+    {
+      "item": "brake_fluid",
+      "action": "replace",
+      "every_months": 24,
+      "note": "ללא קשר לק\"מ"
+    }
+  ],
+  "time_based": [],
+  "sources": [
+    {
+      "url": "https://www.manualslib.com/manual/1883346/Fiat-Qubo.html?page=136",
+      "kind": "manufacturer",
+      "note": "Fiat Qubo owner handbook EN (manualslib 1883346): \"Diesel Euro 6 versions\", printed pp. 134-136 (site pages 136-138), repeat after 175,000 km / 10 years"
+    },
+    {
+      "url": "https://samelet.com/wp-content/uploads/2023/11/Fiat_500_500C_carbook_042021-1.pdf",
+      "kind": "importer",
+      "note": "ספר הרכב העברי של סמלת לפיאט 500 (אותו פורמט תכנית טיפולים של פיאט); לפונטו, קובו ודובלו מדור זה לא נמצא ספר עברי (סבב 3 סרק 219 קבצים באתר סמלת)"
+    }
+  ],
+  "status": "draft",
+  "notes": "הלוח לפי ספר הנהג האנגלי של קובו לגרסאות דיזל יורו 6 (מנוע 1.3 מולטיג'ט, עם שרשרת תזמון ולכן אין שורת רצועת תזמון). טיפול כל 35,000 ק\"מ או שנתיים: מסנני אוויר ומזגן ובדיקות; השמן מוחלף לפי המחוון ולכל המאוחר כל שנתיים (בעיר כל שנה). כל 70,000: מסנן סולר ותופי בלם; ב-105,000 בדיקת שמן תיבה ידנית. רצועת אביזרים כל 120,000 ק\"מ או 6 שנים (באזור מאובק עד 60,000 או 4 שנים). נוזל בלמים כל שנתיים. גרסאות יורו 5 (199A9000) קודמות למהדורה זו. טיוטה."
+}

@@ -1,0 +1,582 @@
+{
+  "id": "fiat-doblo-2010-2022-1.3-1.6-multijet",
+  "make": "Fiat",
+  "make_he": "פיאט",
+  "model": "Doblo",
+  "model_he": "דובלו",
+  "generation": "263",
+  "years": [
+    2010,
+    2022
+  ],
+  "engines": [
+    "1.3 Multijet",
+    "1.6 Multijet",
+    "2.0 Multijet"
+  ],
+  "fuel": "diesel",
+  "importer": "סמלת",
+  "interval": {
+    "km": 35000,
+    "months": 24,
+    "note": "לפי ספר הנהג האנגלי של דובלו 2016 (דיזל עם מסנן חלקיקים): טיפול כל 35,000 ק\"מ או 24 חודשים; שמן לפי מחוון"
+  },
+  "cycle_km": 175000,
+  "services": [
+    {
+      "km": 35000,
+      "items": [
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "מגבים ומתזים"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות קדמיות ומחוון הבלאי"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "clean",
+          "note": "מנעולי מכסה מנוע ותא מטען, מסילות הדלת הזזה"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקה והשלמת נוזלים"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "adjust"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "פליטה ועשן"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי הודעת המחוון ולכל המאוחר כל 24 חודשים; בנסיעה עירונית כל 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "או כל 24 חודשים"
+        },
+        {
+          "item": "drive_belt",
+          "action": "adjust",
+          "note": "מתיחה, רק בלי מותחן אוטומטי"
+        }
+      ]
+    },
+    {
+      "km": 70000,
+      "items": [
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "מגבים ומתזים"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות קדמיות ומחוון הבלאי"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "clean",
+          "note": "מנעולי מכסה מנוע ותא מטען, מסילות הדלת הזזה"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקה והשלמת נוזלים"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "adjust"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "פליטה ועשן"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי הודעת המחוון ולכל המאוחר כל 24 חודשים; בנסיעה עירונית כל 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "או כל 24 חודשים"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace",
+          "note": "בדלק באיכות נמוכה מהתקן: כל 35,000"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "או כל 24 חודשים"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 105000,
+      "items": [
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "מגבים ומתזים"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות קדמיות ומחוון הבלאי"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "clean",
+          "note": "מנעולי מכסה מנוע ותא מטען, מסילות הדלת הזזה"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקה והשלמת נוזלים"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "adjust"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "פליטה ועשן"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי הודעת המחוון ולכל המאוחר כל 24 חודשים; בנסיעה עירונית כל 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "או כל 24 חודשים"
+        },
+        {
+          "item": "drive_belt",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 140000,
+      "items": [
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "מגבים ומתזים"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות קדמיות ומחוון הבלאי"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "clean",
+          "note": "מנעולי מכסה מנוע ותא מטען, מסילות הדלת הזזה"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקה והשלמת נוזלים"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "adjust"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "פליטה ועשן"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי הודעת המחוון ולכל המאוחר כל 24 חודשים; בנסיעה עירונית כל 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "או כל 24 חודשים"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace",
+          "note": "בדלק באיכות נמוכה מהתקן: כל 35,000"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "או כל 24 חודשים"
+        },
+        {
+          "item": "drive_belt",
+          "action": "adjust",
+          "note": "מתיחה, רק בלי מותחן אוטומטי"
+        },
+        {
+          "item": "timing_belt",
+          "action": "replace",
+          "note": "רק במנועי 1.6 ו-2.0 מולטיג'ט"
+        }
+      ]
+    },
+    {
+      "km": 175000,
+      "items": [
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "מגבים ומתזים"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות קדמיות ומחוון הבלאי"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "clean",
+          "note": "מנעולי מכסה מנוע ותא מטען, מסילות הדלת הזזה"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקה והשלמת נוזלים"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "adjust"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "פליטה ועשן"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי הודעת המחוון ולכל המאוחר כל 24 חודשים; בנסיעה עירונית כל 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "או כל 24 חודשים"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "engine_oil",
+      "action": "replace",
+      "every_months": 12,
+      "note": "בנסיעה עירונית בעיקר"
+    },
+    {
+      "item": "timing_belt",
+      "action": "replace",
+      "every_km": 140000,
+      "every_months": 60,
+      "note": "רק 1.6/2.0 מולטיג'ט; בשימוש קשה (עיר, סרק, קור) כל 4 שנים"
+    },
+    {
+      "item": "brake_fluid",
+      "action": "replace",
+      "every_months": 24
+    },
+    {
+      "item": "cabin_filter",
+      "action": "replace",
+      "every_months": 24
+    }
+  ],
+  "time_based": [],
+  "sources": [
+    {
+      "url": "https://www.manualslib.com/manual/2151994/Fiat-Doblo-2016.html?page=180",
+      "kind": "manufacturer",
+      "note": "Fiat Doblo 2016 owner handbook EN (manualslib 2151994): \"Diesel versions with DPF (1.3 MultiJet - 1.6 MultiJet - 2.0 MultiJet)\", printed pp. 176-177 (site pages 180-181); without-DPF table pp. 174-175"
+    },
+    {
+      "url": "https://samelet.com/wp-content/uploads/2023/11/Fiat_500_500C_carbook_042021-1.pdf",
+      "kind": "importer",
+      "note": "ספר הרכב העברי של סמלת לפיאט 500 (אותו פורמט תכנית טיפולים של פיאט); לפונטו, קובו ודובלו מדור זה לא נמצא ספר עברי (סבב 3 סרק 219 קבצים באתר סמלת)"
+    }
+  ],
+  "status": "draft",
+  "notes": "לדובלו מדור 263 לא נמצא ספר עברי; הלוח לפי ספר הנהג האנגלי של פיאט (2016) לגרסאות דיזל עם מסנן חלקיקים. טיפול כל 35,000 ק\"מ או שנתיים: מסנני אוויר ומזגן ובדיקות; שמן לפי המחוון ולכל המאוחר כל שנתיים (בעיר כל שנה). כל 70,000: מסנן סולר, נוזל בלמים ותופי בלם. רצועת אביזרים ב-105,000. רצועת תזמון במנועי 1.6 ו-2.0 ב-140,000 או 5 שנים (בשימוש קשה 4 שנים); במנוע 1.3 אין רצועה. קודי המנוע ברישוי לא אומתו מול מסמך פיאט, והשיוך לפי שם הדגם ושנות הייצור. טיוטה."
+}
