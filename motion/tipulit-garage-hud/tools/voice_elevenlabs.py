@@ -1,6 +1,7 @@
 """Generate the narration with ElevenLabs (one clip per line of SCRIPT.txt) and report how it fits the timeline.
 
-Needs ELEVENLABS_API_KEY in the environment (added in the cloud environment's settings, never in the repo).
+Needs ELEVENLABS_API_KEY in the environment (cloud environment settings, never the repo) or the ElevenLabs connector,
+which injects the credential at the proxy.
 
   python3 tools/voice_elevenlabs.py --list                      # Hebrew-capable voices on the account
   python3 tools/voice_elevenlabs.py --voice <voice_id>          # writes assets/vo/eleven_N.wav + eleven_N.words.json
@@ -10,7 +11,7 @@ The visuals are timed to tools/vo_starts.json (one start per line). After genera
 clip's length against the gap to the next start; if a clip runs over, shorten the line or move the starts and the
 matching beats in tools/index.src.html.
 """
-import argparse, base64, json, os, ssl, subprocess, sys, urllib.request
+import argparse, base64, json, os, ssl, subprocess, sys, urllib.error, urllib.request
 
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(HERE)
 API = "https://api.elevenlabs.io/v1"
@@ -18,13 +19,16 @@ CTX = ssl.create_default_context(cafile=os.environ.get("SSL_CERT_FILE") or None)
 
 
 def call(path, body=None):
+    # with no key set, the request goes out bare and the session's egress proxy adds the ElevenLabs credential
     key = os.environ.get("ELEVENLABS_API_KEY")
-    if not key:
-        sys.exit("ELEVENLABS_API_KEY is not set. Add it in the environment settings and start a new session.")
-    req = urllib.request.Request(API + path, data=json.dumps(body).encode() if body else None,
-                                 headers={"xi-api-key": key, "Content-Type": "application/json", "Accept": "application/json"})
-    with urllib.request.urlopen(req, context=CTX, timeout=120) as r:
-        return json.load(r)
+    headers = {"Content-Type": "application/json", "Accept": "application/json"}
+    if key: headers["xi-api-key"] = key
+    req = urllib.request.Request(API + path, data=json.dumps(body).encode() if body else None, headers=headers)
+    try:
+        with urllib.request.urlopen(req, context=CTX, timeout=120) as r:
+            return json.load(r)
+    except urllib.error.HTTPError as e:
+        sys.exit(f"ElevenLabs {e.code}: {e.read().decode(errors='replace')[:300]}")
 
 
 def words_from_alignment(al, offset):
