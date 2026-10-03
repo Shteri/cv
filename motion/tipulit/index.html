@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="he" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      /* Brand fonts (same as the app), Hebrew + Latin subsets, shipped locally */
+      @font-face { font-family: "Rubik"; font-weight: 500; src: url(assets/fonts/Rubik-500-hebrew.woff2) format("woff2"); unicode-range: U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F; }
+      @font-face { font-family: "Rubik"; font-weight: 500; src: url(assets/fonts/Rubik-500-latin.woff2) format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+      @font-face { font-family: "Rubik"; font-weight: 700; src: url(assets/fonts/Rubik-700-hebrew.woff2) format("woff2"); unicode-range: U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F; }
+      @font-face { font-family: "Rubik"; font-weight: 700; src: url(assets/fonts/Rubik-700-latin.woff2) format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+      @font-face { font-family: "Rubik"; font-weight: 800; src: url(assets/fonts/Rubik-800-hebrew.woff2) format("woff2"); unicode-range: U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F; }
+      @font-face { font-family: "Rubik"; font-weight: 800; src: url(assets/fonts/Rubik-800-latin.woff2) format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+      @font-face { font-family: "IBM Plex Sans Hebrew"; font-weight: 400; src: url(assets/fonts/IBMPlexSansHebrew-400-hebrew.woff2) format("woff2"); unicode-range: U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F; }
+      @font-face { font-family: "IBM Plex Sans Hebrew"; font-weight: 400; src: url(assets/fonts/IBMPlexSansHebrew-400-latin.woff2) format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+      @font-face { font-family: "IBM Plex Sans Hebrew"; font-weight: 500; src: url(assets/fonts/IBMPlexSansHebrew-500-hebrew.woff2) format("woff2"); unicode-range: U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F; }
+      @font-face { font-family: "IBM Plex Sans Hebrew"; font-weight: 500; src: url(assets/fonts/IBMPlexSansHebrew-500-latin.woff2) format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+      @font-face { font-family: "Unbounded"; font-weight: 600; src: url(assets/fonts/Unbounded-600-latin.woff2) format("woff2"); }
+
+      :root {
+        --ink: #1d1d1f;
+        --muted: #6e6e73;
+        --accent: #f7c948; /* plate yellow, the one brand accent */
+        --accent-ink: #101214;
+        --good: #34c759;
+        --crit: #e5483d;
+        --glass: rgba(255, 255, 255, 0.78);
+        --glass-line: rgba(255, 255, 255, 0.95);
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #eef0f4; }
+      #root {
+        position: relative; width: 100%; height: 100%; overflow: hidden;
+        direction: rtl; font-family: "IBM Plex Sans Hebrew", sans-serif; color: var(--ink);
+        background: linear-gradient(170deg, #f7f8fb 0%, #eceff5 55%, #f6efe9 100%);
+      }
+      .clip { position: absolute; inset: 0; }
+
+      /* Liquid Glass background: soft blurred blobs that drift slowly */
+      .blobs { position: absolute; inset: 0; }
+      .blob { position: absolute; display: block; border-radius: 50%; filter: blur(110px); opacity: 0.85; }
+      .b1 { width: 760px; height: 760px; left: -220px; top: -120px; background: #c9dcff; }
+      .b2 { width: 680px; height: 680px; left: 560px; top: 520px; background: #e2d4ff; }
+      .b3 { width: 820px; height: 820px; left: -160px; top: 1260px; background: #ffdcc4; }
+      .b4 { width: 420px; height: 420px; left: 640px; top: 1500px; background: #fff0b8; }
+
+      .glass {
+        background: var(--glass);
+        -webkit-backdrop-filter: blur(30px) saturate(160%); backdrop-filter: blur(30px) saturate(160%);
+        border: 2px solid var(--glass-line); border-radius: 40px;
+        box-shadow: 0 30px 80px rgba(40, 46, 66, 0.14), 0 2px 0 rgba(255, 255, 255, 0.8) inset;
+      }
+
+      /* Wordmark: lowercase tipulit + square yellow full stop (brand.css) */
+      .brand { display: flex; align-items: center; justify-content: center; direction: ltr; font-family: "Unbounded", sans-serif; font-weight: 600; letter-spacing: -0.03em; color: #0c0f12; line-height: 1; }
+      .brand .ch { display: inline-block; }
+      .brand .dot { display: inline-block; width: 0.3em; height: 0.3em; margin-left: 0.08em; border-radius: 0.07em; background: var(--accent); align-self: flex-end; margin-bottom: 0.08em; }
+
+      /* Scene 1: logo */
+      .logo-card { position: absolute; left: 110px; right: 110px; top: 640px; height: 640px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 34px; }
+      .logo-card .brand { font-size: 150px; }
+      .tag { font-family: "Rubik", sans-serif; font-weight: 700; font-size: 62px; letter-spacing: -0.02em; text-align: center; }
+      .tag-sub { font-size: 36px; color: var(--muted); text-align: center; }
+
+      /* Main scene: caption card + phone under a camera */
+      .cam { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; transform-origin: 0 0; }
+      .phone { position: absolute; left: 222px; top: 500px; width: 636px; height: 1335px; padding: 18px; border-radius: 80px;
+        background: linear-gradient(160deg, rgba(255,255,255,0.95), rgba(225,229,238,0.85));
+        border: 2px solid #fff; box-shadow: 0 50px 120px rgba(30, 36, 60, 0.22), 0 0 0 1px rgba(20, 24, 40, 0.06); }
+      .screen { position: relative; width: 600px; height: 1298px; border-radius: 62px; overflow: hidden; background: #f1f2f4; }
+      .layer { position: absolute; left: 0; top: 0; width: 600px; height: 1298px; }
+      .layer img, .strip img { position: absolute; left: 0; display: block; width: 600px; height: 1298px; }
+      .top0 { top: 0; }
+      #L-rem, #L-cond, #L-gar, .ring, .tap, .chip, .cap { opacity: 0; }
+      .strip { position: absolute; left: 0; top: 0; width: 600px; height: 2115px; }
+      .ring { position: absolute; display: block; border: 3px solid var(--accent); border-radius: 12px; box-shadow: 0 0 0 6px rgba(247, 201, 72, 0.28); }
+      .ring.crit { border-color: var(--crit); box-shadow: 0 0 0 6px rgba(229, 72, 61, 0.22); }
+      .tap { position: absolute; display: block; width: 44px; height: 44px; margin: -22px 0 0 -22px; border-radius: 50%; background: rgba(247, 201, 72, 0.55); border: 2px solid rgba(255,255,255,0.9); }
+
+      .caption { position: absolute; left: 80px; right: 80px; top: 140px; height: 290px; z-index: 5; }
+      .cap { position: absolute; inset: 0; padding: 44px 56px; display: flex; flex-direction: column; justify-content: center; gap: 14px; }
+      .eyebrow { display: flex; align-items: center; gap: 14px; font-size: 30px; font-weight: 500; color: var(--muted); }
+      .eyebrow .n { font-family: "Rubik", sans-serif; font-weight: 700; color: var(--accent-ink); background: var(--accent); border-radius: 10px; padding: 2px 12px; direction: ltr; }
+      .cap h2 { font-family: "Rubik", sans-serif; font-weight: 700; font-size: 66px; line-height: 1.1; letter-spacing: -0.02em; }
+      .cap h2 .w { display: inline-block; }
+
+      .chips { position: absolute; left: 80px; right: 80px; z-index: 6; display: flex; gap: 24px; }
+      .chip.glass { background: rgba(255, 255, 255, 0.92); }
+      .chip { flex: 1; padding: 28px 34px; border-radius: 34px; display: flex; flex-direction: column; gap: 6px; }
+      .chip .k { font-size: 28px; font-weight: 500; color: var(--muted); display: flex; align-items: center; gap: 12px; }
+      .chip .v { font-family: "Rubik", sans-serif; font-weight: 700; font-size: 52px; letter-spacing: -0.02em; line-height: 1.1; }
+      .chip .v.s { font-size: 40px; }
+      .dotc { display: inline-block; width: 16px; height: 16px; border-radius: 50%; background: var(--good); }
+      .dotc.warn { background: #f0a530; }
+      .dotc.crit { background: var(--crit); }
+      .num { font-variant-numeric: tabular-nums; }
+
+      /* CTA */
+      .cta-card { position: absolute; left: 90px; right: 90px; top: 470px; height: 980px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 40px; padding: 60px; }
+      .cta-card .brand { font-size: 120px; }
+      .cta-card .tag { font-size: 58px; }
+      .plate { display: flex; direction: ltr; height: 128px; border: 5px solid #101214; border-radius: 18px; overflow: hidden; background: var(--accent); }
+      .plate .il { width: 58px; background: #1747a8; color: #fff; font-family: "Rubik", sans-serif; font-weight: 700; font-size: 26px; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 14px; }
+      .plate .pn { padding: 0 40px; font-family: "Rubik", sans-serif; font-weight: 700; font-size: 74px; letter-spacing: 0.06em; color: #101214; display: flex; align-items: center; }
+      .plate-l { font-size: 34px; color: var(--muted); margin-bottom: -18px; }
+      .btn { display: block; padding: 30px 74px; border-radius: 999px; background: var(--accent); color: var(--accent-ink); font-family: "Rubik", sans-serif; font-weight: 700; font-size: 50px; box-shadow: 0 18px 40px rgba(247, 201, 72, 0.45); }
+      .url { font-family: "Rubik", sans-serif; font-weight: 500; font-size: 36px; color: var(--muted); direction: ltr; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="30" data-width="1080" data-height="1920">
+      <div class="blobs" data-layout-allow-overflow><span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span><span class="blob b4"></span></div>
+
+      <!-- 1. Logo -->
+      <section id="s-logo" class="clip" data-start="0" data-duration="3.6" data-track-index="0">
+        <div class="logo-card glass" id="logo-card">
+          <div class="brand" aria-label="Tipulit"><span class="ch">t</span><span class="ch">i</span><span class="ch">p</span><span class="ch">u</span><span class="ch">l</span><span class="ch">i</span><span class="ch">t</span><span class="dot" id="logo-dot"></span></div>
+          <div class="tag" id="logo-tag">כל טיפול, בזמן הנכון.</div>
+          <div class="tag-sub" id="logo-sub">לפי ספר היבואן של הרכב שלך</div>
+        </div>
+      </section>
+
+      <!-- 2-4. The app at work -->
+      <section id="s-main" class="clip" data-start="3.3" data-duration="22" data-track-index="1">
+        <div class="cam" id="cam">
+          <div class="phone" id="phone">
+            <div class="screen">
+              <div class="layer" id="L-home">
+                <div class="strip" id="strip">
+                  <img src="capture/app/v_home.png" alt="" class="top0" />
+                  <img src="capture/app/v_next.png" alt="" id="img-next" />
+                  <span class="ring" id="r-pill"></span>
+                  <span class="tap" id="tap-me"></span>
+                </div>
+              </div>
+              <div class="layer" id="L-rem">
+                <img src="capture/app/v_reminders.png" alt="" />
+                <span class="ring" id="r-t1"></span>
+                <span class="ring" id="r-t2"></span>
+                <span class="tap" id="tap-car"></span>
+              </div>
+              <div class="layer" id="L-cond">
+                <img src="capture/app/v_condition.png" alt="" />
+                <span class="ring crit" id="r-tile"></span>
+                <span class="ring crit" id="r-row"></span>
+              </div>
+              <div class="layer" id="L-gar">
+                <img src="capture/app/v_garages.png" alt="" />
+                <span class="ring" id="r-city"></span>
+                <span class="ring" id="r-g1"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="caption glass" id="caption">
+          <div class="cap" id="cap1">
+            <div class="eyebrow"><span class="n">01</span><span>תזכורת לפני כל טיפול</span></div>
+            <h2><span class="w">לפי</span> <span class="w">הק"מ,</span> <span class="w">וגם</span> <span class="w">לפי</span> <span class="w">הזמן.</span></h2>
+          </div>
+          <div class="cap" id="cap2">
+            <div class="eyebrow"><span class="n">02</span><span>מצב הרכב</span></div>
+            <h2><span class="w">כל</span> <span class="w">פריט:</span> <span class="w">מה</span> <span class="w">הוחלף,</span> <span class="w">ומה</span> <span class="w">הבא.</span></h2>
+          </div>
+          <div class="cap" id="cap3">
+            <div class="eyebrow"><span class="n">03</span><span>מוסך ליד הבית</span></div>
+            <h2><span class="w">מוסכים</span> <span class="w">מורשים</span> <span class="w">בעיר</span> <span class="w">שלך.</span></h2>
+          </div>
+        </div>
+
+        <div class="chips" id="chips1">
+          <div class="chip glass" id="c1a"><div class="k"><span class="dotc"></span>לפי הק"מ</div><div class="v num">עוד <span id="kmcount">0</span> ק"מ</div></div>
+          <div class="chip glass" id="c1b"><div class="k"><span class="dotc crit"></span>לפי הזמן</div><div class="v">הגיע הזמן</div></div>
+        </div>
+        <div class="chips" id="chips2">
+          <div class="chip glass" id="c2a"><div class="k"><span class="dotc crit"></span>באיחור</div><div class="v s">מגבים: היו צריכים להתחלף במרץ 2026</div></div>
+        </div>
+        <div class="chips" id="chips2b">
+          <div class="chip glass" id="c2b"><div class="k"><span class="dotc warn"></span>לא ידוע</div><div class="v s">מעלים חשבונית, והפריט מתעדכן</div></div>
+        </div>
+        <div class="chips" id="chips3">
+          <div class="chip glass" id="c3a"><div class="k"><span class="dotc"></span>ממאגר משרד התחבורה</div><div class="v num">4,963 מוסכים מורשים</div></div>
+        </div>
+        <div class="chips" id="chips3b">
+          <div class="chip glass" id="c3b"><div class="k"><span class="dotc"></span>מנהגים עם אותו דגם</div><div class="v s">המלצות ומחירים אמיתיים</div></div>
+        </div>
+      </section>
+
+      <!-- 5. Call to action -->
+      <section id="s-cta" class="clip" data-start="25" data-duration="5" data-track-index="2">
+        <div class="cta-card glass" id="cta-card">
+          <div class="brand" aria-label="Tipulit"><span class="ch">t</span><span class="ch">i</span><span class="ch">p</span><span class="ch">u</span><span class="ch">l</span><span class="ch">i</span><span class="ch">t</span><span class="dot" id="cta-dot"></span></div>
+          <div class="tag" id="cta-tag">לפי ספר היבואן, לא לפי ניחוש.</div>
+          <div class="plate-l" id="plate-l">מקלידים מספר רכב, וזהו</div>
+          <div class="plate" id="plate"><span class="il">IL</span><span class="pn">12-345-67</span></div>
+          <div class="btn" id="cta-btn">התחילו עכשיו</div>
+          <div class="url" id="cta-url">tipulit.netlify.app</div>
+        </div>
+      </section>
+
+      <!-- Small sounds on the moments that matter (starter-kit sfx) -->
+      <audio id="sfx-pop1" src="assets/sfx/pop.wav" data-start="0.95" data-duration="0.17" data-volume="0.55"></audio>
+      <audio id="sfx-counter" src="assets/sfx/counter.wav" data-start="6.95" data-duration="1.05" data-volume="0.45"></audio>
+      <audio id="sfx-tick1" src="assets/sfx/tick.wav" data-start="7.95" data-duration="0.09" data-volume="0.8"></audio>
+      <audio id="sfx-sw1" src="assets/sfx/switch.wav" data-start="10.95" data-duration="0.14" data-volume="0.4"></audio>
+      <audio id="sfx-sw2" src="assets/sfx/switch.wav" data-start="11.3" data-duration="0.14" data-volume="0.4"></audio>
+      <audio id="sfx-tick2" src="assets/sfx/tick.wav" data-start="13.65" data-duration="0.09" data-volume="0.8"></audio>
+      <audio id="sfx-snap" src="assets/sfx/snap.wav" data-start="15.45" data-duration="0.16" data-volume="0.8"></audio>
+      <audio id="sfx-pop2" src="assets/sfx/pop.wav" data-start="20.75" data-duration="0.17" data-volume="0.5"></audio>
+      <audio id="sfx-star" src="assets/sfx/star.wav" data-start="22.85" data-duration="0.07" data-volume="1"></audio>
+      <audio id="sfx-chime" src="assets/sfx/chime.wav" data-start="26.65" data-duration="0.95" data-volume="0.5"></audio>
+    </div>
+
+    <script>
+      // Screenshots are 1170x2532 (390x844 @3x). The phone screen shows them at 600px wide.
+      const K = 600 / 1170;
+      const SX = 240, SY = 518; // screen origin in frame pixels (phone 222,500 + 18 bezel)
+      const NEXT_OFF = 1593; // v_next = v_home scrolled down by 1593 screenshot px
+      const px = v => v * K;
+
+      // Place an element over a screenshot rect [x, y, w, h] (screenshot px), with padding.
+      function place(id, r, pad = 10, yOff = 0) {
+        const e = document.getElementById(id);
+        e.style.setProperty("left", px(r[0] - pad) + "px");
+        e.style.setProperty("top", px(r[1] - pad + yOff) + "px");
+        e.style.setProperty("width", px(r[2] + pad * 2) + "px");
+        e.style.setProperty("height", px(r[3] + pad * 2) + "px");
+      }
+      function placeTap(id, x, y, yOff = 0) {
+        const e = document.getElementById(id);
+        e.style.setProperty("left", px(x) + "px");
+        e.style.setProperty("top", px(y + yOff) + "px");
+      }
+      document.getElementById("img-next").style.setProperty("top", px(NEXT_OFF) + "px");
+      place("r-pill", [105, 200, 400, 88], 8, NEXT_OFF);
+      placeTap("tap-me", 187, 2380, NEXT_OFF);
+      place("r-t1", [105, 1235, 144, 84], 10);
+      place("r-t2", [105, 1394, 144, 84], 10);
+      placeTap("tap-car", 714, 2380);
+      place("r-tile", [872, 402, 250, 234], 6);
+      place("r-row", [70, 838, 1030, 170], 6);
+      place("r-city", [846, 282, 276, 119], 8);
+      place("r-g1", [80, 990, 1010, 270], 6);
+      for (const [id, top] of [["chips1", 1330], ["chips2", 1380], ["chips2b", 1380], ["chips3", 1360], ["chips3b", 1380]])
+        document.getElementById(id).style.setProperty("top", top + "px");
+
+      // Camera that frames a screenshot rect (in v_* coordinates of the visible screen) at a target point.
+      function cam(r, s, ty = 1000, tx = 540) {
+        const cx = SX + px(r[0] + r[2] / 2), cy = SY + px(r[1] + r[3] / 2);
+        return { scale: s, x: tx - cx * s, y: ty - cy * s };
+      }
+      const CAM0 = { scale: 1, x: 0, y: 0 };
+
+      const tl = gsap.timeline({ paused: true });
+      const calm = "power3.out", move = "power3.inOut";
+
+      // Background drift for the whole film
+      tl.fromTo(".b1", { x: 0, y: 0 }, { x: 160, y: 120, duration: 30, ease: "sine.inOut" }, 0);
+      tl.fromTo(".b2", { x: 0, y: 0 }, { x: -200, y: 160, duration: 30, ease: "sine.inOut" }, 0);
+      tl.fromTo(".b3", { x: 0, y: 0 }, { x: 180, y: -140, duration: 30, ease: "sine.inOut" }, 0);
+      tl.fromTo(".b4", { x: 0, y: 0, scale: 1 }, { x: -260, y: -200, scale: 1.3, duration: 30, ease: "sine.inOut" }, 0);
+
+      // 1. Logo (0 - 3.6)
+      tl.fromTo("#logo-card", { opacity: 0, y: 30, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.6, ease: calm }, 0);
+      tl.fromTo("#logo-card .ch", { opacity: 0, y: 40, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.6, stagger: 0.06, ease: calm }, 0.15);
+      tl.fromTo("#logo-dot", { scale: 0, rotation: -45 }, { scale: 1, rotation: 0, duration: 0.45, ease: "back.out(1.6)" }, 0.95);
+      tl.fromTo("#logo-tag", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.6, ease: calm }, 1.3);
+      tl.fromTo("#logo-sub", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.6, ease: calm }, 1.6);
+      tl.to("#logo-card", { opacity: 0, y: -40, scale: 0.96, duration: 0.45, ease: "power2.in" }, 3.1);
+
+      // Main scene entrance (from 3.3)
+      tl.fromTo("#caption", { opacity: 0, y: 30, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.6, ease: calm }, 3.4);
+      tl.fromTo("#phone", { opacity: 0, y: 260, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.9, ease: calm }, 3.55);
+
+      function capIn(id, t) {
+        tl.set("#" + id, { opacity: 1 }, t);
+        tl.fromTo(`#${id} .eyebrow`, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5, ease: calm }, t);
+        tl.fromTo(`#${id} .w`, { opacity: 0, y: 26 }, { opacity: 1, y: 0, duration: 0.55, stagger: 0.07, ease: calm }, t + 0.12);
+      }
+      function capOut(id, t) { tl.to("#" + id, { opacity: 0, y: -20, duration: 0.35, ease: "power2.in" }, t); }
+      function ringIn(id, t) { tl.fromTo("#" + id, { opacity: 0, scale: 1.12 }, { opacity: 1, scale: 1, duration: 0.45, ease: calm }, t); }
+      function ringOut(id, t) { tl.to("#" + id, { opacity: 0, duration: 0.3 }, t); }
+      function chipIn(id, t) { tl.fromTo("#" + id, { opacity: 0, y: 30, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.6, ease: calm }, t); }
+      function chipOut(id, t) { tl.to("#" + id, { opacity: 0, y: 20, duration: 0.35, ease: "power2.in" }, t); }
+      function tap(id, t) { tl.fromTo("#" + id, { opacity: 0.95, scale: 0.4 }, { opacity: 0, scale: 2.2, duration: 0.5, ease: "power2.out" }, t); }
+      function swap(from, to, t) { tl.to("#" + from, { opacity: 0, duration: 0.3 }, t); tl.fromTo("#" + to, { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.35, ease: calm }, t); }
+
+      // 2. Reminder by km and by time (3.3 - 12.3)
+      capIn("cap1", 3.5);
+      tl.to("#strip", { y: -px(NEXT_OFF), duration: 1.0, ease: "power2.inOut" }, 4.5);
+      tl.to("#cam", { ...cam([105, 200, 960, 500], 1.85, 960), duration: 1.0, ease: move }, 5.8);
+      chipIn("c1a", 6.9);
+      const km = { v: 0 };
+      tl.to(km, { v: 7700, duration: 1.0, ease: "power2.out", onUpdate: () => { document.getElementById("kmcount").textContent = new Intl.NumberFormat("he-IL").format(Math.round(km.v / 100) * 100); } }, 6.95);
+      chipIn("c1b", 7.9);
+      ringIn("r-pill", 7.9);
+      chipOut("c1a", 9.0); chipOut("c1b", 9.0); ringOut("r-pill", 9.0);
+      tl.to("#cam", { ...CAM0, duration: 0.8, ease: move }, 9.0);
+      tap("tap-me", 9.85);
+      swap("L-home", "L-rem", 10.05);
+      tl.to("#cam", { ...cam([48, 1082, 1074, 612], 1.6, 1040), duration: 0.8, ease: move }, 10.4);
+      ringIn("r-t1", 10.95);
+      ringIn("r-t2", 11.3);
+      ringOut("r-t1", 11.85); ringOut("r-t2", 11.85);
+      tl.to("#cam", { ...CAM0, duration: 0.7, ease: move }, 11.85);
+      capOut("cap1", 11.85);
+
+      // 3. Condition, item by item (12.3 - 18.9)
+      capIn("cap2", 12.3);
+      tap("tap-car", 12.4);
+      swap("L-rem", "L-cond", 12.6);
+      tl.to("#cam", { ...cam([48, 402, 1074, 234], 1.65, 1000), duration: 0.8, ease: move }, 12.85);
+      ringIn("r-tile", 13.6);
+      ringOut("r-tile", 14.35);
+      tl.to("#cam", { ...cam([70, 838, 1030, 170], 1.75, 1000), duration: 0.9, ease: move }, 14.4);
+      ringIn("r-row", 15.4);
+      chipIn("c2a", 15.6);
+      chipOut("c2a", 16.75); ringOut("r-row", 16.75);
+      tl.to("#cam", { ...cam([70, 1040, 1030, 640], 1.4, 980), duration: 0.9, ease: move }, 16.75);
+      chipIn("c2b", 17.2);
+      chipOut("c2b", 18.35);
+      tl.to("#cam", { ...CAM0, duration: 0.7, ease: move }, 18.35);
+      capOut("cap2", 18.35);
+
+      // 4. A garage near home (18.9 - 25)
+      capIn("cap3", 18.85);
+      swap("L-cond", "L-gar", 19.0);
+      tl.to("#cam", { ...cam([48, 80, 1074, 340], 1.6, 1000), duration: 0.85, ease: move }, 19.75);
+      ringIn("r-city", 20.7);
+      chipIn("c3a", 20.95);
+      chipOut("c3a", 21.95); ringOut("r-city", 21.95);
+      tl.to("#cam", { ...cam([80, 990, 1010, 270], 1.7, 1000), duration: 0.9, ease: move }, 21.95);
+      ringIn("r-g1", 22.8);
+      chipIn("c3b", 23.0);
+      chipOut("c3b", 24.2); ringOut("r-g1", 24.2);
+      tl.to("#cam", { ...CAM0, duration: 0.6, ease: move }, 24.2);
+      capOut("cap3", 24.55);
+      tl.to("#caption", { opacity: 0, y: -30, duration: 0.4, ease: "power2.in" }, 24.7);
+      tl.to("#phone", { opacity: 0, y: 200, scale: 0.96, duration: 0.5, ease: "power2.in" }, 24.7);
+
+      // 5. Call to action (25 - 30)
+      tl.fromTo("#cta-card", { opacity: 0, y: 30, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.6, ease: calm }, 25.1);
+      tl.fromTo("#cta-card .ch", { opacity: 0, y: 30, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.55, stagger: 0.05, ease: calm }, 25.2);
+      tl.fromTo("#cta-dot", { scale: 0 }, { scale: 1, duration: 0.4, ease: "back.out(1.6)" }, 25.65);
+      tl.fromTo("#cta-tag", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.6, ease: calm }, 25.8);
+      tl.fromTo("#plate-l", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5, ease: calm }, 26.1);
+      tl.fromTo("#plate", { opacity: 0, y: 24, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.6, ease: calm }, 26.2);
+      tl.fromTo("#cta-btn", { opacity: 0, y: 24, scale: 0.94 }, { opacity: 1, y: 0, scale: 1, duration: 0.6, ease: calm }, 26.6);
+      tl.fromTo("#cta-url", { opacity: 0 }, { opacity: 1, duration: 0.6 }, 27.0);
+
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>
