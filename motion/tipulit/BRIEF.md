@@ -17,15 +17,27 @@ style_preset: liquid-glass
 
 מבנה (מהבקשה של מקס): פתיחה עם הלוגו, שלושה רגעים שמראים את האפליקציה עובדת (תזכורת לפי ק"מ וזמן, מצב הרכב לפי פריט, מוסך ליד הבית), וסיום עם קריאה לפעולה.
 
+## Version 2 (current)
+
+- Demo car: Alfa Romeo Giulia 2021 (schedule alfa-romeo-giulia-2016-2025-2.0), 52,300 km. Brake fluid last changed at 15,200 km, so it shows as overdue (due 45,200); oil changed at 45,200.
+- Narration in Hebrew (SCRIPT.txt). Two voices rendered: Hila (renders/tipulit-v2-hila.mp4, main) and Avri (same picture, audio remixed). TTS from Microsoft's he-IL neural voices via edge-tts, used as a draft voice; for a paid campaign, re-voice with a licensed TTS account or a human recording.
+- 3D: the phone tilts and flips between screens, rows and tiles from the real screenshots lift out of the phone, callouts flip in.
+- Real photos instead of icons: a floating Alfa Romeo Giulia (cut out, plate and driver's window masked), a car X-ray with the parts marked on it, and a dive into a real Alfa engine bay for the oil.
+
 ## Assets
 
-- capture/app/v_home.png, v_next.png — מסך הבית, למעלה ואחרי גלילה לכרטיס "הטיפול הבא". צולמו מהאפליקציה האמיתית (Playwright, 390x844 @3x, ערכת צבעים בהירה) עם רכב לדוגמה: מאזדה 3 2021, 52,300 ק"מ.
+- capture/app/v_home.png, v_next.png — מסך הבית, למעלה ואחרי גלילה לכרטיס "הטיפול הבא". צולמו מהאפליקציה האמיתית (Playwright, 390x844 @3x, ערכת צבעים בהירה) עם רכב לדוגמה: אלפא רומיאו ג'וליה 2021, 52,300 ק"מ (בגרסה 1: מאזדה 3).
 - capture/app/v_reminders.png — מסך "אני", כרטיס התזכורות.
 - capture/app/v_condition.png — מסך "הרכב", מצב לפי פריט.
 - capture/app/v_garages.png — "מוסך ליד הבית" ברמת גן, ממאגר המוסכים המורשים.
 - capture/app/rects.json — מיקומי האלמנטים בכל צילום (פיקסלים של הצילום), משמשים לזומים ולהדגשות.
 - assets/fonts — Rubik, IBM Plex Sans Hebrew ו-Unbounded (הפונטים של האפליקציה, מ-Google Fonts).
 - assets/sfx — 9 הסאונדים מה-starter kit.
+- assets/vo — narration clips (hila_*, avri_*) and word timings.
+- assets/photos/giulia.png — cut-out of "Alfa Romeo Giulia 2.0 Turbo MultiAir (2020) (54723466036).jpg", Wikimedia Commons, CC0. Licence plate and the driver's window were masked.
+- assets/photos/engine.jpg — "Alfa Romeo Tonale Plug-in Hybrid engine.jpg", Wikimedia Commons, CC0.
+- tools/icons — Phosphor Icons (MIT), used in the small part labels.
+- tools/build.py builds index.html from tools/index.src.html (fonts, icons and narration inlined). Edit the .src file, then run `python3 tools/build.py hila` (or avri).
 
 ## Customizations
 

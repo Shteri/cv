@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="he" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+{{FONTS}}
+      :root {
+        --ink: #1d1d1f;
+        --muted: #6e6e73;
+        --accent: #f7c948; /* plate yellow, the one brand accent */
+        --accent-ink: #101214;
+        --good: #34c759;
+        --warn: #f0a530;
+        --crit: #e5483d;
+        --unknown: #a1a6ae;
+        --glass: rgba(255, 255, 255, 0.78);
+        --glass-line: rgba(255, 255, 255, 0.95);
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #eef0f4; }
+      #root {
+        position: relative; width: 100%; height: 100%; overflow: hidden;
+        direction: rtl; font-family: "IBM Plex Sans Hebrew", sans-serif; color: var(--ink);
+        background: linear-gradient(170deg, #f7f8fb 0%, #eceff5 55%, #f6efe9 100%);
+      }
+      .clip { position: absolute; inset: 0; }
+      svg.ic { display: block; width: 100%; height: 100%; }
+
+      /* Liquid Glass background */
+      .blobs { position: absolute; inset: 0; }
+      .blob { position: absolute; display: block; border-radius: 50%; filter: blur(110px); opacity: 0.85; }
+      .b1 { width: 760px; height: 760px; left: -220px; top: -120px; background: #c9dcff; }
+      .b2 { width: 680px; height: 680px; left: 560px; top: 520px; background: #e2d4ff; }
+      .b3 { width: 820px; height: 820px; left: -160px; top: 1260px; background: #ffdcc4; }
+      .b4 { width: 420px; height: 420px; left: 640px; top: 1500px; background: #fff0b8; }
+
+      /* The real car (public-domain photo, cut out), floating with a soft ground shadow */
+      .hero-car { position: absolute; left: 90px; width: 900px; height: 405px; }
+      .hero-car img { position: absolute; left: 0; top: 0; width: 900px; height: 405px; display: block; }
+      .hero-car .shadow { position: absolute; left: 60px; right: 40px; top: 330px; height: 90px; border-radius: 50%; background: radial-gradient(closest-side, rgba(20, 24, 40, 0.42), rgba(20, 24, 40, 0)); }
+      #car-a { top: 1330px; } #car-b { top: 1470px; }
+      .glass {
+        background: var(--glass);
+        -webkit-backdrop-filter: blur(30px) saturate(160%); backdrop-filter: blur(30px) saturate(160%);
+        border: 2px solid var(--glass-line); border-radius: 40px;
+        box-shadow: 0 30px 80px rgba(40, 46, 66, 0.14), 0 2px 0 rgba(255, 255, 255, 0.8) inset;
+      }
+
+      /* Wordmark */
+      .brand { display: flex; align-items: center; justify-content: center; direction: ltr; font-family: "Unbounded", sans-serif; font-weight: 600; letter-spacing: -0.03em; color: #0c0f12; line-height: 1; }
+      .brand .ch { display: inline-block; }
+      .brand .dot { display: inline-block; width: 0.3em; height: 0.3em; margin-left: 0.08em; border-radius: 0.07em; background: var(--accent); align-self: flex-end; margin-bottom: 0.08em; }
+
+      .logo-card { position: absolute; left: 110px; right: 110px; top: 660px; height: 600px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 34px; }
+      .logo-card .brand { font-size: 150px; }
+      .tag { font-family: "Rubik", sans-serif; font-weight: 700; font-size: 62px; letter-spacing: -0.02em; text-align: center; }
+      .tag-sub { font-size: 36px; color: var(--muted); text-align: center; }
+
+      /* Phone under a 2D camera; the phone itself turns in 3D */
+      .cam { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; transform-origin: 0 0; }
+      .phone { position: absolute; left: 222px; top: 500px; width: 636px; height: 1335px; padding: 18px; border-radius: 80px;
+        background: linear-gradient(160deg, rgba(255,255,255,0.97), rgba(222,227,237,0.9));
+        border: 2px solid #fff; box-shadow: 0 60px 140px rgba(30, 36, 60, 0.26), 0 0 0 1px rgba(20, 24, 40, 0.06); }
+      .screen { position: relative; width: 600px; height: 1298px; border-radius: 62px; overflow: hidden; background: #f1f2f4; }
+      .layer { position: absolute; left: 0; top: 0; width: 600px; height: 1298px; }
+      .layer img, .strip img { position: absolute; left: 0; top: 0; display: block; width: 600px; height: 1298px; }
+      .strip { position: absolute; left: 0; top: 0; width: 600px; height: 2115px; }
+      #L-cond, #L-gar, .ring, .tap, .chip, .cap, .lift, .ptoken { opacity: 0; }
+      .ring { position: absolute; display: block; border: 3px solid var(--accent); border-radius: 12px; box-shadow: 0 0 0 6px rgba(247, 201, 72, 0.28); }
+
+      /* Lift-outs: crops of the real screenshot that rise out of the phone */
+      .lift { position: absolute; display: block; border-radius: 14px; background-repeat: no-repeat;
+        box-shadow: 0 0 0 3px var(--accent), 0 30px 60px rgba(16, 20, 30, 0.38); }
+      .lift.good { box-shadow: 0 0 0 3px var(--good), 0 30px 60px rgba(16, 20, 30, 0.3); }
+      .lift.crit { box-shadow: 0 0 0 3px var(--crit), 0 30px 60px rgba(120, 20, 20, 0.35); }
+
+      /* Part tokens: the part being serviced, as a glass icon next to its row */
+      .ptoken { position: absolute; z-index: 6; width: 150px; height: 150px; border-radius: 44px; background-repeat: no-repeat; background-color: #20242c;
+        border: 4px solid var(--accent);
+        box-shadow: 0 30px 70px rgba(120, 90, 0, 0.35), 0 2px 0 rgba(255,255,255,0.7) inset; }
+
+      .caption { position: absolute; left: 80px; right: 80px; top: 140px; height: 290px; z-index: 7; }
+      .cap { position: absolute; inset: 0; padding: 44px 56px; display: flex; flex-direction: column; justify-content: center; gap: 14px; }
+      .eyebrow { display: flex; align-items: center; gap: 14px; font-size: 30px; font-weight: 500; color: var(--muted); }
+      .eyebrow .n { font-family: "Rubik", sans-serif; font-weight: 700; color: var(--accent-ink); background: var(--accent); border-radius: 10px; padding: 2px 12px; direction: ltr; }
+      .cap h2 { font-family: "Rubik", sans-serif; font-weight: 700; font-size: 66px; line-height: 1.1; letter-spacing: -0.02em; }
+      .cap h2 .w { display: inline-block; }
+
+      .chips { position: absolute; left: 80px; right: 80px; z-index: 8; display: flex; gap: 24px; }
+      .chip { flex: 1; padding: 28px 34px; border-radius: 34px; display: flex; flex-direction: column; gap: 6px; }
+      .chip.glass { background: rgba(255, 255, 255, 0.93); }
+      .chip .k { font-size: 28px; font-weight: 500; color: var(--muted); display: flex; align-items: center; gap: 12px; }
+      .chip .v { font-family: "Rubik", sans-serif; font-weight: 700; font-size: 52px; letter-spacing: -0.02em; line-height: 1.1; }
+      .chip .v.s { font-size: 40px; }
+      .dotc { display: inline-block; width: 16px; height: 16px; border-radius: 50%; background: var(--good); }
+      .dotc.warn { background: var(--warn); }
+      .dotc.crit { background: var(--crit); }
+      .num { font-variant-numeric: tabular-nums; }
+
+      /* Car X-ray: where each item lives in the car */
+      .xray { position: absolute; left: 60px; right: 60px; top: 580px; height: 780px; z-index: 6; opacity: 0; overflow: hidden; }
+      .xray .car { position: absolute; left: 50px; top: 170px; width: 840px; height: 378px; }
+      .xray .car img { display: block; width: 840px; height: 378px; }
+      .xray .engine { position: absolute; left: 24px; right: 24px; top: 96px; height: 600px; border-radius: 30px; overflow: hidden; opacity: 0; box-shadow: 0 30px 70px rgba(16,20,30,0.35); }
+      .xray .engine img { display: block; width: 100%; height: 100%; object-fit: cover; }
+      .xray .eng-lbl { position: absolute; right: 50px; bottom: 50px; width: auto; padding-left: 26px; opacity: 0; }
+      .xray .road { position: absolute; left: 60px; right: 60px; top: 548px; height: 4px; border-radius: 2px; background: linear-gradient(90deg, rgba(42,47,56,0), rgba(42,47,56,0.25), rgba(42,47,56,0)); }
+      .xray .xt { position: absolute; left: 0; right: 0; top: 40px; text-align: center; font-family: "Rubik", sans-serif; font-weight: 700; font-size: 40px; }
+      .hs { position: absolute; display: block; width: 40px; height: 40px; margin: -20px 0 0 -20px; border-radius: 50%; background: var(--good); border: 5px solid #fff; box-shadow: 0 6px 18px rgba(0,0,0,0.25); opacity: 0; }
+      .hs.crit { background: var(--crit); }
+      .hs.unknown { background: var(--unknown); }
+      .pulse { position: absolute; display: block; width: 40px; height: 40px; margin: -20px 0 0 -20px; border-radius: 50%; border: 4px solid var(--crit); opacity: 0; }
+      .lbl { position: absolute; width: 340px; justify-content: center; display: flex; align-items: center; gap: 12px; padding: 14px 22px 14px 18px; border-radius: 999px; opacity: 0;
+        background: rgba(255,255,255,0.95); box-shadow: 0 14px 34px rgba(30,36,60,0.18); font-family: "Rubik", sans-serif; font-weight: 700; font-size: 32px; white-space: nowrap; }
+      .lbl .pi { width: 44px; height: 44px; border-radius: 12px; padding: 7px; background: var(--accent); color: #101214; }
+      .lbl .st { font-family: "IBM Plex Sans Hebrew", sans-serif; font-weight: 500; font-size: 26px; color: var(--muted); }
+      .lbl.crit { box-shadow: 0 0 0 3px var(--crit), 0 14px 34px rgba(120,20,20,0.25); }
+      .lbl.crit .st { color: var(--crit); }
+      .lead { position: absolute; display: block; width: 3px; background: rgba(42,47,56,0.35); transform-origin: 50% 0; opacity: 0; }
+
+      /* CTA */
+      .cta-card { position: absolute; left: 90px; right: 90px; top: 470px; height: 980px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 40px; padding: 60px; }
+      .cta-card .brand { font-size: 120px; }
+      .cta-card .tag { font-size: 58px; }
+      .plate { display: flex; direction: ltr; height: 128px; border: 5px solid #101214; border-radius: 18px; overflow: hidden; background: var(--accent); }
+      .plate .il { width: 58px; background: #1747a8; color: #fff; font-family: "Rubik", sans-serif; font-weight: 700; font-size: 26px; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 14px; }
+      .plate .pn { padding: 0 40px; font-family: "Rubik", sans-serif; font-weight: 700; font-size: 74px; letter-spacing: 0.06em; color: #101214; display: flex; align-items: center; }
+      .plate-l { font-size: 34px; color: var(--muted); margin-bottom: -18px; }
+      .btn { display: block; padding: 30px 74px; border-radius: 999px; background: var(--accent); color: var(--accent-ink); font-family: "Rubik", sans-serif; font-weight: 700; font-size: 50px; box-shadow: 0 18px 40px rgba(247, 201, 72, 0.45); }
+      .url { font-family: "Rubik", sans-serif; font-weight: 500; font-size: 36px; color: var(--muted); direction: ltr; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="30" data-width="1080" data-height="1920">
+      <div class="blobs" data-layout-allow-overflow><span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span><span class="blob b4"></span></div>
+
+      <!-- 1. Logo -->
+      <section id="s-logo" class="clip" data-start="0" data-duration="3.7" data-track-index="0">
+        <div class="logo-card glass" id="logo-card">
+          <div class="brand" aria-label="Tipulit"><span class="ch">t</span><span class="ch">i</span><span class="ch">p</span><span class="ch">u</span><span class="ch">l</span><span class="ch">i</span><span class="ch">t</span><span class="dot" id="logo-dot"></span></div>
+          <div class="tag" id="logo-tag">כל טיפול, בזמן הנכון.</div>
+          <div class="tag-sub" id="logo-sub">לפי ספר היבואן של הרכב שלך</div>
+        </div>
+        <div class="hero-car" id="car-a"><span class="shadow"></span><img src="assets/photos/giulia.png" alt="" /></div>
+      </section>
+
+      <!-- 2-4. The app at work -->
+      <section id="s-main" class="clip" data-start="3.3" data-duration="22.4" data-track-index="1">
+        <div class="cam" id="cam">
+          <div class="phone" id="phone">
+            <div class="screen">
+              <div class="layer" id="L-home">
+                <div class="strip" id="strip">
+                  <img src="capture/app/v_home.png" alt="" />
+                  <img src="capture/app/v_next.png" alt="" id="img-next" />
+                  <span class="ring" id="r-plate"></span>
+                </div>
+              </div>
+              <div class="layer" id="L-cond"><img src="capture/app/v_condition.png" alt="" /></div>
+              <div class="layer" id="L-gar">
+                <img src="capture/app/v_garages.png" alt="" />
+                <span class="ring" id="r-city"></span>
+              </div>
+            </div>
+            <span class="lift" id="lf-oil"></span>
+            <span class="lift" id="lf-brake"></span>
+            <span class="lift good" id="lf-ok"></span>
+            <span class="lift crit" id="lf-over"></span>
+            <span class="lift crit" id="lf-row"></span>
+            <span class="lift" id="lf-gar"></span>
+          </div>
+        </div>
+
+        <span class="ptoken" id="pt-oil"></span>
+        <span class="ptoken" id="pt-brake"></span>
+
+        <div class="xray glass" id="xray">
+          <div class="xt">מצב הרכב, פריט אחרי פריט</div>
+          <span class="road"></span>
+          <div class="car" id="xcar"><img src="assets/photos/giulia.png" alt="" /></div>
+          <span class="lead" id="ld-oil"></span><span class="lead" id="ld-cab"></span><span class="lead" id="ld-brk"></span><span class="lead" id="ld-tir"></span>
+          <span class="hs" id="hs-oil"></span>
+          <span class="hs" id="hs-cab"></span>
+          <span class="pulse" id="pl-brk"></span>
+          <span class="hs crit" id="hs-brk"></span>
+          <span class="hs unknown" id="hs-tir"></span>
+          <div class="lbl" id="lb-oil"><span class="pi">{{icon:drop-fill}}</span>שמן מנוע <span class="st">בסדר</span></div>
+          <div class="lbl" id="lb-cab"><span class="pi">{{icon:fan-fill}}</span>מסנן מזגן <span class="st">בסדר</span></div>
+          <div class="lbl crit" id="lb-brk"><span class="pi">{{icon:disc-fill}}</span>נוזל בלמים <span class="st">באיחור</span></div>
+          <div class="engine" id="engine"><img src="assets/photos/engine.jpg" alt="" /><div class="lbl eng-lbl" id="lb-eng"><span class="pi">{{icon:drop-fill}}</span>שמן מנוע <span class="st">הוחלף ב-45,200 ק"מ</span></div></div>
+          <div class="lbl" id="lb-tir"><span class="pi">{{icon:tire-fill}}</span>צמיגים <span class="st">לא ידוע</span></div>
+        </div>
+
+        <div class="caption glass" id="caption">
+          <div class="cap" id="cap1">
+            <div class="eyebrow"><span class="n">01</span><span>תזכורת לפני כל טיפול</span></div>
+            <h2><span class="w">לפי</span> <span class="w">הק"מ,</span> <span class="w">וגם</span> <span class="w">לפי</span> <span class="w">הזמן.</span></h2>
+          </div>
+          <div class="cap" id="cap2">
+            <div class="eyebrow"><span class="n">02</span><span>מצב הרכב</span></div>
+            <h2><span class="w">כל</span> <span class="w">פריט:</span> <span class="w">מה</span> <span class="w">הוחלף,</span> <span class="w">ומה</span> <span class="w">הבא.</span></h2>
+          </div>
+          <div class="cap" id="cap3">
+            <div class="eyebrow"><span class="n">03</span><span>מוסך ליד הבית</span></div>
+            <h2><span class="w">מוסכים</span> <span class="w">מורשים</span> <span class="w">בעיר</span> <span class="w">שלך.</span></h2>
+          </div>
+        </div>
+
+        <div class="chips" id="chips0"><div class="chip glass" id="c0"><div class="k"><span class="dotc"></span>מה כולל טיפול 60,000</div><div class="v s">שמן, מסננים ונוזל בלמים</div></div></div>
+        <div class="chips" id="chips1">
+          <div class="chip glass" id="c1a"><div class="k"><span class="dotc"></span>לפי הק"מ</div><div class="v num">עוד <span id="kmcount">0</span> ק"מ</div></div>
+          <div class="chip glass" id="c1b"><div class="k"><span class="dotc warn"></span>לפי הזמן</div><div class="v">עד נובמבר 2026</div></div>
+        </div>
+        <div class="chips" id="chips2"><div class="chip glass" id="c2a"><div class="k"><span class="dotc crit"></span>באיחור</div><div class="v s">נוזל בלמים: היה צריך להתחלף ב-45,200 ק"מ</div></div></div>
+        <div class="chips" id="chips3"><div class="chip glass" id="c3a"><div class="k"><span class="dotc"></span>ממאגר משרד התחבורה</div><div class="v num">4,963 מוסכים מורשים</div></div></div>
+        <div class="chips" id="chips3b"><div class="chip glass" id="c3b"><div class="k"><span class="dotc"></span>מנהגים עם אותו דגם</div><div class="v s">המלצות ומחירים אמיתיים</div></div></div>
+      </section>
+
+      <!-- 5. Call to action -->
+      <section id="s-cta" class="clip" data-start="25.4" data-duration="4.6" data-track-index="2">
+        <div class="cta-card glass" id="cta-card">
+          <div class="brand" aria-label="Tipulit"><span class="ch">t</span><span class="ch">i</span><span class="ch">p</span><span class="ch">u</span><span class="ch">l</span><span class="ch">i</span><span class="ch">t</span><span class="dot" id="cta-dot"></span></div>
+          <div class="tag" id="cta-tag">לפי ספר היבואן, לא לפי ניחוש.</div>
+          <div class="plate-l" id="plate-l">מקלידים מספר רכב, וזהו</div>
+          <div class="plate" id="plate"><span class="il">IL</span><span class="pn">12-345-67</span></div>
+          <div class="btn" id="cta-btn">התחילו עכשיו</div>
+          <div class="url" id="cta-url">tipulit.netlify.app</div>
+        </div>
+        <div class="hero-car" id="car-b"><span class="shadow"></span><img src="assets/photos/giulia.png" alt="" /></div>
+      </section>
+
+      <!-- Narration (Hebrew TTS, one clip per line) -->
+{{VO}}
+      <!-- Small sounds on the moments that matter (starter-kit sfx), quiet under the voice -->
+      <audio id="sfx-pop1" src="assets/sfx/pop.wav" data-start="0.95" data-duration="0.17" data-volume="0.4"></audio>
+      <audio id="sfx-tk1" src="assets/sfx/tick.wav" data-start="6.25" data-duration="0.09" data-volume="0.6"></audio>
+      <audio id="sfx-tk2" src="assets/sfx/tick.wav" data-start="6.75" data-duration="0.09" data-volume="0.6"></audio>
+      <audio id="sfx-counter" src="assets/sfx/counter.wav" data-start="8.65" data-duration="1.05" data-volume="0.28"></audio>
+      <audio id="sfx-tk3" src="assets/sfx/tick.wav" data-start="10.25" data-duration="0.09" data-volume="0.6"></audio>
+      <audio id="sfx-fill" src="assets/sfx/fill.wav" data-start="13.0" data-duration="1.2" data-volume="0.22"></audio>
+      <audio id="sfx-snap1" src="assets/sfx/snap.wav" data-start="15.1" data-duration="0.16" data-volume="0.6"></audio>
+      <audio id="sfx-snap2" src="assets/sfx/snap.wav" data-start="18.5" data-duration="0.16" data-volume="0.6"></audio>
+      <audio id="sfx-pop2" src="assets/sfx/pop.wav" data-start="21.95" data-duration="0.17" data-volume="0.35"></audio>
+      <audio id="sfx-star" src="assets/sfx/star.wav" data-start="23.75" data-duration="0.07" data-volume="0.9"></audio>
+      <audio id="sfx-chime" src="assets/sfx/chime.wav" data-start="25.7" data-duration="0.95" data-volume="0.35"></audio>
+    </div>
+
+    <script>
+      // Screenshots are 1170x2532 (390x844 @3x). The phone screen shows them at 600px wide.
+      const K = 600 / 1170;
+      const SX = 240, SY = 518;   // screen origin in frame px (phone 222,500 + 18 bezel)
+      const NEXT_OFF = 1677;      // v_next = v_home scrolled down by 1593 screenshot px
+      const px = v => v * K;
+      const $ = id => document.getElementById(id);
+      const set = (id, props) => { const e = $(id); for (const [k, v] of Object.entries(props)) e.style.setProperty(k, v); };
+      const box = (r, pad = 0, dx = 0, dy = 0, yOff = 0) => ({ left: dx + px(r[0] - pad) + "px", top: dy + px(r[1] - pad + yOff) + "px", width: px(r[2] + pad * 2) + "px", height: px(r[3] + pad * 2) + "px" });
+
+      set("img-next", { top: px(NEXT_OFF) + "px" });
+      set("r-plate", box([48, 352, 426, 118], 8));
+      set("r-city", box([846, 282, 276, 119], 8));
+      // Lift-outs: a crop of the screenshot at the same spot, inside the phone (bezel 18px)
+      function lift(id, img, r) {
+        set(id, { ...box(r, 0, 18, 18), "background-image": `url(capture/app/${img})`, "background-size": "600px 1298px", "background-position": `${-px(r[0])}px ${-px(r[1])}px` });
+      }
+      lift("lf-oil", "v_next.png", [96, 805, 978, 269]);
+      lift("lf-brake", "v_next.png", [96, 1756, 978, 215]);
+      lift("lf-ok", "v_condition.png", [323, 402, 252, 234]);
+      lift("lf-over", "v_condition.png", [872, 402, 252, 234]);
+      lift("lf-row", "v_condition.png", [70, 820, 1030, 218]);
+      lift("lf-gar", "v_garages.png", [62, 992, 1046, 262]);
+      for (const [id, top] of [["chips0", 1720], ["chips1", 1330], ["chips2", 1400], ["chips3", 1380], ["chips3b", 1420]]) set(id, { top: top + "px" });
+
+      // Camera: frame a screenshot rect (coords of the visible screen) at a target point
+      function cam(r, s, ty = 1000, tx = 540) {
+        const cx = SX + px(r[0] + r[2] / 2), cy = SY + px(r[1] + r[3] / 2);
+        return { scale: s, x: tx - cx * s, y: ty - cy * s };
+      }
+      const CAM0 = { scale: 1, x: 0, y: 0 };
+      // Where a screenshot point lands in the frame under a camera
+      const onFrame = (c, x, y) => ({ x: (SX + px(x)) * c.scale + c.x, y: (SY + px(y)) * c.scale + c.y });
+
+      // Car X-ray geometry: points on the Giulia photo (cut-out is 907x408, shown at 840 wide in the card)
+      const CK = 840 / 907, CX0 = 50, CY0 = 170;
+      const carPt = (x, y) => ({ x: CX0 + x * CK, y: CY0 + y * CK });
+      const HS = { oil: carPt(113, 165), cab: carPt(240, 150), brk: carPt(99, 298), tir: carPt(525, 326) };
+      const LB = { oil: { x: 20, y: 100, a: "b" }, cab: { x: 400, y: 100, a: "b" }, brk: { x: 30, y: 640, a: "t" }, tir: { x: 470, y: 640, a: "t" } };
+      for (const k of Object.keys(HS)) {
+        const h = HS[k], l = LB[k], ax = l.x + 170, ay = l.a === "b" ? l.y + 72 : l.y;
+        set("hs-" + k, { left: h.x + "px", top: h.y + "px" });
+        set("lb-" + k, { left: l.x + "px", top: l.y + "px" });
+        const dx = ax - h.x, dy = ay - h.y, len = Math.hypot(dx, dy);
+        set("ld-" + k, { left: h.x - 1.5 + "px", top: h.y + "px", height: len + "px", rotate: Math.atan2(-dx, dy) * 180 / Math.PI + "deg" });
+      }
+      set("pl-brk", { left: HS.brk.x + "px", top: HS.brk.y + "px" });
+
+      const tl = gsap.timeline({ paused: true });
+      const calm = "power3.out", move = "power3.inOut";
+
+      // Background drift
+      tl.fromTo(".b1", { x: 0, y: 0 }, { x: 160, y: 120, duration: 30, ease: "sine.inOut" }, 0);
+      tl.fromTo(".b2", { x: 0, y: 0 }, { x: -200, y: 160, duration: 30, ease: "sine.inOut" }, 0);
+      tl.fromTo(".b3", { x: 0, y: 0 }, { x: 180, y: -140, duration: 30, ease: "sine.inOut" }, 0);
+      tl.fromTo(".b4", { x: 0, y: 0, scale: 1 }, { x: -260, y: -200, scale: 1.3, duration: 30, ease: "sine.inOut" }, 0);
+
+      // The real car floats in 3D under the logo, and again under the CTA
+      const floatCar = (id, t0, t1) => {
+        tl.fromTo(id, { opacity: 0, x: -520, z: -300, rotationY: -28, rotationX: 10, transformPerspective: 1600 }, { opacity: 1, x: 0, z: 0, rotationY: -10, rotationX: 6, duration: 1.3, ease: "power3.out" }, t0);
+        tl.to(id, { y: -26, rotationY: 8, rotationX: 2, duration: t1 - t0 - 1.3, ease: "sine.inOut" }, t0 + 1.3);
+        tl.to(id + " .shadow", { scaleX: 0.86, opacity: 0.7, duration: t1 - t0 - 1.3, ease: "sine.inOut" }, t0 + 1.3);
+      };
+      floatCar("#car-a", 0.1, 3.15);
+      tl.to("#car-a", { opacity: 0, x: 520, z: 200, duration: 0.5, ease: "power2.in" }, 3.15);
+      floatCar("#car-b", 25.6, 30);
+      // 1. Logo (0 - 3.7)
+      tl.fromTo("#logo-card", { opacity: 0, z: -500, rotationX: 22, transformPerspective: 1800 }, { opacity: 1, z: 0, rotationX: 0, duration: 0.9, ease: calm }, 0);
+      tl.fromTo("#logo-card .ch", { opacity: 0, y: 40, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.6, stagger: 0.06, ease: calm }, 0.2);
+      tl.fromTo("#logo-dot", { scale: 0, rotation: -45 }, { scale: 1, rotation: 0, duration: 0.45, ease: "back.out(1.6)" }, 0.95);
+      tl.fromTo("#logo-tag", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.6, ease: calm }, 1.6);
+      tl.fromTo("#logo-sub", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.6, ease: calm }, 2.0);
+      tl.to("#logo-card", { opacity: 0, z: 400, rotationX: -14, duration: 0.5, ease: "power2.in" }, 3.2);
+
+      // Phone: 3D entrance, gentle sway, 3D flips between screens, exit
+      tl.fromTo("#caption", { opacity: 0, rotationX: -40, y: -20, transformPerspective: 1400 }, { opacity: 1, rotationX: 0, y: 0, duration: 0.7, ease: calm }, 3.4);
+      tl.fromTo("#phone", { opacity: 0, y: 380, z: -500, rotationY: -42, rotationX: 22, transformPerspective: 2400 },
+        { opacity: 1, y: 0, z: 0, rotationY: -9, rotationX: 5, duration: 1.1, ease: calm }, 3.5);
+      tl.to("#phone", { rotationY: 6, rotationX: 2, duration: 6.4, ease: "sine.inOut" }, 4.6);
+      function flip(from, to, t) {
+        tl.to("#phone", { rotationY: 90, duration: 0.3, ease: "power2.in" }, t);
+        tl.set("#" + from, { opacity: 0 }, t + 0.3);
+        tl.set("#" + to, { opacity: 1 }, t + 0.3);
+        tl.fromTo("#phone", { rotationY: -90 }, { rotationY: -6, duration: 0.45, ease: "power3.out", immediateRender: false }, t + 0.3);
+      }
+
+      function capIn(id, t) {
+        tl.set("#" + id, { opacity: 1 }, t);
+        tl.fromTo(`#${id} .eyebrow`, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5, ease: calm }, t);
+        tl.fromTo(`#${id} .w`, { opacity: 0, y: 26, rotationX: -70, transformPerspective: 700 }, { opacity: 1, y: 0, rotationX: 0, duration: 0.55, stagger: 0.07, ease: calm }, t + 0.12);
+      }
+      const capOut = (id, t) => tl.to("#" + id, { opacity: 0, y: -20, duration: 0.35, ease: "power2.in" }, t);
+      const ringIn = (id, t) => tl.fromTo("#" + id, { opacity: 0, scale: 1.15 }, { opacity: 1, scale: 1, duration: 0.45, ease: calm }, t);
+      const fadeOut = (id, t, d = 0.3) => tl.to("#" + id, { opacity: 0, duration: d }, t);
+      const chipIn = (id, t) => tl.fromTo("#" + id, { opacity: 0, y: 40, rotationX: -55, transformPerspective: 1200 }, { opacity: 1, y: 0, rotationX: 0, duration: 0.65, ease: calm }, t);
+      const chipOut = (id, t) => tl.to("#" + id, { opacity: 0, y: 24, duration: 0.35, ease: "power2.in" }, t);
+      // Lift a crop out of the phone toward the camera, tilted in 3D; settle it back later
+      function liftUp(id, t, s = 1.1, rx = 10) {
+        tl.fromTo("#" + id, { opacity: 0, scale: 1, z: 0, rotationX: 0, transformPerspective: 900 }, { opacity: 1, duration: 0.18 }, t);
+        tl.to("#" + id, { scale: s, z: 70, rotationX: rx, y: -6, duration: 0.6, ease: "back.out(1.4)" }, t + 0.05);
+      }
+      const liftDown = (id, t) => { tl.to("#" + id, { scale: 1, z: 0, rotationX: 0, y: 0, duration: 0.4, ease: "power2.inOut" }, t); tl.to("#" + id, { opacity: 0, duration: 0.15 }, t + 0.4); };
+      set("pt-oil", { "background-image": "url(assets/photos/engine.jpg)", "background-size": "960px auto", "background-position": "-325px -135px" });
+      set("pt-brake", { "background-image": "url(assets/photos/giulia.png)", "background-size": "1043px auto", "background-position": "-39px -268px" });
+      function token(id, c, rowY, t) {
+        const p = { x: 70, y: rowY - 75 };
+        set(id, { left: p.x + "px", top: p.y + "px" });
+        tl.fromTo("#" + id, { opacity: 0, scale: 0.3, rotationY: -120, z: -200, transformPerspective: 1000 }, { opacity: 1, scale: 1, rotationY: -14, z: 0, duration: 0.7, ease: "back.out(1.5)" }, t);
+        tl.to("#" + id, { y: -14, rotationY: 12, duration: 1.0, ease: "sine.inOut" }, t + 0.7);
+      }
+
+      // 2. Reminder by km and time (VO line 2 from 3.6)
+      capIn("cap1", 3.55);
+      ringIn("r-plate", 4.15); fadeOut("r-plate", 4.9);
+      tl.to("#strip", { y: -px(NEXT_OFF), duration: 0.9, ease: "power2.inOut" }, 4.9);
+      const C_ITEMS = cam([105, 800, 960, 1170], 1.6, 1180);
+      tl.to("#cam", { ...C_ITEMS, duration: 0.8, ease: move }, 5.6);
+      liftUp("lf-oil", 6.2); token("pt-oil", C_ITEMS, onFrame(C_ITEMS, 0, 939).y, 6.2);
+      liftUp("lf-brake", 6.7); token("pt-brake", C_ITEMS, onFrame(C_ITEMS, 0, 1864).y, 6.7);
+      chipIn("c0", 6.9);
+      liftDown("lf-oil", 7.75); liftDown("lf-brake", 7.75); fadeOut("pt-oil", 7.75); fadeOut("pt-brake", 7.75); chipOut("c0", 7.75);
+      tl.to("#cam", { ...cam([105, 200, 960, 500], 1.85, 960), duration: 0.8, ease: move }, 7.85);
+      chipIn("c1a", 8.6);
+      const km = { v: 0 };
+      tl.to(km, { v: 7700, duration: 1.0, ease: "power2.out", onUpdate: () => { $("kmcount").textContent = new Intl.NumberFormat("he-IL").format(Math.round(km.v / 100) * 100); } }, 8.65);
+      chipIn("c1b", 10.2);
+      chipOut("c1a", 11.0); chipOut("c1b", 11.0);
+      tl.to("#cam", { ...CAM0, duration: 0.7, ease: move }, 11.0);
+      capOut("cap1", 11.1);
+
+      // 3. Condition, item by item (VO line 3 from 12.4): car X-ray, then the screen
+      flip("L-home", "L-cond", 11.25);
+      tl.to("#phone", { scale: 0.86, z: -300, y: 140, rotationY: 14, duration: 0.7, ease: move }, 12.0);
+      capIn("cap2", 11.85);
+      tl.fromTo("#xray", { opacity: 0, z: -900, rotationX: 28, y: 80, transformPerspective: 2000 }, { opacity: 1, z: 0, rotationX: 0, y: 0, duration: 0.9, ease: calm }, 12.2);
+      tl.fromTo("#xcar", { x: 300, opacity: 0, rotationY: -25, transformPerspective: 1600 }, { x: 0, opacity: 1, rotationY: 0, duration: 0.9, ease: calm }, 12.35);
+      const hs = (k, t) => {
+        tl.fromTo("#hs-" + k, { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2)" }, t);
+        tl.fromTo("#ld-" + k, { opacity: 0, scaleY: 0 }, { opacity: 1, scaleY: 1, duration: 0.3, ease: calm }, t + 0.1);
+        tl.fromTo("#lb-" + k, { opacity: 0, y: 20, rotationX: -60, transformPerspective: 900 }, { opacity: 1, y: 0, rotationX: 0, duration: 0.5, ease: calm }, t + 0.15);
+      };
+      hs("oil", 12.95);
+      const oil = HS.oil;
+      tl.to("#xcar", { scale: 2.6, x: 430 - oil.x, y: 380 - oil.y, transformOrigin: `${oil.x - CX0}px ${oil.y - CY0}px`, duration: 0.6, ease: "power3.in" }, 13.35);
+      tl.fromTo("#engine", { opacity: 0, scale: 1.35, rotationY: -12, transformPerspective: 1400 }, { opacity: 1, scale: 1, rotationY: 0, duration: 0.6, ease: calm }, 13.7);
+      tl.fromTo("#lb-eng", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.45, ease: calm }, 14.05);
+      tl.to("#engine", { opacity: 0, scale: 1.1, duration: 0.4, ease: "power2.in" }, 14.75);
+      tl.to("#xcar", { scale: 1, x: 0, y: 0, duration: 0.55, ease: "power3.out" }, 14.85);
+      hs("brk", 15.05);
+      tl.fromTo("#pl-brk", { opacity: 0.9, scale: 1 }, { opacity: 0, scale: 3.2, duration: 0.8, repeat: 1, ease: "power2.out" }, 15.15);
+      hs("cab", 15.3); hs("tir", 15.45);
+      tl.to("#xray", { opacity: 0, z: -600, rotationX: -20, y: -60, duration: 0.5, ease: "power2.in" }, 16.25);
+      tl.to("#phone", { scale: 1, z: 0, y: 0, rotationY: -5, rotationX: 3, duration: 0.6, ease: move }, 16.3);
+      const C_COUNTS = cam([48, 402, 1074, 234], 1.65, 1020);
+      tl.to("#cam", { ...C_COUNTS, duration: 0.6, ease: move }, 16.35);
+      liftUp("lf-ok", 16.7, 1.14, 12);
+      liftUp("lf-over", 17.45, 1.18, 12);
+      liftDown("lf-ok", 17.9); liftDown("lf-over", 17.9);
+      tl.to("#cam", { ...cam([70, 820, 1030, 218], 1.75, 1000), duration: 0.6, ease: move }, 17.9);
+      liftUp("lf-row", 18.45, 1.08, 9);
+      chipIn("c2a", 18.6);
+      liftDown("lf-row", 19.55); chipOut("c2a", 19.55);
+      tl.to("#phone", { rotationY: 5, duration: 0.4, ease: "sine.inOut" }, 19.0);
+      tl.to("#cam", { ...CAM0, duration: 0.6, ease: move }, 19.65);
+      capOut("cap2", 19.6);
+
+      // 4. A garage near home (VO line 4 from 20.0)
+      flip("L-cond", "L-gar", 19.75);
+      capIn("cap3", 20.1);
+      tl.to("#phone", { rotationY: 6, rotationX: 2, duration: 4.4, ease: "sine.inOut" }, 20.5);
+      tl.to("#cam", { ...cam([48, 80, 1074, 340], 1.6, 1000), duration: 0.8, ease: move }, 20.75);
+      ringIn("r-city", 21.9);
+      chipIn("c3a", 22.0);
+      chipOut("c3a", 22.85); fadeOut("r-city", 22.85);
+      tl.to("#cam", { ...cam([80, 990, 1010, 270], 1.7, 1000), duration: 0.7, ease: move }, 22.9);
+      liftUp("lf-gar", 23.65, 1.08, 10);
+      chipIn("c3b", 23.8);
+      chipOut("c3b", 24.85); liftDown("lf-gar", 24.85);
+      tl.to("#cam", { ...CAM0, duration: 0.5, ease: move }, 24.9);
+      capOut("cap3", 24.9);
+      tl.to("#caption", { opacity: 0, rotationX: 40, duration: 0.4, ease: "power2.in" }, 25.1);
+      tl.to("#phone", { opacity: 0, z: -700, rotationY: 50, y: 160, duration: 0.6, ease: "power2.in" }, 25.1);
+
+      // 5. Call to action (VO line 5 from 25.95)
+      tl.fromTo("#cta-card", { opacity: 0, z: -700, rotationX: 24, transformPerspective: 1800 }, { opacity: 1, z: 0, rotationX: 0, duration: 0.9, ease: calm }, 25.45);
+      tl.fromTo("#cta-card .ch", { opacity: 0, y: 30, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.55, stagger: 0.05, ease: calm }, 25.5);
+      tl.fromTo("#cta-dot", { scale: 0 }, { scale: 1, duration: 0.4, ease: "back.out(1.6)" }, 25.7);
+      tl.fromTo("#cta-tag", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.6, ease: calm }, 27.35);
+      tl.fromTo("#plate-l", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5, ease: calm }, 26.3);
+      tl.fromTo("#plate", { opacity: 0, rotationX: -80, transformPerspective: 900 }, { opacity: 1, rotationX: 0, duration: 0.6, ease: calm }, 26.4);
+      tl.fromTo("#cta-btn", { opacity: 0, y: 24, scale: 0.92 }, { opacity: 1, y: 0, scale: 1, duration: 0.55, ease: calm }, 26.8);
+      tl.fromTo("#cta-url", { opacity: 0 }, { opacity: 1, duration: 0.5 }, 28.3);
+
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>
