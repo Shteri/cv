@@ -1,0 +1,814 @@
+{
+  "id": "kgm-musso-2024-2026-2.2-diesel",
+  "make": "KGM",
+  "make_he": "KGM (סאנגיונג)",
+  "model": "Musso",
+  "model_he": "מוסו",
+  "generation": "Q200 / Q300",
+  "years": [
+    2024,
+    2026
+  ],
+  "engines": [
+    "2.2 טורבו דיזל (D22DTR, קוד רישוי 672980)"
+  ],
+  "fuel": "diesel",
+  "importer": "טלקאר מוטורס (KGM ישראל)",
+  "interval": {
+    "km": 15000,
+    "months": 12,
+    "note": "טבלת D22DTR (GEN) בספר הנהג העברי: 15,000 ק\"מ או 12 חודשים; בתנאים קשים 7,500 ק\"מ או 6 חודשים"
+  },
+  "cycle_km": 120000,
+  "services": [
+    {
+      "km": 15000,
+      "items": [
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "בדיקה ראשונה של המפלס ב-7,500 ק\"מ"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "inspect",
+          "note": "ניקוז מים"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "בדיקה ראשונה וניקוי ב-7,500 ק\"מ"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect",
+          "note": "4x4"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "משחת סיכה בגל ההינע ובמסבי הגלגלים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "בדיקה ראשונה של המפלס ב-7,500 ק\"מ"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace",
+          "note": "ניקוז מים בכל החלפת שמן"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "בדיקה ראשונה וניקוי ב-7,500 ק\"מ"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect",
+          "note": "4x4"
+        },
+        {
+          "item": "differential_oil",
+          "action": "replace",
+          "note": "סרן קדמי ואחורי"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "משחת סיכה בגל ההינע ובמסבי הגלגלים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 45000,
+      "items": [
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "בדיקה ראשונה של המפלס ב-7,500 ק\"מ"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "inspect",
+          "note": "ניקוז מים"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "בדיקה ראשונה וניקוי ב-7,500 ק\"מ"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect",
+          "note": "4x4"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "משחת סיכה בגל ההינע ובמסבי הגלגלים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "בדיקה ראשונה של המפלס ב-7,500 ק\"מ"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace",
+          "note": "ניקוז מים בכל החלפת שמן"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "בדיקה ראשונה וניקוי ב-7,500 ק\"מ"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "replace",
+          "note": "4x4"
+        },
+        {
+          "item": "differential_oil",
+          "action": "replace",
+          "note": "סרן קדמי ואחורי"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי: בדיקה והוספה (60,000 ק\"מ או 3 שנים)"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect",
+          "note": "גיר ידני: בדיקה והוספה"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "משחת סיכה בגל ההינע ובמסבי הגלגלים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 75000,
+      "items": [
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "בדיקה ראשונה של המפלס ב-7,500 ק\"מ"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "inspect",
+          "note": "ניקוז מים"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "בדיקה ראשונה וניקוי ב-7,500 ק\"מ"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect",
+          "note": "4x4"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "משחת סיכה בגל ההינע ובמסבי הגלגלים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "בדיקה ראשונה של המפלס ב-7,500 ק\"מ"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace",
+          "note": "ניקוז מים בכל החלפת שמן"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "בדיקה ראשונה וניקוי ב-7,500 ק\"מ"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect",
+          "note": "4x4"
+        },
+        {
+          "item": "differential_oil",
+          "action": "replace",
+          "note": "סרן קדמי ואחורי"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "משחת סיכה בגל ההינע ובמסבי הגלגלים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 105000,
+      "items": [
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "בדיקה ראשונה של המפלס ב-7,500 ק\"מ"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "inspect",
+          "note": "ניקוז מים"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "בדיקה ראשונה וניקוי ב-7,500 ק\"מ"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect",
+          "note": "4x4"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "משחת סיכה בגל ההינע ובמסבי הגלגלים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "בדיקה ראשונה של המפלס ב-7,500 ק\"מ"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace",
+          "note": "ניקוז מים בכל החלפת שמן"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "בדיקה ראשונה וניקוי ב-7,500 ק\"מ"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "replace",
+          "note": "4x4"
+        },
+        {
+          "item": "differential_oil",
+          "action": "replace",
+          "note": "סרן קדמי ואחורי"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי: בדיקה והוספה (60,000 ק\"מ או 3 שנים)"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect",
+          "note": "גיר ידני: בדיקה והוספה"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "משחת סיכה בגל ההינע ובמסבי הגלגלים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "coolant",
+      "action": "replace",
+      "every_km": 200000,
+      "every_months": 60,
+      "note": "5 שנים או 200,000 ק\"מ"
+    },
+    {
+      "item": "transmission_oil",
+      "action": "replace",
+      "every_km": 60000,
+      "note": "בתנאים קשים; בתנאים רגילים בדיקה בלבד"
+    },
+    {
+      "item": "manual_gearbox_oil",
+      "action": "replace",
+      "every_km": 120000,
+      "note": "בתנאים קשים בלבד"
+    }
+  ],
+  "time_based": [
+    {
+      "item": "brake_fluid",
+      "action": "replace",
+      "months": 24,
+      "note": "כל שנתיים"
+    }
+  ],
+  "specs": {
+    "engine_oil": "שמן מקורי KGM או ACEA C2 SAE 0W-30",
+    "oil_capacity": "כ-6.0 ליטר",
+    "brake_fluid": "DOT4",
+    "fuel": "סולר",
+    "_note": "מטבלת הנוזלים בספר הנהג העברי (עמ' 2)"
+  },
+  "sources": [
+    {
+      "url": "https://kgm.co.il/wp-content/uploads/2026/08/260841-MUSSO-Q300-OM-S1-SH-20-08-26.pdf",
+      "kind": "importer",
+      "note": "ספר הנהג העברי של מוסו (Q300, 08/2026), עמ' 6-5 עד 6-7 (עמודי PDF 453-455): \"D22DTR - (GEN) טבלת טיפולים תקופתיים\""
+    }
+  ],
+  "status": "draft",
+  "notes": "טיוטה: הטבלה נלקחה מספר הנהג של מוסו החדש (2026). רכבי 2024-2025 בישראל הם מהדור הקודם עם אותו מנוע (672980), ולכן יש לאמת מול היבואן. שמן סרנים קדמי ואחורי כל 30,000 ק\"מ, שמן תיבת העברה כל 60,000, מסנן דלק כל 30,000."
+}

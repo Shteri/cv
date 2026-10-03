@@ -1,0 +1,852 @@
+{
+  "id": "kgm-rexton-2021-2026-2.2-diesel",
+  "make": "KGM",
+  "make_he": "KGM (סאנגיונג)",
+  "model": "Rexton",
+  "model_he": "רקסטון",
+  "generation": "Y450 / Y461 (2021 ואילך)",
+  "years": [
+    2021,
+    2026
+  ],
+  "engines": [
+    "2.2 טורבו דיזל (D22DTR, קוד רישוי 672980)"
+  ],
+  "fuel": "diesel",
+  "importer": "טלקאר מוטורס (KGM ישראל)",
+  "interval": {
+    "km": 15000,
+    "months": 12,
+    "note": "טבלת D22DTR \"GEN\" (כללית, לא האירופית) בספר הנהג העברי: 15,000 ק\"מ או 12 חודשים, המוקדם מביניהם. בתנאים קשים 7,500 ק\"מ או 6 חודשים"
+  },
+  "cycle_km": 120000,
+  "services": [
+    {
+      "km": 15000,
+      "items": [
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "שמן ACEA C2 0W-30; בדיקה ראשונה של המפלס ב-7,500 ק\"מ"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "inspect",
+          "note": "ניקוז מים ממסנן הדלק"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות קדמיות ואחוריות"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect",
+          "note": "4x4"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "חופש והידוק ברגים, דליפות משחה"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "גלגל ומוטות ההגה"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect",
+          "note": "נוזל וצינורות הגה כוח"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "שרוולי גל הינע"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "משחת סיכה בגל ההינע קדמי ואחורי ובמסבי הגלגלים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "שמן ACEA C2 0W-30; בדיקה ראשונה של המפלס ב-7,500 ק\"מ"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace",
+          "note": "ניקוז מים ממסנן הדלק בכל החלפת שמן"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות קדמיות ואחוריות"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect",
+          "note": "4x4"
+        },
+        {
+          "item": "differential_oil",
+          "action": "replace",
+          "note": "סרן קדמי ואחורי קשיח כל 30,000; סרן אחורי עם מתלים נפרדים (IRS) רק כל 60,000"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "חופש והידוק ברגים, דליפות משחה"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "גלגל ומוטות ההגה"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect",
+          "note": "נוזל וצינורות הגה כוח"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "שרוולי גל הינע"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "משחת סיכה בגל ההינע קדמי ואחורי ובמסבי הגלגלים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 45000,
+      "items": [
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "שמן ACEA C2 0W-30; בדיקה ראשונה של המפלס ב-7,500 ק\"מ"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "inspect",
+          "note": "ניקוז מים ממסנן הדלק"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות קדמיות ואחוריות"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect",
+          "note": "4x4"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "חופש והידוק ברגים, דליפות משחה"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "גלגל ומוטות ההגה"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect",
+          "note": "נוזל וצינורות הגה כוח"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "שרוולי גל הינע"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "משחת סיכה בגל ההינע קדמי ואחורי ובמסבי הגלגלים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "שמן ACEA C2 0W-30; בדיקה ראשונה של המפלס ב-7,500 ק\"מ"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace",
+          "note": "ניקוז מים ממסנן הדלק בכל החלפת שמן"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות קדמיות ואחוריות"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "replace",
+          "note": "4x4"
+        },
+        {
+          "item": "differential_oil",
+          "action": "replace",
+          "note": "סרן קדמי ואחורי קשיח כל 30,000; סרן אחורי עם מתלים נפרדים (IRS) רק כל 60,000"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "בדיקה והוספה"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "חופש והידוק ברגים, דליפות משחה"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "גלגל ומוטות ההגה"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect",
+          "note": "נוזל וצינורות הגה כוח"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "שרוולי גל הינע"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "משחת סיכה בגל ההינע קדמי ואחורי ובמסבי הגלגלים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 75000,
+      "items": [
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "שמן ACEA C2 0W-30; בדיקה ראשונה של המפלס ב-7,500 ק\"מ"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "inspect",
+          "note": "ניקוז מים ממסנן הדלק"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות קדמיות ואחוריות"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect",
+          "note": "4x4"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "חופש והידוק ברגים, דליפות משחה"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "גלגל ומוטות ההגה"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect",
+          "note": "נוזל וצינורות הגה כוח"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "שרוולי גל הינע"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "משחת סיכה בגל ההינע קדמי ואחורי ובמסבי הגלגלים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "שמן ACEA C2 0W-30; בדיקה ראשונה של המפלס ב-7,500 ק\"מ"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace",
+          "note": "ניקוז מים ממסנן הדלק בכל החלפת שמן"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות קדמיות ואחוריות"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect",
+          "note": "4x4"
+        },
+        {
+          "item": "differential_oil",
+          "action": "replace",
+          "note": "סרן קדמי ואחורי קשיח כל 30,000; סרן אחורי עם מתלים נפרדים (IRS) רק כל 60,000"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "חופש והידוק ברגים, דליפות משחה"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "גלגל ומוטות ההגה"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect",
+          "note": "נוזל וצינורות הגה כוח"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "שרוולי גל הינע"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "משחת סיכה בגל ההינע קדמי ואחורי ובמסבי הגלגלים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 105000,
+      "items": [
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "שמן ACEA C2 0W-30; בדיקה ראשונה של המפלס ב-7,500 ק\"מ"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "inspect",
+          "note": "ניקוז מים ממסנן הדלק"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות קדמיות ואחוריות"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect",
+          "note": "4x4"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "חופש והידוק ברגים, דליפות משחה"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "גלגל ומוטות ההגה"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect",
+          "note": "נוזל וצינורות הגה כוח"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "שרוולי גל הינע"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "משחת סיכה בגל ההינע קדמי ואחורי ובמסבי הגלגלים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "שמן ACEA C2 0W-30; בדיקה ראשונה של המפלס ב-7,500 ק\"מ"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace",
+          "note": "ניקוז מים ממסנן הדלק בכל החלפת שמן"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות קדמיות ואחוריות"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "replace",
+          "note": "4x4"
+        },
+        {
+          "item": "differential_oil",
+          "action": "replace",
+          "note": "סרן קדמי ואחורי קשיח כל 30,000; סרן אחורי עם מתלים נפרדים (IRS) רק כל 60,000"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "בדיקה והוספה"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "חופש והידוק ברגים, דליפות משחה"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "גלגל ומוטות ההגה"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect",
+          "note": "נוזל וצינורות הגה כוח"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "שרוולי גל הינע"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "משחת סיכה בגל ההינע קדמי ואחורי ובמסבי הגלגלים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "coolant",
+      "action": "replace",
+      "every_km": 200000,
+      "every_months": 60,
+      "note": "5 שנים או 200,000 ק\"מ, המוקדם; בדיקת מפלס בכל טיפול"
+    },
+    {
+      "item": "transmission_oil",
+      "action": "replace",
+      "every_km": 60000,
+      "note": "בתנאים קשים בלבד; בתנאים רגילים בדיקה והוספה"
+    }
+  ],
+  "time_based": [
+    {
+      "item": "brake_fluid",
+      "action": "replace",
+      "months": 24,
+      "note": "כל שנתיים; בדיקת מפלס לעתים קרובות"
+    }
+  ],
+  "specs": {
+    "engine_oil": "שמן מקורי KG Mobility או ACEA C2 SAE 0W-30",
+    "oil_capacity": "כ-6.0 ליטר",
+    "coolant": "נוזל קירור מקורי SYC-1025 (חומצה אורגנית, כחול) 50:50, כ-10.2 ליטר",
+    "brake_fluid": "DOT4",
+    "fuel": "סולר; תמיסת אוריאה לפי DIN 70070 / ISO 22241 (כ-20 ליטר)",
+    "_note": "מטבלת הנוזלים בספר הנהג העברי של רקסטון (עמ' 2)"
+  },
+  "sources": [
+    {
+      "url": "https://kgm.co.il/wp-content/uploads/2024/04/240370_REXTON_OM_Y461-17-04-24-AllBookForWeb.pdf",
+      "kind": "importer",
+      "note": "ספר הנהג העברי של רקסטון (Y461, 04/2024), עמ' 6-5 עד 6-7 (עמודי PDF 464-466): טבלת טיפולים D22DTR (GEN). הטבלה האירופית (עמ' 6-2, 20,000 ק\"מ) מיועדת למדינות האיחוד בלבד; שכבת הטקסט מקודדת ולכן נקרא מתמונת העמוד"
+    },
+    {
+      "url": "https://kgm.co.il/ספרי-רכב/",
+      "kind": "importer",
+      "note": "עמוד ספרי הרכב באתר KGM ישראל"
+    }
+  ],
+  "status": "reviewed",
+  "notes": "הועתק מטבלת הטיפולים הכללית (GEN) של מנוע הדיזל D22DTR בספר הנהג העברי של רקסטון 2024. I = בדיקה (ותיקון/החלפה לפי הצורך), R = החלפה. מסנן דלק מוחלף כל 30,000 ק\"מ, ומים מנוקזים ממנו בכל טיפול. שמן תיבת העברה כל 60,000; שמן סרנים קדמי ואחורי קשיח כל 30,000 (סרן אחורי עם מתלים נפרדים - כל 60,000). שמן גיר אוטומטי נבדק, ומוחלף כל 60,000 רק בתנאים קשים. רכבים מ-2021 עד 2023 נושאים את אותו קוד מנוע (672980); הטבלה נלקחה מספר 2024."
+}

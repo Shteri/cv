@@ -1,0 +1,668 @@
+{
+  "id": "kgm-torres-hybrid-2025-2026-1.5t-hev",
+  "make": "KGM",
+  "make_he": "KGM (סאנגיונג)",
+  "model": "Torres Hybrid",
+  "model_he": "טורס היברידי",
+  "generation": "J100 HEV",
+  "years": [
+    2025,
+    2026
+  ],
+  "engines": [
+    "1.5 טורבו בנזין היברידי (G15DTF, קוד רישוי 177910)"
+  ],
+  "fuel": "hybrid",
+  "importer": "טלקאר מוטורס (KGM ישראל)",
+  "interval": {
+    "km": 10000,
+    "months": 12,
+    "note": "טבלת HEV בספר הנהג העברי: 10,000 ק\"מ או 12 חודשים, המוקדם; בתנאים קשים 5,000 ק\"מ"
+  },
+  "cycle_km": 80000,
+  "services": [
+    {
+      "km": 10000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "מומלץ להחליף את השמן הראשון ב-10,000 ק\"מ; בדיקת מפלס ראשונה ב-7,500"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרק כדורי, אום, שרוול"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "משחת סיכה בגל ההינע ובמסבי הגלגלים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 20000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "מומלץ להחליף את השמן הראשון ב-10,000 ק\"מ; בדיקת מפלס ראשונה ב-7,500"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרק כדורי, אום, שרוול"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "משחת סיכה בגל ההינע ובמסבי הגלגלים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "מומלץ להחליף את השמן הראשון ב-10,000 ק\"מ; בדיקת מפלס ראשונה ב-7,500"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "inspect",
+          "note": "בדיקה כל 30,000; החלפה כל 50,000 רק עם דלק באיכות נמוכה"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "בדיקה ראשונה ב-5,000 ק\"מ"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרק כדורי, אום, שרוול"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "משחת סיכה בגל ההינע ובמסבי הגלגלים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 40000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "מומלץ להחליף את השמן הראשון ב-10,000 ק\"מ; בדיקת מפלס ראשונה ב-7,500"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרק כדורי, אום, שרוול"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "משחת סיכה בגל ההינע ובמסבי הגלגלים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 50000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "מומלץ להחליף את השמן הראשון ב-10,000 ק\"מ; בדיקת מפלס ראשונה ב-7,500"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרק כדורי, אום, שרוול"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "משחת סיכה בגל ההינע ובמסבי הגלגלים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "מומלץ להחליף את השמן הראשון ב-10,000 ק\"מ; בדיקת מפלס ראשונה ב-7,500"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "inspect",
+          "note": "בדיקה כל 30,000; החלפה כל 50,000 רק עם דלק באיכות נמוכה"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "בדיקה ראשונה ב-5,000 ק\"מ"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרק כדורי, אום, שרוול"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "משחת סיכה בגל ההינע ובמסבי הגלגלים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 70000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "מומלץ להחליף את השמן הראשון ב-10,000 ק\"מ; בדיקת מפלס ראשונה ב-7,500"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרק כדורי, אום, שרוול"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "משחת סיכה בגל ההינע ובמסבי הגלגלים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 80000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "מומלץ להחליף את השמן הראשון ב-10,000 ק\"מ; בדיקת מפלס ראשונה ב-7,500"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרק כדורי, אום, שרוול"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "משחת סיכה בגל ההינע ובמסבי הגלגלים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "spark_plugs",
+      "action": "replace",
+      "every_km": 60000
+    },
+    {
+      "item": "coolant",
+      "action": "replace",
+      "every_months": 60,
+      "note": "נוזל קירור מנוע ונוזל קירור סוללת המתח הגבוה: בטבלה כתוב \"20,000 ק\"מ או 5 שנים\" (בטבלת הבנזין באותו ספר: 200,000); נרשם רק לפי הזמן, לאמת מול היבואן"
+    },
+    {
+      "item": "fuel_filter",
+      "action": "replace",
+      "every_km": 50000,
+      "note": "רק עם דלק באיכות נמוכה"
+    },
+    {
+      "item": "transmission_oil",
+      "action": "replace",
+      "every_km": 60000,
+      "note": "מסנן שמן תיבת ההילוכים ההיברידית: בתנאים קשים בלבד"
+    }
+  ],
+  "time_based": [
+    {
+      "item": "brake_fluid",
+      "action": "replace",
+      "months": 24,
+      "note": "כל שנתיים"
+    }
+  ],
+  "specs": {
+    "engine_oil": "שמן מקורי KGM או API SP 0W-16 (מנוע HEV)",
+    "oil_capacity": "כ-4.0 ליטר (HEV)",
+    "coolant": "SYC-1025 50:50; מעגל נפרד לסוללת המתח הגבוה (כ-6.2 ליטר)",
+    "brake_fluid": "DOT4",
+    "fuel": "בנזין",
+    "_note": "מטבלת הנוזלים בספר הנהג העברי של טורס היברידי (עמ' 1); בספר גם שמן מנוע ההנעה החשמלי EHSF-2LV כ-4.7 ליטר"
+  },
+  "sources": [
+    {
+      "url": "https://kgm.co.il/wp-content/uploads/2026/03/251095-TORRES-HYBRID-2025-OM-Print.pdf",
+      "kind": "importer",
+      "note": "ספר הנהג העברי של טורס היברידי 2025, עמ' 6-8 עד 6-10 (עמודי PDF 490-492): \"טבלת טיפולים תקופתיים - HEV\"; עמ' 6-11 עד 6-13 לתנאים קשים"
+    },
+    {
+      "url": "https://data.gov.il/api/3/action/datastore_search?resource_id=142afde2-6228-49f9-8a29-9b6c3a0cbe40&q=E0A1R",
+      "kind": "other",
+      "note": "מאגר דגמי הרכב: דגם E0A1R (קוד מנוע 177910) מסומן \"היברידי רגיל\", 204 כ\"ס"
+    }
+  ],
+  "status": "reviewed",
+  "notes": "הועתק מטבלת HEV בספר הנהג העברי של טורס היברידי. מרווח 10,000 ק\"מ או שנה (קצר מהגרסת הבנזין). מסנן אוויר כל 30,000, מצתים כל 60,000. בשורת נוזל הקירור הודפס 20,000 ק\"מ או 5 שנים, כנראה טעות דפוס (בטבלת הבנזין 200,000) - נרשם 5 שנים בלבד. רכבי TORRES עם קוד מנוע 177910 ברישוי הם הגרסה ההיברידית."
+}

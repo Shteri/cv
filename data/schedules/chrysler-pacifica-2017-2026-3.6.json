@@ -1,0 +1,822 @@
+{
+  "id": "chrysler-pacifica-2017-2026-3.6",
+  "make": "Chrysler",
+  "make_he": "קרייזלר",
+  "model": "Pacifica",
+  "model_he": "פסיפיקה",
+  "generation": "RU",
+  "years": [
+    2017,
+    2026
+  ],
+  "engines": [
+    "3.6 V6 Pentastar"
+  ],
+  "fuel": "petrol",
+  "importer": "סמלת",
+  "interval": {
+    "km": 16000,
+    "months": 12,
+    "note": "לפי ספר הנהג האמריקאי 2019: שמן ומסנן לפי מחוון החלפת השמן, ולא יותר מ-16,000 ק\"מ או 12 חודשים; בשימוש קשה כל 6,500 ק\"מ"
+  },
+  "cycle_km": 240000,
+  "services": [
+    {
+      "km": 16000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון החלפת השמן, ולא יותר מ-16,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "ניקוי והידוק הדקים"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות, דיסקים, צינורות ובלם חניה"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "רמת הגנה"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 32000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון החלפת השמן, ולא יותר מ-16,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "ניקוי והידוק הדקים"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות, דיסקים, צינורות ובלם חניה"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "רמת הגנה"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "מפרקי CV"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלה קדמי, אטמים וקצוות מוטות היגוי"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 48000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון החלפת השמן, ולא יותר מ-16,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "ניקוי והידוק הדקים"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות, דיסקים, צינורות ובלם חניה"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "רמת הגנה"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 64000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון החלפת השמן, ולא יותר מ-16,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "ניקוי והידוק הדקים"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות, דיסקים, צינורות ובלם חניה"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "רמת הגנה"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "מפרקי CV"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלה קדמי, אטמים וקצוות מוטות היגוי"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 80000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון החלפת השמן, ולא יותר מ-16,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "ניקוי והידוק הדקים"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות, דיסקים, צינורות ובלם חניה"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "רמת הגנה"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 96000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון החלפת השמן, ולא יותר מ-16,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "ניקוי והידוק הדקים"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות, דיסקים, צינורות ובלם חניה"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "רמת הגנה"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "מפרקי CV"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלה קדמי, אטמים וקצוות מוטות היגוי"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 112000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון החלפת השמן, ולא יותר מ-16,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "ניקוי והידוק הדקים"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות, דיסקים, צינורות ובלם חניה"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "רמת הגנה"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 128000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון החלפת השמן, ולא יותר מ-16,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "ניקוי והידוק הדקים"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות, דיסקים, צינורות ובלם חניה"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "רמת הגנה"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "מפרקי CV"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלה קדמי, אטמים וקצוות מוטות היגוי"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 144000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון החלפת השמן, ולא יותר מ-16,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "ניקוי והידוק הדקים"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות, דיסקים, צינורות ובלם חניה"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "רמת הגנה"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 160000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון החלפת השמן, ולא יותר מ-16,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "ניקוי והידוק הדקים"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות, דיסקים, צינורות ובלם חניה"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "רמת הגנה"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "מפרקי CV"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלה קדמי, אטמים וקצוות מוטות היגוי"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "לפי ק\"מ בלבד"
+        },
+        {
+          "item": "pcv_valve",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 176000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון החלפת השמן, ולא יותר מ-16,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "ניקוי והידוק הדקים"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות, דיסקים, צינורות ובלם חניה"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "רמת הגנה"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 192000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון החלפת השמן, ולא יותר מ-16,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "ניקוי והידוק הדקים"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות, דיסקים, צינורות ובלם חניה"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "רמת הגנה"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "מפרקי CV"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלה קדמי, אטמים וקצוות מוטות היגוי"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 208000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון החלפת השמן, ולא יותר מ-16,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "ניקוי והידוק הדקים"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות, דיסקים, צינורות ובלם חניה"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "רמת הגנה"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 224000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון החלפת השמן, ולא יותר מ-16,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "ניקוי והידוק הדקים"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות, דיסקים, צינורות ובלם חניה"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "רמת הגנה"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "מפרקי CV"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלה קדמי, אטמים וקצוות מוטות היגוי"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 240000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון החלפת השמן, ולא יותר מ-16,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "ניקוי והידוק הדקים"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות, דיסקים, צינורות ובלם חניה"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "רמת הגנה"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "כולל מותח וגלגלת"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "coolant",
+      "action": "replace",
+      "every_km": 240000,
+      "every_months": 120,
+      "note": "10 שנים או 240,000 ק\"מ, המוקדם"
+    }
+  ],
+  "time_based": [],
+  "specs": {
+    "_note": "טיוטה"
+  },
+  "sources": [
+    {
+      "url": "https://cdn.dealereprocess.org/cdn/servicemanuals/chrysler/2019-pacifica.pdf",
+      "kind": "manufacturer",
+      "note": "2019 Chrysler Pacifica Owner's Manual (ארה\"ב), Scheduled Servicing / Maintenance Plan עמ' 509-511 (עמודי PDF 511-513); הטבלה נקראה מתמונת העמוד"
+    }
+  ],
+  "status": "draft",
+  "notes": "טיוטה מספר הנהג האמריקאי של פסיפיקה (בנזין, לא היברידית); לא נמצא ספר עברי. הטבלה מתחילה ב-32,000 ק\"מ. מסנן מיזוג, מפרקי CV, מתלה ובלמים כל 32,000; מסנן אוויר כל 48,000; מצתים ו-PCV ב-160,000; רצועת עזר ונוזל קירור ב-240,000 (נוזל קירור או 10 שנים)."
+}

@@ -1,0 +1,896 @@
+{
+  "id": "jeep-patriot-dodge-caliber-2007-2012-2.0-2.4",
+  "make": "Chrysler",
+  "make_he": "ג'יפ / דודג' (קרייזלר)",
+  "model": "Patriot / Caliber",
+  "model_he": "פטריוט / קאליבר",
+  "generation": "MK / PM",
+  "years": [
+    2007,
+    2012
+  ],
+  "engines": [
+    "2.0 (World Engine, ECN)",
+    "2.4 (World Engine, ED3)"
+  ],
+  "fuel": "petrol",
+  "importer": "סמלת",
+  "interval": {
+    "km": 10000,
+    "months": 6,
+    "note": "לפי ספרי הנהג האמריקאיים 2010: שמן ומסנן לפי מחוון החלפת השמן, ולא יותר מ-10,000 ק\"מ או 6 חודשים"
+  },
+  "cycle_km": 250000,
+  "services": [
+    {
+      "km": 10000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון החלפת השמן, ולא יותר מ-10,000 ק\"מ או 6 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        }
+      ]
+    },
+    {
+      "km": 20000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון החלפת השמן, ולא יותר מ-10,000 ק\"מ או 6 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "בתנאי אבק או שטח"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "חיפויי בלמים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "מפרקי CV"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלה קדמי, קצוות מוטות היגוי ואטמים"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון החלפת השמן, ולא יותר מ-10,000 ק\"מ או 6 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        }
+      ]
+    },
+    {
+      "km": 40000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון החלפת השמן, ולא יותר מ-10,000 ק\"מ או 6 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "בתנאי אבק או שטח"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "חיפויי בלמים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "מפרקי CV"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלה קדמי, קצוות מוטות היגוי ואטמים"
+        }
+      ]
+    },
+    {
+      "km": 50000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון החלפת השמן, ולא יותר מ-10,000 ק\"מ או 6 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace"
+        },
+        {
+          "item": "parking_brake",
+          "action": "adjust",
+          "note": "בבלמי דיסק בארבעת הגלגלים"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון החלפת השמן, ולא יותר מ-10,000 ק\"מ או 6 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "חיפויי בלמים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלה קדמי, קצוות מוטות היגוי ואטמים"
+        }
+      ]
+    },
+    {
+      "km": 70000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון החלפת השמן, ולא יותר מ-10,000 ק\"מ או 6 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "בתנאי אבק או שטח"
+        }
+      ]
+    },
+    {
+      "km": 80000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון החלפת השמן, ולא יותר מ-10,000 ק\"מ או 6 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "חיפויי בלמים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "מפרקי CV"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלה קדמי, קצוות מוטות היגוי ואטמים"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון החלפת השמן, ולא יותר מ-10,000 ק\"מ או 6 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "בתנאי אבק או שטח"
+        }
+      ]
+    },
+    {
+      "km": 100000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון החלפת השמן, ולא יותר מ-10,000 ק\"מ או 6 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "חיפויי בלמים"
+        },
+        {
+          "item": "parking_brake",
+          "action": "adjust",
+          "note": "בבלמי דיסק בארבעת הגלגלים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "differential_oil",
+          "action": "replace",
+          "note": "יחידת הנעה אחורית RDA, הנעה כפולה"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "replace",
+          "note": "יחידת PTU, הנעה כפולה"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלה קדמי, קצוות מוטות היגוי ואטמים"
+        }
+      ]
+    },
+    {
+      "km": 110000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון החלפת השמן, ולא יותר מ-10,000 ק\"מ או 6 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון החלפת השמן, ולא יותר מ-10,000 ק\"מ או 6 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "בתנאי אבק או שטח"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "חיפויי בלמים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "מפרקי CV"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלה קדמי, קצוות מוטות היגוי ואטמים"
+        }
+      ]
+    },
+    {
+      "km": 130000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון החלפת השמן, ולא יותר מ-10,000 ק\"מ או 6 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        }
+      ]
+    },
+    {
+      "km": 140000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון החלפת השמן, ולא יותר מ-10,000 ק\"מ או 6 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "בתנאי אבק או שטח"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "חיפויי בלמים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלה קדמי, קצוות מוטות היגוי ואטמים"
+        }
+      ]
+    },
+    {
+      "km": 150000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון החלפת השמן, ולא יותר מ-10,000 ק\"מ או 6 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace"
+        },
+        {
+          "item": "pcv_valve",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "adjust",
+          "note": "בבלמי דיסק בארבעת הגלגלים"
+        }
+      ]
+    },
+    {
+      "km": 160000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון החלפת השמן, ולא יותר מ-10,000 ק\"מ או 6 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "בתנאי אבק או שטח"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "חיפויי בלמים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "מפרקי CV"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלה קדמי, קצוות מוטות היגוי ואטמים"
+        }
+      ]
+    },
+    {
+      "km": 170000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון החלפת השמן, ולא יותר מ-10,000 ק\"מ או 6 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        }
+      ]
+    },
+    {
+      "km": 180000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון החלפת השמן, ולא יותר מ-10,000 ק\"מ או 6 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "בתנאי אבק או שטח"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "חיפויי בלמים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלה קדמי, קצוות מוטות היגוי ואטמים"
+        }
+      ]
+    },
+    {
+      "km": 190000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון החלפת השמן, ולא יותר מ-10,000 ק\"מ או 6 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        }
+      ]
+    },
+    {
+      "km": 200000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון החלפת השמן, ולא יותר מ-10,000 ק\"מ או 6 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "חיפויי בלמים"
+        },
+        {
+          "item": "parking_brake",
+          "action": "adjust",
+          "note": "בבלמי דיסק בארבעת הגלגלים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "מפרקי CV"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלה קדמי, קצוות מוטות היגוי ואטמים"
+        },
+        {
+          "item": "differential_oil",
+          "action": "replace",
+          "note": "יחידת הנעה אחורית RDA, הנעה כפולה"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "replace",
+          "note": "יחידת PTU, הנעה כפולה"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "replace",
+          "note": "והחלפת מסנן"
+        },
+        {
+          "item": "drive_belt",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 210000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון החלפת השמן, ולא יותר מ-10,000 ק\"מ או 6 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        }
+      ]
+    },
+    {
+      "km": 220000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון החלפת השמן, ולא יותר מ-10,000 ק\"מ או 6 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "בתנאי אבק או שטח"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "חיפויי בלמים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלה קדמי, קצוות מוטות היגוי ואטמים"
+        }
+      ]
+    },
+    {
+      "km": 230000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון החלפת השמן, ולא יותר מ-10,000 ק\"מ או 6 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        }
+      ]
+    },
+    {
+      "km": 240000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון החלפת השמן, ולא יותר מ-10,000 ק\"מ או 6 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "בתנאי אבק או שטח"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "חיפויי בלמים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "מפרקי CV"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלה קדמי, קצוות מוטות היגוי ואטמים"
+        }
+      ]
+    },
+    {
+      "km": 250000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון החלפת השמן, ולא יותר מ-10,000 ק\"מ או 6 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace"
+        },
+        {
+          "item": "parking_brake",
+          "action": "adjust",
+          "note": "בבלמי דיסק בארבעת הגלגלים"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "coolant",
+      "action": "replace",
+      "first_months": 60,
+      "first_km": 170000,
+      "then_every_km": 170000,
+      "then_every_months": 60,
+      "note": "5 שנים או 170,000 ק\"מ, המוקדם"
+    },
+    {
+      "item": "transmission_oil",
+      "action": "replace",
+      "every_km": 100000,
+      "note": "אוטומטי/CVT בשימוש משטרה, מונית, צי או גרירה; בשימוש רגיל ב-200,000"
+    },
+    {
+      "item": "manual_gearbox_oil",
+      "action": "replace",
+      "every_km": 80000,
+      "note": "גיר ידני רק בשימוש קשה (גרירה, עומס, מונית)"
+    }
+  ],
+  "time_based": [],
+  "specs": {
+    "_note": "טיוטה"
+  },
+  "sources": [
+    {
+      "url": "https://cdn.dealereprocess.org/cdn/servicemanuals/jeep/2010-patriot.pdf",
+      "kind": "manufacturer",
+      "note": "2010 Jeep Patriot Owner's Manual (ארה\"ב), Maintenance Schedules (עמודי PDF 452-466)"
+    },
+    {
+      "url": "https://cdn.dealereprocess.org/cdn/servicemanuals/dodge/2010-caliber.pdf",
+      "kind": "manufacturer",
+      "note": "2010 Dodge Caliber Owner's Manual (ארה\"ב), Maintenance Schedules (עמודי PDF 442-454) - אותו לוח"
+    }
+  ],
+  "status": "draft",
+  "notes": "טיוטה מספרי הנהג האמריקאיים 2010 של פטריוט וקאליבר (לוח זהה, מנועי World Engine 2.0/2.4). לא נמצא ספר עברי. שמן וסבב צמיגים כל 10,000 ק\"מ; מסנן מיזוג, בלמים ומתלה כל 20,000; מפרקי CV ופליטה ב-20,000 ואז כל 40,000; מסנן אוויר ומצתים כל 50,000; שמן PTU/RDA ב-100,000 (הנעה כפולה); PCV ב-150,000; רצועות ושמן גיר ב-200,000; נוזל קירור 5 שנים או 170,000."
+}

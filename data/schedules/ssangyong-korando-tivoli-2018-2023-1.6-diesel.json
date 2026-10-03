@@ -1,0 +1,811 @@
+{
+  "id": "ssangyong-korando-tivoli-2018-2023-1.6-diesel",
+  "make": "SsangYong",
+  "make_he": "סאנגיונג",
+  "model": "Korando / Tivoli",
+  "model_he": "קוראנדו / טיבולי",
+  "generation": "C300 / X100",
+  "years": [
+    2018,
+    2023
+  ],
+  "engines": [
+    "1.6 טורבו דיזל (D16DTF, קוד רישוי 673910)"
+  ],
+  "fuel": "diesel",
+  "importer": "טלקאר מוטורס (KGM ישראל)",
+  "interval": {
+    "km": 15000,
+    "months": 12,
+    "note": "הטבלה הכללית (לא האירופית) למנוע דיזל: 15,000 ק\"מ או 12 חודשים; בתנאים קשים 7,500 ק\"מ או 6 חודשים"
+  },
+  "cycle_km": 120000,
+  "services": [
+    {
+      "km": 15000,
+      "items": [
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "בדיקת מפלס ראשונה ב-7,500 ק\"מ"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect",
+          "note": "הנעה כפולה"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "סרן אחורי (הנעה כפולה); החלפה כל 100,000"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרק כדורי חיצוני; החלפה ב-90,000"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "משחת סיכה בגל ההינע ובמסבי הגלגלים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "בדיקת מפלס ראשונה ב-7,500 ק\"מ"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace",
+          "note": "ניקוז מים כשנורת האזהרה נדלקת"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect",
+          "note": "הנעה כפולה"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "סרן אחורי (הנעה כפולה); החלפה כל 100,000"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרק כדורי חיצוני; החלפה ב-90,000"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "משחת סיכה בגל ההינע ובמסבי הגלגלים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 45000,
+      "items": [
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "בדיקת מפלס ראשונה ב-7,500 ק\"מ"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect",
+          "note": "הנעה כפולה"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "סרן אחורי (הנעה כפולה); החלפה כל 100,000"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרק כדורי חיצוני; החלפה ב-90,000"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "משחת סיכה בגל ההינע ובמסבי הגלגלים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "בדיקת מפלס ראשונה ב-7,500 ק\"מ"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace",
+          "note": "ניקוז מים כשנורת האזהרה נדלקת"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "replace",
+          "note": "הנעה כפולה"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "סרן אחורי (הנעה כפולה); החלפה כל 100,000"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרק כדורי חיצוני; החלפה ב-90,000"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "משחת סיכה בגל ההינע ובמסבי הגלגלים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 75000,
+      "items": [
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "בדיקת מפלס ראשונה ב-7,500 ק\"מ"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect",
+          "note": "הנעה כפולה"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "סרן אחורי (הנעה כפולה); החלפה כל 100,000"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרק כדורי חיצוני; החלפה ב-90,000"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "משחת סיכה בגל ההינע ובמסבי הגלגלים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "בדיקת מפלס ראשונה ב-7,500 ק\"מ"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace",
+          "note": "ניקוז מים כשנורת האזהרה נדלקת"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect",
+          "note": "הנעה כפולה"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "סרן אחורי (הנעה כפולה); החלפה כל 100,000"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרק כדורי חיצוני; החלפה ב-90,000"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "משחת סיכה בגל ההינע ובמסבי הגלגלים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "suspension",
+          "action": "replace",
+          "note": "החלפת מפרק כדורי חיצוני (עמודת 90,000 בטבלה)"
+        }
+      ]
+    },
+    {
+      "km": 105000,
+      "items": [
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "בדיקת מפלס ראשונה ב-7,500 ק\"מ"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect",
+          "note": "הנעה כפולה"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "סרן אחורי (הנעה כפולה); החלפה כל 100,000"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרק כדורי חיצוני; החלפה ב-90,000"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "משחת סיכה בגל ההינע ובמסבי הגלגלים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "בדיקת מפלס ראשונה ב-7,500 ק\"מ"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace",
+          "note": "ניקוז מים כשנורת האזהרה נדלקת"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "replace",
+          "note": "הנעה כפולה"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "סרן אחורי (הנעה כפולה); החלפה כל 100,000"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרק כדורי חיצוני; החלפה ב-90,000"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "משחת סיכה בגל ההינע ובמסבי הגלגלים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "coolant",
+      "action": "replace",
+      "every_km": 200000,
+      "every_months": 60,
+      "note": "5 שנים או 200,000 ק\"מ"
+    },
+    {
+      "item": "differential_oil",
+      "action": "replace",
+      "every_km": 100000,
+      "note": "סרן אחורי, הנעה כפולה"
+    },
+    {
+      "item": "transmission_oil",
+      "action": "replace",
+      "every_km": 100000,
+      "note": "בתנאים קשים בלבד"
+    },
+    {
+      "item": "manual_gearbox_oil",
+      "action": "inspect",
+      "every_km": 60000,
+      "every_months": 36,
+      "note": "גיר ידני; בתנאים קשים החלפה כל 120,000"
+    }
+  ],
+  "time_based": [
+    {
+      "item": "brake_fluid",
+      "action": "replace",
+      "months": 24,
+      "note": "כל שנתיים"
+    }
+  ],
+  "specs": {
+    "engine_oil": "שמן מקורי סאנגיונג או ACEA C2 SAE 0W-30 (DPF)",
+    "oil_capacity": "כ-5.0 ליטר (D16DTF)",
+    "brake_fluid": "DOT4",
+    "fuel": "סולר",
+    "_note": "מטבלת הנוזלים בספר הנהג העברי של קוראנדו (עמ' 3)"
+  },
+  "sources": [
+    {
+      "url": "https://kgm.co.il/wp-content/uploads/2020/10/Ssangyong_Korando.pdf",
+      "kind": "importer",
+      "note": "ספר הנהג העברי של קוראנדו (C300), עמ' 6-5 עד 6-7 (עמודי PDF 433-435): \"טבלת טיפולים תקופתיים - מנוע דיזל (כללי)\"; טבלת אירופה (6-2) היא 20,000 ק\"מ"
+    },
+    {
+      "url": "https://kgm.co.il/wp-content/uploads/2020/10/Ssangyong_Tivoli_Diesel.pdf",
+      "kind": "importer",
+      "note": "נספח לספר הנהג של טיבולי דיזל (54 עמ'); אין בו טבלת טיפולים"
+    }
+  ],
+  "status": "draft",
+  "notes": "טבלת הדיזל הכללית מספר הנהג העברי של קוראנדו. מסנן דלק ומסנן אוויר מוחלפים כל 30,000 ק\"מ, שמן תיבת העברה כל 60,000 (הנעה כפולה). טיוטה כי הקובץ משמש גם לטיבולי XLV דיזל עם אותו מנוע (673910), שספר הנהג המלא שלו לא נמצא."
+}
