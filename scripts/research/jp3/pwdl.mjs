@@ -1,0 +1,13 @@
+import { chromium } from '/opt/node22/lib/node_modules/playwright/index.mjs';
+import fs from 'node:fs';
+const [page0, url, out] = process.argv.slice(2);
+const b=await chromium.launch({ executablePath: '/opt/pw-browsers/chromium', proxy: { server: process.env.HTTPS_PROXY }, args: ['--ignore-certificate-errors'] });
+const ctx=await b.newContext({userAgent:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0 Safari/537.36"});
+const p=await ctx.newPage();
+await p.goto(page0,{timeout:90000,waitUntil:'domcontentloaded'}).catch(e=>console.log('ERR',e.message));
+await p.waitForTimeout(8000);
+console.log('title',await p.title());
+const r=await ctx.request.get(url,{timeout:180000});
+console.log('status',r.status(), r.headers()['content-type']);
+const buf=await r.body(); fs.writeFileSync(out,buf); console.log('bytes',buf.length);
+await b.close();

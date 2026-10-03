@@ -1,0 +1,565 @@
+{
+  "id": "subaru-forester-2003-2012-2.0",
+  "make": "Subaru",
+  "make_he": "סובארו",
+  "model": "Forester",
+  "model_he": "פורסטר",
+  "generation": "SG/SH (EJ20)",
+  "years": [
+    2003,
+    2012
+  ],
+  "engines": [
+    "2.0 (EJ20)"
+  ],
+  "fuel": "petrol",
+  "importer": "יפנאוטו (סובארו, קבוצת סמלת)",
+  "interval": {
+    "km": 15000,
+    "months": 12,
+    "note": "לפי טבלת התחזוקה לאזור אירופה בספר השירות של סובארו: 15,000 ק\"מ או 12 חודשים, המוקדם; בתנאי שימוש קשים חלק מהבדיקות וההחלפות כל 15,000 ק\"מ (טבלה 2)"
+  },
+  "cycle_km": 120000,
+  "services": [
+    {
+      "km": 15000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "בתנאי אבק קיצוניים להחליף לעתים קרובות יותר"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות ודיסקים"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "מנוע 2.0: החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "בתנאי אבק קיצוניים להחליף לעתים קרובות יותר"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "replace"
+        },
+        {
+          "item": "clutch",
+          "action": "inspect",
+          "note": "מערכת מצמד (גיר ידני)"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי (ATF)"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "דיפרנציאל קדמי ואחורי"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות ודיסקים"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 45000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "בתנאי אבק קיצוניים להחליף לעתים קרובות יותר"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות ודיסקים"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "מנוע 2.0: החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "בתנאי אבק קיצוניים להחליף לעתים קרובות יותר"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "replace"
+        },
+        {
+          "item": "clutch",
+          "action": "inspect",
+          "note": "מערכת מצמד (גיר ידני)"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "replace"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "replace",
+          "note": "גיר אוטומטי (ATF)"
+        },
+        {
+          "item": "differential_oil",
+          "action": "replace",
+          "note": "דיפרנציאל קדמי ואחורי"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות ודיסקים"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 75000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "בתנאי אבק קיצוניים להחליף לעתים קרובות יותר"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות ודיסקים"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "מנוע 2.0: החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "בתנאי אבק קיצוניים להחליף לעתים קרובות יותר"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "replace"
+        },
+        {
+          "item": "clutch",
+          "action": "inspect",
+          "note": "מערכת מצמד (גיר ידני)"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי (ATF)"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "דיפרנציאל קדמי ואחורי"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות ודיסקים"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 105000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "timing_belt",
+          "action": "replace",
+          "note": "החלפת רצועת תזמון ב-105,000 ק\"מ (או 84 חודשים)"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "בתנאי אבק קיצוניים להחליף לעתים קרובות יותר"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות ודיסקים"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "מנוע 2.0: החלפה כל 30,000 ק\"מ"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "בתנאי אבק קיצוניים להחליף לעתים קרובות יותר"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "replace"
+        },
+        {
+          "item": "clutch",
+          "action": "inspect",
+          "note": "מערכת מצמד (גיר ידני)"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "replace"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "replace",
+          "note": "גיר אוטומטי (ATF)"
+        },
+        {
+          "item": "differential_oil",
+          "action": "replace",
+          "note": "דיפרנציאל קדמי ואחורי"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות ודיסקים"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "cabin_filter",
+      "action": "replace",
+      "every_km": 12000,
+      "every_months": 12,
+      "note": "מסנן מיזוג (אם מותקן): כל 12,000 ק\"מ או 12 חודשים"
+    },
+    {
+      "item": "timing_belt",
+      "action": "replace",
+      "every_km": 105000,
+      "every_months": 84
+    }
+  ],
+  "time_based": [],
+  "specs": {},
+  "sources": [
+    {
+      "url": "https://www.manualslib.com/manual/1585126/Subaru-Legacy-2005.html?page=105",
+      "kind": "manufacturer",
+      "note": "Subaru Legacy 2005 (BL/BP) service manual, PM-3 \"Maintenance Schedule 1 - Europe area\" (manualslib p.105) ו-PM-5 \"Maintenance Schedule 2\" לתנאים קשים (p.107)"
+    },
+    {
+      "url": "https://samelet.com/ebooks/",
+      "kind": "importer",
+      "note": "תיקיית ספרי הרכב של סמלת (יבואנית סובארו): יש בה רק ספרים לדורות עם מנועי FB/FA, אין ספר לדגמי EJ"
+    }
+  ],
+  "status": "draft",
+  "notes": "לא נמצא ספר עברי לדגם זה (בספריית סמלת יש רק ספרים לדורות עם מנועי FB). הלוח לקוח מטבלת התחזוקה לאזור אירופה בספר השירות של סובארו לגאסי 2005, שבו מופיע אותו מנוע בוקסר EJ ברצועת תזמון. מחזור הטבלה 120,000 ק\"מ או 96 חודשים וחוזר על עצמו. בטבלה נוזל הקירור ונוזל הבלמים מוחלפים כל 30,000 ק\"מ (24 חודשים) ורצועת התזמון ב-105,000 ק\"מ. בתנאי שימוש קשים (נסיעות קצרות, דרכים משובשות, גרירה) הספר מורה על החלפת שמנים ונוזל בלמים ובדיקת בלמים, מתלים והיגוי כל 15,000 ק\"מ או שנה. הטבלה לקוחה מספר השירות של הלגאסי (דגם אחות עם אותו מנוע EJ20 ואותה מערכת הנעה כפולה), ולכן הלוח הוא טיוטה לפורסטר."
+}

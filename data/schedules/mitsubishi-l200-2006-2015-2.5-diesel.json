@@ -1,0 +1,1056 @@
+{
+  "id": "mitsubishi-l200-2006-2015-2.5-diesel",
+  "make": "Mitsubishi",
+  "make_he": "מיצובישי",
+  "model": "L200",
+  "model_he": "L200 (טריטון)",
+  "generation": "KB/KA (דור 4)",
+  "years": [
+    2006,
+    2015
+  ],
+  "engines": [
+    "2.5 DI-D (4D56)"
+  ],
+  "fuel": "diesel",
+  "importer": "כלמוביל",
+  "interval": {
+    "km": 10000,
+    "months": 12,
+    "note": "לפי טבלת \"General Export\" של מיצובישי לפלטפורמה זו: שמן ומסנן שמן בדיזל כל 10,000 ק\"מ או 12 חודשים (בתנאים קשים כל 5,000); שאר הבדיקות כל 20,000 ק\"מ או 12 חודשים"
+  },
+  "cycle_km": 120000,
+  "services": [
+    {
+      "km": 10000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "בדיקת מפלס נוזל בלמים ומצמד"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "חופש דוושות בלם ומצמד"
+        }
+      ]
+    },
+    {
+      "km": 20000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "בדיקת מפלס נוזל בלמים ומצמד"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "חופש דוושות בלם ומצמד"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect",
+          "note": "צינור שמן משאבת ואקום"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "מפלס נוזל קירור"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "בתנאי אבק כל 10,000 ק\"מ או 6 חודשים"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace",
+          "note": "מסנן סולר כל 20,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "גירוז גל ההינע"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "בתנאים קשים כל 10,000"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect",
+          "note": "בדיקת דליפות"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect",
+          "note": "בדיקת דליפות"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "בדיקת דליפות בדיפרנציאל קדמי ואחורי"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "בדיקת מפלס בגיר אוטומטי"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "בדיקת סל\"ד סרק, מערכת EGR ולימוד כמות הזרקה במערכת Common Rail; נסיעת מבחן"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "בדיקת מפלס נוזל בלמים ומצמד"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "חופש דוושות בלם ומצמד"
+        }
+      ]
+    },
+    {
+      "km": 40000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "כל 40,000 ק\"מ או שנתיים"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "חופש דוושות בלם ומצמד"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect",
+          "note": "צינור שמן משאבת ואקום"
+        },
+        {
+          "item": "intercooler_pipes",
+          "action": "inspect",
+          "note": "צינור יניקה וצינור שמן טורבו; מעל 100,000 ק\"מ צינור שמן הטורבו כל 20,000"
+        },
+        {
+          "item": "pcv_valve",
+          "action": "inspect",
+          "note": "מערכת אוורור בית ארכובה"
+        },
+        {
+          "item": "valve_clearance",
+          "action": "inspect",
+          "note": "כולל בדיקת רעש כל 20,000"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "מפלס נוזל קירור"
+        },
+        {
+          "item": "coolant",
+          "action": "replace",
+          "note": "כל 40,000 ק\"מ או שנתיים"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "בתנאי אבק כל 10,000 ק\"מ או 6 חודשים"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace",
+          "note": "מסנן סולר כל 20,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "גירוז גל ההינע"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "בתנאים קשים כל 10,000"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect",
+          "note": "בדיקת דליפות"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect",
+          "note": "בדיקת דליפות"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "בדיקת דליפות בדיפרנציאל קדמי ואחורי"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "בדיקת מפלס בגיר אוטומטי"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "בדיקת סל\"ד סרק, מערכת EGR ולימוד כמות הזרקה במערכת Common Rail; נסיעת מבחן"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect",
+          "note": "בלמי תוף (אם קיימים); בתנאים קשים כל 10,000"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 50000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "בדיקת מפלס נוזל בלמים ומצמד"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "חופש דוושות בלם ומצמד"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "בדיקת מפלס נוזל בלמים ומצמד"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "חופש דוושות בלם ומצמד"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect",
+          "note": "צינור שמן משאבת ואקום"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "מפלס נוזל קירור"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "בתנאי אבק כל 10,000 ק\"מ או 6 חודשים"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace",
+          "note": "מסנן סולר כל 20,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "גירוז גל ההינע"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "בתנאים קשים כל 10,000"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect",
+          "note": "בדיקת דליפות"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect",
+          "note": "בדיקת דליפות"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "בדיקת דליפות בדיפרנציאל קדמי ואחורי"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "בדיקת מפלס בגיר אוטומטי"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "בדיקת סל\"ד סרק, מערכת EGR ולימוד כמות הזרקה במערכת Common Rail; נסיעת מבחן"
+        }
+      ]
+    },
+    {
+      "km": 70000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "בדיקת מפלס נוזל בלמים ומצמד"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "חופש דוושות בלם ומצמד"
+        }
+      ]
+    },
+    {
+      "km": 80000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "כל 40,000 ק\"מ או שנתיים"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "חופש דוושות בלם ומצמד"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect",
+          "note": "צינור שמן משאבת ואקום"
+        },
+        {
+          "item": "intercooler_pipes",
+          "action": "inspect",
+          "note": "צינור יניקה וצינור שמן טורבו; מעל 100,000 ק\"מ צינור שמן הטורבו כל 20,000"
+        },
+        {
+          "item": "pcv_valve",
+          "action": "inspect",
+          "note": "מערכת אוורור בית ארכובה"
+        },
+        {
+          "item": "valve_clearance",
+          "action": "inspect",
+          "note": "כולל בדיקת רעש כל 20,000"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "מפלס נוזל קירור"
+        },
+        {
+          "item": "coolant",
+          "action": "replace",
+          "note": "כל 40,000 ק\"מ או שנתיים"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "בתנאי אבק כל 10,000 ק\"מ או 6 חודשים"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace",
+          "note": "מסנן סולר כל 20,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "גירוז גל ההינע"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "בתנאים קשים כל 10,000"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect",
+          "note": "בדיקת דליפות"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect",
+          "note": "בדיקת דליפות"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "בדיקת דליפות בדיפרנציאל קדמי ואחורי"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "בדיקת מפלס בגיר אוטומטי"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "בדיקת סל\"ד סרק, מערכת EGR ולימוד כמות הזרקה במערכת Common Rail; נסיעת מבחן"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect",
+          "note": "בלמי תוף (אם קיימים); בתנאים קשים כל 10,000"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "בדיקת מפלס נוזל בלמים ומצמד"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "חופש דוושות בלם ומצמד"
+        }
+      ]
+    },
+    {
+      "km": 100000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "בדיקת מפלס נוזל בלמים ומצמד"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "חופש דוושות בלם ומצמד"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect",
+          "note": "צינור שמן משאבת ואקום"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "מפלס נוזל קירור"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "בתנאי אבק כל 10,000 ק\"מ או 6 חודשים"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace",
+          "note": "מסנן סולר כל 20,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "גירוז גל ההינע"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "בתנאים קשים כל 10,000"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect",
+          "note": "בדיקת דליפות"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect",
+          "note": "בדיקת דליפות"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "בדיקת דליפות בדיפרנציאל קדמי ואחורי"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "בדיקת מפלס בגיר אוטומטי"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "בדיקת סל\"ד סרק, מערכת EGR ולימוד כמות הזרקה במערכת Common Rail; נסיעת מבחן"
+        }
+      ]
+    },
+    {
+      "km": 110000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "בדיקת מפלס נוזל בלמים ומצמד"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "חופש דוושות בלם ומצמד"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "כל 40,000 ק\"מ או שנתיים"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "חופש דוושות בלם ומצמד"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect",
+          "note": "צינור שמן משאבת ואקום"
+        },
+        {
+          "item": "intercooler_pipes",
+          "action": "inspect",
+          "note": "צינור יניקה וצינור שמן טורבו; מעל 100,000 ק\"מ צינור שמן הטורבו כל 20,000"
+        },
+        {
+          "item": "pcv_valve",
+          "action": "inspect",
+          "note": "מערכת אוורור בית ארכובה"
+        },
+        {
+          "item": "valve_clearance",
+          "action": "inspect",
+          "note": "כולל בדיקת רעש כל 20,000"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "מפלס נוזל קירור"
+        },
+        {
+          "item": "coolant",
+          "action": "replace",
+          "note": "כל 40,000 ק\"מ או שנתיים"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "בתנאי אבק כל 10,000 ק\"מ או 6 חודשים"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace",
+          "note": "מסנן סולר כל 20,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "גירוז גל ההינע"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "בתנאים קשים כל 10,000"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect",
+          "note": "בדיקת דליפות"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect",
+          "note": "בדיקת דליפות"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "בדיקת דליפות בדיפרנציאל קדמי ואחורי"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "בדיקת מפלס בגיר אוטומטי"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "בדיקת סל\"ד סרק, מערכת EGR ולימוד כמות הזרקה במערכת Common Rail; נסיעת מבחן"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect",
+          "note": "בלמי תוף (אם קיימים); בתנאים קשים כל 10,000"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "timing_belt",
+      "action": "replace",
+      "every_km": 100000,
+      "note": "כולל רצועת איזון (B) במנוע 4D56"
+    },
+    {
+      "item": "manual_gearbox_oil",
+      "action": "replace",
+      "every_km": 100000,
+      "note": "בתנאים קשים כל 40,000"
+    },
+    {
+      "item": "transfer_case_oil",
+      "action": "replace",
+      "every_km": 100000,
+      "note": "בתנאים קשים כל 40,000"
+    },
+    {
+      "item": "differential_oil",
+      "action": "replace",
+      "every_km": 80000,
+      "note": "דיפרנציאל רגיל; בתנאים קשים כל 40,000. בדיפרנציאל LSD היברידי כל 40,000 (קשים: 20,000)"
+    },
+    {
+      "item": "transmission_oil",
+      "action": "replace",
+      "every_km": 40000,
+      "note": "גיר אוטומטי: בטבלת General Export מופיעה החלפה רק בתנאים קשים (כל 40,000)"
+    },
+    {
+      "item": "cabin_filter",
+      "action": "replace",
+      "every_km": 15000,
+      "every_months": 12,
+      "note": "מסנן מטהר אוויר בתא הנוסעים"
+    }
+  ],
+  "time_based": [
+    {
+      "item": "body_underside",
+      "action": "inspect",
+      "every_months": 12,
+      "note": "בדיקת מצב המרכב"
+    }
+  ],
+  "specs": {},
+  "sources": [
+    {
+      "url": "https://www.manualslib.com/manual/1634870/x.html?page=31",
+      "kind": "manufacturer",
+      "note": "Mitsubishi Pajero Sport 2013 (KH, אותה פלטפורמה ואותו מנוע 4D56 כמו L200/Triton) Inspection and Maintenance manual, \"Periodic Inspection and Maintenance Schedule - For General Export\" (manualslib עמ' 31-34); טבלת \"For Europe\" בעמ' 34-37"
+    },
+    {
+      "url": "https://www.mitsubishi-motors.com.au/owners/service/maintenance-schedule.html",
+      "kind": "manufacturer",
+      "note": "מיצובישי אוסטרליה מפרסמת לוחות רק לדגמים מ-2015 ואילך (Triton MQ/MR); לדור KB/MN אין לוח"
+    }
+  ],
+  "status": "draft",
+  "notes": "טיוטה: לא נמצא לוח ישראלי ל-L200 דור 4. הלוח נבנה מטבלת \"General Export\" במדריך הבדיקה והתחזוקה של פג'רו ספורט 2013, שבנוי על אותה פלטפורמה ואותו מנוע 2.5 דיזל 4D56 כמו ה-L200/טריטון. רצועת תזמון (כולל רצועת איזון) כל 100,000 ק\"מ, מסנן סולר כל 20,000, נוזל קירור ונוזל בלמים כל 40,000 או שנתיים. בטבלה האירופית של אותו מסמך הטיפול הוא כל 20,000 ק\"מ, ונוזל הקירור כל 60,000 או 4 שנים. הספר מגדיר נהיגה בעומס תנועה בחום מעל 32 מעלות, אבק ודרכים משובשות כתנאים קשים."
+}

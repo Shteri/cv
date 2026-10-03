@@ -1,0 +1,945 @@
+{
+  "id": "honda-civic-2017-2022-1.0-1.5-turbo",
+  "make": "Honda",
+  "make_he": "הונדה",
+  "model": "Civic",
+  "model_he": "סיוויק",
+  "generation": "FK (דור 10)",
+  "years": [
+    2017,
+    2022
+  ],
+  "engines": [
+    "1.0 VTEC Turbo (P10A2)",
+    "1.5 VTEC Turbo (L15B)"
+  ],
+  "fuel": "petrol",
+  "importer": "מאיר (הונדה ישראל)",
+  "interval": {
+    "km": 10000,
+    "months": 12,
+    "note": "מנוע טורבו: שמן ומסנן שמן לפי חיווי מחשב הרכב (לכל המאוחר שנה לשמן ושנתיים למסנן); בדיקות בלמים, מתלים והיגוי וסבב צמיגים כל 10,000 ק\"מ"
+  },
+  "cycle_km": 200000,
+  "services": [
+    {
+      "km": 10000,
+      "items": [
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate",
+          "note": "סבב צמיגים כל 10,000 ק\"מ"
+        }
+      ]
+    },
+    {
+      "km": 20000,
+      "items": [
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate",
+          "note": "סבב צמיגים כל 10,000 ק\"מ"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מסנן אבק ואבקנים"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate",
+          "note": "סבב צמיגים כל 10,000 ק\"מ"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 40000,
+      "items": [
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate",
+          "note": "סבב צמיגים כל 10,000 ק\"מ"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מסנן אבק ואבקנים"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "cvt_oil",
+          "action": "replace",
+          "note": "גיר CVT"
+        }
+      ]
+    },
+    {
+      "km": 50000,
+      "items": [
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate",
+          "note": "סבב צמיגים כל 10,000 ק\"מ"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate",
+          "note": "סבב צמיגים כל 10,000 ק\"מ"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מסנן אבק ואבקנים"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 70000,
+      "items": [
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate",
+          "note": "סבב צמיגים כל 10,000 ק\"מ"
+        }
+      ]
+    },
+    {
+      "km": 80000,
+      "items": [
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate",
+          "note": "סבב צמיגים כל 10,000 ק\"מ"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מסנן אבק ואבקנים"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cvt_oil",
+          "action": "replace",
+          "note": "גיר CVT"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate",
+          "note": "סבב צמיגים כל 10,000 ק\"מ"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 100000,
+      "items": [
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate",
+          "note": "סבב צמיגים כל 10,000 ק\"מ"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מסנן אבק ואבקנים"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 110000,
+      "items": [
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate",
+          "note": "סבב צמיגים כל 10,000 ק\"מ"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate",
+          "note": "סבב צמיגים כל 10,000 ק\"מ"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מסנן אבק ואבקנים"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "valve_clearance",
+          "action": "inspect",
+          "note": "בדיקה לפי רעש; כיוון ב-120,000 אם יש רעש"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "cvt_oil",
+          "action": "replace",
+          "note": "גיר CVT"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "replace",
+          "note": "גיר ידני: כל 120,000 ק\"מ או 6 שנים; בתנאים מחמירים ב-60,000, 120,000, 180,000"
+        }
+      ]
+    },
+    {
+      "km": 130000,
+      "items": [
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate",
+          "note": "סבב צמיגים כל 10,000 ק\"מ"
+        }
+      ]
+    },
+    {
+      "km": 140000,
+      "items": [
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate",
+          "note": "סבב צמיגים כל 10,000 ק\"מ"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מסנן אבק ואבקנים"
+        }
+      ]
+    },
+    {
+      "km": 150000,
+      "items": [
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate",
+          "note": "סבב צמיגים כל 10,000 ק\"מ"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 160000,
+      "items": [
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate",
+          "note": "סבב צמיגים כל 10,000 ק\"מ"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מסנן אבק ואבקנים"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cvt_oil",
+          "action": "replace",
+          "note": "גיר CVT"
+        }
+      ]
+    },
+    {
+      "km": 170000,
+      "items": [
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate",
+          "note": "סבב צמיגים כל 10,000 ק\"מ"
+        }
+      ]
+    },
+    {
+      "km": 180000,
+      "items": [
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate",
+          "note": "סבב צמיגים כל 10,000 ק\"מ"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מסנן אבק ואבקנים"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 190000,
+      "items": [
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate",
+          "note": "סבב צמיגים כל 10,000 ק\"מ"
+        }
+      ]
+    },
+    {
+      "km": 200000,
+      "items": [
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate",
+          "note": "סבב צמיגים כל 10,000 ק\"מ"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מסנן אבק ואבקנים"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "cvt_oil",
+          "action": "replace",
+          "note": "גיר CVT"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "spark_plugs",
+      "action": "replace",
+      "every_km": 100000,
+      "note": "מצתי אירידיום"
+    },
+    {
+      "item": "coolant",
+      "action": "replace",
+      "first_km": 200000,
+      "first_months": 120,
+      "then_every_km": 100000,
+      "then_every_months": 60
+    },
+    {
+      "item": "manual_gearbox_oil",
+      "action": "replace",
+      "every_km": 120000,
+      "every_months": 72,
+      "note": "גיר ידני, תנאים רגילים"
+    }
+  ],
+  "time_based": [
+    {
+      "item": "engine_oil",
+      "action": "replace",
+      "every_months": 12,
+      "note": "לפי חיווי מחשב הרכב, ולא יאוחר משנה"
+    },
+    {
+      "item": "oil_filter",
+      "action": "replace",
+      "every_months": 24,
+      "note": "לפי חיווי מחשב הרכב, ולא יאוחר משנתיים"
+    },
+    {
+      "item": "brake_fluid",
+      "action": "replace",
+      "every_months": 36,
+      "note": "כל 3 שנים, בלי קשר לק\"מ"
+    }
+  ],
+  "specs": {},
+  "sources": [
+    {
+      "url": "https://www.manualslib.com/manual/2530542/x.html?page=559",
+      "kind": "manufacturer",
+      "note": "Honda Civic 2017 owner's manual (האצ'בק, אנגלית בריטית), \"Maintenance Schedule - Except Australian and New Zealand models\", עמודי ספר 558-559 (manualslib 559-560)"
+    },
+    {
+      "url": "https://honda.co.il/guide_books/",
+      "kind": "importer",
+      "note": "honda.co.il (כולל /guide_books/ ו-wp-json) חסום ב-Cloudflare (403); לא נמצא ספר ישראלי, לכן לוח \"Except EU\" מספר בעלים באנגלית"
+    }
+  ],
+  "status": "draft",
+  "notes": "טיוטה מלוח התחזוקה בספר הבעלים של סיוויק 2017 (דור 10, מנועי טורבו, תוצרת אנגליה). השמן ומסנן השמן מוחלפים לפי חיווי מחשב הרכב, לכל המאוחר כל שנה (שמן) וכל שנתיים (מסנן), ולכן הם מופיעים כפריטי זמן. מסנן אוויר כל 30,000, נוזל CVT כל 40,000, מסנן דלק ב-80,000 וב-160,000, מצתים כל 100,000, נוזל בלמים כל 3 שנים, נוזל קירור לראשונה ב-200,000 או 10 שנים. שמן גיר ידני כל 120,000 או 6 שנים (בתנאים מחמירים כל 60,000)."
+}

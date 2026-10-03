@@ -1,0 +1,480 @@
+{
+  "id": "nissan-qashqai-2007-2014-1.6",
+  "make": "Nissan",
+  "make_he": "ניסאן",
+  "model": "Qashqai",
+  "model_he": "קשקאי",
+  "generation": "J10 (דור 1)",
+  "years": [
+    2007,
+    2014
+  ],
+  "engines": [
+    "1.6 (HR16DE)"
+  ],
+  "fuel": "petrol",
+  "importer": "פריסבי (קרסו)",
+  "interval": {
+    "km": 30000,
+    "months": 24,
+    "note": "לפי ספר השירות האירופי של ניסאן לקשקאי J10 (מנוע HR16DE): טיפול כל 30,000 ק\"מ או 24 חודשים בתנאים רגילים. בתנאים מחמירים (אבק, חום קיצוני, נסיעות קצרות, עיר) שמן ומסנן, מסנן מזגן ונוזל בלמים כל 15,000 ק\"מ או 12 חודשים"
+  },
+  "cycle_km": 120000,
+  "services": [
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "בתנאים מחמירים (אבק, חום, נסיעות קצרות) כל 15,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "בתנאים מחמירים כל 15,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "החלפה אם פגומה או כשמותח הרצועה מגיע לגבול"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקת יחס התערובת"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "כולל צנרת אדי דלק (EVAP)"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "כיוון פנסים"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect",
+          "note": "מערכת בלמים ומצמד: מפלסים ודליפות; גם צינורות ואקום של המגבר"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "בתנאים מחמירים כל 15,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect",
+          "note": "מפלס ודליפות"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect",
+          "note": "לפי הצורך גם סבב ואיזון גלגלים"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "clutch",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "בתנאי אבק כל 15,000 ק\"מ או 12 חודשים"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "בתנאים מחמירים (אבק, חום, נסיעות קצרות) כל 15,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "בתנאים מחמירים כל 15,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "החלפה אם פגומה או כשמותח הרצועה מגיע לגבול"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקת יחס התערובת"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "כולל צנרת אדי דלק (EVAP)"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "בתנאי אבק כל 30,000 ק\"מ או 24 חודשים"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "כיוון פנסים"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect",
+          "note": "מערכת בלמים ומצמד: מפלסים ודליפות; גם צינורות ואקום של המגבר"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "בתנאים מחמירים כל 15,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect",
+          "note": "מפלס ודליפות"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect",
+          "note": "לפי הצורך גם סבב ואיזון גלגלים"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "clutch",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "בתנאי אבק כל 15,000 ק\"מ או 12 חודשים"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "בתנאים מחמירים (אבק, חום, נסיעות קצרות) כל 15,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "בתנאים מחמירים כל 15,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "החלפה אם פגומה או כשמותח הרצועה מגיע לגבול"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "כולל צנרת אדי דלק (EVAP)"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "כיוון פנסים"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect",
+          "note": "מערכת בלמים ומצמד: מפלסים ודליפות; גם צינורות ואקום של המגבר"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "בתנאים מחמירים כל 15,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect",
+          "note": "מפלס ודליפות"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect",
+          "note": "לפי הצורך גם סבב ואיזון גלגלים"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "clutch",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "בתנאי אבק כל 15,000 ק\"מ או 12 חודשים"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "בתנאים מחמירים (אבק, חום, נסיעות קצרות) כל 15,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "בתנאים מחמירים כל 15,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "החלפה אם פגומה או כשמותח הרצועה מגיע לגבול"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקת יחס התערובת"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "כולל צנרת אדי דלק (EVAP)"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "בתנאי אבק כל 30,000 ק\"מ או 24 חודשים"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "כיוון פנסים"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect",
+          "note": "מערכת בלמים ומצמד: מפלסים ודליפות; גם צינורות ואקום של המגבר"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "בתנאים מחמירים כל 15,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect",
+          "note": "מפלס ודליפות"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect",
+          "note": "לפי הצורך גם סבב ואיזון גלגלים"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "clutch",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "בתנאי אבק כל 15,000 ק\"מ או 12 חודשים"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "spark_plugs",
+      "action": "replace",
+      "every_km": 90000,
+      "note": "מצתי פלטינה; בלוח מסומנת החלפה ב-90,000 (ב-30,000, 60,000 ו-120,000 רק ברוסיה ואוקראינה)"
+    },
+    {
+      "item": "coolant",
+      "action": "replace",
+      "first_km": 90000,
+      "first_months": 60,
+      "then_every_km": 60000,
+      "then_every_months": 48
+    },
+    {
+      "item": "valve_clearance",
+      "action": "inspect",
+      "every_km": 120000,
+      "note": "אין בדיקה תקופתית; בודקים רק אם יש רעש שסתומים"
+    }
+  ],
+  "time_based": [
+    {
+      "item": "body_underside",
+      "action": "inspect",
+      "every_months": 12,
+      "note": "בדיקת קורוזיה במרכב פעם בשנה"
+    }
+  ],
+  "specs": {},
+  "sources": [
+    {
+      "url": "https://procarmanuals.com/wp-content/uploads/pdfs/manuals/nissan-qashqai-2007-2010-factory-service-manual.pdf",
+      "kind": "manufacturer",
+      "note": "Nissan Qashqai J10 ESM (אירופה), פרק MA: טבלאות \"Engine and emission control maintenance (HR16DE petrol engine)\" ו-\"Chassis and body maintenance (HR16DE)\" לנסועה שנתית מתחת ל-30,000 ק\"מ, MA-7 עד MA-8 (עמודי PDF 6173-6174)"
+    },
+    {
+      "url": "https://procarmanuals.com/pdf-online-nissan-qashqai-2007-2010-factory-service-manual/",
+      "kind": "other",
+      "note": "עמוד האתר שמציג את הקובץ"
+    },
+    {
+      "url": "https://www.nissan.co.il/service.html",
+      "kind": "importer",
+      "note": "ניסאן ישראל אינה מפרסמת ספרי רכב; service.freesbe.com ו-freesbe.com מחזירים 403"
+    }
+  ],
+  "status": "draft",
+  "notes": "טיוטה מספר השירות האירופי של ניסאן לקשקאי J10, טבלאות מנוע 1.6 HR16DE (תיבה ידנית, הנעה קדמית). הלוח זהה בתוכנו ללוח מנוע 2.0 באותו ספר: טיפול כל 30,000 ק\"מ או 24 חודשים; שמן ומסנן, מסנן מזגן ונוזל בלמים בכל טיפול; מסנן אוויר ב-60,000 וב-120,000; מצתים ב-90,000; נוזל קירור לראשונה ב-90,000 ואחר כך כל 60,000. בתנאים מחמירים (חום, אבק, נסיעות קצרות) שמן ומסנן, מסנן מזגן ונוזל בלמים כל 15,000 ק\"מ או 12 חודשים - ובישראל מומלץ לשקול זאת."
+}

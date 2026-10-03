@@ -1,0 +1,1393 @@
+{
+  "id": "mitsubishi-pajero-2000-2006-3.2-diesel",
+  "make": "Mitsubishi",
+  "make_he": "מיצובישי",
+  "model": "Pajero",
+  "model_he": "פג'רו",
+  "generation": "NM/NP",
+  "years": [
+    2000,
+    2006
+  ],
+  "engines": [
+    "3.2 DI-D (4M41)"
+  ],
+  "fuel": "diesel",
+  "importer": "כלמוביל",
+  "interval": {
+    "km": 15000,
+    "months": 12,
+    "note": "לפי לוח התחזוקה של מיצובישי אוסטרליה: 15,000 ק\"מ או 12 חודשים, המוקדם; בתנאי שימוש קשים שמן ומסנן כל 7,500 ק\"מ"
+  },
+  "cycle_km": 180000,
+  "services": [
+    {
+      "km": 15000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect",
+          "note": "4X4 בלבד: בדיקת דליפות"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "4X4 בלבד: בדיקת דליפות"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect",
+          "note": "צינור שמן משאבת ואקום"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "אוטומט: בדיקת דליפות"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect",
+          "note": "בדיקה ויזואלית של בלאי הצמיגים"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect",
+          "note": "4X4 בלבד: בדיקת דליפות"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "4X4 בלבד: בדיקת דליפות"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace"
+        },
+        {
+          "item": "valve_clearance",
+          "action": "inspect",
+          "note": "בדיקה בפועל כל 30,000; בשאר הטיפולים האזנה לרעש"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "גירוז זרועות מתלה, מוטות היגוי וגל הינע"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect",
+          "note": "צינור שמן משאבת ואקום"
+        },
+        {
+          "item": "intercooler_pipes",
+          "action": "inspect",
+          "note": "צינור יניקה וצינור שמן טורבו"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "אוטומט: בדיקת דליפות"
+        }
+      ]
+    },
+    {
+      "km": 45000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect",
+          "note": "4X4 בלבד: בדיקת דליפות"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "4X4 בלבד: בדיקת דליפות"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect",
+          "note": "צינור שמן משאבת ואקום"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "אוטומט: בדיקת דליפות"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "כולל בדיקת חופש במסבי הגלגלים"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "replace"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect",
+          "note": "בדיקה ויזואלית של בלאי הצמיגים"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect",
+          "note": "4X4 בלבד: בדיקת דליפות"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "4X4 בלבד: בדיקת דליפות"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace"
+        },
+        {
+          "item": "valve_clearance",
+          "action": "inspect",
+          "note": "בדיקה בפועל כל 30,000; בשאר הטיפולים האזנה לרעש"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "גירוז זרועות מתלה, מוטות היגוי וגל הינע"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect",
+          "note": "צינור שמן משאבת ואקום"
+        },
+        {
+          "item": "intercooler_pipes",
+          "action": "inspect",
+          "note": "צינור יניקה וצינור שמן טורבו"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "אוטומט: בדיקת דליפות"
+        }
+      ]
+    },
+    {
+      "km": 75000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect",
+          "note": "4X4 בלבד: בדיקת דליפות"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "4X4 בלבד: בדיקת דליפות"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect",
+          "note": "צינור שמן משאבת ואקום"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "אוטומט: בדיקת דליפות"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect",
+          "note": "בדיקה ויזואלית של בלאי הצמיגים"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect",
+          "note": "4X4 בלבד: בדיקת דליפות"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "4X4 בלבד: בדיקת דליפות"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace"
+        },
+        {
+          "item": "valve_clearance",
+          "action": "inspect",
+          "note": "בדיקה בפועל כל 30,000; בשאר הטיפולים האזנה לרעש"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "גירוז זרועות מתלה, מוטות היגוי וגל הינע"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect",
+          "note": "צינור שמן משאבת ואקום"
+        },
+        {
+          "item": "intercooler_pipes",
+          "action": "inspect",
+          "note": "צינור יניקה וצינור שמן טורבו"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "אוטומט: בדיקת דליפות"
+        }
+      ]
+    },
+    {
+      "km": 105000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect",
+          "note": "4X4 בלבד: בדיקת דליפות"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "4X4 בלבד: בדיקת דליפות"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect",
+          "note": "צינור שמן משאבת ואקום"
+        },
+        {
+          "item": "intercooler_pipes",
+          "action": "inspect",
+          "note": "צינור יניקה וצינור שמן טורבו"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "אוטומט: בדיקת דליפות"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "כולל בדיקת חופש במסבי הגלגלים"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "replace"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect",
+          "note": "בדיקה ויזואלית של בלאי הצמיגים"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect",
+          "note": "4X4 בלבד: בדיקת דליפות"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "4X4 בלבד: בדיקת דליפות"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace"
+        },
+        {
+          "item": "valve_clearance",
+          "action": "inspect",
+          "note": "בדיקה בפועל כל 30,000; בשאר הטיפולים האזנה לרעש"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "גירוז זרועות מתלה, מוטות היגוי וגל הינע"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect",
+          "note": "צינור שמן משאבת ואקום"
+        },
+        {
+          "item": "intercooler_pipes",
+          "action": "inspect",
+          "note": "צינור יניקה וצינור שמן טורבו"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "אוטומט: בדיקת דליפות"
+        }
+      ]
+    },
+    {
+      "km": 135000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect",
+          "note": "4X4 בלבד: בדיקת דליפות"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "4X4 בלבד: בדיקת דליפות"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect",
+          "note": "צינור שמן משאבת ואקום"
+        },
+        {
+          "item": "intercooler_pipes",
+          "action": "inspect",
+          "note": "צינור יניקה וצינור שמן טורבו"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "אוטומט: בדיקת דליפות"
+        }
+      ]
+    },
+    {
+      "km": 150000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect",
+          "note": "בדיקה ויזואלית של בלאי הצמיגים"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect",
+          "note": "4X4 בלבד: בדיקת דליפות"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "4X4 בלבד: בדיקת דליפות"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace"
+        },
+        {
+          "item": "valve_clearance",
+          "action": "inspect",
+          "note": "בדיקה בפועל כל 30,000; בשאר הטיפולים האזנה לרעש"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "גירוז זרועות מתלה, מוטות היגוי וגל הינע"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect",
+          "note": "צינור שמן משאבת ואקום"
+        },
+        {
+          "item": "intercooler_pipes",
+          "action": "inspect",
+          "note": "צינור יניקה וצינור שמן טורבו"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "אוטומט: בדיקת דליפות"
+        }
+      ]
+    },
+    {
+      "km": 165000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect",
+          "note": "4X4 בלבד: בדיקת דליפות"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "4X4 בלבד: בדיקת דליפות"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect",
+          "note": "צינור שמן משאבת ואקום"
+        },
+        {
+          "item": "intercooler_pipes",
+          "action": "inspect",
+          "note": "צינור יניקה וצינור שמן טורבו"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "אוטומט: בדיקת דליפות"
+        }
+      ]
+    },
+    {
+      "km": 180000,
+      "items": [
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "כולל בדיקת חופש במסבי הגלגלים"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "replace"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect",
+          "note": "בדיקה ויזואלית של בלאי הצמיגים"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect",
+          "note": "4X4 בלבד: בדיקת דליפות"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "4X4 בלבד: בדיקת דליפות"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace"
+        },
+        {
+          "item": "valve_clearance",
+          "action": "inspect",
+          "note": "בדיקה בפועל כל 30,000; בשאר הטיפולים האזנה לרעש"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "גירוז זרועות מתלה, מוטות היגוי וגל הינע"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect",
+          "note": "צינור שמן משאבת ואקום"
+        },
+        {
+          "item": "intercooler_pipes",
+          "action": "inspect",
+          "note": "צינור יניקה וצינור שמן טורבו"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "אוטומט: בדיקת דליפות"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "transfer_case_oil",
+      "action": "replace",
+      "every_km": 90000
+    },
+    {
+      "item": "differential_oil",
+      "action": "replace",
+      "every_km": 75000,
+      "note": "קדמי ואחורי"
+    },
+    {
+      "item": "transmission_oil",
+      "action": "replace",
+      "every_km": 195000,
+      "note": "אוטומט"
+    }
+  ],
+  "time_based": [
+    {
+      "item": "body_underside",
+      "action": "inspect",
+      "months": 12,
+      "note": "בדיקת נזקים במרכב פעם בשנה"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.mitsubishi-motors.com.au/content/dam/mmal/pdfs/maintenance-schedules/PAJERO-20MY_Maintenance%20Schedule.pdf",
+      "kind": "manufacturer",
+      "note": "(לוח של הדור הבא, שימש כאחות) Mitsubishi Motors Australia, לוח תחזוקה Pajero NX 20MY (עמ' 1-2)"
+    },
+    {
+      "url": "https://www.mitsubishi-motors.com.au/owners/service/maintenance-schedule.html",
+      "kind": "manufacturer",
+      "note": "(לוח של הדור הבא, שימש כאחות) רשימת לוחות התחזוקה של מיצובישי אוסטרליה"
+    }
+  ],
+  "status": "draft",
+  "notes": "טיוטה לדור NM/NP (2000-2006): לא נמצא לוח לדור זה; הלוח זהה לזה של הדור הבא (אותו מנוע 4M41), מטבלת מיצובישי אוסטרליה. טיוטה: לא נמצא ספר רכב עברי לפג'רו באתר כלמוביל; הלוח נבנה מטבלת היצרן לשוק האוסטרלי (Pajero NX, מנוע 3.2 דיזל 4M41). בישראל נמכר אותו מנוע משנת 2007 (דור NS) ולכן ההתאמה לשנתונים המוקדמים לאימות. I בדיקה, R החלפה. 15,000 ק\"מ / 12 חודשים. מסנן סולר ונוזל בלמים כל 30,000; נוזל קירור כל 60,000; מסנן אוויר כל 45,000; פילטר מזגן בכל טיפול; חופש שסתומים בדיקה כל 30,000; גירוז מתלים, היגוי וגל הינע כל 30,000. שמן תיבת העברה כל 90,000 ודיפרנציאלים כל 75,000; שמן אוטומט כל 195,000.",
+  "specs": {}
+}

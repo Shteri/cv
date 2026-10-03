@@ -1,0 +1,1121 @@
+{
+  "id": "honda-accord-2003-2008-2.0-2.4",
+  "make": "Honda",
+  "make_he": "הונדה",
+  "model": "Accord",
+  "model_he": "אקורד",
+  "generation": "CL (דור 7)",
+  "years": [
+    2003,
+    2008
+  ],
+  "engines": [
+    "2.0 i-VTEC (K20A6/K20Z2)",
+    "2.4 i-VTEC (K24A3)"
+  ],
+  "fuel": "petrol",
+  "importer": "מאיר (הונדה ישראל)",
+  "interval": {
+    "km": 10000,
+    "months": 12,
+    "note": "לפי לוח \"Maintenance Schedule (Except EU)\": שמן מנוע כל 10,000 ק\"מ או שנה; בתנאים מחמירים כל 5,000 ק\"מ או 6 חודשים"
+  },
+  "cycle_km": 200000,
+  "services": [
+    {
+      "km": 10000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate",
+          "note": "סבב צמיגים כל 10,000 ק\"מ"
+        }
+      ]
+    },
+    {
+      "km": 20000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate",
+          "note": "סבב צמיגים כל 10,000 ק\"מ"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "או 12 חודשים; בתנאים מחמירים כל 10,000 ק\"מ או 6 חודשים"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "מסנן יבש: ניקוי כל 10,000 ק\"מ"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate",
+          "note": "סבב צמיגים כל 10,000 ק\"מ"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "כל 30,000 ק\"מ או שנה"
+        }
+      ]
+    },
+    {
+      "km": 40000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate",
+          "note": "סבב צמיגים כל 10,000 ק\"מ"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "או 12 חודשים; בתנאים מחמירים כל 10,000 ק\"מ או 6 חודשים"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "מסנן יבש: ניקוי כל 10,000 ק\"מ"
+        },
+        {
+          "item": "valve_clearance",
+          "action": "inspect"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "מנוע 2.0: כל 40,000; מנוע 2.4: כל 100,000"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 50000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate",
+          "note": "סבב צמיגים כל 10,000 ק\"מ"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate",
+          "note": "סבב צמיגים כל 10,000 ק\"מ"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "או 12 חודשים; בתנאים מחמירים כל 10,000 ק\"מ או 6 חודשים"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "מסנן יבש: ניקוי כל 10,000 ק\"מ"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace",
+          "note": "ב-60,000 בתנאי נהיגה מיוחדים לפי הערת הספר; ב-160,000 לכל הרכבים"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "כל 30,000 ק\"מ או שנה"
+        }
+      ]
+    },
+    {
+      "km": 70000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate",
+          "note": "סבב צמיגים כל 10,000 ק\"מ"
+        }
+      ]
+    },
+    {
+      "km": 80000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate",
+          "note": "סבב צמיגים כל 10,000 ק\"מ"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "או 12 חודשים; בתנאים מחמירים כל 10,000 ק\"מ או 6 חודשים"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "מסנן יבש: ניקוי כל 10,000 ק\"מ"
+        },
+        {
+          "item": "valve_clearance",
+          "action": "inspect"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "מנוע 2.0: כל 40,000; מנוע 2.4: כל 100,000"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate",
+          "note": "סבב צמיגים כל 10,000 ק\"מ"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "כל 30,000 ק\"מ או שנה"
+        }
+      ]
+    },
+    {
+      "km": 100000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate",
+          "note": "סבב צמיגים כל 10,000 ק\"מ"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "או 12 חודשים; בתנאים מחמירים כל 10,000 ק\"מ או 6 חודשים"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "מסנן יבש: ניקוי כל 10,000 ק\"מ"
+        }
+      ]
+    },
+    {
+      "km": 110000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate",
+          "note": "סבב צמיגים כל 10,000 ק\"מ"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate",
+          "note": "סבב צמיגים כל 10,000 ק\"מ"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "או 12 חודשים; בתנאים מחמירים כל 10,000 ק\"מ או 6 חודשים"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "מסנן יבש: ניקוי כל 10,000 ק\"מ"
+        },
+        {
+          "item": "valve_clearance",
+          "action": "inspect"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "מנוע 2.0: כל 40,000; מנוע 2.4: כל 100,000"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "בדיקת סל\"ד סרק"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "replace",
+          "note": "גיר ידני: ב-120,000 (בתנאים מחמירים ב-60,000, 120,000, 180,000)"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "replace",
+          "note": "גיר אוטומטי: ב-120,000 וב-200,000 (בתנאים מחמירים ב-60,000, 100,000, 140,000, 180,000)"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "כל 30,000 ק\"מ או שנה"
+        }
+      ]
+    },
+    {
+      "km": 130000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate",
+          "note": "סבב צמיגים כל 10,000 ק\"מ"
+        }
+      ]
+    },
+    {
+      "km": 140000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate",
+          "note": "סבב צמיגים כל 10,000 ק\"מ"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "או 12 חודשים; בתנאים מחמירים כל 10,000 ק\"מ או 6 חודשים"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "מסנן יבש: ניקוי כל 10,000 ק\"מ"
+        }
+      ]
+    },
+    {
+      "km": 150000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate",
+          "note": "סבב צמיגים כל 10,000 ק\"מ"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "כל 30,000 ק\"מ או שנה"
+        }
+      ]
+    },
+    {
+      "km": 160000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate",
+          "note": "סבב צמיגים כל 10,000 ק\"מ"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "או 12 חודשים; בתנאים מחמירים כל 10,000 ק\"מ או 6 חודשים"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "מסנן יבש: ניקוי כל 10,000 ק\"מ"
+        },
+        {
+          "item": "valve_clearance",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace",
+          "note": "ב-60,000 בתנאי נהיגה מיוחדים לפי הערת הספר; ב-160,000 לכל הרכבים"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "מנוע 2.0: כל 40,000; מנוע 2.4: כל 100,000"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 170000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate",
+          "note": "סבב צמיגים כל 10,000 ק\"מ"
+        }
+      ]
+    },
+    {
+      "km": 180000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate",
+          "note": "סבב צמיגים כל 10,000 ק\"מ"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "או 12 חודשים; בתנאים מחמירים כל 10,000 ק\"מ או 6 חודשים"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "מסנן יבש: ניקוי כל 10,000 ק\"מ"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "כל 30,000 ק\"מ או שנה"
+        }
+      ]
+    },
+    {
+      "km": 190000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate",
+          "note": "סבב צמיגים כל 10,000 ק\"מ"
+        }
+      ]
+    },
+    {
+      "km": 200000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate",
+          "note": "סבב צמיגים כל 10,000 ק\"מ"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "או 12 חודשים; בתנאים מחמירים כל 10,000 ק\"מ או 6 חודשים"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "מסנן יבש: ניקוי כל 10,000 ק\"מ"
+        },
+        {
+          "item": "valve_clearance",
+          "action": "inspect"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "מנוע 2.0: כל 40,000; מנוע 2.4: כל 100,000"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "replace",
+          "note": "גיר אוטומטי: ב-120,000 וב-200,000 (בתנאים מחמירים ב-60,000, 100,000, 140,000, 180,000)"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "coolant",
+      "action": "replace",
+      "first_km": 200000,
+      "first_months": 120,
+      "then_every_km": 100000,
+      "then_every_months": 60
+    },
+    {
+      "item": "cabin_filter",
+      "action": "replace",
+      "every_km": 30000,
+      "every_months": 12,
+      "note": "מסנן אבק ואבקנים"
+    },
+    {
+      "item": "spark_plugs",
+      "action": "replace",
+      "every_km": 100000,
+      "note": "מנוע 2.4 בלבד; מנוע 2.0 כל 40,000"
+    }
+  ],
+  "time_based": [
+    {
+      "item": "brake_fluid",
+      "action": "replace",
+      "every_months": 36,
+      "note": "כל 3 שנים, בלי קשר לק\"מ"
+    }
+  ],
+  "specs": {},
+  "sources": [
+    {
+      "url": "https://www.manualslib.com/manual/1207475/x.html?page=356",
+      "kind": "manufacturer",
+      "note": "Honda Accord/Accord Euro owner's manual (32SEA610, 2003), \"Maintenance Schedule B for Petrol models (Except EU, Australia and New Zealand)\", עמודי ספר 353-355 (manualslib 356-358)"
+    },
+    {
+      "url": "https://honda.co.il/guide_books/",
+      "kind": "importer",
+      "note": "honda.co.il (כולל /guide_books/ ו-wp-json) חסום ב-Cloudflare (403); לא נמצא ספר ישראלי, לכן לוח \"Except EU\" מספר בעלים באנגלית"
+    }
+  ],
+  "status": "draft",
+  "notes": "טיוטה מלוח B לדגמי בנזין (\"חוץ מאירופה, אוסטרליה וניו זילנד\") בספר הבעלים הבינלאומי של אקורד דור 7. שמן כל 10,000 ק\"מ או 12 חודשים, מסנן שמן ומסנן אוויר כל 20,000, מסנן מזגן כל 30,000 או שנה, בדיקת שסתומים כל 40,000, מצתים כל 40,000 במנוע 2.0 (כל 100,000 במנוע 2.4), נוזל בלמים כל 3 שנים, נוזל קירור לראשונה ב-200,000 או 10 שנים. הספר מגדיר נהיגה בחום מעל 35 מעלות כתנאי מחמיר לשמן ולנוזל הגיר, ולכן בקיץ הישראלי כדאי לשקול את הלוח המחמיר (שמן כל 5,000 ק\"מ או 6 חודשים)."
+}
