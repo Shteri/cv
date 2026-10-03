@@ -52,5 +52,4 @@ pasted". So:
 3. If a line is too long, adjust tools/vo_starts.json and the matching beat times in tools/index.src.html
    (word timings are in assets/vo/eleven_*.words.json).
 4. `python3 tools/build.py eleven`, `npx hyperframes check`, render to renders/tipulit-hud.mp4.
-5. Then the garage-side version in this same style (draft in ../tipulit-garage: captures of /garage/?demo,
-   WhatsApp reminder, work order, approval and booking pages, order list; script in ../tipulit-garage/SCRIPT.txt).
+5. The garage-side version in this style is ../tipulit-garage-hud (same voice steps).

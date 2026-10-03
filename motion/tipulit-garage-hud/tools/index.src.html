@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="he" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+{{FONTS}}
+      :root {
+        --bg: #05070a;
+        --y: #f7c948;           /* plate yellow, the brand accent, used as neon */
+        --y-rgb: 247, 201, 72;
+        --ink: #f3f4f6;
+        --muted: #9ba2ac;
+        --good: #3fd58b;
+        --crit: #ff5a4e;
+        --unknown: #8a919c;
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--bg); }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; background: var(--bg); color: var(--ink); direction: rtl; font-family: "IBM Plex Sans Hebrew", sans-serif; }
+      .clip { position: absolute; inset: 0; }
+
+      /* ---------- HUD backdrop ---------- */
+      .glow { position: absolute; left: -200px; right: -200px; top: -300px; height: 1100px; background: radial-gradient(closest-side, rgba(var(--y-rgb), 0.16), rgba(var(--y-rgb), 0)); }
+      .floor { position: absolute; left: -540px; width: 2160px; top: 1180px; height: 1100px; transform-origin: 50% 0; transform: perspective(700px) rotateX(72deg);
+        background-image: linear-gradient(rgba(var(--y-rgb), 0.22) 2px, transparent 2px), linear-gradient(90deg, rgba(var(--y-rgb), 0.22) 2px, transparent 2px);
+        background-size: 90px 90px; -webkit-mask-image: linear-gradient(180deg, transparent, #000 35%, #000 70%, transparent); mask-image: linear-gradient(180deg, transparent, #000 35%, #000 70%, transparent); }
+      .scan { position: absolute; inset: 0; background: repeating-linear-gradient(0deg, rgba(255,255,255,0.028) 0 1px, transparent 1px 4px); pointer-events: none; }
+      .vig { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 45%, rgba(0,0,0,0) 55%, rgba(0,0,0,0.75) 100%); }
+      .corner { position: absolute; width: 70px; height: 70px; border-color: rgba(var(--y-rgb), 0.7); border-style: solid; border-width: 0; }
+      .c-tl { left: 34px; top: 34px; border-left-width: 3px; border-top-width: 3px; }
+      .c-tr { right: 34px; top: 34px; border-right-width: 3px; border-top-width: 3px; }
+      .c-bl { left: 34px; bottom: 34px; border-left-width: 3px; border-bottom-width: 3px; }
+      .c-br { right: 34px; bottom: 34px; border-right-width: 3px; border-bottom-width: 3px; }
+      .code { font-family: "Rubik", sans-serif; font-weight: 500; font-size: 22px; letter-spacing: 0.32em; color: rgba(var(--y-rgb), 0.85); direction: ltr; text-transform: uppercase; }
+      .hud-tl { position: absolute; left: 120px; top: 52px; }
+      .hud-tr { position: absolute; right: 120px; top: 52px; }
+      .hud-b { position: absolute; left: 0; right: 0; bottom: 52px; text-align: center; }
+      #holo { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+      .flash { position: absolute; inset: 0; background: radial-gradient(closest-side, rgba(255, 244, 214, 0.9), rgba(var(--y-rgb), 0.25) 60%, rgba(0,0,0,0)); opacity: 0; }
+
+      /* ---------- type ---------- */
+      .big { position: absolute; left: 60px; right: 60px; text-align: center; font-family: "Rubik", sans-serif; font-weight: 800; letter-spacing: -0.03em; line-height: 1.02; }
+      .big .w { display: inline-block; }
+      .big .y { color: var(--y); text-shadow: 0 0 40px rgba(var(--y-rgb), 0.55); }
+      .hook1 { top: 230px; font-size: 118px; } .hook2 { top: 1500px; font-size: 118px; }
+      .guess { top: 1540px; font-size: 92px; }
+      .qm { position: absolute; font-family: "Rubik", sans-serif; font-weight: 800; font-size: 120px; color: var(--y); text-shadow: 0 0 30px rgba(var(--y-rgb), 0.7); opacity: 0; }
+      .brand { display: flex; align-items: center; justify-content: center; direction: ltr; font-family: "Unbounded", sans-serif; font-weight: 600; letter-spacing: -0.03em; color: #fff; line-height: 1; text-shadow: 0 0 50px rgba(255,255,255,0.25); }
+      .brand .ch { display: inline-block; }
+      .brand .dot { display: inline-block; width: 0.3em; height: 0.3em; margin-left: 0.08em; border-radius: 0.07em; background: var(--y); align-self: flex-end; margin-bottom: 0.08em; box-shadow: 0 0 30px rgba(var(--y-rgb), 0.9); }
+      .logo { position: absolute; left: 0; right: 0; top: 760px; }
+      .logo .brand { font-size: 176px; }
+      .knows { position: absolute; left: 0; right: 0; top: 1090px; text-align: center; font-family: "Rubik", sans-serif; font-weight: 800; font-size: 84px; }
+      .sweep { position: absolute; left: -400px; top: 700px; width: 260px; height: 380px; background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.55), rgba(255,255,255,0)); transform: skewX(-18deg); opacity: 0; mix-blend-mode: overlay; }
+
+      /* ---------- section header ---------- */
+      .head { position: absolute; left: 70px; right: 70px; top: 150px; display: flex; flex-direction: column; gap: 14px; opacity: 0; }
+      .head .code { font-size: 24px; }
+      .head h2 { font-family: "Rubik", sans-serif; font-weight: 800; font-size: 80px; letter-spacing: -0.03em; line-height: 1.05; }
+      .head h2 .w { display: inline-block; }
+      .head .bar { display: block; height: 4px; width: 140px; background: var(--y); box-shadow: 0 0 20px rgba(var(--y-rgb), 0.8); transform-origin: 100% 50%; }
+
+      /* ---------- garage monitor (desktop dashboard) and the customer's phone ---------- */
+      .monitor { position: absolute; left: 26px; top: 560px; width: 1028px; height: 653px; padding: 14px; border-radius: 30px; background: #0d1015;
+        border: 2px solid rgba(var(--y-rgb), 0.55); box-shadow: 0 0 0 1px rgba(255,255,255,0.06) inset, 0 0 60px rgba(var(--y-rgb), 0.22), 0 60px 120px rgba(0,0,0,0.6); opacity: 0; }
+      .monitor .stand { position: absolute; left: 444px; top: 653px; width: 140px; height: 66px; background: linear-gradient(180deg, #1a1e25, #0e1116); border-left: 2px solid rgba(var(--y-rgb), 0.35); border-right: 2px solid rgba(var(--y-rgb), 0.35); }
+      .monitor .base { position: absolute; left: 354px; top: 716px; width: 320px; height: 14px; border-radius: 7px; background: #161a20; box-shadow: 0 0 30px rgba(var(--y-rgb), 0.25); }
+      .mscreen { position: relative; width: 1000px; height: 625px; border-radius: 18px; overflow: hidden; background: #08090b; }
+      .mlayer { position: absolute; left: 0; top: 0; width: 1000px; height: 625px; }
+      .mlayer img { position: absolute; left: 0; top: 0; width: 1000px; height: 625px; display: block; }
+      #M-lapsed, #M-msg, #M-inv, #M-hist, #M-wo, #M-order, #P-book { opacity: 0; }
+      .phone { position: absolute; left: 326px; top: 560px; width: 428px; height: 894px; padding: 14px; border-radius: 66px; background: #0d1015; z-index: 4;
+        border: 2px solid rgba(var(--y-rgb), 0.55); box-shadow: 0 0 60px rgba(var(--y-rgb), 0.25), 0 60px 120px rgba(0,0,0,0.6); opacity: 0; }
+      .pscreen { position: relative; width: 400px; height: 866px; border-radius: 52px; overflow: hidden; background: #08090b; }
+      .pscreen img { position: absolute; left: 0; top: 0; width: 400px; height: 866px; display: block; }
+      .spot { position: absolute; display: block; border-radius: 10px; border: 2px solid var(--y); box-shadow: 0 0 0 1600px rgba(3, 4, 6, 0.72), 0 0 24px rgba(var(--y-rgb), 0.8); opacity: 0; }
+      .spot.crit { border-color: var(--crit); box-shadow: 0 0 0 1600px rgba(3, 4, 6, 0.72), 0 0 24px rgba(255, 90, 78, 0.8); }
+      .spot.good { border-color: var(--good); box-shadow: 0 0 0 1600px rgba(3, 4, 6, 0.72), 0 0 24px rgba(63, 213, 139, 0.8); }
+      .tap { position: absolute; display: block; width: 46px; height: 46px; margin: -23px 0 0 -23px; border-radius: 50%; background: rgba(var(--y-rgb), 0.7); border: 2px solid #fff; opacity: 0; }
+      .lens.warn { box-shadow: 0 0 0 3px #f0a530, 0 0 50px rgba(240, 165, 48, 0.45), 0 40px 90px rgba(0,0,0,0.7); }
+      .lens.good { box-shadow: 0 0 0 3px var(--good), 0 0 50px rgba(63, 213, 139, 0.45), 0 40px 90px rgba(0,0,0,0.7); }
+      .tag.warn .ln { background: #f0a530; } .tag.warn .tx .y { color: #f0a530; }
+      .tag.good .ln { background: var(--good); } .tag.good .tx .y { color: var(--good); }
+      .pill { display: inline-block; font-family: "Rubik", sans-serif; font-weight: 800; font-size: 50px; padding: 8px 30px; border-radius: 999px; background: var(--y); color: #101214; box-shadow: 0 0 40px rgba(var(--y-rgb), 0.6); }
+      .pillrow { position: absolute; left: 0; right: 0; top: 215px; text-align: center; }
+      .pillrow .pill { opacity: 0; }
+      /* lens: the spotted UI, enlarged in place and lifted toward the camera */
+      .lens { position: absolute; display: block; border-radius: 22px; background-repeat: no-repeat; opacity: 0; z-index: 5;
+        box-shadow: 0 0 0 3px var(--y), 0 0 50px rgba(var(--y-rgb), 0.45), 0 40px 90px rgba(0,0,0,0.7); }
+      .lens.crit { box-shadow: 0 0 0 3px var(--crit), 0 0 50px rgba(255, 90, 78, 0.45), 0 40px 90px rgba(0,0,0,0.7); }
+      .tag { position: absolute; left: 70px; right: 70px; z-index: 6; display: flex; align-items: center; gap: 18px; opacity: 0; }
+      .tag .ln { display: block; width: 60px; height: 3px; background: var(--y); box-shadow: 0 0 14px rgba(var(--y-rgb), 0.9); }
+      .tag .tx { font-family: "Rubik", sans-serif; font-weight: 700; font-size: 50px; text-shadow: 0 4px 30px rgba(0,0,0,0.9); }
+      .tag .tx .y { color: var(--y); }
+      .tag.crit .ln { background: var(--crit); box-shadow: 0 0 14px rgba(255, 90, 78, 0.9); }
+      .tag.crit .tx .y { color: var(--crit); }
+      .stat { position: absolute; left: 60px; right: 60px; text-align: center; z-index: 6; opacity: 0; }
+      .stat .n { font-family: "Rubik", sans-serif; font-weight: 800; font-size: 150px; letter-spacing: -0.04em; color: var(--y); text-shadow: 0 0 50px rgba(var(--y-rgb), 0.6); line-height: 1; direction: ltr; }
+      .stat .l { font-family: "Rubik", sans-serif; font-weight: 700; font-size: 46px; margin-top: 8px; }
+      .stamp { position: absolute; left: 60px; right: 60px; top: 1560px; text-align: center; z-index: 7; font-family: "Rubik", sans-serif; font-weight: 800; font-size: 86px; color: #fff; opacity: 0; }
+      .stamp .y { color: var(--crit); text-shadow: 0 0 36px rgba(255, 90, 78, 0.7); }
+
+      /* hologram part labels (follow the rotating car) */
+      .plab { position: absolute; display: flex; align-items: center; gap: 14px; padding: 14px 24px; border-radius: 14px; transform-origin: 50% 50%;
+        background: rgba(8, 10, 14, 0.82); border: 2px solid var(--good); font-family: "Rubik", sans-serif; font-weight: 700; font-size: 38px; white-space: nowrap; opacity: 0; box-shadow: 0 0 30px rgba(63, 213, 139, 0.35); }
+      .plab .st { font-family: "IBM Plex Sans Hebrew", sans-serif; font-weight: 500; font-size: 30px; color: var(--good); }
+      .plab.crit { border-color: var(--crit); box-shadow: 0 0 30px rgba(255, 90, 78, 0.45); } .plab.crit .st { color: var(--crit); }
+      .plab.unk { border-color: var(--unknown); box-shadow: none; } .plab.unk .st { color: var(--unknown); }
+
+      /* CTA */
+      .cta { position: absolute; left: 0; right: 0; top: 900px; display: flex; flex-direction: column; align-items: center; gap: 40px; }
+      .cta .brand { font-size: 140px; opacity: 0; }
+      .cta .tg { font-family: "Rubik", sans-serif; font-weight: 800; font-size: 72px; opacity: 0; }
+      .plate { display: flex; direction: ltr; height: 132px; border: 5px solid #101214; border-radius: 18px; overflow: hidden; background: var(--y); box-shadow: 0 0 60px rgba(var(--y-rgb), 0.45); opacity: 0; }
+      .plate .il { width: 60px; background: #1747a8; color: #fff; font-family: "Rubik", sans-serif; font-weight: 700; font-size: 26px; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 14px; }
+      .plate .pn { width: 480px; padding: 0 30px; font-family: "Rubik", sans-serif; font-weight: 700; font-size: 78px; letter-spacing: 0.06em; color: #101214; display: flex; align-items: center; justify-content: center; }
+      .plate .d { display: inline-block; opacity: 0; }
+      .btn { padding: 30px 90px; border-radius: 999px; background: var(--y); color: #101214; font-family: "Rubik", sans-serif; font-weight: 800; font-size: 56px; box-shadow: 0 0 60px rgba(var(--y-rgb), 0.6); opacity: 0; }
+      .url { font-family: "Rubik", sans-serif; font-weight: 500; font-size: 38px; color: var(--muted); direction: ltr; opacity: 0; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="33.3" data-width="1080" data-height="1920">
+      <span class="glow"></span>
+      <div class="floor" id="floor" data-layout-allow-overflow></div>
+      <canvas id="holo" width="1080" height="1920"></canvas>
+
+      <!-- Hook + logo -->
+      <section id="s-hook" class="clip" data-start="0" data-duration="4.6" data-track-index="0">
+        <div class="big hook1" id="hook1"><span class="w">כמה</span> <span class="w">מהלקוחות</span> <span class="w">שלך</span></div>
+        <div class="big hook2" id="hook2"><span class="w">לא</span> <span class="w y">חזרו</span> <span class="w">השנה<span class="y">?</span></span></div>
+        <span class="flash" id="flash1"></span>
+        <div class="logo" id="logo"><div class="brand" aria-label="Tipulit"><span class="ch">t</span><span class="ch">i</span><span class="ch">p</span><span class="ch">u</span><span class="ch">l</span><span class="ch">i</span><span class="ch">t</span><span class="dot" id="logo-dot"></span></div>
+          <div class="pillrow"><span class="pill" id="logo-pill">למוסכים</span></div></div>
+        <span class="sweep" id="sweep"></span>
+        <div class="knows" id="knows"><span class="w">שומרת</span> <span class="w">על</span> <span class="w y">הקשר.</span></div>
+      </section>
+
+      <!-- The garage dashboard at work -->
+      <section id="s-main" class="clip" data-start="4.5" data-duration="22.6" data-track-index="1">
+        <div class="monitor" id="monitor">
+          <div class="mscreen">
+            <div class="mlayer" id="M-cust"><img src="capture/g_customers.png" alt="" />
+              <span class="spot" id="sp-row"></span><span class="spot crit" id="sp-late"></span></div>
+            <div class="mlayer" id="M-lapsed"><img src="capture/g_lapsed.png" alt="" />
+              <span class="spot crit" id="sp-lapsed"></span><span class="spot" id="sp-test"></span><span class="spot good" id="sp-wa"></span><span class="tap" id="tap-wa"></span></div>
+            <div class="mlayer" id="M-msg"><img src="capture/g_msg.png" alt="" /><span class="spot good" id="sp-msg"></span></div>
+            <div class="mlayer" id="M-inv"><img src="capture/g_invite.png" alt="" /><span class="spot" id="sp-qr"></span></div>
+            <div class="mlayer" id="M-hist"><img src="capture/g_cust.png" alt="" /><span class="spot good" id="sp-hist"></span></div>
+            <div class="mlayer" id="M-wo"><img src="capture/g_wo.png" alt="" /><span class="spot" id="sp-lines"></span></div>
+            <div class="mlayer" id="M-order"><img src="capture/g_order.png" alt="" /><span class="spot" id="sp-order"></span></div>
+          </div>
+          <span class="stand" data-layout-allow-overflow></span><span class="base" data-layout-allow-overflow></span>
+        </div>
+        <div class="phone" id="phone">
+          <div class="pscreen">
+            <img src="capture/m_approve.png" alt="" id="P-approve" />
+            <img src="capture/m_book.png" alt="" id="P-book" />
+            <span class="spot" id="sp-ap"></span><span class="spot good" id="sp-ok"></span><span class="tap" id="tap-ok"></span><span class="spot" id="sp-slots"></span>
+          </div>
+        </div>
+        <span class="lens" id="ln-row"></span>
+        <span class="lens crit" id="ln-late"></span>
+        <span class="lens crit" id="ln-lapsed"></span>
+        <span class="lens warn" id="ln-test"></span>
+        <span class="lens good" id="ln-msg"></span>
+        <span class="lens" id="ln-qr"></span>
+        <span class="lens good" id="ln-hist"></span>
+        <span class="lens" id="ln-lines"></span>
+        <span class="lens" id="ln-ap"></span>
+        <span class="lens" id="ln-slots"></span>
+        <span class="lens" id="ln-oil"></span>
+        <span class="lens" id="ln-filter"></span>
+
+        <div class="head" id="h1"><span class="code">01 // customer board</span><h2><span class="w">מי</span> <span class="w">צריך</span> <span class="w">לחזור,</span> <span class="w">ומתי</span></h2><span class="bar"></span></div>
+        <div class="head" id="h2"><span class="code">02 // stay connected</span><h2><span class="w">הלקוחות</span> <span class="w">מצטרפים</span> <span class="w">אליך</span></h2><span class="bar"></span></div>
+        <div class="head" id="h3"><span class="code">03 // work order</span><h2><span class="w">כרטיס</span> <span class="w">עבודה</span> <span class="w">לפי</span> <span class="w">ספר</span> <span class="w">היבואן</span></h2><span class="bar"></span></div>
+        <div class="head" id="h4"><span class="code">04 // and more</span><h2><span class="w">תורים</span> <span class="w">וחלקים,</span> <span class="w">מראש</span></h2><span class="bar"></span></div>
+
+        <div class="tag" id="t-row"><span class="ln"></span><span class="tx">לכל רכב: <span class="y">ק"מ משוער והטיפול הבא</span></span></div>
+        <div class="tag crit" id="t-late"><span class="ln"></span><span class="tx">מי <span class="y">באיחור לטיפול</span></span></div>
+        <div class="tag crit" id="t-lapsed"><span class="ln"></span><span class="tx">מי <span class="y">לא היה מעל שנה</span></span></div>
+        <div class="tag warn" id="t-test"><span class="ln"></span><span class="tx">ולמי <span class="y">הטסט מתקרב</span></span></div>
+        <div class="tag good" id="t-msg"><span class="ln"></span><span class="tx">תזכורת בוואטסאפ, <span class="y">בלחיצה</span></span></div>
+        <div class="tag" id="t-qr"><span class="ln"></span><span class="tx">שלט לדלפק: <span class="y">סורקים ומצטרפים</span></span></div>
+        <div class="tag good" id="t-hist"><span class="ln"></span><span class="tx">כל ביקור <span class="y">נשמר בהיסטוריה</span></span></div>
+        <div class="tag" id="t-lines"><span class="ln"></span><span class="tx">החלקים נכנסים <span class="y">לפי ספר היבואן</span></span></div>
+        <div class="tag good" id="t-ok"><span class="ln"></span><span class="tx">עבודה נוספת? <span class="y">הלקוח מאשר מהטלפון</span></span></div>
+        <div class="tag" id="t-slots"><span class="ln"></span><span class="tx">הלקוחות <span class="y">קובעים תור אונליין</span></span></div>
+        <div class="tag" id="t-order"><span class="ln"></span><span class="tx">מה להזמין, <span class="y">לפני שהרכבים מגיעים</span></span></div>
+      </section>
+
+      <!-- CTA -->
+      <section id="s-cta" class="clip" data-start="27.0" data-duration="6.3" data-track-index="2">
+        <div class="cta">
+          <div class="brand" id="cta-brand" aria-label="Tipulit"><span class="ch">t</span><span class="ch">i</span><span class="ch">p</span><span class="ch">u</span><span class="ch">l</span><span class="ch">i</span><span class="ch">t</span><span class="dot"></span></div>
+          <span class="pill" id="cta-pill">למוסכים</span>
+          <div class="tg" id="cta-tg">הלקוחות שלך, <span class="y-t">בזמן.</span></div>
+          <div class="btn" id="cta-btn">נסו את ההדגמה</div>
+          <div class="url" id="cta-url">tipulit.netlify.app/garage</div>
+        </div>
+      </section>
+
+      <span class="scan" data-layout-allow-occlusion></span><span class="vig" data-layout-allow-occlusion></span>
+      <span class="corner c-tl"></span><span class="corner c-tr"></span><span class="corner c-bl"></span><span class="corner c-br"></span>
+      <div class="code hud-tl">tipulit.os / garage</div>
+      <div class="code hud-tr" id="tc">00:00</div>
+      <div class="code hud-b">workshop console · il</div>
+
+      <!-- Narration -->
+{{VO}}
+      <!-- Sound design on the key beats -->
+      <audio id="sfx-pop1" src="assets/sfx/pop.wav" data-start="2.52" data-duration="0.17" data-volume="0.5"></audio>
+      <audio id="sfx-tk1" src="assets/sfx/tick.wav" data-start="5.85" data-duration="0.09" data-volume="0.7"></audio>
+      <audio id="sfx-snap1" src="assets/sfx/snap.wav" data-start="8.15" data-duration="0.16" data-volume="0.7"></audio>
+      <audio id="sfx-snap2" src="assets/sfx/snap.wav" data-start="9.05" data-duration="0.16" data-volume="0.6"></audio>
+      <audio id="sfx-tk2" src="assets/sfx/tick.wav" data-start="10.45" data-duration="0.09" data-volume="0.7"></audio>
+      <audio id="sfx-pop2" src="assets/sfx/pop.wav" data-start="12.35" data-duration="0.17" data-volume="0.45"></audio>
+      <audio id="sfx-tk3" src="assets/sfx/tick.wav" data-start="15.65" data-duration="0.09" data-volume="0.7"></audio>
+      <audio id="sfx-tk4" src="assets/sfx/tick.wav" data-start="17.25" data-duration="0.09" data-volume="0.7"></audio>
+      <audio id="sfx-fill" src="assets/sfx/fill.wav" data-start="19.75" data-duration="1.3" data-volume="0.25"></audio>
+      <audio id="sfx-ok" src="assets/sfx/success.wav" data-start="22.3" data-duration="0.75" data-volume="0.45"></audio>
+      <audio id="sfx-tk5" src="assets/sfx/tick.wav" data-start="24.2" data-duration="0.09" data-volume="0.7"></audio>
+      <audio id="sfx-tk6" src="assets/sfx/tick.wav" data-start="25.4" data-duration="0.09" data-volume="0.7"></audio>
+      <audio id="sfx-chime" src="assets/sfx/chime.wav" data-start="31.85" data-duration="0.95" data-volume="0.4"></audio>
+    </div>
+
+    <script>
+{{HOLO}}
+    </script>
+    <script>
+      // Desktop shots: 2880x1800 (1440x900 @2x) shown 1000px wide. Phone shots: 1170x2532 shown 400px wide.
+      const K = 1000 / 2880, PK = 400 / 1170;
+      const $ = id => document.getElementById(id);
+      const set = (id, props) => { const e = $(id); for (const [k, v] of Object.entries(props)) e.style.setProperty(k, v); };
+      const sbox = (r, k, pad = 8) => ({ left: (r[0] - pad) * k + "px", top: (r[1] - pad) * k + "px", width: (r[2] + pad * 2) * k + "px", height: (r[3] + pad * 2) * k + "px" });
+      const R = {
+        row: [1360, 1043, 1302, 140], late: [1205, 595, 470, 186], lapsed: [440, 830, 260, 74], test: [710, 595, 470, 186], wa: [414, 1077, 72, 72],
+        msg: [928, 577, 1024, 380], qr: [1652, 539, 600, 822], hist: [408, 330, 1344, 286], lines: [628, 969, 1624, 475],
+        order1: [1600, 958, 1062, 176], order2: [1600, 1134, 1062, 158], ap: [51, 829, 1068, 428], ok: [818, 1301, 304, 156], slots: [101, 1205, 1021, 370]
+      };
+      set("sp-row", sbox(R.row, K)); set("sp-late", sbox(R.late, K)); set("sp-lapsed", sbox(R.lapsed, K, 10)); set("sp-test", sbox(R.test, K));
+      set("sp-wa", sbox(R.wa, K, 10)); set("tap-wa", { left: 450 * K + "px", top: 1113 * K + "px" });
+      set("sp-msg", sbox(R.msg, K)); set("sp-qr", sbox(R.qr, K)); set("sp-hist", sbox(R.hist, K)); set("sp-lines", sbox(R.lines, K));
+      set("sp-order", sbox([1600, 958, 1062, 334], K));
+      set("sp-ap", sbox(R.ap, PK)); set("sp-ok", sbox(R.ok, PK, 10)); set("tap-ok", { left: 970 * PK + "px", top: 1379 * PK + "px" }); set("sp-slots", sbox(R.slots, PK));
+      function lens(id, img, r, k, s, cy, bw = 1000) {
+        const m = k * s, w = r[2] * m, h = r[3] * m;
+        set(id, { left: 540 - w / 2 + "px", top: cy - h / 2 + "px", width: w + "px", height: h + "px", "background-image": `url(capture/${img})`,
+          "background-size": `${bw * s}px auto`, "background-position": `${-r[0] * m}px ${-r[1] * m}px` });
+      }
+      lens("ln-row", "g_customers.png", R.row, K, 2.15, 1000);
+      lens("ln-late", "g_customers.png", R.late, K, 4.6, 1000);
+      lens("ln-lapsed", "g_lapsed.png", R.lapsed, K, 7.0, 1000);
+      lens("ln-test", "g_lapsed.png", R.test, K, 4.6, 1000);
+      lens("ln-msg", "g_msg.png", R.msg, K, 2.6, 900);
+      lens("ln-qr", "g_invite.png", R.qr, K, 2.55, 1010);
+      lens("ln-hist", "g_cust.png", R.hist, K, 1.95, 950);
+      lens("ln-lines", "g_wo.png", R.lines, K, 1.72, 950);
+      lens("ln-ap", "m_approve.png", R.ap, PK, 2.5, 1060, 400);
+      lens("ln-slots", "m_book.png", R.slots, PK, 2.6, 1100, 400);
+      lens("ln-oil", "g_order.png", R.order1, K, 2.55, 960);
+      lens("ln-filter", "g_order.png", R.order2, K, 2.55, 1150);
+      for (const [id, top] of [["t-row", 1200], ["t-late", 1250], ["t-lapsed", 1250], ["t-test", 1250], ["t-msg", 1290], ["t-qr", 1320], ["t-hist", 1230], ["t-lines", 1250], ["t-ok", 1540], ["t-slots", 1420], ["t-order", 1330]]) set(id, { top: top + "px" });
+
+      // ---------- hologram car, driven by the timeline clock ----------
+      const car = Holo.build(), hctx = $("holo").getContext("2d");
+      const cl = (v, a = 0, b = 1) => Math.max(a, Math.min(b, v)), ramp = (t, a, b) => cl((t - a) / (b - a)), ease = x => x * x * (3 - 2 * x);
+      function holoAt(t) {
+        if (t < 4.7) {
+          const out = ease(ramp(t, 2.3, 2.75));
+          return { yaw: 0.25 + t * 0.12, pitch: 0.26, scale: 200 - out * 60, dist: 9, cx: 540, cy: 1030, reveal: ease(ramp(t, 0.05, 1.5)), scan: (t * 0.55) % 1.3,
+            alpha: t < 2.75 ? 1 - out * 0.85 : 0.15 * (1 - ramp(t, 4.1, 4.6)) };
+        }
+        if (t > 26.9) {
+          const a = ease(ramp(t, 27.0, 27.7));
+          return { yaw: 0.25 + (t - 26.9) * 0.09, pitch: 0.22, scale: 150, dist: 9, cx: 540, cy: 640, reveal: 1, scan: ((t - 26.9) * 0.45) % 1.3, alpha: a * 0.95 };
+        }
+        return null;
+      }
+      function render(t) {
+        const p = holoAt(t);
+        if (p) Holo.draw(hctx, car, p); else hctx.clearRect(0, 0, 1080, 1920);
+        const s = Math.floor(t), f = Math.floor((t - s) * 30);
+        $("tc").textContent = `00:${String(s).padStart(2, "0")}:${String(f).padStart(2, "0")}`;
+      }
+
+      const tl = gsap.timeline({ paused: true });
+      const calm = "power3.out", snap = "power4.out", move = "power3.inOut";
+      const clock = { t: 0 };
+      tl.to(clock, { t: 33.3, duration: 33.3, ease: "none", onUpdate: () => render(clock.t) }, 0);
+      tl.fromTo("#floor", { backgroundPosition: "0px 0px" }, { backgroundPosition: "0px 940px", duration: 33.3, ease: "none" }, 0);
+
+      const slam = (sel, t, st = 0.09) => tl.fromTo(sel, { opacity: 0, scale: 1.7, filter: "blur(16px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.32, stagger: st, ease: snap }, t);
+      const out = (sel, t, d = 0.25) => tl.to(sel, { opacity: 0, scale: 0.92, filter: "blur(10px)", duration: d, ease: "power2.in" }, t);
+      function headIn(id, t) {
+        tl.set("#" + id, { opacity: 1 }, t);
+        tl.fromTo(`#${id} .code`, { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.4, ease: calm }, t);
+        slam(`#${id} .w`, t + 0.08, 0.06);
+        tl.fromTo(`#${id} .bar`, { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: snap }, t + 0.25);
+      }
+      const headOut = (id, t) => tl.to("#" + id, { opacity: 0, y: -30, duration: 0.3, ease: "power2.in" }, t);
+      const spotIn = (id, t) => tl.fromTo("#" + id, { opacity: 0, scale: 1.25 }, { opacity: 1, scale: 1, duration: 0.35, ease: snap }, t);
+      const fade = (id, t, d = 0.25) => tl.to("#" + id, { opacity: 0, duration: d }, t);
+      const lensIn = (id, t) => tl.fromTo("#" + id, { opacity: 0, scale: 0.4, rotationX: 35, z: -300, transformPerspective: 1400 }, { opacity: 1, scale: 1, rotationX: 0, z: 0, duration: 0.5, ease: snap }, t);
+      const lensOut = (id, t) => tl.to("#" + id, { opacity: 0, scale: 0.5, rotationX: -25, duration: 0.3, ease: "power2.in" }, t);
+      const tagIn = (id, t) => { tl.fromTo("#" + id, { opacity: 0, x: 60 }, { opacity: 1, x: 0, duration: 0.4, ease: snap }, t); tl.fromTo(`#${id} .ln`, { scaleX: 0 }, { scaleX: 1, duration: 0.4, ease: snap }, t); };
+      const tap = (id, t) => tl.fromTo("#" + id, { opacity: 0.95, scale: 0.4 }, { opacity: 0, scale: 2.6, duration: 0.5, ease: "power2.out" }, t);
+      const swapM = (from, to, t) => { tl.to("#" + from, { opacity: 0, duration: 0.25 }, t); tl.fromTo("#" + to, { opacity: 0, scale: 1.04 }, { opacity: 1, scale: 1, duration: 0.35, ease: calm }, t); };
+      const beat = (sp, ln, tg, t, t2) => { spotIn(sp, t); lensIn(ln, t + 0.05); tagIn(tg, t + 0.2); fade(sp, t2); lensOut(ln, t2); fade(tg, t2); };
+
+      // ---------- hook (VO 1 at 0.2, VO 2 at 2.4) ----------
+      const hw1 = document.querySelectorAll("#hook1 .w"), hw2 = document.querySelectorAll("#hook2 .w");
+      [0.3, 0.6, 1.1].forEach((t, i) => slam(hw1[i], t));
+      [1.4, 1.53, 1.83].forEach((t, i) => slam(hw2[i], t));
+      out(["#hook1", "#hook2"], 2.3);
+      tl.fromTo("#flash1", { opacity: 0 }, { opacity: 1, duration: 0.08 }, 2.45); tl.to("#flash1", { opacity: 0, duration: 0.5 }, 2.53);
+      slam("#logo .ch", 2.48, 0.035);
+      tl.fromTo("#logo-dot", { scale: 0 }, { scale: 1, duration: 0.35, ease: "back.out(2)" }, 2.68);
+      tl.fromTo("#logo-pill", { opacity: 0, rotationX: -80, transformPerspective: 800 }, { opacity: 1, rotationX: 0, duration: 0.4, ease: snap }, 2.95);
+      tl.fromTo("#sweep", { opacity: 0, x: 0 }, { opacity: 1, x: 1500, duration: 0.6, ease: "power2.inOut" }, 2.6);
+      const kw = document.querySelectorAll("#knows .w");
+      [3.45, 3.88, 4.0].forEach((t, i) => slam(kw[i], t));
+      tl.to(["#logo", "#knows"], { opacity: 0, scale: 1.25, filter: "blur(14px)", duration: 0.3, ease: "power2.in" }, 4.4);
+
+      // ---------- 01 who needs to come back (VO 3 at 4.6) ----------
+      headIn("h1", 4.6);
+      tl.fromTo("#monitor", { opacity: 0, y: 500, z: -700, rotationX: 40, rotationY: -22, transformPerspective: 2600 }, { opacity: 1, y: 0, z: 0, rotationX: 6, rotationY: -7, duration: 0.8, ease: snap }, 4.55);
+      tl.to("#monitor", { rotationY: 6, rotationX: 3, duration: 9.4, ease: "sine.inOut" }, 5.4);
+      beat("sp-row", "ln-row", "t-row", 5.8, 7.9);
+      beat("sp-late", "ln-late", "t-late", 8.1, 8.95);
+      swapM("M-cust", "M-lapsed", 8.95);
+      beat("sp-lapsed", "ln-lapsed", "t-lapsed", 9.0, 10.3);
+      beat("sp-test", "ln-test", "t-test", 10.4, 11.6);
+      spotIn("sp-wa", 11.9); tap("tap-wa", 12.35);
+      fade("sp-wa", 12.55); swapM("M-lapsed", "M-msg", 12.55);
+      beat("sp-msg", "ln-msg", "t-msg", 12.7, 14.25);
+      headOut("h1", 14.25);
+
+      // ---------- 02 customers join, every visit kept (VO 4 at 14.55) ----------
+      headIn("h2", 14.55);
+      swapM("M-msg", "M-inv", 14.5);
+      beat("sp-qr", "ln-qr", "t-qr", 15.6, 16.95);
+      swapM("M-inv", "M-hist", 16.95);
+      beat("sp-hist", "ln-hist", "t-hist", 17.2, 18.55);
+      headOut("h2", 18.55);
+
+      // ---------- 03 work order + approval (VO 5 at 18.8) ----------
+      headIn("h3", 18.8);
+      swapM("M-hist", "M-wo", 18.75);
+      tl.to("#monitor", { rotationY: -6, rotationX: 4, duration: 2.0, ease: "sine.inOut" }, 18.9);
+      beat("sp-lines", "ln-lines", "t-lines", 19.7, 20.95);
+      tl.to("#monitor", { x: -300, scale: 0.7, rotationY: 30, opacity: 0.25, duration: 0.5, ease: move }, 21.0);
+      tl.fromTo("#phone", { opacity: 0, x: 500, z: -500, rotationY: -60, transformPerspective: 2200 }, { opacity: 1, x: 0, z: 0, rotationY: -8, duration: 0.6, ease: snap }, 21.0);
+      spotIn("sp-ap", 21.4); lensIn("ln-ap", 21.45); lensOut("ln-ap", 22.1); fade("sp-ap", 22.1);
+      spotIn("sp-ok", 22.1); tap("tap-ok", 22.3); tagIn("t-ok", 22.25);
+      fade("sp-ok", 22.95); fade("t-ok", 22.95);
+      headOut("h3", 22.95);
+
+      // ---------- 04 booking + parts (VO 6 at 23.1) ----------
+      headIn("h4", 23.15);
+      tl.to("#phone", { rotationY: 90, duration: 0.2, ease: "power2.in" }, 23.3);
+      tl.set("#P-book", { opacity: 1 }, 23.5);
+      tl.fromTo("#phone", { rotationY: -90 }, { rotationY: -6, duration: 0.35, ease: snap, immediateRender: false }, 23.5);
+      beat("sp-slots", "ln-slots", "t-slots", 24.1, 25.05);
+      tl.to("#phone", { opacity: 0, x: 500, rotationY: 50, duration: 0.4, ease: "power2.in" }, 25.05);
+      swapM("M-wo", "M-order", 25.05);
+      tl.to("#monitor", { x: 0, scale: 1, rotationY: -6, rotationX: 4, opacity: 1, duration: 0.45, ease: move }, 25.05);
+      spotIn("sp-order", 25.35); lensIn("ln-oil", 25.4); lensIn("ln-filter", 25.6); tagIn("t-order", 25.8);
+      fade("sp-order", 26.75); lensOut("ln-oil", 26.75); lensOut("ln-filter", 26.8); fade("t-order", 26.75);
+      headOut("h4", 26.75);
+      tl.to("#monitor", { opacity: 0, y: 400, rotationX: 40, duration: 0.4, ease: "power2.in" }, 26.75);
+
+      // ---------- CTA (VO 7 at 27.2) ----------
+      tl.set("#cta-brand", { opacity: 1 }, 27.25);
+      slam("#cta-brand .ch", 27.25, 0.035);
+      tl.fromTo("#cta-pill", { opacity: 0, rotationX: -80, transformPerspective: 800 }, { opacity: 1, rotationX: 0, duration: 0.4, ease: snap }, 27.7);
+      slam("#cta-tg", 29.15);
+      tl.to("#cta-tg .y-t", { color: "#f7c948", duration: 0.3 }, 30.3);
+      tl.fromTo("#cta-btn", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.45, ease: "back.out(1.8)" }, 31.8);
+      tl.fromTo("#cta-url", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 32.1);
+
+      render(0);
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>
