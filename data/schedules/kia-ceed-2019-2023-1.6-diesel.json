@@ -1,0 +1,977 @@
+{
+  "make": "Kia",
+  "make_he": "קיה",
+  "importer": "טלקאר",
+  "id": "kia-ceed-2019-2023-1.6-diesel",
+  "model": "Ceed",
+  "model_he": "סיד",
+  "generation": "CD",
+  "years": [
+    2019,
+    2023
+  ],
+  "engines": [
+    "1.6 CRDi (Smartstream D1.6, D4FE)"
+  ],
+  "fuel": "diesel",
+  "interval": {
+    "km": 15000,
+    "months": 12,
+    "note": "לפי הספר האירופי: בטבלה הרגילה שמן דיזל כל 30,000 ק\"מ או 24 חודשים; בתנאי הפעלה קשים כל 15,000 ק\"מ או 12 חודשים"
+  },
+  "cycle_km": 240000,
+  "long_interval": [
+    {
+      "item": "coolant",
+      "action": "replace",
+      "first_km": 210000,
+      "first_months": 120,
+      "then_every_km": 30000,
+      "then_every_months": 24
+    },
+    {
+      "item": "timing_belt",
+      "action": "replace",
+      "every_km": 240000,
+      "note": "בדיקת רצועת תזמון כל 120,000; החלפת ערכת התזמון (רצועה, רצועת שמן, מותחן, גלגלת) כל 240,000"
+    },
+    {
+      "item": "transmission_oil",
+      "action": "inspect",
+      "every_km": 90000,
+      "note": "לפי הספר אין צורך בבדיקה או טיפול בגיר האוטומטי בתנאים רגילים; בתנאים קשים החלפה כל 90,000"
+    },
+    {
+      "item": "ecall_battery",
+      "action": "replace",
+      "every_months": 36,
+      "note": "אם קיימת מערכת eCall"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.manualslib.com/manual/1799825/Kia-Xceed-2020.html?page=566",
+      "kind": "manufacturer",
+      "note": "ספר בעלים קיה XCeed 2020 (אנגלית, אירופה), פרק 8 עמ' 16-20 'Normal maintenance schedule - for Europe (except Russia)', שורות הדיזל SmartStream D1.6 ותנאים קשים (עמודי manualslib 566-570)"
+    }
+  ],
+  "status": "draft",
+  "notes": "הספר הישראלי של סיד CD לא נמצא. נלקחה הטבלה האירופית מספר XCeed 2020, שחולק עם סיד CD את מנוע הדיזל 1.6 (D4FE). הקובץ בנוי על רשת 15,000 עם שמן ומסנן בכל טיפול (לפי לוח התנאים הקשים) ושאר הפריטים בטיפולים הזוגיים. מסנן אוויר ומחסנית מסנן הסולר מוחלפים כל 60,000; נוזל בלמים ומסנן מזגן כל 30,000.",
+  "services": [
+    {
+      "km": 15000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "וגם מכסה פתח הסולר כל 60,000"
+        },
+        {
+          "item": "adblue",
+          "action": "inspect",
+          "note": "אם קיימת: צנרת וחיבורי תמיסת האוריאה; מכסה המיכל כל 60,000"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "inspect",
+          "note": "מחסנית מסנן הסולר; המרווח תלוי באיכות הסולר (EN590)"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרקים כדוריים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 45000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect",
+          "note": "אם קיים"
+        },
+        {
+          "item": "dct_oil",
+          "action": "inspect",
+          "note": "אם קיים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "וגם מכסה פתח הסולר כל 60,000"
+        },
+        {
+          "item": "adblue",
+          "action": "inspect",
+          "note": "אם קיימת: צנרת וחיבורי תמיסת האוריאה; מכסה המיכל כל 60,000"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace",
+          "note": "מחסנית מסנן הסולר; המרווח תלוי באיכות הסולר (EN590)"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרקים כדוריים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 75000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "בדיקה ראשונה ב-90,000 ק\"מ או 48 חודשים ואחר כך כל 30,000"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "וגם מכסה פתח הסולר כל 60,000"
+        },
+        {
+          "item": "adblue",
+          "action": "inspect",
+          "note": "אם קיימת: צנרת וחיבורי תמיסת האוריאה; מכסה המיכל כל 60,000"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "inspect",
+          "note": "מחסנית מסנן הסולר; המרווח תלוי באיכות הסולר (EN590)"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרקים כדוריים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 105000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "בדיקה ראשונה ב-90,000 ק\"מ או 48 חודשים ואחר כך כל 30,000"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect",
+          "note": "אם קיים"
+        },
+        {
+          "item": "dct_oil",
+          "action": "inspect",
+          "note": "אם קיים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "וגם מכסה פתח הסולר כל 60,000"
+        },
+        {
+          "item": "adblue",
+          "action": "inspect",
+          "note": "אם קיימת: צנרת וחיבורי תמיסת האוריאה; מכסה המיכל כל 60,000"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace",
+          "note": "מחסנית מסנן הסולר; המרווח תלוי באיכות הסולר (EN590)"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרקים כדוריים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 135000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 150000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "בדיקה ראשונה ב-90,000 ק\"מ או 48 חודשים ואחר כך כל 30,000"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "וגם מכסה פתח הסולר כל 60,000"
+        },
+        {
+          "item": "adblue",
+          "action": "inspect",
+          "note": "אם קיימת: צנרת וחיבורי תמיסת האוריאה; מכסה המיכל כל 60,000"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "inspect",
+          "note": "מחסנית מסנן הסולר; המרווח תלוי באיכות הסולר (EN590)"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרקים כדוריים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 165000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 180000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "בדיקה ראשונה ב-90,000 ק\"מ או 48 חודשים ואחר כך כל 30,000"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect",
+          "note": "אם קיים"
+        },
+        {
+          "item": "dct_oil",
+          "action": "inspect",
+          "note": "אם קיים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "וגם מכסה פתח הסולר כל 60,000"
+        },
+        {
+          "item": "adblue",
+          "action": "inspect",
+          "note": "אם קיימת: צנרת וחיבורי תמיסת האוריאה; מכסה המיכל כל 60,000"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace",
+          "note": "מחסנית מסנן הסולר; המרווח תלוי באיכות הסולר (EN590)"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרקים כדוריים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 195000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 210000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "בדיקה ראשונה ב-90,000 ק\"מ או 48 חודשים ואחר כך כל 30,000"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "וגם מכסה פתח הסולר כל 60,000"
+        },
+        {
+          "item": "adblue",
+          "action": "inspect",
+          "note": "אם קיימת: צנרת וחיבורי תמיסת האוריאה; מכסה המיכל כל 60,000"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "inspect",
+          "note": "מחסנית מסנן הסולר; המרווח תלוי באיכות הסולר (EN590)"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרקים כדוריים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 225000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 240000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "בדיקה ראשונה ב-90,000 ק\"מ או 48 חודשים ואחר כך כל 30,000"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect",
+          "note": "אם קיים"
+        },
+        {
+          "item": "dct_oil",
+          "action": "inspect",
+          "note": "אם קיים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "וגם מכסה פתח הסולר כל 60,000"
+        },
+        {
+          "item": "adblue",
+          "action": "inspect",
+          "note": "אם קיימת: צנרת וחיבורי תמיסת האוריאה; מכסה המיכל כל 60,000"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace",
+          "note": "מחסנית מסנן הסולר; המרווח תלוי באיכות הסולר (EN590)"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרקים כדוריים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        }
+      ]
+    }
+  ],
+  "time_based": []
+}
