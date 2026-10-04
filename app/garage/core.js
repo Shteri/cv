@@ -135,7 +135,7 @@
   // "what shows on the board": the garage switches modules on and off
   function openModules() {
     const opt = modules.filter(m => !m.core);
-    $("#md-from").textContent = st.groups.length ? `לפי הרישיון במשרד התחבורה המוסך עוסק ב: ${st.groups.map(k => GROUP_NAMES[k]).join(", ")}.` : "";
+    $("#md-from").textContent = st.groups.length ? `לפי הרישיון במשרד התחבורה המוסך עוסק ב: ${st.groups.map(k => GROUP_NAMES[k]).join(", ")}.` : ""; $("#md-from").hidden = !st.groups.length;
     $("#md-list").innerHTML = opt.map(m => `<label class="check"><input type="checkbox" data-mod="${m.id}" ${on(m.id) ? "checked" : ""}><span><b>${esc(m.name)}</b><br><span class="muted small">${esc(m.desc || "")}</span></span></label>`).join("");
     $("#md-err").hidden = true; $("#dlg-modules").showModal();
   }
