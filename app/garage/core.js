@@ -102,6 +102,19 @@
   const GROUP_NAMES = { mech: "מכונאות", elec: "חשמל ומיזוג", tire: "צמיגים ומתלים", body: "פחחות וצבע", check: "בדיקות ורישוי", spec: "עבודות מומחה" };
   let enabled = null;   // Set of switched-on module ids; null = all
   const register = m => { modules.push(m); };
+  // Buttons a module adds to another module's screens: place = "appt" (appointment card) or "car" (car box in the customer card).
+  // action: { module, label, when(ctx), run(ctx) }
+  const actions = { appt: [], car: [] };
+  // Rows a module adds to the customer card's history: fn(cars) -> [{ date, km, html }]
+  const timelines = [];
+  const addTimeline = (module, fn) => timelines.push({ module, fn });
+  const timelineFor = cars => timelines.filter(t => on(t.module)).flatMap(t => t.fn(cars));
+  const addAction = (place, a) => actions[place].push(a);
+  function renderActions(place, ctx, cls = "btn") {
+    const list = actions[place].filter(a => on(a.module) && (!a.when || a.when(ctx)));
+    return { html: list.map((a, i) => `<button type="button" class="${cls}" data-act-${place}="${i}">${esc(a.label)}</button>`).join(""),
+      bind: root => $$(`[data-act-${place}]`, root).forEach(b => b.onclick = () => list[+b.getAttribute(`data-act-${place}`)].run(ctx)) };
+  }
   const on = id => { const m = modules.find(x => x.id === id); return !!m && (m.core || !enabled || enabled.has(id)); };
   const call = (name, ...a) => typeof G[name] === "function" ? G[name](...a) : undefined;
   const clone = o => JSON.parse(JSON.stringify(o));
@@ -253,6 +266,10 @@
     const lastDone = appts.filter(a => a.id.startsWith("dap-0-") && a.status === "done").pop(); if (lastDone) lastDone.status = "ready";
     const wa = appts.find(a => a.status === "waiting_approval");
     if (wa) approvals.push({ id: "daw-1", appointment_id: wa.id, message: "רפידות הבלם הקדמיות שחוקות", lines: [{ desc: "רפידות בלם קדמיות", price: 380 }, { desc: "עבודה", price: 150 }], total: 530, status: "pending", created_at: new Date().toISOString() });
+    // a past vehicle inspection, answered by the customer
+    approvals.push({ id: "dins-1", garage_id: "demo", garage_car_id: rows[1].car_id, appointment_id: null, message: "תוצאות בדיקת הרכב", km: rows[1].km - 2000, created_at: iso(-20), decided_at: iso(-20), status: "approved", approved_lines: [0],
+      lines: [{ desc: "רפידות בלם קדמיות", price: 460, check: "brakes_front", urgent: true }, { desc: "החלפת מגבים", price: 110, check: "wipers" }], total: 570,
+      checks: [{ key: "brakes_front", label: "בלמים קדמיים", status: "now", note: "נשארו 2 מ\"מ" }, { key: "wipers", label: "מגבים ונוזל שמשות", status: "soon", note: "משאירים פסים" }, { key: "tires", label: "צמיגים", status: "ok" }, { key: "lights", label: "אורות", status: "ok" }, { key: "battery", label: "מצבר", status: "ok", note: "12.6V" }] });
     // inventory: common service parts, two suppliers, one order on the way and one received; some invoices
     const sups = [{ id: "dsp-1", name: "חלפים מרכז", contact: "אבי", phone: "03-5550101", email: null, notes: "אספקה למחרת" }, { id: "dsp-2", name: "שמנים ישיר", contact: "רינה", phone: "054-5550202", email: null, notes: null }];
     const P = (id, sku, name, item_key, stock, min, cost, price, sup, extra = {}) => ({ id, garage_id: "demo", sku, name, item_key, stock, min_stock: min, cost, price, supplier_id: sup, unit: "unit", active: true, brand: null, fits: null, location: null, ...extra });
@@ -279,10 +296,10 @@
     rows.slice(0, 3).forEach((r, i) => { const s = schedById(r.schedule_id), sv = s.services[0], items = sv.items.filter(x => x.action === "replace").map(x => x.item); const lines = [...items.map(k => ({ type: "part", desc: itemName(k), qty: 1, price: 60 + i * 15 })), { type: "labor", desc: "עבודה, טיפול תקופתי", qty: 1, price: 320 }]; wos.unshift({ id: "dwo-r" + i, garage_car_id: r.car_id, kind: "service", svc_km: sv.km, km: r.km, date: iso(-(i * 3 + 1)).slice(0, 10), items, lines, total: lines.reduce((a, l) => a + l.price, 0), notes: null, entry_id: null }); });
     // this month's invoices
     wos.filter(w => w.id.startsWith("dwo-")).slice(3, 7).forEach((w, i) => invoices.unshift({ id: "divm-" + i, garage_id: "demo", work_order_id: null, kind: "invoice_receipt", provider: "morning", number: String(20100 + i), url: null, customer_name: rows[(i * 5 + 4) % rows.length].name, total: 480 + i * 130, payment: pays[i], issued_at: new Date(Date.now() - i * 5 * 3600000).toISOString() }));
-    return { garage: { id: "demo", name: "מוסך הדגמה", city: "חולון", address: "הפלד 40", bays: 3, slot_minutes: 60, booking_enabled: true, hours: {} }, rows, wos, history, recalls, appts, approvals, parts, sups, pos, invoices, billing: { api_id: "demo", has_secret: true, sandbox: false, vat_exempt: false } };
+    return { garage: { id: "demo", name: "מוסך הדגמה", city: "חולון", address: "הפלד 40", bays: 3, slot_minutes: 60, booking_enabled: true, hours: {}, labor_rate: 280 }, rows, wos, history, recalls, appts, approvals, parts, sups, pos, invoices, billing: { api_id: "demo", has_secret: true, sandbox: false, vat_exempt: false } };
   })();
 
 
-  Object.assign(G, { D, Cloud, E, L, $, $$, fmt, esc, fmtDate, monthName, fmtPlate, digits, schedById, itemName, today, toast, telHref, waHref, theModel, ico, demo, api, st, monthsSince, view, recallsOf, isDue, isOver, isTest, FILTERS, match, message, openMsg, copy, showTab, setSeg, openMsgText, loadQr, download, numIn, nf, money, qtyOf, oilLiters, register, on, call, loadRecalls, reload, openGarage, DEMO });
+  Object.assign(G, { addAction, renderActions, addTimeline, timelineFor, D, Cloud, E, L, $, $$, fmt, esc, fmtDate, monthName, fmtPlate, digits, schedById, itemName, today, toast, telHref, waHref, theModel, ico, demo, api, st, monthsSince, view, recallsOf, isDue, isOver, isTest, FILTERS, match, message, openMsg, copy, showTab, setSeg, openMsgText, loadQr, download, numIn, nf, money, qtyOf, oilLiters, register, on, call, loadRecalls, reload, openGarage, DEMO });
   G.boot = () => start().catch(e => showGate("משהו השתבש", e.message || String(e), `<a class="btn" href="./">נסה שוב</a>`));
 })();

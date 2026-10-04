@@ -10,3 +10,4 @@ create function storage.foldername(name text) returns text[] language sql immuta
 grant usage on schema public, auth, storage to anon, authenticated, service_role;
 grant execute on function auth.uid() to anon, authenticated;
 alter default privileges in schema public grant all on tables to anon, authenticated, service_role;
+grant all on storage.objects to anon, authenticated;   -- as on Supabase; RLS decides

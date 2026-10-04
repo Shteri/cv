@@ -51,6 +51,7 @@
       <button class="tab on" role="tab" data-tab="customers" aria-selected="true">לקוחות</button>
       <button class="tab" role="tab" data-tab="calendar" aria-selected="false">יומן</button>
       <button class="tab" role="tab" data-tab="order" data-module="service" aria-selected="false">מה להזמין</button>
+      <button class="tab" role="tab" data-tab="catalog" data-module="catalog" aria-selected="false">מחירון</button>
       <button class="tab" role="tab" data-tab="stock" data-module="stock" aria-selected="false">מלאי</button>
       <button class="tab" role="tab" data-tab="billing" data-module="billing" aria-selected="false">חשבוניות</button>
     </div>
@@ -109,6 +110,20 @@
         <div class="empty" id="fc-empty" hidden></div>
       </div>
       <p class="foot muted">לפי הטיפול הבא של כל רכב בלוח היבואן. להזמין = מה שצריך לטיפולים, ועוד המינימום שהגדרתם, פחות מה שיש במלאי ומה שכבר הוזמן. כדי לחשב, קשרו כל חלק במלאי לפריט בטיפול (למשל מסנן שמן). שמן: לפי הקיבולת בספר, ו-4.5 ליטר כשהיא לא ידועה.</p>
+    </div>
+
+    <div class="view" id="view-catalog" hidden>
+      <div class="toolbar">
+        <div class="search"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><input id="cg-q" type="search" autocomplete="off" placeholder="חיפוש עבודה או חלק" aria-label="חיפוש במחירון"></div>
+        <label class="field"><span>₪ לשעת עבודה</span><input id="cg-rate" class="num" inputmode="decimal" autocomplete="off"></label>
+        <div class="head-actions"><button class="btn" id="cg-suggest">הוספה מרשימה מוכנה</button><button class="btn primary" id="cg-new">עבודה חדשה</button></div>
+      </div>
+      <div class="chips" id="cg-cats"></div>
+      <div class="table-wrap">
+        <table class="tbl"><thead><tr><th>עבודה</th><th>קטגוריה</th><th class="num-col">שעות</th><th>חלקים</th><th class="num-col">עבודה</th><th class="num-col">חלקים</th><th class="num-col">סה"כ משוער</th></tr></thead><tbody id="cg-rows"></tbody></table>
+        <div class="empty" id="cg-empty" hidden></div>
+      </div>
+      <p class="foot muted">עבודה = שעות כפול מחיר השעה, או מחיר קבוע אם הגדרתם. חלקים לפי המחיר ללקוח במלאי, ובכרטיס עבודה לפי החלק שמתאים לרכב. מכאן עבודה נכנסת לכרטיס עבודה, לבקשת אישור ולבדיקת רכב.</p>
     </div>
 
     <div class="view" id="view-stock" hidden>
@@ -193,7 +208,7 @@
         <tbody id="wo-lines"></tbody>
       </table>
       <datalist id="wo-parts"></datalist>
-      <div class="dlg-actions start"><button class="btn small" type="button" id="wo-add-part">+ חלק</button><button class="btn small" type="button" id="wo-add-labor">+ עבודה</button></div>
+      <div class="dlg-actions start"><button class="btn small" type="button" id="wo-add-part">+ חלק</button><button class="btn small" type="button" id="wo-add-labor">+ עבודה</button><button class="btn small" type="button" id="wo-add-job" data-module="catalog">+ מהמחירון</button></div>
     </div>
     <div class="row-between"><label class="field grow"><span>הערות</span><input id="wo-notes" autocomplete="off"></label><div class="total">סה"כ <b class="num" id="wo-total">₪0</b></div></div>
     <div class="send" id="wo-send-row">
@@ -266,7 +281,7 @@
       <thead><tr><th>תיאור</th><th class="num-col">מחיר</th><th></th></tr></thead>
       <tbody id="aw-lines"></tbody>
     </table>
-    <div class="row-between"><button class="btn small" type="button" id="aw-add">+ שורה</button><div class="total">סה"כ <b class="num" id="aw-total">₪0</b></div></div>
+    <div class="row-between"><div class="dlg-actions start"><button class="btn small" type="button" id="aw-add">+ שורה</button><button class="btn small" type="button" id="aw-add-job" data-module="catalog">+ מהמחירון</button></div><div class="total">סה"כ <b class="num" id="aw-total">₪0</b></div></div>
     <p class="err" id="aw-err" hidden></p>
     <div class="dlg-actions"><button class="btn" value="close">ביטול</button><button class="btn primary" type="button" id="aw-send">שלח ללקוח</button></div>
   </form>
@@ -444,6 +459,56 @@
   </form>
 </dialog>
 
+<!-- job catalog: one job -->
+<dialog class="dlg wide" id="dlg-job">
+  <form method="dialog" class="dlg-in">
+    <div class="dlg-head"><h2 id="jb-title">עבודה חדשה</h2><button class="x" value="close" aria-label="סגור">×</button></div>
+    <div class="grid2">
+      <label class="field"><span>שם העבודה</span><input id="jb-name" autocomplete="off" placeholder="למשל רפידות בלם קדמיות"></label>
+      <label class="field"><span>קטגוריה</span><input id="jb-cat" list="jb-cats" autocomplete="off"><datalist id="jb-cats"></datalist></label>
+      <label class="field"><span>שעות עבודה</span><input id="jb-hours" class="num" inputmode="decimal" autocomplete="off"></label>
+      <label class="field"><span>מחיר עבודה קבוע (לא חובה)</span><input id="jb-price" class="num" inputmode="decimal" autocomplete="off" placeholder="אחרת שעות כפול מחיר השעה"></label>
+    </div>
+    <div class="field"><span>חלקים שהעבודה מחליפה</span><div class="chips" id="jb-items"></div></div>
+    <div class="grid3" id="jb-qty" hidden></div>
+    <p class="err" id="jb-err" hidden></p>
+    <div class="dlg-actions"><button class="btn" type="button" id="jb-del">מחק</button><button class="btn" value="close">ביטול</button><button class="btn primary" type="button" id="jb-save">שמור</button></div>
+  </form>
+</dialog>
+
+<!-- job catalog: ready-made list -->
+<dialog class="dlg wide" id="dlg-sug">
+  <form method="dialog" class="dlg-in">
+    <div class="dlg-head"><h2>רשימה מוכנה</h2><button class="x" value="close" aria-label="סגור">×</button></div>
+    <p class="muted small">עבודות נפוצות לפי סוג המוסך. השעות הן הערכה כללית: אחרי ההוספה עדכנו לפי הניסיון שלכם.</p>
+    <div class="stack-sm" id="sg-list"></div>
+    <div class="dlg-actions"><button class="btn" value="close">ביטול</button><button class="btn primary" type="button" id="sg-go">הוסף למחירון</button></div>
+  </form>
+</dialog>
+
+<!-- job catalog: pick a job for a work order or an approval -->
+<dialog class="dlg" id="dlg-pick">
+  <form method="dialog" class="dlg-in">
+    <div class="dlg-head"><h2>מהמחירון</h2><button class="x" value="close" aria-label="סגור">×</button></div>
+    <input id="pk-q" type="search" autocomplete="off" placeholder="חיפוש עבודה" aria-label="חיפוש עבודה">
+    <div class="stack-sm" id="pk-list"></div>
+  </form>
+</dialog>
+
+<!-- vehicle inspection -->
+<dialog class="dlg xl" id="dlg-insp">
+  <form method="dialog" class="dlg-in">
+    <div class="dlg-head"><h2>בדיקת רכב</h2><button class="x" value="close" aria-label="סגור">×</button></div>
+    <p class="muted" id="in-who"></p>
+    <div class="row-between"><label class="field"><span>ק"מ</span><input id="in-km" class="num" inputmode="numeric" autocomplete="off"></label><button class="btn small" type="button" id="in-allok">כל השאר תקין</button></div>
+    <div class="insp" id="in-rows"></div>
+    <div class="row-between"><span class="muted small" id="in-sum"></span><div class="total">סה"כ מומלץ <b class="num" id="in-total">₪0</b></div></div>
+    <p class="muted small">הלקוח מקבל קישור עם מה שמצאתם, התמונות והמחירים, ומאשר כל עבודה בנפרד.</p>
+    <p class="err" id="in-err" hidden></p>
+    <div class="dlg-actions"><button class="btn" value="close">ביטול</button><button class="btn primary" type="button" id="in-send">שלח ללקוח</button></div>
+  </form>
+</dialog>
+
 <!-- which modules this garage uses -->
 <dialog class="dlg wide" id="dlg-modules">
   <form method="dialog" class="dlg-in">
@@ -472,6 +537,8 @@
 <script src="modules/service.js"></script>
 <script src="modules/stock.js"></script>
 <script src="modules/billing.js"></script>
+<script src="modules/catalog.js"></script>
+<script src="modules/inspection.js"></script>
 <script>Garage.boot();</script>
 </body>
 </html>

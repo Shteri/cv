@@ -32,9 +32,14 @@
     $$("#wo-items .chip").forEach(b => b.onclick = () => { const k = b.dataset.it; if (woItems.has(k)) { woItems.delete(k); woLines = woLines.filter(l => l.item !== k); } else { woItems.add(k); woLines.splice(woLines.findIndex(l => l.type === "labor") >= 0 ? woLines.findIndex(l => l.type === "labor") : woLines.length, 0, partLine(k)); } renderWoItems(); renderWoLines(); });
   }
   // a service item becomes a line with the matching stock part (name, price, liters of oil) when there is one
-  function partLine(item) {
+  function partLine(item, qty) {
     const p = partFor(item, woFor);
-    return { type: "part", desc: p ? p.name : itemName(item), qty: itemQty(item, p, woFor), price: p && p.price != null ? p.price : "", item, part_id: p ? p.id : null };
+    return { type: "part", desc: p ? p.name : itemName(item), qty: qty || itemQty(item, p, woFor), price: p && p.price != null ? p.price : "", item, part_id: p ? p.id : null };
+  }
+  // other modules (the job catalog) add lines: parts go before the labour lines
+  function woAddLines(lines) {
+    for (const l of lines) { if (l.type === "part") { woLines.splice(Math.max(0, woLines.findIndex(x => x.type === "labor")), 0, { ...l, manual: true }); if (l.item) woItems.add(l.item); } else woLines.push({ ...l, manual: true }); }
+    renderWoItems(); renderWoLines();
   }
   const typeTag = l => l.type === "labor" ? `<span class="tag mine">עבודה</span>` : l.part_id && partById(l.part_id) ? `<span class="tag ok" title="במלאי: ${esc(qtyOf(partById(l.part_id).stock, partById(l.part_id).unit))}">מהמלאי</span>` : `<span class="tag">חלק</span>`;
   const lineTotal = l => (+l.qty || 0) * (+String(l.price).replace(/[^\d.]/g, "") || 0);
@@ -110,5 +115,5 @@
   }
 
   G.register({ id: "workorder", core: true });
-  Object.assign(G, { openWo });
+  Object.assign(G, { openWo, woAddLines, woPartLine: partLine, woCar: () => woFor });
 })(window.Garage);

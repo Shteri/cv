@@ -85,13 +85,16 @@
     $("#ap-status").innerHTML = Object.entries(STATUS).map(([k, t]) => `<button type="button" class="chip ${a.status === k ? "on" : ""}" data-st="${k}">${t}</button>`).join("");
     $$("#ap-status .chip").forEach(b => b.onclick = () => setApptStatus(b.dataset.st));
     const wo = a.work_order_id && st.wos.find(w => w.id === a.work_order_id);
+    const apActs = G.renderActions("appt", { appt: a, car: c });
     $("#ap-actions").innerHTML = [
       phone ? `<button type="button" class="btn" id="ap-wa">${ico.wa} וואטסאפ</button><a class="btn" href="${telHref(phone)}">${ico.phone} חיוג</a>` : "",
       c ? `<button type="button" class="btn" id="ap-card">כרטיס לקוח</button><button type="button" class="btn" id="ap-wo">${wo ? "כרטיס עבודה (פתוח)" : "כרטיס עבודה"}</button>` : `<button type="button" class="btn" id="ap-addcust">הוסף ללקוחות</button>`,
       `<button type="button" class="btn" id="ap-approve">בקש אישור לעבודה נוספת</button>`,
       wo && on("billing") ? `<button type="button" class="btn" id="ap-inv">${invOf(wo.id) ? "חשבונית " + esc(invOf(wo.id).number || "") : "חשבונית"}</button>` : "",
+      apActs.html,
       phone ? `<button type="button" class="btn primary" id="ap-ready">הרכב מוכן, עדכן את הלקוח</button>` : ""
     ].join("");
+    apActs.bind($("#ap-actions"));
     const wa = $("#ap-wa"); if (wa) wa.onclick = () => openMsgText(a.customer_name, phone, `היי ${a.customer_name.split(" ")[0]}, כאן ${st.garage.name}. `);
     const cc = $("#ap-card"); if (cc) cc.onclick = () => { $("#dlg-appt").close(); openCustomer(c.customer_id); };
     const wb = $("#ap-wo"); if (wb) wb.onclick = () => { $("#dlg-appt").close(); G.woAppt = a; openWo(c); };
@@ -105,10 +108,13 @@
     };
     const mine = (demo ? DEMO.approvals : cal.approvals).filter(x => x.appointment_id === a.id);
     $("#ap-approvals-row").hidden = !mine.length;
-    $("#ap-approvals").innerHTML = mine.map(x => `<div class="approval" data-st="${x.status}"><span>${esc(x.message || "עבודה נוספת")} · <b class="num">₪${fmt(x.total)}</b></span><span class="tag ${x.status === "approved" ? "ok" : x.status === "declined" ? "crit" : "warn"}">${x.status === "approved" ? "אושר" : x.status === "declined" ? "נדחה" : "ממתין"}</span>${x.decided_at ? `<span class="muted small">${fmtDate(x.decided_at)} ${hm(new Date(x.decided_at))}</span>` : `<button type="button" class="btn small" data-resend="${x.id}">שלח שוב</button>`}</div>`).join("");
+    $("#ap-approvals").innerHTML = mine.map(x => `<div class="approval" data-st="${x.status}"><span>${esc(x.message || "עבודה נוספת")} · <b class="num">₪${fmt(approvedTotal(x))}</b>${x.status === "approved" && partial(x) ? ` <span class="muted small">(${x.approved_lines.length} מתוך ${x.lines.length})</span>` : ""}</span><span class="tag ${x.status === "approved" ? "ok" : x.status === "declined" ? "crit" : "warn"}">${x.status === "approved" ? (partial(x) ? "אושר חלקית" : "אושר") : x.status === "declined" ? "נדחה" : "ממתין"}</span>${x.decided_at ? `<span class="muted small">${fmtDate(x.decided_at)} ${hm(new Date(x.decided_at))}</span>` : `<button type="button" class="btn small" data-resend="${x.id}">שלח שוב</button>`}</div>`).join("");
     $$("[data-resend]").forEach(b => b.onclick = () => { const x = mine.find(y => y.id === b.dataset.resend); sendApprovalLink(a, x); });
     $("#ap-note").textContent = a.note ? "הערה: " + a.note : "";
   }
+  // a customer may approve only some lines (approval_choose); the total shown is what was approved
+  const partial = x => Array.isArray(x.approved_lines) && x.approved_lines.length < (x.lines || []).length;
+  const approvedTotal = x => x.status === "approved" && Array.isArray(x.approved_lines) ? x.approved_lines.reduce((s, i) => s + (+((x.lines || [])[i] || {}).price || 0), 0) : x.total;
   async function setApptStatus(status) {
     const a = apFor, prev = a.status; a.status = status;
     try { if (!demo) Object.assign(a, await api.saveAppointment({ id: a.id, garage_id: a.garage_id, status })); renderAppt(); renderCalendar(); toast(STATUS[status]); }
@@ -175,7 +181,11 @@
   const approveUrl = id => location.origin + location.pathname.replace(/garage\/[^/]*$/, "") + "approve/?id=" + id;
   function sendApprovalLink(a, x) {
     const c = apCar(a), phone = a.phone || (c && c.phone);
-    const text = `היי ${a.customer_name.split(" ")[0]}, כאן ${st.garage.name}. ${x.message ? x.message + ". " : ""}העבודה הנוספת עולה ₪${fmt(x.total)}. לפרטים ולאישור: ${demo ? location.origin + "/approve/?demo" : approveUrl(x.id)}`;
+    const link = demo ? location.origin + "/approve/?demo" + ((x.checks || []).length ? "&insp" : "") : approveUrl(x.id), hi = `היי ${a.customer_name.split(" ")[0]}, כאן ${st.garage.name}. `;
+    const now = (x.checks || []).filter(k => k.status === "now").length, soon = (x.checks || []).filter(k => k.status === "soon").length;
+    const text = (x.checks || []).length
+      ? hi + `סיימנו לבדוק את הרכב. ${now || soon ? `מצאנו ${[now ? (now === 1 ? "דבר אחד לטיפול עכשיו" : now + " דברים לטיפול עכשיו") : "", soon ? (soon === 1 ? "דבר אחד שכדאי לטפל בו בקרוב" : soon + " דברים שכדאי לטפל בהם בקרוב") : ""].filter(Boolean).join(", ו")}. התמונות, המחירים והאישור כאן` : "הכל תקין. הדוח המלא כאן"}: ${link}`
+      : hi + `${x.message ? x.message + ". " : ""}העבודה הנוספת עולה ₪${fmt(x.total)}. לפרטים ולאישור: ${link}`;
     if (phone) openMsgText(a.customer_name, phone, text); else { copy(text, "אין טלפון ללקוח. ההודעה הועתקה"); }
   }
   $("#aw-send").onclick = async () => {
@@ -194,5 +204,9 @@
   };
 
   G.register({ id: "calendar", core: true, tab: "calendar", show() { loadDay(); calPolling(true); }, hide() { calPolling(false); } });
-  Object.assign(G, { renderCalendar });
+  // used by modules that send their own approval links (vehicle inspection)
+  const addApproval = x => { (demo ? G.DEMO.approvals : cal.approvals).unshift(x); };
+  const markAwaiting = async a => { apFor = a; await setApptStatus("waiting_approval"); };
+  const awAddLines = lines => { awLines = awLines.filter(l => l.desc.trim() || l.price !== ""); awLines.push(...lines.map(l => ({ desc: l.desc, price: String(l.price || "") }))); renderAwLines(); };
+  Object.assign(G, { renderCalendar, sendApprovalLink, addApproval, markAwaiting, awAddLines, apCar });
 })(window.Garage);

@@ -17,10 +17,11 @@
   <a class="brand" href="../" aria-label="Tipulit"><span class="brand-word" lang="en" dir="ltr">tipulit</span></a>
   <section class="box" id="a-load"><p class="muted">טוען…</p></section>
   <section class="stack-md" id="a-view" hidden>
-    <div><p class="muted small" id="a-garage"></p><h1>אישור עבודה נוספת</h1><p class="muted" id="a-car"></p></div>
+    <div><p class="muted small" id="a-garage"></p><h1 id="a-title">אישור עבודה נוספת</h1><p class="muted" id="a-car"></p></div>
     <div class="demo-note" id="a-demo" hidden>מצב הדגמה: שום דבר לא נשלח למוסך.</div>
     <p class="big-line" id="a-msg"></p>
-    <div class="table-wrap"><table class="tbl lines-view"><tbody id="a-lines"></tbody><tfoot><tr><td><b>סה"כ</b></td><td class="num-col num"><b id="a-total"></b></td></tr></tfoot></table></div>
+    <div class="stack-sm" id="a-checks" hidden></div>
+    <div class="table-wrap" id="a-table"><table class="tbl lines-view"><tbody id="a-lines"></tbody><tfoot><tr><td><b id="a-total-label">סה"כ</b></td><td class="num-col num"><b id="a-total"></b></td></tr></tfoot></table></div>
     <div class="dlg-actions start" id="a-actions"><button class="btn primary big" id="a-yes">מאשר/ת</button><button class="btn big" id="a-no">לא עכשיו</button></div>
     <div class="box" id="a-result" hidden></div>
     <p class="muted small" id="a-help"></p>
@@ -33,35 +34,86 @@
 <script>
 (function () {
   const Cloud = window.TipulitCloud || { enabled: false };
-  const $ = s => document.querySelector(s);
+  const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
   const esc = x => String(x ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
   const fmt = n => Math.round(n).toLocaleString("he-IL");
   const q = new URLSearchParams(location.search), demo = q.has("demo"), id = q.get("id");
-  let ap = null;
+  let ap = null, pick = new Set();
   const show = s => { for (const x of ["a-load", "a-view", "a-missing"]) $("#" + x).hidden = x !== s; };
+  // An inspection lets the customer approve each recommended job; any other request is approved as a whole.
+  const isInspection = () => (ap.checks || []).length > 0;
+  const lines = () => ap.lines || [];
+  const sum = set => lines().reduce((s, l, i) => s + (set.has(i) ? +l.price || 0 : 0), 0);
+  const GROUPS = [["now", "לטפל עכשיו", "crit"], ["soon", "כדאי לטפל בקרוב", "warn"], ["ok", "תקין", "ok"]];
+  function renderChecks() {
+    const ch = ap.checks || [];
+    $("#a-checks").hidden = !ch.length;
+    $("#a-checks").innerHTML = GROUPS.map(([st, title, tag]) => {
+      const list = ch.filter(k => k.status === st); if (!list.length) return "";
+      const rows = list.map(k => `<div class="approval"><span><b>${esc(k.label)}</b>${k.note ? ` <span class="muted small">${esc(k.note)}</span>` : ""}</span><span class="tag ${tag}">${title}</span>${(k.photos || []).length ? `<div class="thumbs">${k.photos.map(u => `<a href="${esc(u)}" target="_blank" rel="noopener"><img class="thumb" src="${esc(u)}" alt="${esc(k.label)}"></a>`).join("")}</div>` : ""}</div>`).join("");
+      return st === "ok" ? `<details><summary>${list.length} סעיפים נבדקו ונמצאו תקינים</summary><div class="stack-sm">${rows}</div></details>` : `<h3>${title}</h3>${rows}`;
+    }).join("");
+  }
   function render() {
     show("a-view");
-    $("#a-garage").textContent = ap.garage; $("#a-car").textContent = ap.car || ""; $("#a-msg").textContent = ap.message || "המוסך מבקש את אישורך לעבודה הבאה:";
-    $("#a-lines").innerHTML = (ap.lines || []).map(l => `<tr><td>${esc(l.desc)}</td><td class="num-col num">${l.price ? "₪" + fmt(l.price) : ""}</td></tr>`).join("");
-    $("#a-total").textContent = "₪" + fmt(ap.total || 0);
-    const decided = ap.status !== "pending";
-    $("#a-actions").hidden = decided; $("#a-result").hidden = !decided;
-    if (decided) $("#a-result").innerHTML = ap.status === "approved" ? `<b>אישרת את העבודה.</b><p class="muted small">המוסך קיבל את האישור${ap.decided_at ? " ב-" + new Date(ap.decided_at).toLocaleString("he-IL") : ""}.</p>` : `<b>העבודה לא אושרה.</b><p class="muted small">המוסך יודע שלא לבצע אותה. אפשר להתקשר אליו אם תרצו לשנות.</p>`;
+    const insp = isInspection(), decided = ap.status !== "pending";
+    $("#a-garage").textContent = ap.garage; $("#a-car").textContent = [ap.car, ap.km ? fmt(ap.km) + ' ק"מ' : ""].filter(Boolean).join(" · ");
+    $("#a-title").textContent = insp ? "תוצאות בדיקת הרכב" : "אישור עבודה נוספת";
+    $("#a-msg").textContent = insp ? (lines().length ? "סמנו מה לבצע. אפשר לאשר רק חלק." : "הכל נבדק ונמצא תקין.") : (ap.message || "המוסך מבקש את אישורך לעבודה הבאה:");
+    renderChecks();
+    const approved = new Set(decided ? (ap.approved_lines || (ap.status === "approved" ? lines().map((_, i) => i) : [])) : []);
+    $("#a-table").hidden = !lines().length;
+    $("#a-lines").innerHTML = lines().map((l, i) => `<tr><td>${insp && !decided ? `<label class="check"><input type="checkbox" data-l="${i}" ${pick.has(i) ? "checked" : ""}> ${esc(l.desc)}</label>` : `${esc(l.desc)}${decided && insp ? (approved.has(i) ? ` <span class="tag ok">אושר</span>` : ` <span class="tag">לא עכשיו</span>`) : ""}`}${l.urgent ? ` <span class="tag crit">דחוף</span>` : ""}</td><td class="num-col num">${l.price ? "₪" + fmt(l.price) : ""}</td></tr>`).join("");
+    $$("#a-lines [data-l]").forEach(x => x.onchange = () => { x.checked ? pick.add(+x.dataset.l) : pick.delete(+x.dataset.l); totals(); });
+    totals(approved);
+    $("#a-actions").hidden = decided || !lines().length; $("#a-result").hidden = !decided || !lines().length;
+    if (decided) {
+      const n = approved.size, when = ap.decided_at ? " ב-" + new Date(ap.decided_at).toLocaleString("he-IL") : "";
+      $("#a-result").innerHTML = ap.status === "approved"
+        ? `<b>${insp && n < lines().length ? `אישרת ${n} מתוך ${lines().length} עבודות.` : "אישרת את העבודה."}</b><p class="muted small">המוסך קיבל את האישור${when}.</p>`
+        : `<b>העבודה לא אושרה.</b><p class="muted small">המוסך יודע שלא לבצע אותה. אפשר להתקשר אליו אם תרצו לשנות.</p>`;
+    }
     $("#a-help").innerHTML = ap.garage_phone ? `שאלות? <a href="tel:${esc(ap.garage_phone.replace(/[^\d+*#]/g, ""))}">התקשרו למוסך</a>` : "";
   }
+  function totals(approved) {
+    const decided = ap.status !== "pending", set = decided ? approved || new Set(ap.approved_lines || []) : isInspection() ? pick : new Set(lines().map((_, i) => i));
+    $("#a-total").textContent = "₪" + fmt(decided && !isInspection() ? ap.total || 0 : sum(set));
+    $("#a-total-label").textContent = isInspection() ? (decided ? 'סה"כ שאושר' : 'סה"כ למסומנים') : 'סה"כ';
+    $("#a-yes").textContent = isInspection() ? (pick.size === lines().length ? "מאשר/ת הכל" : `מאשר/ת ${pick.size} מתוך ${lines().length}`) : "מאשר/ת";
+    $("#a-yes").disabled = isInspection() && !pick.size;
+  }
   async function decide(yes) {
-    if (!yes && !confirm("לא לבצע את העבודה הזו?")) return;
+    if (!yes && !confirm(isInspection() ? "לא לבצע אף אחת מהעבודות עכשיו?" : "לא לבצע את העבודה הזו?")) return;
+    const chosen = yes ? (isInspection() ? [...pick].sort((a, b) => a - b) : lines().map((_, i) => i)) : [];
     $("#a-yes").disabled = $("#a-no").disabled = true;
-    try { ap.status = demo ? (yes ? "approved" : "declined") : await Cloud.approvalDecide(ap.id, yes); ap.decided_at = new Date().toISOString(); render(); }
-    catch (e) { alert("לא הצלחנו לשלוח. נסו שוב."); }
+    try {
+      if (demo) Object.assign(ap, { status: chosen.length ? "approved" : "declined", approved_lines: chosen });
+      else {
+        let r = null;
+        try { r = await Cloud.approvalChoose(ap.id, chosen); } catch (e) { if (!isInspection()) r = { status: await Cloud.approvalDecide(ap.id, yes), approved_lines: chosen }; else throw e; }
+        Object.assign(ap, r);
+      }
+      ap.decided_at = new Date().toISOString(); render();
+    } catch (e) { alert("לא הצלחנו לשלוח. נסו שוב."); }
     $("#a-yes").disabled = $("#a-no").disabled = false;
   }
   $("#a-yes").onclick = () => decide(true); $("#a-no").onclick = () => decide(false);
   (async () => {
-    if (demo) { ap = { id: "demo", garage: "מוסך הדגמה", garage_phone: "03-0000000", car: "קיה פיקנטו 2019", message: "רפידות הבלם הקדמיות שחוקות ומומלץ להחליף אותן עכשיו.", lines: [{ desc: "רפידות בלם קדמיות", price: 380 }, { desc: "עבודה", price: 150 }], total: 530, status: "pending" }; $("#a-demo").hidden = false; return render(); }
-    if (!id || !/^[0-9a-f-]{36}$/i.test(id) || !Cloud.enabled) return show("a-missing");
-    try { ap = await Cloud.approvalGet(id); } catch (e) { ap = null; }
-    if (!ap) return show("a-missing");
+    if (demo) {
+      ap = q.has("insp")
+        ? { id: "demo", garage: "מוסך הדגמה", garage_phone: "03-0000000", car: "קיה פיקנטו 2019", km: 84200, status: "pending",
+            checks: [{ key: "brakes_front", label: "בלמים קדמיים", status: "now", note: "נשארו 2 מ\"מ ברפידות" }, { key: "wipers", label: "מגבים ונוזל שמשות", status: "soon", note: "משאירים פסים" }, { key: "battery", label: "מצבר", status: "soon", note: "12.1V, חלש בבוקר" },
+              ...["צמיגים", "אורות", "שמן מנוע ונזילות", "נוזל קירור וצנרת", "בולמים ומתלים", "היגוי", "מיזוג"].map((label, i) => ({ key: "ok" + i, label, status: "ok" }))],
+            lines: [{ desc: "רפידות בלם קדמיות", price: 620, urgent: true }, { desc: "החלפת מגבים", price: 110 }, { desc: "החלפת מצבר", price: 590 }], total: 1320 }
+        : { id: "demo", garage: "מוסך הדגמה", garage_phone: "03-0000000", car: "קיה פיקנטו 2019", message: "רפידות הבלם הקדמיות שחוקות ומומלץ להחליף אותן עכשיו.", lines: [{ desc: "רפידות בלם קדמיות", price: 380 }, { desc: "עבודה", price: 150 }], total: 530, status: "pending" };
+      $("#a-demo").hidden = false;
+    } else {
+      if (!id || !/^[0-9a-f-]{36}$/i.test(id) || !Cloud.enabled) return show("a-missing");
+      try { ap = await Cloud.approvalGet(id); } catch (e) { ap = null; }
+      if (!ap) return show("a-missing");
+    }
+    // urgent jobs start ticked, the rest are the customer's call
+    pick = new Set(lines().map((l, i) => i).filter(i => !isInspection() || lines()[i].urgent || lines().length === 1));
     render();
   })();
 })();

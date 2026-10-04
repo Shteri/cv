@@ -51,7 +51,11 @@ filled in, every feature below switches on.
     `migrations/0007_inventory_billing.sql`, then deploy the invoicing function:
     `supabase functions deploy issue-document`. Each garage connects its own Morning account in the
     dashboard; the API secret is stored write-only (`billing_save`) and read only by the function.
-11. **Point the app at the project**: in `app/config.js` set `SUPABASE_URL` and
+11. **Modules, job catalog, vehicle inspection**: run `migrations/0008_modules_catalog.sql`
+    (garage_profiles.modules and labor_rate, job_templates, inspection results and per-line approval on
+    work_approvals via `approval_choose`, public bucket `inspection-photos` written only into the garage's folder).
+    The file has no DROP/DELETE statements, so it can also be applied through the Supabase MCP.
+12. **Point the app at the project**: in `app/config.js` set `SUPABASE_URL` and
    `SUPABASE_ANON_KEY` (Project Settings → API). The anon key is public by design;
    row-level security is what protects the data. Rebuild and push.
 

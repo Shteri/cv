@@ -60,11 +60,13 @@
     $("#cc-in-name").value = c0.name || ""; $("#cc-in-phone").value = c0.phone || c0.own_phone || ""; $("#cc-in-consent").checked = !!c0.can_contact; $("#cc-in-notes").value = c0.notes || "";
     $("#cc-in-phone").disabled = $("#cc-in-consent").disabled = !!c0.linked;
     $("#cc-src").textContent = c0.linked ? "הצטרף דרך האפליקציה. הטלפון וההסכמה בשליטת הלקוח." : c0.source === "import" ? "יובא מקובץ." : "נוסף ידנית.";
-    $("#cc-cars").innerHTML = cars.map(c => `<div class="box"><div class="row-between"><b>${esc(c.model)} ${c.year || ""}</b>${c.plate ? `<span class="plate-mini num">${esc(c.plate)}</span>` : ""}</div>
+    const carActs = cars.map(c => G.renderActions("car", { car: c }, "btn small"));
+    $("#cc-cars").innerHTML = cars.map((c, i) => `<div class="box" data-carbox="${i}"><div class="row-between"><b>${esc(c.model)} ${c.year || ""}</b>${c.plate ? `<span class="plate-mini num">${esc(c.plate)}</span>` : ""}</div>
       <div class="muted small">${c.estKm !== null ? `~${fmt(c.estKm)} ק"מ` : 'ק"מ לא ידוע'}${c.test_expiry ? ` · טסט עד ${fmtDate(c.test_expiry)}` : ""}</div>
       ${c.n ? `<div class="small">טיפול הבא: <b class="num">${fmt(c.n.nextKm)}</b> · ${monthName(c.n.dueDate)}</div><div class="muted small">${c.n.svc.items.filter(i => i.action === "replace").map(i => itemName(i.item)).join(", ")}</div>` : ""}
       ${recallsOf(c).length ? `<div class="small warn-text">ריקול פתוח: ${esc(recallsOf(c).map(x => x.system).join(", "))}</div>` : ""}
-      <div class="dlg-actions start"><button class="btn small primary" type="button" data-wo="${c.car_id}">כרטיס עבודה</button></div></div>`).join("");
+      <div class="dlg-actions start"><button class="btn small primary" type="button" data-wo="${c.car_id}">כרטיס עבודה</button>${carActs[i].html}</div></div>`).join("");
+    carActs.forEach((x, i) => x.bind($(`#cc-cars [data-carbox="${i}"]`)));
     $$("#cc-cars [data-wo]").forEach(b => b.onclick = () => openWo(car(b.dataset.wo)));
     $("#cc-timeline").innerHTML = `<p class="muted small">טוען…</p>`;
     $("#dlg-cust").showModal();
@@ -74,11 +76,11 @@
       try { const h = demo ? (DEMO.history[c.car_id] || []) : await api.garageCarHistory(c.car_id); shared.push(...h.filter(r => !r.own).map(r => ({ ...r, car: c }))); } catch (e) {}
     }
     const own = st.wos.filter(w => cars.some(c => c.car_id === w.garage_car_id)).map(w => ({ ...w, car: car(w.garage_car_id) }));
-    const items = [...own.map(w => ({ t: "own", date: w.date, km: w.km, w })), ...shared.map(r => ({ t: "other", date: r.date, km: r.km, r }))]
+    const items = [...own.map(w => ({ t: "own", date: w.date, km: w.km, w })), ...shared.map(r => ({ t: "other", date: r.date, km: r.km, r })), ...G.timelineFor(cars).map(x => ({ t: "extra", ...x }))]
       .sort((a, b) => (b.km || 0) - (a.km || 0) || String(b.date).localeCompare(String(a.date)));
     const anyLinked = cars.some(c => c.linked), anyShared = cars.some(c => c.linked && c.share_history);
     $("#cc-hist-note").textContent = anyShared ? "כולל טיפולים במוסכים אחרים, באישור הלקוח" : anyLinked ? "הלקוח לא שיתף את ההיסטוריה ממוסכים אחרים" : "";
-    $("#cc-timeline").innerHTML = items.map(x => x.t === "own" ? `<div class="tl-row own">
+    $("#cc-timeline").innerHTML = items.map(x => x.t === "extra" ? x.html : x.t === "own" ? `<div class="tl-row own">
         <div class="tl-head"><b>${x.w.kind === "service" && x.w.svc_km ? "טיפול " + fmt(x.w.svc_km) : x.w.kind === "repair" ? "תיקון" : "ביקור"}</b><span class="tag mine">אצלנו</span>${x.w.entry_id ? `<span class="tag ok">נשלח ללקוח</span>` : ""}<span class="muted small num">${x.w.date ? fmtDate(x.w.date) : ""}${x.w.km ? " · " + fmt(x.w.km) + ' ק"מ' : ""}</span></div>
         ${(x.w.items || []).length ? `<div class="small">${x.w.items.map(itemName).join(", ")}</div>` : ""}
         ${(x.w.lines || []).length ? `<div class="muted small">${x.w.lines.map(l => `${esc(l.desc)}${l.qty > 1 ? " ×" + l.qty : ""}${l.price ? " ₪" + fmt(l.price * (l.qty || 1)) : ""}`).join(" · ")}</div>` : ""}

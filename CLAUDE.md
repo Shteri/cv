@@ -12,3 +12,9 @@ Hebrew RTL PWA that tracks a car's condition and maintenance schedule in Israel.
 - `node scripts/check-design.mjs && node scripts/validate.mjs && node scripts/build-app-data.mjs && node scripts/test-lookup.mjs && node scripts/build-site.mjs`
 - `build-site.mjs` writes the deployable site to `site/` (or `SITE_OUT`), including `styles/` and `welcome/`. Netlify publishes `site/` from `main`.
 - Maintenance data: edit `scripts/build_schedules.py` rules and regenerate; never hand-edit generated schedules.
+
+## Garage dashboard is modular
+- `app/garage/core.js` holds helpers, state, screens, demo data and the module registry. Features live in `app/garage/modules/*.js`; each calls `Garage.register({ id, name, desc, core, groups, tab, show, hide, state, load, demo })`.
+- Modules talk only through the `Garage` object (`G.on(id)`, `G.call(name)`, `G.addAction("appt"|"car", …)`, `G.addTimeline(…)`). A new feature is a new module plus its markup in `app/garage/index.html` tagged `data-module="<id>"`; don't wire it into other modules' code.
+- Which modules a garage sees: `garage_profiles.modules`, or by default the professions it is licensed for (`data/garages.json`, groups in core.js).
+
