@@ -201,6 +201,10 @@
       <label class="field"><span>ק"מ</span><input id="wo-km" inputmode="numeric" class="num" autocomplete="off"></label>
       <label class="field"><span>תאריך</span><input id="wo-date" type="date"></label>
     </div>
+    <div class="ai-box" data-module="ai">
+      <label class="field"><span>תאר במילים, או הכתב לטלפון</span><textarea id="wo-ai" rows="2" placeholder="למשל: טיפול 60, החלפתי רפידות קדמיות ודיסקים, שעה וחצי עבודה"></textarea></label>
+      <div class="dlg-actions start"><button class="btn small" type="button" id="wo-ai-go">מלא מהתיאור</button><span class="muted small" id="wo-ai-msg"></span></div>
+    </div>
     <div class="field"><span>מה הוחלף</span><div class="chips" id="wo-items"></div></div>
     <div class="field"><span>שורות</span>
       <table class="lines">
@@ -501,6 +505,10 @@
     <div class="dlg-head"><h2>בדיקת רכב</h2><button class="x" value="close" aria-label="סגור">×</button></div>
     <p class="muted" id="in-who"></p>
     <div class="row-between"><label class="field"><span>ק"מ</span><input id="in-km" class="num" inputmode="numeric" autocomplete="off"></label><button class="btn small" type="button" id="in-allok">כל השאר תקין</button></div>
+    <div class="ai-box" data-module="ai">
+      <label class="field"><span>תאר במילים, או הכתב לטלפון</span><textarea id="in-ai" rows="2" placeholder="למשל: רפידות קדמיות 2 מ״מ, מגבים משאירים פסים, מצבר חלש, השאר תקין"></textarea></label>
+      <div class="dlg-actions start"><button class="btn small" type="button" id="in-ai-go">מלא מהתיאור</button><span class="muted small" id="in-ai-msg"></span></div>
+    </div>
     <div class="insp" id="in-rows"></div>
     <div class="row-between"><span class="muted small" id="in-sum"></span><div class="total">סה"כ מומלץ <b class="num" id="in-total">₪0</b></div></div>
     <p class="muted small">הלקוח מקבל קישור עם מה שמצאתם, התמונות והמחירים, ומאשר כל עבודה בנפרד.</p>
@@ -539,6 +547,7 @@
 <script src="modules/billing.js"></script>
 <script src="modules/catalog.js"></script>
 <script src="modules/inspection.js"></script>
+<script src="modules/ai.js"></script>
 <script>Garage.boot();</script>
 </body>
 </html>

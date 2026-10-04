@@ -55,7 +55,10 @@ filled in, every feature below switches on.
     (garage_profiles.modules and labor_rate, job_templates, inspection results and per-line approval on
     work_approvals via `approval_choose`, public bucket `inspection-photos` written only into the garage's folder).
     The file has no DROP/DELETE statements, so it can also be applied through the Supabase MCP.
-12. **Point the app at the project**: in `app/config.js` set `SUPABASE_URL` and
+12. **AI assist**: run `migrations/0009_ai_usage.sql` (daily counter per user), deploy
+    `supabase functions deploy ai-assist`, and add the secret `ANTHROPIC_API_KEY` (Edge Functions → Secrets).
+    Until the secret exists the function answers "ai not configured" and the screens say the service is not active.
+13. **Point the app at the project**: in `app/config.js` set `SUPABASE_URL` and
    `SUPABASE_ANON_KEY` (Project Settings → API). The anon key is public by design;
    row-level security is what protects the data. Rebuild and push.
 

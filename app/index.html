@@ -121,6 +121,11 @@
     <div id="car-recalls"></div>
     <div id="car-start"></div>
     <div class="counts" id="car-counts"></div>
+    <div class="card stack g-8" id="car-quote-card" hidden>
+      <h3>קיבלת הצעת מחיר מהמוסך?</h3>
+      <p class="small muted">כתוב מה הציעו ובכמה. נבדוק מול ספר היבואן, מה הוחלף אצלך, ומה נהגים אחרים שילמו.</p>
+      <button class="btn secondary" id="car-quote">בדוק הצעה</button>
+    </div>
     <div class="card stack g-6">
       <div class="row between"><h3>לפי פריט</h3><span class="small muted">מה הוחלף, מתי, ומתי הבא</span></div>
       <div id="car-state"></div>
@@ -238,9 +243,18 @@
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
+  <div class="sheet" id="quote">
+    <div class="panel">
+      <div class="row between"><h2>בדיקת הצעת מחיר</h2><button class="btn ghost fit" id="quote-close">סגור</button></div>
+      <div class="field"><label for="quote-text">מה המוסך הציע</label><textarea id="quote-text" rows="3" autocomplete="off" placeholder="למשל: רפידות ודיסקים קדמיים 1,800 ש״ח, ושמן גיר 450"></textarea></div>
+      <button class="btn primary" id="quote-go">בדוק</button>
+      <div class="stack g-8" id="quote-out" hidden></div>
+    </div>
+  </div>
   <div class="sheet" id="log">
     <div class="panel">
       <div class="row between"><h2 id="log-title">עשיתי טיפול</h2><button class="btn ghost fit" id="log-close">סגור</button></div>
+      <div class="field" id="log-ai-row" hidden><label for="log-ai">תאר במילים <span class="muted">(ונמלא בשבילך)</span></label><textarea id="log-ai" rows="2" autocomplete="off" placeholder="למשל: טיפול 60 אלף אצל יוסי בחולון, 950 ש״ח, החליפו גם מגבים"></textarea><button class="btn secondary" id="log-ai-go">מלא מהתיאור</button></div>
       <div class="thumbs" id="log-thumbs" hidden></div>
       <div class="field"><label>מה זה היה</label>
         <div class="seg" id="log-kind"><button data-v="service" class="on">טיפול תקופתי</button><button data-v="repair">תיקון או תקלה</button><button data-v="other">אחר</button></div>
@@ -677,6 +691,7 @@
     logThumbs = opts.thumbs ? opts.thumbs.slice() : []; renderThumbs(); $("#log-file").value = "";
     setKind(opts.kind || "service");
     $("#garage-dl").innerHTML = ""; loadGarageDir().catch(() => {});
+    $("#log-ai-row").hidden = !Cloud.enabled; $("#log-ai").value = "";
     $("#log").classList.add("show"); $("#log .panel").scrollTop = 0;
   }
   function renderThumbs() {
@@ -696,7 +711,16 @@
     try {
       const big = await shrink(file, 1600);
       const r = await Cloud.extractReceipt(big, { make: s.make_he, model: s.model_he, year: car.year, items: candidateItems(s).map(k => ({ key: k, he: itemName(k) })) });
+      fillLog(r, s);
+      toast(r.confidence === "low" ? "קראתי חלקית. בדוק את הפרטים לפני שמירה" : "מולא מהחשבונית. בדוק ושמור");
+      if (r.notes) $("#log-extra").value = r.notes;
+    } catch (e) { toast("לא הצלחתי לקרוא את החשבונית. מלא ידנית"); }
+    btn.disabled = false; btn.classList.remove("busy"); btn.dataset.busy = "";
+  }
+  // fill the sheet from a structured record (receipt photo or a description in words); the driver reviews before saving
+  function fillLog(r, s) {
       if (r.kind) setKind(r.kind);
+      if (r.svc_km && [...$("#log-svc").options].some(o => +o.value === r.svc_km)) $("#log-svc").value = String(r.svc_km);
       if (r.date) $("#log-date").value = r.date;
       if (r.km) $("#log-km").value = r.km;
       if (r.price) $("#log-price").value = r.price;
@@ -705,11 +729,54 @@
       if (r.where) { logWhere = r.where; $$("#log-where button").forEach(x => x.classList.toggle("on", x.dataset.v === r.where)); }
       if (r.text) $("#log-text").value = r.text;
       if (Array.isArray(r.items) && r.items.length) { logSel = new Set(r.items.filter(k => D.items[k])); renderItemChips(s); }
-      toast(r.confidence === "low" ? "קראתי חלקית. בדוק את הפרטים לפני שמירה" : "מולא מהחשבונית. בדוק ושמור");
-      if (r.notes) $("#log-extra").value = r.notes;
-    } catch (e) { toast("לא הצלחתי לקרוא את החשבונית. מלא ידנית"); }
-    btn.disabled = false; btn.classList.remove("busy"); btn.dataset.busy = "";
+      if (r.where === "self") $("#log-garage-row").hidden = true;
   }
+  // ---------- AI: a description in words, a quote check (edge function ai-assist; signed-in drivers) ----------
+  const AI_ERR = { "ai not configured": "השירות עוד לא פעיל.", "daily limit": "הגעת למכסה היומית. נסה שוב מחר.", "not signed in": "צריך להתחבר כדי להשתמש בזה." };
+  const aiErr = e => AI_ERR[e.message] || "לא הצלחנו לעבד את זה כרגע. נסה שוב.";
+  $("#log-ai-go").onclick = async () => {
+    const note = $("#log-ai").value.trim(); if (!note) return $("#log-ai").focus();
+    if (!signedIn()) return toast(AI_ERR["not signed in"]);
+    const car = S.cars[S.active], s = schedById(car.schedule), b = $("#log-ai-go"); b.disabled = true; b.textContent = "ממלא…";
+    try {
+      const r = await Cloud.aiAssist("record", note, { car: { make: s.make_he, model: s.model_he, year: car.year, km: car.km }, items: candidateItems(s).map(k => ({ key: k, he: itemName(k) })) });
+      fillLog(r, s); toast("מולא מהתיאור. בדוק ושמור");
+    } catch (e) { toast(aiErr(e)); }
+    b.disabled = false; b.textContent = "מלא מהתיאור";
+  };
+  // what the quote check knows about the car: the schedule, each item's state, and community prices for the next service
+  async function quoteContext(car) {
+    const s = schedById(car.schedule), n = computeNext(car);
+    const st = carState(car).map(r => ({ item: r.item, he: itemName(r.item), status: r.status, last_km: r.done ? r.done.km : null, last_date: r.done ? r.done.date || null : null, next_km: r.nextKm, next_date: r.nextDate ? r.nextDate.toISOString().slice(0, 7) : null, schedule_next_km: r.gridNext || null, every_km: r.p.km || null, every_months: r.p.months || null }));
+    let prices = null; try { if (Cloud.communityPrices) prices = await Cloud.communityPrices(s.id, n.svc.km); } catch (e) {}
+    return { car: { make: s.make_he, model: s.model_he, year: car.year, km: car.km, km_per_month: car.kmMonth || 1500 },
+      schedule: { next_service_km: n.nextKm, next_service_items: n.svc.items.filter(i => i.action === "replace").map(i => i.item) },
+      item_state: st, community_prices: prices ? { service_km: n.svc.km, note: "ILS paid by other drivers of this model for this periodic service", ...prices } : null };
+  }
+  const DUE = { due: ["ok", "בזמן לפי הספר"], soon: ["soon", "מתקרב לפי הספר"], not_yet: ["overdue", "לפי הספר עוד לא הגיע הזמן"], not_in_schedule: ["unknown", "לא חלק מהטיפולים הקבועים"], unknown: ["unknown", "אין מספיק מידע"] };
+  const VERDICT = { fair: ["good", "המחיר בטווח שנהגים שילמו"], low: ["good", "נמוך ממה שנהגים שילמו"], high: ["crit", "גבוה ממה שנהגים שילמו"] };
+  function renderQuote(r) {
+    const v = VERDICT[r.price_verdict];
+    $("#quote-out").innerHTML = `<div class="card stack g-8">
+        ${v ? `<span class="status ${v[0]}">${v[1]}</span>` : `<span class="small muted">אין מספיק מחירים של נהגים אחרים כדי להשוות.</span>`}
+        <p>${esc(r.summary)}</p>
+        <div>${r.lines.map(l => `<div class="state ${DUE[l.due][0]}"><span class="dot"></span><div><div>${esc(l.desc)}</div><div class="sub">${DUE[l.due][1]}${l.note ? " · " + esc(l.note) : ""}</div></div><div class="due num">${l.price ? "₪" + fmt(l.price) : ""}</div></div>`).join("")}</div>
+        ${r.questions.length ? `<p class="eyebrow">כדאי לשאול את המוסך</p>${r.questions.map(q => `<p class="small">• ${esc(q)}</p>`).join("")}` : ""}
+        <p class="small muted">לפי ספר היבואן, מה שרשמת על הרכב, ומחירים שנהגים דיווחו. המכונאי ראה את הרכב, ואולי מצא בלאי שהספר לא יודע עליו.</p>
+      </div>`;
+    $("#quote-out").hidden = false;
+  }
+  $("#car-quote").onclick = () => { $("#quote-text").value = ""; $("#quote-out").hidden = true; $("#quote").classList.add("show"); };
+  $("#quote-close").onclick = () => $("#quote").classList.remove("show");
+  $("#quote").onclick = e => { if (e.target.id === "quote") $("#quote").classList.remove("show"); };
+  $("#quote-go").onclick = async () => {
+    const note = $("#quote-text").value.trim(); if (!note) return $("#quote-text").focus();
+    if (!signedIn()) return toast(AI_ERR["not signed in"]);
+    const b = $("#quote-go"); b.disabled = true; b.textContent = "בודק…";
+    try { renderQuote(await Cloud.aiAssist("quote", note, await quoteContext(S.cars[S.active]))); }
+    catch (e) { toast(aiErr(e)); }
+    b.disabled = false; b.textContent = "בדוק";
+  };
   let pendingFiles = [];
   $("#log-file").onchange = async e => { const files = [...e.target.files]; for (const f of files) logThumbs.push(await shrink(f)); renderThumbs(); if (files[0]) prefillFromReceipt(files[0]); };
   $("#log-share").onclick = () => $("#log-share").classList.toggle("on");
@@ -785,6 +852,7 @@
     $("#car-sub").textContent = `${carName(car)} · ${fmt(car.km)} ק"מ${car.gov && car.gov.test_expiry ? ` · טסט עד ${fmtDate(car.gov.test_expiry)}` : ""}`;
     const n = k => rows.filter(r => r.status === k || (k === "ok" && r.status === "done")).length;
     $("#car-recalls").innerHTML = recallsHTML(car); wireRecalls($("#car-recalls"));
+    $("#car-quote-card").hidden = !Cloud.enabled;
     $("#car-counts").innerHTML = `<div class="c overdue"><b class="num">${n("overdue")}</b><span>באיחור</span></div><div class="c soon"><b class="num">${n("soon")}</b><span>מתקרב</span></div><div class="c ok"><b class="num">${n("ok")}</b><span>בסדר</span></div><div class="c"><b class="num">${n("unknown")}</b><span>לא ידוע</span></div>`;
     // Cold start: nothing is known yet, so lead with how to fill the picture instead of a wall of "?"
     const known = rows.length - n("unknown");

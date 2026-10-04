@@ -115,5 +115,15 @@
   }
 
   G.register({ id: "workorder", core: true });
-  Object.assign(G, { openWo, woAddLines, woPartLine: partLine, woCar: () => woFor });
+  // the AI module fills the card from a note: kind, service, km, notes and already-priced lines
+  function woSet(r) {
+    if (r.kind) { woKind = r.kind; setSeg("wo-kind", woKind); $("#wo-svc-row").hidden = woKind !== "service"; }
+    if (r.svc_km && [...$("#wo-svc").options].some(o => +o.value === r.svc_km)) $("#wo-svc").value = String(r.svc_km);
+    if (r.km) $("#wo-km").value = r.km;
+    if (r.notes) $("#wo-notes").value = r.notes;
+    woLines = r.lines.map(l => ({ ...l, manual: true })); woItems = new Set(r.lines.map(l => l.item).filter(Boolean));
+    if (!woLines.some(l => l.type === "labor")) woLines.push({ type: "labor", desc: "עבודה", qty: 1, price: "" });
+    renderWoItems(); renderWoLines();
+  }
+  Object.assign(G, { openWo, woSet, woAddLines, woPartLine: partLine, woCar: () => woFor });
 })(window.Garage);

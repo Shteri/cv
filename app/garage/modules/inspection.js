@@ -106,6 +106,17 @@
     b.disabled = false;
   };
 
+  // the AI module fills the checklist from a note
+  function inspSet(r) {
+    for (const c of r.checks) { const row = inRows.find(x => x.key === c.key); if (!row) continue; row.status = c.status; if (c.note) row.note = c.note;
+      if ((c.status === "soon" || c.status === "now") && !row.job && !row.price) { const j = jobsFor(row)[0]; if (j) { row.job = j.id; row.price = String(G.jobEstimate(j, inCtx.car).total || ""); } } }
+    if (r.rest_ok) for (const row of inRows) if (!row.status) row.status = "ok";
+    renderInspection();
+  }
+  G.inspSet = inspSet;
+  G.inspRows = () => inRows.map(r => ({ key: r.key, label: r.label }));
+  G.inspCar = () => inCtx && inCtx.car;
+
   // entry points: the appointment card and the car box in the customer card
   G.addAction("appt", { module: "inspection", label: "בדיקת רכב", run: ctx => openInspection(ctx) });
   G.addAction("car", { module: "inspection", label: "בדיקת רכב", run: ctx => openInspection(ctx) });
