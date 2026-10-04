@@ -92,7 +92,10 @@ writeFileSync(out + "welcome/index.html", readFileSync(welcomeSrc + "index.html"
 for (const f of ["home.png", "timeline.png", "condition.png", "welcome.css"]) copyFileSync(welcomeSrc + f, out + "welcome/" + f);
 // Garage dashboard at /garage/ (desktop, for the garage office). Static: data, engine and cloud come from the root.
 mkdirSync(out + "garage", { recursive: true });
-for (const f of ["index.html", "garage.css"]) copyFileSync(root + "app/garage/" + f, out + "garage/" + f);
+for (const f of ["index.html", "garage.css", "core.js"]) copyFileSync(root + "app/garage/" + f, out + "garage/" + f);
+// feature modules (each registers itself with the core)
+mkdirSync(out + "garage/modules", { recursive: true });
+for (const f of readdirSync(root + "app/garage/modules").filter(f => f.endsWith(".js"))) copyFileSync(root + "app/garage/modules/" + f, out + "garage/modules/" + f);
 // Public pages for garage customers (no sign-in): online booking and extra-work approval.
 for (const d of ["book", "approve"]) { mkdirSync(out + d, { recursive: true }); copyFileSync(root + "app/" + d + "/index.html", out + d + "/index.html"); }
 writeFileSync(out + "manifest.webmanifest", JSON.stringify({

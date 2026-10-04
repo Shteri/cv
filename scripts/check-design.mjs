@@ -9,13 +9,15 @@
 // 4. SVG in markup takes colour from CSS: fill/stroke attributes may only be "none" or "currentColor".
 // 5. Every var(--x) used resolves to a token, a property defined in the same stylesheet, or a known runtime property.
 // 6. Every static class name in markup or JS templates exists in a stylesheet (or is a declared behaviour hook).
-import { readFileSync } from "node:fs";
+import { readFileSync, readdirSync } from "node:fs";
 
 const root = new URL("../", import.meta.url).pathname;
 const read = f => readFileSync(root + f, "utf8");
 const TOKENS = "app/styles/tokens.css";
 const CSS = ["app/styles/brand.css", "app/styles/app.css", "app/welcome/welcome.css", "app/garage/garage.css"];
 const HTML = { "app/index.html": ["app/styles/brand.css", "app/styles/app.css"], "app/welcome/index.html": ["app/styles/brand.css", "app/welcome/welcome.css"], "app/garage/index.html": ["app/styles/brand.css", "app/garage/garage.css"], "app/book/index.html": ["app/styles/brand.css", "app/garage/garage.css"], "app/approve/index.html": ["app/styles/brand.css", "app/garage/garage.css"] };
+// the garage dashboard's scripts render most of its markup
+for (const f of ["app/garage/core.js", ...readdirSync(root + "app/garage/modules").filter(f => f.endsWith(".js")).map(f => "app/garage/modules/" + f)]) HTML[f] = ["app/styles/brand.css", "app/garage/garage.css"];
 
 // Custom properties that markup or scripts set at runtime (documented in DESIGN.md, "Design in code").
 const RUNTIME = new Set(["--brand-size", "--i", "--k", "--r", "--s", "--c", "--n", "--h", "--x", "--y", "--mx", "--my", "--rx", "--ry", "--p", "--drag", "--vt", "--spin", "--bays", "--rows"]);
