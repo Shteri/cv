@@ -132,14 +132,9 @@
     </div>
     <div class="card stack g-8">
       <div class="row between"><h3>המסמכים שלך</h3><span class="small muted" id="car-docs-n"></span></div>
-      <p class="small muted">חשבוניות ישנות? העלה אותן. כל אחת הופכת לרשומה.</p>
       <div class="docs" id="car-docs"></div>
       <label class="btn secondary" for="car-upload">העלה חשבוניות</label>
       <input id="car-upload" type="file" accept="image/*" multiple hidden>
-    </div>
-    <div class="card stack g-6">
-      <div class="row between"><h3>תקלות ותיקונים</h3><button class="btn ghost fit bare" id="car-add-repair">הוסף</button></div>
-      <div id="car-repairs"></div>
     </div>
     <div id="car-history"></div>
   </section>
@@ -681,7 +676,6 @@
   // ---------- log a service, a repair, or a document ----------
   const whereName = { importer: "מוסך יבואן", independent: "מוסך פרטי", self: "בעצמי" };
   const kindName = { service: "טיפול תקופתי", repair: "תיקון", other: "אחר" };
-  const catName = { engine: "מנוע", brakes: "בלמים", drivetrain: "הנעה וגיר", hybrid: "היברידי", electrical: "חשמל", comfort: "נוחות", wheels: "גלגלים", chassis: "מרכב ומתלים", safety: "בטיחות" };
   let logWhere = "importer", logThumbs = [], logBack = "", logKind = "service", logSel = new Set(), uploadQueue = [];
   $$("#log-back button").forEach(b => b.onclick = () => { $$("#log-back button").forEach(x => x.classList.remove("on")); b.classList.add("on"); logBack = b.dataset.v; });
   // Items a driver can mark as replaced: everything the schedule ever replaces, long-interval items, and common wear parts.
@@ -839,7 +833,6 @@
     openLog(null, { thumbs: [thumbs[0]], kind: "service" });
     prefillFromReceipt(files[0]);
   };
-  $("#car-add-repair").onclick = () => openLog(null, { kind: "repair" });
 
   // ---------- car condition: what was replaced when, and when it is due again ----------
   // Period for each item: distance between consecutive replacements in the schedule grid, else the long-interval rule.
@@ -876,9 +869,10 @@
     return rows;
   }
   const stateRow = r => `<div class="state tap ${r.status === "done" ? "ok" : r.status}" role="button" tabindex="0" data-item="${r.item}" aria-label="עדכון ${itemName(r.item)}"><span class="dot"></span>
-      <div><div>${itemName(r.item)} <span class="small muted">· ${catName[r.cat] || ""}</span></div>
+      <div><div>${itemName(r.item)}</div>
         <div class="sub">${r.done ? `הוחלף ב-${fmt(r.done.km)} ק"מ${r.done.date ? ", " + monthName(new Date(r.done.date + "-01")) : ""}${isStateRec(r.done) ? " · עדכנת ידנית" : ""}` : `לא ידוע${r.gridNext ? ` · לפי הלוח: ${fmt(r.gridNext)} ק"מ` : ""}`}</div></div>
-      <div class="due num">${r.status === "unknown" ? "?" : r.nextKm ? (r.status === "overdue" ? "באיחור · " : "") + fmt(r.nextKm) : r.nextDate ? monthName(r.nextDate) : "✓"}</div></div>`;
+      <div class="due num">${r.status === "unknown" ? "?" : r.nextKm ? (r.status === "overdue" ? "באיחור · " : "") + fmt(r.nextKm) : r.nextDate ? monthName(r.nextDate) : "✓"}</div>
+      <svg class="edit" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20h4L19 9l-4-4L4 16v4z"/><path d="M14 6l4 4"/></svg></div>`;
   function renderCar() {
     const car = S.cars[S.active]; if (!car) return;
     const s = schedById(car.schedule), rows = carState(car), recs = (car.history || []);
@@ -895,15 +889,15 @@
     else {
     const attention = rows.filter(r => r.status !== "ok" && r.status !== "done"), fine = rows.filter(r => r.status === "ok" || r.status === "done");
     $("#car-state").innerHTML = (attention.map(stateRow).join("") || `<p class="small muted">הכל ידוע ובסדר.</p>`) + (fine.length ? `<details class="fold"><summary><span>בסדר (${fine.length})</span></summary>${fine.map(stateRow).join("")}</details>` : "") +
-      (n("unknown") ? `<p class="small muted mt-8">"לא ידוע" = אין רשומה. העלה חשבונית, הוסף רשומה, או לחץ על הפריט ועדכן מתי הוחלף.</p>` : "");
+      "";
     }
     wireItems($("#car-state"));
     const docs = recs.flatMap(r => (r.receipts || (r.receipt ? [r.receipt] : [])).map(t => ({ t, r })));
     $("#car-docs-n").textContent = docs.length ? `${docs.length} מסמכים` : "";
     $("#car-docs").innerHTML = docs.map(d => `<button title="${d.r.kind === "service" ? "טיפול " + fmt(d.r.svcKm || d.r.km) : d.r.text}"><img src="${d.t}" alt="חשבונית"><span class="lb num">${d.r.date || fmt(d.r.km)}</span></button>`).join("");
-    const reps = recs.filter(r => (r.kind === "repair" || r.kind === "other") && !isStateRec(r)).sort((a, b) => b.km - a.km);
-    $("#car-repairs").innerHTML = reps.length ? reps.map(r => `<div class="hist"><div><b>${r.text || kindName[r.kind]}</b> <span class="small muted num">· ${fmt(r.km)} ק"מ${r.date ? " · " + monthName(new Date(r.date + "-01")) : ""}</span><br><span class="small muted">${(r.items || []).map(itemName).join(", ")}${r.garage ? " · " + r.garage : ""}</span></div><span class="amt num">${r.price ? "₪" + fmt(r.price) : ""}</span></div>`).join("") : `<p class="small muted">אין תיקונים רשומים.</p>`;
     $("#car-history").innerHTML = historyHTML(car);
+    $("#car-add-repair").onclick = () => openLog(null, { kind: "repair" });
+    wireItems($("#car-history"));
   }
   const startCardHTML = () => `<div class="card start stack g-12">
       <h3>מצב הרכב מתחיל מהטיפול האחרון</h3>
@@ -915,15 +909,15 @@
     <div class="card stack g-12">
       <div class="row between"><h3>מצב הרכב</h3><button class="btn ghost fit bare" id="to-car">לפרטים</button></div>
       <div class="counts"><div class="c overdue${c("overdue") ? " hot" : ""}"><b class="num">${c("overdue")}</b><span>באיחור</span></div><div class="c soon"><b class="num">${c("soon")}</b><span>מתקרב</span></div><div class="c ok"><b class="num">${rows.filter(r => r.status === "ok" || r.status === "done").length}</b><span>בסדר</span></div><div class="c"><b class="num">${unknown}</b><span>לא ידוע</span></div></div>
-      ${attn.length ? `<div class="attn">${attn.slice(0, 3).map(stateRow).join("")}</div>` : known ? `<p class="small muted">אין פריטים באיחור או שמתקרבים.</p>` : ""}
-      ${known === 0 ? `<p class="small muted">עדיין לא ידוע מה הוחלף. העלה חשבוניות או רשום טיפול.</p>` : ""}
+      ${attn.length ? `<div class="attn">${attn.slice(0, 3).map(stateRow).join("")}</div>` : ""}
     </div>`; };
 
-  const historyHTML = car => { const h = (car.history || []).filter(e => !isStateRec(e)).sort((a, b) => b.km - a.km || b.at - a.at); if (!h.length) return `<p class="small muted px-4">עוד אין רשומות.</p>`; return `
-    <div class="card stack"><p class="eyebrow">כל הרשומות</p>
-      ${h.map(e => `<div class="hist">
+  const historyHTML = car => { const h = (car.history || []).filter(e => !isStateRec(e) || (e.items || []).length).sort((a, b) => b.km - a.km || b.at - a.at); return `
+    <div class="card stack"><div class="row between"><h3>כל הרשומות</h3><button class="btn ghost fit bare" id="car-add-repair">הוסף תיקון</button></div>
+      ${h.length ? "" : `<p class="small muted">עוד אין רשומות.</p>`}
+      ${h.map(e => isStateRec(e) ? `<div class="hist tap" role="button" tabindex="0" data-item="${e.items[0]}"><div><b>${itemName(e.items[0])}: עדכנת</b> <span class="small muted num">· הוחלף ב-${fmt(e.km)} ק"מ${e.date ? " · " + monthName(new Date(e.date + "-01")) : ""}</span></div></div>` : `<div class="hist">
         <div><b class="num">${e.kind === "service" || !e.kind ? "טיפול " + fmt(e.svcKm || e.km) : e.text || kindName[e.kind]}</b> <span class="small muted num">· ${fmt(e.km)} ק"מ${e.date ? " · " + monthName(new Date(e.date + "-01")) : ""}</span>${e.source === "garage" ? ` <span class="tag ver" title="נרשם על ידי המוסך ואושר על ידך">מאומת</span>` : ""}<br>
-          <span class="small muted">${whereName[e.where] || ""}${e.garage ? " · " + e.garage : ""}${e.city ? " · " + e.city : ""}${(e.items || []).length ? " · " + e.items.length + " פריטים" : ""}${e.extra ? " · " + e.extra : ""}</span></div>
+          <span class="small muted">${whereName[e.where] || ""}${e.garage ? " · " + e.garage : ""}${e.city ? " · " + e.city : ""}${(e.items || []).length ? " · " + e.items.map(itemName).join(", ") : ""}${e.extra ? " · " + e.extra : ""}</span></div>
         <div class="row g-8">${(e.receipts && e.receipts[0]) || e.receipt ? `<img class="hist-thumb" src="${(e.receipts && e.receipts[0]) || e.receipt}" alt="חשבונית">` : ""}<span class="amt num">${e.price ? "₪" + fmt(e.price) : ""}</span></div>
       </div>`).join("")}
     </div>`; };
@@ -965,9 +959,7 @@
     const n = computeNext(car);
     const r = 46, c = 2 * Math.PI * r;
     const statusText = n.level === "crit" ? "הגיע הזמן לטיפול" : n.level === "warn" ? "מתקרב" : "בזמן";
-    const timeLine = n.byTime && n.byTime <= n.dueDate
-      ? `לפי הזמן: עד ${monthName(n.byTime)} (${n.s.interval.months} חודשים מהטיפול האחרון)`
-      : `בערך ${monthName(n.dueDate)}, לפי ${fmt(car.kmMonth)} ק"מ בחודש`;
+    const timeLine = n.byTime && n.byTime <= n.dueDate ? `או עד ${monthName(n.byTime)}, לפי הזמן` : `בערך ${monthName(n.dueDate)}`;
     const hello = S.user && S.user.via === "google" ? `היי ${S.user.name}` : "היי";
     $("#home-avatar").textContent = (S.user && S.user.name[0]) || "א";
     $("#home-body").innerHTML = `
@@ -991,7 +983,7 @@
           <div class="stack g-6">
             <div><span class="big num">${fmt(n.nextKm)}</span> <span class="muted">ק"מ</span></div>
             <p class="small"><b class="num">${n.remainKm > 0 ? "עוד " + fmt(n.remainKm) : "באיחור של " + fmt(-n.remainKm)}</b> ק"מ</p>
-            ${n.windowFrom !== n.windowTo ? `<p class="small">מומלץ בין <b class="num">${fmt(n.windowFrom)}</b> ל-<b class="num">${fmt(n.windowTo)}</b> ק"מ</p><p class="small muted num">ספר היבואן: ${fmt(n.nextKm)} · לפי הטיפול האחרון (ב-${fmt(n.lastKm)}): ${fmt(n.windowFrom + n.windowTo - n.nextKm)}</p>` : ""}
+            ${n.windowFrom !== n.windowTo ? `<p class="small">מומלץ בין <b class="num">${fmt(n.windowFrom)}</b> ל-<b class="num">${fmt(n.windowTo)}</b></p>` : ""}
             <p class="small muted">${timeLine}</p>
           </div>
           <div class="ring" aria-hidden="true">
@@ -1076,7 +1068,7 @@
     return `
       <div class="stack g-2"><div class="row between"><b>לבקש שיחליפו</b><span class="small muted">לפי לוח ${s.importer}</span></div>${rep.map((it, i) => row(it, "r" + i)).join("")}</div>
       ${wait.length ? `<div class="stack g-2"><b>לא צריך הפעם</b>${itemsHTML(wait)}</div>` : ""}
-      <div class="stack g-2"><b>לבקש שיבדקו</b>${insp.map((it, i) => row(it, "i" + i)).join("")}</div>
+      ${insp.length ? `<details class="fold"><summary><span>לבקש שיבדקו (${insp.length})</span></summary><div class="stack g-2">${insp.map((it, i) => row(it, "i" + i)).join("")}</div></details>` : ""}
       <details class="fold"><summary><span>לוודא לפני שמשלמים</span></summary>${gTips(s).map(([t, x], i) => `<div class="tip"><span class="i">${i + 1}</span><span><b>${t}</b><br><span class="muted">${x}</span></span></div>`).join("")}</details>
       ${priceHTML(s, svc)}
       <div class="row g-8"><button class="btn secondary compact" data-copy="${km}" data-svc="${svc.km}">העתק רשימה</button><button class="btn primary compact" data-log="${km}">עשיתי טיפול</button></div>`;

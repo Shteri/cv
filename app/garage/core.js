@@ -150,6 +150,8 @@
     $("#md-err").hidden = true; $("#dlg-modules").showModal();
   }
   $("#btn-modules").onclick = openModules;
+  // a garage that already has office software keeps it for invoices and stock
+  $("#md-other").onclick = () => { for (const id of ["billing", "stock"]) { const x = $(`#md-list [data-mod="${id}"]`); if (x) x.checked = false; } toast("חשבוניות ומלאי כובו. לחצו שמור"); };
   $("#md-save").onclick = async () => {
     const list = $$("#md-list [data-mod]").filter(x => x.checked).map(x => x.dataset.mod);
     try {
