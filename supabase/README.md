@@ -62,7 +62,9 @@ filled in, every feature below switches on.
     (`/appt/?t=`), where the customer confirms, reschedules or cancels (`appt_get`, `appt_respond`); online booking
     goes through `book_slot`, which returns the token and, for a phone with enough no-shows, books a slot that waits
     for the garage. Policy per garage: `cancel_hours`, `noshow_limit`.
-14. **Point the app at the project**: in `app/config.js` set `SUPABASE_URL` and
+14. **Garage names**: run `migrations/0011_garage_aka.sql` (`garage_profiles.aka`: other names customers use; `name` is
+    the name on the sign, defaulting to the registry name).
+15. **Point the app at the project**: in `app/config.js` set `SUPABASE_URL` and
    `SUPABASE_ANON_KEY` (Project Settings → API). The anon key is public by design;
    row-level security is what protects the data. Rebuild and push.
 

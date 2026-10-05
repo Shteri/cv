@@ -119,7 +119,10 @@
     return data || [];
   }
   async function garageProfiles(city) {
-    const { data, error } = await sb.from("garage_profiles").select("id, garage_id, name, city, address, phone, whatsapp, booking_url, about, makes, services, hours, prices, photos, status, verified_via").eq("city", city).eq("status", "verified");
+    const cols = "id, garage_id, name, city, address, phone, whatsapp, booking_url, about, makes, services, hours, prices, photos, status, verified_via";
+    let { data, error } = await sb.from("garage_profiles").select(cols + ", aka").eq("city", city).eq("status", "verified");
+    // a server before migration 0011 has no aka column
+    if (error) ({ data, error } = await sb.from("garage_profiles").select(cols).eq("city", city).eq("status", "verified"));
     if (error) return [];
     return data || [];
   }
@@ -133,7 +136,7 @@
       const { error } = await sb.storage.from("garage-photos").upload(path, await dataUrlToBlob(d), { contentType: "image/jpeg", upsert: true });
       if (!error) photos.push(path);
     }
-    const row = { id: p.id || undefined, garage_id: p.garage_id, owner_id: uid, name: p.name, city: p.city, address: p.address || null, phone: p.phone || null, registry_phone: p.registry_phone || null, whatsapp: p.whatsapp || null, booking_url: p.booking_url || null, about: p.about || null, makes: p.makes || [], services: p.services || [], hours: p.hours || {}, prices: p.prices || [], photos };
+    const row = { id: p.id || undefined, garage_id: p.garage_id, owner_id: uid, name: p.name, city: p.city, address: p.address || null, phone: p.phone || null, registry_phone: p.registry_phone || null, whatsapp: p.whatsapp || null, booking_url: p.booking_url || null, about: p.about || null, makes: p.makes || [], services: p.services || [], hours: p.hours || {}, prices: p.prices || [], photos, ...(Array.isArray(p.aka) ? { aka: p.aka } : {}) };
     const { data, error } = await sb.from("garage_profiles").upsert(row, { onConflict: "garage_id,owner_id" }).select("*").single();
     if (error) throw error;
     return data;
