@@ -15,276 +15,26 @@
   "fuel": "diesel",
   "importer": "פריסבי (קרסו מוטורס)",
   "interval": {
-    "km": 15000,
+    "km": 30000,
     "months": 12,
-    "note": "לפי הגיליון של ניסאן דרום אפריקה: טיפול כל 15,000 ק\"מ או 12 חודשים; שמן גם כשמופיעה התראת החלפת שמן"
+    "note": "טיפול כל 30,000 ק\"מ או שנה, המוקדם (לוח היבואן הישראלי לדגמי דיזל)"
   },
   "cycle_km": 150000,
   "services": [
-    {
-      "km": 15000,
-      "items": [
-        {
-          "item": "engine_oil",
-          "action": "replace",
-          "note": "אם מופיעה התראת החלפת שמן, להחליף בהקדם"
-        },
-        {
-          "item": "oil_filter",
-          "action": "replace"
-        },
-        {
-          "item": "drive_belt",
-          "action": "inspect",
-          "note": "רצועות הינע וגלגלת גל הארכובה"
-        },
-        {
-          "item": "cooling_system",
-          "action": "inspect"
-        },
-        {
-          "item": "fuel_filter",
-          "action": "inspect",
-          "note": "ניקוז מים ממסנן הסולר (וגם כשנורית חיישן המים נדלקת)"
-        },
-        {
-          "item": "brake_fluid",
-          "action": "inspect",
-          "note": "בדיקת מפלס ודליפות של נוזל הבלמים והמצמד"
-        },
-        {
-          "item": "cvt_oil",
-          "action": "inspect",
-          "note": "בדיקת נזילות; בגרירה, גגון או דרכים קשות: בדיקת בלאי נוזל ה-CVT אצל ניסאן כל 90,000 ק\"מ"
-        },
-        {
-          "item": "manual_gearbox_oil",
-          "action": "inspect",
-          "note": "בגיר ידני: בדיקת נזילות"
-        },
-        {
-          "item": "wheel_alignment",
-          "action": "inspect",
-          "note": "כיוון פרונט; לפי הצורך סבב ואיזון גלגלים"
-        },
-        {
-          "item": "exhaust",
-          "action": "inspect",
-          "note": "מערכות בלמים, מצמד ופליטה"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_discs",
-          "action": "inspect"
-        },
-        {
-          "item": "pedals",
-          "action": "inspect",
-          "note": "דוושת בלם, בלם חניה ומצמד: חופש, מהלך ותפקוד"
-        },
-        {
-          "item": "seat_belts",
-          "action": "inspect"
-        },
-        {
-          "item": "transfer_case_oil",
-          "action": "inspect",
-          "note": "בגרסת 4X4: בדיקת מפלס ונזילות"
-        },
-        {
-          "item": "differential_oil",
-          "action": "inspect",
-          "note": "בדיקת מפלס ונזילות"
-        }
-      ]
-    },
     {
       "km": 30000,
       "items": [
         {
           "item": "engine_oil",
-          "action": "replace",
-          "note": "אם מופיעה התראת החלפת שמן, להחליף בהקדם"
+          "action": "replace"
         },
         {
           "item": "oil_filter",
           "action": "replace"
-        },
-        {
-          "item": "drive_belt",
-          "action": "inspect",
-          "note": "רצועות הינע וגלגלת גל הארכובה"
-        },
-        {
-          "item": "cooling_system",
-          "action": "inspect"
-        },
-        {
-          "item": "fuel_filter",
-          "action": "replace",
-          "note": "החלפת מסנן סולר כל 30,000 ק\"מ"
-        },
-        {
-          "item": "air_filter",
-          "action": "replace"
-        },
-        {
-          "item": "brake_fluid",
-          "action": "replace",
-          "note": "החלפת נוזל בלמים כל 30,000 ק\"מ או 24 חודשים"
-        },
-        {
-          "item": "vacuum_hose",
-          "action": "inspect",
-          "note": "צינורות ואקום של מגבר הבלמים, חיבורים ושסתום"
-        },
-        {
-          "item": "cvt_oil",
-          "action": "inspect",
-          "note": "בדיקת נזילות; בגרירה, גגון או דרכים קשות: בדיקת בלאי נוזל ה-CVT אצל ניסאן כל 90,000 ק\"מ"
-        },
-        {
-          "item": "manual_gearbox_oil",
-          "action": "inspect",
-          "note": "בגיר ידני: בדיקת נזילות"
-        },
-        {
-          "item": "steering",
-          "action": "inspect",
-          "note": "תיבת הגה ומוטות, חלקי סרן ומתלים, צירי הנעה קדמיים"
-        },
-        {
-          "item": "suspension",
-          "action": "inspect"
-        },
-        {
-          "item": "cv_boots",
-          "action": "inspect"
-        },
-        {
-          "item": "wheel_alignment",
-          "action": "inspect",
-          "note": "כיוון פרונט; לפי הצורך סבב ואיזון גלגלים"
-        },
-        {
-          "item": "exhaust",
-          "action": "inspect",
-          "note": "מערכות בלמים, מצמד ופליטה"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_discs",
-          "action": "inspect"
-        },
-        {
-          "item": "pedals",
-          "action": "inspect",
-          "note": "דוושת בלם, בלם חניה ומצמד: חופש, מהלך ותפקוד"
-        },
-        {
-          "item": "seat_belts",
-          "action": "inspect"
         },
         {
           "item": "cabin_filter",
-          "action": "replace",
-          "note": "אם זרימת האוויר נחלשת או שהחלונות מתערפלים, להחליף מוקדם יותר"
-        },
-        {
-          "item": "transfer_case_oil",
-          "action": "inspect",
-          "note": "בגרסת 4X4: בדיקת מפלס ונזילות"
-        },
-        {
-          "item": "differential_oil",
-          "action": "inspect",
-          "note": "בדיקת מפלס ונזילות"
-        }
-      ]
-    },
-    {
-      "km": 45000,
-      "items": [
-        {
-          "item": "engine_oil",
-          "action": "replace",
-          "note": "אם מופיעה התראת החלפת שמן, להחליף בהקדם"
-        },
-        {
-          "item": "oil_filter",
           "action": "replace"
-        },
-        {
-          "item": "drive_belt",
-          "action": "inspect",
-          "note": "רצועות הינע וגלגלת גל הארכובה"
-        },
-        {
-          "item": "cooling_system",
-          "action": "inspect"
-        },
-        {
-          "item": "fuel_filter",
-          "action": "inspect",
-          "note": "ניקוז מים ממסנן הסולר (וגם כשנורית חיישן המים נדלקת)"
-        },
-        {
-          "item": "brake_fluid",
-          "action": "inspect",
-          "note": "בדיקת מפלס ודליפות של נוזל הבלמים והמצמד"
-        },
-        {
-          "item": "cvt_oil",
-          "action": "inspect",
-          "note": "בדיקת נזילות; בגרירה, גגון או דרכים קשות: בדיקת בלאי נוזל ה-CVT אצל ניסאן כל 90,000 ק\"מ"
-        },
-        {
-          "item": "manual_gearbox_oil",
-          "action": "inspect",
-          "note": "בגיר ידני: בדיקת נזילות"
-        },
-        {
-          "item": "wheel_alignment",
-          "action": "inspect",
-          "note": "כיוון פרונט; לפי הצורך סבב ואיזון גלגלים"
-        },
-        {
-          "item": "exhaust",
-          "action": "inspect",
-          "note": "מערכות בלמים, מצמד ופליטה"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_discs",
-          "action": "inspect"
-        },
-        {
-          "item": "pedals",
-          "action": "inspect",
-          "note": "דוושת בלם, בלם חניה ומצמד: חופש, מהלך ותפקוד"
-        },
-        {
-          "item": "seat_belts",
-          "action": "inspect"
-        },
-        {
-          "item": "transfer_case_oil",
-          "action": "inspect",
-          "note": "בגרסת 4X4: בדיקת מפלס ונזילות"
-        },
-        {
-          "item": "differential_oil",
-          "action": "inspect",
-          "note": "בדיקת מפלס ונזילות"
         }
       ]
     },
@@ -293,26 +43,11 @@
       "items": [
         {
           "item": "engine_oil",
-          "action": "replace",
-          "note": "אם מופיעה התראת החלפת שמן, להחליף בהקדם"
+          "action": "replace"
         },
         {
           "item": "oil_filter",
           "action": "replace"
-        },
-        {
-          "item": "drive_belt",
-          "action": "inspect",
-          "note": "רצועות הינע וגלגלת גל הארכובה"
-        },
-        {
-          "item": "cooling_system",
-          "action": "inspect"
-        },
-        {
-          "item": "fuel_filter",
-          "action": "replace",
-          "note": "החלפת מסנן סולר כל 30,000 ק\"מ"
         },
         {
           "item": "air_filter",
@@ -320,158 +55,15 @@
         },
         {
           "item": "brake_fluid",
-          "action": "replace",
-          "note": "החלפת נוזל בלמים כל 30,000 ק\"מ או 24 חודשים"
-        },
-        {
-          "item": "vacuum_hose",
-          "action": "inspect",
-          "note": "צינורות ואקום של מגבר הבלמים, חיבורים ושסתום"
-        },
-        {
-          "item": "cvt_oil",
-          "action": "inspect",
-          "note": "בדיקת נזילות; בגרירה, גגון או דרכים קשות: בדיקת בלאי נוזל ה-CVT אצל ניסאן כל 90,000 ק\"מ"
-        },
-        {
-          "item": "manual_gearbox_oil",
-          "action": "inspect",
-          "note": "בגיר ידני: בדיקת נזילות"
-        },
-        {
-          "item": "steering",
-          "action": "inspect",
-          "note": "תיבת הגה ומוטות, חלקי סרן ומתלים, צירי הנעה קדמיים"
-        },
-        {
-          "item": "suspension",
-          "action": "inspect"
-        },
-        {
-          "item": "cv_boots",
-          "action": "inspect"
-        },
-        {
-          "item": "wheel_alignment",
-          "action": "inspect",
-          "note": "כיוון פרונט; לפי הצורך סבב ואיזון גלגלים"
-        },
-        {
-          "item": "exhaust",
-          "action": "inspect",
-          "note": "מערכות בלמים, מצמד ופליטה"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_discs",
-          "action": "inspect"
-        },
-        {
-          "item": "pedals",
-          "action": "inspect",
-          "note": "דוושת בלם, בלם חניה ומצמד: חופש, מהלך ותפקוד"
-        },
-        {
-          "item": "seat_belts",
-          "action": "inspect"
-        },
-        {
-          "item": "cabin_filter",
-          "action": "replace",
-          "note": "אם זרימת האוויר נחלשת או שהחלונות מתערפלים, להחליף מוקדם יותר"
-        },
-        {
-          "item": "transfer_case_oil",
-          "action": "inspect",
-          "note": "בגרסת 4X4: בדיקת מפלס ונזילות"
-        },
-        {
-          "item": "differential_oil",
-          "action": "inspect",
-          "note": "בדיקת מפלס ונזילות"
-        }
-      ]
-    },
-    {
-      "km": 75000,
-      "items": [
-        {
-          "item": "engine_oil",
-          "action": "replace",
-          "note": "אם מופיעה התראת החלפת שמן, להחליף בהקדם"
-        },
-        {
-          "item": "oil_filter",
           "action": "replace"
         },
         {
-          "item": "drive_belt",
-          "action": "inspect",
-          "note": "רצועות הינע וגלגלת גל הארכובה"
-        },
-        {
-          "item": "cooling_system",
-          "action": "inspect"
+          "item": "cabin_filter",
+          "action": "replace"
         },
         {
           "item": "fuel_filter",
-          "action": "inspect",
-          "note": "ניקוז מים ממסנן הסולר (וגם כשנורית חיישן המים נדלקת)"
-        },
-        {
-          "item": "brake_fluid",
-          "action": "inspect",
-          "note": "בדיקת מפלס ודליפות של נוזל הבלמים והמצמד"
-        },
-        {
-          "item": "cvt_oil",
-          "action": "inspect",
-          "note": "בדיקת נזילות; בגרירה, גגון או דרכים קשות: בדיקת בלאי נוזל ה-CVT אצל ניסאן כל 90,000 ק\"מ"
-        },
-        {
-          "item": "manual_gearbox_oil",
-          "action": "inspect",
-          "note": "בגיר ידני: בדיקת נזילות"
-        },
-        {
-          "item": "wheel_alignment",
-          "action": "inspect",
-          "note": "כיוון פרונט; לפי הצורך סבב ואיזון גלגלים"
-        },
-        {
-          "item": "exhaust",
-          "action": "inspect",
-          "note": "מערכות בלמים, מצמד ופליטה"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_discs",
-          "action": "inspect"
-        },
-        {
-          "item": "pedals",
-          "action": "inspect",
-          "note": "דוושת בלם, בלם חניה ומצמד: חופש, מהלך ותפקוד"
-        },
-        {
-          "item": "seat_belts",
-          "action": "inspect"
-        },
-        {
-          "item": "transfer_case_oil",
-          "action": "inspect",
-          "note": "בגרסת 4X4: בדיקת מפלס ונזילות"
-        },
-        {
-          "item": "differential_oil",
-          "action": "inspect",
-          "note": "בדיקת מפלס ונזילות"
+          "action": "replace"
         }
       ]
     },
@@ -480,185 +72,15 @@
       "items": [
         {
           "item": "engine_oil",
-          "action": "replace",
-          "note": "אם מופיעה התראת החלפת שמן, להחליף בהקדם"
+          "action": "replace"
         },
         {
           "item": "oil_filter",
           "action": "replace"
-        },
-        {
-          "item": "drive_belt",
-          "action": "inspect",
-          "note": "רצועות הינע וגלגלת גל הארכובה"
-        },
-        {
-          "item": "cooling_system",
-          "action": "inspect"
-        },
-        {
-          "item": "fuel_filter",
-          "action": "replace",
-          "note": "החלפת מסנן סולר כל 30,000 ק\"מ"
-        },
-        {
-          "item": "air_filter",
-          "action": "replace"
-        },
-        {
-          "item": "brake_fluid",
-          "action": "replace",
-          "note": "החלפת נוזל בלמים כל 30,000 ק\"מ או 24 חודשים"
-        },
-        {
-          "item": "vacuum_hose",
-          "action": "inspect",
-          "note": "צינורות ואקום של מגבר הבלמים, חיבורים ושסתום"
-        },
-        {
-          "item": "cvt_oil",
-          "action": "inspect",
-          "note": "בדיקת נזילות; בגרירה, גגון או דרכים קשות: בדיקת בלאי נוזל ה-CVT אצל ניסאן כל 90,000 ק\"מ"
-        },
-        {
-          "item": "manual_gearbox_oil",
-          "action": "inspect",
-          "note": "בגיר ידני: בדיקת נזילות"
-        },
-        {
-          "item": "steering",
-          "action": "inspect",
-          "note": "תיבת הגה ומוטות, חלקי סרן ומתלים, צירי הנעה קדמיים"
-        },
-        {
-          "item": "suspension",
-          "action": "inspect"
-        },
-        {
-          "item": "cv_boots",
-          "action": "inspect"
-        },
-        {
-          "item": "wheel_alignment",
-          "action": "inspect",
-          "note": "כיוון פרונט; לפי הצורך סבב ואיזון גלגלים"
-        },
-        {
-          "item": "exhaust",
-          "action": "inspect",
-          "note": "מערכות בלמים, מצמד ופליטה"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_discs",
-          "action": "inspect"
-        },
-        {
-          "item": "pedals",
-          "action": "inspect",
-          "note": "דוושת בלם, בלם חניה ומצמד: חופש, מהלך ותפקוד"
-        },
-        {
-          "item": "seat_belts",
-          "action": "inspect"
         },
         {
           "item": "cabin_filter",
-          "action": "replace",
-          "note": "אם זרימת האוויר נחלשת או שהחלונות מתערפלים, להחליף מוקדם יותר"
-        },
-        {
-          "item": "transfer_case_oil",
-          "action": "inspect",
-          "note": "בגרסת 4X4: בדיקת מפלס ונזילות"
-        },
-        {
-          "item": "differential_oil",
-          "action": "inspect",
-          "note": "בדיקת מפלס ונזילות"
-        }
-      ]
-    },
-    {
-      "km": 105000,
-      "items": [
-        {
-          "item": "engine_oil",
-          "action": "replace",
-          "note": "אם מופיעה התראת החלפת שמן, להחליף בהקדם"
-        },
-        {
-          "item": "oil_filter",
           "action": "replace"
-        },
-        {
-          "item": "drive_belt",
-          "action": "inspect",
-          "note": "רצועות הינע וגלגלת גל הארכובה"
-        },
-        {
-          "item": "cooling_system",
-          "action": "inspect"
-        },
-        {
-          "item": "fuel_filter",
-          "action": "inspect",
-          "note": "ניקוז מים ממסנן הסולר (וגם כשנורית חיישן המים נדלקת)"
-        },
-        {
-          "item": "brake_fluid",
-          "action": "inspect",
-          "note": "בדיקת מפלס ודליפות של נוזל הבלמים והמצמד"
-        },
-        {
-          "item": "cvt_oil",
-          "action": "inspect",
-          "note": "בדיקת נזילות; בגרירה, גגון או דרכים קשות: בדיקת בלאי נוזל ה-CVT אצל ניסאן כל 90,000 ק\"מ"
-        },
-        {
-          "item": "manual_gearbox_oil",
-          "action": "inspect",
-          "note": "בגיר ידני: בדיקת נזילות"
-        },
-        {
-          "item": "wheel_alignment",
-          "action": "inspect",
-          "note": "כיוון פרונט; לפי הצורך סבב ואיזון גלגלים"
-        },
-        {
-          "item": "exhaust",
-          "action": "inspect",
-          "note": "מערכות בלמים, מצמד ופליטה"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_discs",
-          "action": "inspect"
-        },
-        {
-          "item": "pedals",
-          "action": "inspect",
-          "note": "דוושת בלם, בלם חניה ומצמד: חופש, מהלך ותפקוד"
-        },
-        {
-          "item": "seat_belts",
-          "action": "inspect"
-        },
-        {
-          "item": "transfer_case_oil",
-          "action": "inspect",
-          "note": "בגרסת 4X4: בדיקת מפלס ונזילות"
-        },
-        {
-          "item": "differential_oil",
-          "action": "inspect",
-          "note": "בדיקת מפלס ונזילות"
         }
       ]
     },
@@ -667,26 +89,11 @@
       "items": [
         {
           "item": "engine_oil",
-          "action": "replace",
-          "note": "אם מופיעה התראת החלפת שמן, להחליף בהקדם"
+          "action": "replace"
         },
         {
           "item": "oil_filter",
           "action": "replace"
-        },
-        {
-          "item": "drive_belt",
-          "action": "inspect",
-          "note": "רצועות הינע וגלגלת גל הארכובה"
-        },
-        {
-          "item": "cooling_system",
-          "action": "inspect"
-        },
-        {
-          "item": "fuel_filter",
-          "action": "replace",
-          "note": "החלפת מסנן סולר כל 30,000 ק\"מ"
         },
         {
           "item": "air_filter",
@@ -694,158 +101,15 @@
         },
         {
           "item": "brake_fluid",
-          "action": "replace",
-          "note": "החלפת נוזל בלמים כל 30,000 ק\"מ או 24 חודשים"
-        },
-        {
-          "item": "vacuum_hose",
-          "action": "inspect",
-          "note": "צינורות ואקום של מגבר הבלמים, חיבורים ושסתום"
-        },
-        {
-          "item": "cvt_oil",
-          "action": "inspect",
-          "note": "בדיקת נזילות; בגרירה, גגון או דרכים קשות: בדיקת בלאי נוזל ה-CVT אצל ניסאן כל 90,000 ק\"מ"
-        },
-        {
-          "item": "manual_gearbox_oil",
-          "action": "inspect",
-          "note": "בגיר ידני: בדיקת נזילות"
-        },
-        {
-          "item": "steering",
-          "action": "inspect",
-          "note": "תיבת הגה ומוטות, חלקי סרן ומתלים, צירי הנעה קדמיים"
-        },
-        {
-          "item": "suspension",
-          "action": "inspect"
-        },
-        {
-          "item": "cv_boots",
-          "action": "inspect"
-        },
-        {
-          "item": "wheel_alignment",
-          "action": "inspect",
-          "note": "כיוון פרונט; לפי הצורך סבב ואיזון גלגלים"
-        },
-        {
-          "item": "exhaust",
-          "action": "inspect",
-          "note": "מערכות בלמים, מצמד ופליטה"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_discs",
-          "action": "inspect"
-        },
-        {
-          "item": "pedals",
-          "action": "inspect",
-          "note": "דוושת בלם, בלם חניה ומצמד: חופש, מהלך ותפקוד"
-        },
-        {
-          "item": "seat_belts",
-          "action": "inspect"
-        },
-        {
-          "item": "cabin_filter",
-          "action": "replace",
-          "note": "אם זרימת האוויר נחלשת או שהחלונות מתערפלים, להחליף מוקדם יותר"
-        },
-        {
-          "item": "transfer_case_oil",
-          "action": "inspect",
-          "note": "בגרסת 4X4: בדיקת מפלס ונזילות"
-        },
-        {
-          "item": "differential_oil",
-          "action": "inspect",
-          "note": "בדיקת מפלס ונזילות"
-        }
-      ]
-    },
-    {
-      "km": 135000,
-      "items": [
-        {
-          "item": "engine_oil",
-          "action": "replace",
-          "note": "אם מופיעה התראת החלפת שמן, להחליף בהקדם"
-        },
-        {
-          "item": "oil_filter",
           "action": "replace"
         },
         {
-          "item": "drive_belt",
-          "action": "inspect",
-          "note": "רצועות הינע וגלגלת גל הארכובה"
-        },
-        {
-          "item": "cooling_system",
-          "action": "inspect"
+          "item": "cabin_filter",
+          "action": "replace"
         },
         {
           "item": "fuel_filter",
-          "action": "inspect",
-          "note": "ניקוז מים ממסנן הסולר (וגם כשנורית חיישן המים נדלקת)"
-        },
-        {
-          "item": "brake_fluid",
-          "action": "inspect",
-          "note": "בדיקת מפלס ודליפות של נוזל הבלמים והמצמד"
-        },
-        {
-          "item": "cvt_oil",
-          "action": "inspect",
-          "note": "בדיקת נזילות; בגרירה, גגון או דרכים קשות: בדיקת בלאי נוזל ה-CVT אצל ניסאן כל 90,000 ק\"מ"
-        },
-        {
-          "item": "manual_gearbox_oil",
-          "action": "inspect",
-          "note": "בגיר ידני: בדיקת נזילות"
-        },
-        {
-          "item": "wheel_alignment",
-          "action": "inspect",
-          "note": "כיוון פרונט; לפי הצורך סבב ואיזון גלגלים"
-        },
-        {
-          "item": "exhaust",
-          "action": "inspect",
-          "note": "מערכות בלמים, מצמד ופליטה"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_discs",
-          "action": "inspect"
-        },
-        {
-          "item": "pedals",
-          "action": "inspect",
-          "note": "דוושת בלם, בלם חניה ומצמד: חופש, מהלך ותפקוד"
-        },
-        {
-          "item": "seat_belts",
-          "action": "inspect"
-        },
-        {
-          "item": "transfer_case_oil",
-          "action": "inspect",
-          "note": "בגרסת 4X4: בדיקת מפלס ונזילות"
-        },
-        {
-          "item": "differential_oil",
-          "action": "inspect",
-          "note": "בדיקת מפלס ונזילות"
+          "action": "replace"
         }
       ]
     },
@@ -854,147 +118,55 @@
       "items": [
         {
           "item": "engine_oil",
-          "action": "replace",
-          "note": "אם מופיעה התראת החלפת שמן, להחליף בהקדם"
+          "action": "replace"
         },
         {
           "item": "oil_filter",
           "action": "replace"
         },
         {
-          "item": "drive_belt",
-          "action": "inspect",
-          "note": "רצועות הינע וגלגלת גל הארכובה"
-        },
-        {
-          "item": "cooling_system",
-          "action": "inspect"
-        },
-        {
-          "item": "fuel_filter",
-          "action": "replace",
-          "note": "החלפת מסנן סולר כל 30,000 ק\"מ"
-        },
-        {
-          "item": "air_filter",
+          "item": "cabin_filter",
           "action": "replace"
         },
         {
-          "item": "brake_fluid",
+          "item": "drive_belt",
           "action": "replace",
-          "note": "החלפת נוזל בלמים כל 30,000 ק\"מ או 24 חודשים"
-        },
-        {
-          "item": "vacuum_hose",
-          "action": "inspect",
-          "note": "צינורות ואקום של מגבר הבלמים, חיבורים ושסתום"
-        },
-        {
-          "item": "cvt_oil",
-          "action": "inspect",
-          "note": "בדיקת נזילות; בגרירה, גגון או דרכים קשות: בדיקת בלאי נוזל ה-CVT אצל ניסאן כל 90,000 ק\"מ"
-        },
-        {
-          "item": "manual_gearbox_oil",
-          "action": "inspect",
-          "note": "בגיר ידני: בדיקת נזילות"
-        },
-        {
-          "item": "steering",
-          "action": "inspect",
-          "note": "תיבת הגה ומוטות, חלקי סרן ומתלים, צירי הנעה קדמיים"
-        },
-        {
-          "item": "suspension",
-          "action": "inspect"
-        },
-        {
-          "item": "cv_boots",
-          "action": "inspect"
-        },
-        {
-          "item": "wheel_alignment",
-          "action": "inspect",
-          "note": "כיוון פרונט; לפי הצורך סבב ואיזון גלגלים"
-        },
-        {
-          "item": "exhaust",
-          "action": "inspect",
-          "note": "מערכות בלמים, מצמד ופליטה"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_discs",
-          "action": "inspect"
-        },
-        {
-          "item": "pedals",
-          "action": "inspect",
-          "note": "דוושת בלם, בלם חניה ומצמד: חופש, מהלך ותפקוד"
-        },
-        {
-          "item": "seat_belts",
-          "action": "inspect"
-        },
-        {
-          "item": "cabin_filter",
-          "action": "replace",
-          "note": "אם זרימת האוויר נחלשת או שהחלונות מתערפלים, להחליף מוקדם יותר"
-        },
-        {
-          "item": "transfer_case_oil",
-          "action": "inspect",
-          "note": "בגרסת 4X4: בדיקת מפלס ונזילות"
-        },
-        {
-          "item": "differential_oil",
-          "action": "inspect",
-          "note": "בדיקת מפלס ונזילות"
+          "note": "סט רצועת מנוע"
         }
       ]
     }
   ],
   "long_interval": [
     {
-      "item": "drive_belt",
-      "action": "replace",
-      "every_km": 160000,
-      "every_months": 72
-    },
-    {
-      "item": "timing_belt",
-      "action": "replace",
-      "every_km": 300000,
-      "every_months": 120,
-      "note": "שרשרת תזמון: בגיר ידני כל 300,000 ק\"מ או 120 חודשים; בגיר CVT כל 160,000 ק\"מ או 240 חודשים. גלגלת גל ארכובה: החלפה כל 300,000"
-    },
-    {
       "item": "coolant",
       "action": "replace",
-      "first_km": 150000,
-      "first_months": 96,
-      "then_every_km": 75000,
-      "then_every_months": 48,
-      "note": "בדיקת יחס התערובת כל 30,000 ק\"מ או 24 חודשים"
+      "every_km": 90000,
+      "every_months": 60,
+      "note": "בטבלת היבואן נוזל הקירור מסומן בכוכבית (בעמודות 90,000 ו-150,000) עם הערה: כל 5 שנים או 90,000 ק\"מ, המוקדם"
     }
   ],
   "time_based": [],
-  "specs": {},
+  "specs": {
+    "engine_oil": "דיזל עם מסנן חלקיקים: ACEA C4 בצמיגות 5W-30 (לפי טבלת השמנים בחוברת היבואן)",
+    "warranty": "3 שנים או 100,000 ק\"מ, המוקדם (בשנתיים הראשונות ללא הגבלת ק\"מ); צבע ושיתוך 3 שנים (חוברת 2016)"
+  },
   "sources": [
     {
-      "url": "https://www.nissan-cdn.net/content/dam/Nissan/za/Maintenance/Qashqai.pdf",
-      "kind": "manufacturer",
-      "note": "Nissan South Africa, \"QASHQAI 1.6ℓ DIESEL - PERIODIC MAINTENANCE\", עמודים 1-3"
+      "url": "http://carz.co.il.s3.amazonaws.com/files/NewVehicle_Warranty.pdf",
+      "kind": "importer",
+      "note": "חוברת אחריות ושירות של קרסו מוטורס לרכבי ניסאן (מהדורת אוגוסט 2016, עותק של החוברת הישראלית שהועלה לאתר carz.co.il). טבלת מועדי הטיפול לפי דגם בעמ' 18 בחוברת, סוגי שמן בעמ' 17, אחריות בעמ' 5-6; טבלת קשקאי J11 / אקס-טרייל T32 דיזל בעמ' 24 (עמ' 25 בקובץ)"
     },
     {
-      "url": "https://www.nissan.co.il/service.html",
+      "url": "https://www.nissan-cdn.net/content/dam/Nissan/israel/services/warrenty-pdf/NewVehicle_Warranty.pdf",
       "kind": "importer",
-      "note": "אתרי ניסאן ישראל (nissan.co.il) ו-service.freesbe.com לא מפרסמים ספרי רכב או לוחות טיפולים (service.freesbe.com ו-freesbe.com מחזירים 403); לכן זהו לוח בינלאומי"
+      "note": "כתב האחריות לרכב חדש של ניסאן ישראל (2017) בתיקיית החוברות באתר ניסאן ישראל, יחד עם חוברות NT500/LEAF/GT-R מאותה סדרה (אוגוסט 2016). אין בו טבלת טיפולים; מאשר שמדובר בסדרת החוברות של היבואן"
+    },
+    {
+      "url": "https://www.nissan-cdn.net/content/dam/Nissan/israel/brochures/Nissan-Qashqai-Brochure.pdf",
+      "kind": "importer",
+      "note": "קטלוג מפרט טכני של ניסאן ישראל (גרסה ישנה במטמון של www.nissan-cdn.net), מאשר את המרווח: קשקאי 1.6 דיזל (R9M): מרווח טיפולים 30,000 ק\"מ או שנה"
     }
   ],
-  "status": "draft",
-  "notes": "טיוטה מלוח ניסאן דרום אפריקה ל-Qashqai עם מנוע 1.6 דיזל (R9M). מסנן הסולר מנוקז בכל טיפול ומוחלף כל 30,000 ק\"מ. בתנאים מחמירים (אבק, נסיעות קצרות, חום קיצוני) חלק מהפריטים מתבצעים בתדירות כפולה, לפי טבלת התנאים המחמירים בגיליון."
+  "status": "reviewed",
+  "notes": "לוח היבואן הישראלי לקשקאי J11 בדיזל: טיפול כל 30,000 ק\"מ או שנה. מסנן מזגן בכל טיפול; מסנן אוויר, מסנן סולר ונוזל בלמים כל 60,000; סט רצועת מנוע ב-150,000; נוזל קירור כל 5 שנים או 90,000 ק\"מ. כשהנסועה השנתית נמוכה ממרווח הק\"מ, הטיפולים נקבעים לפי הזמן (פעם בשנה). בתנאי נסיעה קשים (דרכים מאובקות, נסיעות קצרות חוזרות, גרירה, עבודה ממושכת בסרק, חום או קור קיצוניים, לחות או אזורים הרריים, דרכים משובשות או מדבריות, בלימות תכופות, נהיגה מהירה ממושכת, מונית ורכב לימוד) החוברת מפנה לטיפולים תכופים יותר בתיאום עם מרכז השירות, בלי טבלה נפרדת. "
 }

@@ -15,61 +15,12 @@
   "fuel": "diesel",
   "importer": "פריסבי (קרסו מוטורס)",
   "interval": {
-    "km": 15000,
+    "km": 30000,
     "months": 12,
-    "note": "לפי הגיליון של ניסאן דרום אפריקה: טיפול כל 15,000 ק\"מ או 12 חודשים"
+    "note": "טיפול כל 30,000 ק\"מ או שנה, המוקדם (רכב ללא וו גרירה; עם וו גרירה כל 15,000 ק\"מ)"
   },
   "cycle_km": 150000,
   "services": [
-    {
-      "km": 15000,
-      "items": [
-        {
-          "item": "engine_oil",
-          "action": "replace"
-        },
-        {
-          "item": "oil_filter",
-          "action": "replace"
-        },
-        {
-          "item": "air_filter",
-          "action": "replace"
-        },
-        {
-          "item": "fuel_filter",
-          "action": "replace"
-        },
-        {
-          "item": "brake_fluid",
-          "action": "inspect",
-          "note": "בדיקת מפלס ודליפות"
-        },
-        {
-          "item": "brake_lines",
-          "action": "inspect",
-          "note": "מערכות בלמים ומצמד"
-        },
-        {
-          "item": "manual_gearbox_oil",
-          "action": "inspect",
-          "note": "בדיקת נזילות"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_discs",
-          "action": "inspect"
-        },
-        {
-          "item": "pedals",
-          "action": "inspect",
-          "note": "דוושת בלם, בלם חניה ומצמד"
-        }
-      ]
-    },
     {
       "km": 30000,
       "items": [
@@ -82,126 +33,40 @@
           "action": "replace"
         },
         {
-          "item": "drive_belt",
-          "action": "inspect"
-        },
-        {
-          "item": "cooling_system",
-          "action": "inspect"
-        },
-        {
           "item": "air_filter",
-          "action": "replace"
-        },
-        {
-          "item": "fuel_filter",
-          "action": "replace"
-        },
-        {
-          "item": "fuel_lines",
           "action": "inspect"
-        },
-        {
-          "item": "brake_fluid",
-          "action": "replace",
-          "note": "החלפה כל 30,000 ק\"מ או 24 חודשים"
-        },
-        {
-          "item": "vacuum_hose",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_lines",
-          "action": "inspect",
-          "note": "מערכות בלמים ומצמד"
-        },
-        {
-          "item": "exhaust",
-          "action": "inspect"
-        },
-        {
-          "item": "manual_gearbox_oil",
-          "action": "inspect",
-          "note": "בדיקת נזילות"
-        },
-        {
-          "item": "steering",
-          "action": "inspect",
-          "note": "הגה, סרן ומתלים, צירי הנעה"
-        },
-        {
-          "item": "suspension",
-          "action": "inspect"
-        },
-        {
-          "item": "cv_boots",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_discs",
-          "action": "inspect"
-        },
-        {
-          "item": "pedals",
-          "action": "inspect",
-          "note": "דוושת בלם, בלם חניה ומצמד"
         },
         {
           "item": "cabin_filter",
-          "action": "replace"
-        }
-      ]
-    },
-    {
-      "km": 45000,
-      "items": [
-        {
-          "item": "engine_oil",
-          "action": "replace"
-        },
-        {
-          "item": "oil_filter",
-          "action": "replace"
-        },
-        {
-          "item": "air_filter",
-          "action": "replace"
+          "action": "replace",
+          "note": "בנסועה שנתית של פחות מ-15,000 ק\"מ: החלפה כל שנתיים"
         },
         {
           "item": "fuel_filter",
-          "action": "replace"
-        },
-        {
-          "item": "brake_fluid",
-          "action": "inspect",
-          "note": "בדיקת מפלס ודליפות"
-        },
-        {
-          "item": "brake_lines",
-          "action": "inspect",
-          "note": "מערכות בלמים ומצמד"
-        },
-        {
-          "item": "manual_gearbox_oil",
-          "action": "inspect",
-          "note": "בדיקת נזילות"
+          "action": "clean",
+          "note": "ניקוז מים ממסנן הסולר (בלי החלפה)"
         },
         {
           "item": "brake_pads",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_discs",
-          "action": "inspect"
-        },
-        {
-          "item": "pedals",
           "action": "inspect",
-          "note": "דוושת בלם, בלם חניה ומצמד"
+          "note": "בדיקת הבלמים מלפנים ומאחור"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "לפי הערת השוליים ההחלפה הראשונה ב-90,000 ק\"מ או 5 שנים (ראו מרווח ארוך); הטבלה מסמנת החלפה ב-150,000"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect"
         }
       ]
     },
@@ -217,126 +82,39 @@
           "action": "replace"
         },
         {
-          "item": "drive_belt",
-          "action": "inspect"
-        },
-        {
-          "item": "cooling_system",
-          "action": "inspect"
-        },
-        {
           "item": "air_filter",
           "action": "replace"
-        },
-        {
-          "item": "fuel_filter",
-          "action": "replace"
-        },
-        {
-          "item": "fuel_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_fluid",
-          "action": "replace",
-          "note": "החלפה כל 30,000 ק\"מ או 24 חודשים"
-        },
-        {
-          "item": "vacuum_hose",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_lines",
-          "action": "inspect",
-          "note": "מערכות בלמים ומצמד"
-        },
-        {
-          "item": "exhaust",
-          "action": "inspect"
-        },
-        {
-          "item": "manual_gearbox_oil",
-          "action": "inspect",
-          "note": "בדיקת נזילות"
-        },
-        {
-          "item": "steering",
-          "action": "inspect",
-          "note": "הגה, סרן ומתלים, צירי הנעה"
-        },
-        {
-          "item": "suspension",
-          "action": "inspect"
-        },
-        {
-          "item": "cv_boots",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_discs",
-          "action": "inspect"
-        },
-        {
-          "item": "pedals",
-          "action": "inspect",
-          "note": "דוושת בלם, בלם חניה ומצמד"
         },
         {
           "item": "cabin_filter",
-          "action": "replace"
-        }
-      ]
-    },
-    {
-      "km": 75000,
-      "items": [
-        {
-          "item": "engine_oil",
-          "action": "replace"
-        },
-        {
-          "item": "oil_filter",
-          "action": "replace"
-        },
-        {
-          "item": "air_filter",
-          "action": "replace"
+          "action": "replace",
+          "note": "בנסועה שנתית של פחות מ-15,000 ק\"מ: החלפה כל שנתיים"
         },
         {
           "item": "fuel_filter",
           "action": "replace"
         },
         {
-          "item": "brake_fluid",
+          "item": "brake_pads",
           "action": "inspect",
-          "note": "בדיקת מפלס ודליפות"
+          "note": "בדיקת הבלמים מלפנים ומאחור"
         },
         {
-          "item": "brake_lines",
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "coolant",
           "action": "inspect",
-          "note": "מערכות בלמים ומצמד"
+          "note": "לפי הערת השוליים ההחלפה הראשונה ב-90,000 ק\"מ או 5 שנים (ראו מרווח ארוך); הטבלה מסמנת החלפה ב-150,000"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
         },
         {
           "item": "manual_gearbox_oil",
-          "action": "inspect",
-          "note": "בדיקת נזילות"
-        },
-        {
-          "item": "brake_pads",
           "action": "inspect"
-        },
-        {
-          "item": "brake_discs",
-          "action": "inspect"
-        },
-        {
-          "item": "pedals",
-          "action": "inspect",
-          "note": "דוושת בלם, בלם חניה ומצמד"
         }
       ]
     },
@@ -352,126 +130,40 @@
           "action": "replace"
         },
         {
-          "item": "drive_belt",
-          "action": "inspect"
-        },
-        {
-          "item": "cooling_system",
-          "action": "inspect"
-        },
-        {
           "item": "air_filter",
-          "action": "replace"
-        },
-        {
-          "item": "fuel_filter",
-          "action": "replace"
-        },
-        {
-          "item": "fuel_lines",
           "action": "inspect"
-        },
-        {
-          "item": "brake_fluid",
-          "action": "replace",
-          "note": "החלפה כל 30,000 ק\"מ או 24 חודשים"
-        },
-        {
-          "item": "vacuum_hose",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_lines",
-          "action": "inspect",
-          "note": "מערכות בלמים ומצמד"
-        },
-        {
-          "item": "exhaust",
-          "action": "inspect"
-        },
-        {
-          "item": "manual_gearbox_oil",
-          "action": "replace",
-          "note": "מסומן בגיליון ב-90,000 בלבד"
-        },
-        {
-          "item": "steering",
-          "action": "inspect",
-          "note": "הגה, סרן ומתלים, צירי הנעה"
-        },
-        {
-          "item": "suspension",
-          "action": "inspect"
-        },
-        {
-          "item": "cv_boots",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_discs",
-          "action": "inspect"
-        },
-        {
-          "item": "pedals",
-          "action": "inspect",
-          "note": "דוושת בלם, בלם חניה ומצמד"
         },
         {
           "item": "cabin_filter",
-          "action": "replace"
-        }
-      ]
-    },
-    {
-      "km": 105000,
-      "items": [
-        {
-          "item": "engine_oil",
-          "action": "replace"
-        },
-        {
-          "item": "oil_filter",
-          "action": "replace"
-        },
-        {
-          "item": "air_filter",
-          "action": "replace"
+          "action": "replace",
+          "note": "בנסועה שנתית של פחות מ-15,000 ק\"מ: החלפה כל שנתיים"
         },
         {
           "item": "fuel_filter",
-          "action": "replace"
-        },
-        {
-          "item": "brake_fluid",
-          "action": "inspect",
-          "note": "בדיקת מפלס ודליפות"
-        },
-        {
-          "item": "brake_lines",
-          "action": "inspect",
-          "note": "מערכות בלמים ומצמד"
-        },
-        {
-          "item": "manual_gearbox_oil",
-          "action": "inspect",
-          "note": "בדיקת נזילות"
+          "action": "clean",
+          "note": "ניקוז מים ממסנן הסולר (בלי החלפה)"
         },
         {
           "item": "brake_pads",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_discs",
-          "action": "inspect"
-        },
-        {
-          "item": "pedals",
           "action": "inspect",
-          "note": "דוושת בלם, בלם חניה ומצמד"
+          "note": "בדיקת הבלמים מלפנים ומאחור"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "לפי הערת השוליים ההחלפה הראשונה ב-90,000 ק\"מ או 5 שנים (ראו מרווח ארוך); הטבלה מסמנת החלפה ב-150,000"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect"
         }
       ]
     },
@@ -487,126 +179,39 @@
           "action": "replace"
         },
         {
-          "item": "drive_belt",
-          "action": "inspect"
-        },
-        {
-          "item": "cooling_system",
-          "action": "inspect"
-        },
-        {
           "item": "air_filter",
           "action": "replace"
-        },
-        {
-          "item": "fuel_filter",
-          "action": "replace"
-        },
-        {
-          "item": "fuel_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_fluid",
-          "action": "replace",
-          "note": "החלפה כל 30,000 ק\"מ או 24 חודשים"
-        },
-        {
-          "item": "vacuum_hose",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_lines",
-          "action": "inspect",
-          "note": "מערכות בלמים ומצמד"
-        },
-        {
-          "item": "exhaust",
-          "action": "inspect"
-        },
-        {
-          "item": "manual_gearbox_oil",
-          "action": "inspect",
-          "note": "בדיקת נזילות"
-        },
-        {
-          "item": "steering",
-          "action": "inspect",
-          "note": "הגה, סרן ומתלים, צירי הנעה"
-        },
-        {
-          "item": "suspension",
-          "action": "inspect"
-        },
-        {
-          "item": "cv_boots",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_discs",
-          "action": "inspect"
-        },
-        {
-          "item": "pedals",
-          "action": "inspect",
-          "note": "דוושת בלם, בלם חניה ומצמד"
         },
         {
           "item": "cabin_filter",
-          "action": "replace"
-        }
-      ]
-    },
-    {
-      "km": 135000,
-      "items": [
-        {
-          "item": "engine_oil",
-          "action": "replace"
-        },
-        {
-          "item": "oil_filter",
-          "action": "replace"
-        },
-        {
-          "item": "air_filter",
-          "action": "replace"
+          "action": "replace",
+          "note": "בנסועה שנתית של פחות מ-15,000 ק\"מ: החלפה כל שנתיים"
         },
         {
           "item": "fuel_filter",
           "action": "replace"
         },
         {
-          "item": "brake_fluid",
+          "item": "brake_pads",
           "action": "inspect",
-          "note": "בדיקת מפלס ודליפות"
+          "note": "בדיקת הבלמים מלפנים ומאחור"
         },
         {
-          "item": "brake_lines",
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "coolant",
           "action": "inspect",
-          "note": "מערכות בלמים ומצמד"
+          "note": "לפי הערת השוליים ההחלפה הראשונה ב-90,000 ק\"מ או 5 שנים (ראו מרווח ארוך); הטבלה מסמנת החלפה ב-150,000"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
         },
         {
           "item": "manual_gearbox_oil",
-          "action": "inspect",
-          "note": "בדיקת נזילות"
-        },
-        {
-          "item": "brake_pads",
           "action": "inspect"
-        },
-        {
-          "item": "brake_discs",
-          "action": "inspect"
-        },
-        {
-          "item": "pedals",
-          "action": "inspect",
-          "note": "דוושת בלם, בלם חניה ומצמד"
         }
       ]
     },
@@ -622,120 +227,89 @@
           "action": "replace"
         },
         {
-          "item": "drive_belt",
-          "action": "inspect"
-        },
-        {
-          "item": "cooling_system",
-          "action": "inspect"
-        },
-        {
           "item": "air_filter",
-          "action": "replace"
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "בנסועה שנתית של פחות מ-15,000 ק\"מ: החלפה כל שנתיים"
         },
         {
           "item": "fuel_filter",
-          "action": "replace"
+          "action": "clean",
+          "note": "ניקוז מים ממסנן הסולר (בלי החלפה)"
         },
         {
-          "item": "fuel_lines",
-          "action": "inspect"
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "בדיקת הבלמים מלפנים ומאחור"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "coolant",
+          "action": "replace",
+          "note": "לפי הערת השוליים ההחלפה הראשונה ב-90,000 ק\"מ או 5 שנים (ראו מרווח ארוך); הטבלה מסמנת החלפה ב-150,000"
         },
         {
           "item": "brake_fluid",
-          "action": "replace",
-          "note": "החלפה כל 30,000 ק\"מ או 24 חודשים"
-        },
-        {
-          "item": "vacuum_hose",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_lines",
-          "action": "inspect",
-          "note": "מערכות בלמים ומצמד"
-        },
-        {
-          "item": "exhaust",
           "action": "inspect"
         },
         {
           "item": "manual_gearbox_oil",
-          "action": "inspect",
-          "note": "בדיקת נזילות"
-        },
-        {
-          "item": "steering",
-          "action": "inspect",
-          "note": "הגה, סרן ומתלים, צירי הנעה"
-        },
-        {
-          "item": "suspension",
           "action": "inspect"
         },
         {
-          "item": "cv_boots",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_discs",
-          "action": "inspect"
-        },
-        {
-          "item": "pedals",
-          "action": "inspect",
-          "note": "דוושת בלם, בלם חניה ומצמד"
-        },
-        {
-          "item": "cabin_filter",
-          "action": "replace"
+          "item": "timing_belt",
+          "action": "replace",
+          "note": "רצועת תזמון ומותח: כל 150,000 ק\"מ או 5 שנים, המוקדם"
         }
       ]
     }
   ],
   "long_interval": [
     {
-      "item": "timing_belt",
-      "action": "replace",
-      "every_km": 90000,
-      "every_months": 48,
-      "note": "רצועת תזמון וגלגלות: מרווח מקסימלי"
-    },
-    {
-      "item": "drive_belt",
-      "action": "replace",
-      "every_km": 90000,
-      "every_months": 48,
-      "note": "רצועת אביזרים וגלגלות"
-    },
-    {
       "item": "coolant",
       "action": "replace",
-      "first_km": 150000,
-      "first_months": 96,
-      "then_every_km": 75000,
+      "first_km": 90000,
+      "first_months": 60,
+      "then_every_km": 60000,
       "then_every_months": 48,
-      "note": "בדיקת יחס התערובת כל 30,000 ק\"מ או 24 חודשים"
+      "note": "הערת שוליים בטבלת היבואן: החלפה ראשונה ב-90,000 ק\"מ או 5 שנים ואחר כך כל 60,000 ק\"מ או 4 שנים"
+    },
+    {
+      "item": "timing_belt",
+      "action": "replace",
+      "every_km": 150000,
+      "every_months": 60,
+      "note": "רצועת תזמון ומותח: כל 150,000 ק\"מ או 5 שנים, המוקדם (הערת שוליים בטבלה)"
     }
   ],
   "time_based": [],
-  "specs": {},
+  "specs": {
+    "engine_oil": "דיזל עם מסנן חלקיקים: ACEA C4 בצמיגות 5W-30 (לפי טבלת השמנים בחוברת היבואן)",
+    "warranty": "5 שנים או 160,000 ק\"מ, המוקדם (בשנתיים הראשונות ללא הגבלת ק\"מ); צבע ושיתוך 5 שנים (חוברת 2016, נבארה ו-NV200)"
+  },
   "sources": [
     {
-      "url": "https://www.nissan-cdn.net/content/dam/Nissan/za/Maintenance/NV200.pdf",
-      "kind": "manufacturer",
-      "note": "Nissan South Africa, \"NISSAN NV200 1.5ℓ DIESEL - PERIODIC MAINTENANCE\", עמודים 4-6"
+      "url": "http://carz.co.il.s3.amazonaws.com/files/NewVehicle_Warranty.pdf",
+      "kind": "importer",
+      "note": "חוברת אחריות ושירות של קרסו מוטורס לרכבי ניסאן (מהדורת אוגוסט 2016, עותק של החוברת הישראלית שהועלה לאתר carz.co.il). טבלת מועדי הטיפול לפי דגם בעמ' 18 בחוברת, סוגי שמן בעמ' 17, אחריות בעמ' 5-6; טבלאות NV200 M20 בעמ' 33-34 (עמ' 34-35 בקובץ); הלוח כאן הוא הטבלה לרכב ללא וו גרירה"
     },
     {
-      "url": "https://www.nissan.co.il/service.html",
+      "url": "https://www.nissan-cdn.net/content/dam/Nissan/israel/services/warrenty-pdf/NewVehicle_Warranty.pdf",
       "kind": "importer",
-      "note": "אתרי ניסאן ישראל (nissan.co.il) ו-service.freesbe.com לא מפרסמים ספרי רכב או לוחות טיפולים (service.freesbe.com ו-freesbe.com מחזירים 403); לכן זהו לוח בינלאומי"
+      "note": "כתב האחריות לרכב חדש של ניסאן ישראל (2017) בתיקיית החוברות באתר ניסאן ישראל, יחד עם חוברות NT500/LEAF/GT-R מאותה סדרה (אוגוסט 2016). אין בו טבלת טיפולים; מאשר שמדובר בסדרת החוברות של היבואן"
+    },
+    {
+      "url": "https://www.nissan-cdn.net/content/dam/Nissan/israel/brochures/Nissan-NV200-Brochure.pdf",
+      "kind": "importer",
+      "note": "קטלוג מפרט טכני של ניסאן ישראל (גרסה ישנה במטמון של www.nissan-cdn.net), מאשר את המרווח: NV200 K9K: מרווח טיפולים 30,000 ק\"מ או שנה"
     }
   ],
-  "status": "draft",
-  "notes": "טיוטה מלוח ניסאן דרום אפריקה ל-NV200 דיזל. מסנן אוויר ומסנן סולר מוחלפים בכל טיפול; רצועת תזמון ורצועת אביזרים כל 90,000 ק\"מ או 4 שנים. בתנאים מחמירים (אבק, נסיעות קצרות, חום קיצוני) חלק מהפריטים מתבצעים בתדירות כפולה, לפי טבלת התנאים המחמירים בגיליון."
+  "status": "reviewed",
+  "notes": "לוח היבואן הישראלי ל-NV200 דיזל ללא וו גרירה: טיפול כל 30,000 ק\"מ או שנה; מסנן מזגן בכל טיפול; מסנן אוויר, מסנן סולר ונוזל בלמים כל 60,000; רצועת תזמון ומותח כל 150,000 ק\"מ או 5 שנים. לרכב עם וו גרירה החוברת קובעת טבלה נפרדת: טיפול כל 15,000 ק\"מ או שנה, עם החלפת מסנן אוויר, נוזל בלמים ומסנן סולר ב-60,000 ומסנן מזגן ב-30,000/60,000/90,000. כשהנסועה השנתית נמוכה ממרווח הק\"מ, הטיפולים נקבעים לפי הזמן (פעם בשנה). בתנאי נסיעה קשים (דרכים מאובקות, נסיעות קצרות חוזרות, גרירה, עבודה ממושכת בסרק, חום או קור קיצוניים, לחות או אזורים הרריים, דרכים משובשות או מדבריות, בלימות תכופות, נהיגה מהירה ממושכת, מונית ורכב לימוד) החוברת מפנה לטיפולים תכופים יותר בתיאום עם מרכז השירות, בלי טבלה נפרדת. "
 }

@@ -1,0 +1,230 @@
+{
+  "id": "nissan-altima-2013-2019-2.5",
+  "make": "Nissan",
+  "make_he": "ניסאן",
+  "model": "Altima",
+  "model_he": "אלטימה",
+  "generation": "L33",
+  "years": [
+    2013,
+    2019
+  ],
+  "engines": [
+    "2.5 (QR25DE)"
+  ],
+  "fuel": "petrol",
+  "importer": "פריסבי (קרסו מוטורס)",
+  "interval": {
+    "km": 15000,
+    "months": 12,
+    "note": "טיפול כל 15,000 ק\"מ או שנה, המוקדם (לוח היבואן הישראלי)"
+  },
+  "cycle_km": 120000,
+  "services": [
+    {
+      "km": 15000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 45000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 75000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 105000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "coolant",
+      "action": "replace",
+      "every_km": 90000,
+      "every_months": 60,
+      "note": "בטבלת היבואן נוזל הקירור מסומן בכוכבית בעמודת 90,000 עם הערה: כל 5 שנים או 90,000 ק\"מ, המוקדם"
+    }
+  ],
+  "time_based": [],
+  "specs": {
+    "engine_oil": "API SN בצמיגות 0W-30 (טבלת השמנים בחוברת היבואן מציינת את מיקרה, אלטימה ומקסימה בנפרד)",
+    "warranty": "3 שנים או 100,000 ק\"מ, המוקדם (בשנתיים הראשונות ללא הגבלת ק\"מ); צבע ושיתוך 3 שנים (חוברת 2016)"
+  },
+  "sources": [
+    {
+      "url": "http://carz.co.il.s3.amazonaws.com/files/NewVehicle_Warranty.pdf",
+      "kind": "importer",
+      "note": "חוברת אחריות ושירות של קרסו מוטורס לרכבי ניסאן (מהדורת אוגוסט 2016, עותק של החוברת הישראלית שהועלה לאתר carz.co.il). טבלת מועדי הטיפול לפי דגם בעמ' 18 בחוברת, סוגי שמן בעמ' 17, אחריות בעמ' 5-6; טבלת אלטימה בנזין בעמ' 27 (עמ' 28 בקובץ)"
+    },
+    {
+      "url": "https://www.nissan-cdn.net/content/dam/Nissan/israel/services/warrenty-pdf/NewVehicle_Warranty.pdf",
+      "kind": "importer",
+      "note": "כתב האחריות לרכב חדש של ניסאן ישראל (2017) בתיקיית החוברות באתר ניסאן ישראל, יחד עם חוברות NT500/LEAF/GT-R מאותה סדרה (אוגוסט 2016). אין בו טבלת טיפולים; מאשר שמדובר בסדרת החוברות של היבואן"
+    },
+    {
+      "url": "https://www.nissan-cdn.net/content/dam/Nissan/israel/brochures/Nissan-Altima-Brochure.pdf",
+      "kind": "importer",
+      "note": "קטלוג מפרט טכני של ניסאן ישראל (גרסה ישנה במטמון של www.nissan-cdn.net), מאשר את המרווח: אלטימה QR25DE: מרווח טיפולים 15,000 ק\"מ או שנה"
+    }
+  ],
+  "status": "reviewed",
+  "notes": "לוח היבואן הישראלי לאלטימה בבנזין (חוברת 2016, דור L33): טיפול כל 15,000 ק\"מ או שנה. מסנן אוויר, נוזל בלמים ומסנן מזגן כל 30,000; מצתים ב-90,000; נוזל קירור כל 5 שנים או 90,000 ק\"מ. אלטימה L34 (מנוע PR25, 2019 ואילך) לא מכוסה בחוברת. כשהנסועה השנתית נמוכה ממרווח הק\"מ, הטיפולים נקבעים לפי הזמן (פעם בשנה). בתנאי נסיעה קשים (דרכים מאובקות, נסיעות קצרות חוזרות, גרירה, עבודה ממושכת בסרק, חום או קור קיצוניים, לחות או אזורים הרריים, דרכים משובשות או מדבריות, בלימות תכופות, נהיגה מהירה ממושכת, מונית ורכב לימוד) החוברת מפנה לטיפולים תכופים יותר בתיאום עם מרכז השירות, בלי טבלה נפרדת. "
+}
