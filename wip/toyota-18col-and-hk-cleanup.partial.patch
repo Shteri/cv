@@ -1,0 +1,4001 @@
+diff --git a/data/registry_map.json b/data/registry_map.json
+index 461469a..f65eede 100644
+--- a/data/registry_map.json
++++ b/data/registry_map.json
+@@ -296,6 +296,25 @@
+       ],
+       "schedule": "toyota-auris-2013-2019-1.6"
+     },
++    {
++      "make": "Toyota",
++      "names": [
++        "RAV 4",
++        "RAV4",
++        "RAV4 HEV"
++      ],
++      "years": [
++        2026,
++        2026
++      ],
++      "engine_codes": [
++        "A25A",
++        "A25AFXS",
++        "A25A-FXS"
++      ],
++      "_note": "XA60 (sixth generation, sheet 367). Registry check 5.10.2026: 2026 'RAV 4' (2,542) and 'RAV4 HEV' are all AXAL62/AXAL64, 'RAV4' 2026 mostly AXAL6x; 2026 'RAV4 HYBRID' / 'RAV 4 HYBRID' / 'RAV4 HSD' are AXAL52/54 (XA50) and stay on the 2023-2025 rules. Placed before the XA50 rules so it wins among rules with engine codes.",
++      "schedule": "toyota-rav4-2026-2.5-hybrid"
++    },
+     {
+       "make": "Toyota",
+       "names": [
+diff --git a/data/schedules/toyota-aygo-x-2026-1.5-hybrid.json b/data/schedules/toyota-aygo-x-2026-1.5-hybrid.json
+index 5f27267..b8c1727 100644
+--- a/data/schedules/toyota-aygo-x-2026-1.5-hybrid.json
++++ b/data/schedules/toyota-aygo-x-2026-1.5-hybrid.json
+@@ -5,7 +5,7 @@
+   "id": "toyota-aygo-x-2026-1.5-hybrid",
+   "model": "Aygo X",
+   "model_he": "איגו X",
+-  "generation": "AB70 hybrid",
++  "generation": "AB70 hybrid (MABH10)",
+   "years": [
+     2026,
+     2026
+@@ -17,9 +17,9 @@
+   "interval": {
+     "km": 15000,
+     "months": 12,
+-    "note": "לפי הגיליון: כל 15,000 ק\"מ או 12 חודשים, המוקדם מביניהם (עמודות של 15,000 ק\"מ / 12 חודשים)"
++    "note": "לפי הגיליון: תנאי פעולה רגילים 15,000 ק\"מ או 12 חודשים; בתנאים מחמירים שמן ומסנן כל 7,500 ק\"מ או 6 חודשים"
+   },
+-  "cycle_km": 150000,
++  "cycle_km": 270000,
+   "services": [
+     {
+       "km": 15000,
+@@ -973,6 +973,790 @@
+           "item": "cv_boots",
+           "action": "inspect"
+         },
++        {
++          "item": "coolant",
++          "action": "inspect"
++        },
++        {
++          "item": "cooling_system",
++          "action": "inspect"
++        },
++        {
++          "item": "exhaust",
++          "action": "inspect"
++        },
++        {
++          "item": "fuel_lines",
++          "action": "inspect"
++        },
++        {
++          "item": "transmission_oil",
++          "action": "inspect"
++        },
++        {
++          "item": "body_underside",
++          "action": "inspect"
++        }
++      ]
++    },
++    {
++      "km": 165000,
++      "items": [
++        {
++          "item": "engine_oil",
++          "action": "replace"
++        },
++        {
++          "item": "oil_filter",
++          "action": "replace"
++        },
++        {
++          "item": "brake_fluid",
++          "action": "inspect"
++        },
++        {
++          "item": "air_filter",
++          "action": "inspect"
++        },
++        {
++          "item": "hybrid_battery_filter",
++          "action": "inspect"
++        },
++        {
++          "item": "cabin_filter",
++          "action": "replace"
++        },
++        {
++          "item": "coolant",
++          "action": "inspect"
++        },
++        {
++          "item": "battery_12v",
++          "action": "inspect"
++        },
++        {
++          "item": "tires",
++          "action": "inspect"
++        },
++        {
++          "item": "lights",
++          "action": "inspect"
++        },
++        {
++          "item": "wipers",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_pads",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_discs",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_lines",
++          "action": "inspect"
++        },
++        {
++          "item": "pedals",
++          "action": "inspect"
++        },
++        {
++          "item": "parking_brake",
++          "action": "inspect"
++        },
++        {
++          "item": "steering",
++          "action": "inspect"
++        },
++        {
++          "item": "suspension",
++          "action": "inspect"
++        },
++        {
++          "item": "cv_boots",
++          "action": "inspect"
++        },
++        {
++          "item": "exhaust",
++          "action": "inspect"
++        },
++        {
++          "item": "body_underside",
++          "action": "inspect"
++        }
++      ]
++    },
++    {
++      "km": 180000,
++      "items": [
++        {
++          "item": "engine_oil",
++          "action": "replace"
++        },
++        {
++          "item": "oil_filter",
++          "action": "replace"
++        },
++        {
++          "item": "brake_fluid",
++          "action": "replace"
++        },
++        {
++          "item": "air_filter",
++          "action": "replace"
++        },
++        {
++          "item": "hybrid_battery_filter",
++          "action": "clean"
++        },
++        {
++          "item": "cabin_filter",
++          "action": "replace"
++        },
++        {
++          "item": "coolant",
++          "action": "inspect"
++        },
++        {
++          "item": "spark_plugs",
++          "action": "replace"
++        },
++        {
++          "item": "battery_12v",
++          "action": "inspect"
++        },
++        {
++          "item": "tires",
++          "action": "inspect"
++        },
++        {
++          "item": "lights",
++          "action": "inspect"
++        },
++        {
++          "item": "wipers",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_pads",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_discs",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_lines",
++          "action": "inspect"
++        },
++        {
++          "item": "pedals",
++          "action": "inspect"
++        },
++        {
++          "item": "parking_brake",
++          "action": "inspect"
++        },
++        {
++          "item": "steering",
++          "action": "inspect"
++        },
++        {
++          "item": "suspension",
++          "action": "inspect"
++        },
++        {
++          "item": "cv_boots",
++          "action": "inspect"
++        },
++        {
++          "item": "cooling_system",
++          "action": "inspect"
++        },
++        {
++          "item": "exhaust",
++          "action": "inspect"
++        },
++        {
++          "item": "fuel_lines",
++          "action": "inspect"
++        },
++        {
++          "item": "evap_system",
++          "action": "inspect"
++        },
++        {
++          "item": "transmission_oil",
++          "action": "inspect"
++        },
++        {
++          "item": "body_underside",
++          "action": "inspect"
++        }
++      ]
++    },
++    {
++      "km": 195000,
++      "items": [
++        {
++          "item": "engine_oil",
++          "action": "replace"
++        },
++        {
++          "item": "oil_filter",
++          "action": "replace"
++        },
++        {
++          "item": "brake_fluid",
++          "action": "inspect"
++        },
++        {
++          "item": "air_filter",
++          "action": "inspect"
++        },
++        {
++          "item": "hybrid_battery_filter",
++          "action": "inspect"
++        },
++        {
++          "item": "cabin_filter",
++          "action": "replace"
++        },
++        {
++          "item": "coolant",
++          "action": "inspect"
++        },
++        {
++          "item": "battery_12v",
++          "action": "inspect"
++        },
++        {
++          "item": "tires",
++          "action": "inspect"
++        },
++        {
++          "item": "lights",
++          "action": "inspect"
++        },
++        {
++          "item": "wipers",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_pads",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_discs",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_lines",
++          "action": "inspect"
++        },
++        {
++          "item": "pedals",
++          "action": "inspect"
++        },
++        {
++          "item": "parking_brake",
++          "action": "inspect"
++        },
++        {
++          "item": "steering",
++          "action": "inspect"
++        },
++        {
++          "item": "suspension",
++          "action": "inspect"
++        },
++        {
++          "item": "cv_boots",
++          "action": "inspect"
++        },
++        {
++          "item": "exhaust",
++          "action": "inspect"
++        },
++        {
++          "item": "body_underside",
++          "action": "inspect"
++        }
++      ]
++    },
++    {
++      "km": 210000,
++      "items": [
++        {
++          "item": "engine_oil",
++          "action": "replace"
++        },
++        {
++          "item": "oil_filter",
++          "action": "replace"
++        },
++        {
++          "item": "brake_fluid",
++          "action": "replace"
++        },
++        {
++          "item": "air_filter",
++          "action": "inspect"
++        },
++        {
++          "item": "hybrid_battery_filter",
++          "action": "clean"
++        },
++        {
++          "item": "cabin_filter",
++          "action": "replace"
++        },
++        {
++          "item": "coolant",
++          "action": "inspect"
++        },
++        {
++          "item": "battery_12v",
++          "action": "inspect"
++        },
++        {
++          "item": "tires",
++          "action": "inspect"
++        },
++        {
++          "item": "lights",
++          "action": "inspect"
++        },
++        {
++          "item": "wipers",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_pads",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_discs",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_lines",
++          "action": "inspect"
++        },
++        {
++          "item": "pedals",
++          "action": "inspect"
++        },
++        {
++          "item": "parking_brake",
++          "action": "inspect"
++        },
++        {
++          "item": "steering",
++          "action": "inspect"
++        },
++        {
++          "item": "suspension",
++          "action": "inspect"
++        },
++        {
++          "item": "cv_boots",
++          "action": "inspect"
++        },
++        {
++          "item": "cooling_system",
++          "action": "inspect"
++        },
++        {
++          "item": "exhaust",
++          "action": "inspect"
++        },
++        {
++          "item": "fuel_lines",
++          "action": "inspect"
++        },
++        {
++          "item": "transmission_oil",
++          "action": "inspect"
++        },
++        {
++          "item": "body_underside",
++          "action": "inspect"
++        }
++      ]
++    },
++    {
++      "km": 225000,
++      "items": [
++        {
++          "item": "engine_oil",
++          "action": "replace"
++        },
++        {
++          "item": "oil_filter",
++          "action": "replace"
++        },
++        {
++          "item": "brake_fluid",
++          "action": "inspect"
++        },
++        {
++          "item": "air_filter",
++          "action": "inspect"
++        },
++        {
++          "item": "hybrid_battery_filter",
++          "action": "inspect"
++        },
++        {
++          "item": "cabin_filter",
++          "action": "replace"
++        },
++        {
++          "item": "fuel_filter",
++          "action": "replace"
++        },
++        {
++          "item": "coolant",
++          "action": "inspect"
++        },
++        {
++          "item": "battery_12v",
++          "action": "inspect"
++        },
++        {
++          "item": "tires",
++          "action": "inspect"
++        },
++        {
++          "item": "lights",
++          "action": "inspect"
++        },
++        {
++          "item": "wipers",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_pads",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_discs",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_lines",
++          "action": "inspect"
++        },
++        {
++          "item": "pedals",
++          "action": "inspect"
++        },
++        {
++          "item": "parking_brake",
++          "action": "inspect"
++        },
++        {
++          "item": "steering",
++          "action": "inspect"
++        },
++        {
++          "item": "suspension",
++          "action": "inspect"
++        },
++        {
++          "item": "cv_boots",
++          "action": "inspect"
++        },
++        {
++          "item": "exhaust",
++          "action": "inspect"
++        },
++        {
++          "item": "evap_system",
++          "action": "inspect"
++        },
++        {
++          "item": "body_underside",
++          "action": "inspect"
++        }
++      ]
++    },
++    {
++      "km": 240000,
++      "items": [
++        {
++          "item": "engine_oil",
++          "action": "replace"
++        },
++        {
++          "item": "oil_filter",
++          "action": "replace"
++        },
++        {
++          "item": "brake_fluid",
++          "action": "replace"
++        },
++        {
++          "item": "air_filter",
++          "action": "replace"
++        },
++        {
++          "item": "hybrid_battery_filter",
++          "action": "clean"
++        },
++        {
++          "item": "cabin_filter",
++          "action": "replace"
++        },
++        {
++          "item": "coolant",
++          "action": "inspect"
++        },
++        {
++          "item": "battery_12v",
++          "action": "inspect"
++        },
++        {
++          "item": "tires",
++          "action": "inspect"
++        },
++        {
++          "item": "lights",
++          "action": "inspect"
++        },
++        {
++          "item": "wipers",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_pads",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_discs",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_lines",
++          "action": "inspect"
++        },
++        {
++          "item": "pedals",
++          "action": "inspect"
++        },
++        {
++          "item": "parking_brake",
++          "action": "inspect"
++        },
++        {
++          "item": "steering",
++          "action": "inspect"
++        },
++        {
++          "item": "suspension",
++          "action": "inspect"
++        },
++        {
++          "item": "cv_boots",
++          "action": "inspect"
++        },
++        {
++          "item": "cooling_system",
++          "action": "inspect"
++        },
++        {
++          "item": "exhaust",
++          "action": "inspect"
++        },
++        {
++          "item": "fuel_lines",
++          "action": "inspect"
++        },
++        {
++          "item": "transmission_oil",
++          "action": "inspect"
++        },
++        {
++          "item": "body_underside",
++          "action": "inspect"
++        }
++      ]
++    },
++    {
++      "km": 255000,
++      "items": [
++        {
++          "item": "engine_oil",
++          "action": "replace"
++        },
++        {
++          "item": "oil_filter",
++          "action": "replace"
++        },
++        {
++          "item": "brake_fluid",
++          "action": "inspect"
++        },
++        {
++          "item": "air_filter",
++          "action": "inspect"
++        },
++        {
++          "item": "hybrid_battery_filter",
++          "action": "inspect"
++        },
++        {
++          "item": "cabin_filter",
++          "action": "replace"
++        },
++        {
++          "item": "coolant",
++          "action": "inspect"
++        },
++        {
++          "item": "battery_12v",
++          "action": "inspect"
++        },
++        {
++          "item": "tires",
++          "action": "inspect"
++        },
++        {
++          "item": "lights",
++          "action": "inspect"
++        },
++        {
++          "item": "wipers",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_pads",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_discs",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_lines",
++          "action": "inspect"
++        },
++        {
++          "item": "pedals",
++          "action": "inspect"
++        },
++        {
++          "item": "parking_brake",
++          "action": "inspect"
++        },
++        {
++          "item": "steering",
++          "action": "inspect"
++        },
++        {
++          "item": "suspension",
++          "action": "inspect"
++        },
++        {
++          "item": "cv_boots",
++          "action": "inspect"
++        },
++        {
++          "item": "exhaust",
++          "action": "inspect"
++        },
++        {
++          "item": "body_underside",
++          "action": "inspect"
++        }
++      ]
++    },
++    {
++      "km": 270000,
++      "items": [
++        {
++          "item": "engine_oil",
++          "action": "replace"
++        },
++        {
++          "item": "oil_filter",
++          "action": "replace"
++        },
++        {
++          "item": "brake_fluid",
++          "action": "replace"
++        },
++        {
++          "item": "air_filter",
++          "action": "inspect"
++        },
++        {
++          "item": "hybrid_battery_filter",
++          "action": "clean"
++        },
++        {
++          "item": "cabin_filter",
++          "action": "replace"
++        },
++        {
++          "item": "coolant",
++          "action": "inspect"
++        },
++        {
++          "item": "spark_plugs",
++          "action": "replace"
++        },
++        {
++          "item": "battery_12v",
++          "action": "inspect"
++        },
++        {
++          "item": "tires",
++          "action": "inspect"
++        },
++        {
++          "item": "lights",
++          "action": "inspect"
++        },
++        {
++          "item": "wipers",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_pads",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_discs",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_lines",
++          "action": "inspect"
++        },
++        {
++          "item": "pedals",
++          "action": "inspect"
++        },
++        {
++          "item": "parking_brake",
++          "action": "inspect"
++        },
++        {
++          "item": "steering",
++          "action": "inspect"
++        },
++        {
++          "item": "suspension",
++          "action": "inspect"
++        },
++        {
++          "item": "cv_boots",
++          "action": "inspect"
++        },
+         {
+           "item": "cooling_system",
+           "action": "inspect"
+@@ -985,6 +1769,10 @@
+           "item": "fuel_lines",
+           "action": "inspect"
+         },
++        {
++          "item": "evap_system",
++          "action": "inspect"
++        },
+         {
+           "item": "transmission_oil",
+           "action": "inspect"
+@@ -1002,46 +1790,35 @@
+       "action": "replace",
+       "first_km": 150000,
+       "then_every_km": 75000,
+-      "note": "נוזל קירור מנוע: החלפה ראשונה ב-150,000 (בטבלה) ואחריה כל 75,000 לפי הערת הגיליון"
++      "note": "נוזל קירור מנוע: החלפה ראשונה ב-150,000 ק\"מ (בטבלה), אחר כך כל 75,000"
+     },
+     {
+       "item": "coolant",
+       "action": "replace",
+       "first_km": 240000,
+       "then_every_km": 75000,
+-      "note": "נוזל קירור של המערכת ההיברידית (ממיר): החלפה ראשונה ב-240,000 ואחריה כל 75,000; בטבלה רק בדיקה"
+-    },
+-    {
+-      "item": "spark_plugs",
+-      "action": "replace",
+-      "every_km": 90000,
+-      "note": "בגיליון (18 עמודות): החלפה ב-90,000, 180,000 ו-270,000"
+-    },
+-    {
+-      "item": "fuel_filter",
+-      "action": "replace",
+-      "every_km": 75000,
+-      "note": "בגיליון: החלפה ב-75,000, 150,000 ו-225,000"
++      "note": "נוזל קירור מערכת היברידית/ממיר"
+     }
+   ],
+   "time_based": [],
+   "specs": {
+     "_note": "שמן, נוזל קירור ונוזל בלמים מהגיליון של היבואן; שאר הפריטים ידע כללי, לאימות",
+     "engine_oil": "API SM/SN/SN Plus, 0W-16, 0W-20 או 5W-20 (לפי טבלת הנוזלים בגיליון)",
+-    "coolant": "Toyota SLLC (ורוד), לא לערבב",
++    "coolant": "Toyota SLLC: מנוע 4.5 ליטר, מערכת היברידית 1.7 ליטר (לפי הגיליון)",
+     "brake_fluid": "DOT 3 או DOT 4 (FMVSS 116)",
+     "fuel": "בנזין 95 אוקטן",
+     "timing": "שרשרת, ללא החלפה מתוכננת",
+     "tire_pressure": "לפי המדבקה בעמוד הדלת",
+     "warranty": "יוניון מוטורס: 3 שנים או 100,000 ק\"מ (ידע כללי, לאימות)",
++    "oil_capacity": "3.5 ליטר (לפי הגיליון)",
+     "spare": "ערכת תיקון",
+     "battery": "מצבר עזר 12V קטן (לא מצבר רגיל) + סוללה היברידית; בדיקת סוללה שנתית תנאי לאחריות הסוללה"
+   },
+   "sources": [
+     {
+-      "url": "https://books.union-motors.co.il/app (fileId 366, connectionId ?)",
++      "url": "https://books.union-motors.co.il/app/api/files/1258/download",
+       "kind": "importer",
+-      "note": "לוח אחזקה של יוניון מוטורס 'טבלת טיפולים - Aygo X HV' (דגמים aygo-x-hybrid, שנים 2026-2026); דגם מנוע בגיליון: None"
++      "note": "לוח אחזקה של יוניון מוטורס 'טבלת טיפולים - Aygo X HV' (דגמים aygo-x-hybrid, שנים 2026-2026; מסמך 366, קישור נבדק 2026-10-05); דגם מנוע בגיליון: None"
+     },
+     {
+       "url": "https://www.toyota.co.il/owners/parts-and-accessories/owners-manuals",
+@@ -1050,5 +1827,5 @@
+     }
+   ],
+   "status": "reviewed",
+-  "notes": "לפי לוח האחזקה הישראלי של יוניון מוטורס (10 עמודות של 15,000 ק\"מ). פעולות: I בדיקה, R החלפה, C ניקוי, T הידוק, L/G גירוז (נרשם כבדיקה). הגיליון כולל 18 עמודות עד 270,000; כאן מוצג מחזור של 150,000. בגיליון: מצתים כל 90,000, מסנן דלק כל 75,000, נוזל קירור מנוע החלפה ב-150,000, נוזל בלמים כל 30,000. נוזל הקירור ההיברידי נבדק בטבלה ומוחלף לפי ההערה בגיליון (ראו long_interval)."
++  "notes": "הועתק מלוח האחזקה הישראלי של יוניון מוטורס (18 עמודות של 15,000 ק\"מ). פעולות: I בדיקה, R החלפה, C ניקוי, T הידוק, L/G גירוז (נרשם כבדיקה). גיליון ינואר 2026 (MABH10, M15A-FXE). נוזל תיבה WS (ATF): בדיקה כל 30,000. גרסת הבנזין 1.0 בלוח toyota-aygo-x-2022-2025-1.0."
+ }
+diff --git a/data/schedules/toyota-rav4-2026-2.5-hybrid.json b/data/schedules/toyota-rav4-2026-2.5-hybrid.json
+new file mode 100644
+index 0000000..af79e2b
+--- /dev/null
++++ b/data/schedules/toyota-rav4-2026-2.5-hybrid.json
+@@ -0,0 +1,1831 @@
++{
++  "make": "Toyota",
++  "make_he": "טויוטה",
++  "importer": "יוניון מוטורס",
++  "id": "toyota-rav4-2026-2.5-hybrid",
++  "model": "RAV4",
++  "model_he": "ראב 4",
++  "generation": "XA60 hybrid (AXAL62)",
++  "years": [
++    2026,
++    2026
++  ],
++  "engines": [
++    "2.5 hybrid (A25A-FXS)"
++  ],
++  "fuel": "hybrid",
++  "interval": {
++    "km": 15000,
++    "months": 12,
++    "note": "לפי הגיליון: תנאי פעולה רגילים 15,000 ק\"מ או 12 חודשים; בתנאים מחמירים שמן ומסנן כל 7,500 ק\"מ או 6 חודשים"
++  },
++  "cycle_km": 270000,
++  "services": [
++    {
++      "km": 15000,
++      "items": [
++        {
++          "item": "engine_oil",
++          "action": "replace"
++        },
++        {
++          "item": "oil_filter",
++          "action": "replace"
++        },
++        {
++          "item": "brake_fluid",
++          "action": "inspect"
++        },
++        {
++          "item": "air_filter",
++          "action": "inspect"
++        },
++        {
++          "item": "hybrid_battery_filter",
++          "action": "inspect"
++        },
++        {
++          "item": "cabin_filter",
++          "action": "replace"
++        },
++        {
++          "item": "coolant",
++          "action": "inspect"
++        },
++        {
++          "item": "battery_12v",
++          "action": "inspect"
++        },
++        {
++          "item": "tires",
++          "action": "inspect"
++        },
++        {
++          "item": "lights",
++          "action": "inspect"
++        },
++        {
++          "item": "wipers",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_pads",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_discs",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_lines",
++          "action": "inspect"
++        },
++        {
++          "item": "pedals",
++          "action": "inspect"
++        },
++        {
++          "item": "parking_brake",
++          "action": "inspect"
++        },
++        {
++          "item": "steering",
++          "action": "inspect"
++        },
++        {
++          "item": "suspension",
++          "action": "inspect"
++        },
++        {
++          "item": "cv_boots",
++          "action": "inspect"
++        },
++        {
++          "item": "exhaust",
++          "action": "inspect"
++        },
++        {
++          "item": "body_underside",
++          "action": "inspect"
++        }
++      ]
++    },
++    {
++      "km": 30000,
++      "items": [
++        {
++          "item": "engine_oil",
++          "action": "replace"
++        },
++        {
++          "item": "oil_filter",
++          "action": "replace"
++        },
++        {
++          "item": "brake_fluid",
++          "action": "replace"
++        },
++        {
++          "item": "air_filter",
++          "action": "inspect"
++        },
++        {
++          "item": "hybrid_battery_filter",
++          "action": "clean"
++        },
++        {
++          "item": "cabin_filter",
++          "action": "replace"
++        },
++        {
++          "item": "coolant",
++          "action": "inspect"
++        },
++        {
++          "item": "battery_12v",
++          "action": "inspect"
++        },
++        {
++          "item": "tires",
++          "action": "inspect"
++        },
++        {
++          "item": "lights",
++          "action": "inspect"
++        },
++        {
++          "item": "wipers",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_pads",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_discs",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_lines",
++          "action": "inspect"
++        },
++        {
++          "item": "pedals",
++          "action": "inspect"
++        },
++        {
++          "item": "parking_brake",
++          "action": "inspect"
++        },
++        {
++          "item": "steering",
++          "action": "inspect"
++        },
++        {
++          "item": "suspension",
++          "action": "inspect"
++        },
++        {
++          "item": "cv_boots",
++          "action": "inspect"
++        },
++        {
++          "item": "cooling_system",
++          "action": "inspect"
++        },
++        {
++          "item": "exhaust",
++          "action": "inspect"
++        },
++        {
++          "item": "fuel_lines",
++          "action": "inspect"
++        },
++        {
++          "item": "transmission_oil",
++          "action": "inspect"
++        },
++        {
++          "item": "body_underside",
++          "action": "inspect"
++        }
++      ]
++    },
++    {
++      "km": 45000,
++      "items": [
++        {
++          "item": "engine_oil",
++          "action": "replace"
++        },
++        {
++          "item": "oil_filter",
++          "action": "replace"
++        },
++        {
++          "item": "brake_fluid",
++          "action": "inspect"
++        },
++        {
++          "item": "air_filter",
++          "action": "inspect"
++        },
++        {
++          "item": "hybrid_battery_filter",
++          "action": "inspect"
++        },
++        {
++          "item": "cabin_filter",
++          "action": "replace"
++        },
++        {
++          "item": "coolant",
++          "action": "inspect"
++        },
++        {
++          "item": "battery_12v",
++          "action": "inspect"
++        },
++        {
++          "item": "tires",
++          "action": "inspect"
++        },
++        {
++          "item": "lights",
++          "action": "inspect"
++        },
++        {
++          "item": "wipers",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_pads",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_discs",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_lines",
++          "action": "inspect"
++        },
++        {
++          "item": "pedals",
++          "action": "inspect"
++        },
++        {
++          "item": "parking_brake",
++          "action": "inspect"
++        },
++        {
++          "item": "steering",
++          "action": "inspect"
++        },
++        {
++          "item": "suspension",
++          "action": "inspect"
++        },
++        {
++          "item": "cv_boots",
++          "action": "inspect"
++        },
++        {
++          "item": "exhaust",
++          "action": "inspect"
++        },
++        {
++          "item": "evap_system",
++          "action": "inspect"
++        },
++        {
++          "item": "body_underside",
++          "action": "inspect"
++        }
++      ]
++    },
++    {
++      "km": 60000,
++      "items": [
++        {
++          "item": "engine_oil",
++          "action": "replace"
++        },
++        {
++          "item": "oil_filter",
++          "action": "replace"
++        },
++        {
++          "item": "brake_fluid",
++          "action": "replace"
++        },
++        {
++          "item": "air_filter",
++          "action": "replace"
++        },
++        {
++          "item": "hybrid_battery_filter",
++          "action": "clean"
++        },
++        {
++          "item": "cabin_filter",
++          "action": "replace"
++        },
++        {
++          "item": "coolant",
++          "action": "inspect"
++        },
++        {
++          "item": "battery_12v",
++          "action": "inspect"
++        },
++        {
++          "item": "tires",
++          "action": "inspect"
++        },
++        {
++          "item": "lights",
++          "action": "inspect"
++        },
++        {
++          "item": "wipers",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_pads",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_discs",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_lines",
++          "action": "inspect"
++        },
++        {
++          "item": "pedals",
++          "action": "inspect"
++        },
++        {
++          "item": "parking_brake",
++          "action": "inspect"
++        },
++        {
++          "item": "steering",
++          "action": "inspect"
++        },
++        {
++          "item": "suspension",
++          "action": "inspect"
++        },
++        {
++          "item": "cv_boots",
++          "action": "inspect"
++        },
++        {
++          "item": "cooling_system",
++          "action": "inspect"
++        },
++        {
++          "item": "exhaust",
++          "action": "inspect"
++        },
++        {
++          "item": "fuel_lines",
++          "action": "inspect"
++        },
++        {
++          "item": "transmission_oil",
++          "action": "inspect"
++        },
++        {
++          "item": "body_underside",
++          "action": "inspect"
++        }
++      ]
++    },
++    {
++      "km": 75000,
++      "items": [
++        {
++          "item": "engine_oil",
++          "action": "replace"
++        },
++        {
++          "item": "oil_filter",
++          "action": "replace"
++        },
++        {
++          "item": "brake_fluid",
++          "action": "inspect"
++        },
++        {
++          "item": "air_filter",
++          "action": "inspect"
++        },
++        {
++          "item": "hybrid_battery_filter",
++          "action": "inspect"
++        },
++        {
++          "item": "cabin_filter",
++          "action": "replace"
++        },
++        {
++          "item": "fuel_filter",
++          "action": "replace"
++        },
++        {
++          "item": "coolant",
++          "action": "inspect"
++        },
++        {
++          "item": "battery_12v",
++          "action": "inspect"
++        },
++        {
++          "item": "tires",
++          "action": "inspect"
++        },
++        {
++          "item": "lights",
++          "action": "inspect"
++        },
++        {
++          "item": "wipers",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_pads",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_discs",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_lines",
++          "action": "inspect"
++        },
++        {
++          "item": "pedals",
++          "action": "inspect"
++        },
++        {
++          "item": "parking_brake",
++          "action": "inspect"
++        },
++        {
++          "item": "steering",
++          "action": "inspect"
++        },
++        {
++          "item": "suspension",
++          "action": "inspect"
++        },
++        {
++          "item": "cv_boots",
++          "action": "inspect"
++        },
++        {
++          "item": "exhaust",
++          "action": "inspect"
++        },
++        {
++          "item": "body_underside",
++          "action": "inspect"
++        }
++      ]
++    },
++    {
++      "km": 90000,
++      "items": [
++        {
++          "item": "engine_oil",
++          "action": "replace"
++        },
++        {
++          "item": "oil_filter",
++          "action": "replace"
++        },
++        {
++          "item": "brake_fluid",
++          "action": "replace"
++        },
++        {
++          "item": "air_filter",
++          "action": "inspect"
++        },
++        {
++          "item": "hybrid_battery_filter",
++          "action": "clean"
++        },
++        {
++          "item": "cabin_filter",
++          "action": "replace"
++        },
++        {
++          "item": "coolant",
++          "action": "inspect"
++        },
++        {
++          "item": "spark_plugs",
++          "action": "replace"
++        },
++        {
++          "item": "battery_12v",
++          "action": "inspect"
++        },
++        {
++          "item": "tires",
++          "action": "inspect"
++        },
++        {
++          "item": "lights",
++          "action": "inspect"
++        },
++        {
++          "item": "wipers",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_pads",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_discs",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_lines",
++          "action": "inspect"
++        },
++        {
++          "item": "pedals",
++          "action": "inspect"
++        },
++        {
++          "item": "parking_brake",
++          "action": "inspect"
++        },
++        {
++          "item": "steering",
++          "action": "inspect"
++        },
++        {
++          "item": "suspension",
++          "action": "inspect"
++        },
++        {
++          "item": "cv_boots",
++          "action": "inspect"
++        },
++        {
++          "item": "cooling_system",
++          "action": "inspect"
++        },
++        {
++          "item": "exhaust",
++          "action": "inspect"
++        },
++        {
++          "item": "fuel_lines",
++          "action": "inspect"
++        },
++        {
++          "item": "evap_system",
++          "action": "inspect"
++        },
++        {
++          "item": "transmission_oil",
++          "action": "inspect"
++        },
++        {
++          "item": "body_underside",
++          "action": "inspect"
++        }
++      ]
++    },
++    {
++      "km": 105000,
++      "items": [
++        {
++          "item": "engine_oil",
++          "action": "replace"
++        },
++        {
++          "item": "oil_filter",
++          "action": "replace"
++        },
++        {
++          "item": "brake_fluid",
++          "action": "inspect"
++        },
++        {
++          "item": "air_filter",
++          "action": "inspect"
++        },
++        {
++          "item": "hybrid_battery_filter",
++          "action": "inspect"
++        },
++        {
++          "item": "cabin_filter",
++          "action": "replace"
++        },
++        {
++          "item": "coolant",
++          "action": "inspect"
++        },
++        {
++          "item": "battery_12v",
++          "action": "inspect"
++        },
++        {
++          "item": "tires",
++          "action": "inspect"
++        },
++        {
++          "item": "lights",
++          "action": "inspect"
++        },
++        {
++          "item": "wipers",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_pads",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_discs",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_lines",
++          "action": "inspect"
++        },
++        {
++          "item": "pedals",
++          "action": "inspect"
++        },
++        {
++          "item": "parking_brake",
++          "action": "inspect"
++        },
++        {
++          "item": "steering",
++          "action": "inspect"
++        },
++        {
++          "item": "suspension",
++          "action": "inspect"
++        },
++        {
++          "item": "cv_boots",
++          "action": "inspect"
++        },
++        {
++          "item": "exhaust",
++          "action": "inspect"
++        },
++        {
++          "item": "body_underside",
++          "action": "inspect"
++        }
++      ]
++    },
++    {
++      "km": 120000,
++      "items": [
++        {
++          "item": "engine_oil",
++          "action": "replace"
++        },
++        {
++          "item": "oil_filter",
++          "action": "replace"
++        },
++        {
++          "item": "brake_fluid",
++          "action": "replace"
++        },
++        {
++          "item": "air_filter",
++          "action": "replace"
++        },
++        {
++          "item": "hybrid_battery_filter",
++          "action": "clean"
++        },
++        {
++          "item": "cabin_filter",
++          "action": "replace"
++        },
++        {
++          "item": "coolant",
++          "action": "inspect"
++        },
++        {
++          "item": "battery_12v",
++          "action": "inspect"
++        },
++        {
++          "item": "tires",
++          "action": "inspect"
++        },
++        {
++          "item": "lights",
++          "action": "inspect"
++        },
++        {
++          "item": "wipers",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_pads",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_discs",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_lines",
++          "action": "inspect"
++        },
++        {
++          "item": "pedals",
++          "action": "inspect"
++        },
++        {
++          "item": "parking_brake",
++          "action": "inspect"
++        },
++        {
++          "item": "steering",
++          "action": "inspect"
++        },
++        {
++          "item": "suspension",
++          "action": "inspect"
++        },
++        {
++          "item": "cv_boots",
++          "action": "inspect"
++        },
++        {
++          "item": "cooling_system",
++          "action": "inspect"
++        },
++        {
++          "item": "exhaust",
++          "action": "inspect"
++        },
++        {
++          "item": "fuel_lines",
++          "action": "inspect"
++        },
++        {
++          "item": "transmission_oil",
++          "action": "inspect"
++        },
++        {
++          "item": "body_underside",
++          "action": "inspect"
++        }
++      ]
++    },
++    {
++      "km": 135000,
++      "items": [
++        {
++          "item": "engine_oil",
++          "action": "replace"
++        },
++        {
++          "item": "oil_filter",
++          "action": "replace"
++        },
++        {
++          "item": "brake_fluid",
++          "action": "inspect"
++        },
++        {
++          "item": "air_filter",
++          "action": "inspect"
++        },
++        {
++          "item": "hybrid_battery_filter",
++          "action": "inspect"
++        },
++        {
++          "item": "cabin_filter",
++          "action": "replace"
++        },
++        {
++          "item": "coolant",
++          "action": "inspect"
++        },
++        {
++          "item": "battery_12v",
++          "action": "inspect"
++        },
++        {
++          "item": "tires",
++          "action": "inspect"
++        },
++        {
++          "item": "lights",
++          "action": "inspect"
++        },
++        {
++          "item": "wipers",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_pads",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_discs",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_lines",
++          "action": "inspect"
++        },
++        {
++          "item": "pedals",
++          "action": "inspect"
++        },
++        {
++          "item": "parking_brake",
++          "action": "inspect"
++        },
++        {
++          "item": "steering",
++          "action": "inspect"
++        },
++        {
++          "item": "suspension",
++          "action": "inspect"
++        },
++        {
++          "item": "cv_boots",
++          "action": "inspect"
++        },
++        {
++          "item": "exhaust",
++          "action": "inspect"
++        },
++        {
++          "item": "evap_system",
++          "action": "inspect"
++        },
++        {
++          "item": "body_underside",
++          "action": "inspect"
++        }
++      ]
++    },
++    {
++      "km": 150000,
++      "items": [
++        {
++          "item": "engine_oil",
++          "action": "replace"
++        },
++        {
++          "item": "oil_filter",
++          "action": "replace"
++        },
++        {
++          "item": "brake_fluid",
++          "action": "replace"
++        },
++        {
++          "item": "air_filter",
++          "action": "inspect"
++        },
++        {
++          "item": "hybrid_battery_filter",
++          "action": "clean"
++        },
++        {
++          "item": "cabin_filter",
++          "action": "replace"
++        },
++        {
++          "item": "fuel_filter",
++          "action": "replace"
++        },
++        {
++          "item": "coolant",
++          "action": "replace"
++        },
++        {
++          "item": "battery_12v",
++          "action": "inspect"
++        },
++        {
++          "item": "tires",
++          "action": "inspect"
++        },
++        {
++          "item": "lights",
++          "action": "inspect"
++        },
++        {
++          "item": "wipers",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_pads",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_discs",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_lines",
++          "action": "inspect"
++        },
++        {
++          "item": "pedals",
++          "action": "inspect"
++        },
++        {
++          "item": "parking_brake",
++          "action": "inspect"
++        },
++        {
++          "item": "steering",
++          "action": "inspect"
++        },
++        {
++          "item": "suspension",
++          "action": "inspect"
++        },
++        {
++          "item": "cv_boots",
++          "action": "inspect"
++        },
++        {
++          "item": "coolant",
++          "action": "inspect"
++        },
++        {
++          "item": "cooling_system",
++          "action": "inspect"
++        },
++        {
++          "item": "exhaust",
++          "action": "inspect"
++        },
++        {
++          "item": "fuel_lines",
++          "action": "inspect"
++        },
++        {
++          "item": "transmission_oil",
++          "action": "inspect"
++        },
++        {
++          "item": "body_underside",
++          "action": "inspect"
++        }
++      ]
++    },
++    {
++      "km": 165000,
++      "items": [
++        {
++          "item": "engine_oil",
++          "action": "replace"
++        },
++        {
++          "item": "oil_filter",
++          "action": "replace"
++        },
++        {
++          "item": "brake_fluid",
++          "action": "inspect"
++        },
++        {
++          "item": "air_filter",
++          "action": "inspect"
++        },
++        {
++          "item": "hybrid_battery_filter",
++          "action": "inspect"
++        },
++        {
++          "item": "cabin_filter",
++          "action": "replace"
++        },
++        {
++          "item": "coolant",
++          "action": "inspect"
++        },
++        {
++          "item": "battery_12v",
++          "action": "inspect"
++        },
++        {
++          "item": "tires",
++          "action": "inspect"
++        },
++        {
++          "item": "lights",
++          "action": "inspect"
++        },
++        {
++          "item": "wipers",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_pads",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_discs",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_lines",
++          "action": "inspect"
++        },
++        {
++          "item": "pedals",
++          "action": "inspect"
++        },
++        {
++          "item": "parking_brake",
++          "action": "inspect"
++        },
++        {
++          "item": "steering",
++          "action": "inspect"
++        },
++        {
++          "item": "suspension",
++          "action": "inspect"
++        },
++        {
++          "item": "cv_boots",
++          "action": "inspect"
++        },
++        {
++          "item": "exhaust",
++          "action": "inspect"
++        },
++        {
++          "item": "body_underside",
++          "action": "inspect"
++        }
++      ]
++    },
++    {
++      "km": 180000,
++      "items": [
++        {
++          "item": "engine_oil",
++          "action": "replace"
++        },
++        {
++          "item": "oil_filter",
++          "action": "replace"
++        },
++        {
++          "item": "brake_fluid",
++          "action": "replace"
++        },
++        {
++          "item": "air_filter",
++          "action": "replace"
++        },
++        {
++          "item": "hybrid_battery_filter",
++          "action": "clean"
++        },
++        {
++          "item": "cabin_filter",
++          "action": "replace"
++        },
++        {
++          "item": "coolant",
++          "action": "inspect"
++        },
++        {
++          "item": "spark_plugs",
++          "action": "replace"
++        },
++        {
++          "item": "battery_12v",
++          "action": "inspect"
++        },
++        {
++          "item": "tires",
++          "action": "inspect"
++        },
++        {
++          "item": "lights",
++          "action": "inspect"
++        },
++        {
++          "item": "wipers",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_pads",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_discs",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_lines",
++          "action": "inspect"
++        },
++        {
++          "item": "pedals",
++          "action": "inspect"
++        },
++        {
++          "item": "parking_brake",
++          "action": "inspect"
++        },
++        {
++          "item": "steering",
++          "action": "inspect"
++        },
++        {
++          "item": "suspension",
++          "action": "inspect"
++        },
++        {
++          "item": "cv_boots",
++          "action": "inspect"
++        },
++        {
++          "item": "cooling_system",
++          "action": "inspect"
++        },
++        {
++          "item": "exhaust",
++          "action": "inspect"
++        },
++        {
++          "item": "fuel_lines",
++          "action": "inspect"
++        },
++        {
++          "item": "evap_system",
++          "action": "inspect"
++        },
++        {
++          "item": "transmission_oil",
++          "action": "inspect"
++        },
++        {
++          "item": "body_underside",
++          "action": "inspect"
++        }
++      ]
++    },
++    {
++      "km": 195000,
++      "items": [
++        {
++          "item": "engine_oil",
++          "action": "replace"
++        },
++        {
++          "item": "oil_filter",
++          "action": "replace"
++        },
++        {
++          "item": "brake_fluid",
++          "action": "inspect"
++        },
++        {
++          "item": "air_filter",
++          "action": "inspect"
++        },
++        {
++          "item": "hybrid_battery_filter",
++          "action": "inspect"
++        },
++        {
++          "item": "cabin_filter",
++          "action": "replace"
++        },
++        {
++          "item": "coolant",
++          "action": "inspect"
++        },
++        {
++          "item": "battery_12v",
++          "action": "inspect"
++        },
++        {
++          "item": "tires",
++          "action": "inspect"
++        },
++        {
++          "item": "lights",
++          "action": "inspect"
++        },
++        {
++          "item": "wipers",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_pads",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_discs",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_lines",
++          "action": "inspect"
++        },
++        {
++          "item": "pedals",
++          "action": "inspect"
++        },
++        {
++          "item": "parking_brake",
++          "action": "inspect"
++        },
++        {
++          "item": "steering",
++          "action": "inspect"
++        },
++        {
++          "item": "suspension",
++          "action": "inspect"
++        },
++        {
++          "item": "cv_boots",
++          "action": "inspect"
++        },
++        {
++          "item": "exhaust",
++          "action": "inspect"
++        },
++        {
++          "item": "body_underside",
++          "action": "inspect"
++        }
++      ]
++    },
++    {
++      "km": 210000,
++      "items": [
++        {
++          "item": "engine_oil",
++          "action": "replace"
++        },
++        {
++          "item": "oil_filter",
++          "action": "replace"
++        },
++        {
++          "item": "brake_fluid",
++          "action": "replace"
++        },
++        {
++          "item": "air_filter",
++          "action": "inspect"
++        },
++        {
++          "item": "hybrid_battery_filter",
++          "action": "clean"
++        },
++        {
++          "item": "cabin_filter",
++          "action": "replace"
++        },
++        {
++          "item": "coolant",
++          "action": "inspect"
++        },
++        {
++          "item": "battery_12v",
++          "action": "inspect"
++        },
++        {
++          "item": "tires",
++          "action": "inspect"
++        },
++        {
++          "item": "lights",
++          "action": "inspect"
++        },
++        {
++          "item": "wipers",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_pads",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_discs",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_lines",
++          "action": "inspect"
++        },
++        {
++          "item": "pedals",
++          "action": "inspect"
++        },
++        {
++          "item": "parking_brake",
++          "action": "inspect"
++        },
++        {
++          "item": "steering",
++          "action": "inspect"
++        },
++        {
++          "item": "suspension",
++          "action": "inspect"
++        },
++        {
++          "item": "cv_boots",
++          "action": "inspect"
++        },
++        {
++          "item": "cooling_system",
++          "action": "inspect"
++        },
++        {
++          "item": "exhaust",
++          "action": "inspect"
++        },
++        {
++          "item": "fuel_lines",
++          "action": "inspect"
++        },
++        {
++          "item": "transmission_oil",
++          "action": "inspect"
++        },
++        {
++          "item": "body_underside",
++          "action": "inspect"
++        }
++      ]
++    },
++    {
++      "km": 225000,
++      "items": [
++        {
++          "item": "engine_oil",
++          "action": "replace"
++        },
++        {
++          "item": "oil_filter",
++          "action": "replace"
++        },
++        {
++          "item": "brake_fluid",
++          "action": "inspect"
++        },
++        {
++          "item": "air_filter",
++          "action": "inspect"
++        },
++        {
++          "item": "hybrid_battery_filter",
++          "action": "inspect"
++        },
++        {
++          "item": "cabin_filter",
++          "action": "replace"
++        },
++        {
++          "item": "fuel_filter",
++          "action": "replace"
++        },
++        {
++          "item": "coolant",
++          "action": "inspect"
++        },
++        {
++          "item": "battery_12v",
++          "action": "inspect"
++        },
++        {
++          "item": "tires",
++          "action": "inspect"
++        },
++        {
++          "item": "lights",
++          "action": "inspect"
++        },
++        {
++          "item": "wipers",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_pads",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_discs",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_lines",
++          "action": "inspect"
++        },
++        {
++          "item": "pedals",
++          "action": "inspect"
++        },
++        {
++          "item": "parking_brake",
++          "action": "inspect"
++        },
++        {
++          "item": "steering",
++          "action": "inspect"
++        },
++        {
++          "item": "suspension",
++          "action": "inspect"
++        },
++        {
++          "item": "cv_boots",
++          "action": "inspect"
++        },
++        {
++          "item": "exhaust",
++          "action": "inspect"
++        },
++        {
++          "item": "evap_system",
++          "action": "inspect"
++        },
++        {
++          "item": "body_underside",
++          "action": "inspect"
++        }
++      ]
++    },
++    {
++      "km": 240000,
++      "items": [
++        {
++          "item": "engine_oil",
++          "action": "replace"
++        },
++        {
++          "item": "oil_filter",
++          "action": "replace"
++        },
++        {
++          "item": "brake_fluid",
++          "action": "replace"
++        },
++        {
++          "item": "air_filter",
++          "action": "replace"
++        },
++        {
++          "item": "hybrid_battery_filter",
++          "action": "clean"
++        },
++        {
++          "item": "cabin_filter",
++          "action": "replace"
++        },
++        {
++          "item": "coolant",
++          "action": "inspect"
++        },
++        {
++          "item": "battery_12v",
++          "action": "inspect"
++        },
++        {
++          "item": "tires",
++          "action": "inspect"
++        },
++        {
++          "item": "lights",
++          "action": "inspect"
++        },
++        {
++          "item": "wipers",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_pads",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_discs",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_lines",
++          "action": "inspect"
++        },
++        {
++          "item": "pedals",
++          "action": "inspect"
++        },
++        {
++          "item": "parking_brake",
++          "action": "inspect"
++        },
++        {
++          "item": "steering",
++          "action": "inspect"
++        },
++        {
++          "item": "suspension",
++          "action": "inspect"
++        },
++        {
++          "item": "cv_boots",
++          "action": "inspect"
++        },
++        {
++          "item": "cooling_system",
++          "action": "inspect"
++        },
++        {
++          "item": "exhaust",
++          "action": "inspect"
++        },
++        {
++          "item": "fuel_lines",
++          "action": "inspect"
++        },
++        {
++          "item": "transmission_oil",
++          "action": "inspect"
++        },
++        {
++          "item": "body_underside",
++          "action": "inspect"
++        }
++      ]
++    },
++    {
++      "km": 255000,
++      "items": [
++        {
++          "item": "engine_oil",
++          "action": "replace"
++        },
++        {
++          "item": "oil_filter",
++          "action": "replace"
++        },
++        {
++          "item": "brake_fluid",
++          "action": "inspect"
++        },
++        {
++          "item": "air_filter",
++          "action": "inspect"
++        },
++        {
++          "item": "hybrid_battery_filter",
++          "action": "inspect"
++        },
++        {
++          "item": "cabin_filter",
++          "action": "replace"
++        },
++        {
++          "item": "coolant",
++          "action": "inspect"
++        },
++        {
++          "item": "battery_12v",
++          "action": "inspect"
++        },
++        {
++          "item": "tires",
++          "action": "inspect"
++        },
++        {
++          "item": "lights",
++          "action": "inspect"
++        },
++        {
++          "item": "wipers",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_pads",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_discs",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_lines",
++          "action": "inspect"
++        },
++        {
++          "item": "pedals",
++          "action": "inspect"
++        },
++        {
++          "item": "parking_brake",
++          "action": "inspect"
++        },
++        {
++          "item": "steering",
++          "action": "inspect"
++        },
++        {
++          "item": "suspension",
++          "action": "inspect"
++        },
++        {
++          "item": "cv_boots",
++          "action": "inspect"
++        },
++        {
++          "item": "exhaust",
++          "action": "inspect"
++        },
++        {
++          "item": "body_underside",
++          "action": "inspect"
++        }
++      ]
++    },
++    {
++      "km": 270000,
++      "items": [
++        {
++          "item": "engine_oil",
++          "action": "replace"
++        },
++        {
++          "item": "oil_filter",
++          "action": "replace"
++        },
++        {
++          "item": "brake_fluid",
++          "action": "replace"
++        },
++        {
++          "item": "air_filter",
++          "action": "inspect"
++        },
++        {
++          "item": "hybrid_battery_filter",
++          "action": "clean"
++        },
++        {
++          "item": "cabin_filter",
++          "action": "replace"
++        },
++        {
++          "item": "coolant",
++          "action": "inspect"
++        },
++        {
++          "item": "spark_plugs",
++          "action": "replace"
++        },
++        {
++          "item": "battery_12v",
++          "action": "inspect"
++        },
++        {
++          "item": "tires",
++          "action": "inspect"
++        },
++        {
++          "item": "lights",
++          "action": "inspect"
++        },
++        {
++          "item": "wipers",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_pads",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_discs",
++          "action": "inspect"
++        },
++        {
++          "item": "brake_lines",
++          "action": "inspect"
++        },
++        {
++          "item": "pedals",
++          "action": "inspect"
++        },
++        {
++          "item": "parking_brake",
++          "action": "inspect"
++        },
++        {
++          "item": "steering",
++          "action": "inspect"
++        },
++        {
++          "item": "suspension",
++          "action": "inspect"
++        },
++        {
++          "item": "cv_boots",
++          "action": "inspect"
++        },
++        {
++          "item": "cooling_system",
++          "action": "inspect"
++        },
++        {
++          "item": "exhaust",
++          "action": "inspect"
++        },
++        {
++          "item": "fuel_lines",
++          "action": "inspect"
++        },
++        {
++          "item": "evap_system",
++          "action": "inspect"
++        },
++        {
++          "item": "transmission_oil",
++          "action": "inspect"
++        },
++        {
++          "item": "body_underside",
++          "action": "inspect"
++        }
++      ]
++    }
++  ],
++  "long_interval": [
++    {
++      "item": "coolant",
++      "action": "replace",
++      "first_km": 150000,
++      "then_every_km": 75000,
++      "note": "נוזל קירור מנוע: החלפה ראשונה ב-150,000 ק\"מ (בטבלה), אחר כך כל 75,000"
++    },
++    {
++      "item": "coolant",
++      "action": "replace",
++      "first_km": 240000,
++      "then_every_km": 75000,
++      "note": "נוזל קירור מערכת היברידית/ממיר"
++    }
++  ],
++  "time_based": [],
++  "specs": {
++    "_note": "שמן, נוזל קירור ונוזל בלמים מהגיליון של היבואן; שאר הפריטים ידע כללי, לאימות",
++    "engine_oil": "API SM/SN/SN Plus, 0W-16, 0W-20 או 5W-30 (לפי טבלת הנוזלים בגיליון)",
++    "coolant": "Toyota SLLC: מנוע 6 ליטר, מערכת היברידית 1.7 ליטר (לפי הגיליון)",
++    "brake_fluid": "DOT 3 או DOT 4 (FMVSS 116)",
++    "fuel": "בנזין 95 אוקטן",
++    "timing": "שרשרת, ללא החלפה מתוכננת",
++    "tire_pressure": "לפי המדבקה בעמוד הדלת",
++    "warranty": "יוניון מוטורס: 3 שנים או 100,000 ק\"מ (ידע כללי, לאימות)",
++    "oil_capacity": "4.3 ליטר (לפי הגיליון)",
++    "spare": "גלגל חלופי צר או ערכת תיקון, לפי גימור",
++    "battery": "מצבר עזר 12V קטן (לא מצבר רגיל) + סוללה היברידית; בדיקת סוללה שנתית תנאי לאחריות הסוללה"
++  },
++  "sources": [
++    {
++      "url": "https://books.union-motors.co.il/app/api/files/1240/download",
++      "kind": "importer",
++      "note": "לוח אחזקה של יוניון מוטורס 'לוח אחזקה לדגם ראב4 NG-05/2026' (דגמים RAV4 Hybrid, שנים 2026-2026; מסמך 367, קישור נבדק 2026-10-05); דגם מנוע בגיליון: None"
++    },
++    {
++      "url": "https://www.toyota.co.il/owners/parts-and-accessories/owners-manuals",
++      "kind": "importer",
++      "note": "מרכז ספרות הרכב של טויוטה ישראל (בחירת דגם ושנה); המסמכים נשלפים מ-books.union-motors.co.il"
++    }
++  ],
++  "status": "reviewed",
++  "notes": "הועתק מלוח האחזקה הישראלי של יוניון מוטורס (18 עמודות של 15,000 ק\"מ). פעולות: I בדיקה, R החלפה, C ניקוי, T הידוק, L/G גירוז (נרשם כבדיקה). הדור השישי (XA60), גיליון מרץ 2026 ('NG-05/2026'). לעומת גיליון XA50 2023: 18 עמודות עד 270,000, מצתים כל 90,000, מסנן דלק ב-75,000, 150,000 ו-225,000, ונוזל תיבה (e-Transaxle TE) נבדק כל 30,000. רכבי ראב 4 2026 של הדור הקודם (XA50) נשארים בלוח toyota-rav4-2023-2025-2.5-hybrid."
++}
+diff --git a/data/sources/toyota-union-sheets.json b/data/sources/toyota-union-sheets.json
+index f9a6821..f72b6dd 100644
+--- a/data/sources/toyota-union-sheets.json
++++ b/data/sources/toyota-union-sheets.json
+@@ -10024,137 +10024,145 @@
+    105000,
+    120000,
+    135000,
+-   150000
++   150000,
++   165000,
++   180000,
++   195000,
++   210000,
++   225000,
++   240000,
++   255000,
++   270000
+   ],
+   "rows": [
+    {
+     "label": "עיגון שטיח נהג",
+-    "pattern": "IIIIIIIIII",
++    "pattern": "IIIIIIIIIIIIIIIIII",
+     "months": ""
+    },
+    {
+     "label": "שמן מנוע ומסנן שמן",
+-    "pattern": "RRRRRRRRRR",
++    "pattern": "RRRRRRRRRRRRRRRRRR",
+     "months": ""
+    },
+    {
+     "label": "נוזל בלמים",
+-    "pattern": "IRIRIRIRIR",
++    "pattern": "IRIRIRIRIRIRIRIRIR",
+     "months": ""
+    },
+    {
+     "label": "מסנן אוויר מנוע",
+-    "pattern": "IIIRIIIRII",
++    "pattern": "IIIRIIIRIIIRIIIRII",
+     "months": ""
+    },
+    {
+     "label": "מסנן אוויר סוללה היברידית",
+-    "pattern": "ICICICICIC",
++    "pattern": "ICICICICICICICICIC",
+     "months": ""
+    },
+    {
+     "label": "מסנן אוויר מזגן",
+-    "pattern": "RRRRRRRRRR",
++    "pattern": "RRRRRRRRRRRRRRRRRR",
+     "months": ""
+    },
+    {
+     "label": "מסנן דלק",
+-    "pattern": "----R----R",
++    "pattern": "----R----R----R---",
+     "months": ""
+    },
+    {
+     "label": "נוזל קירור מנוע (**)",
+-    "pattern": "IIIIIIIIIR",
++    "pattern": "IIIIIIIIIRIIIIIIII",
+     "months": ""
+    },
+    {
+     "label": "מצתים",
+-    "pattern": "-----R----",
++    "pattern": "-----R-----R-----R",
+     "months": ""
+    },
+    {
+     "label": "מצבר",
+-    "pattern": "IIIIIIIIII",
++    "pattern": "IIIIIIIIIIIIIIIIII",
+     "months": ""
+    },
+    {
+     "label": "צמיגים ולחצי ניפוח",
+-    "pattern": "IIIIIIIIII",
++    "pattern": "IIIIIIIIIIIIIIIIII",
+     "months": ""
+    },
+    {
+     "label": "תאורה , צופר , מגבים",
+-    "pattern": "IIIIIIIIII",
++    "pattern": "IIIIIIIIIIIIIIIIII",
+     "months": ""
+    },
+    {
+     "label": "צלחות ודסקיות בילום",
+-    "pattern": "IIIIIIIIII",
++    "pattern": "IIIIIIIIIIIIIIIIII",
+     "months": ""
+    },
+    {
+     "label": "צינורות בלמים גמישים וקשיחים",
+-    "pattern": "IIIIIIIIII",
++    "pattern": "IIIIIIIIIIIIIIIIII",
+     "months": ""
+    },
+    {
+     "label": "דוושת בלם ובלם חניה",
+-    "pattern": "IIIIIIIIII",
++    "pattern": "IIIIIIIIIIIIIIIIII",
+     "months": ""
+    },
+    {
+     "label": "מסרק הגה , מוטות הגה וגלגל הגה",
+-    "pattern": "IIIIIIIIII",
++    "pattern": "IIIIIIIIIIIIIIIIII",
+     "months": ""
+    },
+    {
+     "label": "מחברים כדוריים ומגיני",
+-    "pattern": "IIIIIIIIII",
++    "pattern": "IIIIIIIIIIIIIIIIII",
+     "months": ""
+    },
+    {
+     "label": "שרוולי גומי לציריות",
+-    "pattern": "IIIIIIIIII",
++    "pattern": "IIIIIIIIIIIIIIIIII",
+     "months": ""
+    },
+    {
+     "label": "מתלים - קדמי ואחורי",
+-    "pattern": "IIIIIIIIII",
++    "pattern": "IIIIIIIIIIIIIIIIII",
+     "months": ""
+    },
+    {
+     "label": "נוזל קירור מערכת היברידית (***)",
+-    "pattern": "IIIIIIIIII",
++    "pattern": "IIIIIIIIIIIIIIIIII",
+     "months": ""
+    },
+    {
+     "label": "מערכת קירור וחימום",
+-    "pattern": "-I-I-I-I-I",
++    "pattern": "-I-I-I-I-I-I-I-I-I",
+     "months": ""
+    },
+    {
+     "label": "צינורות פליטה ותומכיהם",
+-    "pattern": "IIIIIIIIII",
++    "pattern": "IIIIIIIIIIIIIIIIII",
+     "months": ""
+    },
+    {
+     "label": "צינורות דלק , חיבורים ומכסה מיכל הדלק",
+-    "pattern": "-I-I-I-I-I",
++    "pattern": "-I-I-I-I-I-I-I-I-I",
+     "months": ""
+    },
+    {
+     "label": "מסנן פחם ) מכלול מחזור אדי דלק (",
+-    "pattern": "--I--I--I-",
++    "pattern": "--I--I--I--I--I--I",
+     "months": ""
+    },
+    {
+     "label": "נוזל תיבת הילוכים",
+-    "pattern": "-I-I-I-I-I",
++    "pattern": "-I-I-I-I-I-I-I-I-I",
+     "months": ""
+    },
+    {
+     "label": "בדיקת חלודה",
+-    "pattern": "IIIIIIIIII",
++    "pattern": "IIIIIIIIIIIIIIIIII",
+     "months": ""
+    }
+   ],
+@@ -10974,137 +10982,145 @@
+    105000,
+    120000,
+    135000,
+-   150000
++   150000,
++   165000,
++   180000,
++   195000,
++   210000,
++   225000,
++   240000,
++   255000,
++   270000
+   ],
+   "rows": [
+    {
+     "label": "עיגון שטיח נהג",
+-    "pattern": "IIIIIIIIII",
++    "pattern": "IIIIIIIIIIIIIIIIII",
+     "months": ""
+    },
+    {
+     "label": "שמן מנוע ומסנן שמן",
+-    "pattern": "RRRRRRRRRR",
++    "pattern": "RRRRRRRRRRRRRRRRRR",
+     "months": ""
+    },
+    {
+     "label": "נוזל בלמים",
+-    "pattern": "IRIRIRIRIR",
++    "pattern": "IRIRIRIRIRIRIRIRIR",
+     "months": ""
+    },
+    {
+     "label": "מסנן אוויר מנוע",
+-    "pattern": "IIIRIIIRII",
++    "pattern": "IIIRIIIRIIIRIIIRII",
+     "months": ""
+    },
+    {
+     "label": "מסנן אוויר סוללה היברידית",
+-    "pattern": "ICICICICIC",
++    "pattern": "ICICICICICICICICIC",
+     "months": ""
+    },
+    {
+     "label": "מסנן אוויר מזגן",
+-    "pattern": "RRRRRRRRRR",
++    "pattern": "RRRRRRRRRRRRRRRRRR",
+     "months": ""
+    },
+    {
+     "label": "מסנן דלק",
+-    "pattern": "----R----R",
++    "pattern": "----R----R----R---",
+     "months": ""
+    },
+    {
+     "label": "נוזל קירור מנוע (**)",
+-    "pattern": "IIIIIIIIIR",
++    "pattern": "IIIIIIIIIRIIIIIIII",
+     "months": ""
+    },
+    {
+     "label": "מצתים",
+-    "pattern": "-----R----",
++    "pattern": "-----R-----R-----R",
+     "months": ""
+    },
+    {
+     "label": "מצבר",
+-    "pattern": "IIIIIIIIII",
++    "pattern": "IIIIIIIIIIIIIIIIII",
+     "months": ""
+    },
+    {
+     "label": "צמיגים ולחצי ניפוח",
+-    "pattern": "IIIIIIIIII",
++    "pattern": "IIIIIIIIIIIIIIIIII",
+     "months": ""
+    },
+    {
+     "label": "תאורה , צופר , מגבים",
+-    "pattern": "IIIIIIIIII",
++    "pattern": "IIIIIIIIIIIIIIIIII",
+     "months": ""
+    },
+    {
+     "label": "צלחות ודסקיות בילום",
+-    "pattern": "IIIIIIIIII",
++    "pattern": "IIIIIIIIIIIIIIIIII",
+     "months": ""
+    },
+    {
+     "label": "צינורות בלמים גמישים וקשיחים",
+-    "pattern": "IIIIIIIIII",
++    "pattern": "IIIIIIIIIIIIIIIIII",
+     "months": ""
+    },
+    {
+     "label": "דוושת בלם ובלם חניה",
+-    "pattern": "IIIIIIIIII",
++    "pattern": "IIIIIIIIIIIIIIIIII",
+     "months": ""
+    },
+    {
+     "label": "מסרק הגה , מוטות הגה וגלגל הגה",
+-    "pattern": "IIIIIIIIII",
++    "pattern": "IIIIIIIIIIIIIIIIII",
+     "months": ""
+    },
+    {
+     "label": "מחברים כדוריים ומגיני",
+-    "pattern": "IIIIIIIIII",
++    "pattern": "IIIIIIIIIIIIIIIIII",
+     "months": ""
+    },
+    {
+     "label": "שרוולי גומי לציריות",
+-    "pattern": "IIIIIIIIII",
++    "pattern": "IIIIIIIIIIIIIIIIII",
+     "months": ""
+    },
+    {
+     "label": "מתלים - קדמי ואחורי",
+-    "pattern": "IIIIIIIIII",
++    "pattern": "IIIIIIIIIIIIIIIIII",
+     "months": ""
+    },
+    {
+     "label": "נוזל קירור מערכת היברידית (***)",
+-    "pattern": "IIIIIIIIII",
++    "pattern": "IIIIIIIIIIIIIIIIII",
+     "months": ""
+    },
+    {
+     "label": "מערכת קירור וחימום",
+-    "pattern": "-I-I-I-I-I",
++    "pattern": "-I-I-I-I-I-I-I-I-I",
+     "months": ""
+    },
+    {
+     "label": "צינורות פליטה ותומכיהם",
+-    "pattern": "IIIIIIIIII",
++    "pattern": "IIIIIIIIIIIIIIIIII",
+     "months": ""
+    },
+    {
+     "label": "צינורות דלק , חיבורים ומכסה מיכל הדלק",
+-    "pattern": "-I-I-I-I-I",
++    "pattern": "-I-I-I-I-I-I-I-I-I",
+     "months": ""
+    },
+    {
+     "label": "מסנן פחם ) מכלול מחזור אדי דלק (",
+-    "pattern": "--I--I--I-",
++    "pattern": "--I--I--I--I--I--I",
+     "months": ""
+    },
+    {
+     "label": "נוזל תיבת הילוכים",
+-    "pattern": "-I-I-I-I-I",
++    "pattern": "-I-I-I-I-I-I-I-I-I",
+     "months": ""
+    },
+    {
+     "label": "בדיקת חלודה",
+-    "pattern": "IIIIIIIIII",
++    "pattern": "IIIIIIIIIIIIIIIIII",
+     "months": ""
+    }
+   ],
+@@ -19120,113 +19136,117 @@
+    105000,
+    120000,
+    135000,
+-   150000
++   150000,
++   165000,
++   180000,
++   195000,
++   210000
+   ],
+   "rows": [
+    {
+     "label": "שמן ומסנן שמן מנוע",
+-    "pattern": "RRRRRRRRRR",
++    "pattern": "RRRRRRRRRRRRRR",
+     "months": ": 1"
+    },
+    {
+     "label": "מערכת קירור וחימום *",
+-    "pattern": "-I-I-I-I-I",
++    "pattern": "-I-I-I-I-I-I-I",
+     "months": ": 1"
+    },
+    {
+     "label": "בדיקת מערכות קירור וחימום *",
+-    "pattern": "IIIIIIIIII",
++    "pattern": "IIIIIIIIIIIIII",
+     "months": ""
+    },
+    {
+     "label": "צינורות פליטה ותומכיהם",
+-    "pattern": "IIIIIIIIII",
++    "pattern": "IIIIIIIIIIIIII",
+     "months": ": 1"
+    },
+    {
+     "label": "צינורות , אטמי HOUSING ( בדיקה ויזואלית של מצב כללי ונזילות )",
+-    "pattern": "IIIIIIIIII",
++    "pattern": "IIIIIIIIIIIIII",
+     "months": ": 1"
+    },
+    {
+     "label": "עשן סמיך",
+-    "pattern": "IIIIIIIIII",
++    "pattern": "IIIIIIIIIIIIII",
+     "months": ": 1"
+    },
+    {
+     "label": "צינורות דלק , חיבורים ומכסה מיכל הדלק",
+-    "pattern": "IIIIIIIIII",
++    "pattern": "IIIIIIIIIIIIII",
+     "months": ": 1"
+    },
+    {
+     "label": "מסנן אוויר",
+-    "pattern": "IRIRIRIRIR",
++    "pattern": "IRIRIRIRIRIRIR",
+     "months": ": 4"
+    },
+    {
+     "label": "מסנן סולר",
+-    "pattern": "-R-R-R-R-R",
++    "pattern": "-R-R-R-R-R-R-R",
+     "months": ": 4"
+    },
+    {
+     "label": "עיגון שטיח נהג",
+-    "pattern": "IIIIIIIIII",
++    "pattern": "IIIIIIIIIIIIII",
+     "months": "כל טיפול"
+    },
+    {
+     "label": "בדיקת קורוזיה גוף הרכב",
+-    "pattern": "IIIIIIIIII",
++    "pattern": "IIIIIIIIIIIIII",
+     "months": "כל טיפול"
+    },
+    {
+     "label": "דוושת בלם וידית בלם חניה",
+-    "pattern": "IIIIIIIIII",
++    "pattern": "IIIIIIIIIIIIII",
+     "months": ": 1"
+    },
+    {
+     "label": "צלחות ודיסקיות בילום ( פירוק גלגלים ) , קליפרים וצינורות",
+-    "pattern": "IIIIIIIIII",
++    "pattern": "IIIIIIIIIIIIII",
+     "months": ": 1"
+    },
+    {
+     "label": "נוזל בלמים",
+-    "pattern": "IIIIIIIIII",
++    "pattern": "IIIIIIIIIIIIII",
+     "months": ": 1"
+    },
+    {
+     "label": "מפרקים כדוריים ( joints ball ) וכיסויי אבק",
+-    "pattern": "IIIIIIIIII",
++    "pattern": "IIIIIIIIIIIIII",
+     "months": ": 1"
+    },
+    {
+     "label": "איטום בולמי זעזועים",
+-    "pattern": "IIIIIIIIII",
++    "pattern": "IIIIIIIIIIIIII",
+     "months": ": 1"
+    },
+    {
+     "label": "שרוולי גומי לציריות",
+-    "pattern": "IIIIIIIIII",
++    "pattern": "IIIIIIIIIIIIII",
+     "months": ": 1"
+    },
+    {
+     "label": "צמיגים ( לחץ ניפוח , תאריך תפוגה , גלגל רזרבי ) אורות , צופר , מגבים ונוזל שמשות .",
+-    "pattern": "IIIIIIIIII",
++    "pattern": "IIIIIIIIIIIIII",
+     "months": ": 1"
+    },
+    {
+     "label": "חלונות , פנסים ומראות",
+-    "pattern": "IIIIIIIIII",
++    "pattern": "IIIIIIIIIIIIII",
+     "months": ": 1"
+    },
+    {
+     "label": "מצבר",
+-    "pattern": "IIIIIIIIII",
++    "pattern": "IIIIIIIIIIIIII",
+     "months": ": 1"
+    },
+    {
+     "label": "מסנן מזגן",
+-    "pattern": "-R-R-R-R-R",
+-    "months": "I/C I/C : 1"
++    "pattern": "-R-R-R-R-R-R-R",
++    "months": ": 1"
+    }
+   ],
+   "fluid_tokens": [
+@@ -19317,130 +19337,126 @@
+   ],
+   "engine": null,
+   "columns_km": [
+-   10000,
+    20000,
+-   30000,
+    40000,
+-   50000,
+    60000,
+-   70000,
+    80000,
+-   90000,
+    100000,
+-   110000,
+    120000,
+-   130000,
+    140000,
+-   150000,
+    160000,
+-   170000,
+-   180000
++   180000,
++   200000,
++   220000,
++   240000,
++   260000,
++   280000
+   ],
+   "rows": [
+    {
+     "label": "שמן ומסנן שמן מנוע",
+-    "pattern": "-R-R-R-R-R-R-R-R-R",
++    "pattern": "RRRRRRRRRRRRRR",
+     "months": ": 1"
+    },
+    {
+     "label": "מערכת קירור וחימום *",
+-    "pattern": "---I---I---I---I--",
++    "pattern": "-I-I-I-I-I-I-I",
+     "months": ": 1"
+    },
+    {
+     "label": "בדיקת מערכות קירור וחימום *",
+-    "pattern": "-I-I-I-I-I-I-I-I-I",
++    "pattern": "IIIIIIIIIIIIII",
+     "months": ""
+    },
+    {
+     "label": "צינורות פליטה ותומכיהם",
+-    "pattern": "-I-I-I-I-I-I-I-I-I",
++    "pattern": "IIIIIIIIIIIIII",
+     "months": ": 1"
+    },
+    {
+     "label": "צינורות , אטמי HOUSING ( בדיקה ויזואלית של מצב כללי ונזילות )",
+-    "pattern": "-I-I-I-I-I-I-I-I-I",
++    "pattern": "IIIIIIIIIIIIII",
+     "months": ": 1"
+    },
+    {
+     "label": "עשן סמיך",
+-    "pattern": "-I-I-I-I-I-I-I-I-I",
++    "pattern": "IIIIIIIIIIIIII",
+     "months": ": 1"
+    },
+    {
+     "label": "צינורות דלק , חיבורים ומכסה מיכל הדלק",
+-    "pattern": "-I-I-I-I-I-I-I-I-I",
++    "pattern": "IIIIIIIIIIIIII",
+     "months": ": 1"
+    },
+    {
+     "label": "מסנן אוויר",
+-    "pattern": "-I-R-I-R-I-R-I-R-I",
++    "pattern": "IRIRIRIRIRIRIR",
+     "months": ": 4"
+    },
+    {
+     "label": "מסנן סולר",
+-    "pattern": "---R---R---R---R--",
++    "pattern": "-R-R-R-R-R-R-R",
+     "months": ": 4"
+    },
+    {
+     "label": "עיגון שטיח נהג",
+-    "pattern": "-I-I-I-I-I-I-I-I-I",
++    "pattern": "IIIIIIIIIIIIII",
+     "months": "כל טיפול"
+    },
+    {
+     "label": "בדיקת קורוזיה גוף הרכב",
+-    "pattern": "-I-I-I-I-I-I-I-I-I",
++    "pattern": "IIIIIIIIIIIIII",
+     "months": "כל טיפול"
+    },
+    {
+     "label": "דוושת בלם וידית בלם חניה",
+-    "pattern": "-I-I-I-I-I-I-I-I-I",
++    "pattern": "IIIIIIIIIIIIII",
+     "months": ": 1"
+    },
+    {
+     "label": "צלחות ודיסקיות בילום ( פירוק גלגלים ) , קליפרים וצינורות",
+-    "pattern": "-I-I-I-I-I-I-I-I-I",
++    "pattern": "IIIIIIIIIIIIII",
+     "months": ": 1"
+    },
+    {
+     "label": "נוזל בלמים",
+-    "pattern": "-I-I-I-I-I-I-I-I-I",
++    "pattern": "IIIIIIIIIIIIII",
+     "months": ": 1"
+    },
+    {
+     "label": "מפרקים כדוריים ( joints ball ) וכיסויי אבק",
+-    "pattern": "-I-I-I-I-I-I-I-I-I",
++    "pattern": "IIIIIIIIIIIIII",
+     "months": ": 1"
+    },
+    {
+     "label": "איטום בולמי זעזועים",
+-    "pattern": "-I-I-I-I-I-I-I-I-I",
++    "pattern": "IIIIIIIIIIIIII",
+     "months": ": 1"
+    },
+    {
+     "label": "שרוולי גומי לציריות",
+-    "pattern": "-I-I-I-I-I-I-I-I-I",
++    "pattern": "IIIIIIIIIIIIII",
+     "months": ": 1"
+    },
+    {
+     "label": "צמיגים ( לחץ ניפוח , תאריך תפוגה , גלגל רזרבי ) אורות , צופר , מגבים ונוזל שמשות .",
+-    "pattern": "-I-I-I-I-I-I-I-I-I",
++    "pattern": "IIIIIIIIIIIIII",
+     "months": ": 1"
+    },
+    {
+     "label": "חלונות , פנסים ומראות",
+-    "pattern": "-I-I-I-I-I-I-I-I-I",
++    "pattern": "IIIIIIIIIIIIII",
+     "months": ": 1"
+    },
+    {
+     "label": "מצבר",
+-    "pattern": "-I-I-I-I-I-I-I-I-I",
++    "pattern": "IIIIIIIIIIIIII",
+     "months": ": 1"
+    },
+    {
+     "label": "מסנן מזגן",
+-    "pattern": "---R---R---R---R--",
+-    "months": "I/C I/C : 1"
++    "pattern": "-R-R-R-R-R-R-R",
++    "months": ": 1"
+    }
+   ],
+   "fluid_tokens": [
+@@ -19532,130 +19548,126 @@
+   ],
+   "engine": null,
+   "columns_km": [
+-   10000,
+    20000,
+-   30000,
+    40000,
+-   50000,
+    60000,
+-   70000,
+    80000,
+-   90000,
+    100000,
+-   110000,
+    120000,
+-   130000,
+    140000,
+-   150000,
+    160000,
+-   170000,
+-   180000
++   180000,
++   200000,
++   220000,
++   240000,
++   260000,
++   280000
+   ],
+   "rows": [
+    {
+     "label": "שמן ומסנן שמן מנוע",
+-    "pattern": "-R-R-R-R-R-R-R-R-R",
++    "pattern": "RRRRRRRRRRRRRR",
+     "months": ": 1"
+    },
+    {
+     "label": "מערכת קירור וחימום *",
+-    "pattern": "---I---I---I---I--",
++    "pattern": "-I-I-I-I-I-I-I",
+     "months": ": 1"
+    },
+    {
+     "label": "בדיקת מערכות קירור וחימום *",
+-    "pattern": "-I-I-I-I-I-I-I-I-I",
++    "pattern": "IIIIIIIIIIIIII",
+     "months": ""
+    },
+    {
+     "label": "צינורות פליטה ותומכיהם",
+-    "pattern": "-I-I-I-I-I-I-I-I-I",
++    "pattern": "IIIIIIIIIIIIII",
+     "months": ": 1"
+    },
+    {
+     "label": "צינורות , אטמי HOUSING ( בדיקה ויזואלית של מצב כללי ונזילות )",
+-    "pattern": "-I-I-I-I-I-I-I-I-I",
++    "pattern": "IIIIIIIIIIIIII",
+     "months": ": 1"
+    },
+    {
+     "label": "עשן סמיך",
+-    "pattern": "-I-I-I-I-I-I-I-I-I",
++    "pattern": "IIIIIIIIIIIIII",
+     "months": ": 1"
+    },
+    {
+     "label": "צינורות דלק , חיבורים ומכסה מיכל הדלק",
+-    "pattern": "-I-I-I-I-I-I-I-I-I",
++    "pattern": "IIIIIIIIIIIIII",
+     "months": ": 1"
+    },
+    {
+     "label": "מסנן אוויר",
+-    "pattern": "-I-R-I-R-I-R-I-R-I",
++    "pattern": "IRIRIRIRIRIRIR",
+     "months": ": 4"
+    },
+    {
+     "label": "מסנן סולר",
+-    "pattern": "---R---R---R---R--",
++    "pattern": "-R-R-R-R-R-R-R",
+     "months": ": 4"
+    },
+    {
+     "label": "עיגון שטיח נהג",
+-    "pattern": "-I-I-I-I-I-I-I-I-I",
++    "pattern": "IIIIIIIIIIIIII",
+     "months": "כל טיפול"
+    },
+    {
+     "label": "בדיקת קורוזיה גוף הרכב",
+-    "pattern": "-I-I-I-I-I-I-I-I-I",
++    "pattern": "IIIIIIIIIIIIII",
+     "months": "כל טיפול"
+    },
+    {
+     "label": "דוושת בלם וידית בלם חניה",
+-    "pattern": "-I-I-I-I-I-I-I-I-I",
++    "pattern": "IIIIIIIIIIIIII",
+     "months": ": 1"
+    },
+    {
+     "label": "צלחות ודיסקיות בילום ( פירוק גלגלים ) , קליפרים וצינורות",
+-    "pattern": "-I-I-I-I-I-I-I-I-I",
++    "pattern": "IIIIIIIIIIIIII",
+     "months": ": 1"
+    },
+    {
+     "label": "נוזל בלמים",
+-    "pattern": "-I-I-I-I-I-I-I-I-I",
++    "pattern": "IIIIIIIIIIIIII",
+     "months": ": 1"
+    },
+    {
+     "label": "מפרקים כדוריים ( joints ball ) וכיסויי אבק",
+-    "pattern": "-I-I-I-I-I-I-I-I-I",
++    "pattern": "IIIIIIIIIIIIII",
+     "months": ": 1"
+    },
+    {
+     "label": "איטום בולמי זעזועים",
+-    "pattern": "-I-I-I-I-I-I-I-I-I",
++    "pattern": "IIIIIIIIIIIIII",
+     "months": ": 1"
+    },
+    {
+     "label": "שרוולי גומי לציריות",
+-    "pattern": "-I-I-I-I-I-I-I-I-I",
++    "pattern": "IIIIIIIIIIIIII",
+     "months": ": 1"
+    },
+    {
+     "label": "צמיגים ( לחץ ניפוח , תאריך תפוגה , גלגל רזרבי ) אורות , צופר , מגבים ונוזל שמשות .",
+-    "pattern": "-I-I-I-I-I-I-I-I-I",
++    "pattern": "IIIIIIIIIIIIII",
+     "months": ": 1"
+    },
+    {
+     "label": "חלונות , פנסים ומראות",
+-    "pattern": "-I-I-I-I-I-I-I-I-I",
++    "pattern": "IIIIIIIIIIIIII",
+     "months": ": 1"
+    },
+    {
+     "label": "מצבר",
+-    "pattern": "-I-I-I-I-I-I-I-I-I",
++    "pattern": "IIIIIIIIIIIIII",
+     "months": ": 1"
+    },
+    {
+     "label": "מסנן מזגן",
+-    "pattern": "---R---R---R---R--",
+-    "months": "I/C I/C : 1"
++    "pattern": "-R-R-R-R-R-R-R",
++    "months": ": 1"
+    }
+   ],
+   "fluid_tokens": [
+@@ -19755,113 +19767,117 @@
+    105000,
+    120000,
+    135000,
+-   150000
++   150000,
++   165000,
++   180000,
++   195000,
++   210000
+   ],
+   "rows": [
+    {
+     "label": "שמן ומסנן שמן מנוע",
+-    "pattern": "RRRRRRRRRR",
++    "pattern": "RRRRRRRRRRRRRR",
+     "months": ": 1"
+    },
+    {
+     "label": "מערכת קירור וחימום *",
+-    "pattern": "-I-I-I-I-I",
++    "pattern": "-I-I-I-I-I-I-I",
+     "months": ": 1"
+    },
+    {
+     "label": "בדיקת מערכות קירור וחימום *",
+-    "pattern": "IIIIIIIIII",
++    "pattern": "IIIIIIIIIIIIII",
+     "months": ""
+    },
+    {
+     "label": "צינורות פליטה ותומכיהם",
+-    "pattern": "IIIIIIIIII",
++    "pattern": "IIIIIIIIIIIIII",
+     "months": ": 1"
+    },
+    {
+     "label": "צינורות , אטמי HOUSING ( בדיקה ויזואלית של מצב כללי ונזילות )",
+-    "pattern": "IIIIIIIIII",
++    "pattern": "IIIIIIIIIIIIII",
+     "months": ": 1"
+    },
+    {
+     "label": "עשן סמיך",
+-    "pattern": "IIIIIIIIII",
++    "pattern": "IIIIIIIIIIIIII",
+     "months": ": 1"
+    },
+    {
+     "label": "צינורות דלק , חיבורים ומכסה מיכל הדלק",
+-    "pattern": "IIIIIIIIII",
++    "pattern": "IIIIIIIIIIIIII",
+     "months": ": 1"
+    },
+    {
+     "label": "מסנן אוויר",
+-    "pattern": "IRIRIRIRIR",
++    "pattern": "IRIRIRIRIRIRIR",
+     "months": ": 4"
+    },
+    {
+     "label": "מסנן סולר",
+-    "pattern": "-R-R-R-R-R",
++    "pattern": "-R-R-R-R-R-R-R",
+     "months": ": 4"
+    },
+    {
+     "label": "עיגון שטיח נהג",
+-    "pattern": "IIIIIIIIII",
++    "pattern": "IIIIIIIIIIIIII",
+     "months": "כל טיפול"
+    },
+    {
+     "label": "בדיקת קורוזיה גוף הרכב",
+-    "pattern": "IIIIIIIIII",
++    "pattern": "IIIIIIIIIIIIII",
+     "months": "כל טיפול"
+    },
+    {
+     "label": "דוושת בלם וידית בלם חניה",
+-    "pattern": "IIIIIIIIII",
++    "pattern": "IIIIIIIIIIIIII",
+     "months": ": 1"
+    },
+    {
+     "label": "צלחות ודיסקיות בילום ( פירוק גלגלים ) , קליפרים וצינורות",
+-    "pattern": "IIIIIIIIII",
++    "pattern": "IIIIIIIIIIIIII",
+     "months": ": 1"
+    },
+    {
+     "label": "נוזל בלמים",
+-    "pattern": "IIIIIIIIII",
++    "pattern": "IIIIIIIIIIIIII",
+     "months": ": 1"
+    },
+    {
+     "label": "מפרקים כדוריים ( joints ball ) וכיסויי אבק",
+-    "pattern": "IIIIIIIIII",
++    "pattern": "IIIIIIIIIIIIII",
+     "months": ": 1"
+    },
+    {
+     "label": "איטום בולמי זעזועים",
+-    "pattern": "IIIIIIIIII",
++    "pattern": "IIIIIIIIIIIIII",
+     "months": ": 1"
+    },
+    {
+     "label": "שרוולי גומי לציריות",
+-    "pattern": "IIIIIIIIII",
++    "pattern": "IIIIIIIIIIIIII",
+     "months": ": 1"
+    },
+    {
+     "label": "צמיגים ( לחץ ניפוח , תאריך תפוגה , גלגל רזרבי ) אורות , צופר , מגבים ונוזל שמשות .",
+-    "pattern": "IIIIIIIIII",
++    "pattern": "IIIIIIIIIIIIII",
+     "months": ": 1"
+    },
+    {
+     "label": "חלונות , פנסים ומראות",
+-    "pattern": "IIIIIIIIII",
++    "pattern": "IIIIIIIIIIIIII",
+     "months": ": 1"
+    },
+    {
+     "label": "מצבר",
+-    "pattern": "IIIIIIIIII",
++    "pattern": "IIIIIIIIIIIIII",
+     "months": ": 1"
+    },
+    {
+     "label": "מסנן מזגן",
+-    "pattern": "-R-R-R-R-R",
+-    "months": "I/C I/C : 1"
++    "pattern": "-R-R-R-R-R-R-R",
++    "months": ": 1"
+    }
+   ],
+   "fluid_tokens": [
+@@ -21319,164 +21335,157 @@
+   ],
+   "engine": null,
+   "columns_km": [
+-   10000,
+    20000,
+-   30000,
+    40000,
+-   50000,
+    60000,
+-   70000,
+    80000,
+-   90000,
+    100000,
+-   110000,
+    120000,
+-   130000,
+    140000,
+-   150000,
+    160000,
+-   170000,
+-   180000
++   180000,
++   200000,
++   220000
+   ],
+   "rows": [
+    {
+     "label": "עיגון שטיח נהג",
+-    "pattern": "-I-I-I-I-I-I-I-I-I",
++    "pattern": "IIIIIIIIIII",
+     "months": ""
+    },
+    {
+     "label": "שמן מנוע",
+-    "pattern": "-R-R-R-R-R-R-R-R-R",
++    "pattern": "RRRRRRRRRRR",
+     "months": ""
+    },
+    {
+     "label": "מסנן שמן מנוע",
+-    "pattern": "-R-R-R-R-R-R-R-R-R",
++    "pattern": "RRRRRRRRRRR",
+     "months": ""
+    },
+    {
+     "label": "נוזל בלמים בדיקה",
+-    "pattern": "-I-I-I-I-I-I-I-I-I",
++    "pattern": "IIIIIIIIIII",
+     "months": ""
+    },
+    {
+     "label": "מסנן אוויר",
+-    "pattern": "-I-R-I-R-I-R-I-R-I",
++    "pattern": "IRIRIRIRIRI",
+     "months": ""
+    },
+    {
+     "label": "מסנן אוויר מזגן (*) רגיל",
+-    "pattern": "-C-R-C-R-C-R-C-R-C",
+-    "months": "/"
++    "pattern": "CRCRCRCRCRC",
++    "months": ""
+    },
+    {
+     "label": "פחמי",
+-    "pattern": "-R-R-R-R-R-R-R-R-R",
++    "pattern": "RRRRRRRRRRR",
+     "months": ""
+    },
+    {
+     "label": "מסנן דלק",
+-    "pattern": "---R---R---R---R--",
++    "pattern": "-R-R-R-R-R-",
+     "months": ""
+    },
+    {
+     "label": "נוזל קירור מנוע (*)",
+-    "pattern": "-I-I-I-I-I-I-I-I-I",
++    "pattern": "IIIIIIIIIII",
+     "months": ""
+    },
+    {
+     "label": "רצועת הינע ומותחנים",
+-    "pattern": "-----------R------",
++    "pattern": "-----R-----",
+     "months": ""
+    },
+    {
+     "label": "רצועת תזמון + מותחנים + משאבת מים",
+-    "pattern": "-------------R----",
++    "pattern": "------R----",
+     "months": ""
+    },
+    {
+     "label": "בדיקת עשן",
+-    "pattern": "-I-I-I-I-I-I-I-I-I",
++    "pattern": "IIIIIIIIIII",
+     "months": ""
+    },
+    {
+     "label": "בדיקת סתימות DPF",
+-    "pattern": "---------------I-I",
++    "pattern": "-------IIII",
+     "months": ""
+    },
+    {
+     "label": "מצבר",
+-    "pattern": "-I-I-I-I-I-I-I-I-I",
++    "pattern": "IIIIIIIIIII",
+     "months": ""
+    },
+    {
+     "label": "צמיגים ולחצי ניפוח",
+-    "pattern": "-I-I-I-I-I-I-I-I-I",
++    "pattern": "IIIIIIIIIII",
+     "months": ""
+    },
+    {
+     "label": "תאורה , צופר , מגבים ומתזים",
+-    "pattern": "-I-I-I-I-I-I-I-I-I",
++    "pattern": "IIIIIIIIIII",
+     "months": ""
+    },
+    {
+     "label": "צלחות ודסקיות בילום",
+-    "pattern": "-I-I-I-I-I-I-I-I-I",
++    "pattern": "IIIIIIIIIII",
+     "months": ""
+    },
+    {
+     "label": "צינורות בלמים גמישים וקשיחים",
+-    "pattern": "-I-I-I-I-I-I-I-I-I",
++    "pattern": "IIIIIIIIIII",
+     "months": ""
+    },
+    {
+     "label": "דוושת בלם ובלם חניה",
+-    "pattern": "-I-I-I-I-I-I-I-I-I",
++    "pattern": "IIIIIIIIIII",
+     "months": ""
+    },
+    {
+     "label": "נוזל מערכת היגוי",
+-    "pattern": "-I-I-I-I-I-I-I-I-I",
++    "pattern": "IIIIIIIIIII",
+     "months": ""
+    },
+    {
+     "label": "מסרק הגה , מוטות הגה וגלגל הגה",
+-    "pattern": "-I-I-I-I-I-I-I-I-I",
++    "pattern": "IIIIIIIIIII",
+     "months": ""
+    },
+    {
+     "label": "מחברים כדוריים ( תפוחים ) ומגיני אבק",
+-    "pattern": "-I-I-I-I-I-I-I-I-I",
++    "pattern": "IIIIIIIIIII",
+     "months": ""
+    },
+    {
+     "label": "שרוולי גומי לציריות",
+-    "pattern": "-I-I-I-I-I-I-I-I-I",
++    "pattern": "IIIIIIIIIII",
+     "months": ""
+    },
+    {
+     "label": "מתלים - קדמי ואחורי",
+-    "pattern": "-I-I-I-I-I-I-I-I-I",
++    "pattern": "IIIIIIIIIII",
+     "months": ""
+    },
+    {
+     "label": "מערכת קירור וחימום",
+-    "pattern": "-I-I-I-I-I-I-I-I-I",
++    "pattern": "IIIIIIIIIII",
+     "months": ""
+    },
+    {
+     "label": "צינורות פליטה ותומכיהם",
+-    "pattern": "-I-I-I-I-I-I-I-I-I",
++    "pattern": "IIIIIIIIIII",
+     "months": ""
+    },
+    {
+     "label": "צינורות דלק , חיבורים ומכסה מיכל הדלק",
+-    "pattern": "-I-I-I-I-I-I-I-I-I",
++    "pattern": "IIIIIIIIIII",
+     "months": ""
+    },
+    {
+     "label": "בדיקת קורוזיה",
+-    "pattern": "-I-I-I-I-I-I-I-I-I",
++    "pattern": "IIIIIIIIIII",
+     "months": ""
+    }
+   ],
+diff --git a/scripts/build_schedules.py b/scripts/build_schedules.py
+index 688cabf..78adcd6 100644
+--- a/scripts/build_schedules.py
++++ b/scripts/build_schedules.py
+@@ -1333,6 +1333,17 @@ toyota("toyota-camry-2024-2025-2.5-hybrid", 363, "Camry", "קאמרי", "XV80 hy
+ toyota("toyota-aygo-x-2022-2025-1.0", 344, "Aygo X", "איגו X", "AB70", [2022, 2025], ["1.0 (1KR-FE)"], "petrol",
+        extra_sheets=((339, "גיליון ספטמבר 2022: אותה תוכנית, אבל מרווח השסתומים נבדק רק ב-90,000 (72 חודשים) ולא בכל טיפול"),),
+        specs=dict(TY_OIL_NEW, tires="175/65 R17 או 175/60 R18", battery="מצבר רגיל 12V", spare="ערכת תיקון"))
++# 2026 sheets: 18 columns of 15,000 km (to 270,000), read in full (spark plugs at 90/180/270, fuel filter at 75/150/225)
++toyota("toyota-aygo-x-2026-1.5-hybrid", 366, "Aygo X", "איגו X", "AB70 hybrid (MABH10)", [2026, 2026], ["1.5 hybrid (M15A-FXE)"], "hybrid",
++       specs=dict(TY_OIL_NEW, engine_oil="API SM/SN/SN Plus, 0W-16, 0W-20 או 5W-20 (לפי טבלת הנוזלים בגיליון)", oil_capacity="3.5 ליטר (לפי הגיליון)",
++                  coolant="Toyota SLLC: מנוע 4.5 ליטר, מערכת היברידית 1.7 ליטר (לפי הגיליון)", spare="ערכת תיקון", **HYB),
++       notes_extra="גיליון ינואר 2026 (MABH10, M15A-FXE). נוזל תיבה WS (ATF): בדיקה כל 30,000. גרסת הבנזין 1.0 בלוח toyota-aygo-x-2022-2025-1.0.")
++toyota("toyota-rav4-2026-2.5-hybrid", 367, "RAV4", "ראב 4", "XA60 hybrid (AXAL62)", [2026, 2026], ["2.5 hybrid (A25A-FXS)"], "hybrid",
++       specs=dict(TY_OIL_NEW, engine_oil="API SM/SN/SN Plus, 0W-16, 0W-20 או 5W-30 (לפי טבלת הנוזלים בגיליון)", oil_capacity="4.3 ליטר (לפי הגיליון)",
++                  coolant="Toyota SLLC: מנוע 6 ליטר, מערכת היברידית 1.7 ליטר (לפי הגיליון)", spare="גלגל חלופי צר או ערכת תיקון, לפי גימור", **HYB),
++       notes_extra="הדור השישי (XA60), גיליון מרץ 2026 ('NG-05/2026'). לעומת גיליון XA50 2023: 18 עמודות עד 270,000, מצתים כל 90,000, "
++                   "מסנן דלק ב-75,000, 150,000 ו-225,000, ונוזל תיבה (e-Transaxle TE) נבדק כל 30,000. "
++                   "רכבי ראב 4 2026 של הדור הקודם (XA50) נשארים בלוח toyota-rav4-2023-2025-2.5-hybrid.")
+ toyota("toyota-aygo-2014-2022-1.0", 284, "Aygo", "איגו", "AB40", [2014, 2022], ["1.0 (1KR-FE)"], "petrol", extra_sheets=(318,),
+        specs=dict(TY_OIL_OLD, tires="165/65 R14 או 165/60 R15", battery="מצבר רגיל 12V", spare="ערכת תיקון"))
+ 
+diff --git a/scripts/toyota_sheet_parse.py b/scripts/toyota_sheet_parse.py
+index 6985588..8333efc 100644
+--- a/scripts/toyota_sheet_parse.py
++++ b/scripts/toyota_sheet_parse.py
+@@ -28,8 +28,12 @@ import sys
+ 
+ import pymupdf
+ 
+-COLS15 = ['15', '30', '45', '60', '75', '90', '105', '120', '135', '150']
++# km header families. The classic sheets stop at 150 (15k steps) or 160/180 (10k steps); the 2026
++# sheets (Aygo X HV 366, RAV4 XA60 367) run 18 columns to 270, Toyota City to 210, City Van 20k steps to 280.
++COLS15 = [str(k) for k in range(15, 271, 15)]
+ COLS10 = [str(k) for k in range(10, 181, 10)]
++COLS20 = [str(k) for k in range(20, 281, 20)]
++BASE_LAST = {'15': '150', '10': '180', '20': '20'}  # a header ending at or below this keeps the older rule for missing numbers
+ # Hebrew marks on diesel sheets (ב בדיקה, ה החלפה, ג גירוז, ח הידוק, נ ניקוי) and
+ # the "ן" glyph that some sheets use for an I mark.
+ HEB = {'ב': 'I', 'ה': 'R', 'ג': 'G', 'ח': 'T', 'נ': 'C', 'ן': 'I'}
+@@ -107,7 +111,7 @@ def parse(path):
+     d = pymupdf.open(path); page = d[0]; words = page.get_text("words")
+     # header columns: numbers 15..150 (or 10..180) on one y band
+     best = None
+-    for COLS in (COLS15, COLS10):
++    for COLS in (COLS15, COLS10, COLS20):
+         cand = {}
+         for w in words:
+             if w[4] in COLS:
+@@ -120,7 +124,13 @@ def parse(path):
+     if best is None:
+         raise ValueError("no km header found (scanned sheet?)")
+     header, COLS = best
+-    COLS = [c for c in COLS if c in header] if len(header) >= len(COLS) - 2 else COLS
++    last = max(header, key=int)
++    if int(last) > int(BASE_LAST[COLS[0]]):
++        # an extended header (more than 10 columns of 15k): read every column printed
++        COLS = [c for c in COLS if int(c) <= int(last) and c in header]
++    else:
++        COLS = COLS[:COLS.index(BASE_LAST[COLS[0]]) + 1]
++        COLS = [c for c in COLS if c in header] if len(header) >= len(COLS) - 2 else COLS
+     colx = sorted(header.items(), key=lambda kv: kv[1])
+     xs = [x for _, x in colx]; colmin, colmax = min(xs), max(xs); step = (colmax - colmin) / (len(COLS) - 1)
+     def in_text(m):
+diff --git a/scripts/toyota_sheets_export.py b/scripts/toyota_sheets_export.py
+index 8eb4e2f..f240057 100644
+--- a/scripts/toyota_sheets_export.py
++++ b/scripts/toyota_sheets_export.py
+@@ -4,7 +4,7 @@ Input: a work dir holding toyota-docs/index.json (fileId, title, models, years,
+ connectionId, file) and toyota-docs/parsed.json (output of
+ scripts/toyota_sheet_parse.py: rows = [y, label, pattern, months], lines = the
+ page text grouped by y). Only sheets missing from the JSON are added, so
+-re-running is safe. With --refresh, `rows` and `lines` of the sheets already in
++re-running is safe. With --refresh, `rows`, `lines` and `columns_km` of the sheets already in
+ the JSON are rewritten from parsed.json too (after a parser fix); the other
+ fields stay as they are.
+ 
+@@ -36,7 +36,7 @@ def body_rows(e):
+     for y, label, pat, left in e["rows"]:
+         if y == "COLS":
+             a, b = label.split("..")
+-            step = 15000 if a == "15" else 10000
++            step = int(a) * 1000  # 15, 10 or 20 thousand km per column
+             cols = list(range(int(a) * 1000, int(b) * 1000 + 1, step))
+             continue
+         body.append({"label": label, "pattern": pat, "months": left})
+@@ -49,10 +49,11 @@ for fid, e in parsed.items():
+         continue
+     if fid in sheets:
+         if refresh:
+-            body, _ = body_rows(e)
+-            if sheets[fid]["rows"] != body or sheets[fid].get("lines") != e.get("lines"):
++            body, cols = body_rows(e)
++            if sheets[fid]["rows"] != body or sheets[fid].get("lines") != e.get("lines") or sheets[fid].get("columns_km") != cols:
+                 sheets[fid]["rows"] = body
+                 sheets[fid]["lines"] = e.get("lines", [])
++                sheets[fid]["columns_km"] = cols
+                 refreshed += 1
+         continue
+     meta = idx[int(fid)]

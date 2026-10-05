@@ -1,0 +1,140 @@
+diff --git a/data/schedules/honda-civic-2006-2011-1.8.json b/data/schedules/honda-civic-2006-2011-1.8.json
+index f03735f..2e86520 100644
+--- a/data/schedules/honda-civic-2006-2011-1.8.json
++++ b/data/schedules/honda-civic-2006-2011-1.8.json
+@@ -418,6 +418,10 @@
+           "item": "valve_clearance",
+           "action": "inspect"
+         },
++        {
++          "item": "fuel_filter",
++          "action": "replace"
++        },
+         {
+           "item": "drive_belt",
+           "action": "inspect"
+@@ -846,8 +850,7 @@
+         },
+         {
+           "item": "fuel_filter",
+-          "action": "replace",
+-          "note": "מסומן ב-160,000 ק\"מ"
++          "action": "replace"
+         },
+         {
+           "item": "drive_belt",
+@@ -1109,5 +1112,5 @@
+     }
+   ],
+   "status": "draft",
+-  "notes": "טיוטה מלוח \"Except EU\" בספר הבעלים הבינלאומי של סיוויק 5 דלתות (2006). הסדאן (FD, מתוצרת טורקיה/יפן) חולקת את המנוע R18A, ולכן הלוח משמש גם לה. שמן כל 10,000 ק\"מ או שנה, מסנן שמן ומסנן אוויר כל 20,000, בדיקת שסתומים כל 40,000, מצתים כל 100,000, נוזל בלמים כל 3 שנים, נוזל קירור ב-200,000 או 10 שנים. בשורות בלם החניה ומסנן האבק חלק מהנקודות מוסתרות; נרשם כל 20,000 לפי הנקודות הרצופות שנראות."
+-}
++  "notes": "טיוטה מלוח \"Except EU\" בספר הבעלים הבינלאומי של סיוויק 5 דלתות (2006). הסדאן (FD, מתוצרת טורקיה/יפן) חולקת את המנוע R18A, ולכן הלוח משמש גם לה. שמן כל 10,000 ק\"מ או שנה, מסנן שמן ומסנן אוויר כל 20,000, בדיקת שסתומים כל 40,000, מצתים כל 100,000, נוזל בלמים כל 3 שנים, נוזל קירור ב-200,000 או 10 שנים. בשורות בלם החניה ומסנן האבק חלק מהנקודות מוסתרות; נרשם כל 20,000 לפי הנקודות הרצופות שנראות. מסנן דלק: ב-80,000 וב-160,000 (הנקודה ב-80,000 מוסתרת בחלקה בסימן המים)."
++}
+\ No newline at end of file
+diff --git a/data/schedules/toyota-corolla-2001-2007-1.6.json b/data/schedules/toyota-corolla-2001-2007-1.6.json
+index 3168ab2..5e70805 100644
+--- a/data/schedules/toyota-corolla-2001-2007-1.6.json
++++ b/data/schedules/toyota-corolla-2001-2007-1.6.json
+@@ -154,6 +154,11 @@
+           "item": "body_underside",
+           "action": "inspect",
+           "note": "בדיקת קורוזיה (כל 24 חודשים)"
++        },
++        {
++          "item": "spark_plugs",
++          "action": "inspect",
++          "note": "מצתים רגילים: בדיקה (כל 24 חודשים); ההחלפה ב-long_interval"
+         }
+       ]
+     },
+@@ -446,6 +451,11 @@
+           "item": "body_underside",
+           "action": "inspect",
+           "note": "בדיקת קורוזיה (כל 24 חודשים)"
++        },
++        {
++          "item": "spark_plugs",
++          "action": "inspect",
++          "note": "מצתים רגילים: בדיקה (כל 24 חודשים); ההחלפה ב-long_interval"
+         }
+       ]
+     }
+@@ -461,8 +471,9 @@
+     {
+       "item": "spark_plugs",
+       "action": "replace",
+-      "every_km": 90000,
+-      "note": "מצתי איסיריום/פלטינה. אם הותקנו מצתים רגילים: בדיקה ב-30,000 והחלפה כל 60,000 ק\"מ או 48 חודשים"
++      "every_km": 60000,
++      "every_months": 48,
++      "note": "מצתים רגילים (השורה המסומנת לוורסו 3ZZ-FE בטבלה). אם הותקנו מצתי אירידיום/פלטינה: כל 90,000 ק\"מ"
+     },
+     {
+       "item": "drive_belt",
+@@ -495,4 +506,4 @@
+   ],
+   "status": "draft",
+   "notes": "לא נמצא ספר עברי או גיליון של יוניון מוטורס לקורולה E120 (בגיליונות היבואן אין דגם לפני 2007). הלוח לקוח מטבלת התחזוקה הרשמית של טויוטה אירופה, מהעמודה של קורולה וורסו עם אותו מנוע 3ZZ-FE 1.6. לכן זו טיוטה לפי דגם אחות. הטבלה מסתיימת ב-90,000 ק\"מ וחוזרת על עצמה. למנוע זה יש שרשרת תזמון, ולכן אין בטבלה החלפת רצועת תזמון. בטבלה של הוורסו אין שורת שמן לגיר אוטומטי, כי לוורסו אין גיר אוטומטי רגיל. רוב הקורולות בארץ אוטומטיות, ולכן יש לברר במוסך מתי לבדוק ולהחליף שמן גיר (ATF T-IV). בתנאי שימוש קשים (נסיעות קצרות, דרכי עפר, חום) שמן ומסנן כל 7,500 ק\"מ, ובדיקת בלמים ומתלים כל 15,000 ק\"מ. ייתכן שחלק מרכבי שנת 2001-2002 במאגר הם עדיין מהדור הקודם (E110), עם אותו מנוע 3ZZ-FE; הלוח מתאים לפי המנוע."
+-}
++}
+\ No newline at end of file
+diff --git a/scripts/research/japan-b/gen.py b/scripts/research/japan-b/gen.py
+index f3a5df5..292c36e 100644
+--- a/scripts/research/japan-b/gen.py
++++ b/scripts/research/japan-b/gen.py
+@@ -52,7 +52,7 @@ class S:
+         assert item in ITEMS, item
+         e = dict(item=item, action=action); e.update(kw); self.long.append(e)
+     def time(self, item, action, months, note=None):
+-        e = dict(item=item, action=action, every_months=months)
++        e = dict(item=item, action=action, months=months)  # validate.mjs: time_based uses integer months
+         if note: e['note'] = note
+         self.tb.append(e)
+     def src(self, url, kind, note):
+diff --git a/scripts/research/japan-b/honda.py b/scripts/research/japan-b/honda.py
+index a394186..553412e 100644
+--- a/scripts/research/japan-b/honda.py
++++ b/scripts/research/japan-b/honda.py
+@@ -1,4 +1,4 @@
+-import sys; sys.path.insert(0, '/tmp/claude-0/-home-user-cv/519cb72b-7b93-59d3-bcdf-37f8177b3821/scratchpad/dl/japan-b')
++import sys, os; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+ from gen import *
+ IMP = 'מאיר (הונדה ישראל)'
+ BLOCK = 'honda.co.il (כולל /guide_books/ ו-wp-json) חסום ב-Cloudflare (403); לא נמצא ספר ישראלי, לכן לוח "Except EU" מספר בעלים באנגלית'
+@@ -21,7 +21,9 @@ s = hs('honda-civic-2006-2011-1.8', 'Civic', 'סיוויק', 'FD/FN (דור 8)',
+ s.every('oil_filter', 'replace', 20000, 'בתנאים מחמירים כל 10,000 ק"מ')
+ s.every('air_filter', 'replace', 20000, 'מסנן מסוג יבש: ניקוי כל 10,000 ק"מ')
+ s.every('valve_clearance', 'inspect', 40000)
+-s.add(160000, 'fuel_filter', 'replace', 'מסומן ב-160,000 ק"מ')
++# Audit 5.10.2026: the fuel-filter row has dots at 80 and 160 (the 80 dot is half hidden by the manualslib watermark;
++# it lines up with the drive-belt dot in the same column). The Civic 9 table has the same 80/160 pattern.
++s.at('fuel_filter', 'replace', [80000, 160000])
+ s.add(100000, 'spark_plugs', 'replace'); s.li('spark_plugs', 'replace', every_km=100000, note='מצתי אירידיום')
+ s.every('drive_belt', 'inspect', 40000)
+ s.add(120000, 'diagnostics', 'inspect', 'בדיקת סל"ד סרק')
+@@ -29,7 +31,7 @@ s.add(120000, 'manual_gearbox_oil', 'replace', 'גיר ידני / i-SHIFT: בת
+ s.every('parking_brake', 'inspect', 20000); s.every('cabin_filter', 'replace', 20000, 'מסנן אבק ואבקנים')
+ s.src(ML.format(822871, 360), 'manufacturer', 'Honda Civic 5D owner\'s manual (32SMG610, 2006), "Maintenance Schedule for Petrol Models (Except EU)", עמודי ספר 357-359 (manualslib עמודים 360-362); עותק עם סימן מים שמסתיר חלק מהנקודות בשורות בלם החניה ומסנן האבק')
+ s.src('https://honda.co.il/guide_books/', 'importer', BLOCK)
+-s.write('draft', 'טיוטה מלוח "Except EU" בספר הבעלים הבינלאומי של סיוויק 5 דלתות (2006). הסדאן (FD, מתוצרת טורקיה/יפן) חולקת את המנוע R18A, ולכן הלוח משמש גם לה. שמן כל 10,000 ק"מ או שנה, מסנן שמן ומסנן אוויר כל 20,000, בדיקת שסתומים כל 40,000, מצתים כל 100,000, נוזל בלמים כל 3 שנים, נוזל קירור ב-200,000 או 10 שנים. בשורות בלם החניה ומסנן האבק חלק מהנקודות מוסתרות; נרשם כל 20,000 לפי הנקודות הרצופות שנראות.')
++s.write('draft', 'טיוטה מלוח "Except EU" בספר הבעלים הבינלאומי של סיוויק 5 דלתות (2006). הסדאן (FD, מתוצרת טורקיה/יפן) חולקת את המנוע R18A, ולכן הלוח משמש גם לה. שמן כל 10,000 ק"מ או שנה, מסנן שמן ומסנן אוויר כל 20,000, בדיקת שסתומים כל 40,000, מצתים כל 100,000, נוזל בלמים כל 3 שנים, נוזל קירור ב-200,000 או 10 שנים. בשורות בלם החניה ומסנן האבק חלק מהנקודות מוסתרות; נרשם כל 20,000 לפי הנקודות הרצופות שנראות. מסנן דלק: ב-80,000 וב-160,000 (הנקודה ב-80,000 מוסתרת בחלקה בסימן המים).')
+ rule('Honda', ['CIVIC', 'CIVIC HYBRID'], (2006, 2011), s.d['id'], engine_codes=['R-18-A-2', 'R18A2', 'R-18-A-1', 'R18A1', 'R18A'])
+ 
+ # Civic 9th gen FB/FK
+diff --git a/scripts/research/jp4/gen_toyota.py b/scripts/research/jp4/gen_toyota.py
+index 52e96f4..29b455d 100644
+--- a/scripts/research/jp4/gen_toyota.py
++++ b/scripts/research/jp4/gen_toyota.py
+@@ -30,7 +30,10 @@ s.pat('tires','-I-I-I',15000)
+ s.pat('cabin_filter','-R-R-R',15000,'מסנן מיזוג (חלקיקים)')
+ s.pat('body_underside','-I-I-I',15000,'בדיקת קורוזיה (כל 24 חודשים)')
+ s.li('coolant','replace',first_km=150000,then_every_km=90000,note='נוזל Super Long Life (ורוד). ברכב עם נוזל LLC אדום/ירוק ישן: החלפה ראשונה ב-60,000 ק"מ או 36 חודשים ואחר כך כל 30,000 ק"מ או 24 חודשים')
+-s.li('spark_plugs','replace',every_km=90000,note='מצתי איסיריום/פלטינה. אם הותקנו מצתים רגילים: בדיקה ב-30,000 והחלפה כל 60,000 ק"מ או 48 חודשים')
++# Audit 5.10.2026: the Verso 3ZZ-FE bullet is in the spark-plug "Others" row (I 30k, R 60k, I 90k; I 24 m, R 48 m),
++# not in the "Platinum or Iridium" row (90k). The European 3ZZ-FE uses conventional plugs.
++s.pat('spark_plugs','-I---I',15000,'מצתים רגילים: בדיקה (כל 24 חודשים); ההחלפה ב-long_interval')
++s.li('spark_plugs','replace',every_km=60000,every_months=48,note='מצתים רגילים (השורה המסומנת לוורסו 3ZZ-FE בטבלה). אם הותקנו מצתי אירידיום/פלטינה: כל 90,000 ק"מ')
+ s.li('drive_belt','inspect',first_km=105000,first_months=72,then_every_km=15000,then_every_months=12,note='רצועת עזר: בדיקה ראשונה ב-105,000 ק"מ או 72 חודשים ואחר כך כל 15,000 ק"מ או 12 חודשים')
+ s.src(URL,'manufacturer','Toyota Motor Europe, "MAINTENANCE SCHEDULE - EUROPE 15,000 km/9,000 miles" (גרסה 2008-6-23, הועלה ליומפו מחשבון toyota.tech.eu). עמוד 1 מנוע בנזין, עמודים 3-4 שלדה ומרכב, עמודה Corolla Verso ZNR10 3ZZ-FE (1.6)')
+ s.src('https://www.toyota-tech.eu/MS/PDFS/','manufacturer','המקור המקורי באתר toyota-tech.eu חסום בהתחברות (Keycloak); נעשה שימוש בעותק ביומפו')
