@@ -55,3 +55,10 @@ Rules only (registry/registry_rules.json, 23 rules total incl. the ones for new 
 
 STILL UNCOVERED VAG (biggest)
 Q7 e-tron CVZ (327, PHEV diesel, no Champion table); Polo/Ibiza DAJ (390, code unidentified); Amarok V6 DDX/CSH 2013-2020 (420, old Amarok not in Champion table); Passat BKP/CFF 2.0 TDI (366); Yeti/Octavia CFH, Superb CFG (EA189 2.0 TDI ~460); Q5/Q5 Sportback DRY and Q8 DCB TFSI e (PHEV, no table); Q7 CRC / Touareg CAS/CRC/BKS; Golf APK/AZJ/BMY/BWA (pre-2008); Audi A3 8P CAX/BSE/CBZ 2010-12 (~320); A6 CYG/CHV/CYP; S3 CJX; Alhambra CTH/CZD; Touran CAV; Fabia BNM; Octavia AXR.
+
+ADDENDUM (coordinator tip: WebFetch tool), 5.10.2026
+- WebFetch https://www.skoda.co.il/ , https://www.vw.co.il/ , https://www.seat.co.il/ -> HTTP 491 (Link11), body not retrieved.
+- WebFetch https://media.champ.co.il//Central_Content_Management/Cupra/book/32_terramar/book.pdf -> 491.
+- WebFetch https://www.championmotors.co.il/service-routine/ and https://www.audi.co.il/audi-customers/ -> empty body (JS/Reblaze challenge page; WebFetch does not run JS).
+- WebFetch ספר-רכב.com (xn----2hc3awpyb.com/ספר-טיפולים-seat-leon/) -> 403 Cloudflare.
+=> WebFetch route does not work for Champion/Link11/Reblaze hosts; nothing changes in the results above.
