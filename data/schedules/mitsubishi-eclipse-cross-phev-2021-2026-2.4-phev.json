@@ -1,0 +1,1303 @@
+{
+  "id": "mitsubishi-eclipse-cross-phev-2021-2026-2.4-phev",
+  "make": "Mitsubishi",
+  "make_he": "מיצובישי",
+  "model": "Eclipse Cross PHEV",
+  "model_he": "אקליפס קרוס PHEV",
+  "generation": "YB",
+  "years": [
+    2021,
+    2026
+  ],
+  "engines": [
+    "2.4 MIVEC PHEV (4B12)"
+  ],
+  "fuel": "plug-in-hybrid",
+  "importer": "כלמוביל",
+  "interval": {
+    "km": 15000,
+    "months": 12,
+    "note": "לפי לוח התחזוקה של מיצובישי אוסטרליה לאקליפס קרוס פלאג-אין 24MY: 15,000 ק\"מ או 12 חודשים, המוקדם; בתנאים קשים שמן ומסנן כל 7,500 ק\"מ"
+  },
+  "cycle_km": 180000,
+  "services": [
+    {
+      "km": 15000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקת מפלס"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "בדיקת מפלס"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "דליפת שמן קירור המנוע החשמלי הקדמי ומפלס נוזל קירור המנוע האחורי; כבלי מתח גבוה כל 30,000"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "כולל מפרקים כדוריים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "בדיקת דליפות בתמסורת הקדמית"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "בדיקת דליפות בתמסורת האחורית"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "לחץ אוויר"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקת מפלס"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "דליפת שמן קירור המנוע החשמלי הקדמי ומפלס נוזל קירור המנוע האחורי; כבלי מתח גבוה כל 30,000"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "כולל מפרקים כדוריים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "בדיקת דליפות בתמסורת הקדמית"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "בדיקת דליפות בתמסורת האחורית"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "לחץ אוויר"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect",
+          "note": "בתנאים קשים בכל טיפול"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 45000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקת מפלס"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "בדיקת מפלס"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "דליפת שמן קירור המנוע החשמלי הקדמי ומפלס נוזל קירור המנוע האחורי; כבלי מתח גבוה כל 30,000"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "כולל מפרקים כדוריים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "בדיקת דליפות בתמסורת הקדמית"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "בדיקת דליפות בתמסורת האחורית"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "לחץ אוויר"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקת מפלס"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "דליפת שמן קירור המנוע החשמלי הקדמי ומפלס נוזל קירור המנוע האחורי; כבלי מתח גבוה כל 30,000"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "כולל מפרקים כדוריים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "בדיקת דליפות בתמסורת הקדמית"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "בדיקת דליפות בתמסורת האחורית"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "לחץ אוויר"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect",
+          "note": "בתנאים קשים בכל טיפול"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 75000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקת מפלס"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "בדיקת מפלס"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "דליפת שמן קירור המנוע החשמלי הקדמי ומפלס נוזל קירור המנוע האחורי; כבלי מתח גבוה כל 30,000"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "כולל מפרקים כדוריים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "בדיקת דליפות בתמסורת הקדמית"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "בדיקת דליפות בתמסורת האחורית"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "לחץ אוויר"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace"
+        },
+        {
+          "item": "valve_clearance",
+          "action": "inspect",
+          "note": "בדיקה מלאה; בשאר הטיפולים בדיקת רעש בלבד"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקת מפלס"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "דליפת שמן קירור המנוע החשמלי הקדמי ומפלס נוזל קירור המנוע האחורי; כבלי מתח גבוה כל 30,000"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "כולל מפרקים כדוריים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "בדיקת דליפות בתמסורת הקדמית"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "בדיקת דליפות בתמסורת האחורית"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "לחץ אוויר"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect",
+          "note": "בתנאים קשים בכל טיפול"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 105000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקת מפלס"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "בדיקת מפלס"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "דליפת שמן קירור המנוע החשמלי הקדמי ומפלס נוזל קירור המנוע האחורי; כבלי מתח גבוה כל 30,000"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "כולל מפרקים כדוריים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "בדיקת דליפות בתמסורת הקדמית"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "בדיקת דליפות בתמסורת האחורית"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "לחץ אוויר"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקת מפלס"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "דליפת שמן קירור המנוע החשמלי הקדמי ומפלס נוזל קירור המנוע האחורי; כבלי מתח גבוה כל 30,000"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "כולל מפרקים כדוריים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "בדיקת דליפות בתמסורת הקדמית"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "בדיקת דליפות בתמסורת האחורית"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "לחץ אוויר"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect",
+          "note": "בתנאים קשים בכל טיפול"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 135000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקת מפלס"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "בדיקת מפלס"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "דליפת שמן קירור המנוע החשמלי הקדמי ומפלס נוזל קירור המנוע האחורי; כבלי מתח גבוה כל 30,000"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "כולל מפרקים כדוריים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "בדיקת דליפות בתמסורת הקדמית"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "בדיקת דליפות בתמסורת האחורית"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "לחץ אוויר"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 150000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקת מפלס"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "דליפת שמן קירור המנוע החשמלי הקדמי ומפלס נוזל קירור המנוע האחורי; כבלי מתח גבוה כל 30,000"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "כולל מפרקים כדוריים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "בדיקת דליפות בתמסורת הקדמית"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "בדיקת דליפות בתמסורת האחורית"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "לחץ אוויר"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect",
+          "note": "בתנאים קשים בכל טיפול"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 165000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקת מפלס"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "בדיקת מפלס"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "דליפת שמן קירור המנוע החשמלי הקדמי ומפלס נוזל קירור המנוע האחורי; כבלי מתח גבוה כל 30,000"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "כולל מפרקים כדוריים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "בדיקת דליפות בתמסורת הקדמית"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "בדיקת דליפות בתמסורת האחורית"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "לחץ אוויר"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 180000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace"
+        },
+        {
+          "item": "valve_clearance",
+          "action": "inspect",
+          "note": "בדיקה מלאה; בשאר הטיפולים בדיקת רעש בלבד"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקת מפלס"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "דליפת שמן קירור המנוע החשמלי הקדמי ומפלס נוזל קירור המנוע האחורי; כבלי מתח גבוה כל 30,000"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "כולל מפרקים כדוריים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "בדיקת דליפות בתמסורת הקדמית"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "בדיקת דליפות בתמסורת האחורית"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "לחץ אוויר"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect",
+          "note": "בתנאים קשים בכל טיפול"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "fuel_filter",
+      "action": "replace",
+      "every_km": 150000
+    },
+    {
+      "item": "coolant",
+      "action": "replace",
+      "first_km": 165000,
+      "first_months": 96,
+      "then_every_km": 105000,
+      "then_every_months": 60,
+      "note": "נוזל קירור המנוע"
+    },
+    {
+      "item": "coolant",
+      "action": "replace",
+      "every_km": 400000,
+      "every_months": 240,
+      "note": "נוזל קירור המנוע החשמלי האחורי"
+    },
+    {
+      "item": "transmission_oil",
+      "action": "replace",
+      "every_km": 195000,
+      "every_months": 120,
+      "note": "שמן התמסורת הקדמית; בתנאים קשים כל 30,000 ק\"מ"
+    },
+    {
+      "item": "differential_oil",
+      "action": "replace",
+      "every_km": 195000,
+      "every_months": 120,
+      "note": "שמן התמסורת האחורית; בתנאים קשים כל 30,000 ק\"מ"
+    }
+  ],
+  "time_based": [],
+  "specs": {
+    "_note": "טיוטה: לוח היצרן לשוק האוסטרלי, לא ספר עברי של כלמוביל"
+  },
+  "sources": [
+    {
+      "url": "https://www.mitsubishi-motors.com.au/content/dam/mmal/pdfs/maintenance-schedules/24MY%20YB%20ECLIPSE%20CROSS%20PLUG-IN%20HYBRID%20INSPECTION%20AND%20MAINTENANCE%20SCHEDULE%20WEB.pdf",
+      "kind": "manufacturer",
+      "note": "Mitsubishi Motors Australia, \"24MY YB Eclipse Cross Plug-in Hybrid Inspection and Maintenance Schedule\" עמ' 1-2 (נקרא מתמונות העמודים)"
+    },
+    {
+      "url": "https://www.mitsubishi-motors.com.au/content/dam/mmal/pdfs/maintenance-schedules/ECLIPSE-CROSS-22MY_Plug-In%20Hybrid%20Maintenance%20Schedule.pdf",
+      "kind": "manufacturer",
+      "note": "לוח 22MY לאותו דגם (לא נקרא שורה-שורה, רק לאימות שקיים לוח לשנים מוקדמות)"
+    },
+    {
+      "url": "https://res.cloudinary.com/colmobil/images/v1722237048/ספר-רכב-אקליפס-קרוס-PHEV_1255280d7d/ספר-רכב-אקליפס-קרוס-PHEV_1255280d7d.pdf",
+      "kind": "importer",
+      "note": "ספר הרכב העברי של כלמוביל לאקליפס קרוס PHEV: אין בו לוח טיפולים"
+    }
+  ],
+  "status": "draft",
+  "notes": "טיוטה מלוח התחזוקה של מיצובישי אוסטרליה (Eclipse Cross Plug-in Hybrid דגם 2024, מנוע 2.4 עם שני מנועים חשמליים), לא ממסמך של כלמוביל. טיפול כל 15,000 ק\"מ או שנה: שמן, מסנן שמן ומסנן מזגן, ובדיקות למערכת ההיברידית. מסנן אוויר כל 45,000 ק\"מ, נוזל בלמים כל 30,000 ק\"מ (שנתיים), מצתים ובדיקת שסתומים מלאה כל 90,000 ק\"מ, מסנן דלק ב-150,000 ק\"מ, נוזל קירור המנוע ראשון ב-165,000 ק\"מ או 8 שנים ואחר כך כל 105,000 ק\"מ או 5 שנים. שמן התמסורות הקדמית והאחורית: כל 195,000 ק\"מ או 10 שנים, ובתנאים קשים כל 30,000 ק\"מ. בדיקת מיסבי גלגלים (ב-60,000, 120,000 ו-180,000), מערכת EGR, איפוס תזכורת טיפול ונסיעת מבחן מופיעות בטבלה ולא מופו לפריטים."
+}
