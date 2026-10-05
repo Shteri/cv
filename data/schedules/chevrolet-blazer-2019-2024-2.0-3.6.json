@@ -1,8 +1,7 @@
 {
+  "id": "chevrolet-blazer-2019-2024-2.0-3.6",
   "make": "Chevrolet",
   "make_he": "שברולט",
-  "importer": "יו.אם.איי",
-  "id": "chevrolet-blazer-2019-2024-2.0-3.6",
   "model": "Blazer",
   "model_he": "בלייזר",
   "generation": "3rd gen",
@@ -15,213 +14,178 @@
     "3.6 V6 (LGX)"
   ],
   "fuel": "petrol",
+  "importer": "יו.אם.איי",
   "interval": {
-    "km": 12000,
+    "km": 10000,
     "months": 12,
-    "note": "לפי ספר הנהג של GM (צפון אמריקה): כל 12,000 ק\"מ סבב צמיגים ובדיקות; שמן ומסנן לפי מחוון חיי השמן ולפחות פעם בשנה"
+    "note": "לפי ספר הנהג העברי של יו.אם.איי (2023): סבב צמיגים וביקורת רב-נקודתית כל 10,000 ק\"מ; שמן ומסנן לפי מחוון חיי השמן ולפחות פעם בשנה"
   },
-  "cycle_km": 240000,
+  "cycle_km": 90000,
   "services": [
     {
-      "km": 12000,
+      "km": 10000,
       "items": [
-        {
-          "item": "engine_oil",
-          "action": "replace",
-          "note": "לפי מחוון חיי השמן, ולפחות פעם בשנה"
-        },
-        {
-          "item": "oil_filter",
-          "action": "replace"
-        },
         {
           "item": "tire_rotation",
           "action": "rotate"
         },
         {
-          "item": "coolant",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "brake_fluid",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "washer_fluid",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_discs",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "steering",
-          "action": "inspect"
-        },
-        {
-          "item": "suspension",
-          "action": "inspect"
-        },
-        {
-          "item": "cv_boots",
-          "action": "inspect"
-        },
-        {
-          "item": "fuel_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "exhaust",
-          "action": "inspect"
-        },
-        {
-          "item": "parking_brake",
-          "action": "inspect"
-        },
-        {
-          "item": "seat_belts",
-          "action": "inspect",
-          "note": "מערכות ריסון"
-        },
-        {
-          "item": "door_hinges",
-          "action": "clean",
-          "note": "סיכה של רכיבי מרכב"
-        },
-        {
-          "item": "air_filter",
-          "action": "inspect",
-          "note": "לפי מחוון חיי המסנן; החלפה לפי הצורך"
-        }
-      ]
-    },
-    {
-      "km": 24000,
-      "items": [
-        {
           "item": "engine_oil",
           "action": "replace",
-          "note": "לפי מחוון חיי השמן, ולפחות פעם בשנה"
+          "note": "לפי מחוון חיי השמן (בודקים בכל טיפול), ולפחות פעם בשנה"
         },
         {
           "item": "oil_filter",
-          "action": "replace"
-        },
-        {
-          "item": "tire_rotation",
-          "action": "rotate"
-        },
-        {
-          "item": "coolant",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "brake_fluid",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "washer_fluid",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_discs",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "steering",
-          "action": "inspect"
-        },
-        {
-          "item": "suspension",
-          "action": "inspect"
-        },
-        {
-          "item": "cv_boots",
-          "action": "inspect"
-        },
-        {
-          "item": "fuel_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "exhaust",
-          "action": "inspect"
-        },
-        {
-          "item": "parking_brake",
-          "action": "inspect"
-        },
-        {
-          "item": "seat_belts",
-          "action": "inspect",
-          "note": "מערכות ריסון"
-        },
-        {
-          "item": "door_hinges",
-          "action": "clean",
-          "note": "סיכה של רכיבי מרכב"
+          "action": "replace",
+          "note": "יחד עם השמן"
         },
         {
           "item": "air_filter",
           "action": "inspect",
-          "note": "לפי מחוון חיי המסנן; החלפה לפי הצורך"
+          "note": "לפי מחוון חיי מסנן האוויר; מחליפים כשמוצגת הודעה"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "ביקורת רב-נקודתית (MPVI): היסטוריית שירות וקריאות חוזרות"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
         },
         {
           "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "בדיקת נזילות: מנוע, גיר, סרן, תיבת העברה, קירור, הגה, דלק"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "לחץ, עומק חריצים ובלאי"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת ההאצה"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect",
+          "note": "צינורות גמישים"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בולמים ותמוכות"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "clean",
+          "note": "סיכת רכיבי השלדה והמרכב"
+        },
+        {
+          "item": "cabin_filter",
           "action": "replace",
           "note": "או כל 12 חודשים"
         }
       ]
     },
     {
-      "km": 36000,
+      "km": 20000,
       "items": [
-        {
-          "item": "engine_oil",
-          "action": "replace",
-          "note": "לפי מחוון חיי השמן, ולפחות פעם בשנה"
-        },
-        {
-          "item": "oil_filter",
-          "action": "replace"
-        },
         {
           "item": "tire_rotation",
           "action": "rotate"
         },
         {
-          "item": "coolant",
-          "action": "inspect",
-          "note": "מפלס"
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון חיי השמן (בודקים בכל טיפול), ולפחות פעם בשנה"
         },
         {
-          "item": "brake_fluid",
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "יחד עם השמן"
+        },
+        {
+          "item": "air_filter",
           "action": "inspect",
-          "note": "מפלס"
+          "note": "לפי מחוון חיי מסנן האוויר; מחליפים כשמוצגת הודעה"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "ביקורת רב-נקודתית (MPVI): היסטוריית שירות וקריאות חוזרות"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "בדיקת נזילות: מנוע, גיר, סרן, תיבת העברה, קירור, הגה, דלק"
         },
         {
           "item": "washer_fluid",
           "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "לחץ, עומק חריצים ובלאי"
         },
         {
           "item": "brake_pads",
@@ -232,23 +196,7 @@
           "action": "inspect"
         },
         {
-          "item": "brake_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "steering",
-          "action": "inspect"
-        },
-        {
-          "item": "suspension",
-          "action": "inspect"
-        },
-        {
-          "item": "cv_boots",
-          "action": "inspect"
-        },
-        {
-          "item": "fuel_lines",
+          "item": "seat_belts",
           "action": "inspect"
         },
         {
@@ -256,60 +204,100 @@
           "action": "inspect"
         },
         {
-          "item": "parking_brake",
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת ההאצה"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect",
+          "note": "צינורות גמישים"
+        },
+        {
+          "item": "drive_belt",
           "action": "inspect"
         },
         {
-          "item": "seat_belts",
+          "item": "suspension",
           "action": "inspect",
-          "note": "מערכות ריסון"
+          "note": "בולמים ותמוכות"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect"
         },
         {
           "item": "door_hinges",
           "action": "clean",
-          "note": "סיכה של רכיבי מרכב"
+          "note": "סיכת רכיבי השלדה והמרכב"
         },
         {
           "item": "cabin_filter",
           "action": "replace",
-          "note": "או כל שנתיים"
-        },
-        {
-          "item": "air_filter",
-          "action": "inspect",
-          "note": "לפי מחוון חיי המסנן; החלפה לפי הצורך"
+          "note": "או כל 12 חודשים"
         }
       ]
     },
     {
-      "km": 48000,
+      "km": 30000,
       "items": [
-        {
-          "item": "engine_oil",
-          "action": "replace",
-          "note": "לפי מחוון חיי השמן, ולפחות פעם בשנה"
-        },
-        {
-          "item": "oil_filter",
-          "action": "replace"
-        },
         {
           "item": "tire_rotation",
           "action": "rotate"
         },
         {
-          "item": "coolant",
-          "action": "inspect",
-          "note": "מפלס"
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון חיי השמן (בודקים בכל טיפול), ולפחות פעם בשנה"
         },
         {
-          "item": "brake_fluid",
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "יחד עם השמן"
+        },
+        {
+          "item": "air_filter",
           "action": "inspect",
-          "note": "מפלס"
+          "note": "לפי מחוון חיי מסנן האוויר; מחליפים כשמוצגת הודעה"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "ביקורת רב-נקודתית (MPVI): היסטוריית שירות וקריאות חוזרות"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "בדיקת נזילות: מנוע, גיר, סרן, תיבת העברה, קירור, הגה, דלק"
         },
         {
           "item": "washer_fluid",
           "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "לחץ, עומק חריצים ובלאי"
         },
         {
           "item": "brake_pads",
@@ -320,23 +308,7 @@
           "action": "inspect"
         },
         {
-          "item": "brake_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "steering",
-          "action": "inspect"
-        },
-        {
-          "item": "suspension",
-          "action": "inspect"
-        },
-        {
-          "item": "cv_boots",
-          "action": "inspect"
-        },
-        {
-          "item": "fuel_lines",
+          "item": "seat_belts",
           "action": "inspect"
         },
         {
@@ -344,26 +316,267 @@
           "action": "inspect"
         },
         {
-          "item": "parking_brake",
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת ההאצה"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect",
+          "note": "צינורות גמישים"
+        },
+        {
+          "item": "drive_belt",
           "action": "inspect"
         },
         {
-          "item": "seat_belts",
+          "item": "suspension",
           "action": "inspect",
-          "note": "מערכות ריסון"
+          "note": "בולמים ותמוכות"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect"
         },
         {
           "item": "door_hinges",
           "action": "clean",
-          "note": "סיכה של רכיבי מרכב"
+          "note": "סיכת רכיבי השלדה והמרכב"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "או כל 12 חודשים"
+        }
+      ]
+    },
+    {
+      "km": 40000,
+      "items": [
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון חיי השמן (בודקים בכל טיפול), ולפחות פעם בשנה"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "יחד עם השמן"
         },
         {
           "item": "air_filter",
           "action": "inspect",
-          "note": "לפי מחוון חיי המסנן; החלפה לפי הצורך"
+          "note": "לפי מחוון חיי מסנן האוויר; מחליפים כשמוצגת הודעה"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "ביקורת רב-נקודתית (MPVI): היסטוריית שירות וקריאות חוזרות"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
         },
         {
           "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "בדיקת נזילות: מנוע, גיר, סרן, תיבת העברה, קירור, הגה, דלק"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "לחץ, עומק חריצים ובלאי"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת ההאצה"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect",
+          "note": "צינורות גמישים"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בולמים ותמוכות"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "clean",
+          "note": "סיכת רכיבי השלדה והמרכב"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "או כל 12 חודשים"
+        }
+      ]
+    },
+    {
+      "km": 50000,
+      "items": [
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון חיי השמן (בודקים בכל טיפול), ולפחות פעם בשנה"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "יחד עם השמן"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "לפי מחוון חיי מסנן האוויר; מחליפים כשמוצגת הודעה"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "ביקורת רב-נקודתית (MPVI): היסטוריית שירות וקריאות חוזרות"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "בדיקת נזילות: מנוע, גיר, סרן, תיבת העברה, קירור, הגה, דלק"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "לחץ, עומק חריצים ובלאי"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת ההאצה"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect",
+          "note": "צינורות גמישים"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בולמים ותמוכות"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "clean",
+          "note": "סיכת רכיבי השלדה והמרכב"
+        },
+        {
+          "item": "cabin_filter",
           "action": "replace",
           "note": "או כל 12 חודשים"
         }
@@ -373,207 +586,54 @@
       "km": 60000,
       "items": [
         {
-          "item": "engine_oil",
-          "action": "replace",
-          "note": "לפי מחוון חיי השמן, ולפחות פעם בשנה"
-        },
-        {
-          "item": "oil_filter",
-          "action": "replace"
-        },
-        {
           "item": "tire_rotation",
           "action": "rotate"
         },
         {
-          "item": "coolant",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "brake_fluid",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "washer_fluid",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_discs",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "steering",
-          "action": "inspect"
-        },
-        {
-          "item": "suspension",
-          "action": "inspect"
-        },
-        {
-          "item": "cv_boots",
-          "action": "inspect"
-        },
-        {
-          "item": "fuel_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "exhaust",
-          "action": "inspect"
-        },
-        {
-          "item": "parking_brake",
-          "action": "inspect"
-        },
-        {
-          "item": "seat_belts",
-          "action": "inspect",
-          "note": "מערכות ריסון"
-        },
-        {
-          "item": "door_hinges",
-          "action": "clean",
-          "note": "סיכה של רכיבי מרכב"
-        },
-        {
-          "item": "air_filter",
-          "action": "inspect",
-          "note": "לפי מחוון חיי המסנן; החלפה לפי הצורך"
-        }
-      ]
-    },
-    {
-      "km": 72000,
-      "items": [
-        {
           "item": "engine_oil",
           "action": "replace",
-          "note": "לפי מחוון חיי השמן, ולפחות פעם בשנה"
+          "note": "לפי מחוון חיי השמן (בודקים בכל טיפול), ולפחות פעם בשנה"
         },
         {
           "item": "oil_filter",
-          "action": "replace"
-        },
-        {
-          "item": "tire_rotation",
-          "action": "rotate"
-        },
-        {
-          "item": "coolant",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "brake_fluid",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "washer_fluid",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_discs",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "steering",
-          "action": "inspect"
-        },
-        {
-          "item": "suspension",
-          "action": "inspect"
-        },
-        {
-          "item": "cv_boots",
-          "action": "inspect"
-        },
-        {
-          "item": "fuel_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "exhaust",
-          "action": "inspect"
-        },
-        {
-          "item": "parking_brake",
-          "action": "inspect"
-        },
-        {
-          "item": "seat_belts",
-          "action": "inspect",
-          "note": "מערכות ריסון"
-        },
-        {
-          "item": "door_hinges",
-          "action": "clean",
-          "note": "סיכה של רכיבי מרכב"
-        },
-        {
-          "item": "cabin_filter",
           "action": "replace",
-          "note": "או כל שנתיים"
+          "note": "יחד עם השמן"
         },
         {
           "item": "air_filter",
           "action": "inspect",
-          "note": "לפי מחוון חיי המסנן; החלפה לפי הצורך"
+          "note": "לפי מחוון חיי מסנן האוויר; מחליפים כשמוצגת הודעה"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "ביקורת רב-נקודתית (MPVI): היסטוריית שירות וקריאות חוזרות"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
         },
         {
           "item": "wipers",
-          "action": "replace",
-          "note": "או כל 12 חודשים"
-        }
-      ]
-    },
-    {
-      "km": 84000,
-      "items": [
-        {
-          "item": "engine_oil",
-          "action": "replace",
-          "note": "לפי מחוון חיי השמן, ולפחות פעם בשנה"
+          "action": "inspect"
         },
         {
-          "item": "oil_filter",
-          "action": "replace"
+          "item": "battery_12v",
+          "action": "inspect"
         },
         {
-          "item": "tire_rotation",
-          "action": "rotate"
-        },
-        {
-          "item": "coolant",
+          "item": "body_underside",
           "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "brake_fluid",
-          "action": "inspect",
-          "note": "מפלס"
+          "note": "בדיקת נזילות: מנוע, גיר, סרן, תיבת העברה, קירור, הגה, דלק"
         },
         {
           "item": "washer_fluid",
           "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "לחץ, עומק חריצים ובלאי"
         },
         {
           "item": "brake_pads",
@@ -584,23 +644,7 @@
           "action": "inspect"
         },
         {
-          "item": "brake_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "steering",
-          "action": "inspect"
-        },
-        {
-          "item": "suspension",
-          "action": "inspect"
-        },
-        {
-          "item": "cv_boots",
-          "action": "inspect"
-        },
-        {
-          "item": "fuel_lines",
+          "item": "seat_belts",
           "action": "inspect"
         },
         {
@@ -608,1219 +652,475 @@
           "action": "inspect"
         },
         {
-          "item": "parking_brake",
-          "action": "inspect"
-        },
-        {
-          "item": "seat_belts",
+          "item": "pedals",
           "action": "inspect",
-          "note": "מערכות ריסון"
+          "note": "דוושת ההאצה"
         },
         {
-          "item": "door_hinges",
-          "action": "clean",
-          "note": "סיכה של רכיבי מרכב"
-        },
-        {
-          "item": "air_filter",
+          "item": "coolant_hoses",
           "action": "inspect",
-          "note": "לפי מחוון חיי המסנן; החלפה לפי הצורך"
-        }
-      ]
-    },
-    {
-      "km": 96000,
-      "items": [
-        {
-          "item": "engine_oil",
-          "action": "replace",
-          "note": "לפי מחוון חיי השמן, ולפחות פעם בשנה"
-        },
-        {
-          "item": "oil_filter",
-          "action": "replace"
-        },
-        {
-          "item": "tire_rotation",
-          "action": "rotate"
-        },
-        {
-          "item": "coolant",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "brake_fluid",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "washer_fluid",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_discs",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "steering",
-          "action": "inspect"
-        },
-        {
-          "item": "suspension",
-          "action": "inspect"
-        },
-        {
-          "item": "cv_boots",
-          "action": "inspect"
-        },
-        {
-          "item": "fuel_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "exhaust",
-          "action": "inspect"
-        },
-        {
-          "item": "parking_brake",
-          "action": "inspect"
-        },
-        {
-          "item": "seat_belts",
-          "action": "inspect",
-          "note": "מערכות ריסון"
-        },
-        {
-          "item": "door_hinges",
-          "action": "clean",
-          "note": "סיכה של רכיבי מרכב"
-        },
-        {
-          "item": "air_filter",
-          "action": "inspect",
-          "note": "לפי מחוון חיי המסנן; החלפה לפי הצורך"
-        },
-        {
-          "item": "wipers",
-          "action": "replace",
-          "note": "או כל 12 חודשים"
-        },
-        {
-          "item": "spark_plugs",
-          "action": "replace",
-          "note": "מנוע 2.0 טורבו"
-        }
-      ]
-    },
-    {
-      "km": 108000,
-      "items": [
-        {
-          "item": "engine_oil",
-          "action": "replace",
-          "note": "לפי מחוון חיי השמן, ולפחות פעם בשנה"
-        },
-        {
-          "item": "oil_filter",
-          "action": "replace"
-        },
-        {
-          "item": "tire_rotation",
-          "action": "rotate"
-        },
-        {
-          "item": "coolant",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "brake_fluid",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "washer_fluid",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_discs",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "steering",
-          "action": "inspect"
-        },
-        {
-          "item": "suspension",
-          "action": "inspect"
-        },
-        {
-          "item": "cv_boots",
-          "action": "inspect"
-        },
-        {
-          "item": "fuel_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "exhaust",
-          "action": "inspect"
-        },
-        {
-          "item": "parking_brake",
-          "action": "inspect"
-        },
-        {
-          "item": "seat_belts",
-          "action": "inspect",
-          "note": "מערכות ריסון"
-        },
-        {
-          "item": "door_hinges",
-          "action": "clean",
-          "note": "סיכה של רכיבי מרכב"
-        },
-        {
-          "item": "cabin_filter",
-          "action": "replace",
-          "note": "או כל שנתיים"
-        },
-        {
-          "item": "air_filter",
-          "action": "inspect",
-          "note": "לפי מחוון חיי המסנן; החלפה לפי הצורך"
-        }
-      ]
-    },
-    {
-      "km": 120000,
-      "items": [
-        {
-          "item": "engine_oil",
-          "action": "replace",
-          "note": "לפי מחוון חיי השמן, ולפחות פעם בשנה"
-        },
-        {
-          "item": "oil_filter",
-          "action": "replace"
-        },
-        {
-          "item": "tire_rotation",
-          "action": "rotate"
-        },
-        {
-          "item": "coolant",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "brake_fluid",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "washer_fluid",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_discs",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "steering",
-          "action": "inspect"
-        },
-        {
-          "item": "suspension",
-          "action": "inspect"
-        },
-        {
-          "item": "cv_boots",
-          "action": "inspect"
-        },
-        {
-          "item": "fuel_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "exhaust",
-          "action": "inspect"
-        },
-        {
-          "item": "parking_brake",
-          "action": "inspect"
-        },
-        {
-          "item": "seat_belts",
-          "action": "inspect",
-          "note": "מערכות ריסון"
-        },
-        {
-          "item": "door_hinges",
-          "action": "clean",
-          "note": "סיכה של רכיבי מרכב"
-        },
-        {
-          "item": "air_filter",
-          "action": "inspect",
-          "note": "לפי מחוון חיי המסנן; החלפה לפי הצורך"
-        },
-        {
-          "item": "wipers",
-          "action": "replace",
-          "note": "או כל 12 חודשים"
-        }
-      ]
-    },
-    {
-      "km": 132000,
-      "items": [
-        {
-          "item": "engine_oil",
-          "action": "replace",
-          "note": "לפי מחוון חיי השמן, ולפחות פעם בשנה"
-        },
-        {
-          "item": "oil_filter",
-          "action": "replace"
-        },
-        {
-          "item": "tire_rotation",
-          "action": "rotate"
-        },
-        {
-          "item": "coolant",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "brake_fluid",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "washer_fluid",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_discs",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "steering",
-          "action": "inspect"
-        },
-        {
-          "item": "suspension",
-          "action": "inspect"
-        },
-        {
-          "item": "cv_boots",
-          "action": "inspect"
-        },
-        {
-          "item": "fuel_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "exhaust",
-          "action": "inspect"
-        },
-        {
-          "item": "parking_brake",
-          "action": "inspect"
-        },
-        {
-          "item": "seat_belts",
-          "action": "inspect",
-          "note": "מערכות ריסון"
-        },
-        {
-          "item": "door_hinges",
-          "action": "clean",
-          "note": "סיכה של רכיבי מרכב"
-        },
-        {
-          "item": "air_filter",
-          "action": "inspect",
-          "note": "לפי מחוון חיי המסנן; החלפה לפי הצורך"
-        }
-      ]
-    },
-    {
-      "km": 144000,
-      "items": [
-        {
-          "item": "engine_oil",
-          "action": "replace",
-          "note": "לפי מחוון חיי השמן, ולפחות פעם בשנה"
-        },
-        {
-          "item": "oil_filter",
-          "action": "replace"
-        },
-        {
-          "item": "tire_rotation",
-          "action": "rotate"
-        },
-        {
-          "item": "coolant",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "brake_fluid",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "washer_fluid",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_discs",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "steering",
-          "action": "inspect"
-        },
-        {
-          "item": "suspension",
-          "action": "inspect"
-        },
-        {
-          "item": "cv_boots",
-          "action": "inspect"
-        },
-        {
-          "item": "fuel_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "exhaust",
-          "action": "inspect"
-        },
-        {
-          "item": "parking_brake",
-          "action": "inspect"
-        },
-        {
-          "item": "seat_belts",
-          "action": "inspect",
-          "note": "מערכות ריסון"
-        },
-        {
-          "item": "door_hinges",
-          "action": "clean",
-          "note": "סיכה של רכיבי מרכב"
-        },
-        {
-          "item": "cabin_filter",
-          "action": "replace",
-          "note": "או כל שנתיים"
-        },
-        {
-          "item": "air_filter",
-          "action": "inspect",
-          "note": "לפי מחוון חיי המסנן; החלפה לפי הצורך"
-        },
-        {
-          "item": "wipers",
-          "action": "replace",
-          "note": "או כל 12 חודשים"
-        }
-      ]
-    },
-    {
-      "km": 156000,
-      "items": [
-        {
-          "item": "engine_oil",
-          "action": "replace",
-          "note": "לפי מחוון חיי השמן, ולפחות פעם בשנה"
-        },
-        {
-          "item": "oil_filter",
-          "action": "replace"
-        },
-        {
-          "item": "tire_rotation",
-          "action": "rotate"
-        },
-        {
-          "item": "coolant",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "brake_fluid",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "washer_fluid",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_discs",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "steering",
-          "action": "inspect"
-        },
-        {
-          "item": "suspension",
-          "action": "inspect"
-        },
-        {
-          "item": "cv_boots",
-          "action": "inspect"
-        },
-        {
-          "item": "fuel_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "exhaust",
-          "action": "inspect"
-        },
-        {
-          "item": "parking_brake",
-          "action": "inspect"
-        },
-        {
-          "item": "seat_belts",
-          "action": "inspect",
-          "note": "מערכות ריסון"
-        },
-        {
-          "item": "door_hinges",
-          "action": "clean",
-          "note": "סיכה של רכיבי מרכב"
-        },
-        {
-          "item": "air_filter",
-          "action": "inspect",
-          "note": "לפי מחוון חיי המסנן; החלפה לפי הצורך"
-        },
-        {
-          "item": "spark_plugs",
-          "action": "replace",
-          "note": "מנוע 3.6"
-        }
-      ]
-    },
-    {
-      "km": 168000,
-      "items": [
-        {
-          "item": "engine_oil",
-          "action": "replace",
-          "note": "לפי מחוון חיי השמן, ולפחות פעם בשנה"
-        },
-        {
-          "item": "oil_filter",
-          "action": "replace"
-        },
-        {
-          "item": "tire_rotation",
-          "action": "rotate"
-        },
-        {
-          "item": "coolant",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "brake_fluid",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "washer_fluid",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_discs",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "steering",
-          "action": "inspect"
-        },
-        {
-          "item": "suspension",
-          "action": "inspect"
-        },
-        {
-          "item": "cv_boots",
-          "action": "inspect"
-        },
-        {
-          "item": "fuel_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "exhaust",
-          "action": "inspect"
-        },
-        {
-          "item": "parking_brake",
-          "action": "inspect"
-        },
-        {
-          "item": "seat_belts",
-          "action": "inspect",
-          "note": "מערכות ריסון"
-        },
-        {
-          "item": "door_hinges",
-          "action": "clean",
-          "note": "סיכה של רכיבי מרכב"
-        },
-        {
-          "item": "air_filter",
-          "action": "inspect",
-          "note": "לפי מחוון חיי המסנן; החלפה לפי הצורך"
-        },
-        {
-          "item": "wipers",
-          "action": "replace",
-          "note": "או כל 12 חודשים"
-        }
-      ]
-    },
-    {
-      "km": 180000,
-      "items": [
-        {
-          "item": "engine_oil",
-          "action": "replace",
-          "note": "לפי מחוון חיי השמן, ולפחות פעם בשנה"
-        },
-        {
-          "item": "oil_filter",
-          "action": "replace"
-        },
-        {
-          "item": "tire_rotation",
-          "action": "rotate"
-        },
-        {
-          "item": "coolant",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "brake_fluid",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "washer_fluid",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_discs",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "steering",
-          "action": "inspect"
-        },
-        {
-          "item": "suspension",
-          "action": "inspect"
-        },
-        {
-          "item": "cv_boots",
-          "action": "inspect"
-        },
-        {
-          "item": "fuel_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "exhaust",
-          "action": "inspect"
-        },
-        {
-          "item": "parking_brake",
-          "action": "inspect"
-        },
-        {
-          "item": "seat_belts",
-          "action": "inspect",
-          "note": "מערכות ריסון"
-        },
-        {
-          "item": "door_hinges",
-          "action": "clean",
-          "note": "סיכה של רכיבי מרכב"
-        },
-        {
-          "item": "cabin_filter",
-          "action": "replace",
-          "note": "או כל שנתיים"
-        },
-        {
-          "item": "air_filter",
-          "action": "inspect",
-          "note": "לפי מחוון חיי המסנן; החלפה לפי הצורך"
-        }
-      ]
-    },
-    {
-      "km": 192000,
-      "items": [
-        {
-          "item": "engine_oil",
-          "action": "replace",
-          "note": "לפי מחוון חיי השמן, ולפחות פעם בשנה"
-        },
-        {
-          "item": "oil_filter",
-          "action": "replace"
-        },
-        {
-          "item": "tire_rotation",
-          "action": "rotate"
-        },
-        {
-          "item": "coolant",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "brake_fluid",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "washer_fluid",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_discs",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "steering",
-          "action": "inspect"
-        },
-        {
-          "item": "suspension",
-          "action": "inspect"
-        },
-        {
-          "item": "cv_boots",
-          "action": "inspect"
-        },
-        {
-          "item": "fuel_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "exhaust",
-          "action": "inspect"
-        },
-        {
-          "item": "parking_brake",
-          "action": "inspect"
-        },
-        {
-          "item": "seat_belts",
-          "action": "inspect",
-          "note": "מערכות ריסון"
-        },
-        {
-          "item": "door_hinges",
-          "action": "clean",
-          "note": "סיכה של רכיבי מרכב"
-        },
-        {
-          "item": "air_filter",
-          "action": "inspect",
-          "note": "לפי מחוון חיי המסנן; החלפה לפי הצורך"
-        },
-        {
-          "item": "wipers",
-          "action": "replace",
-          "note": "או כל 12 חודשים"
-        },
-        {
-          "item": "spark_plugs",
-          "action": "replace",
-          "note": "מנוע 2.0 טורבו"
-        }
-      ]
-    },
-    {
-      "km": 204000,
-      "items": [
-        {
-          "item": "engine_oil",
-          "action": "replace",
-          "note": "לפי מחוון חיי השמן, ולפחות פעם בשנה"
-        },
-        {
-          "item": "oil_filter",
-          "action": "replace"
-        },
-        {
-          "item": "tire_rotation",
-          "action": "rotate"
-        },
-        {
-          "item": "coolant",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "brake_fluid",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "washer_fluid",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_discs",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "steering",
-          "action": "inspect"
-        },
-        {
-          "item": "suspension",
-          "action": "inspect"
-        },
-        {
-          "item": "cv_boots",
-          "action": "inspect"
-        },
-        {
-          "item": "fuel_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "exhaust",
-          "action": "inspect"
-        },
-        {
-          "item": "parking_brake",
-          "action": "inspect"
-        },
-        {
-          "item": "seat_belts",
-          "action": "inspect",
-          "note": "מערכות ריסון"
-        },
-        {
-          "item": "door_hinges",
-          "action": "clean",
-          "note": "סיכה של רכיבי מרכב"
-        },
-        {
-          "item": "air_filter",
-          "action": "inspect",
-          "note": "לפי מחוון חיי המסנן; החלפה לפי הצורך"
-        }
-      ]
-    },
-    {
-      "km": 216000,
-      "items": [
-        {
-          "item": "engine_oil",
-          "action": "replace",
-          "note": "לפי מחוון חיי השמן, ולפחות פעם בשנה"
-        },
-        {
-          "item": "oil_filter",
-          "action": "replace"
-        },
-        {
-          "item": "tire_rotation",
-          "action": "rotate"
-        },
-        {
-          "item": "coolant",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "brake_fluid",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "washer_fluid",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_discs",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "steering",
-          "action": "inspect"
-        },
-        {
-          "item": "suspension",
-          "action": "inspect"
-        },
-        {
-          "item": "cv_boots",
-          "action": "inspect"
-        },
-        {
-          "item": "fuel_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "exhaust",
-          "action": "inspect"
-        },
-        {
-          "item": "parking_brake",
-          "action": "inspect"
-        },
-        {
-          "item": "seat_belts",
-          "action": "inspect",
-          "note": "מערכות ריסון"
-        },
-        {
-          "item": "door_hinges",
-          "action": "clean",
-          "note": "סיכה של רכיבי מרכב"
-        },
-        {
-          "item": "cabin_filter",
-          "action": "replace",
-          "note": "או כל שנתיים"
-        },
-        {
-          "item": "air_filter",
-          "action": "inspect",
-          "note": "לפי מחוון חיי המסנן; החלפה לפי הצורך"
-        },
-        {
-          "item": "wipers",
-          "action": "replace",
-          "note": "או כל 12 חודשים"
-        }
-      ]
-    },
-    {
-      "km": 228000,
-      "items": [
-        {
-          "item": "engine_oil",
-          "action": "replace",
-          "note": "לפי מחוון חיי השמן, ולפחות פעם בשנה"
-        },
-        {
-          "item": "oil_filter",
-          "action": "replace"
-        },
-        {
-          "item": "tire_rotation",
-          "action": "rotate"
-        },
-        {
-          "item": "coolant",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "brake_fluid",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "washer_fluid",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_discs",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "steering",
-          "action": "inspect"
-        },
-        {
-          "item": "suspension",
-          "action": "inspect"
-        },
-        {
-          "item": "cv_boots",
-          "action": "inspect"
-        },
-        {
-          "item": "fuel_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "exhaust",
-          "action": "inspect"
-        },
-        {
-          "item": "parking_brake",
-          "action": "inspect"
-        },
-        {
-          "item": "seat_belts",
-          "action": "inspect",
-          "note": "מערכות ריסון"
-        },
-        {
-          "item": "door_hinges",
-          "action": "clean",
-          "note": "סיכה של רכיבי מרכב"
-        },
-        {
-          "item": "air_filter",
-          "action": "inspect",
-          "note": "לפי מחוון חיי המסנן; החלפה לפי הצורך"
-        }
-      ]
-    },
-    {
-      "km": 240000,
-      "items": [
-        {
-          "item": "engine_oil",
-          "action": "replace",
-          "note": "לפי מחוון חיי השמן, ולפחות פעם בשנה"
-        },
-        {
-          "item": "oil_filter",
-          "action": "replace"
-        },
-        {
-          "item": "tire_rotation",
-          "action": "rotate"
-        },
-        {
-          "item": "coolant",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "brake_fluid",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "washer_fluid",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_discs",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "steering",
-          "action": "inspect"
-        },
-        {
-          "item": "suspension",
-          "action": "inspect"
-        },
-        {
-          "item": "cv_boots",
-          "action": "inspect"
-        },
-        {
-          "item": "fuel_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "exhaust",
-          "action": "inspect"
-        },
-        {
-          "item": "parking_brake",
-          "action": "inspect"
-        },
-        {
-          "item": "seat_belts",
-          "action": "inspect",
-          "note": "מערכות ריסון"
-        },
-        {
-          "item": "door_hinges",
-          "action": "clean",
-          "note": "סיכה של רכיבי מרכב"
-        },
-        {
-          "item": "air_filter",
-          "action": "inspect",
-          "note": "לפי מחוון חיי המסנן; החלפה לפי הצורך"
-        },
-        {
-          "item": "wipers",
-          "action": "replace",
-          "note": "או כל 12 חודשים"
-        },
-        {
-          "item": "coolant",
-          "action": "replace",
-          "note": "ניקוז ומילוי, או כל 5 שנים"
+          "note": "צינורות גמישים"
         },
         {
           "item": "drive_belt",
-          "action": "inspect",
-          "note": "או כל 10 שנים"
+          "action": "inspect"
         },
         {
-          "item": "differential_oil",
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בולמים ותמוכות"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "clean",
+          "note": "סיכת רכיבי השלדה והמרכב"
+        },
+        {
+          "item": "cabin_filter",
           "action": "replace",
-          "note": "סרן אחורי, רק ב-AWD"
+          "note": "או כל 12 חודשים"
+        }
+      ]
+    },
+    {
+      "km": 70000,
+      "items": [
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון חיי השמן (בודקים בכל טיפול), ולפחות פעם בשנה"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "יחד עם השמן"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "לפי מחוון חיי מסנן האוויר; מחליפים כשמוצגת הודעה"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "ביקורת רב-נקודתית (MPVI): היסטוריית שירות וקריאות חוזרות"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "בדיקת נזילות: מנוע, גיר, סרן, תיבת העברה, קירור, הגה, דלק"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "לחץ, עומק חריצים ובלאי"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת ההאצה"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect",
+          "note": "צינורות גמישים"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בולמים ותמוכות"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "clean",
+          "note": "סיכת רכיבי השלדה והמרכב"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "או כל 12 חודשים"
+        }
+      ]
+    },
+    {
+      "km": 80000,
+      "items": [
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון חיי השמן (בודקים בכל טיפול), ולפחות פעם בשנה"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "יחד עם השמן"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "לפי מחוון חיי מסנן האוויר; מחליפים כשמוצגת הודעה"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "ביקורת רב-נקודתית (MPVI): היסטוריית שירות וקריאות חוזרות"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "בדיקת נזילות: מנוע, גיר, סרן, תיבת העברה, קירור, הגה, דלק"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "לחץ, עומק חריצים ובלאי"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת ההאצה"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect",
+          "note": "צינורות גמישים"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בולמים ותמוכות"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "clean",
+          "note": "סיכת רכיבי השלדה והמרכב"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "או כל 12 חודשים"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון חיי השמן (בודקים בכל טיפול), ולפחות פעם בשנה"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "יחד עם השמן"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "לפי מחוון חיי מסנן האוויר; מחליפים כשמוצגת הודעה"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "ביקורת רב-נקודתית (MPVI): היסטוריית שירות וקריאות חוזרות"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "בדיקת נזילות: מנוע, גיר, סרן, תיבת העברה, קירור, הגה, דלק"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "לחץ, עומק חריצים ובלאי"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת ההאצה"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect",
+          "note": "צינורות גמישים"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "בולמים ותמוכות"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "clean",
+          "note": "סיכת רכיבי השלדה והמרכב"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "או כל 12 חודשים"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "מנוע 2.0 טורבו בלבד; במנוע 3.6 V6 כל 150,000"
         }
       ]
     }
   ],
   "long_interval": [
     {
+      "item": "cabin_filter",
+      "action": "replace",
+      "every_km": 10000,
+      "every_months": 12
+    },
+    {
+      "item": "spark_plugs",
+      "action": "replace",
+      "every_km": 90000,
+      "note": "מנוע 2.0 טורבו (LSY)"
+    },
+    {
+      "item": "spark_plugs",
+      "action": "replace",
+      "every_km": 150000,
+      "note": "מנוע 3.6 V6 (LGX)"
+    },
+    {
+      "item": "differential_oil",
+      "action": "replace",
+      "every_km": 240000,
+      "note": "סרן אחורי, AWD בלבד (בשימוש מאומץ: כל 120,000)"
+    },
+    {
       "item": "coolant",
       "action": "replace",
       "every_km": 240000,
-      "every_months": 60
+      "every_months": 72,
+      "note": "ריקון ומילוי מערכת הקירור"
     },
     {
-      "item": "drive_belt",
-      "action": "inspect",
-      "every_km": 240000,
-      "every_months": 120
+      "item": "transmission_oil",
+      "action": "replace",
+      "every_km": 70000,
+      "note": "שימוש מאומץ בלבד (פקקים בחום, הרים, גרירה, מונית)"
+    }
+  ],
+  "time_based": [
+    {
+      "item": "engine_oil",
+      "action": "replace",
+      "months": 12,
+      "every_months": 12,
+      "note": "לפחות פעם בשנה, גם אם המחוון לא הורה"
     },
     {
       "item": "brake_fluid",
       "action": "replace",
-      "every_months": 60
+      "months": 60,
+      "every_months": 60,
+      "note": "כל 5 שנים"
+    },
+    {
+      "item": "ac_system",
+      "action": "replace",
+      "months": 84,
+      "every_months": 84,
+      "note": "החלפת חומר הייבוש של המזגן כל 7 שנים"
     }
   ],
-  "time_based": [],
-  "specs": {},
+  "specs": {
+    "engine_oil": "שמן במפרט dexos1 (מומלץ סינתטי מלא) בצמיגות לפי הספר",
+    "coolant": "DEX-COOL מהול 50/50 במים נקיים",
+    "brake_fluid": "DOT 4",
+    "_note": "נבדק מול ספר הנהג העברי של היבואן (2023)"
+  },
   "sources": [
     {
-      "url": "https://cdn.dealereprocess.org/cdn/servicemanuals/chevrolet/2021-blazer.pdf",
-      "kind": "other",
-      "note": "2021 Chevrolet Blazer Owner's Manual (GM, US/Canada), Maintenance Schedule pp. 334-335"
+      "url": "https://www.chevrolet.co.il/media/yrlos5wo/2023-בלייזר.pdf",
+      "kind": "importer",
+      "note": "ספר נהג שברולט בלייזר 2023, יו.אם.איי (GMNA-Localizing-Israel), \"תכנית תחזוקה\" ו-MPVI עמ' 314-318, נוזלים עמ' 319"
+    },
+    {
+      "url": "https://www.chevrolet.co.il/media/bjchxiwl/בלייזר-2019.pdf",
+      "kind": "importer",
+      "note": "ספר נהג בלייזר 2019: אין בו לוח טיפולים"
+    },
+    {
+      "url": "https://www.chevrolet.co.il/%D7%A9%D7%99%D7%A8%D7%95%D7%AA-%D7%A9%D7%91%D7%A8%D7%95%D7%9C%D7%98/%D7%A1%D7%A4%D7%A8-%D7%A8%D7%9B%D7%91/",
+      "kind": "importer",
+      "note": "דף ספרי הרכב באתר שברולט ישראל (נקרא דרך WebFetch; האתר חוסם curl)"
     }
   ],
-  "status": "draft",
-  "notes": "הלוח לקוח מספר הנהג האמריקאי של GM (עמודות ק\"מ ומייל; הספר מציג ק\"מ במקור). ספר עברי של היבואן לא נמצא: אתר chevrolet.co.il ואתר יו.אם.איי חסומים (Cloudflare 403). מרווח השמן נקבע לפי מחוון חיי השמן של הרכב, ולפחות פעם בשנה; ייתכן שהיבואן בישראל קובע מרווח קבוע אחר. מצתים: 2.0 טורבו כל 96,000, 3.6 ב-156,000. מסנן אוויר לפי מחוון (או 4 שנים), מסנן מזגן 36,000/שנתיים, נוזל קירור 240,000 או 5 שנים, נוזל בלמים כל 5 שנים."
+  "status": "reviewed",
+  "notes": "הלוח לקוח מספר הנהג העברי של יו.אם.איי לבלייזר 2023, שבו המרווחים הותאמו לישראל: כל 10,000 ק\"מ. בכל טיפול: סבב צמיגים, ביקורת רב-נקודתית (MPVI: אבחון וקריאות חוזרות, שמן, תאורה, מגבים, מצבר, נזילות, צמיגים, בלמים, חגורות, פליטה, צינורות, רצועות, בולמים, היגוי, שרוולי סרן, מערכת אדים), סיכת השלדה, בדיקת השמן ואחוז חיי השמן (החלפה לפי המחוון ולפחות פעם בשנה), מסנן אוויר לפי מחוון חיי המסנן, ומסנן מזגן (או כל 12 חודשים). מצתים: 2.0 טורבו כל 90,000, 3.6 V6 כל 150,000. בוכנות הגז כל 160,000 או 10 שנים (אין מפתח פריט במאגר). ב-240,000: נוזל קירור (או 6 שנים) ושמן סרן אחורי ב-AWD. נוזל בלמים כל 5 שנים, מייבש המזגן כל 7 שנים. ספר 2019 העברי אינו כולל לוח, ולכן הוחל לוח 2023 על כל הדור."
 }

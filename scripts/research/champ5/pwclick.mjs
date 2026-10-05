@@ -1,0 +1,13 @@
+import { chromium } from '/opt/node22/lib/node_modules/playwright/index.mjs';
+const b = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium', proxy: { server: process.env.HTTPS_PROXY }, args: ['--ignore-certificate-errors'] });
+const ctx = await b.newContext({ ignoreHTTPSErrors:true, locale:'he-IL' });
+const p = await ctx.newPage();
+p.on('request', r => { if (!/\.(png|css|js|woff)/.test(r.url())) console.log('REQ', r.url()); });
+await p.goto(process.argv[2], { waitUntil: 'networkidle' });
+const a = await p.$('a[href*="chapterId='+process.argv[3]+'"]');
+const href = await a.evaluate(e=>e.href); console.log('href', href);
+const [np] = await Promise.all([ctx.waitForEvent('page').catch(()=>null), a.evaluate(e=>e.click())]);
+await p.waitForTimeout(4000);
+console.log(p.url());
+console.log((await p.evaluate(()=>document.body.innerText)).slice(0,3000));
+await b.close();

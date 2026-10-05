@@ -1,0 +1,10 @@
+import { chromium } from '/opt/node22/lib/node_modules/playwright/index.mjs';
+const b = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium', proxy: { server: process.env.HTTPS_PROXY }, args: ['--ignore-certificate-errors'] });
+const ctx = await b.newContext({ ignoreHTTPSErrors:true, locale:'he-IL', viewport:{width:1400,height:1000} });
+const p = await ctx.newPage();
+const seen=new Set();
+p.on('response', r => { const u=r.url(); if (!seen.has(u) && !/fonts|\.woff|analytics|google/.test(u)) { seen.add(u); console.log('RES', r.status(), u.slice(0,250)); } });
+await p.goto(process.argv[2], { waitUntil: 'networkidle', timeout: 90000 });
+await p.waitForTimeout(8000);
+console.log((await p.evaluate(()=>document.body.innerText)).slice(0,1000));
+await b.close();

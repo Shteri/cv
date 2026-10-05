@@ -1,0 +1,14 @@
+import { chromium } from '/opt/node22/lib/node_modules/playwright/index.mjs';
+import fs from 'fs';
+const b = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium', proxy: { server: process.env.HTTPS_PROXY }, args: ['--ignore-certificate-errors'] });
+const ctx = await b.newContext({ locale:'he-IL', userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36' });
+const pg = await ctx.newPage();
+const reqs=[];
+pg.on('request', r => { if (!/\.(png|jpg|svg|woff2?|css|gif|webp)(\?|$)/.test(r.url())) reqs.push(r.method()+' '+r.url()); });
+pg.on('response', async r => { const u=r.url(); if (/api|json|service|price/i.test(u) && !/\.js(\?|$)/.test(u)) { try { const t=await r.text(); fs.appendFileSync('mct_resp.txt', '### '+r.status()+' '+u+'\n'+t.slice(0,3000)+'\n'); } catch(e){} } });
+const r = await pg.goto(process.argv[2], { waitUntil: 'networkidle', timeout: 60000 }).catch(e=>console.log('ERR',e.message));
+console.log('status', r && r.status(), await pg.title());
+await pg.waitForTimeout(4000);
+fs.writeFileSync('mct_page.html', await pg.content());
+console.log(reqs.slice(0,60).join('\n'));
+await b.close();

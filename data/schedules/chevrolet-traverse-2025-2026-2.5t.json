@@ -17,33 +17,39 @@
   "interval": {
     "km": 12000,
     "months": 12,
-    "note": "לפי ספר הנהג של GM (צפון אמריקה): כל 12,000 ק\"מ סבב צמיגים ובדיקות; שמן ומסנן לפי מחוון חיי השמן ולפחות פעם בשנה"
+    "note": "לפי ספר הנהג העברי של יו.אם.איי (2025): סבב צמיגים וביקורת רב-נקודתית כל 12,000 ק\"מ; שמן ומסנן לפי מחוון חיי השמן ולפחות פעם בשנה"
   },
-  "cycle_km": 240000,
+  "cycle_km": 12000,
   "services": [
     {
       "km": 12000,
       "items": [
         {
-          "item": "engine_oil",
-          "action": "replace",
-          "note": "לפי מחוון חיי השמן (הודעת CHANGE ENGINE OIL SOON), ולפחות פעם בשנה"
-        },
-        {
-          "item": "oil_filter",
-          "action": "replace"
-        },
-        {
           "item": "tire_rotation",
           "action": "rotate"
         },
         {
-          "item": "coolant",
-          "action": "inspect",
-          "note": "מפלס"
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "לפי מחוון חיי השמן (בודקים בכל טיפול), ולפחות פעם בשנה"
         },
         {
-          "item": "washer_fluid",
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "יחד עם השמן"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "לפי מחוון חיי מסנן האוויר; מחליפים כשמוצגת הודעה"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "ביקורת רב-נקודתית (MPVI): היסטוריית שירות וקריאות חוזרות"
+        },
+        {
+          "item": "lights",
           "action": "inspect"
         },
         {
@@ -51,130 +57,33 @@
           "action": "inspect"
         },
         {
-          "item": "tires",
-          "action": "inspect",
-          "note": "לחץ ובלאי"
-        },
-        {
-          "item": "air_filter",
+          "item": "battery_12v",
           "action": "inspect"
         },
         {
-          "item": "brake_pads",
+          "item": "body_underside",
           "action": "inspect",
-          "note": "מערכת הבלמים"
-        },
-        {
-          "item": "brake_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "steering",
-          "action": "inspect"
-        },
-        {
-          "item": "suspension",
-          "action": "inspect",
-          "note": "מתלים ושלדה"
-        },
-        {
-          "item": "cv_boots",
-          "action": "inspect",
-          "note": "גלי הנעה ומפרקים"
-        },
-        {
-          "item": "seat_belts",
-          "action": "inspect",
-          "note": "מערכות ריסון"
-        },
-        {
-          "item": "fuel_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "exhaust",
-          "action": "inspect"
-        },
-        {
-          "item": "door_hinges",
-          "action": "clean",
-          "note": "סיכה של רכיבי מרכב"
-        },
-        {
-          "item": "parking_brake",
-          "action": "inspect",
-          "note": "כולל מנגנון P בגיר"
-        }
-      ]
-    },
-    {
-      "km": 24000,
-      "items": [
-        {
-          "item": "engine_oil",
-          "action": "replace",
-          "note": "לפי מחוון חיי השמן (הודעת CHANGE ENGINE OIL SOON), ולפחות פעם בשנה"
-        },
-        {
-          "item": "oil_filter",
-          "action": "replace"
-        },
-        {
-          "item": "tire_rotation",
-          "action": "rotate"
-        },
-        {
-          "item": "coolant",
-          "action": "inspect",
-          "note": "מפלס"
+          "note": "בדיקת נזילות: מנוע, גיר, סרן, תיבת העברה, קירור, הגה, דלק"
         },
         {
           "item": "washer_fluid",
           "action": "inspect"
         },
         {
-          "item": "wipers",
-          "action": "inspect"
-        },
-        {
           "item": "tires",
           "action": "inspect",
-          "note": "לחץ ובלאי"
-        },
-        {
-          "item": "air_filter",
-          "action": "inspect"
+          "note": "לחץ, עומק חריצים ובלאי"
         },
         {
           "item": "brake_pads",
-          "action": "inspect",
-          "note": "מערכת הבלמים"
-        },
-        {
-          "item": "brake_lines",
           "action": "inspect"
         },
         {
-          "item": "steering",
+          "item": "brake_discs",
           "action": "inspect"
-        },
-        {
-          "item": "suspension",
-          "action": "inspect",
-          "note": "מתלים ושלדה"
-        },
-        {
-          "item": "cv_boots",
-          "action": "inspect",
-          "note": "גלי הנעה ומפרקים"
         },
         {
           "item": "seat_belts",
-          "action": "inspect",
-          "note": "מערכות ריסון"
-        },
-        {
-          "item": "fuel_lines",
           "action": "inspect"
         },
         {
@@ -182,1657 +91,117 @@
           "action": "inspect"
         },
         {
-          "item": "door_hinges",
-          "action": "clean",
-          "note": "סיכה של רכיבי מרכב"
-        },
-        {
-          "item": "parking_brake",
+          "item": "pedals",
           "action": "inspect",
-          "note": "כולל מנגנון P בגיר"
-        }
-      ]
-    },
-    {
-      "km": 36000,
-      "items": [
-        {
-          "item": "engine_oil",
-          "action": "replace",
-          "note": "לפי מחוון חיי השמן (הודעת CHANGE ENGINE OIL SOON), ולפחות פעם בשנה"
+          "note": "דוושת ההאצה"
         },
         {
-          "item": "oil_filter",
-          "action": "replace"
-        },
-        {
-          "item": "tire_rotation",
-          "action": "rotate"
-        },
-        {
-          "item": "coolant",
+          "item": "coolant_hoses",
           "action": "inspect",
-          "note": "מפלס"
+          "note": "צינורות גמישים"
         },
         {
-          "item": "washer_fluid",
+          "item": "drive_belt",
           "action": "inspect"
         },
         {
-          "item": "wipers",
-          "action": "inspect"
-        },
-        {
-          "item": "tires",
+          "item": "suspension",
           "action": "inspect",
-          "note": "לחץ ובלאי"
-        },
-        {
-          "item": "air_filter",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect",
-          "note": "מערכת הבלמים"
-        },
-        {
-          "item": "brake_lines",
-          "action": "inspect"
+          "note": "בולמים ותמוכות"
         },
         {
           "item": "steering",
           "action": "inspect"
         },
         {
-          "item": "suspension",
-          "action": "inspect",
-          "note": "מתלים ושלדה"
-        },
-        {
           "item": "cv_boots",
-          "action": "inspect",
-          "note": "גלי הנעה ומפרקים"
-        },
-        {
-          "item": "seat_belts",
-          "action": "inspect",
-          "note": "מערכות ריסון"
-        },
-        {
-          "item": "fuel_lines",
           "action": "inspect"
         },
         {
-          "item": "exhaust",
+          "item": "evap_system",
           "action": "inspect"
         },
         {
           "item": "door_hinges",
           "action": "clean",
-          "note": "סיכה של רכיבי מרכב"
-        },
-        {
-          "item": "parking_brake",
-          "action": "inspect",
-          "note": "כולל מנגנון P בגיר"
+          "note": "סיכת רכיבי השלדה והמרכב"
         },
         {
           "item": "cabin_filter",
           "action": "replace",
-          "note": "או כל 24 חודשים"
-        }
-      ]
-    },
-    {
-      "km": 48000,
-      "items": [
-        {
-          "item": "engine_oil",
-          "action": "replace",
-          "note": "לפי מחוון חיי השמן (הודעת CHANGE ENGINE OIL SOON), ולפחות פעם בשנה"
-        },
-        {
-          "item": "oil_filter",
-          "action": "replace"
-        },
-        {
-          "item": "tire_rotation",
-          "action": "rotate"
-        },
-        {
-          "item": "coolant",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "washer_fluid",
-          "action": "inspect"
-        },
-        {
-          "item": "wipers",
-          "action": "inspect"
-        },
-        {
-          "item": "tires",
-          "action": "inspect",
-          "note": "לחץ ובלאי"
-        },
-        {
-          "item": "air_filter",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect",
-          "note": "מערכת הבלמים"
-        },
-        {
-          "item": "brake_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "steering",
-          "action": "inspect"
-        },
-        {
-          "item": "suspension",
-          "action": "inspect",
-          "note": "מתלים ושלדה"
-        },
-        {
-          "item": "cv_boots",
-          "action": "inspect",
-          "note": "גלי הנעה ומפרקים"
-        },
-        {
-          "item": "seat_belts",
-          "action": "inspect",
-          "note": "מערכות ריסון"
-        },
-        {
-          "item": "fuel_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "exhaust",
-          "action": "inspect"
-        },
-        {
-          "item": "door_hinges",
-          "action": "clean",
-          "note": "סיכה של רכיבי מרכב"
-        },
-        {
-          "item": "parking_brake",
-          "action": "inspect",
-          "note": "כולל מנגנון P בגיר"
-        }
-      ]
-    },
-    {
-      "km": 60000,
-      "items": [
-        {
-          "item": "engine_oil",
-          "action": "replace",
-          "note": "לפי מחוון חיי השמן (הודעת CHANGE ENGINE OIL SOON), ולפחות פעם בשנה"
-        },
-        {
-          "item": "oil_filter",
-          "action": "replace"
-        },
-        {
-          "item": "tire_rotation",
-          "action": "rotate"
-        },
-        {
-          "item": "coolant",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "washer_fluid",
-          "action": "inspect"
-        },
-        {
-          "item": "wipers",
-          "action": "inspect"
-        },
-        {
-          "item": "tires",
-          "action": "inspect",
-          "note": "לחץ ובלאי"
-        },
-        {
-          "item": "air_filter",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect",
-          "note": "מערכת הבלמים"
-        },
-        {
-          "item": "brake_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "steering",
-          "action": "inspect"
-        },
-        {
-          "item": "suspension",
-          "action": "inspect",
-          "note": "מתלים ושלדה"
-        },
-        {
-          "item": "cv_boots",
-          "action": "inspect",
-          "note": "גלי הנעה ומפרקים"
-        },
-        {
-          "item": "seat_belts",
-          "action": "inspect",
-          "note": "מערכות ריסון"
-        },
-        {
-          "item": "fuel_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "exhaust",
-          "action": "inspect"
-        },
-        {
-          "item": "door_hinges",
-          "action": "clean",
-          "note": "סיכה של רכיבי מרכב"
-        },
-        {
-          "item": "parking_brake",
-          "action": "inspect",
-          "note": "כולל מנגנון P בגיר"
-        }
-      ]
-    },
-    {
-      "km": 72000,
-      "items": [
-        {
-          "item": "engine_oil",
-          "action": "replace",
-          "note": "לפי מחוון חיי השמן (הודעת CHANGE ENGINE OIL SOON), ולפחות פעם בשנה"
-        },
-        {
-          "item": "oil_filter",
-          "action": "replace"
-        },
-        {
-          "item": "tire_rotation",
-          "action": "rotate"
-        },
-        {
-          "item": "coolant",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "washer_fluid",
-          "action": "inspect"
-        },
-        {
-          "item": "wipers",
-          "action": "inspect"
-        },
-        {
-          "item": "tires",
-          "action": "inspect",
-          "note": "לחץ ובלאי"
-        },
-        {
-          "item": "air_filter",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect",
-          "note": "מערכת הבלמים"
-        },
-        {
-          "item": "brake_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "steering",
-          "action": "inspect"
-        },
-        {
-          "item": "suspension",
-          "action": "inspect",
-          "note": "מתלים ושלדה"
-        },
-        {
-          "item": "cv_boots",
-          "action": "inspect",
-          "note": "גלי הנעה ומפרקים"
-        },
-        {
-          "item": "seat_belts",
-          "action": "inspect",
-          "note": "מערכות ריסון"
-        },
-        {
-          "item": "fuel_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "exhaust",
-          "action": "inspect"
-        },
-        {
-          "item": "door_hinges",
-          "action": "clean",
-          "note": "סיכה של רכיבי מרכב"
-        },
-        {
-          "item": "parking_brake",
-          "action": "inspect",
-          "note": "כולל מנגנון P בגיר"
-        },
-        {
-          "item": "cabin_filter",
-          "action": "replace",
-          "note": "או כל 24 חודשים"
-        }
-      ]
-    },
-    {
-      "km": 84000,
-      "items": [
-        {
-          "item": "engine_oil",
-          "action": "replace",
-          "note": "לפי מחוון חיי השמן (הודעת CHANGE ENGINE OIL SOON), ולפחות פעם בשנה"
-        },
-        {
-          "item": "oil_filter",
-          "action": "replace"
-        },
-        {
-          "item": "tire_rotation",
-          "action": "rotate"
-        },
-        {
-          "item": "coolant",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "washer_fluid",
-          "action": "inspect"
-        },
-        {
-          "item": "wipers",
-          "action": "inspect"
-        },
-        {
-          "item": "tires",
-          "action": "inspect",
-          "note": "לחץ ובלאי"
-        },
-        {
-          "item": "air_filter",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect",
-          "note": "מערכת הבלמים"
-        },
-        {
-          "item": "brake_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "steering",
-          "action": "inspect"
-        },
-        {
-          "item": "suspension",
-          "action": "inspect",
-          "note": "מתלים ושלדה"
-        },
-        {
-          "item": "cv_boots",
-          "action": "inspect",
-          "note": "גלי הנעה ומפרקים"
-        },
-        {
-          "item": "seat_belts",
-          "action": "inspect",
-          "note": "מערכות ריסון"
-        },
-        {
-          "item": "fuel_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "exhaust",
-          "action": "inspect"
-        },
-        {
-          "item": "door_hinges",
-          "action": "clean",
-          "note": "סיכה של רכיבי מרכב"
-        },
-        {
-          "item": "parking_brake",
-          "action": "inspect",
-          "note": "כולל מנגנון P בגיר"
-        }
-      ]
-    },
-    {
-      "km": 96000,
-      "items": [
-        {
-          "item": "engine_oil",
-          "action": "replace",
-          "note": "לפי מחוון חיי השמן (הודעת CHANGE ENGINE OIL SOON), ולפחות פעם בשנה"
-        },
-        {
-          "item": "oil_filter",
-          "action": "replace"
-        },
-        {
-          "item": "tire_rotation",
-          "action": "rotate"
-        },
-        {
-          "item": "coolant",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "washer_fluid",
-          "action": "inspect"
-        },
-        {
-          "item": "wipers",
-          "action": "inspect"
-        },
-        {
-          "item": "tires",
-          "action": "inspect",
-          "note": "לחץ ובלאי"
-        },
-        {
-          "item": "air_filter",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect",
-          "note": "מערכת הבלמים"
-        },
-        {
-          "item": "brake_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "steering",
-          "action": "inspect"
-        },
-        {
-          "item": "suspension",
-          "action": "inspect",
-          "note": "מתלים ושלדה"
-        },
-        {
-          "item": "cv_boots",
-          "action": "inspect",
-          "note": "גלי הנעה ומפרקים"
-        },
-        {
-          "item": "seat_belts",
-          "action": "inspect",
-          "note": "מערכות ריסון"
-        },
-        {
-          "item": "fuel_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "exhaust",
-          "action": "inspect"
-        },
-        {
-          "item": "door_hinges",
-          "action": "clean",
-          "note": "סיכה של רכיבי מרכב"
-        },
-        {
-          "item": "parking_brake",
-          "action": "inspect",
-          "note": "כולל מנגנון P בגיר"
-        },
-        {
-          "item": "spark_plugs",
-          "action": "replace"
-        }
-      ]
-    },
-    {
-      "km": 108000,
-      "items": [
-        {
-          "item": "engine_oil",
-          "action": "replace",
-          "note": "לפי מחוון חיי השמן (הודעת CHANGE ENGINE OIL SOON), ולפחות פעם בשנה"
-        },
-        {
-          "item": "oil_filter",
-          "action": "replace"
-        },
-        {
-          "item": "tire_rotation",
-          "action": "rotate"
-        },
-        {
-          "item": "coolant",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "washer_fluid",
-          "action": "inspect"
-        },
-        {
-          "item": "wipers",
-          "action": "inspect"
-        },
-        {
-          "item": "tires",
-          "action": "inspect",
-          "note": "לחץ ובלאי"
-        },
-        {
-          "item": "air_filter",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect",
-          "note": "מערכת הבלמים"
-        },
-        {
-          "item": "brake_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "steering",
-          "action": "inspect"
-        },
-        {
-          "item": "suspension",
-          "action": "inspect",
-          "note": "מתלים ושלדה"
-        },
-        {
-          "item": "cv_boots",
-          "action": "inspect",
-          "note": "גלי הנעה ומפרקים"
-        },
-        {
-          "item": "seat_belts",
-          "action": "inspect",
-          "note": "מערכות ריסון"
-        },
-        {
-          "item": "fuel_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "exhaust",
-          "action": "inspect"
-        },
-        {
-          "item": "door_hinges",
-          "action": "clean",
-          "note": "סיכה של רכיבי מרכב"
-        },
-        {
-          "item": "parking_brake",
-          "action": "inspect",
-          "note": "כולל מנגנון P בגיר"
-        },
-        {
-          "item": "cabin_filter",
-          "action": "replace",
-          "note": "או כל 24 חודשים"
-        }
-      ]
-    },
-    {
-      "km": 120000,
-      "items": [
-        {
-          "item": "engine_oil",
-          "action": "replace",
-          "note": "לפי מחוון חיי השמן (הודעת CHANGE ENGINE OIL SOON), ולפחות פעם בשנה"
-        },
-        {
-          "item": "oil_filter",
-          "action": "replace"
-        },
-        {
-          "item": "tire_rotation",
-          "action": "rotate"
-        },
-        {
-          "item": "coolant",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "washer_fluid",
-          "action": "inspect"
-        },
-        {
-          "item": "wipers",
-          "action": "inspect"
-        },
-        {
-          "item": "tires",
-          "action": "inspect",
-          "note": "לחץ ובלאי"
-        },
-        {
-          "item": "air_filter",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect",
-          "note": "מערכת הבלמים"
-        },
-        {
-          "item": "brake_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "steering",
-          "action": "inspect"
-        },
-        {
-          "item": "suspension",
-          "action": "inspect",
-          "note": "מתלים ושלדה"
-        },
-        {
-          "item": "cv_boots",
-          "action": "inspect",
-          "note": "גלי הנעה ומפרקים"
-        },
-        {
-          "item": "seat_belts",
-          "action": "inspect",
-          "note": "מערכות ריסון"
-        },
-        {
-          "item": "fuel_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "exhaust",
-          "action": "inspect"
-        },
-        {
-          "item": "door_hinges",
-          "action": "clean",
-          "note": "סיכה של רכיבי מרכב"
-        },
-        {
-          "item": "parking_brake",
-          "action": "inspect",
-          "note": "כולל מנגנון P בגיר"
-        }
-      ]
-    },
-    {
-      "km": 132000,
-      "items": [
-        {
-          "item": "engine_oil",
-          "action": "replace",
-          "note": "לפי מחוון חיי השמן (הודעת CHANGE ENGINE OIL SOON), ולפחות פעם בשנה"
-        },
-        {
-          "item": "oil_filter",
-          "action": "replace"
-        },
-        {
-          "item": "tire_rotation",
-          "action": "rotate"
-        },
-        {
-          "item": "coolant",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "washer_fluid",
-          "action": "inspect"
-        },
-        {
-          "item": "wipers",
-          "action": "inspect"
-        },
-        {
-          "item": "tires",
-          "action": "inspect",
-          "note": "לחץ ובלאי"
-        },
-        {
-          "item": "air_filter",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect",
-          "note": "מערכת הבלמים"
-        },
-        {
-          "item": "brake_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "steering",
-          "action": "inspect"
-        },
-        {
-          "item": "suspension",
-          "action": "inspect",
-          "note": "מתלים ושלדה"
-        },
-        {
-          "item": "cv_boots",
-          "action": "inspect",
-          "note": "גלי הנעה ומפרקים"
-        },
-        {
-          "item": "seat_belts",
-          "action": "inspect",
-          "note": "מערכות ריסון"
-        },
-        {
-          "item": "fuel_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "exhaust",
-          "action": "inspect"
-        },
-        {
-          "item": "door_hinges",
-          "action": "clean",
-          "note": "סיכה של רכיבי מרכב"
-        },
-        {
-          "item": "parking_brake",
-          "action": "inspect",
-          "note": "כולל מנגנון P בגיר"
-        }
-      ]
-    },
-    {
-      "km": 144000,
-      "items": [
-        {
-          "item": "engine_oil",
-          "action": "replace",
-          "note": "לפי מחוון חיי השמן (הודעת CHANGE ENGINE OIL SOON), ולפחות פעם בשנה"
-        },
-        {
-          "item": "oil_filter",
-          "action": "replace"
-        },
-        {
-          "item": "tire_rotation",
-          "action": "rotate"
-        },
-        {
-          "item": "coolant",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "washer_fluid",
-          "action": "inspect"
-        },
-        {
-          "item": "wipers",
-          "action": "inspect"
-        },
-        {
-          "item": "tires",
-          "action": "inspect",
-          "note": "לחץ ובלאי"
-        },
-        {
-          "item": "air_filter",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect",
-          "note": "מערכת הבלמים"
-        },
-        {
-          "item": "brake_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "steering",
-          "action": "inspect"
-        },
-        {
-          "item": "suspension",
-          "action": "inspect",
-          "note": "מתלים ושלדה"
-        },
-        {
-          "item": "cv_boots",
-          "action": "inspect",
-          "note": "גלי הנעה ומפרקים"
-        },
-        {
-          "item": "seat_belts",
-          "action": "inspect",
-          "note": "מערכות ריסון"
-        },
-        {
-          "item": "fuel_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "exhaust",
-          "action": "inspect"
-        },
-        {
-          "item": "door_hinges",
-          "action": "clean",
-          "note": "סיכה של רכיבי מרכב"
-        },
-        {
-          "item": "parking_brake",
-          "action": "inspect",
-          "note": "כולל מנגנון P בגיר"
-        },
-        {
-          "item": "cabin_filter",
-          "action": "replace",
-          "note": "או כל 24 חודשים"
-        }
-      ]
-    },
-    {
-      "km": 156000,
-      "items": [
-        {
-          "item": "engine_oil",
-          "action": "replace",
-          "note": "לפי מחוון חיי השמן (הודעת CHANGE ENGINE OIL SOON), ולפחות פעם בשנה"
-        },
-        {
-          "item": "oil_filter",
-          "action": "replace"
-        },
-        {
-          "item": "tire_rotation",
-          "action": "rotate"
-        },
-        {
-          "item": "coolant",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "washer_fluid",
-          "action": "inspect"
-        },
-        {
-          "item": "wipers",
-          "action": "inspect"
-        },
-        {
-          "item": "tires",
-          "action": "inspect",
-          "note": "לחץ ובלאי"
-        },
-        {
-          "item": "air_filter",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect",
-          "note": "מערכת הבלמים"
-        },
-        {
-          "item": "brake_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "steering",
-          "action": "inspect"
-        },
-        {
-          "item": "suspension",
-          "action": "inspect",
-          "note": "מתלים ושלדה"
-        },
-        {
-          "item": "cv_boots",
-          "action": "inspect",
-          "note": "גלי הנעה ומפרקים"
-        },
-        {
-          "item": "seat_belts",
-          "action": "inspect",
-          "note": "מערכות ריסון"
-        },
-        {
-          "item": "fuel_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "exhaust",
-          "action": "inspect"
-        },
-        {
-          "item": "door_hinges",
-          "action": "clean",
-          "note": "סיכה של רכיבי מרכב"
-        },
-        {
-          "item": "parking_brake",
-          "action": "inspect",
-          "note": "כולל מנגנון P בגיר"
-        }
-      ]
-    },
-    {
-      "km": 168000,
-      "items": [
-        {
-          "item": "engine_oil",
-          "action": "replace",
-          "note": "לפי מחוון חיי השמן (הודעת CHANGE ENGINE OIL SOON), ולפחות פעם בשנה"
-        },
-        {
-          "item": "oil_filter",
-          "action": "replace"
-        },
-        {
-          "item": "tire_rotation",
-          "action": "rotate"
-        },
-        {
-          "item": "coolant",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "washer_fluid",
-          "action": "inspect"
-        },
-        {
-          "item": "wipers",
-          "action": "inspect"
-        },
-        {
-          "item": "tires",
-          "action": "inspect",
-          "note": "לחץ ובלאי"
-        },
-        {
-          "item": "air_filter",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect",
-          "note": "מערכת הבלמים"
-        },
-        {
-          "item": "brake_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "steering",
-          "action": "inspect"
-        },
-        {
-          "item": "suspension",
-          "action": "inspect",
-          "note": "מתלים ושלדה"
-        },
-        {
-          "item": "cv_boots",
-          "action": "inspect",
-          "note": "גלי הנעה ומפרקים"
-        },
-        {
-          "item": "seat_belts",
-          "action": "inspect",
-          "note": "מערכות ריסון"
-        },
-        {
-          "item": "fuel_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "exhaust",
-          "action": "inspect"
-        },
-        {
-          "item": "door_hinges",
-          "action": "clean",
-          "note": "סיכה של רכיבי מרכב"
-        },
-        {
-          "item": "parking_brake",
-          "action": "inspect",
-          "note": "כולל מנגנון P בגיר"
-        }
-      ]
-    },
-    {
-      "km": 180000,
-      "items": [
-        {
-          "item": "engine_oil",
-          "action": "replace",
-          "note": "לפי מחוון חיי השמן (הודעת CHANGE ENGINE OIL SOON), ולפחות פעם בשנה"
-        },
-        {
-          "item": "oil_filter",
-          "action": "replace"
-        },
-        {
-          "item": "tire_rotation",
-          "action": "rotate"
-        },
-        {
-          "item": "coolant",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "washer_fluid",
-          "action": "inspect"
-        },
-        {
-          "item": "wipers",
-          "action": "inspect"
-        },
-        {
-          "item": "tires",
-          "action": "inspect",
-          "note": "לחץ ובלאי"
-        },
-        {
-          "item": "air_filter",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect",
-          "note": "מערכת הבלמים"
-        },
-        {
-          "item": "brake_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "steering",
-          "action": "inspect"
-        },
-        {
-          "item": "suspension",
-          "action": "inspect",
-          "note": "מתלים ושלדה"
-        },
-        {
-          "item": "cv_boots",
-          "action": "inspect",
-          "note": "גלי הנעה ומפרקים"
-        },
-        {
-          "item": "seat_belts",
-          "action": "inspect",
-          "note": "מערכות ריסון"
-        },
-        {
-          "item": "fuel_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "exhaust",
-          "action": "inspect"
-        },
-        {
-          "item": "door_hinges",
-          "action": "clean",
-          "note": "סיכה של רכיבי מרכב"
-        },
-        {
-          "item": "parking_brake",
-          "action": "inspect",
-          "note": "כולל מנגנון P בגיר"
-        },
-        {
-          "item": "cabin_filter",
-          "action": "replace",
-          "note": "או כל 24 חודשים"
-        }
-      ]
-    },
-    {
-      "km": 192000,
-      "items": [
-        {
-          "item": "engine_oil",
-          "action": "replace",
-          "note": "לפי מחוון חיי השמן (הודעת CHANGE ENGINE OIL SOON), ולפחות פעם בשנה"
-        },
-        {
-          "item": "oil_filter",
-          "action": "replace"
-        },
-        {
-          "item": "tire_rotation",
-          "action": "rotate"
-        },
-        {
-          "item": "coolant",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "washer_fluid",
-          "action": "inspect"
-        },
-        {
-          "item": "wipers",
-          "action": "inspect"
-        },
-        {
-          "item": "tires",
-          "action": "inspect",
-          "note": "לחץ ובלאי"
-        },
-        {
-          "item": "air_filter",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect",
-          "note": "מערכת הבלמים"
-        },
-        {
-          "item": "brake_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "steering",
-          "action": "inspect"
-        },
-        {
-          "item": "suspension",
-          "action": "inspect",
-          "note": "מתלים ושלדה"
-        },
-        {
-          "item": "cv_boots",
-          "action": "inspect",
-          "note": "גלי הנעה ומפרקים"
-        },
-        {
-          "item": "seat_belts",
-          "action": "inspect",
-          "note": "מערכות ריסון"
-        },
-        {
-          "item": "fuel_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "exhaust",
-          "action": "inspect"
-        },
-        {
-          "item": "door_hinges",
-          "action": "clean",
-          "note": "סיכה של רכיבי מרכב"
-        },
-        {
-          "item": "parking_brake",
-          "action": "inspect",
-          "note": "כולל מנגנון P בגיר"
-        },
-        {
-          "item": "spark_plugs",
-          "action": "replace"
-        }
-      ]
-    },
-    {
-      "km": 204000,
-      "items": [
-        {
-          "item": "engine_oil",
-          "action": "replace",
-          "note": "לפי מחוון חיי השמן (הודעת CHANGE ENGINE OIL SOON), ולפחות פעם בשנה"
-        },
-        {
-          "item": "oil_filter",
-          "action": "replace"
-        },
-        {
-          "item": "tire_rotation",
-          "action": "rotate"
-        },
-        {
-          "item": "coolant",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "washer_fluid",
-          "action": "inspect"
-        },
-        {
-          "item": "wipers",
-          "action": "inspect"
-        },
-        {
-          "item": "tires",
-          "action": "inspect",
-          "note": "לחץ ובלאי"
-        },
-        {
-          "item": "air_filter",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect",
-          "note": "מערכת הבלמים"
-        },
-        {
-          "item": "brake_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "steering",
-          "action": "inspect"
-        },
-        {
-          "item": "suspension",
-          "action": "inspect",
-          "note": "מתלים ושלדה"
-        },
-        {
-          "item": "cv_boots",
-          "action": "inspect",
-          "note": "גלי הנעה ומפרקים"
-        },
-        {
-          "item": "seat_belts",
-          "action": "inspect",
-          "note": "מערכות ריסון"
-        },
-        {
-          "item": "fuel_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "exhaust",
-          "action": "inspect"
-        },
-        {
-          "item": "door_hinges",
-          "action": "clean",
-          "note": "סיכה של רכיבי מרכב"
-        },
-        {
-          "item": "parking_brake",
-          "action": "inspect",
-          "note": "כולל מנגנון P בגיר"
-        }
-      ]
-    },
-    {
-      "km": 216000,
-      "items": [
-        {
-          "item": "engine_oil",
-          "action": "replace",
-          "note": "לפי מחוון חיי השמן (הודעת CHANGE ENGINE OIL SOON), ולפחות פעם בשנה"
-        },
-        {
-          "item": "oil_filter",
-          "action": "replace"
-        },
-        {
-          "item": "tire_rotation",
-          "action": "rotate"
-        },
-        {
-          "item": "coolant",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "washer_fluid",
-          "action": "inspect"
-        },
-        {
-          "item": "wipers",
-          "action": "inspect"
-        },
-        {
-          "item": "tires",
-          "action": "inspect",
-          "note": "לחץ ובלאי"
-        },
-        {
-          "item": "air_filter",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect",
-          "note": "מערכת הבלמים"
-        },
-        {
-          "item": "brake_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "steering",
-          "action": "inspect"
-        },
-        {
-          "item": "suspension",
-          "action": "inspect",
-          "note": "מתלים ושלדה"
-        },
-        {
-          "item": "cv_boots",
-          "action": "inspect",
-          "note": "גלי הנעה ומפרקים"
-        },
-        {
-          "item": "seat_belts",
-          "action": "inspect",
-          "note": "מערכות ריסון"
-        },
-        {
-          "item": "fuel_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "exhaust",
-          "action": "inspect"
-        },
-        {
-          "item": "door_hinges",
-          "action": "clean",
-          "note": "סיכה של רכיבי מרכב"
-        },
-        {
-          "item": "parking_brake",
-          "action": "inspect",
-          "note": "כולל מנגנון P בגיר"
-        },
-        {
-          "item": "cabin_filter",
-          "action": "replace",
-          "note": "או כל 24 חודשים"
-        }
-      ]
-    },
-    {
-      "km": 228000,
-      "items": [
-        {
-          "item": "engine_oil",
-          "action": "replace",
-          "note": "לפי מחוון חיי השמן (הודעת CHANGE ENGINE OIL SOON), ולפחות פעם בשנה"
-        },
-        {
-          "item": "oil_filter",
-          "action": "replace"
-        },
-        {
-          "item": "tire_rotation",
-          "action": "rotate"
-        },
-        {
-          "item": "coolant",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "washer_fluid",
-          "action": "inspect"
-        },
-        {
-          "item": "wipers",
-          "action": "inspect"
-        },
-        {
-          "item": "tires",
-          "action": "inspect",
-          "note": "לחץ ובלאי"
-        },
-        {
-          "item": "air_filter",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect",
-          "note": "מערכת הבלמים"
-        },
-        {
-          "item": "brake_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "steering",
-          "action": "inspect"
-        },
-        {
-          "item": "suspension",
-          "action": "inspect",
-          "note": "מתלים ושלדה"
-        },
-        {
-          "item": "cv_boots",
-          "action": "inspect",
-          "note": "גלי הנעה ומפרקים"
-        },
-        {
-          "item": "seat_belts",
-          "action": "inspect",
-          "note": "מערכות ריסון"
-        },
-        {
-          "item": "fuel_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "exhaust",
-          "action": "inspect"
-        },
-        {
-          "item": "door_hinges",
-          "action": "clean",
-          "note": "סיכה של רכיבי מרכב"
-        },
-        {
-          "item": "parking_brake",
-          "action": "inspect",
-          "note": "כולל מנגנון P בגיר"
-        }
-      ]
-    },
-    {
-      "km": 240000,
-      "items": [
-        {
-          "item": "engine_oil",
-          "action": "replace",
-          "note": "לפי מחוון חיי השמן (הודעת CHANGE ENGINE OIL SOON), ולפחות פעם בשנה"
-        },
-        {
-          "item": "oil_filter",
-          "action": "replace"
-        },
-        {
-          "item": "tire_rotation",
-          "action": "rotate"
-        },
-        {
-          "item": "coolant",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "washer_fluid",
-          "action": "inspect"
-        },
-        {
-          "item": "wipers",
-          "action": "inspect"
-        },
-        {
-          "item": "tires",
-          "action": "inspect",
-          "note": "לחץ ובלאי"
-        },
-        {
-          "item": "air_filter",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect",
-          "note": "מערכת הבלמים"
-        },
-        {
-          "item": "brake_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "steering",
-          "action": "inspect"
-        },
-        {
-          "item": "suspension",
-          "action": "inspect",
-          "note": "מתלים ושלדה"
-        },
-        {
-          "item": "cv_boots",
-          "action": "inspect",
-          "note": "גלי הנעה ומפרקים"
-        },
-        {
-          "item": "seat_belts",
-          "action": "inspect",
-          "note": "מערכות ריסון"
-        },
-        {
-          "item": "fuel_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "exhaust",
-          "action": "inspect"
-        },
-        {
-          "item": "door_hinges",
-          "action": "clean",
-          "note": "סיכה של רכיבי מרכב"
-        },
-        {
-          "item": "parking_brake",
-          "action": "inspect",
-          "note": "כולל מנגנון P בגיר"
+          "note": "או כל 12 חודשים"
         }
       ]
     }
   ],
   "long_interval": [
     {
-      "item": "coolant",
+      "item": "spark_plugs",
       "action": "replace",
-      "every_km": 240000,
-      "every_months": 72,
-      "note": "240,000 ק\"מ או 6 שנים"
+      "every_km": 90000,
+      "note": "כולל בדיקת מוליכי המצתים"
     },
     {
       "item": "differential_oil",
       "action": "replace",
       "every_km": 240000,
-      "note": "סרן אחורי, הנעה כפולה; בשימוש קשה כל 120,000"
+      "note": "סרן אחורי, AWD בלבד (בשימוש מאומץ: כל 120,000)"
+    },
+    {
+      "item": "coolant",
+      "action": "replace",
+      "every_km": 240000,
+      "every_months": 72,
+      "note": "ריקון ומילוי מערכת הקירור"
     },
     {
       "item": "transmission_oil",
       "action": "replace",
-      "every_km": 72000,
-      "note": "שימוש קשה בלבד"
+      "every_km": 70000,
+      "note": "שימוש מאומץ בלבד (פקקים בחום, הרים, גרירה, מונית)"
     }
   ],
   "time_based": [
     {
+      "item": "engine_oil",
+      "action": "replace",
+      "months": 12,
+      "every_months": 12,
+      "note": "לפחות פעם בשנה, גם אם המחוון לא הורה"
+    },
+    {
       "item": "brake_fluid",
       "action": "replace",
       "months": 60,
+      "every_months": 60,
       "note": "כל 5 שנים"
     },
     {
-      "item": "ac_refrigerant",
+      "item": "ac_system",
       "action": "replace",
       "months": 84,
-      "note": "החלפת סופח הלחות של המזגן כל 7 שנים"
+      "every_months": 84,
+      "note": "החלפת חומר הייבוש של המזגן כל 7 שנים"
     }
   ],
   "specs": {
-    "engine_oil": "dexos1 סינתטי",
-    "coolant": "DEX-COOL",
+    "engine_oil": "שמן במפרט dexos1 (מומלץ סינתטי מלא) בצמיגות לפי הספר",
+    "coolant": "DEX-COOL מהול 50/50 במים נקיים",
     "brake_fluid": "DOT 4",
-    "_note": "מטבלת הנוזלים בספר 2025 (עמ' 335)"
+    "_note": "נבדק מול ספר הנהג העברי של היבואן (2025)"
   },
   "sources": [
     {
-      "url": "https://cdn.dealereprocess.org/cdn/servicemanuals/chevrolet/2025-traverse.pdf",
-      "kind": "manufacturer",
-      "note": "2025 Chevrolet Traverse Owner's Manual, Maintenance Schedule עמ' 330-333 (עמודי PDF 331-334)"
+      "url": "https://www.chevrolet.co.il/media/elxny4sy/24_chev_traverse_om_he_il_i_il_bh31124_2024feb07_hi_compressed-1.pdf",
+      "kind": "importer",
+      "note": "ספר נהג שברולט טראוורס 2025, יו.אם.איי (PATAC-localized-Israel), \"תכנית תחזוקה\" ו-MPVI עמ' 307-311"
     },
     {
-      "url": "https://cdn.dealereprocess.org/cdn/servicemanuals/chevrolet/2026-traverse.pdf",
-      "kind": "manufacturer",
-      "note": "ספר 2026 הורד לבדיקה"
+      "url": "https://www.chevrolet.co.il/%D7%A9%D7%99%D7%A8%D7%95%D7%AA-%D7%A9%D7%91%D7%A8%D7%95%D7%9C%D7%98/%D7%A1%D7%A4%D7%A8-%D7%A8%D7%9B%D7%91/",
+      "kind": "importer",
+      "note": "דף ספרי הרכב באתר שברולט ישראל (נקרא דרך WebFetch; האתר חוסם curl)"
     }
   ],
-  "status": "draft",
-  "notes": "טיוטה מספר הנהג האמריקאי של GM (הספר מציג ק\"מ ומייל). אתר היבואן (יו.אם.איי) חסום ולא נמצא ספר עברי. השמן מוחלף לפי מחוון חיי השמן ולפחות פעם בשנה; שאר הפריטים לפי טבלת השירותים הנוספים (נורמלי). מסנן האוויר מוחלף לפי מחוון חיי המסנן ברכב. מסנן מיזוג כל 36,000 ק\"מ או שנתיים, מצתים כל 96,000, תומכי גז ב-161,000 או 10 שנים, שמן סרן אחורי ונוזל קירור ב-240,000 (נוזל קירור או 6 שנים), נוזל בלמים כל 5 שנים."
+  "status": "reviewed",
+  "notes": "הלוח לקוח מספר הנהג העברי של יו.אם.איי לטראוורס 2025 (2.5 טורבו). הפתיח בספר ממליץ על ביקור כל 10,000 ק\"מ, אבל טבלת התחזוקה עצמה בנויה על 12,000 ק\"מ: סבב צמיגים, ביקורת רב-נקודתית (MPVI), סיכת השלדה, בדיקת השמן ואחוז חיי השמן (החלפה לפי המחוון ולפחות פעם בשנה), מסנן אוויר לפי מחוון חיי המסנן, ומסנן מזגן (או כל 12 חודשים). מצתים כל 90,000 (לא נופל על כפולה של 12,000 ולכן מופיע רק ברשימת הפריטים ארוכי הטווח), בוכנות הגז כל 160,000 או 10 שנים (אין מפתח פריט במאגר), ב-240,000 נוזל קירור (או 6 שנים) ושמן סרן אחורי ב-AWD. נוזל בלמים כל 5 שנים, מייבש המזגן כל 7 שנים."
 }
