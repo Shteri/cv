@@ -1,0 +1,192 @@
+{
+  "make": "Peugeot",
+  "make_he": "פיג'ו",
+  "importer": "דוד לובינסקי (פיג'ו)",
+  "time_based": [],
+  "status": "draft",
+  "id": "peugeot-207-208-308-2008-2016-1.6-vti",
+  "model": "207 / 208 / 2008 / 308",
+  "model_he": "207 / 208 / 2008 / 308",
+  "generation": "207, 308 (T7), 208, 2008",
+  "years": [
+    2008,
+    2016
+  ],
+  "engines": [
+    "1.6 VTi 120 EP6 (5FW / 5FS / 5F01)"
+  ],
+  "fuel": "petrol",
+  "interval": {
+    "km": 20000,
+    "months": 12,
+    "note": "לפי חוברת היבואן של סיטרואן לאותו מנוע, עמודת תנאים קשים: 20,000 ק\"מ או שנה"
+  },
+  "cycle_km": 40000,
+  "services": [
+    {
+      "km": 20000,
+      "items": [
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "בדיקות בתוך הרכב (בלם חניה, צופר)"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "פנסים ואורות"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "מצב הצמיגים; תוקף ערכת תיקון התקר וחיישני לחץ האוויר אם קיימים"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "בדיקת בטיחות של הבלמים מתחת לרכב"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "בדיקת בטיחות של ההיגוי"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "דליפות ממעגלי הנוזלים ומתיבת ההילוכים"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect",
+          "note": "השלמה לפי הצורך"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס והשלמה לפי הצורך"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "בדיקת מחשבי הרכב, בדיקות הנדרשות לפי החוק, איפוס מחוון השירות ונסיעת מבחן"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "כל 20,000 ק\"מ או שנה"
+        }
+      ]
+    },
+    {
+      "km": 40000,
+      "items": [
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "בדיקות בתוך הרכב (בלם חניה, צופר)"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "פנסים ואורות"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "מצב הצמיגים; תוקף ערכת תיקון התקר וחיישני לחץ האוויר אם קיימים"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "בדיקת בטיחות של הבלמים מתחת לרכב"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "בדיקת בטיחות של ההיגוי"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "דליפות ממעגלי הנוזלים ומתיבת ההילוכים"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect",
+          "note": "השלמה לפי הצורך"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס והשלמה לפי הצורך"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "בדיקת מחשבי הרכב, בדיקות הנדרשות לפי החוק, איפוס מחוון השירות ונסיעת מבחן"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "כל 20,000 ק\"מ או שנה"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "כל 40,000 ק\"מ"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "כל 40,000 ק\"מ"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "brake_fluid",
+      "action": "replace",
+      "every_months": 24,
+      "note": "כל שנתיים"
+    },
+    {
+      "item": "coolant",
+      "action": "inspect",
+      "first_km": 120000,
+      "first_months": 48,
+      "then_every_km": 20000,
+      "then_every_months": 12,
+      "note": "בדיקת נוזל הקירור: לראשונה ב-120,000 ק\"מ או 4 שנים, ואחר כך בכל טיפול"
+    }
+  ],
+  "specs": {
+    "timing": "שרשרת תזמון",
+    "_note": "טיוטה - לפי חוברת סיטרואן של היבואן (דגם אחות, אותו מנוע)"
+  },
+  "sources": [
+    {
+      "url": "https://web.archive.org/web/20120509205507/http://citroen.co.il/_Uploads/dbsAttachedFiles/CitroenWarrantyBook.pdf",
+      "kind": "importer",
+      "note": "חוברת השירות והאחריות העברית של סיטרואן (לובינסקי, מהדורה 08/2009, KGCIT0920) מאתר citroen.co.il, עותק web.archive.org מ-9.5.2012. מרווחים לפי סוג מנוע עמ' 11 (PDF 13), פעולות קבועות בכל טיפול עמ' 12 (PDF 14), פעולות נוספות לתנאים קשים עמ' 17-18 (PDF 19-20), רצועת תזמון ומסנן חלקיקים עמ' 19 (PDF 21)"
+    }
+  ],
+  "notes": "מקור: חוברת השירות והאחריות העברית של סיטרואן מאותו יבואן (לובינסקי), שנותנת תוכנית לפי סוג המנוע; לא נמצאה חוברת פיג'ו מקבילה, ולכן זו טיוטה לפי הדגם האחות עם אותו מנוע PSA. החוברת נותנת שתי תוכניות: רגילה ותנאים קשים. רשימת התנאים הקשים כוללת שימוש מתמשך בארצות חמות (מעל 30 מעלות לעיתים קרובות) ובאזורים מאובקים, וכן נסיעות קצרות ושימוש עירוני, ולכן נבחרה עמודת התנאים הקשים. כל 20,000 ק\"מ או שנה: שמן, מסנן שמן ומסנן תא נוסעים; כל 40,000 ק\"מ גם מסנן אוויר ומצתים. נוזל בלמים כל שנתיים. לדגמי 208/2008 משנת 2013 ואילך החוברת (2009) מוקדמת מהם. ברישוי: 207/308 עם 5FW או 5FS, 208/2008 עם 5F01."
+}

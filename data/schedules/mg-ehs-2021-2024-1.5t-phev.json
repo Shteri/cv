@@ -1,7 +1,10 @@
 {
-  "id": "mg-ehs-2021-2024-1.5t-phev",
   "make": "MG",
   "make_he": "אם.ג'י",
+  "importer": "קאר איסט (קבוצת לובינסקי)",
+  "time_based": [],
+  "status": "reviewed",
+  "id": "mg-ehs-2021-2024-1.5t-phev",
   "model": "EHS PHEV",
   "model_he": "EHS פלאג-אין",
   "generation": "EHS PHEV",
@@ -13,51 +16,55 @@
     "1.5T PHEV (15E4E) + EDU"
   ],
   "fuel": "plug-in-hybrid",
-  "importer": "קאר איסט (קבוצת לובינסקי)",
   "interval": {
     "km": 24000,
     "months": 12,
-    "note": "לפי מסמך השירות האירופי של MG EHS: טיפול A כל 24,000 ק\"מ או 12 חודשים, וטיפול B כל 48,000 ק\"מ או 24 חודשים; בתנאים קשים שמן ומסנן כל 5,000 ק\"מ"
+    "note": "לפי חוברת השירות והאחריות של קאר איסט: טיפול A ב-24,000 ק\"מ/12 חודשים, טיפול B ב-48,000 ק\"מ/24 חודשים, וחוזר חלילה; המוקדם מביניהם"
   },
-  "cycle_km": 96000,
+  "cycle_km": 192000,
   "services": [
     {
       "km": 24000,
       "items": [
         {
           "item": "parking_brake",
-          "action": "inspect"
+          "action": "inspect",
+          "note": "בדיקת פעולה וכיוון לפי הצורך"
         },
         {
           "item": "lights",
           "action": "inspect",
-          "note": "פנסים, צופר ונוריות אזהרה"
+          "note": "תאורה פנימית וחיצונית, צופר ונוריות חיווי"
         },
         {
           "item": "wipers",
           "action": "inspect",
-          "note": "מגבים ומתזים"
+          "note": "מגבים, מתזים ושמשה קדמית"
         },
         {
           "item": "seat_belts",
-          "action": "inspect"
+          "action": "inspect",
+          "note": "חגורות בטיחות; מצב ותפקוד המושבים"
         },
         {
           "item": "ac_system",
-          "action": "inspect"
+          "action": "inspect",
+          "note": "פעולת המיזוג; מדחס, צנרת ומעבה - ניקוי לפי הצורך"
         },
         {
           "item": "door_hinges",
           "action": "inspect",
-          "note": "מנעולים, צירים ומעצורי דלת - ניקוי ושימון לפי הצורך"
+          "note": "מנעולי מכסה מנוע, דלתות ותא מטען, צירים - ניקוי ושימון לפי הצורך"
         },
         {
           "item": "battery_12v",
-          "action": "inspect"
+          "action": "inspect",
+          "note": "מצב והידוק מחברים"
         },
         {
           "item": "washer_fluid",
-          "action": "inspect"
+          "action": "inspect",
+          "note": "מפלס"
         },
         {
           "item": "brake_fluid",
@@ -67,7 +74,12 @@
         {
           "item": "transmission_oil",
           "action": "inspect",
-          "note": "מפלס שמן תיבת ההינע החשמלית"
+          "note": "מפלס נוזל התמסורת; דליפות שמן מהמנוע ומתיבת ההילוכים החשמלית"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "צנרת, מצנן ומאוורר; ניקוי לפי הצורך; מהדקי ומחברי צינורות הקירור"
         },
         {
           "item": "coolant",
@@ -75,55 +87,19 @@
           "note": "מפלס וריכוז"
         },
         {
-          "item": "cooling_system",
+          "item": "drive_belt",
           "action": "inspect",
-          "note": "צנרת, מצנן, מאוורר וחבקי צינורות"
+          "note": "רצועת האביזרים"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect",
+          "note": "מגבר הבלמים; צינורות קשיחים וגמישים ועיגונם"
         },
         {
           "item": "hybrid_system",
           "action": "inspect",
-          "note": "סוללת מתח גבוה: ברגי עיגון, מארז, שסתום אוורור, כבל הארקה, מחברים ורתמות מתח גבוה/נמוך; מצב איזון התאים"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_discs",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "suspension",
-          "action": "inspect",
-          "note": "מסבי גלגלים, מתלים"
-        },
-        {
-          "item": "steering",
-          "action": "inspect"
-        },
-        {
-          "item": "cv_boots",
-          "action": "inspect",
-          "note": "שרוולי גל הינע"
-        },
-        {
-          "item": "tires",
-          "action": "inspect",
-          "note": "עומק חריץ, לחץ, בדיקת זוויות ורוטציה לפי הצורך"
-        },
-        {
-          "item": "body_underside",
-          "action": "inspect",
-          "note": "ברגי שלדה ותחתית"
-        },
-        {
-          "item": "diagnostics",
-          "action": "inspect",
-          "note": "קריאת תקלות, איפוס מד טיפולים ועדכון תוכנה"
+          "note": "רתמת מתח גבוה ושקע הטעינה; סוללת מתח גבוה: סימון ברגי עיגון, מארז ותושבות, כבלים ומחברים, שסתום אוורור, מחבר שירות ידני"
         },
         {
           "item": "engine_oil",
@@ -134,12 +110,52 @@
           "action": "replace"
         },
         {
-          "item": "drive_belt",
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "כיפופים ודליפות"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "קדמיות ואחוריות, כולל קליפרים"
+        },
+        {
+          "item": "brake_discs",
           "action": "inspect"
         },
         {
-          "item": "fuel_lines",
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "מסבי גלגלים וגומיות גלי הינע"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "דליפות ובלאי"
+        },
+        {
+          "item": "steering",
           "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "עומק חריץ, נזק ובלאי לא אחיד; לחץ אוויר"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect",
+          "note": "בדיקת זוויות; החלפה בין גלגלים קדמיים ואחוריים לפי הצורך"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "ברגים ואומים בשלדה ובתחתית"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "איפוס מונה טיפולים, קודי תקלה, עדכון תוכנה, בדיקת איזון תאי הסוללה ונסיעת מבחן"
         }
       ]
     },
@@ -148,38 +164,47 @@
       "items": [
         {
           "item": "parking_brake",
-          "action": "inspect"
+          "action": "inspect",
+          "note": "בדיקת פעולה וכיוון לפי הצורך"
         },
         {
           "item": "lights",
           "action": "inspect",
-          "note": "פנסים, צופר ונוריות אזהרה"
+          "note": "תאורה פנימית וחיצונית, צופר ונוריות חיווי"
         },
         {
           "item": "wipers",
           "action": "inspect",
-          "note": "מגבים ומתזים"
+          "note": "מגבים, מתזים ושמשה קדמית"
         },
         {
           "item": "seat_belts",
-          "action": "inspect"
+          "action": "inspect",
+          "note": "חגורות בטיחות; מצב ותפקוד המושבים"
         },
         {
           "item": "ac_system",
-          "action": "inspect"
+          "action": "inspect",
+          "note": "פעולת המיזוג; מדחס, צנרת ומעבה - ניקוי לפי הצורך"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
         },
         {
           "item": "door_hinges",
           "action": "inspect",
-          "note": "מנעולים, צירים ומעצורי דלת - ניקוי ושימון לפי הצורך"
+          "note": "מנעולי מכסה מנוע, דלתות ותא מטען, צירים - ניקוי ושימון לפי הצורך"
         },
         {
           "item": "battery_12v",
-          "action": "inspect"
+          "action": "inspect",
+          "note": "מצב והידוק מחברים"
         },
         {
           "item": "washer_fluid",
-          "action": "inspect"
+          "action": "inspect",
+          "note": "מפלס"
         },
         {
           "item": "brake_fluid",
@@ -189,7 +214,12 @@
         {
           "item": "transmission_oil",
           "action": "inspect",
-          "note": "מפלס שמן תיבת ההינע החשמלית"
+          "note": "מפלס נוזל התמסורת; דליפות שמן מהמנוע ומתיבת ההילוכים החשמלית"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "צנרת, מצנן ומאוורר; ניקוי לפי הצורך; מהדקי ומחברי צינורות הקירור"
         },
         {
           "item": "coolant",
@@ -197,55 +227,33 @@
           "note": "מפלס וריכוז"
         },
         {
-          "item": "cooling_system",
+          "item": "intercooler_pipes",
           "action": "inspect",
-          "note": "צנרת, מצנן, מאוורר וחבקי צינורות"
+          "note": "סעפת היניקה של המנוע"
         },
         {
-          "item": "hybrid_system",
+          "item": "drive_belt",
           "action": "inspect",
-          "note": "סוללת מתח גבוה: ברגי עיגון, מארז, שסתום אוורור, כבל הארקה, מחברים ורתמות מתח גבוה/נמוך; מצב איזון התאים"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_discs",
-          "action": "inspect"
+          "note": "רצועת האביזרים"
         },
         {
           "item": "brake_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "suspension",
           "action": "inspect",
-          "note": "מסבי גלגלים, מתלים"
+          "note": "מגבר הבלמים; צינורות קשיחים וגמישים ועיגונם"
         },
         {
-          "item": "steering",
-          "action": "inspect"
-        },
-        {
-          "item": "cv_boots",
-          "action": "inspect",
-          "note": "שרוולי גל הינע"
-        },
-        {
-          "item": "tires",
-          "action": "inspect",
-          "note": "עומק חריץ, לחץ, בדיקת זוויות ורוטציה לפי הצורך"
+          "item": "air_filter",
+          "action": "replace"
         },
         {
           "item": "body_underside",
           "action": "inspect",
-          "note": "ברגי שלדה ותחתית; תושבות מנוע (טיפול B)"
+          "note": "תושבות המנוע; ברגים ואומים בשלדה ובתחתית"
         },
         {
-          "item": "diagnostics",
+          "item": "hybrid_system",
           "action": "inspect",
-          "note": "קריאת תקלות, איפוס מד טיפולים ועדכון תוכנה"
+          "note": "רתמת מתח גבוה ושקע הטעינה; סוללת מתח גבוה: סימון ברגי עיגון, מארז ותושבות, כבלים ומחברים, שסתום אוורור, מחבר שירות ידני"
         },
         {
           "item": "engine_oil",
@@ -256,42 +264,57 @@
           "action": "replace"
         },
         {
-          "item": "drive_belt",
-          "action": "inspect"
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "מערכת הפליטה, תושבות ומגני חום"
         },
         {
           "item": "fuel_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "cabin_filter",
-          "action": "replace",
-          "note": "החלפה בטיפול B"
-        },
-        {
-          "item": "air_filter",
-          "action": "replace",
-          "note": "החלפה בטיפול B"
-        },
-        {
-          "item": "spark_plugs",
-          "action": "replace",
-          "note": "החלפה כל 48,000 ק\"מ"
-        },
-        {
-          "item": "exhaust",
           "action": "inspect",
-          "note": "מערכת פליטה, תושבות ומגני חום (טיפול B)"
+          "note": "כיפופים ודליפות"
         },
         {
           "item": "evap_system",
           "action": "inspect",
-          "note": "צנרת אדי דלק ומכל פחם (טיפול B)"
+          "note": "צנרת ומסנן הקניסטר"
         },
         {
-          "item": "intercooler_pipes",
+          "item": "brake_pads",
           "action": "inspect",
-          "note": "סעפת יניקה (טיפול B)"
+          "note": "קדמיות ואחוריות, כולל קליפרים"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "מסבי גלגלים וגומיות גלי הינע"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "דליפות ובלאי"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "עומק חריץ, נזק ובלאי לא אחיד; לחץ אוויר"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect",
+          "note": "בדיקת זוויות; החלפה בין גלגלים קדמיים ואחוריים לפי הצורך"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "איפוס מונה טיפולים, קודי תקלה, עדכון תוכנה, בדיקת איזון תאי הסוללה ונסיעת מבחן"
         }
       ]
     },
@@ -300,38 +323,43 @@
       "items": [
         {
           "item": "parking_brake",
-          "action": "inspect"
+          "action": "inspect",
+          "note": "בדיקת פעולה וכיוון לפי הצורך"
         },
         {
           "item": "lights",
           "action": "inspect",
-          "note": "פנסים, צופר ונוריות אזהרה"
+          "note": "תאורה פנימית וחיצונית, צופר ונוריות חיווי"
         },
         {
           "item": "wipers",
           "action": "inspect",
-          "note": "מגבים ומתזים"
+          "note": "מגבים, מתזים ושמשה קדמית"
         },
         {
           "item": "seat_belts",
-          "action": "inspect"
+          "action": "inspect",
+          "note": "חגורות בטיחות; מצב ותפקוד המושבים"
         },
         {
           "item": "ac_system",
-          "action": "inspect"
+          "action": "inspect",
+          "note": "פעולת המיזוג; מדחס, צנרת ומעבה - ניקוי לפי הצורך"
         },
         {
           "item": "door_hinges",
           "action": "inspect",
-          "note": "מנעולים, צירים ומעצורי דלת - ניקוי ושימון לפי הצורך"
+          "note": "מנעולי מכסה מנוע, דלתות ותא מטען, צירים - ניקוי ושימון לפי הצורך"
         },
         {
           "item": "battery_12v",
-          "action": "inspect"
+          "action": "inspect",
+          "note": "מצב והידוק מחברים"
         },
         {
           "item": "washer_fluid",
-          "action": "inspect"
+          "action": "inspect",
+          "note": "מפלס"
         },
         {
           "item": "brake_fluid",
@@ -341,7 +369,12 @@
         {
           "item": "transmission_oil",
           "action": "inspect",
-          "note": "מפלס שמן תיבת ההינע החשמלית"
+          "note": "מפלס נוזל התמסורת; דליפות שמן מהמנוע ומתיבת ההילוכים החשמלית"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "צנרת, מצנן ומאוורר; ניקוי לפי הצורך; מהדקי ומחברי צינורות הקירור"
         },
         {
           "item": "coolant",
@@ -349,55 +382,19 @@
           "note": "מפלס וריכוז"
         },
         {
-          "item": "cooling_system",
+          "item": "drive_belt",
           "action": "inspect",
-          "note": "צנרת, מצנן, מאוורר וחבקי צינורות"
+          "note": "רצועת האביזרים"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect",
+          "note": "מגבר הבלמים; צינורות קשיחים וגמישים ועיגונם"
         },
         {
           "item": "hybrid_system",
           "action": "inspect",
-          "note": "סוללת מתח גבוה: ברגי עיגון, מארז, שסתום אוורור, כבל הארקה, מחברים ורתמות מתח גבוה/נמוך; מצב איזון התאים"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_discs",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "suspension",
-          "action": "inspect",
-          "note": "מסבי גלגלים, מתלים"
-        },
-        {
-          "item": "steering",
-          "action": "inspect"
-        },
-        {
-          "item": "cv_boots",
-          "action": "inspect",
-          "note": "שרוולי גל הינע"
-        },
-        {
-          "item": "tires",
-          "action": "inspect",
-          "note": "עומק חריץ, לחץ, בדיקת זוויות ורוטציה לפי הצורך"
-        },
-        {
-          "item": "body_underside",
-          "action": "inspect",
-          "note": "ברגי שלדה ותחתית"
-        },
-        {
-          "item": "diagnostics",
-          "action": "inspect",
-          "note": "קריאת תקלות, איפוס מד טיפולים ועדכון תוכנה"
+          "note": "רתמת מתח גבוה ושקע הטעינה; סוללת מתח גבוה: סימון ברגי עיגון, מארז ותושבות, כבלים ומחברים, שסתום אוורור, מחבר שירות ידני"
         },
         {
           "item": "engine_oil",
@@ -408,12 +405,52 @@
           "action": "replace"
         },
         {
-          "item": "drive_belt",
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "כיפופים ודליפות"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "קדמיות ואחוריות, כולל קליפרים"
+        },
+        {
+          "item": "brake_discs",
           "action": "inspect"
         },
         {
-          "item": "fuel_lines",
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "מסבי גלגלים וגומיות גלי הינע"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "דליפות ובלאי"
+        },
+        {
+          "item": "steering",
           "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "עומק חריץ, נזק ובלאי לא אחיד; לחץ אוויר"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect",
+          "note": "בדיקת זוויות; החלפה בין גלגלים קדמיים ואחוריים לפי הצורך"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "ברגים ואומים בשלדה ובתחתית"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "איפוס מונה טיפולים, קודי תקלה, עדכון תוכנה, בדיקת איזון תאי הסוללה ונסיעת מבחן"
         }
       ]
     },
@@ -422,38 +459,47 @@
       "items": [
         {
           "item": "parking_brake",
-          "action": "inspect"
+          "action": "inspect",
+          "note": "בדיקת פעולה וכיוון לפי הצורך"
         },
         {
           "item": "lights",
           "action": "inspect",
-          "note": "פנסים, צופר ונוריות אזהרה"
+          "note": "תאורה פנימית וחיצונית, צופר ונוריות חיווי"
         },
         {
           "item": "wipers",
           "action": "inspect",
-          "note": "מגבים ומתזים"
+          "note": "מגבים, מתזים ושמשה קדמית"
         },
         {
           "item": "seat_belts",
-          "action": "inspect"
+          "action": "inspect",
+          "note": "חגורות בטיחות; מצב ותפקוד המושבים"
         },
         {
           "item": "ac_system",
-          "action": "inspect"
+          "action": "inspect",
+          "note": "פעולת המיזוג; מדחס, צנרת ומעבה - ניקוי לפי הצורך"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
         },
         {
           "item": "door_hinges",
           "action": "inspect",
-          "note": "מנעולים, צירים ומעצורי דלת - ניקוי ושימון לפי הצורך"
+          "note": "מנעולי מכסה מנוע, דלתות ותא מטען, צירים - ניקוי ושימון לפי הצורך"
         },
         {
           "item": "battery_12v",
-          "action": "inspect"
+          "action": "inspect",
+          "note": "מצב והידוק מחברים"
         },
         {
           "item": "washer_fluid",
-          "action": "inspect"
+          "action": "inspect",
+          "note": "מפלס"
         },
         {
           "item": "brake_fluid",
@@ -463,7 +509,12 @@
         {
           "item": "transmission_oil",
           "action": "inspect",
-          "note": "מפלס שמן תיבת ההינע החשמלית"
+          "note": "מפלס נוזל התמסורת; דליפות שמן מהמנוע ומתיבת ההילוכים החשמלית"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "צנרת, מצנן ומאוורר; ניקוי לפי הצורך; מהדקי ומחברי צינורות הקירור"
         },
         {
           "item": "coolant",
@@ -471,55 +522,33 @@
           "note": "מפלס וריכוז"
         },
         {
-          "item": "cooling_system",
+          "item": "intercooler_pipes",
           "action": "inspect",
-          "note": "צנרת, מצנן, מאוורר וחבקי צינורות"
+          "note": "סעפת היניקה של המנוע"
         },
         {
-          "item": "hybrid_system",
+          "item": "drive_belt",
           "action": "inspect",
-          "note": "סוללת מתח גבוה: ברגי עיגון, מארז, שסתום אוורור, כבל הארקה, מחברים ורתמות מתח גבוה/נמוך; מצב איזון התאים"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_discs",
-          "action": "inspect"
+          "note": "רצועת האביזרים"
         },
         {
           "item": "brake_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "suspension",
           "action": "inspect",
-          "note": "מסבי גלגלים, מתלים"
+          "note": "מגבר הבלמים; צינורות קשיחים וגמישים ועיגונם"
         },
         {
-          "item": "steering",
-          "action": "inspect"
-        },
-        {
-          "item": "cv_boots",
-          "action": "inspect",
-          "note": "שרוולי גל הינע"
-        },
-        {
-          "item": "tires",
-          "action": "inspect",
-          "note": "עומק חריץ, לחץ, בדיקת זוויות ורוטציה לפי הצורך"
+          "item": "air_filter",
+          "action": "replace"
         },
         {
           "item": "body_underside",
           "action": "inspect",
-          "note": "ברגי שלדה ותחתית; תושבות מנוע (טיפול B)"
+          "note": "תושבות המנוע; ברגים ואומים בשלדה ובתחתית"
         },
         {
-          "item": "diagnostics",
+          "item": "hybrid_system",
           "action": "inspect",
-          "note": "קריאת תקלות, איפוס מד טיפולים ועדכון תוכנה"
+          "note": "רתמת מתח גבוה ושקע הטעינה; סוללת מתח גבוה: סימון ברגי עיגון, מארז ותושבות, כבלים ומחברים, שסתום אוורור, מחבר שירות ידני"
         },
         {
           "item": "engine_oil",
@@ -530,102 +559,712 @@
           "action": "replace"
         },
         {
-          "item": "drive_belt",
-          "action": "inspect"
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "מערכת הפליטה, תושבות ומגני חום"
         },
         {
           "item": "fuel_lines",
-          "action": "inspect"
-        },
-        {
-          "item": "cabin_filter",
-          "action": "replace",
-          "note": "החלפה בטיפול B"
-        },
-        {
-          "item": "air_filter",
-          "action": "replace",
-          "note": "החלפה בטיפול B"
-        },
-        {
-          "item": "spark_plugs",
-          "action": "replace",
-          "note": "החלפה כל 48,000 ק\"מ"
-        },
-        {
-          "item": "exhaust",
           "action": "inspect",
-          "note": "מערכת פליטה, תושבות ומגני חום (טיפול B)"
+          "note": "כיפופים ודליפות"
         },
         {
           "item": "evap_system",
           "action": "inspect",
-          "note": "צנרת אדי דלק ומכל פחם (טיפול B)"
+          "note": "צנרת ומסנן הקניסטר"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "קדמיות ואחוריות, כולל קליפרים"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "מסבי גלגלים וגומיות גלי הינע"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "דליפות ובלאי"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "עומק חריץ, נזק ובלאי לא אחיד; לחץ אוויר"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect",
+          "note": "בדיקת זוויות; החלפה בין גלגלים קדמיים ואחוריים לפי הצורך"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "איפוס מונה טיפולים, קודי תקלה, עדכון תוכנה, בדיקת איזון תאי הסוללה ונסיעת מבחן"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "בדיקת פעולה וכיוון לפי הצורך"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "תאורה פנימית וחיצונית, צופר ונוריות חיווי"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "מגבים, מתזים ושמשה קדמית"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect",
+          "note": "חגורות בטיחות; מצב ותפקוד המושבים"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "פעולת המיזוג; מדחס, צנרת ומעבה - ניקוי לפי הצורך"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "מנעולי מכסה מנוע, דלתות ותא מטען, צירים - ניקוי ושימון לפי הצורך"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "מצב והידוק מחברים"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "מפלס נוזל התמסורת; דליפות שמן מהמנוע ומתיבת ההילוכים החשמלית"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "צנרת, מצנן ומאוורר; ניקוי לפי הצורך; מהדקי ומחברי צינורות הקירור"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס וריכוז"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "רצועת האביזרים"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect",
+          "note": "מגבר הבלמים; צינורות קשיחים וגמישים ועיגונם"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "רתמת מתח גבוה ושקע הטעינה; סוללת מתח גבוה: סימון ברגי עיגון, מארז ותושבות, כבלים ומחברים, שסתום אוורור, מחבר שירות ידני"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "כיפופים ודליפות"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "קדמיות ואחוריות, כולל קליפרים"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "מסבי גלגלים וגומיות גלי הינע"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "דליפות ובלאי"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "עומק חריץ, נזק ובלאי לא אחיד; לחץ אוויר"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect",
+          "note": "בדיקת זוויות; החלפה בין גלגלים קדמיים ואחוריים לפי הצורך"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "ברגים ואומים בשלדה ובתחתית"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "איפוס מונה טיפולים, קודי תקלה, עדכון תוכנה, בדיקת איזון תאי הסוללה ונסיעת מבחן"
+        }
+      ]
+    },
+    {
+      "km": 144000,
+      "items": [
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "בדיקת פעולה וכיוון לפי הצורך"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "תאורה פנימית וחיצונית, צופר ונוריות חיווי"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "מגבים, מתזים ושמשה קדמית"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect",
+          "note": "חגורות בטיחות; מצב ותפקוד המושבים"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "פעולת המיזוג; מדחס, צנרת ומעבה - ניקוי לפי הצורך"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "מנעולי מכסה מנוע, דלתות ותא מטען, צירים - ניקוי ושימון לפי הצורך"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "מצב והידוק מחברים"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "מפלס נוזל התמסורת; דליפות שמן מהמנוע ומתיבת ההילוכים החשמלית"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "צנרת, מצנן ומאוורר; ניקוי לפי הצורך; מהדקי ומחברי צינורות הקירור"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס וריכוז"
         },
         {
           "item": "intercooler_pipes",
           "action": "inspect",
-          "note": "סעפת יניקה (טיפול B)"
+          "note": "סעפת היניקה של המנוע"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "רצועת האביזרים"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect",
+          "note": "מגבר הבלמים; צינורות קשיחים וגמישים ועיגונם"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "תושבות המנוע; ברגים ואומים בשלדה ובתחתית"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "רתמת מתח גבוה ושקע הטעינה; סוללת מתח גבוה: סימון ברגי עיגון, מארז ותושבות, כבלים ומחברים, שסתום אוורור, מחבר שירות ידני"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "מערכת הפליטה, תושבות ומגני חום"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "כיפופים ודליפות"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect",
+          "note": "צנרת ומסנן הקניסטר"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "קדמיות ואחוריות, כולל קליפרים"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "מסבי גלגלים וגומיות גלי הינע"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "דליפות ובלאי"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "עומק חריץ, נזק ובלאי לא אחיד; לחץ אוויר"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect",
+          "note": "בדיקת זוויות; החלפה בין גלגלים קדמיים ואחוריים לפי הצורך"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "איפוס מונה טיפולים, קודי תקלה, עדכון תוכנה, בדיקת איזון תאי הסוללה ונסיעת מבחן"
+        }
+      ]
+    },
+    {
+      "km": 168000,
+      "items": [
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "בדיקת פעולה וכיוון לפי הצורך"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "תאורה פנימית וחיצונית, צופר ונוריות חיווי"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "מגבים, מתזים ושמשה קדמית"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect",
+          "note": "חגורות בטיחות; מצב ותפקוד המושבים"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "פעולת המיזוג; מדחס, צנרת ומעבה - ניקוי לפי הצורך"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "מנעולי מכסה מנוע, דלתות ותא מטען, צירים - ניקוי ושימון לפי הצורך"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "מצב והידוק מחברים"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "מפלס נוזל התמסורת; דליפות שמן מהמנוע ומתיבת ההילוכים החשמלית"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "צנרת, מצנן ומאוורר; ניקוי לפי הצורך; מהדקי ומחברי צינורות הקירור"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס וריכוז"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "רצועת האביזרים"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect",
+          "note": "מגבר הבלמים; צינורות קשיחים וגמישים ועיגונם"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "רתמת מתח גבוה ושקע הטעינה; סוללת מתח גבוה: סימון ברגי עיגון, מארז ותושבות, כבלים ומחברים, שסתום אוורור, מחבר שירות ידני"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "כיפופים ודליפות"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "קדמיות ואחוריות, כולל קליפרים"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "מסבי גלגלים וגומיות גלי הינע"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "דליפות ובלאי"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "עומק חריץ, נזק ובלאי לא אחיד; לחץ אוויר"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect",
+          "note": "בדיקת זוויות; החלפה בין גלגלים קדמיים ואחוריים לפי הצורך"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "ברגים ואומים בשלדה ובתחתית"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "איפוס מונה טיפולים, קודי תקלה, עדכון תוכנה, בדיקת איזון תאי הסוללה ונסיעת מבחן"
+        }
+      ]
+    },
+    {
+      "km": 192000,
+      "items": [
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "בדיקת פעולה וכיוון לפי הצורך"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "תאורה פנימית וחיצונית, צופר ונוריות חיווי"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect",
+          "note": "מגבים, מתזים ושמשה קדמית"
+        },
+        {
+          "item": "seat_belts",
+          "action": "inspect",
+          "note": "חגורות בטיחות; מצב ותפקוד המושבים"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "פעולת המיזוג; מדחס, צנרת ומעבה - ניקוי לפי הצורך"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect",
+          "note": "מנעולי מכסה מנוע, דלתות ותא מטען, צירים - ניקוי ושימון לפי הצורך"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "מצב והידוק מחברים"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "מפלס נוזל התמסורת; דליפות שמן מהמנוע ומתיבת ההילוכים החשמלית"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "צנרת, מצנן ומאוורר; ניקוי לפי הצורך; מהדקי ומחברי צינורות הקירור"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס וריכוז"
+        },
+        {
+          "item": "intercooler_pipes",
+          "action": "inspect",
+          "note": "סעפת היניקה של המנוע"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "רצועת האביזרים"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect",
+          "note": "מגבר הבלמים; צינורות קשיחים וגמישים ועיגונם"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "תושבות המנוע; ברגים ואומים בשלדה ובתחתית"
+        },
+        {
+          "item": "hybrid_system",
+          "action": "inspect",
+          "note": "רתמת מתח גבוה ושקע הטעינה; סוללת מתח גבוה: סימון ברגי עיגון, מארז ותושבות, כבלים ומחברים, שסתום אוורור, מחבר שירות ידני"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "מערכת הפליטה, תושבות ומגני חום"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "כיפופים ודליפות"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect",
+          "note": "צנרת ומסנן הקניסטר"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "קדמיות ואחוריות, כולל קליפרים"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "מסבי גלגלים וגומיות גלי הינע"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "דליפות ובלאי"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "עומק חריץ, נזק ובלאי לא אחיד; לחץ אוויר"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect",
+          "note": "בדיקת זוויות; החלפה בין גלגלים קדמיים ואחוריים לפי הצורך"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "איפוס מונה טיפולים, קודי תקלה, עדכון תוכנה, בדיקת איזון תאי הסוללה ונסיעת מבחן"
         }
       ]
     }
   ],
   "long_interval": [
     {
+      "item": "drive_belt",
+      "action": "replace",
+      "every_km": 100000,
+      "every_months": 36,
+      "note": "רצועת האביזרים; המוקדם מביניהם"
+    },
+    {
       "item": "transmission_oil",
       "action": "replace",
       "every_km": 80000,
-      "note": "שמן תיבת ההינע החשמלית (EDU): כל 80,000 ק\"מ"
+      "note": "נוזל תיבת ההילוכים החשמלית"
     },
     {
       "item": "brake_fluid",
       "action": "replace",
       "every_months": 24,
-      "note": "נוזל בלמים: כל שנתיים"
+      "note": "כל שנתיים בלי קשר לק\"מ"
     },
     {
       "item": "coolant",
       "action": "replace",
-      "every_km": 96000,
-      "every_months": 48,
-      "note": "נוזל קירור: כל 4 שנים או 96,000 ק\"מ"
-    },
-    {
-      "item": "drive_belt",
-      "action": "replace",
-      "every_km": 100000,
+      "every_km": 90000,
       "every_months": 36,
-      "note": "רצועת עזר: כל 3 שנים או 100,000 ק\"מ"
+      "note": "המוקדם מביניהם"
     },
     {
       "item": "fuel_filter",
       "action": "replace",
       "every_km": 100000,
       "every_months": 96,
-      "note": "מסנן דלק (במשאבה): כל 8 שנים או 100,000 ק\"מ"
+      "note": "משולב במשאבת הדלק"
     },
     {
       "item": "fuel_tank_air_filter",
       "action": "replace",
       "every_km": 80000,
       "every_months": 48,
-      "note": "מסנן אוויר של מודול אבחון דליפות במיכל הדלק: כל 4 שנים או 80,000 ק\"מ"
-    }
-  ],
-  "time_based": [],
-  "specs": {},
-  "sources": [
-    {
-      "url": "https://a.storyblok.com/f/325761/x/e6c09aa3f8/mg-ehs-service-portfolio-en-20201023.pdf",
-      "kind": "manufacturer",
-      "note": "MG EHS Plug-in Hybrid Service Portfolio (אירופה, אוקטובר 2020), עמ' 4-11; אותו מסמך גם ב-cdn.mgmotor.eu/manuals/2.-EHS_Service-Manial-EN-20201023-Final-Version.pdf"
+      "note": "מסנן האוויר של יחידת אבחון הדליפות ממיכל הדלק"
     },
     {
-      "url": "https://mg-israel.co.il/guide-books/",
-      "kind": "importer",
-      "note": "עמוד ספרי הרכב של MG ישראל (ספר נהג לפי דגם ושנה); הקבצים ב-clearmash חסומים מכאן - לא נפתחו"
+      "item": "spark_plugs",
+      "action": "replace",
+      "every_km": 48000
     }
   ],
-  "status": "draft",
-  "notes": "ספרי הנהג של היבואן מוצגים באתר mg-israel.co.il/guide-books דרך lubinski.clearmash.com, אבל השרת חוסם את הסביבה הזו (Cloudflare 403), ולכן זו טיוטה לפי מסמך השירות האירופי של MG (ק\"מ, אירופה). כדאי לאמת מול ספר השירות הישראלי. לפי המסמך האירופי שמן המנוע ומסנן השמן מוחלפים בכל טיפול (24,000 ק\"מ או 12 חודשים); מסנן אוויר, מסנן מזגן ומצתים בטיפול B. יש לבצע טעינת איזון לסוללה לפחות פעם בחודש."
+  "specs": {
+    "_note": "נבדק מול חוברות השירות והאחריות העבריות של קאר איסט (2024, עדכון 12.2025)"
+  },
+  "sources": [
+    {
+      "url": "https://media.mg-israel.co.il/wp-content/uploads/2020/10/Warranty-MG-5Y-He-2024-idkun-12.2025.pdf",
+      "kind": "importer",
+      "note": "חוברת 5 שנים (לחשמליים שנרכשו עד 2023 ולרכבי MG EHS; עדכון 12.2025): מרווחים עמ' 7 (PDF 9), \"תוכנית תחזוקה רגילה לדגמים היברידיים\" עמ' 8-11 (PDF 10-13), פעולות מיוחדות עמ' 15 (PDF 17), תנאים קשים עמ' 16 (PDF 18)"
+    },
+    {
+      "url": "https://media.mg-israel.co.il/wp-content/uploads/2020/10/Warranty-MG-7Y-He-06.2024-idkun-12.2025.pdf",
+      "kind": "importer",
+      "note": "חוברת 7 שנים (06.2024, עדכון 12.2025) - פרק התחזוקה זהה"
+    }
+  ],
+  "notes": "התוכנית הועתקה מהפרק לדגמים היברידיים בחוברת השירות והאחריות של קאר איסט (שחלה על MG EHS). טיפולי A ו-B מתחלפים כל 24,000 ק\"מ או שנה. בטיפול B מוחלפים מסנן המזגן ומסנן האוויר של המנוע ונבדקות סעפת היניקה, מערכת הפליטה, מערכת אדי הדלק ותושבות המנוע. שמן ומסנן בכל טיפול. פריטים מיוחדים: רצועת אביזרים כל 3 שנים או 100,000 ק\"מ, נוזל תיבת ההילוכים החשמלית כל 80,000 ק\"מ, נוזל בלמים כל שנתיים, נוזל קירור כל 3 שנים או 90,000 ק\"מ, מסנן דלק כל 8 שנים או 100,000 ק\"מ, מסנן אוויר של יחידת אבחון הדליפות במיכל הדלק כל 4 שנים או 80,000 ק\"מ, ומצתים כל 48,000 ק\"מ. בתנאים קשים (נסיעות קצרות מתחת ל-8 ק\"מ, פקקים, חום מעל 30 מעלות, אבק, הרים): שמן ומסנן כל 5,000 ק\"מ, בדיקת מסנני האוויר והמזגן כל 5,000 ק\"מ באבק, ונוזל בלמים כל 40,000 ק\"מ או שנה."
 }

@@ -2,6 +2,71 @@
   "_note": "Maps a data.gov.il registry record to a schedule id. Match order: make, then commercial name (kinuy_mishari, upper-case), then year range, then optional engine codes (degem_manoa) and fuel. First rule that matches wins; rules with engine_codes are checked before rules without. Engine codes seen in the registry: Hyundai/Kia G3LA=1.0 Kappa MPI, G4LA=1.25 Kappa, G4LF=1.2 Kappa MPI, G3LC=1.0 T-GDI, G4LE=1.6 GDI hybrid, G4FG=1.6 Gamma MPI, G4FD=1.6 Gamma GDI, G4FJ=1.6 T-GDI, G4NA=2.0 Nu; Toyota 1ZR=1.6, 2ZR=1.8 (hybrid on E210), 1NR/1KR=Yaris; Skoda CBZ/CJZ=1.2 TSI, CZD/CZE/DAD=1.4-1.5 TSI. Registry spells Mazda 'מזדה' with names 'MAZDA 3', 'MAZDA 2', 'MAZDA CX-30'. Alfa Romeo maker is 'אלפא רומיאו_אי'; names 'ALFA GIULIETTA', 'GIULIA', 'GIULIA Q4', 'STELVIO'; engine 55273835 = 2.0 T4 MultiAir (Quadrifoglio 2.9 V6 = 670050436, not covered). Toyota hybrids: fuel is 'בנזין' and the name carries HYBRID (e.g. 'C-HR HYBRID'). Registry Toyota name variants: COROLLA HSD SDN / COROLLA SDN HSD / COROLLA TS HSD / COROLLA HSD HB (E210 hybrid), COROLLA SDN (E210 petrol), RAV 4 HYBRID / RAV4 HV / RAV-4 / RAV4 GAS, TOYOTA C-HR (2021+, engine 2ZR = hybrid, 8NR = 1.2 turbo), YARIS CROSS HV. Hyundai/Kia hybrids: IONIQ HYBRID, NIRO, KONA HYBRID, ELANTRA HEV all have fuel 'בנזין'; engines G4LE (1.6 GDI hybrid), G4LL/G4LM (1.6 GDI hybrid, 2020+).",
   "rules": [
     {
+      "make": "Citroen",
+      "names": [
+        "BERLINGO"
+      ],
+      "years": [
+        2008,
+        2013
+      ],
+      "fuel": [
+        "דיזל"
+      ],
+      "engine_codes": [
+        "9HX",
+        "9HW",
+        "9H02",
+        "9HP",
+        "9HN",
+        "9H06",
+        "9HF"
+      ],
+      "schedule": "citroen-berlingo-c3-c4-2008-2013-1.6-hdi"
+    },
+    {
+      "make": "Citroen",
+      "names": [
+        "C3",
+        "C3 PICASSO",
+        "C4"
+      ],
+      "years": [
+        2009,
+        2013
+      ],
+      "fuel": [
+        "דיזל"
+      ],
+      "engine_codes": [
+        "9HP",
+        "9H06",
+        "9HR",
+        "9H05",
+        "9HX",
+        "9HZ"
+      ],
+      "schedule": "citroen-berlingo-c3-c4-2008-2013-1.6-hdi"
+    },
+    {
+      "make": "Citroen",
+      "names": [
+        "JUMPY HDI",
+        "JUMPY"
+      ],
+      "years": [
+        2007,
+        2012
+      ],
+      "fuel": [
+        "דיזל"
+      ],
+      "engine_codes": [
+        "9HU"
+      ],
+      "schedule": "citroen-jumpy-2007-2012-1.6-hdi"
+    },
+    {
       "make": "Toyota",
       "names": [
         "COROLLA"
@@ -13019,6 +13084,330 @@
         "CZC"
       ],
       "schedule": "skoda-rapid-2013-2016-1.2-1.4-tsi"
+    },
+    {
+      "make": "MG",
+      "names": [
+        "HS HYBRID"
+      ],
+      "years": [
+        2025,
+        2026
+      ],
+      "fuel": [
+        "בנזין"
+      ],
+      "engine_codes": [
+        "15FKE"
+      ],
+      "schedule": "mg-hs-hybrid-2025-2026-1.5-hybrid"
+    },
+    {
+      "make": "MG",
+      "names": [
+        "HS"
+      ],
+      "years": [
+        2025,
+        2026
+      ],
+      "fuel": [
+        "בנזין"
+      ],
+      "engine_codes": [
+        "15FDE"
+      ],
+      "schedule": "mg-hs-2025-2026-1.5t"
+    },
+    {
+      "make": "MG",
+      "names": [
+        "MG4 ELECTRIC"
+      ],
+      "years": [
+        2023,
+        2026
+      ],
+      "fuel": [
+        "חשמל"
+      ],
+      "schedule": "mg-4-2023-2026-ev"
+    },
+    {
+      "make": "MG",
+      "names": [
+        "MG5 ELECTRIC"
+      ],
+      "years": [
+        2023,
+        2024
+      ],
+      "fuel": [
+        "חשמל"
+      ],
+      "schedule": "mg-5-2023-2024-ev"
+    },
+    {
+      "make": "MG",
+      "names": [
+        "CYBERSTER"
+      ],
+      "years": [
+        2025,
+        2026
+      ],
+      "fuel": [
+        "חשמל"
+      ],
+      "schedule": "mg-4-2023-2026-ev"
+    },
+    {
+      "make": "MG",
+      "names": [
+        "MARVEL R"
+      ],
+      "years": [
+        2022,
+        2022
+      ],
+      "schedule": "mg-marvel-r-2023-2024-ev"
+    },
+    {
+      "make": "Citroen",
+      "names": [
+        "C4",
+        "C3"
+      ],
+      "years": [
+        2002,
+        2010
+      ],
+      "fuel": [
+        "בנזין"
+      ],
+      "engine_codes": [
+        "NFU"
+      ],
+      "schedule": "citroen-c4-c3-2004-2010-1.6-16v"
+    },
+    {
+      "make": "Citroen",
+      "names": [
+        "C3",
+        "C4",
+        "DS3",
+        "C3 PICASSO"
+      ],
+      "years": [
+        2009,
+        2015
+      ],
+      "fuel": [
+        "בנזין"
+      ],
+      "engine_codes": [
+        "5FS",
+        "5F01",
+        "5FW"
+      ],
+      "schedule": "citroen-c3-c4-ds3-2009-2015-1.6-vti"
+    },
+    {
+      "make": "Citroen",
+      "names": [
+        "C5",
+        "C4 PICASSO",
+        "C4"
+      ],
+      "years": [
+        2006,
+        2011
+      ],
+      "fuel": [
+        "בנזין"
+      ],
+      "engine_codes": [
+        "RFJ"
+      ],
+      "schedule": "citroen-c5-c4-picasso-2006-2011-2.0"
+    },
+    {
+      "make": "Citroen",
+      "names": [
+        "JUMPY",
+        "JUMPY HDI"
+      ],
+      "years": [
+        2004,
+        2017
+      ],
+      "fuel": [
+        "דיזל"
+      ],
+      "engine_codes": [
+        "RH02",
+        "RHK",
+        "RHZ"
+      ],
+      "schedule": "citroen-jumpy-berlingo-2004-2017-2.0-hdi"
+    },
+    {
+      "make": "Citroen",
+      "names": [
+        "BERLINGO"
+      ],
+      "years": [
+        2002,
+        2008
+      ],
+      "fuel": [
+        "דיזל"
+      ],
+      "engine_codes": [
+        "RHY"
+      ],
+      "schedule": "citroen-jumpy-berlingo-2004-2017-2.0-hdi"
+    },
+    {
+      "make": "Citroen",
+      "names": [
+        "C-ELYSEE",
+        "C ELYSEE"
+      ],
+      "years": [
+        2013,
+        2016
+      ],
+      "fuel": [
+        "בנזין"
+      ],
+      "engine_codes": [
+        "NFP"
+      ],
+      "schedule": "citroen-c-elysee-2013-2014-1.6-vti"
+    },
+    {
+      "make": "Citroen",
+      "names": [
+        "C5",
+        "C4 GD PICASSO",
+        "C4 PICASSO",
+        "GRAND C4 PICASSO"
+      ],
+      "years": [
+        2011,
+        2016
+      ],
+      "fuel": [
+        "בנזין"
+      ],
+      "engine_codes": [
+        "5F02"
+      ],
+      "schedule": "citroen-c4-picasso-c5-aircross-2011-2023-1.6-thp"
+    },
+    {
+      "make": "Peugeot",
+      "names": [
+        "207",
+        "208",
+        "2008",
+        "308",
+        "308 SALOON",
+        "308SW",
+        "308 SW"
+      ],
+      "years": [
+        2007,
+        2016
+      ],
+      "fuel": [
+        "בנזין"
+      ],
+      "engine_codes": [
+        "5FS",
+        "5FW",
+        "5F01",
+        "5FS-5F01"
+      ],
+      "schedule": "peugeot-207-208-308-2008-2016-1.6-vti"
+    },
+    {
+      "make": "Peugeot",
+      "names": [
+        "206",
+        "206+",
+        "307",
+        "PARTNER"
+      ],
+      "years": [
+        2000,
+        2012
+      ],
+      "fuel": [
+        "בנזין"
+      ],
+      "engine_codes": [
+        "NFU",
+        "KFW",
+        "KFT"
+      ],
+      "schedule": "peugeot-206-307-partner-2002-2012-1.4-1.6"
+    },
+    {
+      "make": "Peugeot",
+      "names": [
+        "407",
+        "307"
+      ],
+      "years": [
+        2004,
+        2011
+      ],
+      "fuel": [
+        "בנזין"
+      ],
+      "engine_codes": [
+        "RFJ"
+      ],
+      "schedule": "peugeot-407-307-2006-2011-2.0"
+    },
+    {
+      "make": "Peugeot",
+      "names": [
+        "301"
+      ],
+      "years": [
+        2013,
+        2017
+      ],
+      "fuel": [
+        "בנזין"
+      ],
+      "engine_codes": [
+        "NFP"
+      ],
+      "schedule": "peugeot-301-2013-2016-1.6-vti"
+    },
+    {
+      "make": "Peugeot",
+      "names": [
+        "508",
+        "3008",
+        "5008",
+        "RCZ"
+      ],
+      "years": [
+        2010,
+        2016
+      ],
+      "fuel": [
+        "בנזין"
+      ],
+      "engine_codes": [
+        "5F02"
+      ],
+      "schedule": "peugeot-3008-5008-508-2010-2023-1.6-thp"
     }
   ]
 }

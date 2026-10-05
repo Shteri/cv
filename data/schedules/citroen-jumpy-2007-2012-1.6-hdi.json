@@ -1,0 +1,215 @@
+{
+  "make": "Citroen",
+  "make_he": "סיטרואן",
+  "importer": "דוד לובינסקי (סיטרואן)",
+  "time_based": [],
+  "status": "reviewed",
+  "id": "citroen-jumpy-2007-2012-1.6-hdi",
+  "model": "Jumpy",
+  "model_he": "ג'אמפי",
+  "generation": "Jumpy II",
+  "years": [
+    2007,
+    2012
+  ],
+  "engines": [
+    "1.6 HDi 90 DV6 (9HU)"
+  ],
+  "fuel": "diesel",
+  "interval": {
+    "km": 20000,
+    "months": 12,
+    "note": "לג'אמפי 1.6 HDi החוברת קובעת את מרווחי \"דגמים אחרים\": בתנאים קשים 20,000 ק\"מ או שנה (בתנאים רגילים 30,000 ק\"מ או שנתיים)"
+  },
+  "cycle_km": 40000,
+  "services": [
+    {
+      "km": 20000,
+      "items": [
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "בדיקות בתוך הרכב (בלם חניה, צופר)"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "פנסים ואורות"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "מצב הצמיגים; תוקף ערכת תיקון התקר וחיישני לחץ האוויר אם קיימים"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "בדיקת בטיחות של הבלמים מתחת לרכב"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "בדיקת בטיחות של ההיגוי"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "דליפות ממעגלי הנוזלים ומתיבת ההילוכים"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect",
+          "note": "השלמה לפי הצורך"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס והשלמה לפי הצורך"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "בדיקת מחשבי הרכב, בדיקות הנדרשות לפי החוק, איפוס מחוון השירות ונסיעת מבחן"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "clean",
+          "note": "ניקוז מים ומשקעים ממסנן הסולר"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "כל 20,000 ק\"מ או שנה"
+        }
+      ]
+    },
+    {
+      "km": 40000,
+      "items": [
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "בדיקות בתוך הרכב (בלם חניה, צופר)"
+        },
+        {
+          "item": "lights",
+          "action": "inspect",
+          "note": "פנסים ואורות"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "מצב הצמיגים; תוקף ערכת תיקון התקר וחיישני לחץ האוויר אם קיימים"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "בדיקת בטיחות של הבלמים מתחת לרכב"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "בדיקת בטיחות של ההיגוי"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "דליפות ממעגלי הנוזלים ומתיבת ההילוכים"
+        },
+        {
+          "item": "washer_fluid",
+          "action": "inspect",
+          "note": "השלמה לפי הצורך"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "מפלס והשלמה לפי הצורך"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "בדיקת מחשבי הרכב, בדיקות הנדרשות לפי החוק, איפוס מחוון השירות ונסיעת מבחן"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "clean",
+          "note": "ניקוז מים ומשקעים ממסנן הסולר"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "כל 20,000 ק\"מ או שנה"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace",
+          "note": "מסנן סולר כל 40,000 ק\"מ"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "כל 40,000 ק\"מ"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "brake_fluid",
+      "action": "replace",
+      "every_months": 24,
+      "note": "כל שנתיים"
+    },
+    {
+      "item": "coolant",
+      "action": "inspect",
+      "first_km": 120000,
+      "first_months": 48,
+      "then_every_km": 20000,
+      "then_every_months": 12,
+      "note": "בדיקת נוזל הקירור: לראשונה ב-120,000 ק\"מ או 4 שנים, ואחר כך בכל טיפול"
+    },
+    {
+      "item": "timing_belt",
+      "action": "replace",
+      "every_km": 180000,
+      "every_months": 120,
+      "note": "1.6 HDi בתנאים קשים (בתנאים רגילים 240,000 ק\"מ או 10 שנים)"
+    },
+    {
+      "item": "exhaust",
+      "action": "inspect",
+      "every_km": 120000,
+      "note": "מסנן חלקיקים: מילוי מיכל התוסף למפלס המרבי או החלפת שקית התוסף (ג'אמפי 1.6)"
+    }
+  ],
+  "specs": {
+    "timing": "רצועת תזמון",
+    "_note": "נבדק מול חוברת השירות והאחריות העברית של סיטרואן (לובינסקי, 2009)"
+  },
+  "sources": [
+    {
+      "url": "https://web.archive.org/web/20120509205507/http://citroen.co.il/_Uploads/dbsAttachedFiles/CitroenWarrantyBook.pdf",
+      "kind": "importer",
+      "note": "חוברת השירות והאחריות העברית של סיטרואן (לובינסקי, מהדורה 08/2009, KGCIT0920) מאתר citroen.co.il, עותק web.archive.org מ-9.5.2012. מרווחים לפי סוג מנוע עמ' 11 (PDF 13), פעולות קבועות בכל טיפול עמ' 12 (PDF 14), פעולות נוספות לתנאים קשים עמ' 17-18 (PDF 19-20), רצועת תזמון ומסנן חלקיקים עמ' 19 (PDF 21)"
+    }
+  ],
+  "notes": "התוכנית לפי חוברת השירות והאחריות העברית של לובינסקי לסיטרואן (מהדורת 2009). החוברת מוציאה את ג'אמפי 1.6 HDi מקבוצת ה-HDi ושמה אותו במרווחי \"דגמים אחרים\". החוברת נותנת שתי תוכניות: רגילה ותנאים קשים. רשימת התנאים הקשים כוללת שימוש מתמשך בארצות חמות (מעל 30 מעלות לעיתים קרובות) ובאזורים מאובקים, וכן נסיעות קצרות ושימוש עירוני, ולכן נבחרה עמודת התנאים הקשים. בכל טיפול (20,000 ק\"מ או שנה): שמן ומסנן שמן, מסנן תא נוסעים, ניקוז מים ממסנן הסולר ובדיקות הבטיחות והנוזלים; כל 40,000 ק\"מ גם מסנן סולר ומסנן אוויר. נוזל בלמים כל שנתיים; נוזל הקירור נבדק מ-120,000 ק\"מ או 4 שנים בכל טיפול. רצועת תזמון כל 180,000 ק\"מ או 10 שנים. מסנן חלקיקים: מילוי התוסף או החלפת שקית התוסף כל 120,000 ק\"מ ובדיקת המסנן החל מ-180,000 ק\"מ (לפי האבזור). ברישוי: JUMPY HDI עם מנוע 9HU."
+}
