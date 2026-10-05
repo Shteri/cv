@@ -368,3 +368,16 @@ label.btn { cursor: pointer; }
 
 /* garage book: wrapping button rows on the profile screen (feature session) */
 .row.wrap { flex-wrap: wrap; }
+
+/* What can be tapped looks tappable, and what cannot does not:
+   text actions are in the accent colour (with an arrow when they lead somewhere, + when they add),
+   counters that open a screen react to a press, summary counters and price figures are flat. */
+.btn.ghost.bare, .btn.ghost.go, .btn.ghost.add { color: var(--accent-text); font-weight: 600; gap: 4px; }
+.card.ink .btn.ghost.go { color: var(--accent); }
+.btn.go::after { content: "‹"; font-size: 1.15em; line-height: 1; }
+.btn.add::before { content: "+"; font-size: 1.15em; line-height: 1; }
+.btn.ghost.danger { color: var(--crit); }
+.counts.tap { cursor: pointer; border-radius: 18px; }
+.counts.tap:active .c, .counts.tap:focus-visible .c { background: var(--accent-soft); }
+.counts.flat .c, .card .counts.flat .c { background: none; border: 0; box-shadow: none; padding-block: 4px; }
+.price .p, .card.ink .price .p { background: none; border-radius: 0; border-inline-start: 3px solid var(--line); padding: 2px 12px; }

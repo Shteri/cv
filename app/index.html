@@ -120,7 +120,7 @@
     <div class="stack g-4"><h1>מצב הרכב</h1><p class="muted small" id="car-sub"></p></div>
     <div id="car-recalls"></div>
     <div id="car-start"></div>
-    <div class="counts" id="car-counts"></div>
+    <div class="counts flat" id="car-counts"></div>
     <div class="card stack g-8" id="car-quote-card" hidden>
       <h3>קיבלת הצעת מחיר מהמוסך?</h3>
       <p class="small muted">כתוב מה הציעו ובכמה. נבדוק מול ספר היבואן, מה הוחלף אצלך, ומה נהגים אחרים שילמו.</p>
@@ -223,7 +223,7 @@
       </div>
     </div>
     <div class="card stack" id="me-sources"></div>
-    <button class="btn ghost" id="me-reset">איפוס האפליקציה</button>
+    <button class="btn ghost danger" id="me-reset">איפוס האפליקציה</button>
   </section>
 
   </main>
@@ -907,13 +907,13 @@
   const wireStart = root => { const b = root && $("[data-start=log]", root); if (b) b.onclick = () => openLog(); };
   const carSummaryHTML = car => { const rows = carState(car); const c = k => rows.filter(r => r.status === k).length; const unknown = c("unknown"), known = rows.length - unknown; const attn = rows.filter(r => r.status === "overdue" || r.status === "soon"); if (known === 0) return startCardHTML(); return `
     <div class="card stack g-12">
-      <div class="row between"><h3>מצב הרכב</h3><button class="btn ghost fit bare" id="to-car">לפרטים</button></div>
-      <div class="counts"><div class="c overdue${c("overdue") ? " hot" : ""}"><b class="num">${c("overdue")}</b><span>באיחור</span></div><div class="c soon"><b class="num">${c("soon")}</b><span>מתקרב</span></div><div class="c ok"><b class="num">${rows.filter(r => r.status === "ok" || r.status === "done").length}</b><span>בסדר</span></div><div class="c"><b class="num">${unknown}</b><span>לא ידוע</span></div></div>
+      <div class="row between"><h3>מצב הרכב</h3><button class="btn ghost fit bare go" id="to-car">לפרטים</button></div>
+      <div class="counts tap" role="button" tabindex="0" id="to-car-counts" aria-label="לפרטי מצב הרכב"><div class="c overdue${c("overdue") ? " hot" : ""}"><b class="num">${c("overdue")}</b><span>באיחור</span></div><div class="c soon"><b class="num">${c("soon")}</b><span>מתקרב</span></div><div class="c ok"><b class="num">${rows.filter(r => r.status === "ok" || r.status === "done").length}</b><span>בסדר</span></div><div class="c"><b class="num">${unknown}</b><span>לא ידוע</span></div></div>
       ${attn.length ? `<div class="attn">${attn.slice(0, 3).map(stateRow).join("")}</div>` : ""}
     </div>`; };
 
   const historyHTML = car => { const h = (car.history || []).filter(e => !isStateRec(e) || (e.items || []).length).sort((a, b) => b.km - a.km || b.at - a.at); return `
-    <div class="card stack"><div class="row between"><h3>כל הרשומות</h3><button class="btn ghost fit bare" id="car-add-repair">הוסף תיקון</button></div>
+    <div class="card stack"><div class="row between"><h3>כל הרשומות</h3><button class="btn ghost fit bare add" id="car-add-repair">הוסף תיקון</button></div>
       ${h.length ? "" : `<p class="small muted">עוד אין רשומות.</p>`}
       ${h.map(e => isStateRec(e) ? `<div class="hist tap" role="button" tabindex="0" data-item="${e.items[0]}"><div><b>${itemName(e.items[0])}: עדכנת</b> <span class="small muted num">· הוחלף ב-${fmt(e.km)} ק"מ${e.date ? " · " + monthName(new Date(e.date + "-01")) : ""}</span></div></div>` : `<div class="hist">
         <div><b class="num">${e.kind === "service" || !e.kind ? "טיפול " + fmt(e.svcKm || e.km) : e.text || kindName[e.kind]}</b> <span class="small muted num">· ${fmt(e.km)} ק"מ${e.date ? " · " + monthName(new Date(e.date + "-01")) : ""}</span>${e.source === "garage" ? ` <span class="tag ver" title="נרשם על ידי המוסך ואושר על ידך">מאומת</span>` : ""}<br>
@@ -995,7 +995,7 @@
         <div class="stack g-6">
           <p class="small"><b>מה כולל טיפול ${fmt(n.svc.km)}:</b></p>
           ${itemsHTML(planItems(n.svc, n.plan))}
-          <button class="btn ghost fit self-start flush-start" data-go="tl">לכל הפריטים והבדיקות</button>
+          <button class="btn ghost fit self-start flush-start go" data-go="tl">לכל הפריטים והבדיקות</button>
         </div>
         ${priceHTML(n.s, n.svc)}
         <button class="btn primary" id="to-garage">מה לוודא במוסך</button>
@@ -1006,6 +1006,7 @@
       ${specsHTML(n.s)}`;
     $("#upd-km").onclick = openSheet;
     const tc = $("#to-car"); if (tc) tc.onclick = () => show("s-car");
+    const tcc = $("#to-car-counts"); if (tcc) { tcc.onclick = () => show("s-car"); tcc.onkeydown = e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); show("s-car"); } }; }
     wireStart($("#home-body"));
     const tg = $("#to-garages"); if (tg) tg.onclick = () => { renderGarages(); show("s-garages"); if (!S.city) openCitySheet(); };
     const gp = $("#gr-pick"); if (gp) gp.onclick = () => { renderGarages(); show("s-garages"); openCitySheet(); };
@@ -1149,7 +1150,7 @@
   const garagesEmptyHTML = () => `<div class="empty"><b>אין עדיין המלצות לדגם שלך</b><p class="small muted">אחרי הטיפול הבא, רשום איפה היית. נהגים עם אותו דגם יראו את זה.</p></div>`;
   const garagesHomeHTML = car => { const s = schedById(car.schedule), comm = garagesFor(car); const city = S.city; const dir = city && GD ? cityGarages(car, city) : null; return `
     <div class="card stack g-8">
-      <div class="row between"><p class="eyebrow">מוסכים לרכב שלך</p><button class="btn ghost fit bare" id="to-garages">${city ? "לכולם" : "בחר עיר"}</button></div>
+      <div class="row between"><p class="eyebrow">מוסכים לרכב שלך</p><button class="btn ghost fit bare go" id="to-garages">${city ? "לכולם" : "בחר עיר"}</button></div>
       ${comm.length ? `<div>${(dir ? dir.rows.filter(r => r.comm).slice(0, 3).map(r => garageRow(r.g, r.comm, s, r.prof)) : comm.slice(0, 3).map(g => commOnlyRow(g, s))).join("")}</div>`
         : dir && dir.rows.length ? `<p class="small muted">${dir.rows.length} מוסכים מורשים ב${city}. עדיין אין המלצות לדגם שלך.</p><div>${dir.rows.filter(r => r.g.cats.includes("mech") || r.prof).slice(0, 3).map(r => garageRow(r.g, null, s, r.prof)).join("")}</div>`
         : `<p class="small muted">מוסכים מורשים ליד הבית, עם המלצות של נהגים עם אותו דגם.</p><button class="btn secondary compact" id="gr-pick">מצא מוסך ליד הבית</button>`}
