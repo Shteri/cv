@@ -1,0 +1,1754 @@
+{
+  "id": "toyota-land-cruiser-2003-2008-4.0",
+  "make": "Toyota",
+  "make_he": "טויוטה",
+  "model": "Land Cruiser",
+  "model_he": "לנד קרוזר",
+  "generation": "J120 (Prado) petrol",
+  "years": [
+    2003,
+    2008
+  ],
+  "engines": [
+    "4.0 V6 (1GR-FE)"
+  ],
+  "fuel": "petrol",
+  "importer": "יוניון מוטורס",
+  "interval": {
+    "km": 10000,
+    "months": 12,
+    "note": "לפי הגיליון: כל 10,000 ק\"מ; לכל פריט מצוין בגיליון גם מרווח בחודשים (שמן 12, בלמים ומתלים 6)"
+  },
+  "cycle_km": 160000,
+  "services": [
+    {
+      "km": 10000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "inspect",
+          "note": "הגיליון מסמן I (אבחון) בכל 10,000 ק\"מ או 12 חודשים; ההחלפה לפי מצב השמן"
+        },
+        {
+          "item": "oil_filter",
+          "action": "inspect",
+          "note": "כמו שמן המנוע: I בכל 10,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "גלי הינע קדמי ואחורי: גירוז (L בגיליון) והידוק ברגים (T) בכל טיפול"
+        },
+        {
+          "item": "propshaft",
+          "action": "adjust",
+          "note": "הידוק ברגי גלי ההינע"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלים, מחברים כדוריים ומגיני אבק"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "clean"
+        }
+      ]
+    },
+    {
+      "km": 20000,
+      "items": [
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "בגיליון: או 24 חודשים"
+        },
+        {
+          "item": "engine_oil",
+          "action": "inspect",
+          "note": "הגיליון מסמן I (אבחון) בכל 10,000 ק\"מ או 12 חודשים; ההחלפה לפי מצב השמן"
+        },
+        {
+          "item": "oil_filter",
+          "action": "inspect",
+          "note": "כמו שמן המנוע: I בכל 10,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect",
+          "note": "תופים ורפידות כולל בלם החניה"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "גלי הינע קדמי ואחורי: גירוז (L בגיליון) והידוק ברגים (T) בכל טיפול"
+        },
+        {
+          "item": "propshaft",
+          "action": "adjust",
+          "note": "הידוק ברגי גלי ההינע"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלים, מחברים כדוריים ומגיני אבק"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "קדמי ואחורי"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "inspect",
+          "note": "הגיליון מסמן I (אבחון) בכל 10,000 ק\"מ או 12 חודשים; ההחלפה לפי מצב השמן"
+        },
+        {
+          "item": "oil_filter",
+          "action": "inspect",
+          "note": "כמו שמן המנוע: I בכל 10,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "גלי הינע קדמי ואחורי: גירוז (L בגיליון) והידוק ברגים (T) בכל טיפול"
+        },
+        {
+          "item": "propshaft",
+          "action": "adjust",
+          "note": "הידוק ברגי גלי ההינע"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלים, מחברים כדוריים ומגיני אבק"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "clean"
+        }
+      ]
+    },
+    {
+      "km": 40000,
+      "items": [
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "בגיליון: או 24 חודשים"
+        },
+        {
+          "item": "engine_oil",
+          "action": "inspect",
+          "note": "הגיליון מסמן I (אבחון) בכל 10,000 ק\"מ או 12 חודשים; ההחלפה לפי מצב השמן"
+        },
+        {
+          "item": "oil_filter",
+          "action": "inspect",
+          "note": "כמו שמן המנוע: I בכל 10,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect",
+          "note": "מסנן פחם; או 24 חודשים"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect",
+          "note": "תופים ורפידות כולל בלם החניה"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "גלי הינע קדמי ואחורי: גירוז (L בגיליון) והידוק ברגים (T) בכל טיפול"
+        },
+        {
+          "item": "propshaft",
+          "action": "adjust",
+          "note": "הידוק ברגי גלי ההינע"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלים, מחברים כדוריים ומגיני אבק"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "differential_oil",
+          "action": "replace",
+          "note": "קדמי ואחורי"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 50000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "inspect",
+          "note": "הגיליון מסמן I (אבחון) בכל 10,000 ק\"מ או 12 חודשים; ההחלפה לפי מצב השמן"
+        },
+        {
+          "item": "oil_filter",
+          "action": "inspect",
+          "note": "כמו שמן המנוע: I בכל 10,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "גלי הינע קדמי ואחורי: גירוז (L בגיליון) והידוק ברגים (T) בכל טיפול"
+        },
+        {
+          "item": "propshaft",
+          "action": "adjust",
+          "note": "הידוק ברגי גלי ההינע"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלים, מחברים כדוריים ומגיני אבק"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "clean"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "בגיליון: או 24 חודשים"
+        },
+        {
+          "item": "engine_oil",
+          "action": "inspect",
+          "note": "הגיליון מסמן I (אבחון) בכל 10,000 ק\"מ או 12 חודשים; ההחלפה לפי מצב השמן"
+        },
+        {
+          "item": "oil_filter",
+          "action": "inspect",
+          "note": "כמו שמן המנוע: I בכל 10,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect",
+          "note": "תופים ורפידות כולל בלם החניה"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "גלי הינע קדמי ואחורי: גירוז (L בגיליון) והידוק ברגים (T) בכל טיפול"
+        },
+        {
+          "item": "propshaft",
+          "action": "adjust",
+          "note": "הידוק ברגי גלי ההינע"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלים, מחברים כדוריים ומגיני אבק"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "קדמי ואחורי"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 70000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "inspect",
+          "note": "הגיליון מסמן I (אבחון) בכל 10,000 ק\"מ או 12 חודשים; ההחלפה לפי מצב השמן"
+        },
+        {
+          "item": "oil_filter",
+          "action": "inspect",
+          "note": "כמו שמן המנוע: I בכל 10,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "גלי הינע קדמי ואחורי: גירוז (L בגיליון) והידוק ברגים (T) בכל טיפול"
+        },
+        {
+          "item": "propshaft",
+          "action": "adjust",
+          "note": "הידוק ברגי גלי ההינע"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלים, מחברים כדוריים ומגיני אבק"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "clean"
+        }
+      ]
+    },
+    {
+      "km": 80000,
+      "items": [
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "בגיליון: או 24 חודשים"
+        },
+        {
+          "item": "engine_oil",
+          "action": "inspect",
+          "note": "הגיליון מסמן I (אבחון) בכל 10,000 ק\"מ או 12 חודשים; ההחלפה לפי מצב השמן"
+        },
+        {
+          "item": "oil_filter",
+          "action": "inspect",
+          "note": "כמו שמן המנוע: I בכל 10,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "אבחון ראשון ב-80,000 ק\"מ (או 48 חודשים) ואז כל 20,000 ק\"מ (או 12 חודשים)"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect",
+          "note": "צינורות ומחברי מצנן שמן המנוע: אבחון ראשון ב-80,000 ק\"מ ואז כל 20,000"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace",
+          "note": "כולל המסנן שבמיכל; או 96 חודשים"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "כולל מכסה מיכל הדלק: אבחון ראשון ב-80,000 ק\"מ ואז כל 20,000"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect",
+          "note": "מסנן פחם; או 24 חודשים"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect",
+          "note": "תופים ורפידות כולל בלם החניה"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "גלי הינע קדמי ואחורי: גירוז (L בגיליון) והידוק ברגים (T) בכל טיפול"
+        },
+        {
+          "item": "propshaft",
+          "action": "adjust",
+          "note": "הידוק ברגי גלי ההינע"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלים, מחברים כדוריים ומגיני אבק"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "differential_oil",
+          "action": "replace",
+          "note": "קדמי ואחורי"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "inspect",
+          "note": "הגיליון מסמן I (אבחון) בכל 10,000 ק\"מ או 12 חודשים; ההחלפה לפי מצב השמן"
+        },
+        {
+          "item": "oil_filter",
+          "action": "inspect",
+          "note": "כמו שמן המנוע: I בכל 10,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "גלי הינע קדמי ואחורי: גירוז (L בגיליון) והידוק ברגים (T) בכל טיפול"
+        },
+        {
+          "item": "propshaft",
+          "action": "adjust",
+          "note": "הידוק ברגי גלי ההינע"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלים, מחברים כדוריים ומגיני אבק"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "clean"
+        }
+      ]
+    },
+    {
+      "km": 100000,
+      "items": [
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "בגיליון: או 24 חודשים"
+        },
+        {
+          "item": "engine_oil",
+          "action": "inspect",
+          "note": "הגיליון מסמן I (אבחון) בכל 10,000 ק\"מ או 12 חודשים; ההחלפה לפי מצב השמן"
+        },
+        {
+          "item": "oil_filter",
+          "action": "inspect",
+          "note": "כמו שמן המנוע: I בכל 10,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "אבחון ראשון ב-80,000 ק\"מ (או 48 חודשים) ואז כל 20,000 ק\"מ (או 12 חודשים)"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect",
+          "note": "צינורות ומחברי מצנן שמן המנוע: אבחון ראשון ב-80,000 ק\"מ ואז כל 20,000"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "כולל מכסה מיכל הדלק: אבחון ראשון ב-80,000 ק\"מ ואז כל 20,000"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect",
+          "note": "תופים ורפידות כולל בלם החניה"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "גלי הינע קדמי ואחורי: גירוז (L בגיליון) והידוק ברגים (T) בכל טיפול"
+        },
+        {
+          "item": "propshaft",
+          "action": "adjust",
+          "note": "הידוק ברגי גלי ההינע"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלים, מחברים כדוריים ומגיני אבק"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "קדמי ואחורי"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 110000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "inspect",
+          "note": "הגיליון מסמן I (אבחון) בכל 10,000 ק\"מ או 12 חודשים; ההחלפה לפי מצב השמן"
+        },
+        {
+          "item": "oil_filter",
+          "action": "inspect",
+          "note": "כמו שמן המנוע: I בכל 10,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "גלי הינע קדמי ואחורי: גירוז (L בגיליון) והידוק ברגים (T) בכל טיפול"
+        },
+        {
+          "item": "propshaft",
+          "action": "adjust",
+          "note": "הידוק ברגי גלי ההינע"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלים, מחברים כדוריים ומגיני אבק"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "clean"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "בגיליון: או 24 חודשים"
+        },
+        {
+          "item": "engine_oil",
+          "action": "inspect",
+          "note": "הגיליון מסמן I (אבחון) בכל 10,000 ק\"מ או 12 חודשים; ההחלפה לפי מצב השמן"
+        },
+        {
+          "item": "oil_filter",
+          "action": "inspect",
+          "note": "כמו שמן המנוע: I בכל 10,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "אבחון ראשון ב-80,000 ק\"מ (או 48 חודשים) ואז כל 20,000 ק\"מ (או 12 חודשים)"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect",
+          "note": "צינורות ומחברי מצנן שמן המנוע: אבחון ראשון ב-80,000 ק\"מ ואז כל 20,000"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "כולל מכסה מיכל הדלק: אבחון ראשון ב-80,000 ק\"מ ואז כל 20,000"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect",
+          "note": "מסנן פחם; או 24 חודשים"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect",
+          "note": "תופים ורפידות כולל בלם החניה"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "גלי הינע קדמי ואחורי: גירוז (L בגיליון) והידוק ברגים (T) בכל טיפול"
+        },
+        {
+          "item": "propshaft",
+          "action": "adjust",
+          "note": "הידוק ברגי גלי ההינע"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלים, מחברים כדוריים ומגיני אבק"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "differential_oil",
+          "action": "replace",
+          "note": "קדמי ואחורי"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 130000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "inspect",
+          "note": "הגיליון מסמן I (אבחון) בכל 10,000 ק\"מ או 12 חודשים; ההחלפה לפי מצב השמן"
+        },
+        {
+          "item": "oil_filter",
+          "action": "inspect",
+          "note": "כמו שמן המנוע: I בכל 10,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "גלי הינע קדמי ואחורי: גירוז (L בגיליון) והידוק ברגים (T) בכל טיפול"
+        },
+        {
+          "item": "propshaft",
+          "action": "adjust",
+          "note": "הידוק ברגי גלי ההינע"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלים, מחברים כדוריים ומגיני אבק"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "clean"
+        }
+      ]
+    },
+    {
+      "km": 140000,
+      "items": [
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "בגיליון: או 24 חודשים"
+        },
+        {
+          "item": "engine_oil",
+          "action": "inspect",
+          "note": "הגיליון מסמן I (אבחון) בכל 10,000 ק\"מ או 12 חודשים; ההחלפה לפי מצב השמן"
+        },
+        {
+          "item": "oil_filter",
+          "action": "inspect",
+          "note": "כמו שמן המנוע: I בכל 10,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "אבחון ראשון ב-80,000 ק\"מ (או 48 חודשים) ואז כל 20,000 ק\"מ (או 12 חודשים)"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect",
+          "note": "צינורות ומחברי מצנן שמן המנוע: אבחון ראשון ב-80,000 ק\"מ ואז כל 20,000"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "כולל מכסה מיכל הדלק: אבחון ראשון ב-80,000 ק\"מ ואז כל 20,000"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect",
+          "note": "תופים ורפידות כולל בלם החניה"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "גלי הינע קדמי ואחורי: גירוז (L בגיליון) והידוק ברגים (T) בכל טיפול"
+        },
+        {
+          "item": "propshaft",
+          "action": "adjust",
+          "note": "הידוק ברגי גלי ההינע"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלים, מחברים כדוריים ומגיני אבק"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "קדמי ואחורי"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 150000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "inspect",
+          "note": "הגיליון מסמן I (אבחון) בכל 10,000 ק\"מ או 12 חודשים; ההחלפה לפי מצב השמן"
+        },
+        {
+          "item": "oil_filter",
+          "action": "inspect",
+          "note": "כמו שמן המנוע: I בכל 10,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "גלי הינע קדמי ואחורי: גירוז (L בגיליון) והידוק ברגים (T) בכל טיפול"
+        },
+        {
+          "item": "propshaft",
+          "action": "adjust",
+          "note": "הידוק ברגי גלי ההינע"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלים, מחברים כדוריים ומגיני אבק"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "clean"
+        }
+      ]
+    },
+    {
+      "km": 160000,
+      "items": [
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "בגיליון: או 24 חודשים"
+        },
+        {
+          "item": "engine_oil",
+          "action": "inspect",
+          "note": "הגיליון מסמן I (אבחון) בכל 10,000 ק\"מ או 12 חודשים; ההחלפה לפי מצב השמן"
+        },
+        {
+          "item": "oil_filter",
+          "action": "inspect",
+          "note": "כמו שמן המנוע: I בכל 10,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "אבחון ראשון ב-80,000 ק\"מ (או 48 חודשים) ואז כל 20,000 ק\"מ (או 12 חודשים)"
+        },
+        {
+          "item": "coolant",
+          "action": "replace"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect",
+          "note": "צינורות ומחברי מצנן שמן המנוע: אבחון ראשון ב-80,000 ק\"מ ואז כל 20,000"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace",
+          "note": "כולל המסנן שבמיכל; או 96 חודשים"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "כולל מכסה מיכל הדלק: אבחון ראשון ב-80,000 ק\"מ ואז כל 20,000"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect",
+          "note": "מסנן פחם; או 24 חודשים"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect",
+          "note": "תופים ורפידות כולל בלם החניה"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "גלי הינע קדמי ואחורי: גירוז (L בגיליון) והידוק ברגים (T) בכל טיפול"
+        },
+        {
+          "item": "propshaft",
+          "action": "adjust",
+          "note": "הידוק ברגי גלי ההינע"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלים, מחברים כדוריים ומגיני אבק"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "differential_oil",
+          "action": "replace",
+          "note": "קדמי ואחורי"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "inspect"
+        },
+        {
+          "item": "wipers",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "spark_plugs",
+      "action": "replace",
+      "every_km": 100000,
+      "note": "בגיליון: החלפה כל 100,000 ק\"מ"
+    },
+    {
+      "item": "coolant",
+      "action": "replace",
+      "first_km": 160000,
+      "then_every_km": 80000,
+      "note": "נוזל קירור מנוע SLLC: החלפה ראשונה ב-160,000 ואז כל 80,000"
+    },
+    {
+      "item": "cooling_system",
+      "action": "inspect",
+      "first_km": 80000,
+      "first_months": 48,
+      "then_every_km": 20000,
+      "then_every_months": 12,
+      "note": "גם צינורות מצנן השמן וצנרת הדלק באותו מרווח"
+    }
+  ],
+  "time_based": [],
+  "specs": {
+    "engine_oil": "API SL/SM/SN (לפי טבלת הנוזלים בגיליון)",
+    "oil_capacity": "6.1 ליטר (לפי הגיליון)",
+    "coolant": "Toyota SLLC, 10.5 ליטר (לפי הגיליון)",
+    "brake_fluid": "DOT 3 (SAE J1703 / FMVSS 116), לפי הגיליון",
+    "fuel": "בנזין 95 אוקטן",
+    "timing": "שרשרת, ללא החלפה מתוכננת",
+    "_note": "שמנים ונוזלים לפי טבלת הנוזלים בגיליון: גיר אוטומטי Toyota ATF WS, תיבת העברה LF 75W (1.4 ליטר), דיפרנציאלים API GL-5 75W-85, הגה כוח ATF Dexron III"
+  },
+  "sources": [
+    {
+      "url": "https://books.union-motors.co.il/app/api/files/599/download",
+      "kind": "importer",
+      "note": "לוח אחזקה של יוניון מוטורס 'לנד קרוזר בנזין 2009', מנוע 1GR-FE (מעודכן 20.02.2017): 16 עמודות של 10,000 ק\"מ עד 160,000 וטבלת נוזלים; נבדק מול תמונת הגיליון (קואורדינטות הטקסט) — גיליון של הדור הבא (J150) עם אותו מנוע; לא גיליון ייעודי ל-J120"
+    },
+    {
+      "url": "https://www.toyota.co.il/owners/parts-and-accessories/owners-manuals",
+      "kind": "importer",
+      "note": "מרכז ספרות הרכב של טויוטה ישראל; המסמכים נשלפים מ-books.union-motors.co.il (דגם Land Cruiser, id 11)"
+    }
+  ],
+  "status": "draft",
+  "notes": "טיוטה: ליוניון מוטורס אין גיליון לדור J120 בנזין (ה-API מחזיר ללנד קרוזר רק גיליונות מ-2009). הלוח לקוח מגיליון הלנד קרוזר J150 בנזין עם אותו מנוע 1GR-FE. לפי גיליון האחזקה של יוניון מוטורס ל-1GR-FE: 16 עמודות של 10,000 ק\"מ. בגיליון שמן ומסנן שמן מסומנים I (אבחון) בכל 10,000 ק\"מ או 12 חודשים, מצתים מוחלפים כל 100,000, מסנן אוויר נבדק כל 20,000 ומוחלף כל 40,000 (בתנאים קשים בדיקה כל 10,000), מערכת הקירור, צינורות מצנן השמן וצנרת הדלק נבדקים לראשונה ב-80,000 ואז כל 20,000, נוזל קירור מוחלף ב-160,000 ואז כל 80,000. שורות 'מחמירה' (שטח/אבק): בלמים, הגה, מתלים וצירים כל 5,000 ק\"מ או 3 חודשים, שמן גיר אוטומטי החלפה כל 80,000, שמן תיבת העברה החלפה כל 40,000, שמן דיפרנציאלים החלפה כל 20,000, הידוק ברגי מתלים ושלדה בכל טיפול."
+}

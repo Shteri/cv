@@ -1,0 +1,540 @@
+{
+  "id": "suzuki-grand-vitara-1998-2005-1.6-2.0",
+  "make": "Suzuki",
+  "make_he": "סוזוקי",
+  "model": "Grand Vitara",
+  "model_he": "גרנד ויטרה",
+  "generation": "FT/GT (SQ416 / SQ420)",
+  "years": [
+    1998,
+    2006
+  ],
+  "engines": [
+    "1.6 (G16B)",
+    "2.0 (J20A)"
+  ],
+  "fuel": "petrol",
+  "importer": "מכשירי תנועה",
+  "interval": {
+    "km": 15000,
+    "months": 12,
+    "note": "לפי ספר השירות של סוזוקי: 15,000 ק\"מ או 12 חודשים; במנוע G16 בלי חיישן חמצן או בגרסאות SE/SF שמן כל 10,000 ק\"מ או 8 חודשים"
+  },
+  "cycle_km": 90000,
+  "services": [
+    {
+      "km": 15000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "ידית וכבל בלם החניה: בדיקה ב-15,000 הראשונים בלבד"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect",
+          "note": "גיר ידני: בדיקה ב-15,000 הראשונים בלבד, החלפה ב-45,000 וב-90,000"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "differential_oil",
+          "action": "replace",
+          "note": "החלפה או בדיקה ב-15,000 הראשונים, אחר כך בדיקה"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "valve_clearance",
+          "action": "inspect",
+          "note": "מנוע G16 בלבד"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "clutch",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי: בדיקת מפלס; צינור הנוזל מוחלף ב-60,000; החלפת נוזל כל 165,000"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect",
+          "note": "מסנן מזגן (אם קיים)"
+        }
+      ]
+    },
+    {
+      "km": 45000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "רצועה שטוחה (V-rib); ברצועת V: בדיקה ב-15/45/75 אלף והחלפה ב-30/60/90 אלף"
+        },
+        {
+          "item": "coolant",
+          "action": "replace"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "מצתי ניקל ברכב עם חיישן חמצן (HO2S); אירידיום: כל 105,000 ק\"מ"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "גלי הינע קדמיים ואחוריים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "replace",
+          "note": "גיר ידני: בדיקה ב-15,000 הראשונים בלבד, החלפה ב-45,000 וב-90,000"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "החלפה או בדיקה ב-15,000 הראשונים, אחר כך בדיקה"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מסנן מזגן (אם קיים)"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "בדיקת מיכל הדלק"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect",
+          "note": "צינורות אוורור בית הארכובה - ברכב ללא חיישן חמצן"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "valve_clearance",
+          "action": "inspect",
+          "note": "מנוע G16 בלבד"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "clutch",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי: בדיקת מפלס; צינור הנוזל מוחלף ב-60,000; החלפת נוזל כל 165,000"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 75000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "החלפה או בדיקה ב-15,000 הראשונים, אחר כך בדיקה"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect",
+          "note": "מסנן מזגן (אם קיים)"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "replace",
+          "note": "רצועה שטוחה (V-rib); ברצועת V: בדיקה ב-15/45/75 אלף והחלפה ב-30/60/90 אלף"
+        },
+        {
+          "item": "valve_clearance",
+          "action": "inspect",
+          "note": "מנוע G16 בלבד"
+        },
+        {
+          "item": "coolant",
+          "action": "replace"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "מצתי ניקל ברכב עם חיישן חמצן (HO2S); אירידיום: כל 105,000 ק\"מ"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "כולל בדיקת מיכל הדלק"
+        },
+        {
+          "item": "pcv_valve",
+          "action": "inspect"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect"
+        },
+        {
+          "item": "clutch",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "גלי הינע קדמיים ואחוריים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "replace",
+          "note": "גיר ידני: בדיקה ב-15,000 הראשונים בלבד, החלפה ב-45,000 וב-90,000"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי: בדיקת מפלס; צינור הנוזל מוחלף ב-60,000; החלפת נוזל כל 165,000"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מסנן מזגן (אם קיים)"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect",
+          "note": "צינורות אוורור בית הארכובה - ברכב ללא חיישן חמצן"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "timing_belt",
+      "action": "replace",
+      "every_km": 100000,
+      "note": "רצועת תזמון - מנוע G16 בלבד: כל 100,000 ק\"מ (מותר להחליף כבר ב-90,000)"
+    },
+    {
+      "item": "fuel_filter",
+      "action": "replace",
+      "every_km": 105000,
+      "note": "מסנן דלק: כל 105,000 ק\"מ"
+    },
+    {
+      "item": "transmission_oil",
+      "action": "replace",
+      "every_km": 165000,
+      "note": "נוזל גיר אוטומטי: החלפה כל 165,000 ק\"מ"
+    },
+    {
+      "item": "spark_plugs",
+      "action": "replace",
+      "every_km": 105000,
+      "note": "חלופה: מצתי אירידיום ברכב עם חיישן חמצן - כל 105,000 ק\"מ"
+    }
+  ],
+  "time_based": [],
+  "specs": {
+    "fuel": "בנזין נטול עופרת",
+    "timing": "G16: רצועת תזמון כל 100,000 ק\"מ; J20: שרשרת",
+    "_note": "מצתים: ניקל BKR6E-11 / K20PR-U11; אירידיום IFR6E11 (G16), IFR5J11 (J20)"
+  },
+  "sources": [
+    {
+      "url": "https://www.manualslib.com/manual/1212471/Suzuki-Sq-416-420-625.html?page=29",
+      "kind": "manufacturer",
+      "note": "ספר השירות של סוזוקי לויטרה/גרנד ויטרה SQ416/SQ420/SQ625, פרק 0B, עמודי האתר 29-30: 'Maintenance schedule under normal driving conditions' עד 90,000 ק\"מ; נקרא מצילום העמוד"
+    }
+  ],
+  "status": "draft",
+  "notes": "טיוטה מספר השירות הבינלאומי של סוזוקי לגרנד ויטרה הדור הראשון (מנועי G16 ו-J20), לא מספר ישראלי. אחרי 90,000 ק\"מ חוזרים על אותו מחזור. רצועת תזמון (G16 בלבד) כל 100,000 ק\"מ; נוזל קירור ומסנן אוויר כל 45,000; נוזל בלמים כל 30,000; שמן גיר ידני ב-45,000 וב-90,000; שמן תיבת העברה ודיפרנציאל נבדקים כל 30,000 החל מ-15,000."
+}

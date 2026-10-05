@@ -1,0 +1,466 @@
+{
+  "id": "suzuki-liana-2002-2008-1.6",
+  "make": "Suzuki",
+  "make_he": "סוזוקי",
+  "model": "Liana",
+  "model_he": "ליאנה",
+  "generation": "RH416 (ER)",
+  "years": [
+    2002,
+    2008
+  ],
+  "engines": [
+    "1.6 (M16A)"
+  ],
+  "fuel": "petrol",
+  "importer": "מכשירי תנועה",
+  "interval": {
+    "km": 15000,
+    "months": 12,
+    "note": "לפי ספר השירות של סוזוקי לליאנה: 15,000 ק\"מ או 12 חודשים, המוקדם; בתנאים קשים שמן ומסנן כל 5,000 ק\"מ או 4 חודשים"
+  },
+  "cycle_km": 90000,
+  "services": [
+    {
+      "km": 15000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "ידית וכבל בלם החניה: בדיקה ב-15,000 הראשונים בלבד"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect",
+          "note": "גיר ידני: בדיקה ב-15,000 הראשונים בלבד, החלפה ב-45,000 וב-90,000"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "valve_clearance",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "clutch",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי: בדיקת מפלס; החלפה כל 165,000 ק\"מ"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 45000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "replace"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "מצתי ניקל ברכב עם חיישן חמצן (HO2S); מצתי אירידיום: כל 105,000 ק\"מ (long_interval)"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "replace",
+          "note": "גיר ידני: בדיקה ב-15,000 הראשונים בלבד, החלפה ב-45,000 וב-90,000"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "כולל בדיקת מיכל הדלק"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "valve_clearance",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "clutch",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי: בדיקת מפלס ובדיקת צינורות מצנן השמן"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 75000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "replace"
+        },
+        {
+          "item": "valve_clearance",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "replace"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "מצתי ניקל ברכב עם חיישן חמצן (HO2S); מצתי אירידיום: כל 105,000 ק\"מ (long_interval)"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "כולל בדיקת מיכל הדלק"
+        },
+        {
+          "item": "pcv_valve",
+          "action": "inspect"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "clutch",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "replace",
+          "note": "גיר ידני: בדיקה ב-15,000 הראשונים בלבד, החלפה ב-45,000 וב-90,000"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי: בדיקת מפלס; החלפה כל 165,000 ק\"מ"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "fuel_filter",
+      "action": "replace",
+      "every_km": 105000,
+      "note": "מסנן דלק: כל 105,000 ק\"מ"
+    },
+    {
+      "item": "spark_plugs",
+      "action": "replace",
+      "every_km": 105000,
+      "every_months": 84,
+      "note": "חלופה: מצתי אירידיום ברכב עם חיישן חמצן - כל 105,000 ק\"מ או 84 חודשים"
+    },
+    {
+      "item": "transmission_oil",
+      "action": "replace",
+      "every_km": 165000,
+      "note": "נוזל גיר אוטומטי: החלפה כל 165,000 ק\"מ"
+    }
+  ],
+  "time_based": [],
+  "specs": {
+    "fuel": "בנזין נטול עופרת",
+    "_note": "מצתים לפי הספר: ניקל NGK BKR6E-11 / DENSO K20PR-U11; אירידיום NGK IFR6E11 / IFR6J11"
+  },
+  "sources": [
+    {
+      "url": "https://www.manualslib.com/manual/1292260/Suzuki-Liana-Rh413.html?page=33",
+      "kind": "manufacturer",
+      "note": "ספר השירות של סוזוקי לליאנה (Liana RH413, קוד S3RH0A), פרק Maintenance and Lubrication, עמודי האתר 33-34: טבלת 'Normal Condition Schedule' עד 90,000 ק\"מ וטבלת תנאים קשים; נקרא מצילום העמוד"
+    },
+    {
+      "url": "https://www.manualslib.com/manual/1292254/Suzuki-Liana-Rh418.html",
+      "kind": "manufacturer",
+      "note": "מוסף ספר השירות (RH418) - נבדק התוכן בלבד"
+    }
+  ],
+  "status": "draft",
+  "notes": "טיוטה מספר השירות הבינלאומי של סוזוקי לליאנה, לא מספר ישראלי (לא נמצא ספר של היבואן). הטבלה של הספר משותפת לכל מנועי הליאנה ואינה תלויה במנוע. אחרי 90,000 ק\"מ חוזרים על אותו מחזור. נוזל קירור ומסנן אוויר מוחלפים כל 45,000, נוזל בלמים כל 30,000, רצועת אביזרים נבדקת ב-45,000 ומוחלפת ב-90,000, חופש שסתומים נבדק כל 30,000. בתנאי אבק: מסנן אוויר נבדק כל 2,500 ק\"מ ומוחלף כל 30,000. ברכבי 4x4 יש גם בדיקות שמן תיבת העברה ודיפרנציאל אחורי לפי הספר."
+}

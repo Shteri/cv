@@ -1,0 +1,437 @@
+{
+  "id": "suzuki-ignis-2001-2007-1.3",
+  "make": "Suzuki",
+  "make_he": "סוזוקי",
+  "model": "Ignis",
+  "model_he": "איגניס",
+  "generation": "FH (HT51S / RG413)",
+  "years": [
+    2001,
+    2007
+  ],
+  "engines": [
+    "1.3 (M13A)"
+  ],
+  "fuel": "petrol",
+  "importer": "מכשירי תנועה",
+  "interval": {
+    "km": 15000,
+    "months": 12,
+    "note": "לפי ספר השירות של סוזוקי לאיגניס: 15,000 ק\"מ או 12 חודשים, המוקדם"
+  },
+  "cycle_km": 90000,
+  "services": [
+    {
+      "km": 15000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "ידית וכבל בלם החניה: בדיקה ב-15,000 הראשונים בלבד"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect",
+          "note": "גיר ידני: בדיקה ב-15,000 הראשונים בלבד, החלפה ב-45,000 וב-90,000"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "valve_clearance",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "clutch",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי: בדיקת מפלס; החלפה כל 165,000 ק\"מ"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 45000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "replace"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "מצתי ניקל ברכב עם חיישן חמצן (HO2S); מצתי אירידיום: כל 105,000 ק\"מ (long_interval)"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "replace",
+          "note": "גיר ידני: בדיקה ב-15,000 הראשונים בלבד, החלפה ב-45,000 וב-90,000"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "בדיקת מיכל הדלק"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "valve_clearance",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "clutch",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי: בדיקת מפלס; החלפה כל 165,000 ק\"מ"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 75000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "replace"
+        },
+        {
+          "item": "valve_clearance",
+          "action": "inspect"
+        },
+        {
+          "item": "coolant",
+          "action": "replace"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "מצתי ניקל ברכב עם חיישן חמצן (HO2S); מצתי אירידיום: כל 105,000 ק\"מ (long_interval)"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "כולל בדיקת מיכל הדלק"
+        },
+        {
+          "item": "pcv_valve",
+          "action": "inspect"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "clutch",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "replace",
+          "note": "גיר ידני: בדיקה ב-15,000 הראשונים בלבד, החלפה ב-45,000 וב-90,000"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי: בדיקת מפלס; החלפה כל 165,000 ק\"מ"
+        },
+        {
+          "item": "door_hinges",
+          "action": "inspect"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "fuel_filter",
+      "action": "replace",
+      "every_km": 105000,
+      "note": "מסנן דלק: כל 105,000 ק\"מ"
+    },
+    {
+      "item": "spark_plugs",
+      "action": "replace",
+      "every_km": 105000,
+      "every_months": 84,
+      "note": "חלופה: מצתי אירידיום ברכב עם חיישן חמצן - כל 105,000 ק\"מ או 84 חודשים"
+    },
+    {
+      "item": "transmission_oil",
+      "action": "replace",
+      "every_km": 165000,
+      "note": "נוזל גיר אוטומטי: החלפה כל 165,000 ק\"מ"
+    }
+  ],
+  "time_based": [],
+  "specs": {
+    "fuel": "בנזין נטול עופרת",
+    "_note": "מצתים לפי הספר: ניקל NGK BKR6E-11 / DENSO K20PR-U11; אירידיום NGK IFR5E11"
+  },
+  "sources": [
+    {
+      "url": "https://www.manualslib.com/manual/1586259/Suzuki-Ignis.html?page=36",
+      "kind": "manufacturer",
+      "note": "ספר השירות של סוזוקי לאיגניס (פרק 0B Maintenance and Lubrication), עמודי האתר 36-37 (עמודי ספר 0B-2 עד 0B-3): טבלת תנאים רגילים עד 90,000 ק\"מ; נקרא מצילום העמוד"
+    }
+  ],
+  "status": "draft",
+  "notes": "טיוטה מספר השירות הבינלאומי של סוזוקי לאיגניס הדור הראשון, לא מספר ישראלי (לא נמצא ספר של היבואן). אחרי 90,000 ק\"מ חוזרים על אותו מחזור. נוזל קירור ומסנן אוויר מוחלפים כל 45,000, נוזל בלמים כל 30,000, רצועת אביזרים נבדקת ב-45,000 ומוחלפת ב-90,000, חופש שסתומים נבדק כל 30,000. ברכבי 4x4 יש גם בדיקות שמן תיבת העברה ודיפרנציאל אחורי לפי הספר."
+}

@@ -1,0 +1,1095 @@
+{
+  "id": "kia-carnival-2025-2026-1.6-hybrid",
+  "make": "Kia",
+  "make_he": "קיה",
+  "model": "Carnival Hybrid",
+  "model_he": "קרניבל היברידית",
+  "generation": "KA4 PE hybrid",
+  "years": [
+    2025,
+    2026
+  ],
+  "engines": [
+    "1.6 T-GDI HEV/PHEV (Smartstream G1.6, G4FT)"
+  ],
+  "fuel": "hybrid",
+  "importer": "טלקאר",
+  "interval": {
+    "km": 15000,
+    "months": 12,
+    "note": "לפי ספר היבואן: שמן ומסנן כל 15,000 ק\"מ או 12 חודשים; שאר הטבלה בעמודות של 30,000"
+  },
+  "cycle_km": 240000,
+  "services": [
+    {
+      "km": 15000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "hsg_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "intercooler_pipes",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "hsg_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "intercooler_pipes",
+          "action": "inspect"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect",
+          "note": "צינורות ואקום ואוורור בית הארכובה"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "הנעה כפולה"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרקים כדוריים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 45000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "hsg_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "intercooler_pipes",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "hsg_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "intercooler_pipes",
+          "action": "inspect"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect",
+          "note": "צינורות ואקום ואוורור בית הארכובה"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "הנעה כפולה"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_tank_air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect",
+          "note": "צינור אדים ומכסה מיכל הדלק"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "AWD"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect",
+          "note": "AWD"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרקים כדוריים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 75000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "hsg_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "intercooler_pipes",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "hsg_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "intercooler_pipes",
+          "action": "inspect"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect",
+          "note": "צינורות ואקום ואוורור בית הארכובה"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "הנעה כפולה"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרקים כדוריים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 105000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "hsg_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "intercooler_pipes",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "hsg_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "intercooler_pipes",
+          "action": "inspect"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect",
+          "note": "צינורות ואקום ואוורור בית הארכובה"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "הנעה כפולה"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_tank_air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect",
+          "note": "צינור אדים ומכסה מיכל הדלק"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "AWD"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect",
+          "note": "AWD"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרקים כדוריים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 135000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "hsg_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "intercooler_pipes",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 150000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "hsg_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "intercooler_pipes",
+          "action": "inspect"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect",
+          "note": "צינורות ואקום ואוורור בית הארכובה"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "הנעה כפולה"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרקים כדוריים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 165000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "hsg_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "intercooler_pipes",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 180000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "hsg_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "intercooler_pipes",
+          "action": "inspect"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect",
+          "note": "צינורות ואקום ואוורור בית הארכובה"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "הנעה כפולה"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_tank_air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect",
+          "note": "צינור אדים ומכסה מיכל הדלק"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "AWD"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect",
+          "note": "AWD"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרקים כדוריים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 195000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "hsg_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "intercooler_pipes",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 210000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "hsg_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "intercooler_pipes",
+          "action": "inspect"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect",
+          "note": "צינורות ואקום ואוורור בית הארכובה"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "הנעה כפולה"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרקים כדוריים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 225000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "hsg_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "intercooler_pipes",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 240000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "hsg_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "intercooler_pipes",
+          "action": "inspect"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect",
+          "note": "צינורות ואקום ואוורור בית הארכובה"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "הנעה כפולה"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_tank_air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect",
+          "note": "צינור אדים ומכסה מיכל הדלק"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "AWD"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect",
+          "note": "AWD"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרקים כדוריים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "coolant",
+      "action": "replace",
+      "first_km": 210000,
+      "first_months": 120,
+      "then_every_km": 30000,
+      "then_every_months": 24,
+      "note": "נוזל קירור של המנוע"
+    },
+    {
+      "item": "coolant",
+      "action": "replace",
+      "every_km": 60000,
+      "every_months": 36,
+      "note": "נוזל הקירור של המערכת ההיברידית (מעגל נפרד)"
+    },
+    {
+      "item": "hsg_belt",
+      "action": "replace",
+      "every_km": 105000,
+      "every_months": 84,
+      "note": "בדיקה כל 15,000 ק\"מ או 12 חודשים"
+    },
+    {
+      "item": "spark_plugs",
+      "action": "replace",
+      "every_km": 75000
+    },
+    {
+      "item": "ecall_battery",
+      "action": "replace",
+      "every_months": 36,
+      "note": "סוללת מערכת eCall"
+    }
+  ],
+  "time_based": [],
+  "sources": [
+    {
+      "url": "https://cdnmedia.kia-israel.co.il/www/cars-book/Sorento-MQ4-HEV-PHEV-2021.pdf",
+      "kind": "importer",
+      "note": "ספר הרכב העברי של קיה ישראל לסורנטו היברידי ופלאג-אין 2021, פרק 8 עמ' 11-13 (עמודי PDF 611-613): תכנית תחזוקה רגילה ותנאים קשים — מקור אח לקיה קרניבל ההיברידית (אותה פלטפורמה N3 ומנוע G4FT)"
+    }
+  ],
+  "status": "draft",
+  "notes": "טיוטה ממקור אח: לקרניבל ההיברידית (KA4 מתיחת פנים, 2025) לא נמצא ספר עברי באתר קיה ישראל (ספר הקרניבל הקיים הוא Carnival-KA4-2021 למנועי 3.5 ו-2.2 דיזל). הלוח הועתק מספר היבואן העברי של קיה סורנטו MQ4 היברידית - אותה פלטפורמה N3 ואותה מערכת היברידית 1.6 T-GDI (G4FT). הערות קובץ המקור: נבנה מטבלת התחזוקה בספר היבואן לסורנטו HEV/PHEV (אותו ספר לשתי הגרסאות). בכל 15,000: שמן ומסנן, בדיקת רצועת HSG, בדיקת צנרת המצנן הביני ובדיקת נוזל בלמים; בכל 30,000 נוזל הבלמים ומסנן המזגן מוחלפים ושאר פריטי הטבלה נבדקים. מסנן אוויר כל 60,000; מצתים כל 75,000; נוזל הקירור של המערכת ההיברידית כל 60,000 ק\"מ או 36 חודשים. בתנאים קשים: שמן כל 7,500 ק\"מ או 6 חודשים."
+}

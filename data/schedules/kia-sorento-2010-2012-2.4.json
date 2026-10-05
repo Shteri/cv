@@ -1,0 +1,908 @@
+{
+  "id": "kia-sorento-2010-2012-2.4",
+  "make": "Kia",
+  "make_he": "קיה",
+  "model": "Sorento",
+  "model_he": "סורנטו",
+  "generation": "XM",
+  "years": [
+    2010,
+    2012
+  ],
+  "engines": [
+    "2.4 (Theta II, G4KE)"
+  ],
+  "fuel": "petrol",
+  "importer": "טלקאר",
+  "interval": {
+    "km": 15000,
+    "months": 12,
+    "note": "לפי הספר הבינלאומי (מחוץ לאירופה, סין והמזרח התיכון): כל 15,000 ק\"מ או 12 חודשים; ב\"מזרח התיכון\" כהגדרת הספר כל 10,000"
+  },
+  "cycle_km": 120000,
+  "services": [
+    {
+      "km": 15000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect",
+          "note": "צינור ואקום ל-EGR ולגוף המצערת, אם קיים"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect",
+          "note": "נוזל וצינורות הגה כוח"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרקים כדוריים קדמיים"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "ברגים ואומים בשלדה ובמרכב"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "מנוע 2.4; במנוע 3.5 כל 150,000"
+        },
+        {
+          "item": "fuel_tank_air_filter",
+          "action": "inspect",
+          "note": "אם קיים"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect",
+          "note": "צינור ואקום ל-EGR ולגוף המצערת, אם קיים"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect",
+          "note": "נוזל וצינורות הגה כוח"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרקים כדוריים קדמיים"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "ברגים ואומים בשלדה ובמרכב"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "אם קיים"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 45000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect",
+          "note": "צינור ואקום ל-EGR ולגוף המצערת, אם קיים"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect",
+          "note": "נוזל וצינורות הגה כוח"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרקים כדוריים קדמיים"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "ברגים ואומים בשלדה ובמרכב"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "מנוע 2.4; במנוע 3.5 כל 150,000"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect",
+          "note": "צינור אדים ומכסה פתח הדלק"
+        },
+        {
+          "item": "fuel_tank_air_filter",
+          "action": "replace",
+          "note": "אם קיים"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect",
+          "note": "צינור ואקום ל-EGR ולגוף המצערת, אם קיים"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "בדיקה ראשונה ב-60,000 ואחר כך כל 30,000"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect",
+          "note": "נוזל וצינורות הגה כוח"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרקים כדוריים קדמיים"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "ברגים ואומים בשלדה ובמרכב"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect",
+          "note": "אם קיים"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect",
+          "note": "4WD"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "4WD"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "אם קיים"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 75000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect",
+          "note": "צינור ואקום ל-EGR ולגוף המצערת, אם קיים"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect",
+          "note": "נוזל וצינורות הגה כוח"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרקים כדוריים קדמיים"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "ברגים ואומים בשלדה ובמרכב"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "מנוע 2.4; במנוע 3.5 כל 150,000"
+        },
+        {
+          "item": "fuel_tank_air_filter",
+          "action": "inspect",
+          "note": "אם קיים"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect",
+          "note": "צינור ואקום ל-EGR ולגוף המצערת, אם קיים"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "בדיקה ראשונה ב-60,000 ואחר כך כל 30,000"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect",
+          "note": "נוזל וצינורות הגה כוח"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרקים כדוריים קדמיים"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "ברגים ואומים בשלדה ובמרכב"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "אם קיים"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 105000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect",
+          "note": "צינור ואקום ל-EGR ולגוף המצערת, אם קיים"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect",
+          "note": "נוזל וצינורות הגה כוח"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרקים כדוריים קדמיים"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "ברגים ואומים בשלדה ובמרכב"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "מנוע 2.4; במנוע 3.5 כל 150,000"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect",
+          "note": "צינור אדים ומכסה פתח הדלק"
+        },
+        {
+          "item": "fuel_tank_air_filter",
+          "action": "replace",
+          "note": "אם קיים"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect",
+          "note": "צינור ואקום ל-EGR ולגוף המצערת, אם קיים"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "בדיקה ראשונה ב-60,000 ואחר כך כל 30,000"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect",
+          "note": "נוזל וצינורות הגה כוח"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרקים כדוריים קדמיים"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "ברגים ואומים בשלדה ובמרכב"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect",
+          "note": "אם קיים"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect",
+          "note": "4WD"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "4WD"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "אם קיים"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "valve_clearance",
+      "action": "inspect",
+      "every_km": 90000,
+      "every_months": 48
+    },
+    {
+      "item": "coolant",
+      "action": "replace",
+      "first_km": 200000,
+      "first_months": 120,
+      "then_every_km": 40000,
+      "then_every_months": 24
+    },
+    {
+      "item": "transmission_oil",
+      "action": "replace",
+      "every_km": 100000,
+      "note": "בתנאים רגילים אין צורך בטיפול בגיר האוטומטי; בתנאי הפעלה קשים החלפה כל 100,000"
+    }
+  ],
+  "time_based": [],
+  "sources": [
+    {
+      "url": "https://www.manualslib.com/manual/3393691/Hyundai-Santa-Fe-Cm.html?page=306",
+      "kind": "manufacturer",
+      "note": "ספר בעלים סנטה פה CM (אנגלית, בינלאומי), פרק 7 עמ' 9-20 (עמודי manualslib 306-317): טבלאות בנזין ודיזל עם עמודות 'For Europe' / 'Except Europe' — מקור אח לקיה סורנטו XM 2.4 (אותה פלטפורמה ומנוע G4KE)"
+    }
+  ],
+  "status": "draft",
+  "notes": "טיוטה ממקור אח: ספר של סורנטו XM עם לוח בק\"מ לא נמצא (רק ספרים אמריקאיים במייל). הלוח הועתק מקובץ סנטה פה CM 2.4 - אותה פלטפורמה ואותו מנוע G4KE. הערות הקובץ המקורי: הספר הישראלי של סנטה פה CM לא נמצא (בספריית כלמוביל יש רק 2013 ואילך). נלקחו עמודות \"מחוץ לאירופה\" מהטבלה הבינלאומית של מנוע הבנזין. מצתים (2.4) כל 30,000; מסנן דלק ומסנן אוויר של מיכל הדלק מוחלפים כל 60,000; נוזל הבלמים נבדק בכל טיפול. בתנאי הפעלה קשים: שמן כל 7,500 ק\"מ או 6 חודשים, שמן גיר ידני/דיפרנציאל/תיבת העברה כל 120,000. מנוע V6 2.7 (2007-2009) אינו בספר זה ואינו בקובץ."
+}

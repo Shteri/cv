@@ -1,0 +1,10 @@
+import { chromium } from '/opt/node22/lib/node_modules/playwright/index.mjs';
+const b=await chromium.launch({ executablePath: '/opt/pw-browsers/chromium', proxy: { server: process.env.HTTPS_PROXY }, args: ['--ignore-certificate-errors'] });
+const ctx=await b.newContext({userAgent:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0 Safari/537.36"});
+const p=await ctx.newPage();
+await p.goto(process.argv[2],{timeout:90000,waitUntil:'networkidle'}).catch(e=>console.log('ERR',e.message));
+await p.waitForTimeout(5000);
+const re=new RegExp(process.argv[3]||'.', 'i');
+const links=await p.evaluate(()=>[...document.querySelectorAll('a,[data-href],[data-url]')].map(a=>(a.textContent||'').trim().replace(/\s+/g,' ').slice(0,80)+' | '+(a.href||a.getAttribute('data-href')||a.getAttribute('data-url'))));
+console.log([...new Set(links)].filter(x=>re.test(x)).join('\n'));
+await b.close();

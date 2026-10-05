@@ -1,0 +1,741 @@
+{
+  "id": "genesis-gv70-2021-2026-2.5-turbo",
+  "make": "Genesis",
+  "make_he": "ג'נסיס",
+  "model": "GV70",
+  "model_he": "GV70",
+  "generation": "JK1",
+  "years": [
+    2021,
+    2026
+  ],
+  "engines": [
+    "2.5 T-GDI (Smartstream G2.5T, G4KR)"
+  ],
+  "fuel": "petrol",
+  "importer": "כלמוביל",
+  "interval": {
+    "km": 15000,
+    "months": 12,
+    "note": "לפי הספר: שמן ומסנן שמן (ותוסף דלק) כל 10,000 ק\"מ או 12 חודשים - ראו long_interval; שאר הבדיקות בטבלה של 15,000 ק\"מ או 12 חודשים. ייתכן שהרכב מצויד במערכת חיי שמן שמתריעה מוקדם יותר. בתנאים קשים שמן כל 5,000 ק\"מ או 6 חודשים"
+  },
+  "cycle_km": 120000,
+  "services": [
+    {
+      "km": 15000,
+      "items": [
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרקים כדוריים של המתלה הקדמי"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "מדחס המזגן"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "בדיקת רצועה, מותחן, גלגלת ביניים וגלגלת אלטרנטור"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרקים כדוריים של המתלה הקדמי"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "מדחס המזגן"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 45000,
+      "items": [
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרקים כדוריים של המתלה הקדמי"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "מדחס המזגן"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "בדיקת רצועה, מותחן, גלגלת ביניים וגלגלת אלטרנטור"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect",
+          "note": "צינור אדים ומכסה פתח המילוי"
+        },
+        {
+          "item": "fuel_tank_air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרקים כדוריים של המתלה הקדמי"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "מדחס המזגן"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "דיפרנציאל קדמי (AWD) ואחורי: בדיקה"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 75000,
+      "items": [
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרקים כדוריים של המתלה הקדמי"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "מדחס המזגן"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "בדיקת רצועה, מותחן, גלגלת ביניים וגלגלת אלטרנטור"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרקים כדוריים של המתלה הקדמי"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "מדחס המזגן"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 105000,
+      "items": [
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרקים כדוריים של המתלה הקדמי"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "מדחס המזגן"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "בדיקת רצועה, מותחן, גלגלת ביניים וגלגלת אלטרנטור"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect",
+          "note": "צינור אדים ומכסה פתח המילוי"
+        },
+        {
+          "item": "fuel_tank_air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "tire_rotation",
+          "action": "rotate"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרקים כדוריים של המתלה הקדמי"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "מדחס המזגן"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "differential_oil",
+          "action": "inspect",
+          "note": "דיפרנציאל קדמי (AWD) ואחורי: בדיקה"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "engine_oil",
+      "action": "replace",
+      "every_km": 10000,
+      "every_months": 12,
+      "note": "שמן מנוע סינתטי מלא API SN PLUS ומעלה; כל 10,000 ק\"מ או 12 חודשים"
+    },
+    {
+      "item": "oil_filter",
+      "action": "replace",
+      "every_km": 10000,
+      "every_months": 12
+    },
+    {
+      "item": "spark_plugs",
+      "action": "replace",
+      "every_km": 75000,
+      "note": "מצתים: כל 75,000 ק\"מ"
+    },
+    {
+      "item": "coolant",
+      "action": "replace",
+      "first_km": 195000,
+      "first_months": 120,
+      "then_every_km": 30000,
+      "then_every_months": 24,
+      "note": "החלפה ראשונה ב-195,000 ק\"מ או 120 חודשים, אחר כך כל 30,000 ק\"מ או 24 חודשים"
+    }
+  ],
+  "time_based": [],
+  "specs": {
+    "engine_oil": "API SN PLUS ומעלה, סינתטי מלא",
+    "fuel": "בנזין 95 אוקטן"
+  },
+  "sources": [
+    {
+      "url": "https://www.manualslib.com/manual/4105563/Genesis-Gv70-Jk1-2025.html?page=601",
+      "kind": "manufacturer",
+      "note": "ספר הנהג באנגלית של Genesis GV70 (JK1, 2025), פרק Maintenance, עמודי האתר 601-605 (עמודי ספר 593-597): 'Normal maintenance schedule (Petrol engine)' בק\"מ, 8 עמודות של 15,000 עד 120,000, וטבלת תנאים קשים. השוק לא מצוין; הניסוח ('authorised Genesis repairer', שמן כל 10,000 ק\"מ) תואם לספרי בריטניה/אוסטרליה. נקרא מצילומי העמודים"
+    }
+  ],
+  "status": "draft",
+  "notes": "טיוטה מספר הנהג הבינלאומי באנגלית של GV70 2025 (לא ספר ישראלי; ספר עברי של היבואן לא נמצא באתר כלמוביל). הטבלה היא למנועי הבנזין. שמן כל 10,000 ק\"מ או שנה; מסנן אוויר מוחלף כל 45,000, מסנן מזגן כל 30,000, נוזל בלמים כל 30,000 ק\"מ או 24 חודשים, מצתים כל 75,000. תיבת העברה ודיפרנציאל e-LSD: ללא טיפול לפי הספר. ייתכן שהלוח של דגמי 2021-2024 (לפני מתיחת הפנים) שונה מעט."
+}

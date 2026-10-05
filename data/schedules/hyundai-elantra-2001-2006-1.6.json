@@ -1,0 +1,805 @@
+{
+  "id": "hyundai-elantra-2001-2006-1.6",
+  "make": "Hyundai",
+  "make_he": "יונדאי",
+  "model": "Elantra",
+  "model_he": "אלנטרה",
+  "generation": "XD",
+  "years": [
+    2001,
+    2007
+  ],
+  "engines": [
+    "1.6 (Alpha II, G4ED)"
+  ],
+  "fuel": "petrol",
+  "importer": "כלמוביל",
+  "interval": {
+    "km": 15000,
+    "months": 12,
+    "note": "לפי הספר הבינלאומי: 15,000 ק\"מ או 12 חודשים, המוקדם"
+  },
+  "cycle_km": 120000,
+  "services": [
+    {
+      "km": 15000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי (מחוץ לקהילה האירופית): בדיקה"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "ברגי תושבות המתלים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תיבת הגה, מוטות, גומיות ומפרק תחתון"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect",
+          "note": "משאבת הגה כוח, רצועה וצינורות"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "רצועת משאבת מים, אלטרנטור ומזגן"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect",
+          "note": "צינור אדים ומכסה פתח המילוי"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect",
+          "note": "צינורות אוורור בית הארכובה"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי (מחוץ לקהילה האירופית): בדיקה"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect",
+          "note": "תופים ורפידות אחוריים ובלם חניה"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "ברגי תושבות המתלים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תיבת הגה, מוטות, גומיות ומפרק תחתון"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect",
+          "note": "משאבת הגה כוח, רצועה וצינורות"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 45000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי (מחוץ לקהילה האירופית): בדיקה"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "ברגי תושבות המתלים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תיבת הגה, מוטות, גומיות ומפרק תחתון"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect",
+          "note": "משאבת הגה כוח, רצועה וצינורות"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "רצועת משאבת מים, אלטרנטור ומזגן"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "timing_belt",
+          "action": "inspect",
+          "note": "בדיקה ב-60,000 והחלפה ב-90,000"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect",
+          "note": "צינור אדים ומכסה פתח המילוי"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect",
+          "note": "צינורות אוורור בית הארכובה"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי (מחוץ לקהילה האירופית): בדיקה"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect",
+          "note": "תופים ורפידות אחוריים ובלם חניה"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "ברגי תושבות המתלים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תיבת הגה, מוטות, גומיות ומפרק תחתון"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect",
+          "note": "משאבת הגה כוח, רצועה וצינורות"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 75000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי (מחוץ לקהילה האירופית): בדיקה"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "ברגי תושבות המתלים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תיבת הגה, מוטות, גומיות ומפרק תחתון"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect",
+          "note": "משאבת הגה כוח, רצועה וצינורות"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "רצועת משאבת מים, אלטרנטור ומזגן"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "timing_belt",
+          "action": "replace",
+          "note": "בדיקה ב-60,000 והחלפה ב-90,000"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect",
+          "note": "צינור אדים ומכסה פתח המילוי"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect",
+          "note": "צינורות אוורור בית הארכובה"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי (מחוץ לקהילה האירופית): בדיקה"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect",
+          "note": "תופים ורפידות אחוריים ובלם חניה"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "ברגי תושבות המתלים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תיבת הגה, מוטות, גומיות ומפרק תחתון"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect",
+          "note": "משאבת הגה כוח, רצועה וצינורות"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 105000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי (מחוץ לקהילה האירופית): בדיקה"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "ברגי תושבות המתלים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תיבת הגה, מוטות, גומיות ומפרק תחתון"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect",
+          "note": "משאבת הגה כוח, רצועה וצינורות"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "רצועת משאבת מים, אלטרנטור ומזגן"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect",
+          "note": "צינור אדים ומכסה פתח המילוי"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect",
+          "note": "צינורות אוורור בית הארכובה"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "inspect"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי (מחוץ לקהילה האירופית): בדיקה"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect",
+          "note": "תופים ורפידות אחוריים ובלם חניה"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "ברגי תושבות המתלים"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תיבת הגה, מוטות, גומיות ומפרק תחתון"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect",
+          "note": "משאבת הגה כוח, רצועה וצינורות"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "coolant",
+      "action": "replace",
+      "every_km": 45000,
+      "every_months": 24,
+      "note": "מחוץ לקהילה האירופית: נוזל קירור כל 45,000 ק\"מ או 24 חודשים (באירופה: לראשונה ב-90,000 או 60 חודשים, ואחר כך כל 45,000 או 24 חודשים)"
+    },
+    {
+      "item": "valve_clearance",
+      "action": "inspect",
+      "every_km": 90000,
+      "every_months": 48,
+      "note": "מנוע 1.8 DOHC בלבד"
+    }
+  ],
+  "time_based": [],
+  "specs": {
+    "fuel": "בנזין נטול עופרת",
+    "timing": "רצועת תזמון: בדיקה ב-60,000, החלפה ב-90,000"
+  },
+  "sources": [
+    {
+      "url": "https://www.manualslib.com/manual/1215243/Hyundai-Matrix.html?page=197",
+      "kind": "manufacturer",
+      "note": "ספר הנהג הבינלאומי (GAT, General) של יונדאי מטריקס, פרק 5 'Vehicle maintenance requirements', עמודי האתר 197-199 (עמודי ספר 5-4 עד 5-6): טבלאות מנוע בנזין וכללית ב-8 עמודות של 15,000 ק\"מ עד 120,000; עמודות 'Except European Community'. נקרא מצילומי העמודים. מקור אח: המטריקס בנויה על פלטפורמת אלנטרה XD עם אותו מנוע G4ED"
+    }
+  ],
+  "status": "draft",
+  "notes": "טיוטה ממקור אח: הלוח הועתק מספר הנהג הבינלאומי של יונדאי מטריקס, שבנויה על פלטפורמת אלנטרה XD ומשתמשת באותו מנוע 1.6 G4ED. לא נמצא ספר של אלנטרה XD עם לוח בק\"מ. שמן כל 15,000; מסנן אוויר ומצתים כל 45,000; רצועת תזמון מוחלפת ב-90,000; נוזל קירור כל 45,000 ק\"מ או 24 חודשים."
+}

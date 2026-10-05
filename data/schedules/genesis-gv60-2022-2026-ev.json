@@ -1,0 +1,731 @@
+{
+  "id": "genesis-gv60-2022-2026-ev",
+  "make": "Genesis",
+  "make_he": "ג'נסיס",
+  "model": "GV60",
+  "model_he": "GV60",
+  "generation": "JW1",
+  "years": [
+    2022,
+    2026
+  ],
+  "engines": [
+    "EV (EM17 / EM18, E-GMP)"
+  ],
+  "fuel": "electric",
+  "importer": "כלמוביל",
+  "interval": {
+    "km": 30000,
+    "months": 24,
+    "note": "לפי ספר הרכב של היבואן (2024 ו-2026): כל 30,000 ק\"מ או 24 חודשים, המוקדם מביניהם"
+  },
+  "cycle_km": 240000,
+  "services": [
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "כל מערכות החשמל"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "מנגנון היגוי, מוטות וגומיות"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גלי הינע וגומיות"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרקי המתלה הקדמי"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "ברגים ואומים בשלדה ובמרכב"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "מדחס המזגן"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "נוזל תיבת ההפחתה (ממסרה חד-הילוכית)"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "כל מערכות החשמל"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "מנגנון היגוי, מוטות וגומיות"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גלי הינע וגומיות"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרקי המתלה הקדמי"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "ברגים ואומים בשלדה ובמרכב"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "מדחס המזגן"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "כל מערכות החשמל"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "מנגנון היגוי, מוטות וגומיות"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גלי הינע וגומיות"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרקי המתלה הקדמי"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "ברגים ואומים בשלדה ובמרכב"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "מדחס המזגן"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "נוזל תיבת ההפחתה (ממסרה חד-הילוכית)"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "כל מערכות החשמל"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "מנגנון היגוי, מוטות וגומיות"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גלי הינע וגומיות"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרקי המתלה הקדמי"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "ברגים ואומים בשלדה ובמרכב"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "מדחס המזגן"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 150000,
+      "items": [
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "כל מערכות החשמל"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "מנגנון היגוי, מוטות וגומיות"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גלי הינע וגומיות"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרקי המתלה הקדמי"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "ברגים ואומים בשלדה ובמרכב"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "מדחס המזגן"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 180000,
+      "items": [
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "נוזל תיבת ההפחתה (ממסרה חד-הילוכית)"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "כל מערכות החשמל"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "מנגנון היגוי, מוטות וגומיות"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גלי הינע וגומיות"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרקי המתלה הקדמי"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "ברגים ואומים בשלדה ובמרכב"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "מדחס המזגן"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 210000,
+      "items": [
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "כל מערכות החשמל"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "מנגנון היגוי, מוטות וגומיות"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גלי הינע וגומיות"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרקי המתלה הקדמי"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "ברגים ואומים בשלדה ובמרכב"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "מדחס המזגן"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 240000,
+      "items": [
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "נוזל תיבת ההפחתה (ממסרה חד-הילוכית)"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "כל מערכות החשמל"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "מנגנון היגוי, מוטות וגומיות"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גלי הינע וגומיות"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרקי המתלה הקדמי"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "ברגים ואומים בשלדה ובמרכב"
+        },
+        {
+          "item": "ac_refrigerant",
+          "action": "inspect"
+        },
+        {
+          "item": "ac_system",
+          "action": "inspect",
+          "note": "מדחס המזגן"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "coolant",
+      "action": "replace",
+      "first_km": 150000,
+      "first_months": 120,
+      "then_every_km": 30000,
+      "then_every_months": 24,
+      "note": "בטבלה: החלפה ראשונה בטיפול 150,000 ק\"מ (120 חודשים) ומשם בכל טיפול של 30,000 ק\"מ"
+    },
+    {
+      "item": "transmission_oil",
+      "action": "replace",
+      "every_km": 120000,
+      "note": "רק בתנאי שימוש קשים: החלפת נוזל תיבת ההפחתה כל 120,000 ק\"מ"
+    }
+  ],
+  "time_based": [
+    {
+      "item": "ecall_battery",
+      "action": "replace",
+      "months": 48,
+      "note": "סוללת מערכת eCall (אם קיימת) - כל 4 שנים"
+    }
+  ],
+  "specs": {
+    "brake_fluid": "DOT 4",
+    "battery": "מצבר עזר 12V + סוללת מתח גבוה",
+    "fuel": "חשמלי",
+    "_note": "לפי ספר הרכב של היבואן"
+  },
+  "sources": [
+    {
+      "url": "https://res.cloudinary.com/colmobil/images/v1727073762/Hyundai_Ioniq5_OM_2024_web/Hyundai_Ioniq5_OM_2024_web.pdf",
+      "kind": "importer",
+      "note": "ספר הנהג בעברית של כלמוביל, איוניק 5 2024 - עמודי PDF 639-642 — מקור אח ל-Genesis GV60 (אותה פלטפורמה E-GMP ומנוע EM17)"
+    },
+    {
+      "url": "https://res.cloudinary.com/colmobil/images/v1777980521/Hyundai_Ioniq5_OM_2026-web_3074266b03/Hyundai_Ioniq5_OM_2026-web_3074266b03.pdf",
+      "kind": "importer",
+      "note": "ספר 2026 - עמודי PDF 649-650, טבלה זהה — מקור אח ל-Genesis GV60 (אותה פלטפורמה E-GMP ומנוע EM17)"
+    },
+    {
+      "url": "https://www.hyundaimotors.co.il/maintenance/",
+      "kind": "importer",
+      "note": "ספריית ספרי הרכב של יונדאי ישראל — מקור אח ל-Genesis GV60 (אותה פלטפורמה E-GMP ומנוע EM17)"
+    }
+  ],
+  "status": "draft",
+  "notes": "טיוטה ממקור אח: ל-GV60 לא נמצא ספר ישראלי או ספר עם לוח בק\"מ (הספר האמריקאי במייל). הלוח הועתק מספר העברי של איוניק 5 (2024-2026) של כלמוביל - אותה פלטפורמה E-GMP ואותו מנוע חשמלי EM17. ספר איוניק 5 של 2021 קבע טיפול כל 15,000 ק\"מ/שנה. הערות הקובץ המקורי: הועתק מטבלת התחזוקה הרגילה בספרי 2024 ו-2026 של איוניק 5 (זהות), בעמודות של 30,000 ק\"מ/שנתיים. נוזל הקירור מסומן להחלפה החל מ-150,000 ק\"מ ובכל טיפול אחריו - מופיע ב-long_interval. השיוך של 2024 כשנת המעבר לספר הזה הוא לפי שנת המהדורה."
+}
