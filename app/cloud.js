@@ -82,12 +82,13 @@
     car.cloudId = data.id;
     for (const rec of car.history || []) {
       if (rec.synced) continue;
-      const paths = [];
+      // a record saved again (edited) keeps the receipts it already uploaded
+      const paths = (rec.receiptPaths || []).slice();
       for (let i = 0; i < (rec.receipts || []).length; i++) {
         const d = rec.receipts[i]; if (!d || !d.startsWith("data:")) continue;
         const path = `${uid}/${car.cloudId}/${rec.id}-${i}.jpg`;
         const { error: upErr } = await sb.storage.from("receipts").upload(path, await dataUrlToBlob(d), { contentType: "image/jpeg", upsert: true });
-        if (!upErr) paths.push(path);
+        if (!upErr && !paths.includes(path)) paths.push(path);
       }
       const { data: saved, error: rErr } = await sb.from("records").upsert({ car_id: car.cloudId, user_id: uid, kind: rec.kind || "service", svc_km: rec.svcKm || null, text: rec.text || null, items: rec.items || [], date: rec.date || null, km: rec.km, where: rec.where || null, garage: rec.garage || null, city: rec.city || null, price: rec.price || null, back: rec.back || null, extra: rec.extra || null, receipt_paths: paths, share: !!rec.share, source: rec.source || "log", client_id: rec.id }, { onConflict: "car_id,client_id" }).select("id").single();
       if (!rErr) { rec.cloudId = saved.id; rec.receiptPaths = paths; rec.synced = true; }

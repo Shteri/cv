@@ -127,7 +127,7 @@
       <button class="btn secondary" id="car-quote">בדוק הצעה</button>
     </div>
     <div class="card stack g-6">
-      <div class="row between"><h3>לפי פריט</h3><span class="small muted">מה הוחלף, מתי, ומתי הבא</span></div>
+      <div class="row between"><h3>לפי פריט</h3><span class="small muted">לחץ על פריט כדי לעדכן</span></div>
       <div id="car-state"></div>
     </div>
     <div class="card stack g-8">
@@ -297,6 +297,20 @@
     </div>
   </div>
 
+  <div class="sheet" id="itemsheet">
+    <div class="panel stack g-10">
+      <h2 id="it-title"></h2>
+      <p class="small muted" id="it-now"></p>
+      <div class="field"><label for="it-km">הוחלף לאחרונה בק"מ</label><input id="it-km" inputmode="numeric" autocomplete="off" class="num"></div>
+      <div class="field"><label for="it-date">באיזה חודש (לא חובה)</label><input id="it-date" type="month" autocomplete="off"></div>
+      <p class="err" id="it-err" hidden></p>
+      <p class="small muted">ההחלפה הבאה של הפריט תיספר מכאן.</p>
+      <button class="btn primary" id="it-save">שמור</button>
+      <button class="btn secondary" id="it-unknown">לא ידוע מתי הוחלף</button>
+      <button class="btn ghost" id="it-close">ביטול</button>
+    </div>
+  </div>
+
   <div class="sheet" id="citysheet">
     <div class="panel stack g-10">
       <div class="row between"><h2>באיזו עיר?</h2><button class="btn ghost fit" id="city-close" data-close>סגור</button></div>
@@ -436,12 +450,14 @@
   // the last periodic service actually done (km and which service), so the next one is counted from it
   const lastSvcOf = car => (car.history || []).filter(h => (h.kind === "service" || !h.kind) && h.km > 0).reduce((a, h) => !a || h.km > a.km ? { km: h.km, svcKm: h.svcKm || null } : a, null);
   // what was actually replaced, so a part replaced off the schedule (a repair) moves its own next replacement
-  const recordsOf = car => (car.history || []).filter(h => h.km > 0).map(h => ({ km: h.km, items: h.items || [], kind: h.kind || "service" }));
+  const recordsOf = car => (car.history || []).filter(h => h.km > 0).map(h => ({ km: h.km, items: h.items || [], kind: isStateRec(h) ? "state" : h.kind || "service" }));
+  // a manual "last replaced at" from the car screen: kind "other" so it syncs, marked by source
+  const isStateRec = h => h.source === "state";
   const computeNext = car => TipulitEngine.next(schedById(car.schedule), { ...car, lastSvc: car.lastSvc || lastSvcOf(car), records: recordsOf(car) });
   const planFor = (car, s, svc, km) => TipulitEngine.planAt(s, recordsOf(car), svc, km);
   // the service's parts after the plan: added ones say why, skipped ones say until when they last
   const planItems = (svc, plan) => {
-    const why = x => `הוחלף ב-${fmt(x.doneKm)} ק"מ${x.repair ? " (בתיקון)" : ""}`;
+    const why = x => `הוחלף ב-${fmt(x.doneKm)} ק"מ${x.kind === "state" ? " (לפי העדכון שלך)" : x.repair ? " (בתיקון)" : ""}`;
     const add = Object.fromEntries(plan.add.map(x => [x.item, x])), base = Object.fromEntries(svc.items.map(i => [i.item, i]));
     return [...plan.replace.map(k => add[k] ? { item: k, action: "replace", note: `${why(add[k])}, מגיע ב-${fmt(add[k].dueKm)}` } : base[k]),
       ...plan.skip.map(x => ({ item: x.item, action: "wait", note: `${why(x)}. הבא ב-${fmt(x.dueKm)}` }))];
@@ -859,9 +875,9 @@
     rows.sort((a, b) => order[a.status] - order[b.status] || (a.nextKm || 9e9) - (b.nextKm || 9e9));
     return rows;
   }
-  const stateRow = r => `<div class="state ${r.status === "done" ? "ok" : r.status}"><span class="dot"></span>
+  const stateRow = r => `<div class="state tap ${r.status === "done" ? "ok" : r.status}" role="button" tabindex="0" data-item="${r.item}" aria-label="עדכון ${itemName(r.item)}"><span class="dot"></span>
       <div><div>${itemName(r.item)} <span class="small muted">· ${catName[r.cat] || ""}</span></div>
-        <div class="sub">${r.done ? `הוחלף ב-${fmt(r.done.km)} ק"מ${r.done.date ? ", " + monthName(new Date(r.done.date + "-01")) : ""}` : `לא ידוע${r.gridNext ? ` · לפי הלוח: ${fmt(r.gridNext)} ק"מ` : ""}`}</div></div>
+        <div class="sub">${r.done ? `הוחלף ב-${fmt(r.done.km)} ק"מ${r.done.date ? ", " + monthName(new Date(r.done.date + "-01")) : ""}${isStateRec(r.done) ? " · עדכנת ידנית" : ""}` : `לא ידוע${r.gridNext ? ` · לפי הלוח: ${fmt(r.gridNext)} ק"מ` : ""}`}</div></div>
       <div class="due num">${r.status === "unknown" ? "?" : r.nextKm ? (r.status === "overdue" ? "באיחור · " : "") + fmt(r.nextKm) : r.nextDate ? monthName(r.nextDate) : "✓"}</div></div>`;
   function renderCar() {
     const car = S.cars[S.active]; if (!car) return;
@@ -879,12 +895,13 @@
     else {
     const attention = rows.filter(r => r.status !== "ok" && r.status !== "done"), fine = rows.filter(r => r.status === "ok" || r.status === "done");
     $("#car-state").innerHTML = (attention.map(stateRow).join("") || `<p class="small muted">הכל ידוע ובסדר.</p>`) + (fine.length ? `<details class="fold"><summary><span>בסדר (${fine.length})</span></summary>${fine.map(stateRow).join("")}</details>` : "") +
-      (n("unknown") ? `<p class="small muted mt-8">"לא ידוע" = אין רשומה. העלה חשבונית או הוסף רשומה.</p>` : "");
+      (n("unknown") ? `<p class="small muted mt-8">"לא ידוע" = אין רשומה. העלה חשבונית, הוסף רשומה, או לחץ על הפריט ועדכן מתי הוחלף.</p>` : "");
     }
+    wireItems($("#car-state"));
     const docs = recs.flatMap(r => (r.receipts || (r.receipt ? [r.receipt] : [])).map(t => ({ t, r })));
     $("#car-docs-n").textContent = docs.length ? `${docs.length} מסמכים` : "";
     $("#car-docs").innerHTML = docs.map(d => `<button title="${d.r.kind === "service" ? "טיפול " + fmt(d.r.svcKm || d.r.km) : d.r.text}"><img src="${d.t}" alt="חשבונית"><span class="lb num">${d.r.date || fmt(d.r.km)}</span></button>`).join("");
-    const reps = recs.filter(r => r.kind === "repair" || r.kind === "other").sort((a, b) => b.km - a.km);
+    const reps = recs.filter(r => (r.kind === "repair" || r.kind === "other") && !isStateRec(r)).sort((a, b) => b.km - a.km);
     $("#car-repairs").innerHTML = reps.length ? reps.map(r => `<div class="hist"><div><b>${r.text || kindName[r.kind]}</b> <span class="small muted num">· ${fmt(r.km)} ק"מ${r.date ? " · " + monthName(new Date(r.date + "-01")) : ""}</span><br><span class="small muted">${(r.items || []).map(itemName).join(", ")}${r.garage ? " · " + r.garage : ""}</span></div><span class="amt num">${r.price ? "₪" + fmt(r.price) : ""}</span></div>`).join("") : `<p class="small muted">אין תיקונים רשומים.</p>`;
     $("#car-history").innerHTML = historyHTML(car);
   }
@@ -902,7 +919,7 @@
       ${known === 0 ? `<p class="small muted">עדיין לא ידוע מה הוחלף. העלה חשבוניות או רשום טיפול.</p>` : ""}
     </div>`; };
 
-  const historyHTML = car => { const h = (car.history || []).slice().sort((a, b) => b.km - a.km || b.at - a.at); if (!h.length) return `<p class="small muted px-4">עוד אין רשומות.</p>`; return `
+  const historyHTML = car => { const h = (car.history || []).filter(e => !isStateRec(e)).sort((a, b) => b.km - a.km || b.at - a.at); if (!h.length) return `<p class="small muted px-4">עוד אין רשומות.</p>`; return `
     <div class="card stack"><p class="eyebrow">כל הרשומות</p>
       ${h.map(e => `<div class="hist">
         <div><b class="num">${e.kind === "service" || !e.kind ? "טיפול " + fmt(e.svcKm || e.km) : e.text || kindName[e.kind]}</b> <span class="small muted num">· ${fmt(e.km)} ק"מ${e.date ? " · " + monthName(new Date(e.date + "-01")) : ""}</span>${e.source === "garage" ? ` <span class="tag ver" title="נרשם על ידי המוסך ואושר על ידך">מאומת</span>` : ""}<br>
@@ -1004,7 +1021,7 @@
     $("#to-garage").onclick = () => { show("s-tl"); const el = $(".tl-item.next"); if (el) el.scrollIntoView({ block: "start" }); };
     $("#done-svc").onclick = () => openLog();
     wirePlateNotice(car); recheckHold(car);
-    wireRecalls($("#home-body")); ensureRecalls(car); wireEntries($("#home-body")); loadGarageEntries();
+    wireRecalls($("#home-body")); ensureRecalls(car); wireEntries($("#home-body")); loadGarageEntries(); wireItems($("#home-body"));
     $$("[data-go]", $("#home-body")).forEach(b => b.onclick = () => show("s-" + b.dataset.go));
   }
 
@@ -1365,6 +1382,40 @@
   });
   // A short tick on taps that change something (Android; ignored elsewhere)
   document.addEventListener("click", e => { if (e.target.closest(".btn.primary, .nav button, .chip, .seg button, .toggle, .tl-head, .chk")) { try { navigator.vibrate && navigator.vibrate(6); } catch (x) {} } });
+  // ---------- editing one item: when was it last replaced ----------
+  let itemFor = null;
+  const wireItems = root => $$("[data-item]", root).forEach(b => { b.onclick = () => openItemEdit(b.dataset.item); b.onkeydown = e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openItemEdit(b.dataset.item); } }; });
+  function openItemEdit(k) {
+    const car = S.cars[S.active], r = carState(car).find(x => x.item === k), d = r && r.done; itemFor = k;
+    $("#it-title").textContent = itemName(k);
+    $("#it-now").textContent = d ? `עכשיו רשום: הוחלף ב-${fmt(d.km)} ק"מ${d.date ? ", " + monthName(new Date(d.date + "-01")) : ""}${isStateRec(d) ? " (עדכנת ידנית)" : d.kind === "service" || !d.kind ? ` (בטיפול ${fmt(d.svcKm || d.km)})` : d.text ? ` (${d.text})` : ""}.` : "עכשיו: לא ידוע מתי הוחלף.";
+    $("#it-km").value = d ? d.km : ""; $("#it-date").value = (d && d.date) || ""; $("#it-err").hidden = true; $("#it-unknown").hidden = !d;
+    $("#itemsheet").classList.add("show"); $("#itemsheet .panel").scrollTop = 0;
+  }
+  // The last replacement becomes what the driver says: later records lose this item, and one manual record per item holds it.
+  function setItemState(car, k, km, date) {
+    for (const h of car.history || []) if (!isStateRec(h) && (h.items || []).includes(k) && (km === null || h.km > km)) { h.items = h.items.filter(x => x !== k); h.synced = false; }
+    const covered = km !== null && (car.history || []).some(h => !isStateRec(h) && h.km === km && (h.items || []).includes(k));
+    let rec = (car.history || []).find(h => isStateRec(h) && (h.items || []).includes(k));
+    if (km === null || covered) { if (rec) Object.assign(rec, { items: [], synced: false }); return; }
+    if (!rec) { rec = { id: Date.now().toString(36), kind: "other", source: "state", text: "עדכון מצב: " + itemName(k), where: null, garage: "", city: "", price: null, back: null, extra: "", receipts: [], receipt: null, share: false, at: Date.now() }; (car.history = car.history || []).push(rec); }
+    Object.assign(rec, { items: [k], km, date: date || null, synced: false });
+  }
+  const closeItem = () => $("#itemsheet").classList.remove("show");
+  $("#it-close").onclick = closeItem;
+  $("#itemsheet").onclick = e => { if (e.target.id === "itemsheet") closeItem(); };
+  $("#it-save").onclick = () => {
+    const car = S.cars[S.active], km = +$("#it-km").value.replace(/\D/g, ""), date = $("#it-date").value, err = m => { $("#it-err").textContent = m; $("#it-err").hidden = false; };
+    const d = new Date(), thisMonth = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}`;
+    if (!km) return err('צריך את הק"מ שבו הוחלף.');
+    if (km > car.km) return err(`זה יותר ממה שעל השעון (${fmt(car.km)}). אם השעון התקדם, עדכן קודם את הק"מ.`);
+    if (date && date > thisMonth) return err("החודש עוד לא הגיע.");
+    setItemState(car, itemFor, km, date); save(); closeItem(); renderAll(); toast(`${itemName(itemFor)} עודכן`);
+  };
+  $("#it-unknown").onclick = () => {
+    if (!confirm(`לסמן ש${itemName(itemFor)} לא ידוע? זה יוריד אותו גם מהרשומות שבהן הוא הופיע.`)) return;
+    const car = S.cars[S.active]; setItemState(car, itemFor, null, null); save(); closeItem(); renderAll(); toast(`${itemName(itemFor)} סומן כלא ידוע`);
+  };
   function openSheet() { $("#sheet-km").value = S.cars[S.active].km; $("#sheet").classList.add("show"); $("#sheet-km").focus(); }
   $("#sheet-close").onclick = () => $("#sheet").classList.remove("show");
   $("#sheet").onclick = e => { if (e.target.id === "sheet") $("#sheet").classList.remove("show"); };

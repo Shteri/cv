@@ -46,13 +46,13 @@
     const replace = [], skip = [], add = [];
     for (const k of inSvc) {
       const d = last[k], dueKm = d && every[k] ? d.km + every[k] : null;
-      if (dueKm && dueKm >= reach) skip.push({ item: k, doneKm: d.km, dueKm, repair: d.kind !== "service" });
+      if (dueKm && dueKm >= reach) skip.push({ item: k, doneKm: d.km, dueKm, kind: d.kind, repair: d.kind !== "service" });
       else replace.push(k);
     }
     for (const [k, d] of Object.entries(last)) {
       if (inSvc.includes(k) || !every[k]) continue;
       const dueKm = d.km + every[k];
-      if (dueKm < reach) add.push({ item: k, doneKm: d.km, dueKm, repair: d.kind !== "service" });
+      if (dueKm < reach) add.push({ item: k, doneKm: d.km, dueKm, kind: d.kind, repair: d.kind !== "service" });
     }
     return { replace: [...replace, ...add.map(a => a.item)], skip, add };
   }

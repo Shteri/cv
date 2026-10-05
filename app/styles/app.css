@@ -224,6 +224,8 @@ input, select, textarea { font: inherit; color: var(--ink); }
 /* car condition */
 .state { display: grid; grid-template-columns: 10px 1fr auto; gap: 4px 12px; align-items: center; padding: 12px 0; border-top: 1px solid var(--line); }
 .state:first-child { border-top: 0; }
+.state.tap { cursor: pointer; border-radius: var(--r-field); }
+.state.tap:active, .state.tap:focus-visible { background: var(--surface-2); }
 .state .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--faint); }
 .state.ok .dot { background: var(--good); } .state.soon .dot { background: var(--warn); } .state.unknown .dot { background: var(--faint); }
 .state.overdue .dot { background: var(--crit); box-shadow: 0 0 0 4px var(--crit-soft); animation: beat 2s ease-in-out infinite; }
