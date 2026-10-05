@@ -26,9 +26,14 @@ await p.goto("http://localhost:8134/"); await p.waitForTimeout(300);
 await p.evaluate(() => localStorage.setItem("tipulit", JSON.stringify({ onboarded: true, user: { name: "מקס", via: "google", email: "max@gmail.com", id: "u1" }, city: "חולון", cars: [{ plate: "12-345-67", schedule: "kia-picanto-2017-2025", year: 2020, km: 43800, kmMonth: 1500 }], active: 0 })));
 await p.reload(); await p.waitForTimeout(700);
 await p.waitForTimeout(1000); console.log("screen0:", await p.$$eval(".screen", l => l.filter(e => !e.hidden).map(e => e.id)), "hash:", await p.evaluate(() => location.hash)); await p.click("#to-garages"); await p.waitForTimeout(500); console.log("screen1:", await p.$$eval(".screen", l => l.filter(e => !e.hidden).map(e => e.id)));
-console.log("claim links:", await p.$$eval("#gr-list [data-claim]", l => l.length));
-await p.fill("#gr-q", "אשכנזי"); await p.waitForTimeout(200);
-await p.click("#gr-list [data-claim]"); await p.waitForTimeout(300);
+// drivers' list has no "is this my garage" any more; owners register from the profile screen
+const claimLinks = await p.$$eval("#gr-list [data-claim]", l => l.length);
+console.log(claimLinks === 0 ? "OK   no claim link in the drivers' list" : "FAIL claim link still in the drivers' list");
+await p.click('#nav [data-go="me"]'); await p.waitForTimeout(500);
+await p.click("#me-garage-find"); await p.waitForTimeout(400);
+console.log(!(await p.$eval("#s-gclaim", e => e.hidden)) ? "OK   owners' registration screen opens" : "FAIL registration screen did not open");
+await p.fill("#gcl-q", "אשכנזי"); await p.waitForTimeout(200);
+await p.click("#gcl-list [data-gcl]"); await p.waitForTimeout(300);
 console.log("edit screen:", !(await p.$eval("#s-gedit", e => e.hidden)), "name:", await p.textContent("#ge-name"), "phone:", await p.inputValue("#ge-phone"));
 await p.screenshot({ path: (process.env.SHOTS || "/tmp") + "/gp-edit.png", fullPage: true });
 await p.fill("#ge-wa", "050-1234567");
@@ -50,10 +55,17 @@ console.log("me lists garage:", (await p.textContent("#me-garages")).includes("�
 await p.click("[data-ok]"); await p.waitForTimeout(400);
 console.log("after approve:", (await p.textContent("#me-garages")).includes("מאומת"));
 // finder now shows verified profile with hours/whatsapp/details
-await p.click("#me-garage-find"); await p.waitForTimeout(500);
+await p.click('#nav [data-go="home"]'); await p.waitForTimeout(400); await p.click("#to-garages"); await p.waitForTimeout(500);
 await p.fill("#gr-q", "אשכנזי"); await p.waitForTimeout(200);
-const row = await p.$eval("#gr-list .garage", e => ({ ver: e.textContent.includes("מאומת"), hrs: e.querySelector(".hrs")?.textContent, wa: !!e.querySelector('a[href*="wa.me"]'), details: e.querySelector(".more")?.textContent.replace(/\s+/g, " ").slice(0, 120), claim: e.querySelector("[data-claim]")?.textContent }));
+const row = await p.$eval("#gr-list .garage", e => ({ ver: e.textContent.includes("מאומת"), hrs: e.querySelector(".hrs")?.textContent, wa: !!e.querySelector('a[href*="wa.me"]') }));
 console.log("row:", row);
+// tapping the garage opens everything the owner filled in
+await p.click("#gr-list .garage .nm"); await p.waitForTimeout(400);
+const gv = (await p.textContent("#gv-body")).replace(/\s+/g, " ");
+console.log(!(await p.$eval("#s-gview", e => e.hidden)) && /מחירון/.test(gv) && /450/.test(gv) && /מוסך משפחתי/.test(gv) && /שעות פתיחה/.test(gv) && /קיה/.test(gv) ? "OK   garage page shows price list, about, hours and makes" : "FAIL garage page incomplete: " + gv.slice(0, 200));
+console.log(await p.$("#gv-edit") ? "OK   the owner sees edit on their garage's page" : "FAIL no edit for the owner");
+await p.screenshot({ path: (process.env.SHOTS || "/tmp") + "/gp-view.png", fullPage: true });
+await p.click("#gv-back"); await p.waitForTimeout(300);
 await p.screenshot({ path: (process.env.SHOTS || "/tmp") + "/gp-row.png" });
 await p.fill("#gr-q", ""); await p.waitForTimeout(200);
 console.log("verified first (after none recommended):", (await p.$eval("#gr-list .garage", e => e.textContent)).includes("אשכנזי"));

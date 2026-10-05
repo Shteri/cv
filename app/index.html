@@ -192,6 +192,26 @@
     </div>
   </section>
 
+  <!-- GARAGE: everything the garage published, opened by tapping it in a list -->
+  <section class="screen no-nav" id="s-gview" hidden>
+    <div class="topbar">
+      <div class="stack g-2"><p class="eyebrow" id="gv-kicker">מוסך</p><h1 class="title-sm" id="gv-name"></h1></div>
+      <button class="btn ghost fit" id="gv-back">חזרה</button>
+    </div>
+    <div class="stack" id="gv-body"></div>
+  </section>
+
+  <!-- GARAGE OWNERS: find the licensed garage in the registry and register it (separate from the drivers' list) -->
+  <section class="screen no-nav" id="s-gclaim" hidden>
+    <div class="topbar">
+      <div class="stack g-2"><p class="eyebrow">לבעלי מוסכים</p><h1 class="title-sm">רישום המוסך שלך</h1></div>
+      <button class="btn ghost fit" id="gcl-back">חזרה</button>
+    </div>
+    <p class="small muted">חפשו את המוסך במאגר המוסכים המורשים של משרד התחבורה: לפי השם הרשמי, הרחוב או מספר המוסך. אחרי הרישום ממלאים את השם שעל השלט, שעות, מחירון ותמונות, ואחרי אימות המוסך מופיע לנהגים.</p>
+    <div class="search"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><input id="gcl-q" type="search" autocomplete="off" placeholder="שם, רחוב או מספר מוסך" aria-label="חיפוש מוסך לרישום"></div>
+    <div class="card" id="gcl-list"></div>
+  </section>
+
   <!-- GARAGE CUSTOMERS: what a verified garage sees about drivers who linked a car to it -->
   <section class="screen no-nav" id="s-gcust" hidden>
     <div class="topbar">
@@ -412,6 +432,12 @@
     const q = new URLSearchParams(location.search), j = q.get("join");
     if (j && /^[0-9a-f-]{36}$/i.test(j)) sessionStorage.setItem(JOIN_KEY, j);
     if (j !== null) { q.delete("join"); const rest = q.toString(); history.replaceState(history.state, "", location.pathname + (rest ? "?" + rest : "") + location.hash); }
+  } catch (e) {}
+  // Garage owner from the dashboard (?garage=claim): the registration screen opens after start.
+  const CLAIM_KEY = "tipulit-gclaim";
+  try {
+    const q = new URLSearchParams(location.search);
+    if (q.get("garage") === "claim") { sessionStorage.setItem(CLAIM_KEY, "1"); q.delete("garage"); const rest = q.toString(); history.replaceState(history.state, "", location.pathname + (rest ? "?" + rest : "") + location.hash); }
   } catch (e) {}
   const Cloud = window.TipulitCloud || { enabled: false };
   let syncT = null;
@@ -1014,7 +1040,7 @@
     wireStart($("#home-body"));
     const tg = $("#to-garages"); if (tg) tg.onclick = () => { renderGarages(); show("s-garages"); if (!S.city) openCitySheet(); };
     const gp = $("#gr-pick"); if (gp) gp.onclick = () => { renderGarages(); show("s-garages"); openCitySheet(); };
-    if (GD) wireClaims($("#home-body"));
+    if (GD) wireGarageRows($("#home-body"));
     $("#to-garage").onclick = () => { show("s-tl"); const el = $(".tl-item.next"); if (el) el.scrollIntoView({ block: "start" }); };
     $("#done-svc").onclick = () => openLog();
     wirePlateNotice(car); recheckHold(car);
@@ -1133,15 +1159,14 @@
   // Community reports (this device + other drivers of the same model) keyed by normalized name|city.
   const communityMap = car => { const m = new Map(); for (const g of garagesFor(car)) m.set(normName(g.name) + "|" + cityNorm(g.city), g); return m; };
   const commLine = (g, s) => `<div class="comm">${g.n} ${g.n === 1 ? "נהג" : "נהגי"} ${s.model_he}${g.backPct !== null ? ` · ${g.backPct}% היו חוזרים` : ""}${g.avg ? ` · ממוצע ₪${fmt(g.avg)}` : ""}</div>`;
-  const garageRow = (g, comm, s, prof) => { const hn = prof ? hoursNow(prof.hours) : null, phone = (prof && prof.phone) || g.phone, mine = prof && myProfiles && myProfiles.some(p => p.id === prof.id); return `<div class="garage">
+  const garageRow = (g, comm, s, prof) => { const hn = prof ? hoursNow(prof.hours) : null, phone = (prof && prof.phone) || g.phone; return `<div class="garage tap" role="button" tabindex="0" data-gview="${g.id}" aria-label="פרטי ${esc((prof && prof.name) || g.name)}">
       <div><div class="nm">${esc((prof && prof.name) || g.name)}${comm ? ` <span class="tag rec">מומלץ</span>` : ""}${prof ? ` <span class="tag ver">מאומת</span>` : ""}${comm && comm.mine ? ` <span class="tag mine">דיווחת</span>` : ""}</div>
         ${prof && prof.name && normName(prof.name) !== normName(g.name) ? `<div class="meta"><span>רשום במשרד התחבורה: ${esc(g.name)}</span></div>` : ""}
         <div class="meta">${g.addr ? `<span>${esc(g.addr)}${g.city && g.city !== (S.city || "") ? ", " + g.city : ""}</span>` : ""}${(prof && prof.services && prof.services.length ? prof.services : g.cats).map(c => `<span>${gCatName[c] || c}</span>`).join("")}</div>
         ${hn ? `<div class="hrs ${hn.open ? "open" : ""}">${hn.text}</div>` : ""}
         ${comm ? commLine(comm, s) : ""}</div>
       <div class="acts">${phone ? `<a class="ib" href="${telHref(phone)}" aria-label="התקשר">${icoPhone}</a>` : ""}${prof && prof.whatsapp ? `<a class="ib" href="${waHref(prof.whatsapp)}" target="_blank" rel="noopener" aria-label="וואטסאפ">${icoWa}</a>` : ""}${g.addr ? `<a class="ib" href="${wazeHref(g)}" target="_blank" rel="noopener" aria-label="ניווט">${icoNav}</a>` : ""}</div>
-      ${prof ? profileDetailsHTML(prof) : ""}
-      ${!prof || mine ? `<button class="claim" data-claim="${g.id}">${mine ? "ערוך את פרופיל המוסך" : "זה המוסך שלי?"}</button>` : ""}</div>`; };
+      </div>`; };
   // A community report that isn't in the registry (free-text name) still gets a row.
   const commOnlyRow = (g, s) => `<div class="garage"><div><div class="nm">${g.name} <span class="tag rec">מומלץ</span>${g.mine ? ` <span class="tag mine">דיווחת</span>` : ""}</div>
       <div class="meta"><span>${whereName[g.type] || ""}</span>${g.city ? `<span>${g.city}</span>` : ""}</div>${commLine(g, s)}</div><div class="acts"></div></div>`;
@@ -1187,9 +1212,65 @@
     const recN = rows.filter(r => r.comm).length + extra.length;
     $("#gr-sub").textContent = `${rows.length} מוסכים מורשים ב${S.city}${recN ? ` · ${recN} עם המלצות לדגם שלך` : ""}`;
     $("#gr-list").innerHTML = ex.map(g => commOnlyRow(g, s)).join("") + list.map(r => garageRow(r.g, r.comm, s, r.prof)).join("") || (grFilter === "rec" ? garagesEmptyHTML() : `<p class="small muted">לא נמצא מוסך מתאים ב${S.city}.</p>`);
-    wireClaims($("#gr-list"));
+    wireGarageRows($("#gr-list"));
   }
-  function wireClaims(root) { $$("[data-claim]", root).forEach(b => b.onclick = () => { const r = GD.garages.find(x => x[0] === +b.dataset.claim); if (r) claimGarage(dirRow(r)); }); }
+  // tapping a garage (but not its call / WhatsApp / navigate icons) opens everything it published
+  function wireGarageRows(root) {
+    $$("[data-gview]", root).forEach(el => {
+      el.onclick = e => { if (e.target.closest("a, button")) return; openGarageView(+el.dataset.gview); };
+      el.onkeydown = e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openGarageView(+el.dataset.gview); } };
+    });
+  }
+  function openGarageView(id) {
+    const r = GD && GD.garages.find(x => x[0] === id); if (!r) return;
+    const car = S.cars[S.active], g = dirRow(r), prof = profilesFor(g.city)[id] || null, s = car ? schedById(car.schedule) : null;
+    const comm = car && s ? (cityGarages(car, g.city).rows.find(x => x.g.id === id) || {}).comm : null;
+    const shown = (prof && prof.name) || g.name, phone = (prof && prof.phone) || g.phone, hn = prof ? hoursNow(prof.hours) : null;
+    const mine = prof && myProfiles && myProfiles.some(p => p.id === prof.id);
+    const book = prof && prof.booking_enabled ? `book/?g=${encodeURIComponent(prof.id)}&plate=${encodeURIComponent((car && car.plate) || "")}` : prof && prof.booking_url ? prof.booking_url : "";
+    const hours = prof && prof.hours && Object.keys(prof.hours).length ? DAYS.map((d, i) => { const h = prof.hours[i]; return `<div class="row between small"><span>יום ${d}</span>${h ? `<span class="num" dir="ltr">${h.open}–${h.close}</span>` : `<span class="muted">סגור</span>`}</div>`; }).join("") : "";
+    const services = (prof && prof.services && prof.services.length ? prof.services : g.cats).map(c => gCatName[c] || c);
+    $("#gv-kicker").textContent = prof ? "מוסך מאומת" : "מוסך מורשה";
+    $("#gv-name").textContent = shown;
+    $("#gv-body").innerHTML = `
+      ${prof && normName(prof.name) !== normName(g.name) ? `<p class="small muted">רשום במשרד התחבורה: ${esc(g.name)}</p>` : ""}
+      <div class="card stack g-8">
+        ${g.addr ? `<div>${esc(g.addr)}, ${esc(g.city)}</div>` : `<div>${esc(g.city)}</div>`}
+        ${hn ? `<div class="small ${hn.open ? "good-text" : "muted"}">${hn.text}</div>` : ""}
+        <div class="row g-8 wraps">
+          ${phone ? `<a class="btn secondary compact fit gv-act" href="${telHref(phone)}">${icoPhone} התקשרות</a>` : ""}
+          ${prof && prof.whatsapp ? `<a class="btn secondary compact fit gv-act" href="${waHref(prof.whatsapp)}" target="_blank" rel="noopener">${icoWa} וואטסאפ</a>` : ""}
+          ${g.addr ? `<a class="btn secondary compact fit gv-act" href="${wazeHref(g)}" target="_blank" rel="noopener">${icoNav} ניווט</a>` : ""}
+        </div>
+        ${book ? `<a class="btn primary" href="${esc(book)}" target="_blank" rel="noopener">קביעת תור</a>` : ""}
+      </div>
+      ${comm ? `<div class="card stack g-6"><h3>מה נהגים אומרים</h3>${commLine(comm, s)}<p class="small muted">מנהגים עם ${esc(s.model_he)} שדיווחו על טיפול כאן.</p></div>` : ""}
+      ${prof && prof.about ? `<div class="card stack g-6"><h3>על המוסך</h3><p>${esc(prof.about)}</p></div>` : ""}
+      ${(prof && (prof.prices || []).length) ? `<div class="card stack g-6"><h3>מחירון</h3><div class="list">${prof.prices.map(x => `<div class="row between"><span>${esc(x.label)}</span><b class="num">₪${fmt(x.price)}</b></div>`).join("")}</div></div>` : ""}
+      <div class="card stack g-6"><h3>שירותים</h3><p class="small">${services.map(esc).join(" · ") || "לא צוין"}</p>${prof && prof.makes && prof.makes.length ? `<p class="small"><span class="muted">מתמחה ב:</span> ${prof.makes.map(esc).join(", ")}</p>` : ""}</div>
+      ${hours ? `<div class="card stack g-6"><h3>שעות פתיחה</h3>${hours}</div>` : ""}
+      ${(prof && (prof.photos || []).length) ? `<div class="card stack g-6"><h3>תמונות</h3><div class="gv-photos">${prof.photos.map(ph => `<img src="${esc(Cloud.photoUrl(ph))}" alt="" loading="lazy">`).join("")}</div></div>` : ""}
+      ${prof ? "" : `<p class="small muted">המוסך עוד לא השלים פרופיל בטיפולית. הפרטים מהמאגר של משרד התחבורה.</p>`}
+      ${mine ? `<button class="btn secondary" id="gv-edit">ערוך את פרופיל המוסך</button>` : ""}`;
+    const ed = $("#gv-edit"); if (ed) ed.onclick = () => claimGarage(g);
+    show("s-gview");
+  }
+  $("#gv-back").onclick = () => history.length > 1 ? history.back() : show("s-garages");
+  // Garage owners register here, apart from the drivers' list: search the registry, pick, fill the profile.
+  function renderClaimSearch() {
+    if (!GD) { $("#gcl-list").innerHTML = `<p class="small muted">טוען את מאגר המוסכים…</p>`; loadGarageDir().then(renderClaimSearch).catch(() => { $("#gcl-list").innerHTML = `<p class="small muted">מאגר המוסכים לא נטען. בדוק חיבור ונסה שוב.</p>`; }); return; }
+    const raw = $("#gcl-q").value.trim(), q = normName(raw), num = raw.replace(/\D/g, "");
+    if (q.length < 2 && num.length < 3) { $("#gcl-list").innerHTML = `<p class="small muted">${GD.garages.length.toLocaleString("he")} מוסכים מורשים. הקלידו לפחות 2 אותיות.</p>`; return; }
+    const hits = GD.garages.filter(r => (num.length >= 3 && String(r[0]) === num) || normName(r[1]).includes(q) || normName(r[3]).includes(q))
+      .sort((a, b) => (b[2] === S.city) - (a[2] === S.city)).slice(0, 25);
+    $("#gcl-list").innerHTML = hits.length ? `<div class="list">${hits.map(r => `<button class="row between row-btn" data-gcl="${r[0]}"><span><b>${esc(r[1])}</b><br><span class="small muted">${esc(r[3] ? r[3] + ", " : "")}${esc(r[2])} · מוסך מורשה מס' ${r[0]}</span></span><span class="go-mark" aria-hidden="true">‹</span></button>`).join("")}</div>`
+      : `<p class="small muted">לא נמצא מוסך מורשה כזה. נסו את השם הרשמי (של בעל הרישיון) או את שם הרחוב.</p>`;
+    $$("[data-gcl]", $("#gcl-list")).forEach(b => b.onclick = () => { const r = GD.garages.find(x => x[0] === +b.dataset.gcl); if (r) { geFromClaim = true; claimGarage(dirRow(r)); } });
+  }
+  let geFromClaim = false;   // the profile editor was opened from the registration search: back goes to the profile screen
+  const openClaimSearch = () => { $("#gcl-q").value = ""; renderClaimSearch(); show("s-gclaim"); };
+  $("#gcl-q").oninput = renderClaimSearch;
+  $("#gcl-back").onclick = () => history.length > 1 ? history.back() : show("s-me");
   $("#gr-q").oninput = () => renderGarages();
   $("#gr-back").onclick = () => history.length > 1 ? history.back() : show("s-home");
   // City picker
@@ -1244,13 +1325,6 @@
     return cloudProfiles[city];
   }
   async function loadMyProfiles(force) { if (!Cloud.enabled || !S.user || S.user.via !== "google" || S.user.demo) return (myProfiles = []); if (myProfiles && !force) return myProfiles; try { myProfiles = await Cloud.myGarageProfiles(); } catch (e) { myProfiles = []; } return myProfiles; }
-  const profileDetailsHTML = p => `<details class="fold more"><summary><span>פרטים ומחירון</span></summary>
-      ${p.makes && p.makes.length ? `<div class="small"><span class="muted">מתמחה ב:</span> ${p.makes.map(esc).join(", ")}</div>` : ""}
-      ${p.services && p.services.length ? `<div class="small"><span class="muted">שירותים:</span> ${p.services.map(s => gCatName[s] || s).join(", ")}</div>` : ""}
-      ${(p.prices || []).length ? `<div class="list small mt-6">${p.prices.map(x => `<div class="row between"><span>${esc(x.label)}</span><b class="num">₪${fmt(x.price)}</b></div>`).join("")}</div>` : ""}
-      ${p.about ? `<p class="small mt-6">${esc(p.about)}</p>` : ""}
-      ${(p.photos || []).length ? `<div class="photos">${p.photos.map(ph => `<img src="${esc(Cloud.photoUrl(ph))}" alt="" loading="lazy">`).join("")}</div>` : ""}
-      ${p.booking_url ? `<a class="btn secondary mt-8 compact" href="${esc(p.booking_url)}" target="_blank" rel="noopener">קביעת תור</a>` : ""}</details>`;
   // claim / edit entry points
   function claimGarage(reg) {
     if (!Cloud.enabled) return toast("צריך חיבור לשרת כדי לרשום מוסך");
@@ -1337,21 +1411,21 @@
     clearTimeout(geDelArmed); geDelArmed = null; $("#ge-delete").textContent = "הסר את המוסך מהחשבון שלי";
     try { await Cloud.deleteGarageProfile(ge.id); myProfiles = null; delete cloudProfiles[ge.city]; toast("הוסר"); show("s-me"); } catch (e) { toast("ההסרה נכשלה: " + e.message); }
   };
-  $("#ge-back").onclick = () => history.length > 1 ? history.back() : show("s-garages");
+  $("#ge-back").onclick = () => { if (geFromClaim) { geFromClaim = false; renderMe(); show("s-me"); } else if (history.length > 1) history.back(); else show("s-garages"); };
   // profile screen: my garages + (admin) pending claims
   async function renderMyGarages() {
     const el = $("#me-garages"); if (!el) return;
-    if (!Cloud.enabled || !S.user || S.user.via !== "google" || S.user.demo) { el.hidden = true; return; }
+    if (!Cloud.enabled) { el.hidden = true; return; }
     el.hidden = false;
-    const mine = await loadMyProfiles();
+    const mine = S.user && S.user.via === "google" && !S.user.demo ? await loadMyProfiles() : [];
     const st = { pending: ["בבדיקה", "warn"], verified: ["מאומת", "good"], rejected: ["נדחה", "crit"] };
-    el.innerHTML = `<h3>המוסך שלי</h3>` + (mine.length ? `<div class="list">${mine.map(p => `<button class="row between row-btn" data-gp="${p.id}"><span><b>${esc(p.name)}</b><br><span class="small muted">${esc(p.city)}</span></span><span class="status ${st[p.status][1]}">${st[p.status][0]}</span></button>`).join("")}</div>` : `<p class="small muted">יש לך מוסך מורשה? מצא אותו ברשימת המוסכים ולחץ "זה המוסך שלי".</p>`) +
+    el.innerHTML = `<h3>המוסך שלי</h3>` + (mine.length ? `<div class="list">${mine.map(p => `<button class="row between row-btn" data-gp="${p.id}"><span><b>${esc(p.name)}</b><br><span class="small muted">${esc(p.city)}</span></span><span class="status ${st[p.status][1]}">${st[p.status][0]}</span></button>`).join("")}</div>` : `<p class="small muted">יש לך מוסך מורשה? רשום אותו, והנהגים יראו את השם שעל השלט, שעות, מחירון ותמונות.</p>`) +
       mine.filter(p => p.status === "verified").map(p => `<div class="row g-8"><button class="btn primary" data-gc="${p.id}">הלקוחות של ${esc(p.name)}</button><button class="btn secondary fit" data-inv="${p.id}">הזמן</button></div><a class="btn ghost" href="garage/">לוח לקוחות למחשב</a>`).join("") +
-      `<button class="btn secondary" id="me-garage-find">${mine.length ? "הוסף מוסך נוסף" : "לרשימת המוסכים"}</button><div id="me-claims"></div>`;
+      `<button class="btn secondary" id="me-garage-find">${mine.length ? "רישום מוסך נוסף" : "רישום מוסך"}</button><div id="me-claims"></div>`;
     $$("[data-gp]", el).forEach(b => b.onclick = () => openGarageEdit(mine.find(p => p.id === b.dataset.gp)));
     $$("[data-gc]", el).forEach(b => b.onclick = () => openGarageCustomers(mine.find(p => p.id === b.dataset.gc)));
     $$("[data-inv]", el).forEach(b => b.onclick = () => openInvite(mine.find(p => p.id === b.dataset.inv)));
-    $("#me-garage-find").onclick = () => { renderGarages(); show("s-garages"); if (!S.city) openCitySheet(); };
+    $("#me-garage-find").onclick = openClaimSearch;
     try {
       const claims = await Cloud.pendingGarageClaims();
       if (claims.length) { $("#me-claims").innerHTML = `<h3 class="mt-12">בקשות ממתינות (מנהל)</h3><div class="list">${claims.map(c => `<div><b>${esc(c.name)}</b> · ${esc(c.city)}<br><span class="small muted num" dir="ltr">${esc(c.registry_phone || "")} · ${esc(c.phone || "")} · ${esc(c.owner_email || "")}</span><div class="row g-8 mt-6"><button class="btn primary tight" data-ok="${c.id}">אשר</button><button class="btn ghost tight fit" data-no="${c.id}">דחה</button></div></div>`).join("")}</div>`;
@@ -1777,6 +1851,8 @@
     try { history.replaceState({ screen: first }, "", "#" + first.replace(/^s-/, "")); } catch (e) {}
     show(first, true);
     if (first === "s-home") maybeJoin();
+    let claim = null; try { claim = sessionStorage.getItem(CLAIM_KEY); sessionStorage.removeItem(CLAIM_KEY); } catch (e) {}
+    if (claim && first !== "s-onb") openClaimSearch();
   }
 })();
 </script>

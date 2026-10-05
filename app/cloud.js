@@ -119,7 +119,7 @@
     return data || [];
   }
   async function garageProfiles(city) {
-    const cols = "id, garage_id, name, city, address, phone, whatsapp, booking_url, about, makes, services, hours, prices, photos, status, verified_via";
+    const cols = "id, garage_id, name, city, address, phone, whatsapp, booking_url, booking_enabled, about, makes, services, hours, prices, photos, status, verified_via";
     let { data, error } = await sb.from("garage_profiles").select(cols + ", aka").eq("city", city).eq("status", "verified");
     // a server before migration 0011 has no aka column
     if (error) ({ data, error } = await sb.from("garage_profiles").select(cols).eq("city", city).eq("status", "verified"));

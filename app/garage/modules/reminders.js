@@ -30,9 +30,9 @@
     const ok = live.filter(a => a.confirmed_at).length, waiting = live.filter(a => a.status === "booked" && !a.confirmed_at && !a.needs_ok);
     $("#rm-sum").textContent = live.length ? `${live.length} תורים · ${ok} אישרו הגעה · ${waiting.length} עוד לא אישרו` : "אין תורים ביום הזה.";
     $("#rm-list").innerHTML = rmList.map(a => {
-      const [tag, txt] = stateOf(a), canSend = a.status === "booked" && a.phone && Date.parse(a.starts_at) > Date.now();
+      const [tag, txt] = stateOf(a), canSend = a.status === "booked" && !a.confirmed_at && a.phone && Date.parse(a.starts_at) > Date.now();
       return `<div class="approval"><span><b>${hm(new Date(a.starts_at))} · ${esc(a.customer_name)}</b> <span class="muted small">${KIND[a.kind] || ""}${a.plate ? " · " + esc(fmtPlate(a.plate)) : ""}</span></span>
-        <span class="tag ${tag}">${txt}</span>${canSend ? `<button type="button" class="btn small" data-rm="${esc(a.id)}">${a.reminded_at ? "שלח שוב" : "שלח תזכורת"}</button>` : a.phone ? "" : `<span class="muted small">אין טלפון</span>`}</div>`;
+        <span class="tag ${tag}">${txt}</span>${canSend ? `<button type="button" class="btn small" data-rm="${esc(a.id)}">${a.reminded_at ? "שלח שוב" : "שלח תזכורת"}</button>` : a.phone || a.confirmed_at ? "" : `<span class="muted small">אין טלפון</span>`}</div>`;
     }).join("");
     $$("#rm-list [data-rm]").forEach(b => b.onclick = () => remind(rmList.find(a => a.id === b.dataset.rm)));
     $("#rm-hint").hidden = !rmList.some(a => !a.token);

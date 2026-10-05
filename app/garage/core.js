@@ -220,7 +220,7 @@
     st.garages = mine.filter(p => p.status === "verified");
     if (!st.garages.length) {
       const pending = mine.some(p => p.status === "pending");
-      showGate(pending ? "המוסך שלך בבדיקה" : "עוד אין לך מוסך מאומת", pending ? "אחרי שנאמת שהמוסך שלך, הלוח ייפתח כאן." : "מצאו את המוסך שלכם ברשימת המוסכים באפליקציה ולחצו \"זה המוסך שלי\".", `<a class="btn primary" href="../">לאפליקציה</a><a class="btn" href="?demo">הדגמה</a>`);
+      showGate(pending ? "המוסך שלך בבדיקה" : "עוד אין לך מוסך מאומת", pending ? "אחרי שנאמת שהמוסך שלך, הלוח ייפתח כאן." : "רשמו את המוסך באפליקציה: מחפשים אותו במאגר המוסכים המורשים וממלאים פרופיל. אחרי אימות הלוח ייפתח כאן.", `<a class="btn primary" href="../?garage=claim">רישום המוסך</a><a class="btn" href="?demo">הדגמה</a>`);
       return;
     }
     let last = null; try { last = localStorage.getItem("tipulit-garage"); } catch (e) {}

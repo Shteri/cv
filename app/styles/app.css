@@ -381,3 +381,13 @@ label.btn { cursor: pointer; }
 .counts.tap:active .c, .counts.tap:focus-visible .c { background: var(--accent-soft); }
 .counts.flat .c, .card .counts.flat .c { background: none; border: 0; box-shadow: none; padding-block: 4px; }
 .price .p, .card.ink .price .p { background: none; border-radius: 0; border-inline-start: 3px solid var(--line); padding: 2px 12px; }
+
+/* garage list rows open the garage's page; its photos */
+.garage.tap { cursor: pointer; }
+.garage.tap:active { background: var(--surface-2); }
+.gv-photos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+.gv-photos img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--r-field); }
+.good-text { color: var(--good); }
+.go-mark { color: var(--accent-text); font-size: 1.2em; }
+.gv-act, #gv-body a.btn { text-decoration: none; }
+.gv-act svg { width: 18px; height: 18px; flex: none; }
