@@ -10,6 +10,7 @@ Hebrew RTL PWA that tracks a car's condition and maintenance schedule in Israel.
 
 ## Build and checks
 - `node scripts/check-design.mjs && node scripts/validate.mjs && node scripts/build-app-data.mjs && node scripts/test-lookup.mjs && node scripts/test-engine.mjs && node scripts/build-site.mjs`
+- Browser checks of the built site: `cd tests/e2e && PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1 npm install && node run.mjs` (after `build-site.mjs`; Chromium from `/opt/pw-browsers`). A new feature gets a `*-check.mjs` here.
 - `build-site.mjs` writes the deployable site to `site/` (or `SITE_OUT`), including `styles/` and `welcome/`. Netlify publishes `site/` from `main`.
 - Maintenance data: edit `scripts/build_schedules.py` rules and regenerate; never hand-edit generated schedules.
 
