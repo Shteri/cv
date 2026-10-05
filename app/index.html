@@ -408,7 +408,7 @@
   // ---------- helpers ----------
   const schedById = id => D.schedules.find(s => s.id === id);
   const itemName = k => (D.items[k] && D.items[k].he) || k;
-  const actName = { replace: "החלפה", inspect: "בדיקה", clean: "ניקוי", rotate: "סבב", adjust: "כיוון" };
+  const actName = { replace: "החלפה", inspect: "בדיקה", clean: "ניקוי", rotate: "סבב", adjust: "כיוון", wait: "לא הפעם" };
   const fmtPlate = raw => {
     const d = raw.replace(/\D/g, "").slice(0, 8);
     if (d.length <= 7) return d.replace(/(\d{2})(\d{0,3})(\d{0,2})/, (m, a, b, c) => [a, b, c].filter(Boolean).join("-"));
@@ -435,7 +435,19 @@
   const gridShift = TipulitEngine.gridShift;
   // the last periodic service actually done (km and which service), so the next one is counted from it
   const lastSvcOf = car => (car.history || []).filter(h => (h.kind === "service" || !h.kind) && h.km > 0).reduce((a, h) => !a || h.km > a.km ? { km: h.km, svcKm: h.svcKm || null } : a, null);
-  const computeNext = car => TipulitEngine.next(schedById(car.schedule), { ...car, lastSvc: car.lastSvc || lastSvcOf(car) });
+  // what was actually replaced, so a part replaced off the schedule (a repair) moves its own next replacement
+  const recordsOf = car => (car.history || []).filter(h => h.km > 0).map(h => ({ km: h.km, items: h.items || [], kind: h.kind || "service" }));
+  const computeNext = car => TipulitEngine.next(schedById(car.schedule), { ...car, lastSvc: car.lastSvc || lastSvcOf(car), records: recordsOf(car) });
+  const planFor = (car, s, svc, km) => TipulitEngine.planAt(s, recordsOf(car), svc, km);
+  // the service's parts after the plan: added ones say why, skipped ones say until when they last
+  const planItems = (svc, plan) => {
+    const why = x => `הוחלף ב-${fmt(x.doneKm)} ק"מ${x.repair ? " (בתיקון)" : ""}`;
+    const add = Object.fromEntries(plan.add.map(x => [x.item, x])), base = Object.fromEntries(svc.items.map(i => [i.item, i]));
+    return [...plan.replace.map(k => add[k] ? { item: k, action: "replace", note: `${why(add[k])}, מגיע ב-${fmt(add[k].dueKm)}` } : base[k]),
+      ...plan.skip.map(x => ({ item: x.item, action: "wait", note: `${why(x)}. הבא ב-${fmt(x.dueKm)}` }))];
+  };
+  // a long-interval part counts from its last replacement when one is recorded
+  const longNextFor = (car, l) => { const every = l.every_km || l.then_every_km, d = recordsOf(car).filter(r => r.items.includes(l.item)).sort((a, b) => b.km - a.km)[0]; return d && every ? d.km + every : longNext(l, car.km); };
   // Long-interval items (plugs every 150,000; coolant first at 210,000 then every 30,000): next due km for a car.
   function longNext(l, km) {
     if (l.every_km) return Math.ceil((km + 1) / l.every_km) * l.every_km;
@@ -669,17 +681,20 @@
     $("#log-items").innerHTML = candidateItems(s).map(k => `<button type="button" class="chip ${logSel.has(k) ? "on" : ""}" data-k="${k}">${itemName(k)}</button>`).join("");
     $$("#log-items .chip").forEach(c => c.onclick = () => { const k = c.dataset.k; logSel.has(k) ? logSel.delete(k) : logSel.add(k); c.classList.toggle("on", logSel.has(k)); });
   }
+  // the parts this service should have replaced, after parts replaced off the schedule
+  const logPlanItems = (s, km) => { const svc = svcOfKm(s, km); return svc ? planFor(S.cars[S.active], s, svc, km).replace : []; };
+  const svcOfKm = (s, km) => s.services.find(x => x.km === ((km - gridShift(s)) % s.cycle_km) + gridShift(s) || x.km === km);
   const svcReplaceItems = (s, km) => { const svc = s.services.find(x => x.km === ((km - gridShift(s)) % s.cycle_km) + gridShift(s) || x.km === km); return svc ? svc.items.filter(i => i.action === "replace").map(i => i.item) : []; };
   function setKind(k) {
     logKind = k; $$("#log-kind button").forEach(x => x.classList.toggle("on", x.dataset.v === k));
     $("#log-svc-row").hidden = k !== "service"; $("#log-text-row").hidden = k === "service";
     $("#log-title").textContent = k === "service" ? "עשיתי טיפול" : k === "repair" ? "תיקון או תקלה" : "רשומה אחרת";
     const s = schedById(S.cars[S.active].schedule);
-    if (k === "service") logSel = new Set(svcReplaceItems(s, +$("#log-svc").value)); else logSel = new Set();
+    if (k === "service") logSel = new Set(logPlanItems(s, +$("#log-svc").value)); else logSel = new Set();
     renderItemChips(s);
   }
   $$("#log-kind button").forEach(b => b.onclick = () => setKind(b.dataset.v));
-  $("#log-svc").onchange = () => { const s = schedById(S.cars[S.active].schedule); logSel = new Set(svcReplaceItems(s, +$("#log-svc").value)); renderItemChips(s); };
+  $("#log-svc").onchange = () => { const s = schedById(S.cars[S.active].schedule); logSel = new Set(logPlanItems(s, +$("#log-svc").value)); renderItemChips(s); };
   function openLog(preKm, opts = {}) {
     const car = S.cars[S.active], s = schedById(car.schedule), n = computeNext(car);
     const laps = Math.floor(Math.max(0, car.km - gridShift(s)) / s.cycle_km); const list = [];
@@ -752,7 +767,7 @@
     const st = carState(car).map(r => ({ item: r.item, he: itemName(r.item), status: r.status, last_km: r.done ? r.done.km : null, last_date: r.done ? r.done.date || null : null, next_km: r.nextKm, next_date: r.nextDate ? r.nextDate.toISOString().slice(0, 7) : null, schedule_next_km: r.gridNext || null, every_km: r.p.km || null, every_months: r.p.months || null }));
     let prices = null; try { if (Cloud.communityPrices) prices = await Cloud.communityPrices(s.id, n.svc.km); } catch (e) {}
     return { car: { make: s.make_he, model: s.model_he, year: car.year, km: car.km, km_per_month: car.kmMonth || 1500 },
-      schedule: { next_service_km: n.nextKm, next_service_items: n.svc.items.filter(i => i.action === "replace").map(i => i.item) },
+      schedule: { next_service_km: n.nextKm, next_service_items: n.plan.replace, skipped_items: n.plan.skip.map(x => ({ item: x.item, replaced_km: x.doneKm, next_km: x.dueKm })) },
       item_state: st, community_prices: prices ? { service_km: n.svc.km, note: "ILS paid by other drivers of this model for this periodic service", ...prices } : null };
   }
   const DUE = { due: ["ok", "בזמן לפי הספר"], soon: ["soon", "מתקרב לפי הספר"], not_yet: ["overdue", "לפי הספר עוד לא הגיע הזמן"], not_in_schedule: ["unknown", "לא חלק מהטיפולים הקבועים"], unknown: ["unknown", "אין מספיק מידע"] };
@@ -970,13 +985,13 @@
         </div>
         <div class="stack g-6">
           <p class="small"><b>מה כולל טיפול ${fmt(n.svc.km)}:</b></p>
-          ${itemsHTML(n.svc.items.filter(i => i.action === "replace"))}
+          ${itemsHTML(planItems(n.svc, n.plan))}
           <button class="btn ghost fit self-start flush-start" data-go="tl">לכל הפריטים והבדיקות</button>
         </div>
         ${priceHTML(n.s, n.svc)}
         <button class="btn primary" id="to-garage">מה לוודא במוסך</button>
       </div>
-      ${(n.s.long_interval || []).filter(l => { const x = longNext(l, car.km); return x && x - car.km <= 15000; }).map(l => `<div class="banner">בקרוב גם: ${itemName(l.item)} (${longText(l)})</div>`).join("")}
+      ${(n.s.long_interval || []).filter(l => { const x = longNextFor(car, l); return x && x - car.km <= 15000 && !n.plan.replace.includes(l.item); }).map(l => `<div class="banner">בקרוב גם: ${itemName(l.item)} (${longText(l)})</div>`).join("")}
       ${n.s.status === "draft" ? `<div class="banner">לוח בטיוטה: המרווח לפי היבואן, התכולה עדיין באימות.</div>` : ""}
       ${garagesHomeHTML(car)}
       ${specsHTML(n.s)}`;
@@ -1021,7 +1036,7 @@
     $$("[data-log]").forEach(b => b.onclick = () => openLog(+b.dataset.log));
     $$("[data-copy]").forEach(b => b.onclick = () => copyChecklist(s, s.services.find(x => x.km === +b.dataset.svc), +b.dataset.copy));
     const tb = s.time_based || [], li = s.long_interval || [];
-    const liRows = li.map(l => { const n = longNext(l, car.km); const soon = n && n - car.km <= 15000; return `<div class="item"><span class="act ${l.action}">${actName[l.action]}</span><div><div>${itemName(l.item)}${n ? ` · <b class="num" class="${soon ? "is-soon" : ""}">בסביבות ${fmt(n)} ק"מ</b>` : ""}</div><div class="note">${longText(l)}${l.note ? " · " + l.note : ""}</div></div></div>`; }).join("");
+    const liRows = li.map(l => { const n = longNextFor(car, l); const soon = n && n - car.km <= 15000; return `<div class="item"><span class="act ${l.action}">${actName[l.action]}</span><div><div>${itemName(l.item)}${n ? ` · <b class="num" class="${soon ? "is-soon" : ""}">בסביבות ${fmt(n)} ק"מ</b>` : ""}</div><div class="note">${longText(l)}${l.note ? " · " + l.note : ""}</div></div></div>`; }).join("");
     const tbRows = tb.map(t => `<div class="item"><span class="act ${t.action}">${actName[t.action]}</span><div><div>${itemName(t.item)}${t.months ? ` · כל ${t.months / 12} שנים` : ""}</div>${t.note ? `<div class="note">${t.note}</div>` : ""}</div></div>`).join("");
     $("#tl-time").innerHTML = `<h3>מרווחים ארוכים ולפי זמן</h3>${liRows + tbRows || `<p class="small muted">אין פריטים כאלה בלוח הזה.</p>`}`;
   }
@@ -1039,9 +1054,11 @@
   ];
   function checklistHTML(s, svc, km) {
     const row = (it, i) => `<label class="chk"><input type="checkbox" id="c-${km}-${i}"><span class="t">${itemName(it.item)}${it.action === "clean" || it.action === "adjust" ? ` <span class="act ${it.action}">${actName[it.action]}</span>` : ""}${it.note ? `<div class="note">${it.note}</div>` : ""}</span></label>`;
-    const rep = svc.items.filter(i => i.action === "replace"), insp = svc.items.filter(i => i.action !== "replace");
+    const planned = planItems(svc, planFor(S.cars[S.active], s, svc, km));
+    const rep = planned.filter(i => i.action === "replace"), wait = planned.filter(i => i.action === "wait"), insp = svc.items.filter(i => i.action !== "replace");
     return `
       <div class="stack g-2"><div class="row between"><b>לבקש שיחליפו</b><span class="small muted">לפי לוח ${s.importer}</span></div>${rep.map((it, i) => row(it, "r" + i)).join("")}</div>
+      ${wait.length ? `<div class="stack g-2"><b>לא צריך הפעם</b>${itemsHTML(wait)}</div>` : ""}
       <div class="stack g-2"><b>לבקש שיבדקו</b>${insp.map((it, i) => row(it, "i" + i)).join("")}</div>
       <details class="fold"><summary><span>לוודא לפני שמשלמים</span></summary>${gTips(s).map(([t, x], i) => `<div class="tip"><span class="i">${i + 1}</span><span><b>${t}</b><br><span class="muted">${x}</span></span></div>`).join("")}</details>
       ${priceHTML(s, svc)}
@@ -1050,7 +1067,7 @@
   function copyChecklist(s, svc, km) {
     const car = S.cars[S.active], c = communityPrice(s, svc);
     const txt = [`טיפול ${fmt(km)} ק"מ · ${carName(car)} · לפי לוח ${s.importer}`, "",
-      "להחליף:", ...svc.items.filter(i => i.action === "replace").map(i => "☐ " + itemName(i.item)), "",
+      "להחליף:", ...planFor(car, s, svc, km).replace.map(k => "☐ " + itemName(k)), "",
       "לבדוק:", ...svc.items.filter(i => i.action !== "replace").map(i => "☐ " + itemName(i.item)), "",
       ...(c.example ? [] : [[["יבואן", c.importer], ["פרטי", c.independent]].filter(([, b]) => b).map(([t, b]) => `${t} ₪${fmt(b.lo)}-${fmt(b.hi)}`).join(", ")].filter(Boolean).map(x => "מחיר שדווח: " + x)), "",
       "לוודא: חשבונית מפורטת, סוג שמן לפי ספר, חלקים מקוריים/תחליפיים, חלקים ישנים, רישום הטיפול.", "", "נוצר ב-Tipulit"].join("\n");

@@ -26,5 +26,21 @@ check("i10 grid 15k+20k: 35k done at 37k", E.next(i10, car(38000, { svcKm: 35000
 check("i10 first service done at 14k", E.next(i10, car(16000, { svcKm: 15000, km: 14000 })), { nextKm: 35000, windowFrom: 34000, windowTo: 35000 });
 check("i10 across the cycle", E.next(i10, car(160500, { svcKm: 155000, km: 156000 })), { nextKm: 175000, windowTo: 176000 });
 check("i10 no history", E.next(i10, car(36000)), { nextKm: 55000, windowTo: 55000 });
+// parts replaced off the schedule move their own next replacement
+const plan = (sch, km, records) => E.next(sch, { km, kmMonth: 1500, lastService: null, records, lastSvc: null }).plan;
+const has = (p, k) => p.replace.includes(k);
+const regular = [{ km: 35000, kind: "service", items: ["engine_oil", "oil_filter", "air_filter", "brake_fluid", "cabin_filter"] }];
+check("regular history changes nothing", { at55: plan(i10, 40000, regular).replace.join(), at75: plan(i10, 60000, [...regular, { km: 55000, kind: "service", items: ["engine_oil", "oil_filter", "cabin_filter"] }]).replace.join() },
+  { at55: "engine_oil,oil_filter,cabin_filter", at75: "engine_oil,oil_filter,air_filter,brake_fluid,cabin_filter" });
+const airRepair = [...regular, { km: 50000, kind: "repair", items: ["air_filter"] }];
+const p75 = plan(i10, 60000, airRepair);
+check("air filter replaced at 50k: skipped at 75k", { replace: has(p75, "air_filter"), skip: p75.skip.map(x => `${x.item}:${x.dueKm}:${x.repair}`).join() }, { replace: false, skip: "air_filter:90000:true" });
+const p95 = plan(i10, 80000, [...airRepair, { km: 75000, kind: "service", items: ["engine_oil", "oil_filter", "brake_fluid", "cabin_filter"] }]);
+check("...and added to 95k (due 90k, before 115k)", { replace: has(p95, "air_filter"), add: p95.add.map(x => x.item).join() }, { replace: true, add: "air_filter" });
+check("replaced a little early: no change", { ok: has(plan(i10, 60000, [...regular, { km: 40000, kind: "repair", items: ["air_filter"] }]), "air_filter") }, { ok: true });
+check("long-interval part replaced in a repair: added to the visit before it runs out", { ok: has(plan(ev, 80000, [{ km: 50000, kind: "repair", items: ["transmission_oil"] }]), "transmission_oil") && !has(plan(ev, 40000, [{ km: 50000, kind: "repair", items: ["transmission_oil"] }]), "transmission_oil") }, { ok: true });
+check("no records: the importer's list", { n: plan(i10, 60000).replace.length, skip: plan(i10, 60000).skip.length }, { n: 5, skip: 0 });
+check("this service's own record (done early) is not an earlier replacement", { n: E.planAt(i10, [{ km: 72000, kind: "service", items: ["air_filter", "brake_fluid"] }], i10.services[3], 75000).replace.length }, { n: 5 });
+check("repair inside the window counts", { skip: E.planAt(i10, [...regular, { km: 76000, kind: "repair", items: ["brake_fluid"] }], i10.services[3], 75000).skip.map(x => x.item).join() }, { skip: "brake_fluid" });
 if (fail) { console.error(`${fail} failed`); process.exit(1); }
 console.log("engine ok");

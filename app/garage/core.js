@@ -30,12 +30,14 @@
   // ---------- state ----------
   const st = { garage: null, garages: [], rows: [], wos: [], recalls: {}, filter: "all", sort: "due", q: "", tab: "customers", groups: [] };
   const monthsSince = iso => iso ? Math.max(0, (Date.now() - Date.parse(iso)) / (30.44 * 86400000)) : 0;
+  // what this garage replaced on a car, for parts replaced off the schedule (engine planAt)
+  const recordsOf = carId => st.wos.filter(w => w.garage_car_id === carId && w.km > 0).map(w => ({ km: w.km, items: w.items || [], kind: w.kind }));
   function view(r) {
     const s = schedById(r.schedule_id), kmMonth = r.km_month || 1500;
     const estKm = r.km ? Math.round(r.km + kmMonth * monthsSince(r.km_at)) : null;
     // the last periodic service this garage recorded: the next one is counted from where it was actually done
     const lastSvc = st.wos.filter(w => w.garage_car_id === r.car_id && w.kind === "service" && w.km > 0).reduce((a, w) => !a || w.km > a.km ? { km: w.km, svcKm: w.svc_km || null } : a, null);
-    let n = null; try { if (s && estKm !== null) n = E.next(s, { km: Math.max(estKm, lastSvc ? lastSvc.km : 0), kmMonth, lastService: r.last_service, lastSvc }); } catch (e) {}
+    let n = null; try { if (s && estKm !== null) n = E.next(s, { km: Math.max(estKm, lastSvc ? lastSvc.km : 0), kmMonth, lastService: r.last_service, lastSvc, records: recordsOf(r.car_id) }); } catch (e) {}
     const testDays = r.test_expiry ? Math.round((Date.parse(r.test_expiry) - Date.now()) / 86400000) : null;
     const plateDigits = digits(r.plate);
     return { ...r, s, estKm, n, testDays, plateDigits, plate: plateDigits ? fmtPlate(plateDigits) : "",
@@ -302,6 +304,6 @@
   })();
 
 
-  Object.assign(G, { addAction, renderActions, addTimeline, timelineFor, D, Cloud, E, L, $, $$, fmt, esc, fmtDate, monthName, fmtPlate, digits, schedById, itemName, today, toast, telHref, waHref, theModel, ico, demo, api, st, monthsSince, view, recallsOf, isDue, isOver, isTest, FILTERS, match, message, openMsg, copy, showTab, setSeg, openMsgText, loadQr, download, numIn, nf, money, qtyOf, oilLiters, register, on, call, loadRecalls, reload, openGarage, DEMO });
+  Object.assign(G, { addAction, renderActions, addTimeline, timelineFor, D, Cloud, E, L, $, $$, fmt, esc, fmtDate, monthName, fmtPlate, digits, schedById, itemName, today, toast, telHref, waHref, theModel, ico, demo, api, st, monthsSince, view, recordsOf, recallsOf, isDue, isOver, isTest, FILTERS, match, message, openMsg, copy, showTab, setSeg, openMsgText, loadQr, download, numIn, nf, money, qtyOf, oilLiters, register, on, call, loadRecalls, reload, openGarage, DEMO });
   G.boot = () => start().catch(e => showGate("משהו השתבש", e.message || String(e), `<a class="btn" href="./">נסה שוב</a>`));
 })();

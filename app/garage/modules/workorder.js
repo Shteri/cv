@@ -22,7 +22,7 @@
   function fillFromService() {
     const km = +$("#wo-svc").value, c = woFor;
     woItems = new Set(); woLines = woLines.filter(l => l.type === "labor" || l.manual);
-    if (woKind === "service" && c.s && km) { const sv = svcAt(c.s, km); if (sv) for (const i of sv.items.filter(i => i.action === "replace").reverse()) { woItems.add(i.item); woLines.unshift(partLine(i.item)); } }
+    if (woKind === "service" && c.s && km) { const sv = svcAt(c.s, km); if (sv) for (const k of E.planAt(c.s, G.recordsOf(c.car_id), sv, km).replace.reverse()) { woItems.add(k); woLines.unshift(partLine(k)); } }
     if (!woLines.some(l => l.type === "labor")) woLines.push({ type: "labor", desc: woKind === "service" ? "עבודה, טיפול תקופתי" : "עבודה", qty: 1, price: "" });
     renderWoItems(); renderWoLines();
   }

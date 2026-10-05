@@ -63,7 +63,7 @@
     const carActs = cars.map(c => G.renderActions("car", { car: c }, "btn small"));
     $("#cc-cars").innerHTML = cars.map((c, i) => `<div class="box" data-carbox="${i}"><div class="row-between"><b>${esc(c.model)} ${c.year || ""}</b>${c.plate ? `<span class="plate-mini num">${esc(c.plate)}</span>` : ""}</div>
       <div class="muted small">${c.estKm !== null ? `~${fmt(c.estKm)} ק"מ` : 'ק"מ לא ידוע'}${c.test_expiry ? ` · טסט עד ${fmtDate(c.test_expiry)}` : ""}</div>
-      ${c.n ? `<div class="small">טיפול הבא: <b class="num">${fmt(c.n.nextKm)}</b>${c.n.windowTo !== c.n.windowFrom ? ` <span class="num">(בין ${fmt(c.n.windowFrom)} ל-${fmt(c.n.windowTo)}, לפי הטיפול האחרון ב-${fmt(c.n.lastKm)})</span>` : ""} · ${monthName(c.n.dueDate)}</div><div class="muted small">${c.n.svc.items.filter(i => i.action === "replace").map(i => itemName(i.item)).join(", ")}</div>` : ""}
+      ${c.n ? `<div class="small">טיפול הבא: <b class="num">${fmt(c.n.nextKm)}</b>${c.n.windowTo !== c.n.windowFrom ? ` <span class="num">(בין ${fmt(c.n.windowFrom)} ל-${fmt(c.n.windowTo)}, לפי הטיפול האחרון ב-${fmt(c.n.lastKm)})</span>` : ""} · ${monthName(c.n.dueDate)}</div><div class="muted small">${c.n.plan.replace.map(itemName).join(", ")}${c.n.plan.skip.length ? ` · לא הפעם: ${c.n.plan.skip.map(x => `${itemName(x.item)} (הוחלף ב-${fmt(x.doneKm)})`).join(", ")}` : ""}</div>` : ""}
       ${recallsOf(c).length ? `<div class="small warn-text">ריקול פתוח: ${esc(recallsOf(c).map(x => x.system).join(", "))}</div>` : ""}
       <div class="dlg-actions start"><button class="btn small primary" type="button" data-wo="${c.car_id}">כרטיס עבודה</button>${carActs[i].html}</div></div>`).join("");
     carActs.forEach((x, i) => x.bind($(`#cc-cars [data-carbox="${i}"]`)));

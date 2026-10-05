@@ -14,7 +14,7 @@
   function forecast(days) {
     const until = Date.now() + days * 86400000, due = st.rows.filter(c => c.n && (c.n.level === "crit" || c.n.dueDate.getTime() <= until));
     const by = new Map();
-    for (const c of due) for (const it of c.n.svc.items.filter(i => i.action === "replace")) {
+    for (const c of due) for (const it of c.n.plan.replace.map(item => ({ item }))) {
       const e = by.get(it.item) || { item: it.item, n: 0, models: new Map(), liters: 0, litersKnown: 0, parts: new Map(), unmatched: 0 };
       e.n++; const lbl = engineLabel(c.s); e.models.set(lbl, (e.models.get(lbl) || 0) + 1);
       if (it.item === "engine_oil") { const l = oilLiters(c.s); if (l) { e.liters += l; e.litersKnown++; } }
