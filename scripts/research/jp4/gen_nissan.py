@@ -1,0 +1,40 @@
+import sys; sys.path.insert(0,'.')
+from gen import *
+URL='https://www.nissan.co.nz/content/dam/Nissan/new-zealand/Owners/ServicePDFs/F16%20-%20Juke%20Capped%20Price%20Service%20v3.pdf'
+IMP=sys.argv[1]
+s=S('nissan-juke-2020-2026-1.0-turbo','Nissan','ניסאן','Juke','ג\'וק','F16',(2020,2026),['1.0 DIG-T (HR10DDT)'],'petrol',IMP,
+    20000,12,'לפי לוח ניסאן ניו זילנד לג\'וק F16: טיפול כל 20,000 ק"מ או 12 חודשים, המוקדם',80000)
+s.every('engine_oil','replace',20000)
+s.every('oil_filter','replace',20000)
+s.every('drive_belt','inspect',20000,'החלפה מוקדמת אם יש נזק או מגע עם דלק')
+s.every('coolant','inspect',40000,'בדיקת ריכוז נוזל הקירור')
+s.every('cooling_system','inspect',40000)
+s.every('fuel_lines','inspect',40000)
+s.every('evap_system','inspect',40000,'צנרת אדי דלק ומיכל פחם')
+s.every('air_filter','replace',40000,'או כל 24 חודשים')
+s.every('brake_pads','inspect',20000,'רפידות, דיסקים ושאר רכיבי הבלם (או כל 12 חודשים)')
+s.every('brake_discs','inspect',20000)
+s.every('brake_drums','inspect',20000,'תופים ורפידות תוף, אם קיימים')
+s.every('pedals','inspect',20000,'דוושת בלם ובלם חניה: חופש, מהלך ותפקוד')
+s.every('parking_brake','inspect',20000)
+s.every('brake_lines','inspect',20000,'בדיקת מפלס ודליפות נוזל בלמים')
+s.every('brake_fluid','replace',40000,'או כל 24 חודשים')
+s.every('vacuum_hose','inspect',40000,'צינורות ואקום של מגבר הבלם, חיבורים ושסתום')
+s.every('exhaust','inspect',40000)
+s.every('steering','inspect',40000,'תיבת הגה ומוטות')
+s.every('suspension','inspect',40000,'סרנים וחלקי מתלה')
+s.every('cv_boots','inspect',40000,'צירי הנעה קדמיים')
+s.every('cabin_filter','replace',40000,'או כל 24 חודשים')
+s.li('spark_plugs','replace',every_km=60000,every_months=36,note='מצתי אירידיום')
+s.li('drive_belt','replace',every_km=120000,every_months=72)
+s.li('dct_oil','replace',every_km=120000,note='נוזל גיר DCT')
+s.li('coolant','replace',first_km=160000,first_months=96,then_every_km=80000,then_every_months=48,note='נוזל קירור כחול מקורי של ניסאן')
+s.src(URL,'manufacturer','Nissan New Zealand, "Nissan Capped Price Service - Juke: F16 Series" (v3, 2022), עמוד 3: "ENGINE AND EMISSION CONTROL MAINTENANCE (HR10DDT PETROL ENGINES)" ו-"CHASSIS AND BODY MAINTENANCE"; עמוד 4: תנאים קשים')
+s.src('https://www.nissan.co.il/service.html','importer','אתרי ניסאן ישראל אינם מפרסמים ספרי רכב או לוחות טיפולים; בספר הבעלים האירופי (nissan.ie) יש הפניה לחוברת תחזוקה נפרדת שאינה פומבית')
+notes=('לא נמצא ספר עברי. הלוח לקוח מתוכנית השירות של ניסאן ניו זילנד לג\'וק F16 עם מנוע 1.0 טורבו (HR10DDT). הטבלה מגיעה עד 80,000 ק"מ וחוזרת על עצמה. '
+       'שמן ומסנן כל 20,000 ק"מ או שנה, מסנן אוויר ומסנן מזגן ונוזל בלמים כל 40,000 ק"מ או שנתיים, מצתים כל 60,000 ק"מ או 3 שנים, רצועת עזר ונוזל גיר DCT כל 120,000 ק"מ. '
+       'בדיקת שסתומים נדרשת רק אם מופיע רעש. בתנאים קשים (אבק, גרירה, חום קיצוני, דרכים משובשות) בדיקת בלמים כל 7,500 עד 10,000 ק"מ ובדיקת היגוי ומתלים כל 15,000 ק"מ, ובאזור לח או הררי נוזל בלמים כל 20,000 ק"מ. '
+       'לוח היבואן בישראל לא נמצא, ולכן יש לאמת את המרווח מול המוסך.')
+s.write('draft',notes)
+rule('Nissan',['JUKE'],(2020,2026),'nissan-juke-2020-2026-1.0-turbo',engine_codes=['HR10'])
+save_rules('rules_nissan.json')

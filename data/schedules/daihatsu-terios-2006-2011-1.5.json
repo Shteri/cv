@@ -1,0 +1,558 @@
+{
+  "id": "daihatsu-terios-2006-2011-1.5",
+  "make": "Daihatsu",
+  "make_he": "דייהטסו",
+  "model": "Terios",
+  "model_he": "טריוס",
+  "generation": "J200",
+  "years": [
+    2006,
+    2011
+  ],
+  "engines": [
+    "1.5 (3SZ-VE)"
+  ],
+  "fuel": "petrol",
+  "importer": "טלקאר",
+  "interval": {
+    "km": 15000,
+    "months": 12,
+    "note": "לפי \"תוכנית תחזוקה לשימוש רגיל\" בספר הבעלים האירופי: טיפול כל 15,000 ק\"מ או שנה, המוקדם; בשימוש קשה שמן ומסנן כל 7,500 ק\"מ או חצי שנה"
+  },
+  "cycle_km": 90000,
+  "services": [
+    {
+      "km": 15000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "שמן API SH ומעלה; עם שמן API SG כל 12,000 ק\"מ או שנה"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "ניקוי ובדיקה; החלפה כל 45,000 ק\"מ"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "רצועת אלטרנטור, משאבת מים, מזגן והגה כוח"
+        },
+        {
+          "item": "clutch",
+          "action": "inspect",
+          "note": "חופש דוושת המצמד ומרחק שמורה"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "דיסקים ורפידות"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "הידוק ברגים, טבורי גלגלים ושלדה"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "שמן API SH ומעלה; עם שמן API SG כל 12,000 ק\"מ או שנה"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "ניקוי ובדיקה; החלפה כל 45,000 ק\"מ"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "צנרת וחיבורי דלק כולל פתח המילוי"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "רצועת אלטרנטור, משאבת מים, מזגן והגה כוח"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "inspect",
+          "note": "מצתים רגילים: ניקוי ובדיקה (מצתי אירידיום מוחלפים כל 90,000 ק\"מ)"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "clutch",
+          "action": "inspect",
+          "note": "חופש דוושת המצמד ומרחק שמורה"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect",
+          "note": "גיר ידני"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect",
+          "note": "דיפרנציאל מרכזי (הנעה כפולה)"
+        },
+        {
+          "item": "differential_oil",
+          "action": "replace",
+          "note": "דיפרנציאל קדמי ואחורי"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "גל הינע: הידוק, רעידות ונזקים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "זרועות, קפיצים, מוט מייצב וכיסויי אבק"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "מפרקים, תיבת הגה וכיסויי אבק"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם ובלם יד"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "דיסקים ורפידות"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect",
+          "note": "צנרת בלמים, שסתומי ויסות ומשאבת הבלמים (דליפות)"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "הידוק ברגים, טבורי גלגלים ושלדה"
+        }
+      ]
+    },
+    {
+      "km": 45000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "שמן API SH ומעלה; עם שמן API SG כל 12,000 ק\"מ או שנה"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "ניקוי ובדיקה; החלפה כל 45,000 ק\"מ"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "רצועת אלטרנטור, משאבת מים, מזגן והגה כוח"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect",
+          "note": "מיכל פחם פעיל"
+        },
+        {
+          "item": "clutch",
+          "action": "inspect",
+          "note": "חופש דוושת המצמד ומרחק שמורה"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי, כולל בדיקת צינורות מצנן השמן של הגיר"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "דיסקים ורפידות"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "הידוק ברגים, טבורי גלגלים ושלדה"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "שמן API SH ומעלה; עם שמן API SG כל 12,000 ק\"מ או שנה"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "ניקוי ובדיקה; החלפה כל 45,000 ק\"מ"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "צנרת וחיבורי דלק כולל פתח המילוי"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "רצועת אלטרנטור, משאבת מים, מזגן והגה כוח"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "inspect",
+          "note": "מצתים רגילים: ניקוי ובדיקה (מצתי אירידיום מוחלפים כל 90,000 ק\"מ)"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "clutch",
+          "action": "inspect",
+          "note": "חופש דוושת המצמד ומרחק שמורה"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect",
+          "note": "גיר ידני"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "inspect",
+          "note": "דיפרנציאל מרכזי (הנעה כפולה)"
+        },
+        {
+          "item": "differential_oil",
+          "action": "replace",
+          "note": "דיפרנציאל קדמי ואחורי"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "גל הינע: הידוק, רעידות ונזקים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "זרועות, קפיצים, מוט מייצב וכיסויי אבק"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "מפרקים, תיבת הגה וכיסויי אבק"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם ובלם יד"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "דיסקים ורפידות"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect",
+          "note": "צנרת בלמים, שסתומי ויסות ומשאבת הבלמים (דליפות)"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "הידוק ברגים, טבורי גלגלים ושלדה"
+        }
+      ]
+    },
+    {
+      "km": 75000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "שמן API SH ומעלה; עם שמן API SG כל 12,000 ק\"מ או שנה"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "ניקוי ובדיקה; החלפה כל 45,000 ק\"מ"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "רצועת אלטרנטור, משאבת מים, מזגן והגה כוח"
+        },
+        {
+          "item": "clutch",
+          "action": "inspect",
+          "note": "חופש דוושת המצמד ומרחק שמורה"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "דיסקים ורפידות"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "הידוק ברגים, טבורי גלגלים ושלדה"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "שמן API SH ומעלה; עם שמן API SG כל 12,000 ק\"מ או שנה"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "ניקוי ובדיקה; החלפה כל 45,000 ק\"מ"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "צנרת וחיבורי דלק כולל פתח המילוי"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "רצועת אלטרנטור, משאבת מים, מזגן והגה כוח"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "inspect",
+          "note": "מצתים רגילים: ניקוי ובדיקה (מצתי אירידיום מוחלפים כל 90,000 ק\"מ)"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect",
+          "note": "מיכל פחם פעיל"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "clutch",
+          "action": "inspect",
+          "note": "חופש דוושת המצמד ומרחק שמורה"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "replace",
+          "note": "גיר ידני"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "replace",
+          "note": "גיר אוטומטי, כולל בדיקת צינורות מצנן השמן של הגיר"
+        },
+        {
+          "item": "transfer_case_oil",
+          "action": "replace",
+          "note": "דיפרנציאל מרכזי (הנעה כפולה)"
+        },
+        {
+          "item": "differential_oil",
+          "action": "replace",
+          "note": "דיפרנציאל קדמי ואחורי"
+        },
+        {
+          "item": "propshaft",
+          "action": "inspect",
+          "note": "גל הינע: הידוק, רעידות ונזקים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "זרועות, קפיצים, מוט מייצב וכיסויי אבק"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "מפרקים, תיבת הגה וכיסויי אבק"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם ובלם יד"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "דיסקים ורפידות"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect",
+          "note": "צנרת בלמים, שסתומי ויסות ומשאבת הבלמים (דליפות)"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "הידוק ברגים, טבורי גלגלים ושלדה"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "spark_plugs",
+      "action": "replace",
+      "every_km": 90000,
+      "note": "מצתי אירידיום"
+    }
+  ],
+  "time_based": [
+    {
+      "item": "coolant",
+      "action": "replace",
+      "months": 24,
+      "note": "נוזל קירור לאורך חיים: כל שנתיים"
+    },
+    {
+      "item": "brake_fluid",
+      "action": "replace",
+      "months": 24,
+      "note": "כל שנתיים"
+    },
+    {
+      "item": "clutch",
+      "action": "replace",
+      "months": 24,
+      "note": "החלפת נוזל המצמד כל שנתיים"
+    },
+    {
+      "item": "evap_system",
+      "action": "replace",
+      "months": 96,
+      "note": "צינורות אדי דלק: החלפה כל 8 שנים"
+    }
+  ],
+  "specs": {},
+  "sources": [
+    {
+      "url": "https://www.manua.ls/daihatsu/terios-2009/manual?p=236",
+      "kind": "manufacturer",
+      "note": "Daihatsu Terios owner's manual (אירופה, מהדורה איטלקית 2009), פרק 13 \"Programma di manutenzione\", עמודים 13-3 עד 13-7 (manua.ls p.236-240): לוח לשימוש רגיל ולשימוש קשה"
+    },
+    {
+      "url": "https://procarmanuals.com/category/manual/daihatsu-manual/",
+      "kind": "other",
+      "note": "בקטגוריית דייהטסו ב-procarmanuals יש רק ספרי שירות של טריוס J100 ושל מטריה, בלי לוח לדור J200"
+    }
+  ],
+  "status": "draft",
+  "notes": "לא נמצא ספר עברי של טלקאר לטריוס. הלוח לקוח מספר הבעלים האירופי (מהדורה איטלקית, 2009) של טריוס עם מנוע 1.5. המחזור בטבלה הוא 90,000 ק\"מ או 6 שנים וחוזר על עצמו. נוזל קירור, נוזל בלמים ונוזל מצמד מוחלפים כל שנתיים בלי קשר לק\"מ. שורות הדיפרנציאל המרכזי ושמן הדיפרנציאלים נוגעות לגרסאות הנעה כפולה. בטבלה אין שורת בדיקת שסתומים או רצועת תזמון. בשימוש קשה (גרירה, נסיעות קצרות, דרכים משובשות או מאובקות) שמן ומסנן כל 7,500 ק\"מ, בדיקת מסנן אוויר כל 5,000 ק\"מ והחלפתו כל 15,000, ונוזל גיר אוטומטי ב-45,000 ק\"מ."
+}

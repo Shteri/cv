@@ -1,0 +1,1307 @@
+{
+  "id": "mitsubishi-grandis-2005-2011-2.4",
+  "make": "Mitsubishi",
+  "make_he": "מיצובישי",
+  "model": "Grandis",
+  "model_he": "גרנדיס",
+  "generation": "NA",
+  "years": [
+    2005,
+    2011
+  ],
+  "engines": [
+    "2.4 MIVEC (4G69)"
+  ],
+  "fuel": "petrol",
+  "importer": "כלמוביל",
+  "interval": {
+    "km": 15000,
+    "months": 12,
+    "note": "לפי לוח התחזוקה הכללי של מיצובישי אירופה: טיפול כל 15,000 ק\"מ או 12 חודשים, המוקדם; בשימוש קשה שמן ומסנן כל 7,500 ק\"מ"
+  },
+  "cycle_km": 180000,
+  "services": [
+    {
+      "km": 15000,
+      "items": [
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "רצועת עזר: בדיקת סדקים ובלאי וכיוון מתיחה"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "בדיקה כל 15,000 ק\"מ או שנה (בשימוש קשה כל 7,500)"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "בדיקת מפלס נוזל בלמים ונוזל מצמד הידראולי"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "בדיקת מפלס אלקטרוליט"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect",
+          "note": "גיר ידני: בדיקת מפלס"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "חופש דוושת הבלם ודוושת המצמד"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "מהלך ידית בלם היד"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מסנן מטהר האוויר (מזגן)"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות ודיסקים; בשימוש קשה כל 7,500 ק\"מ"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי: בדיקת מפלס"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "כל 15,000 ק\"מ או 12 חודשים; בשימוש קשה כל 7,500 ק\"מ"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "בדיקת סל\"ד סרק, ריכוז CO, מערכת EGR ונסיעת מבחן"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "רצועת עזר: בדיקת סדקים ובלאי וכיוון מתיחה"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "בדיקת כבלי הצתה"
+        },
+        {
+          "item": "pcv_valve",
+          "action": "inspect",
+          "note": "מערכת אוורור בית הארכובה"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect",
+          "note": "צינורות מקרן וחיבוריהם"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקת מפלס במיכל העודפים"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "בדיקה כל 15,000 ק\"מ או שנה (בשימוש קשה כל 7,500)"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "החלפה כל 30,000 ק\"מ או שנתיים"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "בדיקת מפלס אלקטרוליט"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלים, מפרקים כדוריים וכיסויי אבק (כל 30,000 ק\"מ או שנתיים)"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "בשימוש קשה כל 7,500 ק\"מ"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect",
+          "note": "גיר ידני: בדיקת מפלס"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "דליפות גזים וחיבורי הצנרת"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "חופש דוושת הבלם ודוושת המצמד"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "מהלך ידית בלם היד"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מסנן מטהר האוויר (מזגן)"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "בלאי לא אחיד"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות ודיסקים; בשימוש קשה כל 7,500 ק\"מ"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect",
+          "note": "נעלי בלם ותופים; בשימוש קשה כל 15,000 ק\"מ"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי: בדיקת מפלס"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "כל 15,000 ק\"מ או 12 חודשים; בשימוש קשה כל 7,500 ק\"מ"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "בדיקת סל\"ד סרק, ריכוז CO, מערכת EGR ונסיעת מבחן"
+        }
+      ]
+    },
+    {
+      "km": 45000,
+      "items": [
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "רצועת עזר: בדיקת סדקים ובלאי וכיוון מתיחה"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "מצתים רגילים כל 45,000 ק\"מ; מצתי פלטינה או אירידיום כל 90,000 ק\"מ"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "החלפה כל 45,000 ק\"מ או 3 שנים"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "בדיקת מפלס נוזל בלמים ונוזל מצמד הידראולי"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "בדיקת מפלס אלקטרוליט"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect",
+          "note": "גיר ידני: בדיקת מפלס"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "חופש דוושת הבלם ודוושת המצמד"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "מהלך ידית בלם היד"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מסנן מטהר האוויר (מזגן)"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות ודיסקים; בשימוש קשה כל 7,500 ק\"מ"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי: בדיקת מפלס"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "כל 15,000 ק\"מ או 12 חודשים; בשימוש קשה כל 7,500 ק\"מ"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "בדיקת סל\"ד סרק, ריכוז CO, מערכת EGR ונסיעת מבחן"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "רצועת עזר: בדיקת סדקים ובלאי וכיוון מתיחה"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "בדיקת כבלי הצתה"
+        },
+        {
+          "item": "pcv_valve",
+          "action": "inspect",
+          "note": "מערכת אוורור בית הארכובה"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect",
+          "note": "צינורות מקרן וחיבוריהם"
+        },
+        {
+          "item": "coolant",
+          "action": "replace",
+          "note": "החלפה כל 60,000 ק\"מ או 4 שנים"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "בדיקה כל 15,000 ק\"מ או שנה (בשימוש קשה כל 7,500)"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "החלפה כל 30,000 ק\"מ או שנתיים"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "בדיקת מפלס אלקטרוליט"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלים ומפרקים כדוריים; בנוסף בדיקת חופש מיסבי הגלגלים הקדמיים (כל 60,000 ק\"מ או 4 שנים)"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "בשימוש קשה כל 7,500 ק\"מ"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "מוטות היגוי, אטמים וכיסויים (כל 60,000 ק\"מ או 4 שנים)"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect",
+          "note": "גיר ידני: בדיקת מפלס"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "דליפות גזים וחיבורי הצנרת"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "חופש דוושת הבלם ודוושת המצמד"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "מהלך ידית בלם היד"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מסנן מטהר האוויר (מזגן)"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "בלאי לא אחיד"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות ודיסקים; בשימוש קשה כל 7,500 ק\"מ"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect",
+          "note": "נעלי בלם ותופים; בשימוש קשה כל 15,000 ק\"מ"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי: בדיקת מפלס"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "כל 15,000 ק\"מ או 12 חודשים; בשימוש קשה כל 7,500 ק\"מ"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "בדיקת סל\"ד סרק, ריכוז CO, מערכת EGR ונסיעת מבחן"
+        }
+      ]
+    },
+    {
+      "km": 75000,
+      "items": [
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "רצועת עזר: בדיקת סדקים ובלאי וכיוון מתיחה"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "בדיקה כל 15,000 ק\"מ או שנה (בשימוש קשה כל 7,500)"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "בדיקת מפלס נוזל בלמים ונוזל מצמד הידראולי"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "בדיקת מפלס אלקטרוליט"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect",
+          "note": "גיר ידני: בדיקת מפלס"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "חופש דוושת הבלם ודוושת המצמד"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "מהלך ידית בלם היד"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מסנן מטהר האוויר (מזגן)"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות ודיסקים; בשימוש קשה כל 7,500 ק\"מ"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי: בדיקת מפלס"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "כל 15,000 ק\"מ או 12 חודשים; בשימוש קשה כל 7,500 ק\"מ"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "בדיקת סל\"ד סרק, ריכוז CO, מערכת EGR ונסיעת מבחן"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "רצועת עזר: בדיקת סדקים ובלאי וכיוון מתיחה"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "בדיקת כבלי הצתה"
+        },
+        {
+          "item": "pcv_valve",
+          "action": "inspect",
+          "note": "מערכת אוורור בית הארכובה"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "מצתים רגילים כל 45,000 ק\"מ; מצתי פלטינה או אירידיום כל 90,000 ק\"מ"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect",
+          "note": "צינורות מקרן וחיבוריהם"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקת מפלס במיכל העודפים"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "החלפה כל 45,000 ק\"מ או 3 שנים"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "החלפה כל 30,000 ק\"מ או שנתיים"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "בדיקת מפלס אלקטרוליט"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלים, מפרקים כדוריים וכיסויי אבק (כל 30,000 ק\"מ או שנתיים)"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "בשימוש קשה כל 7,500 ק\"מ"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect",
+          "note": "גיר ידני: בדיקת מפלס"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "דליפות גזים וחיבורי הצנרת"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "חופש דוושת הבלם ודוושת המצמד"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "מהלך ידית בלם היד"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מסנן מטהר האוויר (מזגן)"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "בלאי לא אחיד"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות ודיסקים; בשימוש קשה כל 7,500 ק\"מ"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect",
+          "note": "נעלי בלם ותופים; בשימוש קשה כל 15,000 ק\"מ"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "replace",
+          "note": "גיר אוטומטי: החלפה כל 90,000 ק\"מ או 6 שנים (שורת הנעה קדמית בטבלה); בשימוש קשה כל 45,000 ק\"מ או 3 שנים"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "כל 15,000 ק\"מ או 12 חודשים; בשימוש קשה כל 7,500 ק\"מ"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "בדיקת סל\"ד סרק, ריכוז CO, מערכת EGR ונסיעת מבחן"
+        }
+      ]
+    },
+    {
+      "km": 105000,
+      "items": [
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "רצועת עזר: בדיקת סדקים ובלאי וכיוון מתיחה"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "בדיקה כל 15,000 ק\"מ או שנה (בשימוש קשה כל 7,500)"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "בדיקת מפלס נוזל בלמים ונוזל מצמד הידראולי"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "בדיקת מפלס אלקטרוליט"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect",
+          "note": "גיר ידני: בדיקת מפלס"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "חופש דוושת הבלם ודוושת המצמד"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "מהלך ידית בלם היד"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מסנן מטהר האוויר (מזגן)"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות ודיסקים; בשימוש קשה כל 7,500 ק\"מ"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי: בדיקת מפלס"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "כל 15,000 ק\"מ או 12 חודשים; בשימוש קשה כל 7,500 ק\"מ"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "בדיקת סל\"ד סרק, ריכוז CO, מערכת EGR ונסיעת מבחן"
+        }
+      ]
+    },
+    {
+      "km": 120000,
+      "items": [
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "רצועת עזר: בדיקת סדקים ובלאי וכיוון מתיחה"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "בדיקת כבלי הצתה"
+        },
+        {
+          "item": "pcv_valve",
+          "action": "inspect",
+          "note": "מערכת אוורור בית הארכובה"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect",
+          "note": "צינורות מקרן וחיבוריהם"
+        },
+        {
+          "item": "coolant",
+          "action": "replace",
+          "note": "החלפה כל 60,000 ק\"מ או 4 שנים"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "בדיקה כל 15,000 ק\"מ או שנה (בשימוש קשה כל 7,500)"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "החלפה כל 30,000 ק\"מ או שנתיים"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "בדיקת מפלס אלקטרוליט"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלים ומפרקים כדוריים; בנוסף בדיקת חופש מיסבי הגלגלים הקדמיים (כל 60,000 ק\"מ או 4 שנים)"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "בשימוש קשה כל 7,500 ק\"מ"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "מוטות היגוי, אטמים וכיסויים (כל 60,000 ק\"מ או 4 שנים)"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect",
+          "note": "גיר ידני: בדיקת מפלס"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "דליפות גזים וחיבורי הצנרת"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "חופש דוושת הבלם ודוושת המצמד"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "מהלך ידית בלם היד"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מסנן מטהר האוויר (מזגן)"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "בלאי לא אחיד"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות ודיסקים; בשימוש קשה כל 7,500 ק\"מ"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect",
+          "note": "נעלי בלם ותופים; בשימוש קשה כל 15,000 ק\"מ"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי: בדיקת מפלס"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "כל 15,000 ק\"מ או 12 חודשים; בשימוש קשה כל 7,500 ק\"מ"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "בדיקת סל\"ד סרק, ריכוז CO, מערכת EGR ונסיעת מבחן"
+        }
+      ]
+    },
+    {
+      "km": 135000,
+      "items": [
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "רצועת עזר: בדיקת סדקים ובלאי וכיוון מתיחה"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "מצתים רגילים כל 45,000 ק\"מ; מצתי פלטינה או אירידיום כל 90,000 ק\"מ"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "החלפה כל 45,000 ק\"מ או 3 שנים"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "בדיקת מפלס נוזל בלמים ונוזל מצמד הידראולי"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "בדיקת מפלס אלקטרוליט"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect",
+          "note": "גיר ידני: בדיקת מפלס"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "חופש דוושת הבלם ודוושת המצמד"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "מהלך ידית בלם היד"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מסנן מטהר האוויר (מזגן)"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות ודיסקים; בשימוש קשה כל 7,500 ק\"מ"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי: בדיקת מפלס"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "כל 15,000 ק\"מ או 12 חודשים; בשימוש קשה כל 7,500 ק\"מ"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "בדיקת סל\"ד סרק, ריכוז CO, מערכת EGR ונסיעת מבחן"
+        }
+      ]
+    },
+    {
+      "km": 150000,
+      "items": [
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "רצועת עזר: בדיקת סדקים ובלאי וכיוון מתיחה"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "בדיקת כבלי הצתה"
+        },
+        {
+          "item": "pcv_valve",
+          "action": "inspect",
+          "note": "מערכת אוורור בית הארכובה"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect",
+          "note": "צינורות מקרן וחיבוריהם"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "בדיקת מפלס במיכל העודפים"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "בדיקה כל 15,000 ק\"מ או שנה (בשימוש קשה כל 7,500)"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "החלפה כל 30,000 ק\"מ או שנתיים"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "בדיקת מפלס אלקטרוליט"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלים, מפרקים כדוריים וכיסויי אבק (כל 30,000 ק\"מ או שנתיים)"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "בשימוש קשה כל 7,500 ק\"מ"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect",
+          "note": "גיר ידני: בדיקת מפלס"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "דליפות גזים וחיבורי הצנרת"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "חופש דוושת הבלם ודוושת המצמד"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "מהלך ידית בלם היד"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מסנן מטהר האוויר (מזגן)"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "בלאי לא אחיד"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות ודיסקים; בשימוש קשה כל 7,500 ק\"מ"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect",
+          "note": "נעלי בלם ותופים; בשימוש קשה כל 15,000 ק\"מ"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי: בדיקת מפלס"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "כל 15,000 ק\"מ או 12 חודשים; בשימוש קשה כל 7,500 ק\"מ"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "בדיקת סל\"ד סרק, ריכוז CO, מערכת EGR ונסיעת מבחן"
+        }
+      ]
+    },
+    {
+      "km": 165000,
+      "items": [
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "רצועת עזר: בדיקת סדקים ובלאי וכיוון מתיחה"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "בדיקה כל 15,000 ק\"מ או שנה (בשימוש קשה כל 7,500)"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "inspect",
+          "note": "בדיקת מפלס נוזל בלמים ונוזל מצמד הידראולי"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "בדיקת מפלס אלקטרוליט"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect",
+          "note": "גיר ידני: בדיקת מפלס"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "חופש דוושת הבלם ודוושת המצמד"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "מהלך ידית בלם היד"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מסנן מטהר האוויר (מזגן)"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות ודיסקים; בשימוש קשה כל 7,500 ק\"מ"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "inspect",
+          "note": "גיר אוטומטי: בדיקת מפלס"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "כל 15,000 ק\"מ או 12 חודשים; בשימוש קשה כל 7,500 ק\"מ"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "בדיקת סל\"ד סרק, ריכוז CO, מערכת EGR ונסיעת מבחן"
+        }
+      ]
+    },
+    {
+      "km": 180000,
+      "items": [
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "רצועת עזר: בדיקת סדקים ובלאי וכיוון מתיחה"
+        },
+        {
+          "item": "electrical_system",
+          "action": "inspect",
+          "note": "בדיקת כבלי הצתה"
+        },
+        {
+          "item": "pcv_valve",
+          "action": "inspect",
+          "note": "מערכת אוורור בית הארכובה"
+        },
+        {
+          "item": "spark_plugs",
+          "action": "replace",
+          "note": "מצתים רגילים כל 45,000 ק\"מ; מצתי פלטינה או אירידיום כל 90,000 ק\"מ"
+        },
+        {
+          "item": "coolant_hoses",
+          "action": "inspect",
+          "note": "צינורות מקרן וחיבוריהם"
+        },
+        {
+          "item": "coolant",
+          "action": "replace",
+          "note": "החלפה כל 60,000 ק\"מ או 4 שנים"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "החלפה כל 45,000 ק\"מ או 3 שנים"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "החלפה כל 30,000 ק\"מ או שנתיים"
+        },
+        {
+          "item": "battery_12v",
+          "action": "inspect",
+          "note": "בדיקת מפלס אלקטרוליט"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מתלים ומפרקים כדוריים; בנוסף בדיקת חופש מיסבי הגלגלים הקדמיים (כל 60,000 ק\"מ או 4 שנים)"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "בשימוש קשה כל 7,500 ק\"מ"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "מוטות היגוי, אטמים וכיסויים (כל 60,000 ק\"מ או 4 שנים)"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect",
+          "note": "גיר ידני: בדיקת מפלס"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect",
+          "note": "דליפות גזים וחיבורי הצנרת"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "חופש דוושת הבלם ודוושת המצמד"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect",
+          "note": "מהלך ידית בלם היד"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מסנן מטהר האוויר (מזגן)"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "בלאי לא אחיד"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות ודיסקים; בשימוש קשה כל 7,500 ק\"מ"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect",
+          "note": "נעלי בלם ותופים; בשימוש קשה כל 15,000 ק\"מ"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "transmission_oil",
+          "action": "replace",
+          "note": "גיר אוטומטי: החלפה כל 90,000 ק\"מ או 6 שנים (שורת הנעה קדמית בטבלה); בשימוש קשה כל 45,000 ק\"מ או 3 שנים"
+        },
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "כל 15,000 ק\"מ או 12 חודשים; בשימוש קשה כל 7,500 ק\"מ"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "בדיקת סל\"ד סרק, ריכוז CO, מערכת EGR ונסיעת מבחן"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "timing_belt",
+      "action": "replace",
+      "every_km": 90000,
+      "note": "רצועת תזמון כל 90,000 ק\"מ (ללא מגבלת זמן בטבלה)"
+    },
+    {
+      "item": "fuel_filter",
+      "action": "replace",
+      "every_km": 150000,
+      "every_months": 120,
+      "note": "מסנן דלק (בנזין) כל 150,000 ק\"מ או 10 שנים"
+    },
+    {
+      "item": "manual_gearbox_oil",
+      "action": "replace",
+      "every_km": 105000,
+      "every_months": 84,
+      "note": "גיר ידני בלבד: כל 105,000 ק\"מ או 7 שנים; בשימוש קשה כל 45,000 ק\"מ או 3 שנים"
+    }
+  ],
+  "time_based": [
+    {
+      "item": "body_underside",
+      "action": "inspect",
+      "months": 12,
+      "note": "בדיקת נזקים במרכב פעם בשנה"
+    }
+  ],
+  "specs": {
+    "engine_oil": "ACEA A1/A2/A3 או API SG ומעלה",
+    "timing": "רצועת תזמון, החלפה כל 90,000 ק\"מ"
+  },
+  "sources": [
+    {
+      "url": "https://mmc-manuals.ru/manuals/lancer_ix/maintenance/Lancer_MY2006_Service_Manual_eng.zip",
+      "kind": "manufacturer",
+      "note": "Mitsubishi Motors Europe B.V., \"Pre-Delivery Inspection and Periodic Maintenance\" (ספט׳ 2005), קבוצה 2 \"Periodic Inspection and Maintenance Schedule\" עמ׳ 2-3 עד 2-6 (קובץ PDI/GR00000300-2.pdf בתוך ארכיון ספר השירות של לנסר MY2006 לאירופה), שורות המסומנות \"Applicable for LANCER\". הטבלה משותפת לכל דגמי מיצובישי אירופה; לגרנדיס לא נמצאה מהדורה משלה"
+    },
+    {
+      "url": "https://mmc-manuals.ru/manuals/outlander/maintenance/Outlander_Service_Manual_May2003.zip",
+      "kind": "manufacturer",
+      "note": "אותה טבלה במהדורה של אאוטלנדר CU (מאי 2003, קובץ CHASSIS/PDI_03/pdi-engels-02.pdf עמ׳ 2-3 עד 2-6, גריד עד 300,000 ק\"מ), עם מנועי 4G6 כולל 4G69: אותם מרווחים לשורות המנוע"
+    },
+    {
+      "url": "https://mmc-manuals.ru/Mitsubishi_Grandis:_Service_Manuals",
+      "kind": "other",
+      "note": "ספר השירות של גרנדיס 2004 (WM) וספר השירות 2008 באתר אינם כוללים לוח תחזוקה; גם ספר הבעלים האירופי (procarmanuals, OXPE10E1) מפנה לתחנת השירות בלי לוח"
+    }
+  ],
+  "status": "draft",
+  "notes": "לא נמצא ספר עברי של כלמוביל לגרנדיס, וגם לא לוח תחזוקה ייעודי לגרנדיס. הלוח לקוח מטבלת הבדיקות והתחזוקה הכללית של מיצובישי אירופה (ספטמבר 2005), שמכסה את כל הדגמים ומסמנת לכל דגם את השורות שלו. נלקחו השורות של לנסר עם הנעה קדמית וגיר אוטומטי, והושוו לגרסת אאוטלנדר של אותה טבלה עם מנוע 4G69. לכן זו טיוטה לפי דגם אחות. למנוע 4G69 יש רצועת תזמון (כל 90,000 ק\"מ) ומכווני שסתומים הידראוליים, ולכן אין בדיקת שסתומים. יש לברר במוסך את מרווח נוזל הגיר האוטומטי של הגרנדיס. בשימוש קשה שמן ומסנן כל 7,500 ק\"מ, בדיקת מסנן אוויר ובלמים כל 7,500 ונוזל גיר אוטומטי כל 45,000 ק\"מ."
+}

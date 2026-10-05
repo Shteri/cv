@@ -1,0 +1,498 @@
+{
+  "id": "toyota-corolla-2001-2007-1.6",
+  "make": "Toyota",
+  "make_he": "טויוטה",
+  "model": "Corolla / Corolla RunX",
+  "model_he": "קורולה / קורולה RunX",
+  "generation": "E120 (ZZE121)",
+  "years": [
+    2001,
+    2007
+  ],
+  "engines": [
+    "1.6 VVT-i (3ZZ-FE)"
+  ],
+  "fuel": "petrol",
+  "importer": "יוניון מוטורס",
+  "interval": {
+    "km": 15000,
+    "months": 12,
+    "note": "לפי טבלת התחזוקה של טויוטה אירופה: טיפול כל 15,000 ק\"מ או 12 חודשים, המוקדם; בתנאי שימוש קשים שמן ומסנן שמן כל 7,500 ק\"מ או 6 חודשים"
+  },
+  "cycle_km": 90000,
+  "services": [
+    {
+      "km": 15000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "החלפה כל 15,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "בדיקה כל 24 חודשים, החלפה ב-60,000 ק\"מ או 48 חודשים; בדרכי אבק בדיקה כל 7,500 ק\"מ"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות ודיסקים: בדיקה כל 15,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 30000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "החלפה כל 15,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "בדיקה כל 24 חודשים, החלפה ב-60,000 ק\"מ או 48 חודשים; בדרכי אבק בדיקה כל 7,500 ק\"מ"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "בדיקת מקרן, מעבה, צינורות וחיבורים (כל 24 חודשים)"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "נוזל Super Long Life (ורוד): בדיקה; החלפה ראשונה ב-150,000 ק\"מ"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "מכסה מיכל, צנרת וחיבורי דלק ושסתום אדי דלק (כל 24 חודשים)"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם ובלם חניה (כל 24 חודשים)"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect",
+          "note": "תופים ורפידות תוף כולל רפידות בלם החניה, אם קיימים"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות ודיסקים: בדיקה כל 15,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "החלפה כל 30,000 ק\"מ או 24 חודשים (DOT4)"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "clutch",
+          "action": "inspect",
+          "note": "בדיקת נוזל המצמד (גיר ידני)"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect",
+          "note": "אם ההגה הידראולי"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "גלגל הגה, מוטות והגה"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרקים כדוריים, כיסויי אבק ומתלים קדמיים ואחוריים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מסנן מיזוג (חלקיקים)"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "בדיקת קורוזיה (כל 24 חודשים)"
+        }
+      ]
+    },
+    {
+      "km": 45000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "החלפה כל 15,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "בדיקה כל 24 חודשים, החלפה ב-60,000 ק\"מ או 48 חודשים; בדרכי אבק בדיקה כל 7,500 ק\"מ"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect",
+          "note": "מיכל פחם פעיל (קניסטר)"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות ודיסקים: בדיקה כל 15,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 60000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "החלפה כל 15,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace",
+          "note": "בדיקה כל 24 חודשים, החלפה ב-60,000 ק\"מ או 48 חודשים; בדרכי אבק בדיקה כל 7,500 ק\"מ"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "בדיקת מקרן, מעבה, צינורות וחיבורים (כל 24 חודשים)"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "נוזל Super Long Life (ורוד): בדיקה; החלפה ראשונה ב-150,000 ק\"מ"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "מכסה מיכל, צנרת וחיבורי דלק ושסתום אדי דלק (כל 24 חודשים)"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם ובלם חניה (כל 24 חודשים)"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect",
+          "note": "תופים ורפידות תוף כולל רפידות בלם החניה, אם קיימים"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות ודיסקים: בדיקה כל 15,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "החלפה כל 30,000 ק\"מ או 24 חודשים (DOT4)"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "clutch",
+          "action": "inspect",
+          "note": "בדיקת נוזל המצמד (גיר ידני)"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect",
+          "note": "אם ההגה הידראולי"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "גלגל הגה, מוטות והגה"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרקים כדוריים, כיסויי אבק ומתלים קדמיים ואחוריים"
+        },
+        {
+          "item": "manual_gearbox_oil",
+          "action": "inspect",
+          "note": "גיר ידני: בדיקה כל 48 חודשים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מסנן מיזוג (חלקיקים)"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "בדיקת קורוזיה (כל 24 חודשים)"
+        }
+      ]
+    },
+    {
+      "km": 75000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "החלפה כל 15,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "בדיקה כל 24 חודשים, החלפה ב-60,000 ק\"מ או 48 חודשים; בדרכי אבק בדיקה כל 7,500 ק\"מ"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות ודיסקים: בדיקה כל 15,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        }
+      ]
+    },
+    {
+      "km": 90000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace",
+          "note": "החלפה כל 15,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "בדיקה כל 24 חודשים, החלפה ב-60,000 ק\"מ או 48 חודשים; בדרכי אבק בדיקה כל 7,500 ק\"מ"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect",
+          "note": "בדיקת מקרן, מעבה, צינורות וחיבורים (כל 24 חודשים)"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "נוזל Super Long Life (ורוד): בדיקה; החלפה ראשונה ב-150,000 ק\"מ"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "מכסה מיכל, צנרת וחיבורי דלק ושסתום אדי דלק (כל 24 חודשים)"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect",
+          "note": "מיכל פחם פעיל (קניסטר)"
+        },
+        {
+          "item": "valve_clearance",
+          "action": "inspect",
+          "note": "בדיקה בשמיעה (רעשי טאפטים ורעידות) וכיוון לפי הצורך; כל 72 חודשים"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת בלם ובלם חניה (כל 24 חודשים)"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect",
+          "note": "תופים ורפידות תוף כולל רפידות בלם החניה, אם קיימים"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "רפידות ודיסקים: בדיקה כל 15,000 ק\"מ או 12 חודשים"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace",
+          "note": "החלפה כל 30,000 ק\"מ או 24 חודשים (DOT4)"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "clutch",
+          "action": "inspect",
+          "note": "בדיקת נוזל המצמד (גיר ידני)"
+        },
+        {
+          "item": "power_steering_fluid",
+          "action": "inspect",
+          "note": "אם ההגה הידראולי"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "גלגל הגה, מוטות והגה"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "מפרקים כדוריים, כיסויי אבק ומתלים קדמיים ואחוריים"
+        },
+        {
+          "item": "tires",
+          "action": "inspect"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace",
+          "note": "מסנן מיזוג (חלקיקים)"
+        },
+        {
+          "item": "body_underside",
+          "action": "inspect",
+          "note": "בדיקת קורוזיה (כל 24 חודשים)"
+        }
+      ]
+    }
+  ],
+  "long_interval": [
+    {
+      "item": "coolant",
+      "action": "replace",
+      "first_km": 150000,
+      "then_every_km": 90000,
+      "note": "נוזל Super Long Life (ורוד). ברכב עם נוזל LLC אדום/ירוק ישן: החלפה ראשונה ב-60,000 ק\"מ או 36 חודשים ואחר כך כל 30,000 ק\"מ או 24 חודשים"
+    },
+    {
+      "item": "spark_plugs",
+      "action": "replace",
+      "every_km": 90000,
+      "note": "מצתי איסיריום/פלטינה. אם הותקנו מצתים רגילים: בדיקה ב-30,000 והחלפה כל 60,000 ק\"מ או 48 חודשים"
+    },
+    {
+      "item": "drive_belt",
+      "action": "inspect",
+      "first_km": 105000,
+      "first_months": 72,
+      "then_every_km": 15000,
+      "then_every_months": 12,
+      "note": "רצועת עזר: בדיקה ראשונה ב-105,000 ק\"מ או 72 חודשים ואחר כך כל 15,000 ק\"מ או 12 חודשים"
+    }
+  ],
+  "time_based": [],
+  "specs": {
+    "engine_oil": "API SJ/SL/SM (ILSAC) לפי הטבלה",
+    "coolant": "Toyota Super Long Life Coolant (ורוד); בדגמים ישנים LLC אדום/ירוק",
+    "brake_fluid": "SAE J1704 / DOT4",
+    "timing": "שרשרת (אין שורת רצועת תזמון למנוע זה בטבלה)"
+  },
+  "sources": [
+    {
+      "url": "https://www.yumpu.com/en/document/view/27164868/page-1-2008-6-23-maintenance-schedule-europe-15000-",
+      "kind": "manufacturer",
+      "note": "Toyota Motor Europe, \"MAINTENANCE SCHEDULE - EUROPE 15,000 km/9,000 miles\" (גרסה 2008-6-23, הועלה ליומפו מחשבון toyota.tech.eu). עמוד 1 מנוע בנזין, עמודים 3-4 שלדה ומרכב, עמודה Corolla Verso ZNR10 3ZZ-FE (1.6)"
+    },
+    {
+      "url": "https://www.toyota-tech.eu/MS/PDFS/",
+      "kind": "manufacturer",
+      "note": "המקור המקורי באתר toyota-tech.eu חסום בהתחברות (Keycloak); נעשה שימוש בעותק ביומפו"
+    }
+  ],
+  "status": "draft",
+  "notes": "לא נמצא ספר עברי או גיליון של יוניון מוטורס לקורולה E120 (בגיליונות היבואן אין דגם לפני 2007). הלוח לקוח מטבלת התחזוקה הרשמית של טויוטה אירופה, מהעמודה של קורולה וורסו עם אותו מנוע 3ZZ-FE 1.6. לכן זו טיוטה לפי דגם אחות. הטבלה מסתיימת ב-90,000 ק\"מ וחוזרת על עצמה. למנוע זה יש שרשרת תזמון, ולכן אין בטבלה החלפת רצועת תזמון. בטבלה של הוורסו אין שורת שמן לגיר אוטומטי, כי לוורסו אין גיר אוטומטי רגיל. רוב הקורולות בארץ אוטומטיות, ולכן יש לברר במוסך מתי לבדוק ולהחליף שמן גיר (ATF T-IV). בתנאי שימוש קשים (נסיעות קצרות, דרכי עפר, חום) שמן ומסנן כל 7,500 ק\"מ, ובדיקת בלמים ומתלים כל 15,000 ק\"מ. ייתכן שחלק מרכבי שנת 2001-2002 במאגר הם עדיין מהדור הקודם (E110), עם אותו מנוע 3ZZ-FE; הלוח מתאים לפי המנוע."
+}
