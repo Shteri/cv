@@ -35,7 +35,11 @@ for (const file of readdirSync(dir).filter(f => f.endsWith(".json"))) {
     }
   }
   if (prevKm && s.cycle_km && prevKm > s.cycle_km) fail(`last service ${prevKm} exceeds cycle_km ${s.cycle_km}`);
-  for (const t of s.time_based ?? []) if (!items[t.item]) fail(`unknown time_based item '${t.item}'`);
+  for (const t of s.time_based ?? []) {
+    if (!items[t.item]) fail(`unknown time_based item '${t.item}'`);
+    if (!actions.has(t.action)) fail(`bad action '${t.action}' in time_based ${t.item}`);
+    if (!Number.isInteger(t.months) || t.months <= 0) fail(`time_based ${t.item} needs integer months`);
+  }
   for (const [k, v] of Object.entries(s.specs ?? {})) {
     if (!specKeys.has(k)) fail(`unknown specs key '${k}'`);
     if (typeof v !== "string" || !v.trim()) fail(`specs.${k} must be a non-empty string`);
