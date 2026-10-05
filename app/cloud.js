@@ -277,6 +277,18 @@
   // public (no sign-in)
   const bookingInfo = garageId => sb.rpc("booking_info", { p_garage: garageId }).then(must);
   const bookAppointment = a => sb.rpc("book_appointment", { p_garage: a.garageId, p_starts_at: a.startsAt, p_name: a.name, p_phone: a.phone, p_plate: a.plate || "", p_kind: a.kind || "service", p_note: a.note || "" }).then(must);
+  // books and returns { token, needs_ok }; a server before migration 0010 books the old way (no link token)
+  const bookSlot = async a => {
+    const args = { p_garage: a.garageId, p_starts_at: a.startsAt, p_name: a.name, p_phone: a.phone, p_plate: a.plate || "", p_kind: a.kind || "service", p_note: a.note || "" };
+    const { data, error } = await sb.rpc("book_slot", args);
+    if (!error) return data;
+    if (error.code === "PGRST202" || /book_slot/.test(error.message || "")) { await bookAppointment(a); return { token: null, needs_ok: false }; }
+    throw error;
+  };
+  // the customer's appointment link (/appt/?t=token) and the garage's view of a phone's no-shows
+  const apptGet = token => sb.rpc("appt_get", { p_token: token }).then(must);
+  const apptRespond = (token, action) => sb.rpc("appt_respond", { p_token: token, p_action: action }).then(must);
+  const apptStrikes = (garageId, phone) => sb.rpc("appt_strikes", { p_garage: garageId, p_phone: phone }).then(must);
   const approvalGet = id => sb.rpc("approval_get", { p_id: id }).then(must);
   const approvalDecide = (id, approve) => sb.rpc("approval_decide", { p_id: id, p_approve: !!approve }).then(must);
 
@@ -307,5 +319,5 @@
     return data;
   }
 
-  g.TipulitCloud = { enabled, authError, hasAuthParams, currentUser, onAuth, signInWithGoogle, signOut, handleRedirect, loadCars, saveCar, deleteCar, communityPrices, communityGarages, extractReceipt, myGarageProfiles, garageProfiles, saveGarageProfile, deleteGarageProfile, photoUrl, startPhoneVerify, confirmPhoneVerify, claimGarage, pendingGarageClaims, setGarageStatus, garagePublic, joinGarage, myGarageLinks, updateGarageLink, leaveGarage, pendingGarageEntries, decideGarageEntry, garageCustomers, garageAddEntry, plateStatus, claimPlate, requestPlate, pendingPlateRequests, decidePlateRequest, garageBook, garageCarHistory, workOrders, addCustomer, updateCustomer, deleteCustomer, addGarageCar, updateGarageCar, saveWorkOrder, sendWorkOrder, importCustomers, appointments, saveAppointment, approvalsFor, createApproval, updateGarageSettings, bookingInfo, bookAppointment, approvalGet, approvalDecide, parts, suppliers, purchaseOrders, invoices, savePart, deletePart, saveSupplier, deleteSupplier, savePurchaseOrder, deletePurchaseOrder, receivePurchaseOrder, addStockMove, partMoves, woConsume, recordInvoice, deleteInvoice, billing, billingSave, billingDelete, issueDocument, jobTemplates, saveJob, deleteJob, approvalChoose, uploadInspectionPhoto, aiAssist };
+  g.TipulitCloud = { enabled, authError, hasAuthParams, currentUser, onAuth, signInWithGoogle, signOut, handleRedirect, loadCars, saveCar, deleteCar, communityPrices, communityGarages, extractReceipt, myGarageProfiles, garageProfiles, saveGarageProfile, deleteGarageProfile, photoUrl, startPhoneVerify, confirmPhoneVerify, claimGarage, pendingGarageClaims, setGarageStatus, garagePublic, joinGarage, myGarageLinks, updateGarageLink, leaveGarage, pendingGarageEntries, decideGarageEntry, garageCustomers, garageAddEntry, plateStatus, claimPlate, requestPlate, pendingPlateRequests, decidePlateRequest, garageBook, garageCarHistory, workOrders, addCustomer, updateCustomer, deleteCustomer, addGarageCar, updateGarageCar, saveWorkOrder, sendWorkOrder, importCustomers, appointments, saveAppointment, approvalsFor, createApproval, updateGarageSettings, bookingInfo, bookAppointment, bookSlot, apptGet, apptRespond, apptStrikes, approvalGet, approvalDecide, parts, suppliers, purchaseOrders, invoices, savePart, deletePart, saveSupplier, deleteSupplier, savePurchaseOrder, deletePurchaseOrder, receivePurchaseOrder, addStockMove, partMoves, woConsume, recordInvoice, deleteInvoice, billing, billingSave, billingDelete, issueDocument, jobTemplates, saveJob, deleteJob, approvalChoose, uploadInspectionPhoto, aiAssist };
 })(window);

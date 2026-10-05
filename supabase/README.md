@@ -58,7 +58,11 @@ filled in, every feature below switches on.
 12. **AI assist**: run `migrations/0009_ai_usage.sql` (daily counter per user), deploy
     `supabase functions deploy ai-assist`, and add the secret `ANTHROPIC_API_KEY` (Edge Functions → Secrets).
     Until the secret exists the function answers "ai not configured" and the screens say the service is not active.
-13. **Point the app at the project**: in `app/config.js` set `SUPABASE_URL` and
+13. **Reminders and no-shows**: run `migrations/0010_appointment_confirm.sql`. Every appointment gets a link token
+    (`/appt/?t=`), where the customer confirms, reschedules or cancels (`appt_get`, `appt_respond`); online booking
+    goes through `book_slot`, which returns the token and, for a phone with enough no-shows, books a slot that waits
+    for the garage. Policy per garage: `cancel_hours`, `noshow_limit`.
+14. **Point the app at the project**: in `app/config.js` set `SUPABASE_URL` and
    `SUPABASE_ANON_KEY` (Project Settings → API). The anon key is public by design;
    row-level security is what protects the data. Rebuild and push.
 

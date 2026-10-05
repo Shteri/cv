@@ -36,6 +36,9 @@
     <h1>התור נקבע</h1>
     <p id="b-when" class="big-line"></p>
     <p class="muted" id="b-where"></p>
+    <p class="tag warn" id="b-needs" hidden>ממתין לאישור המוסך</p>
+    <p class="muted" id="b-extra" hidden></p>
+    <a class="btn primary" id="b-manage" hidden>אישור הגעה, שינוי או ביטול</a>
     <div class="dlg-actions start"><button class="btn" id="b-ics">הוספה ליומן</button><a class="btn" id="b-waze" target="_blank" rel="noopener">ניווט</a><a class="btn" id="b-call">התקשרות למוסך</a></div>
   </section>
   <section class="box stack-md" id="b-closed" hidden>
@@ -53,7 +56,8 @@
   const Cloud = window.TipulitCloud || { enabled: false };
   const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
   const esc = x => String(x ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
-  const q = new URLSearchParams(location.search), demo = q.has("demo"), gid = q.get("g");
+  const q = new URLSearchParams(location.search), demo = q.has("demo"), gid = q.get("g"), move = q.get("move");
+  let booked = null;   // { token, needs_ok } of the new appointment
   const toMin = t => { const [h, m] = t.split(":").map(Number); return h * 60 + m; };
   const pad = n => String(n).padStart(2, "0");
   const dayLabel = d => new Intl.DateTimeFormat("he-IL", { weekday: "short", day: "numeric", month: "numeric" }).format(d);
@@ -97,8 +101,11 @@
     if (phone.replace(/\D/g, "").length < 9) return err("צריך מספר טלפון.");
     const b = $("#b-go"); b.disabled = true;
     try {
-      if (!demo) await Cloud.bookAppointment({ garageId: info.id, startsAt: slot.toISOString(), name, phone, plate: $("#b-plate").value, kind, note: $("#b-note").value });
-      else demoBook({ name, phone, plate: $("#b-plate").value.replace(/\D/g, ""), kind, note: $("#b-note").value.trim() || null });
+      if (!demo) booked = await (Cloud.bookSlot || Cloud.bookAppointment)({ garageId: info.id, startsAt: slot.toISOString(), name, phone, plate: $("#b-plate").value, kind, note: $("#b-note").value });
+      else booked = demoBook({ name, phone, plate: $("#b-plate").value.replace(/\D/g, ""), kind, note: $("#b-note").value.trim() || null });
+      if (!booked || typeof booked !== "object") booked = { token: null, needs_ok: false };
+      // rescheduling: the old appointment is cancelled only once the new one is booked
+      if (move && !demo) { try { await Cloud.apptRespond(move, "cancel"); } catch (e) {} }
       try { localStorage.setItem("tipulit-book", JSON.stringify({ name, phone, plate: $("#b-plate").value })); } catch (e) {}
       done();
     } catch (e) {
@@ -118,6 +125,10 @@
     $("#b-where").textContent = `${info.name}${addr ? ", " + addr : ""}`;
     $("#b-waze").href = "https://waze.com/ul?q=" + encodeURIComponent(addr || info.name) + "&navigate=yes";
     if (info.phone) $("#b-call").href = "tel:" + info.phone.replace(/[^\d+*#]/g, ""); else $("#b-call").hidden = true;
+    $("#b-needs").hidden = !booked.needs_ok;
+    const extra = [booked.needs_ok ? "בגלל תורים קודמים שלא הגעתם אליהם, המוסך יאשר את התור הזה ויעדכן אתכם." : "", move ? "התור הקודם בוטל." : ""].filter(Boolean).join(" ");
+    $("#b-extra").textContent = extra; $("#b-extra").hidden = !extra;
+    if (booked.token) { $("#b-manage").hidden = false; $("#b-manage").href = "../appt/?" + (demo ? "demo&" : "") + "t=" + encodeURIComponent(booked.token); }
     $("#b-ics").onclick = () => {
       const f = d => d.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, ""), end = new Date(slot.getTime() + info.slot_minutes * 60000);
       const ics = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Tipulit//HE", "BEGIN:VEVENT", "UID:" + slot.getTime() + "@tipulit", "DTSTAMP:" + f(new Date()), "DTSTART:" + f(slot), "DTEND:" + f(end), "SUMMARY:תור במוסך " + info.name, "LOCATION:" + addr, "END:VEVENT", "END:VCALENDAR"].join("\r\n");
@@ -127,13 +138,27 @@
   // the garage demo keeps its data in this browser: a booking made here shows up in its calendar
   const DEMO_KEY = "tipulit-garage-demo";
   const demoStore = () => { try { return JSON.parse(localStorage.getItem(DEMO_KEY) || "null"); } catch (e) { return null; } };
+  // the same rules as book_slot / appt_respond (migration 0010): strikes are past no-shows and late cancellations
+  const digitsOf = s => String(s || "").replace(/\D/g, "");
+  function demoStrikes(d, phone) {
+    const p = digitsOf(phone), year = Date.now() - 365 * 86400000;
+    return p.length < 9 ? 0 : (d.appts || []).filter(a => digitsOf(a.phone) === p && Date.parse(a.starts_at) < Date.now() && Date.parse(a.starts_at) > year && (a.status === "no_show" || (a.status === "cancelled" && a.cancelled_late))).length;
+  }
+  function demoCancel(d, token) {
+    const a = (d.appts || []).find(x => x.token === token); if (!a || a.status !== "booked") return;
+    Object.assign(a, { status: "cancelled", cancelled_by: "customer", cancelled_late: Date.now() > Date.parse(a.starts_at) - ((d.garage || {}).cancel_hours ?? 12) * 3600000 });
+  }
   function demoBook(b) {
-    const d = demoStore(); if (!d) return;
+    const d = demoStore(); if (!d) return null;
+    const limit = (d.garage || {}).noshow_limit ?? 2, needs_ok = limit > 0 && demoStrikes(d, b.phone) >= limit, token = crypto.randomUUID ? crypto.randomUUID() : "t" + Date.now();
     const r = b.plate && (d.rows || []).find(c => String(c.plate).replace(/\D/g, "") === b.plate);
     const busy = (d.appts || []).filter(a => a.status !== "cancelled" && a.status !== "no_show" && Date.parse(a.starts_at) < slot.getTime() + info.slot_minutes * 60000 && Date.parse(a.starts_at) + a.minutes * 60000 > slot.getTime()).map(a => a.bay);
     let bay = 1; while (busy.includes(bay)) bay++;
-    d.appts.push({ id: "dap-web-" + Date.now(), garage_id: "demo", garage_car_id: r ? r.car_id : null, customer_name: b.name, phone: b.phone, plate: b.plate || null, kind: b.kind, note: b.note, starts_at: slot.toISOString(), minutes: info.slot_minutes, bay, status: "booked", source: "online", work_order_id: null });
+    d.appts.push({ id: "dap-web-" + Date.now(), garage_id: "demo", garage_car_id: r ? r.car_id : null, customer_name: b.name, phone: b.phone, plate: b.plate || null, kind: b.kind, note: b.note, starts_at: slot.toISOString(), minutes: info.slot_minutes, bay, status: "booked", source: "online", work_order_id: null, token, needs_ok });
+    // one write for the booking and the rescheduled one: the garage tab merges whatever it reads in between
+    if (move) demoCancel(d, move);
     try { localStorage.setItem(DEMO_KEY, JSON.stringify(d)); } catch (e) {}
+    return { token, needs_ok };
   }
   async function start() {
     if (demo) {

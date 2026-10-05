@@ -15,7 +15,7 @@ const root = new URL("../", import.meta.url).pathname;
 const read = f => readFileSync(root + f, "utf8");
 const TOKENS = "app/styles/tokens.css";
 const CSS = ["app/styles/brand.css", "app/styles/app.css", "app/welcome/welcome.css", "app/garage/garage.css"];
-const HTML = { "app/index.html": ["app/styles/brand.css", "app/styles/app.css"], "app/welcome/index.html": ["app/styles/brand.css", "app/welcome/welcome.css"], "app/garage/index.html": ["app/styles/brand.css", "app/garage/garage.css"], "app/book/index.html": ["app/styles/brand.css", "app/garage/garage.css"], "app/approve/index.html": ["app/styles/brand.css", "app/garage/garage.css"] };
+const HTML = { "app/index.html": ["app/styles/brand.css", "app/styles/app.css"], "app/welcome/index.html": ["app/styles/brand.css", "app/welcome/welcome.css"], "app/garage/index.html": ["app/styles/brand.css", "app/garage/garage.css"], "app/book/index.html": ["app/styles/brand.css", "app/garage/garage.css"], "app/approve/index.html": ["app/styles/brand.css", "app/garage/garage.css"], "app/appt/index.html": ["app/styles/brand.css", "app/garage/garage.css"] };
 // the garage dashboard's scripts render most of its markup
 for (const f of ["app/garage/core.js", ...readdirSync(root + "app/garage/modules").filter(f => f.endsWith(".js")).map(f => "app/garage/modules/" + f)]) HTML[f] = ["app/styles/brand.css", "app/garage/garage.css"];
 

@@ -89,7 +89,7 @@
         <div class="day-nav"><button class="btn small" id="cal-prev" aria-label="יום קודם">‹</button><button class="btn small" id="cal-today">היום</button><button class="btn small" id="cal-next" aria-label="יום הבא">›</button></div>
         <h2 id="cal-date"></h2>
         <input type="date" id="cal-pick" aria-label="בחירת תאריך">
-        <div class="head-actions"><button class="btn" id="cal-settings" data-module="booking">תורים אונליין</button><button class="btn primary" id="cal-new">תור חדש</button></div>
+        <div class="head-actions"><button class="btn" id="cal-remind" data-module="reminders">תזכורות</button><button class="btn" id="cal-settings" data-module="booking">תורים אונליין</button><button class="btn primary" id="cal-new">תור חדש</button></div>
       </div>
       <div class="kpis three" id="cal-kpis"></div>
       <div class="cal-wrap"><div class="cal" id="cal"></div></div>
@@ -247,11 +247,34 @@
   <form method="dialog" class="dlg-in">
     <div class="dlg-head"><h2 id="ap-title">תור</h2><button class="x" value="close" aria-label="סגור">×</button></div>
     <p class="muted" id="ap-sub"></p>
+    <div class="box" id="ap-ok" hidden></div>
     <div class="field"><span>מצב</span><div class="chips" id="ap-status"></div></div>
     <div class="ap-actions" id="ap-actions"></div>
     <div class="field" id="ap-approvals-row" hidden><span>בקשות אישור</span><div class="stack-sm" id="ap-approvals"></div></div>
     <p class="muted small" id="ap-note"></p>
     <div class="dlg-actions"><button class="btn" type="button" id="ap-edit">שינוי מועד</button><button class="btn" value="close">סגור</button></div>
+  </form>
+</dialog>
+
+<!-- reminders and confirmations (module "reminders") -->
+<dialog class="dlg wide" id="dlg-remind" data-module="reminders">
+  <form method="dialog" class="dlg-in">
+    <div class="dlg-head"><h2 id="rm-title">תזכורות</h2><button class="x" value="close" aria-label="סגור">×</button></div>
+    <div class="seg" id="rm-day"><button type="button" data-v="0">היום</button><button type="button" data-v="1" class="on">מחר</button></div>
+    <p class="muted small" id="rm-sum"></p>
+    <div class="stack-sm" id="rm-list"></div>
+    <p class="muted small" id="rm-hint" hidden>לחלק מהתורים אין עדיין קישור אישור (השרת לפני מיגרציה 0010). ההודעה תבקש אישור בתשובה.</p>
+    <details class="fold">
+      <summary>מדיניות ביטול ואי-הגעה</summary>
+      <div class="grid2">
+        <label class="field"><span>ביטול בלי בעיה עד</span><select id="rm-cancel"><option value="0">בכל זמן</option><option value="2">שעתיים לפני</option><option value="6">6 שעות לפני</option><option value="12">12 שעות לפני</option><option value="24">יום לפני</option><option value="48">יומיים לפני</option></select></label>
+        <label class="field"><span>תור אונליין צריך אישור שלך אחרי</span><select id="rm-limit"><option value="0">אף פעם</option><option value="1">אי-הגעה אחת</option><option value="2">2 אי-הגעות</option><option value="3">3 אי-הגעות</option></select></label>
+      </div>
+      <p class="muted small">ביטול אחרי המועד, או אי-הגעה, נספרים לאותו מספר טלפון בשנה האחרונה.</p>
+      <p class="err" id="rm-err" hidden></p>
+      <div class="dlg-actions start"><button class="btn" type="button" id="rm-save">שמור מדיניות</button></div>
+    </details>
+    <div class="dlg-actions"><button class="btn" value="close">סגור</button></div>
   </form>
 </dialog>
 
@@ -542,6 +565,7 @@
 <script src="modules/workorder.js"></script>
 <script src="modules/calendar.js"></script>
 <script src="modules/booking.js"></script>
+<script src="modules/reminders.js"></script>
 <script src="modules/service.js"></script>
 <script src="modules/stock.js"></script>
 <script src="modules/billing.js"></script>

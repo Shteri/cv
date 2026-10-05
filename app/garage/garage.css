@@ -226,6 +226,9 @@ h3 { font: 700 1.05rem/1.3 var(--font-display); margin: 0; }
 .appt[data-st="arrived"], .appt[data-st="in_progress"] { border-inline-start-color: var(--ink); background: var(--surface); }
 .appt[data-st="waiting_approval"] { border-inline-start-color: var(--warn); background: var(--warn-soft); }
 .appt[data-st="waiting_approval"] .st { color: var(--warn); }
+.appt[data-flag="needs"] { border-inline-start-color: var(--warn); background: var(--warn-soft); }
+.appt[data-flag="needs"] .st { color: var(--warn); font-weight: 600; }
+.appt[data-flag="confirmed"] .st { color: var(--good); }
 .appt[data-st="ready"] { border-inline-start-color: var(--good); background: var(--good-soft); }
 .appt[data-st="ready"] .st { color: var(--good); }
 .appt[data-st="done"] { opacity: .6; }
@@ -273,3 +276,7 @@ h3 { font: 700 1.05rem/1.3 var(--font-display); margin: 0; }
 
 /* ---------- AI assist ---------- */
 .ai-box { display: flex; flex-direction: column; gap: 8px; padding: 12px 14px; border: 1px dashed var(--line); border-radius: var(--r-tile); background: var(--surface-2); }
+/* a folded settings block inside a dialog */
+.fold { border-top: 1px solid var(--line); padding-top: 10px; }
+.fold > summary { cursor: pointer; font-weight: 600; padding: 4px 0; }
+.fold[open] { display: flex; flex-direction: column; gap: 10px; }

@@ -21,6 +21,10 @@
   const cal = { day: new Date(), appts: [], approvals: [], timer: null };
   cal.day.setHours(0, 0, 0, 0);
   const isLive = a => !["cancelled", "no_show"].includes(a.status);
+  // what the customer did with their link (migration 0010): confirmed, cancelled, or a booking that waits for the garage
+  const flagOf = a => a.status === "booked" && a.needs_ok ? "needs" : a.status === "booked" && a.confirmed_at ? "confirmed" : a.status === "cancelled" && a.cancelled_by === "customer" ? "cust-cancel" : "";
+  const FLAG = { needs: "צריך אישור שלך", confirmed: "אישר הגעה", "cust-cancel": "הלקוח ביטל" };
+  const flagText = a => { const f = flagOf(a); return f ? FLAG[f] + (f === "cust-cancel" && a.cancelled_late ? " (מאוחר)" : "") : ""; };
   function dayWindow() {
     const h = hoursOf(st.garage)[cal.day.getDay()];
     let from = h ? toMin(h.open) : 8 * 60, to = h ? toMin(h.close) : 17 * 60;
@@ -52,8 +56,9 @@
     const cells = []; for (let r = 0; r < rows; r++) for (let b = 1; b <= bays; b++) { const m = w.from + r * SLOT; cells.push(`<button class="cal-cell ${m % 60 === 0 ? "hour" : ""}" style="--r:${r + 2};--c:${b + 1}" data-slot="${m}" data-bay="${b}" aria-label="תור חדש ${String(Math.floor(m / 60)).padStart(2, "0")}:${String(m % 60).padStart(2, "0")} עמדה ${b}"></button>`); }
     const blocks = placeBays(cal.appts).map(({ a, b }) => {
       const s = new Date(a.starts_at), m = s.getHours() * 60 + s.getMinutes(), r = Math.max(0, Math.floor((m - w.from) / SLOT)), span = Math.max(1, Math.round(a.minutes / SLOT));
-      return `<button class="appt ${isLive(a) ? "" : "off"}" data-st="${a.status}" style="--r:${r + 2};--s:${span};--c:${b + 1}" data-appt="${a.id}">
-        <b>${esc(a.customer_name)}</b><span>${hm(s)} · ${KIND[a.kind] || ""}${a.plate ? " · " + esc(fmtPlate(a.plate)) : ""}</span><span class="st">${STATUS[a.status]}${a.source === "online" ? " · אונליין" : ""}</span></button>`;
+      const fl = flagText(a);
+      return `<button class="appt ${isLive(a) ? "" : "off"}" data-st="${a.status}" data-flag="${flagOf(a)}" style="--r:${r + 2};--s:${span};--c:${b + 1}" data-appt="${a.id}">
+        <b>${esc(a.customer_name)}</b><span>${hm(s)} · ${KIND[a.kind] || ""}${a.plate ? " · " + esc(fmtPlate(a.plate)) : ""}</span><span class="st">${fl && flagOf(a) !== "confirmed" ? fl : STATUS[a.status]}${flagOf(a) === "confirmed" ? " · ✓ " + fl : ""}${a.source === "online" ? " · אונליין" : ""}</span></button>`;
     }).join("");
     const grid = $("#cal"); grid.style.setProperty("--bays", bays); grid.style.setProperty("--rows", rows);
     grid.innerHTML = head + times + cells.join("") + blocks;
@@ -81,7 +86,8 @@
   function renderAppt() {
     const a = apFor, s = new Date(a.starts_at), c = apCar(a), phone = a.phone || (c && c.phone);
     $("#ap-title").textContent = a.customer_name;
-    $("#ap-sub").textContent = `${new Intl.DateTimeFormat("he-IL", { weekday: "long", day: "numeric", month: "long" }).format(s)} · ${hm(s)} · ${a.minutes} דק' · ${KIND[a.kind]}${c ? " · " + c.model + " " + (c.year || "") : ""}${a.plate ? " · " + fmtPlate(a.plate) : ""}${a.source === "online" ? " · נקבע אונליין" : ""}`;
+    renderApOk(a, phone);
+    $("#ap-sub").textContent = `${new Intl.DateTimeFormat("he-IL", { weekday: "long", day: "numeric", month: "long" }).format(s)} · ${hm(s)} · ${a.minutes} דק' · ${KIND[a.kind]}${c ? " · " + c.model + " " + (c.year || "") : ""}${a.plate ? " · " + fmtPlate(a.plate) : ""}${a.source === "online" ? " · נקבע אונליין" : ""}${flagText(a) && flagOf(a) !== "needs" ? " · " + flagText(a) : ""}`;
     $("#ap-status").innerHTML = Object.entries(STATUS).map(([k, t]) => `<button type="button" class="chip ${a.status === k ? "on" : ""}" data-st="${k}">${t}</button>`).join("");
     $$("#ap-status .chip").forEach(b => b.onclick = () => setApptStatus(b.dataset.st));
     const wo = a.work_order_id && st.wos.find(w => w.id === a.work_order_id);
@@ -112,12 +118,43 @@
     $$("[data-resend]").forEach(b => b.onclick = () => { const x = mine.find(y => y.id === b.dataset.resend); sendApprovalLink(a, x); });
     $("#ap-note").textContent = a.note ? "הערה: " + a.note : "";
   }
+  // An online booking from a phone that did not show up before waits for the garage: approve or decline, then tell them.
+  // Every card also shows the phone's no-shows and late cancellations in the last year.
+  async function strikesOf(a) {
+    const p = digits(a.phone || ""); if (p.length < 9) return 0;
+    if (demo) { const year = Date.now() - 365 * 86400000; return DEMO.appts.filter(x => digits(x.phone || "") === p && Date.parse(x.starts_at) < Date.now() && Date.parse(x.starts_at) > year && (x.status === "no_show" || (x.status === "cancelled" && x.cancelled_late))).length; }
+    try { return await api.apptStrikes(st.garage.id, a.phone); } catch (e) { return 0; }
+  }
+  function renderApOk(a, phone) {
+    const box = $("#ap-ok"); box.hidden = true; box.innerHTML = "";
+    strikesOf(a).then(n => {
+      if (apFor !== a) return;
+      const needs = a.status === "booked" && a.needs_ok;
+      if (!needs && !n) return;
+      box.hidden = false;
+      box.innerHTML = `<p>${n ? `<b>${n === 1 ? "פעם אחת" : n + " פעמים"} בשנה האחרונה</b> הלקוח לא הגיע או ביטל ברגע האחרון.` : ""}${needs ? " התור נקבע אונליין ומחכה לאישור שלך." : ""}</p>${needs ? `<div class="dlg-actions start"><button type="button" class="btn primary" id="ap-ok-yes">לאשר את התור</button><button type="button" class="btn" id="ap-ok-no">לדחות</button></div>` : ""}`;
+      const first = a.customer_name.split(" ")[0], when = `${new Intl.DateTimeFormat("he-IL", { weekday: "long", day: "numeric", month: "long" }).format(new Date(a.starts_at))} בשעה ${hm(new Date(a.starts_at))}`;
+      const y = $("#ap-ok-yes"); if (y) y.onclick = async () => {
+        if (await patchAppt(a, { needs_ok: false })) { toast("התור אושר"); renderAppt(); renderCalendar(); if (phone) openMsgText(a.customer_name, phone, `היי ${first}, כאן ${st.garage.name}. התור שלך ל${when} אושר. נתראה!`); }
+      };
+      const no = $("#ap-ok-no"); if (no) no.onclick = async () => {
+        if (await patchAppt(a, { status: "cancelled", cancelled_by: "garage", needs_ok: false })) { toast("התור נדחה"); renderAppt(); renderCalendar(); if (phone) openMsgText(a.customer_name, phone, `היי ${first}, כאן ${st.garage.name}. לצערנו לא נוכל לקבל את התור ל${when}. אפשר להתקשר אלינו ונמצא מועד.`); }
+      };
+    });
+  }
+  async function patchAppt(a, patch) {
+    const prev = { ...a }; Object.assign(a, patch);
+    try { if (!demo) Object.assign(a, await api.saveAppointment({ id: a.id, garage_id: a.garage_id, ...patch })); return true; }
+    catch (e) { Object.assign(a, prev); toast("השמירה נכשלה"); return false; }
+  }
   // a customer may approve only some lines (approval_choose); the total shown is what was approved
   const partial = x => Array.isArray(x.approved_lines) && x.approved_lines.length < (x.lines || []).length;
   const approvedTotal = x => x.status === "approved" && Array.isArray(x.approved_lines) ? x.approved_lines.reduce((s, i) => s + (+((x.lines || [])[i] || {}).price || 0), 0) : x.total;
   async function setApptStatus(status) {
     const a = apFor, prev = a.status; a.status = status;
-    try { if (!demo) Object.assign(a, await api.saveAppointment({ id: a.id, garage_id: a.garage_id, status })); renderAppt(); renderCalendar(); toast(STATUS[status]); }
+    const who = status === "cancelled" && "cancelled_by" in a && !a.cancelled_by ? { cancelled_by: "garage" } : {};
+    Object.assign(a, who);
+    try { if (!demo) Object.assign(a, await api.saveAppointment({ id: a.id, garage_id: a.garage_id, status, ...who })); renderAppt(); renderCalendar(); toast(STATUS[status]); }
     catch (e) { a.status = prev; toast("העדכון נכשל: " + (e.message || e)); }
   }
 
@@ -208,5 +245,5 @@
   const addApproval = x => { (demo ? G.DEMO.approvals : cal.approvals).unshift(x); };
   const markAwaiting = async a => { apFor = a; await setApptStatus("waiting_approval"); };
   const awAddLines = lines => { awLines = awLines.filter(l => l.desc.trim() || l.price !== ""); awLines.push(...lines.map(l => ({ desc: l.desc, price: String(l.price || "") }))); renderAwLines(); };
-  Object.assign(G, { renderCalendar, sendApprovalLink, addApproval, markAwaiting, awAddLines, apCar });
+  Object.assign(G, { renderCalendar, loadDay, sendApprovalLink, addApproval, markAwaiting, awAddLines, apCar, patchAppt, hoursOf });
 })(window.Garage);

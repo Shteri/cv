@@ -89,7 +89,7 @@
   function openMsgText(name, phone, text) {
     msgFor = { phone }; $("#msg-to").textContent = name; $("#msg-text").value = text;
     // in the demo the customer's link opens here, so the other side can be tried too
-    const link = demo && (text.match(/https?:\/\/\S+\/(?:approve|book)\/\S*/) || [])[0];
+    const link = demo && (text.match(/https?:\/\/\S+\/(?:approve|book|appt)\/\S*/) || [])[0];
     $("#msg-note").innerHTML = demo ? `מצב הדגמה: ההודעה לא נשלחת.${link ? ` <a href="${esc(link)}" target="_blank" rel="noopener">לפתוח את הקישור כמו הלקוח</a>` : ""}` : "ההודעה נפתחת בוואטסאפ של המוסך. אפשר לערוך לפני השליחה.";
     syncMsg(); $("#dlg-msg").showModal();
   }
@@ -229,6 +229,7 @@
   // Nothing is sent. What you change is kept in this browser (localStorage), and the customer pages opened from
   // the demo (approval link, online booking) write back to the same place, so both sides can be tried.
   const DEMO_KEY = "tipulit-garage-demo", DEMO_V = 2;
+  const newToken = () => (crypto.randomUUID ? crypto.randomUUID() : "t" + Date.now().toString(36) + Math.random().toString(36).slice(2));
   const PRICE = { engine_oil: 52, oil_filter: 55, air_filter: 95, cabin_filter: 90, brake_fluid: 70, spark_plugs: 75, coolant: 140, transmission_oil: 320, brake_pads: 340, brake_discs: 520, battery_12v: 520, wipers: 110, timing_belt: 1400, drive_belt: 240, fuel_filter: 160 };
   function genDemo() {
     let seed = 11; const rnd = () => (seed = (seed * 9301 + 49297) % 233280) / 233280, rint = (a, b) => a + Math.floor(rnd() * (b - a + 1)), chance = p => rnd() < p;
@@ -311,6 +312,10 @@
     const due = rows.map(r => { const s = schedById(r.schedule_id); let n = null; try { n = E.next(s, { km: r.km, kmMonth: r.km_month, lastService: r.last_service, records: wos.filter(w => w.garage_car_id === r.car_id), lastSvc: (w => w ? { km: w.km, svcKm: w.svc_km } : null)(wos.find(w => w.garage_car_id === r.car_id && w.kind === "service")) }); } catch (e) {} return { r, n }; })
       .filter(x => x.n && x.n.level !== "good").map(x => x.r);
     const appts = genAppts(rows, due, rnd), approvals = [];
+    // a customer who did not show up twice: their new online booking tomorrow waits for the garage
+    const ns = rows[6], tmr = new Date(); tmr.setHours(0, 0, 0, 0); tmr.setDate(tmr.getDate() + (tmr.getDay() === 5 ? 2 : 1));
+    const nsAppt = (days, h, status, extra = {}) => ({ id: `dap-ns-${days}`, garage_id: "demo", garage_car_id: ns.car_id, customer_name: ns.name, phone: ns.phone || "052-7000007", plate: ns.plate, kind: "service", note: null, starts_at: new Date(new Date(tmr).setHours(h, 0) + days * DAY).toISOString(), minutes: 60, bay: 3, status, source: "online", work_order_id: null, token: newToken(), ...extra });
+    appts.push(nsAppt(-19, 9, "no_show"), nsAppt(-74, 11, "no_show"), nsAppt(0, 15, "booked", { needs_ok: true }));
     const wa = appts.find(a => a.status === "waiting_approval");
     if (wa) approvals.push({ id: "daw-1", garage_id: "demo", garage_car_id: wa.garage_car_id, appointment_id: wa.id, message: "בזמן הטיפול ראינו שרפידות הבלם הקדמיות שחוקות (נשארו 2 מ\"מ). מומלץ להחליף עכשיו.", lines: [{ desc: "רפידות בלם קדמיות", price: 340 }, { desc: "עבודה", price: 220 }], total: 560, status: "pending", created_at: new Date().toISOString() });
     // a past vehicle inspection, answered by the customer
@@ -347,7 +352,7 @@
     // every visit in the last 14 months has a document, except this week's
     const pays = ["card", "card", "card", "cash", "transfer", "app"], byName = Object.fromEntries(rows.map(r => [r.car_id, r.name])), cut = dateAt(now - 400 * DAY), week = dateAt(now - 7 * DAY);
     let no = 20001; const invoices = wos.filter(w => w.date >= cut && w.date < week).reverse().map(w => ({ id: "div-" + w.id, garage_id: "demo", work_order_id: w.id, kind: "invoice_receipt", provider: chance(.85) ? "morning" : "manual", number: String(no++), url: null, customer_name: byName[w.garage_car_id], total: w.total, payment: pays[rint(0, pays.length - 1)], issued_at: w.date + "T12:00:00Z" })).reverse();
-    return { v: DEMO_V, garage: { id: "demo", name: "מוסך הדגמה", city: "חולון", address: "הפלד 40", phone: "03-5551234", bays: 3, slot_minutes: 60, booking_enabled: true, hours: {}, labor_rate: rate },
+    return { v: DEMO_V, garage: { id: "demo", name: "מוסך הדגמה", city: "חולון", address: "הפלד 40", phone: "03-5551234", bays: 3, slot_minutes: 60, booking_enabled: true, hours: {}, labor_rate: rate, cancel_hours: 12, noshow_limit: 2 },
       rows, wos, history, recalls, appts, approvals, parts, sups, pos, moves: [], invoices, billing: { api_id: "demo", has_secret: true, sandbox: false, vat_exempt: false }, jobs: null, modules: null };
   }
   // today and the next two working days, with statuses that match the time of day
@@ -367,7 +372,9 @@
         const minutes = kind === "test" ? 60 : [60, 90, 120][Math.floor(rnd() * 3)], bay = 1 + (k % 3);
         const past = start.getTime() + minutes * 60000 < clock, nowish = start.getTime() < clock && !past;
         const status = past ? (rnd() < .9 ? "done" : "no_show") : nowish ? ["in_progress", "waiting_approval", "arrived"][k % 3] : "booked";
-        const nl = notes[kind]; appts.push({ id: `dap-${day.getTime()}-${k}`, garage_id: "demo", garage_car_id: r.car_id, customer_name: r.name, phone: r.phone, plate: r.plate, kind, note: nl ? nl[k % nl.length] : null, starts_at: start.toISOString(), minutes, bay, status, source: k % 3 === 2 ? "online" : "garage", work_order_id: null });
+        // tomorrow some customers already answered the reminder, some got it and did not answer yet
+        const answer = d === 0 ? {} : rnd() < .4 ? { reminded_at: new Date(Date.now() - 3 * 3600000).toISOString(), confirmed_at: new Date(Date.now() - 2 * 3600000).toISOString() } : rnd() < .5 ? { reminded_at: new Date(Date.now() - 3 * 3600000).toISOString() } : {};
+        const nl = notes[kind]; appts.push({ id: `dap-${day.getTime()}-${k}`, garage_id: "demo", garage_car_id: r.car_id, customer_name: r.name, phone: r.phone, plate: r.plate, kind, note: nl ? nl[k % nl.length] : null, starts_at: start.toISOString(), minutes, bay, status, source: k % 3 === 2 ? "online" : "garage", work_order_id: null, token: newToken(), ...answer });
         if (k % 3 !== 0) h += 1;
       }
     }
@@ -380,6 +387,9 @@
   function loadDemo() {
     let x = null; try { x = JSON.parse(localStorage.getItem(DEMO_KEY) || "null"); } catch (e) {}
     if (!x || x.v !== DEMO_V) return genDemo();
+    // demos saved before appointment links get a token per appointment
+    for (const a of x.appts) if (!a.token) a.token = newToken();
+    if (x.garage.cancel_hours === undefined) Object.assign(x.garage, { cancel_hours: 12, noshow_limit: 2 });
     const midnight = new Date().setHours(0, 0, 0, 0);
     if (!x.appts.some(a => Date.parse(a.starts_at) >= midnight)) { let sd = Date.now() % 233280; x.appts.push(...genAppts(x.rows, x.rows.slice(0, 12), () => (sd = (sd * 9301 + 49297) % 233280) / 233280)); }
     return x;
@@ -399,6 +409,12 @@
     let changed = false;
     for (const x of saved.approvals || []) { const m = DEMO.approvals.find(a => a.id === x.id); if (m && m.status === "pending" && x.status !== "pending") { Object.assign(m, { status: x.status, approved_lines: x.approved_lines, decided_at: x.decided_at }); changed = true; } }
     for (const a of saved.appts || []) if (a.source === "online" && !DEMO.appts.some(b => b.id === a.id)) { DEMO.appts.push(a); changed = true; }
+    // the customer's answers from the appointment page: confirmed, or cancelled (also when rescheduling)
+    for (const x of saved.appts || []) {
+      const m = DEMO.appts.find(a => a.id === x.id); if (!m) continue;
+      if (x.confirmed_at && !m.confirmed_at) { m.confirmed_at = x.confirmed_at; changed = true; }
+      if (x.status === "cancelled" && x.cancelled_by === "customer" && m.status === "booked") { Object.assign(m, { status: "cancelled", cancelled_by: "customer", cancelled_late: x.cancelled_late }); changed = true; }
+    }
     return changed;
   }
   // an open dialog is left alone; the screen behind it refreshes
