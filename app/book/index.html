@@ -18,7 +18,7 @@
   <section class="box" id="b-load"><p class="muted">טוען…</p></section>
   <section class="stack-md" id="b-form" hidden>
     <div><p class="muted small">קביעת תור</p><h1 id="b-name"></h1><p class="muted" id="b-addr"></p></div>
-    <div class="demo-note" id="b-demo" hidden>מצב הדגמה: שום תור לא נקבע באמת.</div>
+    <div class="demo-note" id="b-demo" hidden>מצב הדגמה: התור מופיע ביומן של המוסך בהדגמה, בדפדפן הזה.</div>
     <div class="field"><span>מה צריך</span><div class="seg" id="b-kind"><button type="button" data-v="service" class="on">טיפול</button><button type="button" data-v="repair">תקלה</button><button type="button" data-v="test">הכנה לטסט</button><button type="button" data-v="other">אחר</button></div></div>
     <div class="field"><span>יום</span><div class="chips scroll-x" id="b-days"></div></div>
     <div class="field"><span>שעה</span><div class="chips" id="b-slots"></div><p class="muted small" id="b-noslots" hidden>אין שעות פנויות ביום הזה. נסו יום אחר.</p></div>
@@ -98,6 +98,7 @@
     const b = $("#b-go"); b.disabled = true;
     try {
       if (!demo) await Cloud.bookAppointment({ garageId: info.id, startsAt: slot.toISOString(), name, phone, plate: $("#b-plate").value, kind, note: $("#b-note").value });
+      else demoBook({ name, phone, plate: $("#b-plate").value.replace(/\D/g, ""), kind, note: $("#b-note").value.trim() || null });
       try { localStorage.setItem("tipulit-book", JSON.stringify({ name, phone, plate: $("#b-plate").value })); } catch (e) {}
       done();
     } catch (e) {
@@ -123,10 +124,23 @@
       const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([ics], { type: "text/calendar" })); a.download = "tor.ics"; document.body.appendChild(a); a.click(); a.remove();
     };
   }
+  // the garage demo keeps its data in this browser: a booking made here shows up in its calendar
+  const DEMO_KEY = "tipulit-garage-demo";
+  const demoStore = () => { try { return JSON.parse(localStorage.getItem(DEMO_KEY) || "null"); } catch (e) { return null; } };
+  function demoBook(b) {
+    const d = demoStore(); if (!d) return;
+    const r = b.plate && (d.rows || []).find(c => String(c.plate).replace(/\D/g, "") === b.plate);
+    const busy = (d.appts || []).filter(a => a.status !== "cancelled" && a.status !== "no_show" && Date.parse(a.starts_at) < slot.getTime() + info.slot_minutes * 60000 && Date.parse(a.starts_at) + a.minutes * 60000 > slot.getTime()).map(a => a.bay);
+    let bay = 1; while (busy.includes(bay)) bay++;
+    d.appts.push({ id: "dap-web-" + Date.now(), garage_id: "demo", garage_car_id: r ? r.car_id : null, customer_name: b.name, phone: b.phone, plate: b.plate || null, kind: b.kind, note: b.note, starts_at: slot.toISOString(), minutes: info.slot_minutes, bay, status: "booked", source: "online", work_order_id: null });
+    try { localStorage.setItem(DEMO_KEY, JSON.stringify(d)); } catch (e) {}
+  }
   async function start() {
     if (demo) {
       const h = { open: "08:00", close: "17:00" };
-      info = { id: "demo", name: "מוסך הדגמה", city: "חולון", address: "הפלד 40", phone: "03-0000000", hours: { 0: h, 1: h, 2: h, 3: h, 4: h, 5: { open: "08:00", close: "13:00" }, 6: null }, bays: 2, slot_minutes: 60, enabled: true, busy: [] };
+      const d = demoStore(), g = (d && d.garage) || {};
+      info = { id: "demo", name: g.name || "מוסך הדגמה", city: g.city || "חולון", address: g.address || "הפלד 40", phone: g.phone || "03-0000000", hours: { 0: h, 1: h, 2: h, 3: h, 4: h, 5: { open: "08:00", close: "13:00" }, 6: null }, bays: g.bays || 2, slot_minutes: g.slot_minutes || 60, enabled: true,
+        busy: d ? (d.appts || []).filter(a => a.status !== "cancelled" && a.status !== "no_show").map(a => [a.starts_at, a.minutes]) : [] };
       $("#b-demo").hidden = false;
     } else {
       if (!gid || !/^[0-9a-f-]{36}$/i.test(gid)) return closed("הקישור לא תקין", "בקשו מהמוסך קישור חדש.");

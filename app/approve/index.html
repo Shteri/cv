@@ -18,7 +18,7 @@
   <section class="box" id="a-load"><p class="muted">טוען…</p></section>
   <section class="stack-md" id="a-view" hidden>
     <div><p class="muted small" id="a-garage"></p><h1 id="a-title">אישור עבודה נוספת</h1><p class="muted" id="a-car"></p></div>
-    <div class="demo-note" id="a-demo" hidden>מצב הדגמה: שום דבר לא נשלח למוסך.</div>
+    <div class="demo-note" id="a-demo" hidden>מצב הדגמה: התשובה חוזרת ללוח המוסך בהדגמה, בדפדפן הזה.</div>
     <p class="big-line" id="a-msg"></p>
     <div class="stack-sm" id="a-checks" hidden></div>
     <div class="table-wrap" id="a-table"><table class="tbl lines-view"><tbody id="a-lines"></tbody><tfoot><tr><td><b id="a-total-label">סה"כ</b></td><td class="num-col num"><b id="a-total"></b></td></tr></tfoot></table></div>
@@ -39,6 +39,19 @@
   const fmt = n => Math.round(n).toLocaleString("he-IL");
   const q = new URLSearchParams(location.search), demo = q.has("demo"), id = q.get("id");
   let ap = null, pick = new Set();
+  // the garage demo keeps its data in this browser; a link sent from it opens the request it made
+  const DEMO_KEY = "tipulit-garage-demo";
+  const demoStore = () => { try { return JSON.parse(localStorage.getItem(DEMO_KEY) || "null"); } catch (e) { return null; } };
+  function demoFromStore() {
+    const d = demoStore(), x = d && (d.approvals || []).find(a => a.id === id); if (!x) return null;
+    const ap0 = x.appointment_id && (d.appts || []).find(a => a.id === x.appointment_id), carId = x.garage_car_id || (ap0 && ap0.garage_car_id), r = (d.rows || []).find(c => c.car_id === carId);
+    return { ...x, garage: d.garage.name, garage_phone: d.garage.phone || null, car: x.car_label || (r ? `${r.model || ""} ${r.year || ""}`.trim() : ""), km: x.km || (r && r.km) || null };
+  }
+  function demoAnswer() {
+    const d = demoStore(), x = d && (d.approvals || []).find(a => a.id === id); if (!x) return;
+    Object.assign(x, { status: ap.status, approved_lines: ap.approved_lines, decided_at: ap.decided_at });
+    try { localStorage.setItem(DEMO_KEY, JSON.stringify(d)); } catch (e) {}
+  }
   const show = s => { for (const x of ["a-load", "a-view", "a-missing"]) $("#" + x).hidden = x !== s; };
   // An inspection lets the customer approve each recommended job; any other request is approved as a whole.
   const isInspection = () => (ap.checks || []).length > 0;
@@ -93,21 +106,23 @@
         try { r = await Cloud.approvalChoose(ap.id, chosen); } catch (e) { if (!isInspection()) r = { status: await Cloud.approvalDecide(ap.id, yes), approved_lines: chosen }; else throw e; }
         Object.assign(ap, r);
       }
-      ap.decided_at = new Date().toISOString(); render();
+      ap.decided_at = new Date().toISOString(); if (demo) demoAnswer(); render();
     } catch (e) { alert("לא הצלחנו לשלוח. נסו שוב."); }
     $("#a-yes").disabled = $("#a-no").disabled = false;
   }
   $("#a-yes").onclick = () => decide(true); $("#a-no").onclick = () => decide(false);
   (async () => {
-    if (demo) {
+    if (demo && id) ap = demoFromStore();
+    if (demo && !ap) {
       ap = q.has("insp")
         ? { id: "demo", garage: "מוסך הדגמה", garage_phone: "03-0000000", car: "קיה פיקנטו 2019", km: 84200, status: "pending",
             checks: [{ key: "brakes_front", label: "בלמים קדמיים", status: "now", note: "נשארו 2 מ\"מ ברפידות" }, { key: "wipers", label: "מגבים ונוזל שמשות", status: "soon", note: "משאירים פסים" }, { key: "battery", label: "מצבר", status: "soon", note: "12.1V, חלש בבוקר" },
               ...["צמיגים", "אורות", "שמן מנוע ונזילות", "נוזל קירור וצנרת", "בולמים ומתלים", "היגוי", "מיזוג"].map((label, i) => ({ key: "ok" + i, label, status: "ok" }))],
             lines: [{ desc: "רפידות בלם קדמיות", price: 620, urgent: true }, { desc: "החלפת מגבים", price: 110 }, { desc: "החלפת מצבר", price: 590 }], total: 1320 }
         : { id: "demo", garage: "מוסך הדגמה", garage_phone: "03-0000000", car: "קיה פיקנטו 2019", message: "רפידות הבלם הקדמיות שחוקות ומומלץ להחליף אותן עכשיו.", lines: [{ desc: "רפידות בלם קדמיות", price: 380 }, { desc: "עבודה", price: 150 }], total: 530, status: "pending" };
-      $("#a-demo").hidden = false;
-    } else {
+    }
+    if (demo) $("#a-demo").hidden = false;
+    else {
       if (!id || !/^[0-9a-f-]{36}$/i.test(id) || !Cloud.enabled) return show("a-missing");
       try { ap = await Cloud.approvalGet(id); } catch (e) { ap = null; }
       if (!ap) return show("a-missing");

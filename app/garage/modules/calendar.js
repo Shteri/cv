@@ -181,7 +181,7 @@
   const approveUrl = id => location.origin + location.pathname.replace(/garage\/[^/]*$/, "") + "approve/?id=" + id;
   function sendApprovalLink(a, x) {
     const c = apCar(a), phone = a.phone || (c && c.phone);
-    const link = demo ? location.origin + "/approve/?demo" + ((x.checks || []).length ? "&insp" : "") : approveUrl(x.id), hi = `היי ${a.customer_name.split(" ")[0]}, כאן ${st.garage.name}. `;
+    const link = demo ? location.origin + location.pathname.replace(/garage\/[^/]*$/, "") + "approve/?demo&id=" + x.id : approveUrl(x.id), hi = `היי ${a.customer_name.split(" ")[0]}, כאן ${st.garage.name}. `;
     const now = (x.checks || []).filter(k => k.status === "now").length, soon = (x.checks || []).filter(k => k.status === "soon").length;
     const text = (x.checks || []).length
       ? hi + `סיימנו לבדוק את הרכב. ${now || soon ? `מצאנו ${[now ? (now === 1 ? "דבר אחד לטיפול עכשיו" : now + " דברים לטיפול עכשיו") : "", soon ? (soon === 1 ? "דבר אחד שכדאי לטפל בו בקרוב" : soon + " דברים שכדאי לטפל בהם בקרוב") : ""].filter(Boolean).join(", ו")}. התמונות, המחירים והאישור כאן` : "הכל תקין. הדוח המלא כאן"}: ${link}`

@@ -35,11 +35,12 @@
   // A part replaced off the schedule (a repair, or early) counts from then: when it still lasts past the following
   // visit it is skipped now, and when it runs out before the following visit it is added to this one.
   // The slack keeps a few thousand km of early or late from moving parts around.
-  function planAt(s, records, svc, atKm) {
+  function planAt(s, records, svc, atKm, nowKm = 0) {
     const every = replaceEvery(s), iv = s.interval.km, slack = iv / 4, reach = atKm + iv - slack;
     const last = {};
     // records up to this visit; a service record this close is this service itself (done a little early or late)
-    const before = r => r.km > 0 && r.km < atKm + slack && !(r.kind === "service" && Math.abs(r.km - atKm) < slack);
+    // (a service already overdue still counts what was replaced since, up to the car's km now)
+    const before = r => r.km > 0 && r.km < Math.max(atKm + slack, nowKm + 1) && !(r.kind === "service" && Math.abs(r.km - atKm) < slack);
     for (const r of records || []) if (before(r)) for (const k of r.items || []) if (!last[k] || r.km > last[k].km) last[k] = r;
     const inSvc = svc.items.filter(i => i.action === "replace").map(i => i.item);
     const replace = [], skip = [], add = [];
@@ -86,7 +87,7 @@
     const progress = Math.min(1, Math.max(0, (car.km - prevKm) / s.interval.km));
     const daysLeft = Math.round((dueDate - new Date()) / 86400000);
     const level = remainKm <= 0 || daysLeft <= 0 ? "crit" : (windowFrom - car.km <= 1500 || daysLeft <= 30) ? "warn" : "good";
-    const plan = planAt(s, car.records, svc, nextKm);
+    const plan = planAt(s, car.records, svc, nextKm, car.km);
     return { s, svc, nextKm, remainKm, windowFrom, windowTo, lastKm, dueDate, byTime, progress, daysLeft, level, plan };
   }
   g.TipulitEngine = { gridShift, gridAfter, replaceEvery, planAt, next };

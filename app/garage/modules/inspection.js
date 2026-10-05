@@ -80,7 +80,7 @@
   async function addPhotos(r, files) {
     uploads += files.length; $("#in-send").disabled = true;
     for (const f of files) {
-      try { const blob = await shrink(f); r.photos.push(demo ? URL.createObjectURL(blob) : await api.uploadInspectionPhoto(st.garage.id, blob)); }
+      try { const blob = await shrink(f); r.photos.push(demo ? await new Promise(res => { const fr = new FileReader(); fr.onload = () => res(fr.result); fr.readAsDataURL(blob); }) : await api.uploadInspectionPhoto(st.garage.id, blob)); }
       catch (e) { toast("התמונה לא עלתה: " + (e.message || e)); }
       uploads--;
     }

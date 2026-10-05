@@ -136,6 +136,6 @@
   G.register({ id: "catalog", name: "מחירון עבודות", desc: "עבודות קבועות עם שעות, מחיר שעה והחלקים שהן דורשות. עבודה נכנסת לכרטיס עבודה או להצעת מחיר בלחיצה.", groups: "all", tab: "catalog", show: renderCatalog,
     state: { jobs: [] },
     async load(id) { st.jobs = await api.jobTemplates(id); },
-    demo() { st.jobs = suggestedFor().map((j, i) => ({ id: "djb-" + i, name: j.name, category: j.category, hours: j.hours, price: null, parts: j.parts, active: true })); } });
+    demo(D) { st.jobs = D.jobs || suggestedFor().map((j, i) => ({ id: "djb-" + i, name: j.name, category: j.category, hours: j.hours, price: null, parts: j.parts, active: true })); } });
   Object.assign(G, { jobEstimate: estimate, jobsFor: item => st.jobs.filter(j => j.active !== false && (j.parts || []).some(p => p.item === item)) });
 })(window.Garage);

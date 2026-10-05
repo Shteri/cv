@@ -42,5 +42,6 @@ check("long-interval part replaced in a repair: added to the visit before it run
 check("no records: the importer's list", { n: plan(i10, 60000).replace.length, skip: plan(i10, 60000).skip.length }, { n: 5, skip: 0 });
 check("this service's own record (done early) is not an earlier replacement", { n: E.planAt(i10, [{ km: 72000, kind: "service", items: ["air_filter", "brake_fluid"] }], i10.services[3], 75000).replace.length }, { n: 5 });
 check("repair inside the window counts", { skip: E.planAt(i10, [...regular, { km: 76000, kind: "repair", items: ["brake_fluid"] }], i10.services[3], 75000).skip.map(x => x.item).join() }, { skip: "brake_fluid" });
+check("overdue service skips a part replaced since", { skip: E.next(i10, { km: 80000, kmMonth: 1500, lastService: null, lastSvc: { svcKm: 55000, km: 55000 }, records: [...regular, { km: 79500, kind: "repair", items: ["air_filter"] }] }).plan.skip.map(x => x.item).join() }, { skip: "air_filter" });
 if (fail) { console.error(`${fail} failed`); process.exit(1); }
 console.log("engine ok");

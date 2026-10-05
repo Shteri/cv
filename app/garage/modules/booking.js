@@ -6,7 +6,7 @@
   // ---------- online booking settings ----------
   const bookUrl = id => location.origin + location.pathname.replace(/garage\/[^/]*$/, "") + "book/?g=" + id;
   function openSettings() {
-    const g = st.garage, url = demo ? location.origin + "/book/?demo" : bookUrl(g.id);
+    const g = st.garage, url = demo ? bookUrl("demo").replace("?g=demo", "?demo") : bookUrl(g.id);
     $("#bk-on").checked = !!g.booking_enabled; $("#bk-bays").value = g.bays || 2; $("#bk-slot").value = String(g.slot_minutes || 60); if (!$("#bk-slot").value) $("#bk-slot").value = "60";
     $("#bk-link").value = url; $("#bk-garage").textContent = g.name; $("#bk-err").hidden = true;
     $("#bk-wa").href = "https://wa.me/?text=" + encodeURIComponent(`לקביעת תור ב${g.name}: ${url}`);

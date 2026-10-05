@@ -259,6 +259,6 @@
   G.register({ id: "stock", name: "מלאי והזמנות רכש", desc: "חלקים עם מק\"ט ומינימום, ספקים, הזמנות רכש בוואטסאפ וקבלת סחורה. כרטיס עבודה מוריד מהמלאי.", groups: "all", tab: "stock", show: renderStock,
     state: { parts: [], sups: [], pos: [], moves: [] },
     async load(id) { const [parts, sups, pos] = await Promise.all([api.parts(id), api.suppliers(id), api.purchaseOrders(id)]); Object.assign(st, { parts, sups, pos }); },
-    demo(D) { Object.assign(st, { parts: D.parts, sups: D.sups, pos: D.pos, moves: [] }); } });
+    demo(D) { Object.assign(st, { parts: D.parts, sups: D.sups, pos: D.pos, moves: D.moves || [] }); } });
   Object.assign(G, { createDrafts, itemQty, partById, partFor, partLabel, moveStock, refreshParts, renderStock, shortOf, setStockSeg });
 })(window.Garage);
