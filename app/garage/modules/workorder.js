@@ -105,8 +105,8 @@
       // the car's known km and last service move forward
       const patch = { km, km_at: new Date().toISOString(), ...(woKind === "service" ? { last_service: row.date.slice(0, 7) } : {}) };
       if (!demo) await api.updateGarageCar(woFor.car_id, patch).catch(() => {});
-      Object.assign(woFor, patch); Object.assign(woFor, view(woFor)); woFor.last_visit = row.date; woFor.visits = (woFor.visits || 0) + 1; woFor.lapsed = false;
       st.wos.unshift(saved);
+      Object.assign(woFor, patch); Object.assign(woFor, view(woFor)); woFor.last_visit = row.date; woFor.visits = (woFor.visits || 0) + 1; woFor.lapsed = false;
       if (G.woAppt) { const ap = G.woAppt; G.woAppt = null; ap.work_order_id = saved.id; try { if (!demo) await api.saveAppointment({ id: ap.id, garage_id: ap.garage_id, work_order_id: saved.id }); } catch (e) {} }
       $("#dlg-wo").close(); toast(sent ? (demo ? "נשמר. בהדגמה: היה נשלח ללקוח לאישור" : "נשמר ונשלח ללקוח לאישור") : "כרטיס העבודה נשמר"); renderRows();
       if (invoice) openInvoice(saved);

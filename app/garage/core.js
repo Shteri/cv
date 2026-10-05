@@ -33,7 +33,9 @@
   function view(r) {
     const s = schedById(r.schedule_id), kmMonth = r.km_month || 1500;
     const estKm = r.km ? Math.round(r.km + kmMonth * monthsSince(r.km_at)) : null;
-    let n = null; try { if (s && estKm !== null) n = E.next(s, { km: estKm, kmMonth, lastService: r.last_service }); } catch (e) {}
+    // the last periodic service this garage recorded: the next one is counted from where it was actually done
+    const lastSvc = st.wos.filter(w => w.garage_car_id === r.car_id && w.kind === "service" && w.km > 0).reduce((a, w) => !a || w.km > a.km ? { km: w.km, svcKm: w.svc_km || null } : a, null);
+    let n = null; try { if (s && estKm !== null) n = E.next(s, { km: Math.max(estKm, lastSvc ? lastSvc.km : 0), kmMonth, lastService: r.last_service, lastSvc }); } catch (e) {}
     const testDays = r.test_expiry ? Math.round((Date.parse(r.test_expiry) - Date.now()) / 86400000) : null;
     const plateDigits = digits(r.plate);
     return { ...r, s, estKm, n, testDays, plateDigits, plate: plateDigits ? fmtPlate(plateDigits) : "",
@@ -176,7 +178,7 @@
   async function reload() {
     const id = st.garage.id, soft = (f, empty = []) => Promise.resolve().then(f).catch(() => empty);
     const [book, wos] = await Promise.all([api.garageBook(id), soft(() => api.workOrders(id))]);
-    Object.assign(st, { rows: book.map(view), wos });
+    st.wos = wos; st.rows = book.map(view);
     // each switched-on module loads its own data; a module whose tables are not on the server yet just shows empty
     await Promise.all(modules.filter(m => m.load && on(m.id)).map(m => soft(() => m.load(id), null)));
   }
@@ -197,7 +199,7 @@
   function wireSignIn() { const b = $("#sign-in"); if (b) b.onclick = () => { try { sessionStorage.setItem("tipulit-return", location.pathname); } catch (e) {} Cloud.signInWithGoogle().catch(e => toast("ההתחברות נכשלה: " + e.message)); }; }
 
   async function start() {
-    if (demo) { st.garages = [st.garage = DEMO.garage]; st.rows = DEMO.rows.map(view); st.wos = DEMO.wos; st.recalls = DEMO.recalls; resetModules(); for (const m of modules) if (m.demo) m.demo(DEMO); enabled = null; renderUser(null); showDash(); return; }
+    if (demo) { st.garages = [st.garage = DEMO.garage]; st.wos = DEMO.wos; st.rows = DEMO.rows.map(view); st.recalls = DEMO.recalls; resetModules(); for (const m of modules) if (m.demo) m.demo(DEMO); enabled = null; renderUser(null); showDash(); return; }
     if (!Cloud.enabled) { showGate("השרת לא מחובר", "אפשר לראות איך זה נראה בהדגמה.", `<a class="btn primary" href="?demo">הדגמה</a>`); return; }
     if (Cloud.hasAuthParams) { const r = await Cloud.handleRedirect(); if (r.error) toast("ההתחברות נכשלה: " + (r.error.message || r.error)); try { history.replaceState(null, "", location.pathname); } catch (e) {} }
     const u = await Cloud.currentUser(); renderUser(u);
@@ -233,11 +235,11 @@
     const wos = [], history = {};
     rows.forEach((r, i) => {
       if (i % 3 === 2) return;
-      const s = schedById(r.schedule_id), km = Math.max(5000, r.km - 9000 - Math.floor(rnd() * 6000)), sv = s.services[Math.floor(rnd() * s.services.length)];
+      const s = schedById(r.schedule_id), km = Math.max(5000, r.km - 9000 - Math.floor(rnd() * 6000)), gp = E.gridAfter(s, km - s.interval.km / 2), sv = gp.svc;
       const items = sv.items.filter(x => x.action === "replace").map(x => x.item);
       const lines = [...items.map(k => ({ type: "part", desc: itemName(k), qty: 1, price: 40 + Math.floor(rnd() * 160) })), { type: "labor", desc: "עבודה, טיפול תקופתי", qty: 1, price: 250 + Math.floor(rnd() * 150) }];
       const date = iso(-(60 + Math.floor(rnd() * 420))).slice(0, 10);
-      wos.push({ id: "dwo-" + i, garage_car_id: r.car_id, kind: "service", svc_km: sv.km, km, date, items, lines, total: lines.reduce((a, l) => a + l.price, 0), notes: null, entry_id: r.linked ? "x" : null });
+      wos.push({ id: "dwo-" + i, garage_car_id: r.car_id, kind: "service", svc_km: gp.km, km, date, items, lines, total: lines.reduce((a, l) => a + l.price, 0), notes: null, entry_id: r.linked ? "x" : null });
       r.last_visit = date; r.visits = 1; r.lapsed = false;
     });
     for (const r of rows.filter(x => x.share_history)) {
@@ -293,7 +295,7 @@
     const pays = ["card", "card", "cash", "transfer", "app"];
     const invoices = wos.filter(w => Date.parse(w.date) > Date.now() - 400 * 86400000).slice(0, 9).map((w, i) => ({ id: "div-" + i, garage_id: "demo", work_order_id: w.id, kind: "invoice_receipt", provider: i % 4 === 3 ? "manual" : "morning", number: String(i % 4 === 3 ? 5400 + i : 20000 + i), url: null, customer_name: rows.find(r => r.car_id === w.garage_car_id).name, total: w.total, payment: pays[i % 5], issued_at: w.date + "T12:00:00Z" }));
     // a few recent visits without an invoice yet, so the billing tab has something to do
-    rows.slice(0, 3).forEach((r, i) => { const s = schedById(r.schedule_id), sv = s.services[0], items = sv.items.filter(x => x.action === "replace").map(x => x.item); const lines = [...items.map(k => ({ type: "part", desc: itemName(k), qty: 1, price: 60 + i * 15 })), { type: "labor", desc: "עבודה, טיפול תקופתי", qty: 1, price: 320 }]; wos.unshift({ id: "dwo-r" + i, garage_car_id: r.car_id, kind: "service", svc_km: sv.km, km: r.km, date: iso(-(i * 3 + 1)).slice(0, 10), items, lines, total: lines.reduce((a, l) => a + l.price, 0), notes: null, entry_id: null }); });
+    rows.slice(0, 3).forEach((r, i) => { const s = schedById(r.schedule_id), gp = E.gridAfter(s, r.km - s.interval.km / 2), sv = gp.svc, items = sv.items.filter(x => x.action === "replace").map(x => x.item); const lines = [...items.map(k => ({ type: "part", desc: itemName(k), qty: 1, price: 60 + i * 15 })), { type: "labor", desc: "עבודה, טיפול תקופתי", qty: 1, price: 320 }]; wos.unshift({ id: "dwo-r" + i, garage_car_id: r.car_id, kind: "service", svc_km: gp.km, km: r.km, date: iso(-(i * 3 + 1)).slice(0, 10), items, lines, total: lines.reduce((a, l) => a + l.price, 0), notes: null, entry_id: null }); });
     // this month's invoices
     wos.filter(w => w.id.startsWith("dwo-")).slice(3, 7).forEach((w, i) => invoices.unshift({ id: "divm-" + i, garage_id: "demo", work_order_id: null, kind: "invoice_receipt", provider: "morning", number: String(20100 + i), url: null, customer_name: rows[(i * 5 + 4) % rows.length].name, total: 480 + i * 130, payment: pays[i], issued_at: new Date(Date.now() - i * 5 * 3600000).toISOString() }));
     return { garage: { id: "demo", name: "מוסך הדגמה", city: "חולון", address: "הפלד 40", bays: 3, slot_minutes: 60, booking_enabled: true, hours: {}, labor_rate: 280 }, rows, wos, history, recalls, appts, approvals, parts, sups, pos, invoices, billing: { api_id: "demo", has_secret: true, sandbox: false, vat_exempt: false } };

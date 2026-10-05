@@ -433,7 +433,9 @@
   // We shift the odometer by (first - interval) so the grid becomes regular, then map back to real km.
   // The engine lives in engine.js so the garage dashboard computes exactly the same thing.
   const gridShift = TipulitEngine.gridShift;
-  const computeNext = car => TipulitEngine.next(schedById(car.schedule), car);
+  // the last periodic service actually done (km and which service), so the next one is counted from it
+  const lastSvcOf = car => (car.history || []).filter(h => (h.kind === "service" || !h.kind) && h.km > 0).reduce((a, h) => !a || h.km > a.km ? { km: h.km, svcKm: h.svcKm || null } : a, null);
+  const computeNext = car => TipulitEngine.next(schedById(car.schedule), { ...car, lastSvc: car.lastSvc || lastSvcOf(car) });
   // Long-interval items (plugs every 150,000; coolant first at 210,000 then every 30,000): next due km for a car.
   function longNext(l, km) {
     if (l.every_km) return Math.ceil((km + 1) / l.every_km) * l.every_km;
@@ -957,6 +959,7 @@
           <div class="stack g-6">
             <div><span class="big num">${fmt(n.nextKm)}</span> <span class="muted">ק"מ</span></div>
             <p class="small"><b class="num">${n.remainKm > 0 ? "עוד " + fmt(n.remainKm) : "באיחור של " + fmt(-n.remainKm)}</b> ק"מ</p>
+            ${n.windowFrom !== n.windowTo ? `<p class="small">מומלץ בין <b class="num">${fmt(n.windowFrom)}</b> ל-<b class="num">${fmt(n.windowTo)}</b> ק"מ</p><p class="small muted num">ספר היבואן: ${fmt(n.nextKm)} · לפי הטיפול האחרון (ב-${fmt(n.lastKm)}): ${fmt(n.windowFrom + n.windowTo - n.nextKm)}</p>` : ""}
             <p class="small muted">${timeLine}</p>
           </div>
           <div class="ring" aria-hidden="true">
