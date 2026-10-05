@@ -70,6 +70,11 @@
           "note": "תדירות בחודשים לפי הגיליון: : 24"
         },
         {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 24"
+        },
+        {
           "item": "exhaust",
           "action": "inspect",
           "note": "תדירות בחודשים לפי הגיליון: : 24"
@@ -195,6 +200,11 @@
         },
         {
           "item": "cooling_system",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 24"
+        },
+        {
+          "item": "coolant",
           "action": "inspect",
           "note": "תדירות בחודשים לפי הגיליון: : 24"
         },
@@ -330,7 +340,7 @@
         {
           "item": "coolant",
           "action": "inspect",
-          "note": "תדירות בחודשים לפי הגיליון: ק \" מ"
+          "note": "תדירות בחודשים לפי הגיליון: : 24"
         },
         {
           "item": "exhaust",
@@ -458,6 +468,11 @@
         },
         {
           "item": "cooling_system",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 24"
+        },
+        {
+          "item": "coolant",
           "action": "inspect",
           "note": "תדירות בחודשים לפי הגיליון: : 24"
         },
@@ -596,6 +611,11 @@
           "note": "תדירות בחודשים לפי הגיליון: : 24"
         },
         {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 24"
+        },
+        {
           "item": "exhaust",
           "action": "inspect",
           "note": "תדירות בחודשים לפי הגיליון: : 24"
@@ -674,6 +694,12 @@
   ],
   "long_interval": [
     {
+      "item": "drive_belt",
+      "action": "inspect",
+      "first_km": 105000,
+      "then_every_km": 15000
+    },
+    {
       "item": "coolant",
       "action": "replace",
       "first_km": 150000,
@@ -689,7 +715,8 @@
     {
       "item": "fuel_filter",
       "action": "replace",
-      "every_km": 120000
+      "every_km": 120000,
+      "every_months": 144
     }
   ],
   "time_based": [],
@@ -709,14 +736,14 @@
   },
   "sources": [
     {
-      "url": "https://books.union-motors.co.il/app (fileId 327, connectionId ?)",
+      "url": "https://books.union-motors.co.il/app/api/files/1157/download",
       "kind": "importer",
-      "note": "לוח אחזקה של יוניון מוטורס 'קורולה סדאן בנזין' (דגמים Corolla Sedan, שנים 2020-2025); דגם מנוע בגיליון: 1ZR-FAE"
+      "note": "לוח אחזקה של יוניון מוטורס 'קורולה סדאן בנזין' (דגמים Corolla Sedan, שנים 2020-2025; מסמך 327, קישור נבדק 2026-10-05); דגם מנוע בגיליון: 1ZR-FAE"
     },
     {
-      "url": "https://books.union-motors.co.il/app (fileId 317, connectionId ?)",
+      "url": "https://books.union-motors.co.il/app/api/files/629/download",
       "kind": "importer",
-      "note": "לוח אחזקה נוסף 'קורולה סדאן בנזין' (2019-2019), אותו מבנה"
+      "note": "לוח אחזקה נוסף 'קורולה סדאן בנזין' (2019-2019; מסמך 317, קישור נבדק 2026-10-05): גיליון מרץ 2019: אותה תוכנית, אבל בלי שורת מסנן הדלק"
     },
     {
       "url": "https://www.toyota.co.il/owners/parts-and-accessories/owners-manuals",

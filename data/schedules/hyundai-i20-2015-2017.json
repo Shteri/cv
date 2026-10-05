@@ -213,6 +213,19 @@
           "action": "inspect"
         },
         {
+          "item": "evap_system",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "inspect",
+          "note": "פריט ללא תחזוקה לפי הספר; בדיקה בלבד"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
           "item": "battery_12v",
           "action": "inspect"
         },
@@ -290,20 +303,7 @@
           "action": "replace"
         },
         {
-          "item": "evap_system",
-          "action": "inspect"
-        },
-        {
           "item": "vacuum_hose",
-          "action": "inspect"
-        },
-        {
-          "item": "fuel_filter",
-          "action": "inspect",
-          "note": "פריט ללא תחזוקה לפי הספר; בדיקה בלבד"
-        },
-        {
-          "item": "fuel_lines",
           "action": "inspect"
         },
         {
@@ -473,7 +473,20 @@
           "action": "replace"
         },
         {
+          "item": "evap_system",
+          "action": "inspect"
+        },
+        {
           "item": "vacuum_hose",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "inspect",
+          "note": "פריט ללא תחזוקה לפי הספר; בדיקה בלבד"
+        },
+        {
+          "item": "fuel_lines",
           "action": "inspect"
         },
         {
@@ -643,20 +656,7 @@
           "action": "replace"
         },
         {
-          "item": "evap_system",
-          "action": "inspect"
-        },
-        {
           "item": "vacuum_hose",
-          "action": "inspect"
-        },
-        {
-          "item": "fuel_filter",
-          "action": "inspect",
-          "note": "פריט ללא תחזוקה לפי הספר; בדיקה בלבד"
-        },
-        {
-          "item": "fuel_lines",
           "action": "inspect"
         },
         {
@@ -737,14 +737,6 @@
       "every_km": 160000
     },
     {
-      "item": "cooling_system",
-      "action": "inspect",
-      "first_km": 60000,
-      "first_months": 48,
-      "then_every_km": 30000,
-      "then_every_months": 24
-    },
-    {
       "item": "coolant",
       "action": "replace",
       "first_km": 210000,
@@ -794,5 +786,5 @@
     }
   ],
   "status": "reviewed",
-  "notes": "זהה במבנה ללוח של i10 2014-2019: עמודות 15/35/55... אלף ק\"מ, מסנן תא נוסעים בכל טיפול, נוזל בלמים כל טיפול שני, מסנן אוויר לסירוגין בדיקה/החלפה, מצתים כל 160,000 ק\"מ."
+  "notes": "זהה במבנה ללוח של i10 2014-2019: עמודות 15/35/55... אלף ק\"מ, מסנן תא נוסעים בכל טיפול, נוזל בלמים כל טיפול שני, מסנן אוויר לסירוגין בדיקה/החלפה, מצתים כל 160,000 ק\"מ. צינור אדים, מסנן דלק וקווי דלק נבדקים ב-55,000 וב-115,000; למערכת הקירור אין מרווח קבוע בספר (בדיקת מפלס ודליפות)."
 }

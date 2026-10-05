@@ -257,11 +257,6 @@
           "note": "לפי הגיליון: בהופעת התראת החלפת שמן, או לאחר 15,000 ק\"מ, או לאחר 12 חודשים (הקודם); בתנאים מחמירים 7,500 ק\"מ או 6 חודשים"
         },
         {
-          "item": "drive_belt",
-          "action": "inspect",
-          "note": "תדירות בחודשים לפי הגיליון: ק \" מ ( או 12 חודשים )"
-        },
-        {
           "item": "exhaust",
           "action": "inspect",
           "note": "תדירות בחודשים לפי הגיליון: : 12"
@@ -1154,11 +1149,30 @@
   ],
   "long_interval": [
     {
+      "item": "drive_belt",
+      "action": "inspect",
+      "first_km": 105000,
+      "first_months": 72,
+      "then_every_km": 15000,
+      "then_every_months": 12
+    },
+    {
       "item": "coolant",
       "action": "replace",
       "first_km": 160000,
       "then_every_km": 80000,
       "note": "נוזל קירור מנוע (SLLC)"
+    },
+    {
+      "item": "spark_plugs",
+      "action": "replace",
+      "every_km": 90000
+    },
+    {
+      "item": "fuel_filter",
+      "action": "replace",
+      "every_km": 120000,
+      "every_months": 144
     }
   ],
   "time_based": [],
@@ -1177,9 +1191,9 @@
   },
   "sources": [
     {
-      "url": "https://books.union-motors.co.il/app (fileId 285, connectionId ?)",
+      "url": "https://books.union-motors.co.il/app/api/files/547/download",
       "kind": "importer",
-      "note": "לוח אחזקה של יוניון מוטורס 'C-HR' (דגמים TOYOTA C-HR, שנים 2017-2019); דגם מנוע בגיליון: 8NR-FTS"
+      "note": "לוח אחזקה של יוניון מוטורס 'C-HR' (דגמים TOYOTA C-HR, שנים 2017-2019; מסמך 285, קישור נבדק 2026-10-05); דגם מנוע בגיליון: 8NR-FTS"
     },
     {
       "url": "https://www.toyota.co.il/owners/parts-and-accessories/owners-manuals",

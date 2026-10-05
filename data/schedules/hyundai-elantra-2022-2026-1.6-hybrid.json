@@ -358,6 +358,14 @@
         {
           "item": "exhaust",
           "action": "inspect"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
         }
       ]
     },
@@ -698,6 +706,14 @@
         {
           "item": "exhaust",
           "action": "inspect"
+        },
+        {
+          "item": "evap_system",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
         }
       ]
     }
@@ -709,16 +725,14 @@
       "first_km": 195000,
       "first_months": 120,
       "then_every_km": 30000,
-      "then_every_months": 24
+      "then_every_months": 24,
+      "note": "נוזל קירור מנוע/ממיר (שורה אחת בספר)"
     },
     {
-      "item": "coolant",
+      "item": "clutch_actuator_fluid",
       "action": "replace",
-      "first_km": 195000,
-      "first_months": 120,
-      "then_every_km": 30000,
-      "then_every_months": 24,
-      "note": "נוזל קירור המערכת ההיברידית (מעגל נפרד)"
+      "every_km": 30000,
+      "every_months": 24
     },
     {
       "item": "hsg_belt",
@@ -729,20 +743,13 @@
     {
       "item": "hsg_belt",
       "action": "replace",
-      "every_km": 105000
+      "every_km": 105000,
+      "every_months": 48
     },
     {
       "item": "spark_plugs",
       "action": "replace",
       "every_km": 150000
-    },
-    {
-      "item": "cooling_system",
-      "action": "inspect",
-      "first_km": 60000,
-      "first_months": 48,
-      "then_every_km": 30000,
-      "then_every_months": 24
     },
     {
       "item": "dct_oil",
@@ -774,5 +781,5 @@
     }
   ],
   "status": "reviewed",
-  "notes": "הועתק מטבלת 'תכנית תחזוקה רגילה' בספר הרכב בעברית של היבואן. טבלת הספר בנויה בעמודות של 15,000 ק\"מ. I בדיקה, R החלפה."
+  "notes": "הועתק מטבלת 'תכנית תחזוקה רגילה' בספר הרכב בעברית של היבואן. טבלת הספר בנויה בעמודות של 15,000 ק\"מ. I בדיקה, R החלפה. נוזל בוכנת המצמד מוחלף כל 30,000 ק\"מ או 24 חודשים; צינור בוכנת המצמד נבדק בכל טיפול. סוללת מערכת eCall (אם קיימת): החלפה כל 3 שנים. מערכת הקירור נבדקת בכל טיפול לפי הטבלה, בלי מרווח 60,000/30,000 נפרד. שורות צינור האדים וקווי הדלק (בדיקה ב-60,000 וב-120,000) הוזנו ידנית מעמ' 9-9."
 }

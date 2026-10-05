@@ -5,10 +5,10 @@
   "id": "toyota-yaris-2020-2025-1.5",
   "model": "Yaris",
   "model_he": "יאריס",
-  "generation": "XP210",
+  "generation": "XP210 (MXPA11)",
   "years": [
     2020,
-    2025
+    2022
   ],
   "engines": [
     "1.5 (M15A-FKS)"
@@ -139,6 +139,10 @@
           "note": "תדירות בחודשים לפי הגיליון: : 24"
         },
         {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
           "item": "exhaust",
           "action": "inspect",
           "note": "תדירות בחודשים לפי הגיליון: : 12"
@@ -154,7 +158,7 @@
           "note": "תדירות בחודשים לפי הגיליון: : 48 , : 24"
         },
         {
-          "item": "evap_system",
+          "item": "fuel_lines",
           "action": "inspect",
           "note": "תדירות בחודשים לפי הגיליון: : 24"
         },
@@ -167,6 +171,11 @@
           "item": "parking_brake",
           "action": "inspect",
           "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 24"
         },
         {
           "item": "brake_pads",
@@ -199,14 +208,14 @@
           "note": "תדירות בחודשים לפי הגיליון: : 24"
         },
         {
-          "item": "suspension",
-          "action": "inspect",
-          "note": "תדירות בחודשים לפי הגיליון: : 12"
-        },
-        {
           "item": "cvt_oil",
           "action": "inspect",
           "note": "תדירות בחודשים לפי הגיליון: : 24"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
         },
         {
           "item": "tires",
@@ -357,6 +366,10 @@
           "note": "תדירות בחודשים לפי הגיליון: : 24"
         },
         {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
           "item": "exhaust",
           "action": "inspect",
           "note": "תדירות בחודשים לפי הגיליון: : 12"
@@ -372,7 +385,7 @@
           "note": "תדירות בחודשים לפי הגיליון: : 48 , : 24"
         },
         {
-          "item": "evap_system",
+          "item": "fuel_lines",
           "action": "inspect",
           "note": "תדירות בחודשים לפי הגיליון: : 24"
         },
@@ -385,6 +398,11 @@
           "item": "parking_brake",
           "action": "inspect",
           "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 24"
         },
         {
           "item": "brake_pads",
@@ -417,14 +435,14 @@
           "note": "תדירות בחודשים לפי הגיליון: : 24"
         },
         {
-          "item": "suspension",
-          "action": "inspect",
-          "note": "תדירות בחודשים לפי הגיליון: : 12"
-        },
-        {
           "item": "cvt_oil",
           "action": "inspect",
           "note": "תדירות בחודשים לפי הגיליון: : 24"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
         },
         {
           "item": "tires",
@@ -565,14 +583,13 @@
           "note": "לפי הגיליון: בהופעת התראת החלפת שמן, או לאחר 15,000 ק\"מ, או לאחר 12 חודשים (הקודם); בתנאים מחמירים 7,500 ק\"מ או 6 חודשים"
         },
         {
-          "item": "drive_belt",
-          "action": "adjust",
-          "note": "תדירות בחודשים לפי הגיליון: מ ( או 12 ')"
-        },
-        {
           "item": "cooling_system",
           "action": "inspect",
           "note": "תדירות בחודשים לפי הגיליון: : 24"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect"
         },
         {
           "item": "exhaust",
@@ -590,6 +607,11 @@
           "note": "תדירות בחודשים לפי הגיליון: : 48 , : 24"
         },
         {
+          "item": "fuel_lines",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 24"
+        },
+        {
           "item": "evap_system",
           "action": "inspect",
           "note": "תדירות בחודשים לפי הגיליון: : 24"
@@ -603,6 +625,11 @@
           "item": "parking_brake",
           "action": "inspect",
           "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 24"
         },
         {
           "item": "brake_pads",
@@ -635,14 +662,14 @@
           "note": "תדירות בחודשים לפי הגיליון: : 24"
         },
         {
-          "item": "suspension",
-          "action": "inspect",
-          "note": "תדירות בחודשים לפי הגיליון: : 12"
-        },
-        {
           "item": "cvt_oil",
           "action": "inspect",
           "note": "תדירות בחודשים לפי הגיליון: : 24"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
         },
         {
           "item": "tires",
@@ -788,6 +815,10 @@
           "note": "תדירות בחודשים לפי הגיליון: : 24"
         },
         {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
           "item": "exhaust",
           "action": "inspect",
           "note": "תדירות בחודשים לפי הגיליון: : 12"
@@ -808,7 +839,7 @@
           "note": "תדירות בחודשים לפי הגיליון: : 48 , : 24"
         },
         {
-          "item": "evap_system",
+          "item": "fuel_lines",
           "action": "inspect",
           "note": "תדירות בחודשים לפי הגיליון: : 24"
         },
@@ -821,6 +852,11 @@
           "item": "parking_brake",
           "action": "inspect",
           "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 24"
         },
         {
           "item": "brake_pads",
@@ -853,14 +889,14 @@
           "note": "תדירות בחודשים לפי הגיליון: : 24"
         },
         {
-          "item": "suspension",
-          "action": "inspect",
-          "note": "תדירות בחודשים לפי הגיליון: : 12"
-        },
-        {
           "item": "cvt_oil",
           "action": "inspect",
           "note": "תדירות בחודשים לפי הגיליון: : 24"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
         },
         {
           "item": "tires",
@@ -1011,6 +1047,10 @@
           "note": "תדירות בחודשים לפי הגיליון: : 24"
         },
         {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
           "item": "exhaust",
           "action": "inspect",
           "note": "תדירות בחודשים לפי הגיליון: : 12"
@@ -1026,7 +1066,7 @@
           "note": "תדירות בחודשים לפי הגיליון: : 48 , : 24"
         },
         {
-          "item": "evap_system",
+          "item": "fuel_lines",
           "action": "inspect",
           "note": "תדירות בחודשים לפי הגיליון: : 24"
         },
@@ -1039,6 +1079,11 @@
           "item": "parking_brake",
           "action": "inspect",
           "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 24"
         },
         {
           "item": "brake_pads",
@@ -1071,14 +1116,14 @@
           "note": "תדירות בחודשים לפי הגיליון: : 24"
         },
         {
-          "item": "suspension",
-          "action": "inspect",
-          "note": "תדירות בחודשים לפי הגיליון: : 12"
-        },
-        {
           "item": "cvt_oil",
           "action": "inspect",
           "note": "תדירות בחודשים לפי הגיליון: : 24"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
         },
         {
           "item": "tires",
@@ -1109,11 +1154,24 @@
   ],
   "long_interval": [
     {
+      "item": "drive_belt",
+      "action": "inspect",
+      "first_km": 105000,
+      "first_months": 72,
+      "then_every_km": 15000,
+      "then_every_months": 12
+    },
+    {
       "item": "coolant",
       "action": "replace",
       "first_km": 150000,
       "then_every_km": 75000,
       "note": "נוזל קירור מנוע (SLLC)"
+    },
+    {
+      "item": "spark_plugs",
+      "action": "replace",
+      "every_km": 90000
     }
   ],
   "time_based": [],
@@ -1132,19 +1190,14 @@
   },
   "sources": [
     {
-      "url": "https://books.union-motors.co.il/app (fileId 336, connectionId ?)",
+      "url": "https://books.union-motors.co.il/app/api/files/686/download",
       "kind": "importer",
-      "note": "לוח אחזקה של יוניון מוטורס 'YARIS' (דגמים Yaris, שנים 2021-2023); דגם מנוע בגיליון: None"
+      "note": "לוח אחזקה של יוניון מוטורס 'YARIS' (דגמים Yaris, שנים 2020-2020; מסמך 320, קישור נבדק 2026-10-05); דגם מנוע בגיליון: None"
     },
     {
-      "url": "https://books.union-motors.co.il/app (fileId 320, connectionId ?)",
+      "url": "https://books.union-motors.co.il/app/api/files/1049/download",
       "kind": "importer",
-      "note": "לוח אחזקה נוסף 'YARIS' (2020-2020), אותו מבנה"
-    },
-    {
-      "url": "https://books.union-motors.co.il/app (fileId 355, connectionId ?)",
-      "kind": "importer",
-      "note": "לוח אחזקה נוסף 'יאריס' (2023-2025), אותו מבנה"
+      "note": "לוח אחזקה נוסף 'YARIS' (2021-2023; מסמך 336, קישור נבדק 2026-10-05): רשום באפליקציית היבואן ליאריס 2021-2023 אך כותרתו יאריס קרוס MXPB10 (יולי 2021): אותה תוכנית, בלי בדיקת תופי בלם אחוריים"
     },
     {
       "url": "https://www.toyota.co.il/owners/parts-and-accessories/owners-manuals",
@@ -1153,5 +1206,5 @@
     }
   ],
   "status": "reviewed",
-  "notes": "הועתק מלוח האחזקה הישראלי של יוניון מוטורס (10 עמודות של 15,000 ק\"מ). פעולות: I בדיקה, R החלפה, C ניקוי, T הידוק, L/G גירוז (נרשם כבדיקה)."
+  "notes": "הועתק מלוח האחזקה הישראלי של יוניון מוטורס (10 עמודות של 15,000 ק\"מ). פעולות: I בדיקה, R החלפה, C ניקוי, T הידוק, L/G גירוז (נרשם כבדיקה). מ-2023 לוח נפרד toyota-yaris-2023-2025-1.5 (גיליון 355), כי בו מסנן המזגן מוחלף בכל טיפול. שם הקובץ נשאר עם 2025 כדי לא לשבור קישורים קיימים."
 }

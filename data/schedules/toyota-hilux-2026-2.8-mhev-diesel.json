@@ -37,6 +37,10 @@
           "action": "replace"
         },
         {
+          "item": "hybrid_battery_filter",
+          "action": "inspect"
+        },
+        {
           "item": "fuel_filter",
           "action": "clean"
         },
@@ -144,6 +148,10 @@
         {
           "item": "cabin_filter",
           "action": "replace"
+        },
+        {
+          "item": "hybrid_battery_filter",
+          "action": "inspect"
         },
         {
           "item": "fuel_filter",
@@ -259,7 +267,7 @@
           "action": "replace"
         },
         {
-          "item": "air_filter",
+          "item": "hybrid_battery_filter",
           "action": "clean"
         },
         {
@@ -370,6 +378,10 @@
         {
           "item": "cabin_filter",
           "action": "replace"
+        },
+        {
+          "item": "hybrid_battery_filter",
+          "action": "inspect"
         },
         {
           "item": "fuel_filter",
@@ -485,6 +497,10 @@
           "action": "replace"
         },
         {
+          "item": "hybrid_battery_filter",
+          "action": "inspect"
+        },
+        {
           "item": "fuel_filter",
           "action": "clean"
         },
@@ -594,7 +610,7 @@
           "action": "replace"
         },
         {
-          "item": "air_filter",
+          "item": "hybrid_battery_filter",
           "action": "clean"
         },
         {
@@ -711,6 +727,10 @@
           "action": "replace"
         },
         {
+          "item": "hybrid_battery_filter",
+          "action": "inspect"
+        },
+        {
           "item": "fuel_filter",
           "action": "clean"
         },
@@ -818,6 +838,10 @@
         {
           "item": "cabin_filter",
           "action": "replace"
+        },
+        {
+          "item": "hybrid_battery_filter",
+          "action": "inspect"
         },
         {
           "item": "fuel_filter",
@@ -933,7 +957,7 @@
           "action": "replace"
         },
         {
-          "item": "air_filter",
+          "item": "hybrid_battery_filter",
           "action": "clean"
         },
         {
@@ -1044,6 +1068,10 @@
         {
           "item": "cabin_filter",
           "action": "replace"
+        },
+        {
+          "item": "hybrid_battery_filter",
+          "action": "inspect"
         },
         {
           "item": "fuel_filter",
@@ -1159,6 +1187,10 @@
           "action": "replace"
         },
         {
+          "item": "hybrid_battery_filter",
+          "action": "inspect"
+        },
+        {
           "item": "fuel_filter",
           "action": "clean"
         },
@@ -1268,7 +1300,7 @@
           "action": "replace"
         },
         {
-          "item": "air_filter",
+          "item": "hybrid_battery_filter",
           "action": "clean"
         },
         {
@@ -1385,6 +1417,10 @@
           "action": "replace"
         },
         {
+          "item": "hybrid_battery_filter",
+          "action": "inspect"
+        },
+        {
           "item": "fuel_filter",
           "action": "clean"
         },
@@ -1492,6 +1528,10 @@
         {
           "item": "cabin_filter",
           "action": "replace"
+        },
+        {
+          "item": "hybrid_battery_filter",
+          "action": "inspect"
         },
         {
           "item": "fuel_filter",
@@ -1607,7 +1647,7 @@
           "action": "replace"
         },
         {
-          "item": "air_filter",
+          "item": "hybrid_battery_filter",
           "action": "clean"
         },
         {
@@ -1718,6 +1758,10 @@
         {
           "item": "cabin_filter",
           "action": "replace"
+        },
+        {
+          "item": "hybrid_battery_filter",
+          "action": "inspect"
         },
         {
           "item": "fuel_filter",
@@ -1833,6 +1877,10 @@
           "action": "replace"
         },
         {
+          "item": "hybrid_battery_filter",
+          "action": "inspect"
+        },
+        {
           "item": "fuel_filter",
           "action": "clean"
         },
@@ -1942,7 +1990,7 @@
           "action": "replace"
         },
         {
-          "item": "air_filter",
+          "item": "hybrid_battery_filter",
           "action": "clean"
         },
         {
@@ -2046,6 +2094,13 @@
   ],
   "long_interval": [
     {
+      "item": "coolant",
+      "action": "replace",
+      "first_km": 160000,
+      "then_every_km": 80000,
+      "note": "נוזל קירור מנוע (SLLC)"
+    },
+    {
       "item": "engine_oil",
       "action": "replace",
       "every_km": 30000,
@@ -2072,9 +2127,9 @@
   },
   "sources": [
     {
-      "url": "https://books.union-motors.co.il/app (fileId 368, connectionId 1235)",
+      "url": "https://books.union-motors.co.il/app/api/files/1235/download",
       "kind": "importer",
-      "note": "לוח אחזקה של יוניון מוטורס 'לוח אחזקה Hilux MHEV-2026' (דגמים Hilux, שנים 2026-2026); דגם מנוע בגיליון: None"
+      "note": "לוח אחזקה של יוניון מוטורס 'לוח אחזקה Hilux MHEV-2026' (דגמים Hilux, שנים 2026-2026; מסמך 368, קישור נבדק 2026-10-05); דגם מנוע בגיליון: None"
     },
     {
       "url": "https://www.toyota.co.il/owners/parts-and-accessories/owners-manuals",

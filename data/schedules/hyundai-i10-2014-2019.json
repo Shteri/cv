@@ -213,6 +213,19 @@
           "action": "inspect"
         },
         {
+          "item": "evap_system",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "inspect",
+          "note": "פריט ללא תחזוקה לפי הספר; בדיקה בלבד"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
           "item": "battery_12v",
           "action": "inspect"
         },
@@ -290,20 +303,7 @@
           "action": "replace"
         },
         {
-          "item": "evap_system",
-          "action": "inspect"
-        },
-        {
           "item": "vacuum_hose",
-          "action": "inspect"
-        },
-        {
-          "item": "fuel_filter",
-          "action": "inspect",
-          "note": "פריט ללא תחזוקה לפי הספר; בדיקה בלבד"
-        },
-        {
-          "item": "fuel_lines",
           "action": "inspect"
         },
         {
@@ -473,7 +473,20 @@
           "action": "replace"
         },
         {
+          "item": "evap_system",
+          "action": "inspect"
+        },
+        {
           "item": "vacuum_hose",
+          "action": "inspect"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "inspect",
+          "note": "פריט ללא תחזוקה לפי הספר; בדיקה בלבד"
+        },
+        {
+          "item": "fuel_lines",
           "action": "inspect"
         },
         {
@@ -643,20 +656,7 @@
           "action": "replace"
         },
         {
-          "item": "evap_system",
-          "action": "inspect"
-        },
-        {
           "item": "vacuum_hose",
-          "action": "inspect"
-        },
-        {
-          "item": "fuel_filter",
-          "action": "inspect",
-          "note": "פריט ללא תחזוקה לפי הספר; בדיקה בלבד"
-        },
-        {
-          "item": "fuel_lines",
           "action": "inspect"
         },
         {
@@ -737,14 +737,6 @@
       "every_km": 160000
     },
     {
-      "item": "cooling_system",
-      "action": "inspect",
-      "first_km": 60000,
-      "first_months": 48,
-      "then_every_km": 30000,
-      "then_every_months": 24
-    },
-    {
       "item": "coolant",
       "action": "replace",
       "first_km": 210000,
@@ -801,5 +793,5 @@
     }
   ],
   "status": "reviewed",
-  "notes": "הועתק מלוח התחזוקה בספר הרכב הישראלי (ספטמבר 2026). הטבלה בספר בנויה בעמודות של 15/35/55... אלף ק\"מ. מסנן תא נוסעים מוחלף בכל טיפול לפי הספר. נוזל בלמים כל טיפול שני (35, 75, 115, 155). מסנן אוויר: בדיקה בטיפול אחד והחלפה בטיפול הבא. תוסף דלק מומלץ כל 15,000 ק\"מ אם הבנזין לא כולל תוספים."
+  "notes": "הועתק מלוח התחזוקה בספר הרכב הישראלי (ספטמבר 2026). הטבלה בספר בנויה בעמודות של 15/35/55... אלף ק\"מ. מסנן תא נוסעים מוחלף בכל טיפול לפי הספר. נוזל בלמים כל טיפול שני (35, 75, 115, 155). מסנן אוויר: בדיקה בטיפול אחד והחלפה בטיפול הבא. צינור אדים, מסנן דלק וקווי דלק נבדקים ב-55,000 וב-115,000. מערכת קירור: בדיקת מפלס ודליפות, בלי מרווח קבוע בספר. תוסף דלק מומלץ כל 15,000 ק\"מ אם הבנזין לא כולל תוספים."
 }

@@ -8,7 +8,7 @@
   "generation": "XA50",
   "years": [
     2020,
-    2025
+    2022
   ],
   "engines": [
     "2.0 (M20A-FKS)"
@@ -38,6 +38,16 @@
           "item": "air_filter",
           "action": "inspect",
           "note": "תדירות בחודשים לפי הגיליון: : 48 , : 24"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
         },
         {
           "item": "cabin_filter",
@@ -160,6 +170,16 @@
           "item": "evap_system",
           "action": "inspect",
           "note": "תדירות בחודשים לפי הגיליון: : 24"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
         },
         {
           "item": "coolant_hoses",
@@ -287,6 +307,16 @@
           "item": "air_filter",
           "action": "inspect",
           "note": "תדירות בחודשים לפי הגיליון: : 48 , : 24"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
         },
         {
           "item": "cabin_filter",
@@ -669,11 +699,22 @@
   ],
   "long_interval": [
     {
+      "item": "drive_belt",
+      "action": "inspect",
+      "first_km": 105000,
+      "then_every_km": 15000
+    },
+    {
       "item": "coolant",
       "action": "replace",
       "first_km": 150000,
       "then_every_km": 90000,
       "note": "נוזל קירור מנוע (SLLC)"
+    },
+    {
+      "item": "spark_plugs",
+      "action": "replace",
+      "every_km": 90000
     }
   ],
   "time_based": [],
@@ -692,14 +733,9 @@
   },
   "sources": [
     {
-      "url": "https://books.union-motors.co.il/app (fileId 325, connectionId ?)",
+      "url": "https://books.union-motors.co.il/app/api/files/1181/download",
       "kind": "importer",
-      "note": "לוח אחזקה של יוניון מוטורס 'RAV4' (דגמים Rav4, שנים 2020-2025); דגם מנוע בגיליון: None"
-    },
-    {
-      "url": "https://books.union-motors.co.il/app (fileId 351, connectionId ?)",
-      "kind": "importer",
-      "note": "לוח אחזקה נוסף 'RAV4 GAS' (2023-2023), אותו מבנה"
+      "note": "לוח אחזקה של יוניון מוטורס 'RAV4' (דגמים Rav4, שנים 2020-2025; מסמך 325, קישור נבדק 2026-10-05); דגם מנוע בגיליון: None"
     },
     {
       "url": "https://www.toyota.co.il/owners/parts-and-accessories/owners-manuals",
@@ -708,5 +744,5 @@
     }
   ],
   "status": "reviewed",
-  "notes": "הועתק מלוח האחזקה הישראלי של יוניון מוטורס (10 עמודות של 15,000 ק\"מ). פעולות: I בדיקה, R החלפה, C ניקוי, T הידוק, L/G גירוז (נרשם כבדיקה). שורות 'מחמירה' בלבד: מגבים ומתיזים: בתנאים מחמירים בלבד (IIIIIIIIII)."
+  "notes": "הועתק מלוח האחזקה הישראלי של יוניון מוטורס (10 עמודות של 15,000 ק\"מ). פעולות: I בדיקה, R החלפה, C ניקוי, T הידוק, L/G גירוז (נרשם כבדיקה). שורות 'מחמירה' בלבד: מגבים ומתיזים: בתנאים מחמירים בלבד (IIIIIIIIII). מ-2023 לוח נפרד toyota-rav4-2023-2025-2.0 (גיליון 351). שם הקובץ נשאר עם 2025 כדי לא לשבור קישורים קיימים."
 }

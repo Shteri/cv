@@ -8,7 +8,7 @@
   "generation": "XP210",
   "years": [
     2021,
-    2025
+    2022
   ],
   "engines": [
     "1.5 (M15A-FKS)"
@@ -250,11 +250,6 @@
           "item": "oil_filter",
           "action": "replace",
           "note": "לפי הגיליון: בהופעת התראת החלפת שמן, או לאחר 15,000 ק\"מ, או לאחר 12 חודשים (הקודם); בתנאים מחמירים 7,500 ק\"מ או 6 חודשים"
-        },
-        {
-          "item": "drive_belt",
-          "action": "inspect",
-          "note": "תדירות בחודשים לפי הגיליון: I:12 and I:72"
         },
         {
           "item": "exhaust",
@@ -1139,11 +1134,24 @@
   ],
   "long_interval": [
     {
+      "item": "drive_belt",
+      "action": "inspect",
+      "first_km": 105000,
+      "first_months": 72,
+      "then_every_km": 15000,
+      "then_every_months": 12
+    },
+    {
       "item": "coolant",
       "action": "replace",
       "first_km": 150000,
       "then_every_km": 75000,
       "note": "נוזל קירור מנוע (SLLC)"
+    },
+    {
+      "item": "spark_plugs",
+      "action": "replace",
+      "every_km": 90000
     }
   ],
   "time_based": [],
@@ -1162,14 +1170,14 @@
   },
   "sources": [
     {
-      "url": "https://books.union-motors.co.il/app (fileId 341, connectionId ?)",
+      "url": "https://books.union-motors.co.il/app/api/files/1054/download",
       "kind": "importer",
-      "note": "לוח אחזקה של יוניון מוטורס 'YARIS CROSS' (דגמים Yaris Cross, שנים 2021-2023); דגם מנוע בגיליון: None"
+      "note": "לוח אחזקה של יוניון מוטורס 'YARIS CROSS' (דגמים Yaris Cross, שנים 2021-2023; מסמך 341, קישור נבדק 2026-10-05); דגם מנוע בגיליון: None"
     },
     {
-      "url": "https://books.union-motors.co.il/app (fileId 353, connectionId ?)",
+      "url": "https://books.union-motors.co.il/app/api/files/1049/download",
       "kind": "importer",
-      "note": "לוח אחזקה נוסף 'Yaris Cross GAS' (2023-2025), אותו מבנה"
+      "note": "לוח אחזקה נוסף 'YARIS' (2021-2023; מסמך 336, קישור נבדק 2026-10-05): גיליון יולי 2021 (MXPB10): מסנן מזגן בניקוי והחלפה לסירוגין ומסנן דלק רק ב-120,000; הגיליון מספטמבר 2022 מחליף אותו"
     },
     {
       "url": "https://www.toyota.co.il/owners/parts-and-accessories/owners-manuals",
@@ -1178,5 +1186,5 @@
     }
   ],
   "status": "reviewed",
-  "notes": "הועתק מלוח האחזקה הישראלי של יוניון מוטורס (10 עמודות של 15,000 ק\"מ). פעולות: I בדיקה, R החלפה, C ניקוי, T הידוק, L/G גירוז (נרשם כבדיקה)."
+  "notes": "הועתק מלוח האחזקה הישראלי של יוניון מוטורס (10 עמודות של 15,000 ק\"מ). פעולות: I בדיקה, R החלפה, C ניקוי, T הידוק, L/G גירוז (נרשם כבדיקה). מ-2023 לוח נפרד toyota-yaris-cross-2023-2025-1.5 (גיליון 353). שם הקובץ נשאר עם 2025 כדי לא לשבור קישורים קיימים."
 }

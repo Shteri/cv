@@ -546,6 +546,13 @@
       "first_km": 195000,
       "then_every_km": 75000,
       "note": "נוזל קירור מנוע (SLLC)"
+    },
+    {
+      "item": "coolant",
+      "action": "replace",
+      "first_km": 195000,
+      "then_every_km": 75000,
+      "note": "נוזל קירור סוללת מתח גבוה"
     }
   ],
   "time_based": [],
@@ -556,14 +563,14 @@
   },
   "sources": [
     {
-      "url": "https://books.union-motors.co.il/app (fileId 342, connectionId 1143)",
+      "url": "https://books.union-motors.co.il/app/api/files/1143/download",
       "kind": "importer",
-      "note": "לוח אחזקה של יוניון מוטורס 'bz4x' (דגמים bZ4X, שנים 2022-2025); דגם מנוע בגיליון: None"
+      "note": "לוח אחזקה של יוניון מוטורס 'bz4x' (דגמים bZ4X, שנים 2022-2025; מסמך 342, קישור נבדק 2026-10-05); דגם מנוע בגיליון: None"
     },
     {
-      "url": "https://books.union-motors.co.il/app (fileId 359, connectionId 971)",
+      "url": "https://books.union-motors.co.il/app/api/files/971/download",
       "kind": "importer",
-      "note": "לוח אחזקה נוסף 'bz4x' (2023-2023), אותו מבנה"
+      "note": "לוח אחזקה נוסף 'bz4x' (2023-2023; מסמך 359, קישור נבדק 2026-10-05): גיליון יולי 2023: אותם פריטים בטבלה מלאה עד 150,000 (בגיליון הראשי עמודות עד 90,000); החלפה ראשונה של נוזלי הקירור ב-200,000 במקום 195,000"
     },
     {
       "url": "https://www.toyota.co.il/owners/parts-and-accessories/owners-manuals",

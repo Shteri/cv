@@ -8,7 +8,7 @@
   "generation": "XV70 hybrid",
   "years": [
     2020,
-    2025
+    2023
   ],
   "engines": [
     "2.5 hybrid (A25A-FXS)"
@@ -666,11 +666,6 @@
           "note": "תדירות בחודשים לפי הגיליון: : 12"
         },
         {
-          "item": "coolant",
-          "action": "inspect",
-          "note": "תדירות בחודשים לפי הגיליון: ק \" מ"
-        },
-        {
           "item": "exhaust",
           "action": "inspect",
           "note": "תדירות בחודשים לפי הגיליון: : 12"
@@ -1086,16 +1081,21 @@
     {
       "item": "coolant",
       "action": "replace",
+      "first_km": 150000,
+      "then_every_km": 75000,
+      "note": "נוזל קירור מנוע (SLLC)"
+    },
+    {
+      "item": "coolant",
+      "action": "replace",
       "first_km": 240000,
       "then_every_km": 75000,
       "note": "נוזל קירור מערכת היברידית/ממיר"
     },
     {
-      "item": "coolant",
+      "item": "spark_plugs",
       "action": "replace",
-      "first_km": 150000,
-      "then_every_km": 75000,
-      "note": "נוזל קירור מנוע (SLLC)"
+      "every_km": 90000
     }
   ],
   "time_based": [],
@@ -1114,14 +1114,9 @@
   },
   "sources": [
     {
-      "url": "https://books.union-motors.co.il/app (fileId 319, connectionId ?)",
+      "url": "https://books.union-motors.co.il/app/api/files/975/download",
       "kind": "importer",
-      "note": "לוח אחזקה של יוניון מוטורס 'Camry Hybrid' (דגמים Camry Hybrid, שנים 2020-2023); דגם מנוע בגיליון: None"
-    },
-    {
-      "url": "https://books.union-motors.co.il/app (fileId 363, connectionId ?)",
-      "kind": "importer",
-      "note": "לוח אחזקה נוסף 'לוח אחזקות קאמרי היבריד 2024-2025' (2024-2025), אותו מבנה"
+      "note": "לוח אחזקה של יוניון מוטורס 'Camry Hybrid' (דגמים Camry Hybrid, שנים 2020-2023; מסמך 319, קישור נבדק 2026-10-05); דגם מנוע בגיליון: None"
     },
     {
       "url": "https://www.toyota.co.il/owners/parts-and-accessories/owners-manuals",
@@ -1130,5 +1125,5 @@
     }
   ],
   "status": "reviewed",
-  "notes": "הועתק מלוח האחזקה הישראלי של יוניון מוטורס (10 עמודות של 15,000 ק\"מ). פעולות: I בדיקה, R החלפה, C ניקוי, T הידוק, L/G גירוז (נרשם כבדיקה). שורות 'מחמירה' בלבד: ( משולב דיפרנציאל ): בתנאים מחמירים בלבד (-I-R-I-R-I)."
+  "notes": "הועתק מלוח האחזקה הישראלי של יוניון מוטורס (10 עמודות של 15,000 ק\"מ). פעולות: I בדיקה, R החלפה, C ניקוי, T הידוק, L/G גירוז (נרשם כבדיקה). שורות 'מחמירה' בלבד: ( משולב דיפרנציאל ): בתנאים מחמירים בלבד (-I-R-I-R-I). הדור הבא (XV80, 2024 ואילך) בלוח נפרד toyota-camry-2024-2025-2.5-hybrid (גיליון 363). שם הקובץ נשאר עם 2025 כדי לא לשבור קישורים קיימים."
 }

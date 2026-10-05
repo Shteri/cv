@@ -7,7 +7,7 @@
   "model_he": "אוריס",
   "generation": "E180 hybrid",
   "years": [
-    2011,
+    2013,
     2019
   ],
   "engines": [
@@ -916,16 +916,28 @@
     {
       "item": "coolant",
       "action": "replace",
+      "first_km": 150000,
+      "then_every_km": 75000,
+      "note": "נוזל קירור מנוע (SLLC)"
+    },
+    {
+      "item": "coolant",
+      "action": "replace",
       "first_km": 240000,
       "then_every_km": 75000,
       "note": "נוזל קירור מערכת היברידית/ממיר"
     },
     {
-      "item": "coolant",
+      "item": "spark_plugs",
       "action": "replace",
-      "first_km": 150000,
-      "then_every_km": 75000,
-      "note": "נוזל קירור מנוע (SLLC)"
+      "every_km": 90000,
+      "note": "מצתי אירידיום"
+    },
+    {
+      "item": "fuel_filter",
+      "action": "replace",
+      "every_km": 120000,
+      "every_months": 144
     }
   ],
   "time_based": [],
@@ -944,14 +956,9 @@
   },
   "sources": [
     {
-      "url": "https://books.union-motors.co.il/app (fileId 280, connectionId ?)",
+      "url": "https://books.union-motors.co.il/app/api/files/565/download",
       "kind": "importer",
-      "note": "לוח אחזקה של יוניון מוטורס 'Auris Hybrid' (דגמים Auris Hybrid, Auris Hybrid TS, שנים 2013-2019); דגם מנוע בגיליון: 2ZR-FXE"
-    },
-    {
-      "url": "https://books.union-motors.co.il/app (fileId 282, connectionId ?)",
-      "kind": "importer",
-      "note": "לוח אחזקה נוסף 'Auris Hybrid 2011-2012' (2011-2012), אותו מבנה"
+      "note": "לוח אחזקה של יוניון מוטורס 'Auris Hybrid' (דגמים Auris Hybrid, Auris Hybrid TS, שנים 2013-2019; מסמך 280, קישור נבדק 2026-10-05); דגם מנוע בגיליון: 2ZR-FXE"
     },
     {
       "url": "https://www.toyota.co.il/owners/parts-and-accessories/owners-manuals",
@@ -960,5 +967,5 @@
     }
   ],
   "status": "reviewed",
-  "notes": "הועתק מלוח האחזקה הישראלי של יוניון מוטורס (10 עמודות של 15,000 ק\"מ). פעולות: I בדיקה, R החלפה, C ניקוי, T הידוק, L/G גירוז (נרשם כבדיקה). שורות 'מחמירה' בלבד: ( משולב דיפרנציאל ): בתנאים מחמירים בלבד (--I--R----)."
+  "notes": "הועתק מלוח האחזקה הישראלי של יוניון מוטורס (10 עמודות של 15,000 ק\"מ). פעולות: I בדיקה, R החלפה, C ניקוי, T הידוק, L/G גירוז (נרשם כבדיקה). שורות 'מחמירה' בלבד: ( משולב דיפרנציאל ): בתנאים מחמירים בלבד (--I--R----). לשנים 2011-2012 לוח נפרד toyota-auris-2011-2012-1.8-hybrid (גיליון 282). שם הקובץ נשאר כדי לא לשבור קישורים קיימים."
 }

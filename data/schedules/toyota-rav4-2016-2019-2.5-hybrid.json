@@ -60,6 +60,16 @@
           "note": "תדירות בחודשים לפי הגיליון: : 12"
         },
         {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
           "item": "brake_fluid",
           "action": "inspect",
           "note": "תדירות בחודשים לפי הגיליון: : 24 , : 12"
@@ -277,6 +287,16 @@
           "note": "תדירות בחודשים לפי הגיליון: : 12"
         },
         {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
           "item": "brake_fluid",
           "action": "inspect",
           "note": "תדירות בחודשים לפי הגיליון: : 24 , : 12"
@@ -489,6 +509,16 @@
           "note": "תדירות בחודשים לפי הגיליון: : 12"
         },
         {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
           "item": "brake_fluid",
           "action": "inspect",
           "note": "תדירות בחודשים לפי הגיליון: : 24 , : 12"
@@ -542,11 +572,6 @@
     {
       "km": 90000,
       "items": [
-        {
-          "item": "drive_belt",
-          "action": "adjust",
-          "note": "תדירות בחודשים לפי הגיליון: ( או 12 ')"
-        },
         {
           "item": "engine_oil",
           "action": "replace",
@@ -1124,11 +1149,12 @@
   ],
   "long_interval": [
     {
-      "item": "coolant",
-      "action": "replace",
-      "first_km": 240000,
-      "then_every_km": 75000,
-      "note": "נוזל קירור מערכת היברידית/ממיר"
+      "item": "drive_belt",
+      "action": "inspect",
+      "first_km": 105000,
+      "first_months": 72,
+      "then_every_km": 15000,
+      "then_every_months": 12
     },
     {
       "item": "coolant",
@@ -1136,6 +1162,24 @@
       "first_km": 150000,
       "then_every_km": 75000,
       "note": "נוזל קירור מנוע (SLLC)"
+    },
+    {
+      "item": "coolant",
+      "action": "replace",
+      "first_km": 240000,
+      "then_every_km": 75000,
+      "note": "נוזל קירור מערכת היברידית/ממיר"
+    },
+    {
+      "item": "spark_plugs",
+      "action": "replace",
+      "every_km": 90000
+    },
+    {
+      "item": "fuel_filter",
+      "action": "replace",
+      "every_km": 120000,
+      "every_months": 144
     }
   ],
   "time_based": [],
@@ -1154,9 +1198,9 @@
   },
   "sources": [
     {
-      "url": "https://books.union-motors.co.il/app (fileId 308, connectionId ?)",
+      "url": "https://books.union-motors.co.il/app/api/files/395/download",
       "kind": "importer",
-      "note": "לוח אחזקה של יוניון מוטורס 'RAV4 2X4 Hybrid' (דגמים RAV4 Hybrid, Rav4, שנים 2016-2019); דגם מנוע בגיליון: 2AR-FXE"
+      "note": "לוח אחזקה של יוניון מוטורס 'RAV4 2X4 Hybrid' (דגמים RAV4 Hybrid, Rav4, שנים 2016-2019; מסמך 308, קישור נבדק 2026-10-05); דגם מנוע בגיליון: 2AR-FXE"
     },
     {
       "url": "https://www.toyota.co.il/owners/parts-and-accessories/owners-manuals",

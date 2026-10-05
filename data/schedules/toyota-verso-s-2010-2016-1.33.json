@@ -173,6 +173,11 @@
           "note": "תדירות בחודשים לפי הגיליון: : 12"
         },
         {
+          "item": "brake_drums",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 24"
+        },
+        {
           "item": "brake_lines",
           "action": "inspect",
           "note": "תדירות בחודשים לפי הגיליון: : 12"
@@ -395,6 +400,11 @@
           "note": "תדירות בחודשים לפי הגיליון: : 12"
         },
         {
+          "item": "brake_drums",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 24"
+        },
+        {
           "item": "brake_lines",
           "action": "inspect",
           "note": "תדירות בחודשים לפי הגיליון: : 12"
@@ -563,11 +573,6 @@
       "km": 90000,
       "items": [
         {
-          "item": "drive_belt",
-          "action": "adjust",
-          "note": "תדירות בחודשים לפי הגיליון: מ ( או 12 ')"
-        },
-        {
           "item": "engine_oil",
           "action": "replace",
           "note": "תדירות בחודשים לפי הגיליון: : 12"
@@ -620,6 +625,11 @@
           "item": "parking_brake",
           "action": "inspect",
           "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "brake_drums",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 24"
         },
         {
           "item": "brake_lines",
@@ -844,6 +854,11 @@
           "note": "תדירות בחודשים לפי הגיליון: : 12"
         },
         {
+          "item": "brake_drums",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 24"
+        },
+        {
           "item": "brake_lines",
           "action": "inspect",
           "note": "תדירות בחודשים לפי הגיליון: : 12"
@@ -1066,6 +1081,11 @@
           "note": "תדירות בחודשים לפי הגיליון: : 12"
         },
         {
+          "item": "brake_drums",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 24"
+        },
+        {
           "item": "brake_lines",
           "action": "inspect",
           "note": "תדירות בחודשים לפי הגיליון: : 12"
@@ -1134,11 +1154,24 @@
   ],
   "long_interval": [
     {
+      "item": "drive_belt",
+      "action": "inspect",
+      "first_km": 105000,
+      "first_months": 72,
+      "then_every_km": 15000,
+      "then_every_months": 12
+    },
+    {
       "item": "coolant",
       "action": "replace",
       "first_km": 150000,
       "then_every_km": 75000,
       "note": "נוזל קירור מנוע (SLLC)"
+    },
+    {
+      "item": "spark_plugs",
+      "action": "replace",
+      "every_km": 90000
     }
   ],
   "time_based": [],
@@ -1154,9 +1187,9 @@
   },
   "sources": [
     {
-      "url": "https://books.union-motors.co.il/app (fileId 309, connectionId 272)",
+      "url": "https://books.union-motors.co.il/app/api/files/272/download",
       "kind": "importer",
-      "note": "לוח אחזקה של יוניון מוטורס 'Space Verso' (דגמים Space Verso, שנים 2010-2016); דגם מנוע בגיליון: 1NR-FE"
+      "note": "לוח אחזקה של יוניון מוטורס 'Space Verso' (דגמים Space Verso, שנים 2010-2016; מסמך 309, קישור נבדק 2026-10-05); דגם מנוע בגיליון: 1NR-FE"
     },
     {
       "url": "https://www.toyota.co.il/owners/parts-and-accessories/owners-manuals",

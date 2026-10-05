@@ -2,18 +2,18 @@
   "make": "Toyota",
   "make_he": "טויוטה",
   "importer": "יוניון מוטורס",
-  "id": "toyota-corolla-cross-2022-2025-1.8-hybrid",
-  "model": "Corolla Cross",
-  "model_he": "קורולה קרוס",
-  "generation": "XG10",
+  "id": "toyota-yaris-cross-2023-2025-1.5",
+  "model": "Yaris Cross",
+  "model_he": "יאריס קרוס",
+  "generation": "XP210",
   "years": [
-    2022,
+    2023,
     2025
   ],
   "engines": [
-    "1.8 hybrid (2ZR-FXE)"
+    "1.5 (M15A-FKS)"
   ],
-  "fuel": "hybrid",
+  "fuel": "petrol",
   "interval": {
     "km": 15000,
     "months": 12,
@@ -38,10 +38,6 @@
         },
         {
           "item": "air_filter",
-          "action": "inspect"
-        },
-        {
-          "item": "hybrid_battery_filter",
           "action": "inspect"
         },
         {
@@ -124,10 +120,6 @@
         {
           "item": "air_filter",
           "action": "inspect"
-        },
-        {
-          "item": "hybrid_battery_filter",
-          "action": "clean"
         },
         {
           "item": "cabin_filter",
@@ -227,10 +219,6 @@
           "action": "inspect"
         },
         {
-          "item": "hybrid_battery_filter",
-          "action": "inspect"
-        },
-        {
           "item": "cabin_filter",
           "action": "replace"
         },
@@ -314,10 +302,6 @@
         {
           "item": "air_filter",
           "action": "replace"
-        },
-        {
-          "item": "hybrid_battery_filter",
-          "action": "clean"
         },
         {
           "item": "cabin_filter",
@@ -417,15 +401,7 @@
           "action": "inspect"
         },
         {
-          "item": "hybrid_battery_filter",
-          "action": "inspect"
-        },
-        {
           "item": "cabin_filter",
-          "action": "replace"
-        },
-        {
-          "item": "fuel_filter",
           "action": "replace"
         },
         {
@@ -504,10 +480,6 @@
         {
           "item": "air_filter",
           "action": "inspect"
-        },
-        {
-          "item": "hybrid_battery_filter",
-          "action": "clean"
         },
         {
           "item": "cabin_filter",
@@ -615,12 +587,12 @@
           "action": "inspect"
         },
         {
-          "item": "hybrid_battery_filter",
-          "action": "inspect"
-        },
-        {
           "item": "cabin_filter",
           "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
         },
         {
           "item": "battery_12v",
@@ -700,15 +672,19 @@
           "action": "replace"
         },
         {
-          "item": "hybrid_battery_filter",
-          "action": "clean"
-        },
-        {
           "item": "cabin_filter",
           "action": "replace"
         },
         {
+          "item": "fuel_filter",
+          "action": "replace"
+        },
+        {
           "item": "coolant",
+          "action": "inspect"
+        },
+        {
+          "item": "drive_belt",
           "action": "inspect"
         },
         {
@@ -801,12 +777,12 @@
           "action": "inspect"
         },
         {
-          "item": "hybrid_battery_filter",
-          "action": "inspect"
-        },
-        {
           "item": "cabin_filter",
           "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
         },
         {
           "item": "battery_12v",
@@ -890,20 +866,16 @@
           "action": "inspect"
         },
         {
-          "item": "hybrid_battery_filter",
-          "action": "clean"
-        },
-        {
           "item": "cabin_filter",
-          "action": "replace"
-        },
-        {
-          "item": "fuel_filter",
           "action": "replace"
         },
         {
           "item": "coolant",
           "action": "replace"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect"
         },
         {
           "item": "battery_12v",
@@ -954,10 +926,6 @@
           "action": "inspect"
         },
         {
-          "item": "coolant",
-          "action": "inspect"
-        },
-        {
           "item": "cooling_system",
           "action": "inspect"
         },
@@ -987,13 +955,6 @@
       "first_km": 150000,
       "then_every_km": 75000,
       "note": "נוזל קירור מנוע: החלפה ראשונה ב-150,000 ק\"מ (בטבלה), אחר כך כל 75,000"
-    },
-    {
-      "item": "coolant",
-      "action": "replace",
-      "first_km": 240000,
-      "then_every_km": 75000,
-      "note": "נוזל קירור מערכת היברידית/ממיר"
     }
   ],
   "time_based": [],
@@ -1006,20 +967,15 @@
     "timing": "שרשרת, ללא החלפה מתוכננת",
     "tire_pressure": "לפי המדבקה בעמוד הדלת",
     "warranty": "יוניון מוטורס: 3 שנים או 100,000 ק\"מ (ידע כללי, לאימות)",
-    "tires": "215/60 R17 או 225/50 R18",
-    "spare": "ערכת תיקון",
-    "battery": "מצבר עזר 12V קטן (לא מצבר רגיל) + סוללה היברידית; בדיקת סוללה שנתית תנאי לאחריות הסוללה"
+    "tires": "205/65 R16 או 215/50 R18",
+    "battery": "מצבר רגיל 12V",
+    "spare": "ערכת תיקון"
   },
   "sources": [
     {
-      "url": "https://books.union-motors.co.il/app/api/files/1156/download",
+      "url": "https://books.union-motors.co.il/app/api/files/1193/download",
       "kind": "importer",
-      "note": "לוח אחזקה של יוניון מוטורס 'Corolla Cross HV' (דגמים Corolla Cross, שנים 2023-2025; מסמך 346, קישור נבדק 2026-10-05); דגם מנוע בגיליון: None"
-    },
-    {
-      "url": "https://books.union-motors.co.il/app/api/files/979/download",
-      "kind": "importer",
-      "note": "לוח אחזקה נוסף 'COROLLA CROSS' (2022-2023; מסמך 338, קישור נבדק 2026-10-05): גיליון ספטמבר 2022 בפורמט הקודם: אותה תוכנית (מצתים ונוזל קירור כתובים כטקסט ולא בטבלה)"
+      "note": "לוח אחזקה של יוניון מוטורס 'Yaris Cross GAS' (דגמים Yaris Cross, שנים 2023-2025; מסמך 353, קישור נבדק 2026-10-05); דגם מנוע בגיליון: None"
     },
     {
       "url": "https://www.toyota.co.il/owners/parts-and-accessories/owners-manuals",
@@ -1028,5 +984,5 @@
     }
   ],
   "status": "reviewed",
-  "notes": "הועתק מלוח האחזקה הישראלי של יוניון מוטורס (10 עמודות של 15,000 ק\"מ). פעולות: I בדיקה, R החלפה, C ניקוי, T הידוק, L/G גירוז (נרשם כבדיקה)."
+  "notes": "הועתק מלוח האחזקה הישראלי של יוניון מוטורס (10 עמודות של 15,000 ק\"מ). פעולות: I בדיקה, R החלפה, C ניקוי, T הידוק, L/G גירוז (נרשם כבדיקה). גיליון יולי 2023. לעומת גיליון 2022: מסנן דלק מוחלף ב-120,000 בלבד (במקום 75,000 ו-150,000), ומצתים, רצועת הינע ונוזל קירור מסומנים בטבלה."
 }

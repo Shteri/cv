@@ -1176,6 +1176,17 @@
       "first_km": 240000,
       "then_every_km": 80000,
       "note": "נוזל קירור מערכת היברידית/ממיר"
+    },
+    {
+      "item": "spark_plugs",
+      "action": "replace",
+      "every_km": 90000
+    },
+    {
+      "item": "fuel_filter",
+      "action": "replace",
+      "every_km": 120000,
+      "every_months": 144
     }
   ],
   "time_based": [],
@@ -1194,14 +1205,14 @@
   },
   "sources": [
     {
-      "url": "https://books.union-motors.co.il/app (fileId 326, connectionId ?)",
+      "url": "https://books.union-motors.co.il/app/api/files/1040/download",
       "kind": "importer",
-      "note": "לוח אחזקה של יוניון מוטורס 'C-HR Hybrid' (דגמים Toyota C-HR Hybrid, שנים 2020-2023); דגם מנוע בגיליון: 2ZR-FXE"
+      "note": "לוח אחזקה של יוניון מוטורס 'C-HR Hybrid' (דגמים Toyota C-HR Hybrid, שנים 2020-2023; מסמך 326, קישור נבדק 2026-10-05); דגם מנוע בגיליון: 2ZR-FXE"
     },
     {
-      "url": "https://books.union-motors.co.il/app (fileId 286, connectionId ?)",
+      "url": "https://books.union-motors.co.il/app/api/files/553/download",
       "kind": "importer",
-      "note": "לוח אחזקה נוסף 'C-HR Hybrid' (2016-2019), אותו מבנה"
+      "note": "לוח אחזקה נוסף 'C-HR Hybrid' (2016-2019; מסמך 286, קישור נבדק 2026-10-05): גיליון 2016-2019: אותה תוכנית, בלי שורת מסנן האוויר של הסוללה ההיברידית"
     },
     {
       "url": "https://www.toyota.co.il/owners/parts-and-accessories/owners-manuals",
@@ -1210,5 +1221,5 @@
     }
   ],
   "status": "reviewed",
-  "notes": "הועתק מלוח האחזקה הישראלי של יוניון מוטורס (10 עמודות של 15,000 ק\"מ). פעולות: I בדיקה, R החלפה, C ניקוי, T הידוק, L/G גירוז (נרשם כבדיקה). שורות 'מחמירה' בלבד: ( משולב דיפרנציאל ): בתנאים מחמירים בלבד (-I-R-I-R-I)."
+  "notes": "הועתק מלוח האחזקה הישראלי של יוניון מוטורס (10 עמודות של 15,000 ק\"מ). פעולות: I בדיקה, R החלפה, C ניקוי, T הידוק, L/G גירוז (נרשם כבדיקה). שורות 'מחמירה' בלבד: ( משולב דיפרנציאל ): בתנאים מחמירים בלבד (-I-R-I-R-I). הדור השני (AX20, 2024 ואילך) בלוח נפרד toyota-c-hr-2024-2025-1.8-hybrid (גיליון 362)."
 }

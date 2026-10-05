@@ -28,8 +28,11 @@ Rules:
   validate. Hand-written draft files are left untouched by the script.
 
 - `sources/` holds machine-readable extracts of importer documents that the
-  generator consumes (today: `toyota-union-sheets.json`, the 51 parsed
-  Toyota Israel maintenance sheets).
+  generator consumes (today: `toyota-union-sheets.json`, the 88 parsed
+  Toyota Israel maintenance sheets: grid `rows`, the page text grouped into
+  `lines` by position, and a `source` download link by connection id).
+  The Toyota sheets are parsed by `scripts/toyota_sheet_parse.py` and merged by
+  `scripts/toyota_sheets_export.py` (`--refresh` after a parser fix).
 
 Scripts:
 

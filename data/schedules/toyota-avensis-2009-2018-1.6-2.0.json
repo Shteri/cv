@@ -62,6 +62,16 @@
           "note": "תדירות בחודשים לפי הגיליון: 12 :"
         },
         {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: 12 :"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: 12 :"
+        },
+        {
           "item": "brake_fluid",
           "action": "inspect",
           "note": "תדירות בחודשים לפי הגיליון: 24 : 12 :"
@@ -274,6 +284,16 @@
           "note": "תדירות בחודשים לפי הגיליון: 12 :"
         },
         {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: 12 :"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: 12 :"
+        },
+        {
           "item": "brake_fluid",
           "action": "inspect",
           "note": "תדירות בחודשים לפי הגיליון: 24 : 12 :"
@@ -477,6 +497,16 @@
         },
         {
           "item": "parking_brake",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: 12 :"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: 12 :"
+        },
+        {
+          "item": "brake_discs",
           "action": "inspect",
           "note": "תדירות בחודשים לפי הגיליון: 12 :"
         },
@@ -1096,6 +1126,14 @@
   ],
   "long_interval": [
     {
+      "item": "drive_belt",
+      "action": "inspect",
+      "first_km": 105000,
+      "first_months": 72,
+      "then_every_km": 15000,
+      "then_every_months": 12
+    },
+    {
       "item": "coolant",
       "action": "replace",
       "first_km": 150000,
@@ -1105,8 +1143,13 @@
     {
       "item": "spark_plugs",
       "action": "replace",
-      "every_km": 90000,
-      "note": "מצתי אירידיום"
+      "every_km": 90000
+    },
+    {
+      "item": "fuel_filter",
+      "action": "replace",
+      "every_km": 120000,
+      "every_months": 144
     }
   ],
   "time_based": [],
@@ -1124,9 +1167,9 @@
   },
   "sources": [
     {
-      "url": "https://books.union-motors.co.il/app (fileId 283, connectionId 557)",
+      "url": "https://books.union-motors.co.il/app/api/files/557/download",
       "kind": "importer",
-      "note": "לוח אחזקה של יוניון מוטורס 'Avensis' (דגמים Avensis, שנים 2009-2019); דגם מנוע בגיליון: None"
+      "note": "לוח אחזקה של יוניון מוטורס 'Avensis' (דגמים Avensis, שנים 2009-2019; מסמך 283, קישור נבדק 2026-10-05); דגם מנוע בגיליון: None"
     },
     {
       "url": "https://www.toyota.co.il/owners/parts-and-accessories/owners-manuals",

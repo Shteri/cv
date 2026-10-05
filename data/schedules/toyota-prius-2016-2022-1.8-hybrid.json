@@ -1140,8 +1140,13 @@
     {
       "item": "spark_plugs",
       "action": "replace",
-      "every_km": 90000,
-      "note": "מצתי אירידיום"
+      "every_km": 90000
+    },
+    {
+      "item": "fuel_filter",
+      "action": "replace",
+      "every_km": 120000,
+      "every_months": 144
     }
   ],
   "time_based": [],
@@ -1158,14 +1163,14 @@
   },
   "sources": [
     {
-      "url": "https://books.union-motors.co.il/app (fileId 303, connectionId 609)",
+      "url": "https://books.union-motors.co.il/app/api/files/609/download",
       "kind": "importer",
-      "note": "לוח אחזקה של יוניון מוטורס 'Prius' (דגמים Prius, שנים 2016-2019); דגם מנוע בגיליון: 2ZR-FXE"
+      "note": "לוח אחזקה של יוניון מוטורס 'Prius' (דגמים Prius, שנים 2016-2019; מסמך 303, קישור נבדק 2026-10-05); דגם מנוע בגיליון: 2ZR-FXE"
     },
     {
-      "url": "https://books.union-motors.co.il/app (fileId 328, connectionId 841)",
+      "url": "https://books.union-motors.co.il/app/api/files/841/download",
       "kind": "importer",
-      "note": "לוח אחזקה נוסף 'Prius' (2020-2021), אותו מבנה"
+      "note": "לוח אחזקה נוסף 'Prius' (2020-2021; מסמך 328, קישור נבדק 2026-10-05): גיליון 2020-2021 (ZVW50/52): אותם מרווחי החלפה; בדיקות השלדה, הבלמים והפליטה כל 30,000 במקום בכל טיפול, ונוזל הגיר נבדק כל 60,000"
     },
     {
       "url": "https://www.toyota.co.il/owners/parts-and-accessories/owners-manuals",

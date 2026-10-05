@@ -242,11 +242,6 @@
       "km": 45000,
       "items": [
         {
-          "item": "drive_belt",
-          "action": "inspect",
-          "note": "תדירות בחודשים לפי הגיליון: \" מ ( או 12 חודשים )"
-        },
-        {
           "item": "engine_oil",
           "action": "replace",
           "note": "תדירות בחודשים לפי הגיליון: 12 :"
@@ -1134,6 +1129,14 @@
   ],
   "long_interval": [
     {
+      "item": "drive_belt",
+      "action": "inspect",
+      "first_km": 105000,
+      "first_months": 72,
+      "then_every_km": 15000,
+      "then_every_months": 12
+    },
+    {
       "item": "coolant",
       "action": "replace",
       "first_km": 150000,
@@ -1141,10 +1144,22 @@
       "note": "נוזל קירור מנוע (SLLC)"
     },
     {
+      "item": "coolant",
+      "action": "replace",
+      "first_km": 150000,
+      "then_every_km": 75000,
+      "note": "נוזל קירור מערכת היברידית/ממיר"
+    },
+    {
       "item": "spark_plugs",
       "action": "replace",
-      "every_km": 90000,
-      "note": "מצתי אירידיום"
+      "every_km": 90000
+    },
+    {
+      "item": "fuel_filter",
+      "action": "replace",
+      "every_km": 120000,
+      "every_months": 144
     }
   ],
   "time_based": [],
@@ -1161,9 +1176,9 @@
   },
   "sources": [
     {
-      "url": "https://books.union-motors.co.il/app (fileId 301, connectionId 207)",
+      "url": "https://books.union-motors.co.il/app/api/files/207/download",
       "kind": "importer",
-      "note": "לוח אחזקה של יוניון מוטורס 'Prius 2003-2009' (דגמים Prius, שנים 2004-2009); דגם מנוע בגיליון: 1NZ-FXE"
+      "note": "לוח אחזקה של יוניון מוטורס 'Prius 2003-2009' (דגמים Prius, שנים 2004-2009; מסמך 301, קישור נבדק 2026-10-05); דגם מנוע בגיליון: 1NZ-FXE"
     },
     {
       "url": "https://www.toyota.co.il/owners/parts-and-accessories/owners-manuals",

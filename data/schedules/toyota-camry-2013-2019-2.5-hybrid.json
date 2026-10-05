@@ -1091,16 +1091,28 @@
     {
       "item": "coolant",
       "action": "replace",
+      "first_km": 150000,
+      "then_every_km": 75000,
+      "note": "נוזל קירור מנוע (SLLC)"
+    },
+    {
+      "item": "coolant",
+      "action": "replace",
       "first_km": 240000,
       "then_every_km": 75000,
       "note": "נוזל קירור מערכת היברידית/ממיר"
     },
     {
-      "item": "coolant",
+      "item": "spark_plugs",
       "action": "replace",
-      "first_km": 150000,
-      "then_every_km": 75000,
-      "note": "נוזל קירור מנוע (SLLC)"
+      "every_km": 180000,
+      "note": "מצתי אירידיום"
+    },
+    {
+      "item": "fuel_filter",
+      "action": "replace",
+      "every_km": 120000,
+      "every_months": 144
     }
   ],
   "time_based": [],
@@ -1119,9 +1131,9 @@
   },
   "sources": [
     {
-      "url": "https://books.union-motors.co.il/app (fileId 291, connectionId ?)",
+      "url": "https://books.union-motors.co.il/app/api/files/621/download",
       "kind": "importer",
-      "note": "לוח אחזקה של יוניון מוטורס 'Camry Hybrid' (דגמים Camry Hybrid, שנים 2013-2019); דגם מנוע בגיליון: 2AR-FXE"
+      "note": "לוח אחזקה של יוניון מוטורס 'Camry Hybrid' (דגמים Camry Hybrid, שנים 2013-2019; מסמך 291, קישור נבדק 2026-10-05); דגם מנוע בגיליון: 2AR-FXE"
     },
     {
       "url": "https://www.toyota.co.il/owners/parts-and-accessories/owners-manuals",

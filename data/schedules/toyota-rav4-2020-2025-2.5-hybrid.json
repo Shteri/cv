@@ -8,7 +8,7 @@
   "generation": "XA50 hybrid",
   "years": [
     2020,
-    2025
+    2022
   ],
   "engines": [
     "2.5 hybrid (A25A-FXS)"
@@ -40,8 +40,18 @@
           "note": "תדירות בחודשים לפי הגיליון: : 48 , : 24"
         },
         {
-          "item": "air_filter",
+          "item": "hybrid_battery_filter",
           "action": "clean"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
         },
         {
           "item": "cabin_filter",
@@ -87,7 +97,7 @@
           "note": "תדירות בחודשים לפי הגיליון: : 24"
         },
         {
-          "item": "air_filter",
+          "item": "hybrid_battery_filter",
           "action": "clean"
         },
         {
@@ -165,8 +175,18 @@
           "note": "תדירות בחודשים לפי הגיליון: : 24"
         },
         {
-          "item": "air_filter",
+          "item": "hybrid_battery_filter",
           "action": "clean"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
         },
         {
           "item": "cabin_filter",
@@ -212,7 +232,7 @@
           "note": "תדירות בחודשים לפי הגיליון: : 24"
         },
         {
-          "item": "air_filter",
+          "item": "hybrid_battery_filter",
           "action": "clean"
         },
         {
@@ -290,8 +310,18 @@
           "note": "תדירות בחודשים לפי הגיליון: : 48 , : 24"
         },
         {
-          "item": "air_filter",
+          "item": "hybrid_battery_filter",
           "action": "clean"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
         },
         {
           "item": "cabin_filter",
@@ -342,7 +372,7 @@
           "note": "תדירות בחודשים לפי הגיליון: : 24"
         },
         {
-          "item": "air_filter",
+          "item": "hybrid_battery_filter",
           "action": "clean"
         },
         {
@@ -415,7 +445,7 @@
           "note": "תדירות בחודשים לפי הגיליון: : 48 , : 24"
         },
         {
-          "item": "air_filter",
+          "item": "hybrid_battery_filter",
           "action": "clean"
         },
         {
@@ -472,7 +502,7 @@
           "note": "תדירות בחודשים לפי הגיליון: : 24"
         },
         {
-          "item": "air_filter",
+          "item": "hybrid_battery_filter",
           "action": "clean"
         },
         {
@@ -555,7 +585,7 @@
           "note": "תדירות בחודשים לפי הגיליון: : 24"
         },
         {
-          "item": "air_filter",
+          "item": "hybrid_battery_filter",
           "action": "clean"
         },
         {
@@ -612,7 +642,7 @@
           "note": "תדירות בחודשים לפי הגיליון: : 24"
         },
         {
-          "item": "air_filter",
+          "item": "hybrid_battery_filter",
           "action": "clean"
         },
         {
@@ -671,16 +701,21 @@
     {
       "item": "coolant",
       "action": "replace",
+      "first_km": 150000,
+      "then_every_km": 90000,
+      "note": "נוזל קירור מנוע (SLLC)"
+    },
+    {
+      "item": "coolant",
+      "action": "replace",
       "first_km": 240000,
       "then_every_km": 90000,
       "note": "נוזל קירור מערכת היברידית/ממיר"
     },
     {
-      "item": "coolant",
+      "item": "spark_plugs",
       "action": "replace",
-      "first_km": 150000,
-      "then_every_km": 90000,
-      "note": "נוזל קירור מנוע (SLLC)"
+      "every_km": 90000
     }
   ],
   "time_based": [],
@@ -699,14 +734,9 @@
   },
   "sources": [
     {
-      "url": "https://books.union-motors.co.il/app (fileId 324, connectionId ?)",
+      "url": "https://books.union-motors.co.il/app/api/files/1031/download",
       "kind": "importer",
-      "note": "לוח אחזקה של יוניון מוטורס 'RAV4  Hybrid' (דגמים RAV4 Hybrid, שנים 2020-2023); דגם מנוע בגיליון: None"
-    },
-    {
-      "url": "https://books.union-motors.co.il/app (fileId 350, connectionId ?)",
-      "kind": "importer",
-      "note": "לוח אחזקה נוסף 'RAV4 HV' (2023-2025), אותו מבנה"
+      "note": "לוח אחזקה של יוניון מוטורס 'RAV4  Hybrid' (דגמים RAV4 Hybrid, שנים 2020-2023; מסמך 324, קישור נבדק 2026-10-05); דגם מנוע בגיליון: None"
     },
     {
       "url": "https://www.toyota.co.il/owners/parts-and-accessories/owners-manuals",
@@ -715,5 +745,5 @@
     }
   ],
   "status": "reviewed",
-  "notes": "הועתק מלוח האחזקה הישראלי של יוניון מוטורס (10 עמודות של 15,000 ק\"מ). פעולות: I בדיקה, R החלפה, C ניקוי, T הידוק, L/G גירוז (נרשם כבדיקה). שורות 'מחמירה' בלבד: מגבים ומתיזים: בתנאים מחמירים בלבד (IIIIIIIIII)."
+  "notes": "הועתק מלוח האחזקה הישראלי של יוניון מוטורס (10 עמודות של 15,000 ק\"מ). פעולות: I בדיקה, R החלפה, C ניקוי, T הידוק, L/G גירוז (נרשם כבדיקה). שורות 'מחמירה' בלבד: מגבים ומתיזים: בתנאים מחמירים בלבד (IIIIIIIIII). מ-2023 לוח נפרד toyota-rav4-2023-2025-2.5-hybrid (גיליון 350). שם הקובץ נשאר עם 2025 כדי לא לשבור קישורים קיימים."
 }

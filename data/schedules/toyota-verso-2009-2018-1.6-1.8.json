@@ -140,6 +140,10 @@
           "note": "תדירות בחודשים לפי הגיליון: : 24"
         },
         {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
           "item": "exhaust",
           "action": "inspect",
           "note": "תדירות בחודשים לפי הגיליון: : 12"
@@ -243,11 +247,6 @@
     {
       "km": 45000,
       "items": [
-        {
-          "item": "drive_belt",
-          "action": "inspect",
-          "note": "תדירות בחודשים לפי הגיליון: ק \" מ ( או 12 ')"
-        },
         {
           "item": "engine_oil",
           "action": "replace",
@@ -368,6 +367,10 @@
           "note": "תדירות בחודשים לפי הגיליון: : 24"
         },
         {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
           "item": "exhaust",
           "action": "inspect",
           "note": "תדירות בחודשים לפי הגיליון: : 12"
@@ -482,11 +485,6 @@
           "note": "תדירות בחודשים לפי הגיליון: : 12"
         },
         {
-          "item": "coolant",
-          "action": "inspect",
-          "note": "תדירות בחודשים לפי הגיליון: ק \" מ"
-        },
-        {
           "item": "exhaust",
           "action": "inspect",
           "note": "תדירות בחודשים לפי הגיליון: : 12"
@@ -589,6 +587,10 @@
           "item": "cooling_system",
           "action": "inspect",
           "note": "תדירות בחודשים לפי הגיליון: : 24"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect"
         },
         {
           "item": "exhaust",
@@ -699,11 +701,6 @@
     {
       "km": 105000,
       "items": [
-        {
-          "item": "drive_belt",
-          "action": "adjust",
-          "note": "תדירות בחודשים לפי הגיליון: ק \" מ ( או 12 ')"
-        },
         {
           "item": "engine_oil",
           "action": "replace",
@@ -817,6 +814,10 @@
           "item": "cooling_system",
           "action": "inspect",
           "note": "תדירות בחודשים לפי הגיליון: : 24"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect"
         },
         {
           "item": "exhaust",
@@ -1042,6 +1043,10 @@
           "note": "תדירות בחודשים לפי הגיליון: : 24"
         },
         {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
           "item": "exhaust",
           "action": "inspect",
           "note": "תדירות בחודשים לפי הגיליון: : 12"
@@ -1145,11 +1150,30 @@
   ],
   "long_interval": [
     {
+      "item": "drive_belt",
+      "action": "inspect",
+      "first_km": 105000,
+      "first_months": 72,
+      "then_every_km": 15000,
+      "then_every_months": 12
+    },
+    {
       "item": "coolant",
       "action": "replace",
       "first_km": 150000,
       "then_every_km": 75000,
       "note": "נוזל קירור מנוע (SLLC)"
+    },
+    {
+      "item": "spark_plugs",
+      "action": "replace",
+      "every_km": 90000
+    },
+    {
+      "item": "fuel_filter",
+      "action": "replace",
+      "every_km": 120000,
+      "every_months": 144
     }
   ],
   "time_based": [],
@@ -1165,9 +1189,9 @@
   },
   "sources": [
     {
-      "url": "https://books.union-motors.co.il/app (fileId 310, connectionId 580)",
+      "url": "https://books.union-motors.co.il/app/api/files/580/download",
       "kind": "importer",
-      "note": "לוח אחזקה של יוניון מוטורס 'Verso' (דגמים Verso, שנים 2009-2019); דגם מנוע בגיליון: 2ZR-FAE"
+      "note": "לוח אחזקה של יוניון מוטורס 'Verso' (דגמים Verso, שנים 2009-2019; מסמך 310, קישור נבדק 2026-10-05); דגם מנוע בגיליון: 2ZR-FAE"
     },
     {
       "url": "https://www.toyota.co.il/owners/parts-and-accessories/owners-manuals",

@@ -1140,8 +1140,13 @@
     {
       "item": "spark_plugs",
       "action": "replace",
-      "every_km": 90000,
-      "note": "מצתי אירידיום"
+      "every_km": 90000
+    },
+    {
+      "item": "fuel_filter",
+      "action": "replace",
+      "every_km": 120000,
+      "every_months": 144
     }
   ],
   "time_based": [],
@@ -1158,9 +1163,9 @@
   },
   "sources": [
     {
-      "url": "https://books.union-motors.co.il/app (fileId 304, connectionId 406)",
+      "url": "https://books.union-motors.co.il/app/api/files/406/download",
       "kind": "importer",
-      "note": "לוח אחזקה של יוניון מוטורס 'Prius plug-in' (דגמים Prius Plug-In, שנים 2012-2017); דגם מנוע בגיליון: 2ZR-FXE"
+      "note": "לוח אחזקה של יוניון מוטורס 'Prius plug-in' (דגמים Prius Plug-In, שנים 2012-2017; מסמך 304, קישור נבדק 2026-10-05); דגם מנוע בגיליון: 2ZR-FXE"
     },
     {
       "url": "https://www.toyota.co.il/owners/parts-and-accessories/owners-manuals",

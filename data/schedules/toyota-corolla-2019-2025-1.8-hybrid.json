@@ -8,7 +8,7 @@
   "generation": "E210 (ZWE211)",
   "years": [
     2019,
-    2025
+    2022
   ],
   "engines": [
     "1.8 hybrid (2ZR-FXS)"
@@ -40,7 +40,7 @@
           "note": "תדירות בחודשים לפי הגיליון: : 48 I, : 24"
         },
         {
-          "item": "air_filter",
+          "item": "hybrid_battery_filter",
           "action": "clean"
         },
         {
@@ -93,7 +93,7 @@
           "note": "תדירות בחודשים לפי הגיליון: : 24"
         },
         {
-          "item": "air_filter",
+          "item": "hybrid_battery_filter",
           "action": "clean"
         },
         {
@@ -181,7 +181,7 @@
           "note": "תדירות בחודשים לפי הגיליון: : 24"
         },
         {
-          "item": "air_filter",
+          "item": "hybrid_battery_filter",
           "action": "clean"
         },
         {
@@ -234,7 +234,7 @@
           "note": "תדירות בחודשים לפי הגיליון: : 24"
         },
         {
-          "item": "air_filter",
+          "item": "hybrid_battery_filter",
           "action": "clean"
         },
         {
@@ -322,7 +322,7 @@
           "note": "תדירות בחודשים לפי הגיליון: : 48 I, : 24"
         },
         {
-          "item": "air_filter",
+          "item": "hybrid_battery_filter",
           "action": "clean"
         },
         {
@@ -380,7 +380,7 @@
           "note": "תדירות בחודשים לפי הגיליון: : 24"
         },
         {
-          "item": "air_filter",
+          "item": "hybrid_battery_filter",
           "action": "clean"
         },
         {
@@ -463,7 +463,7 @@
           "note": "תדירות בחודשים לפי הגיליון: : 48 I, : 24"
         },
         {
-          "item": "air_filter",
+          "item": "hybrid_battery_filter",
           "action": "clean"
         },
         {
@@ -516,7 +516,7 @@
           "note": "תדירות בחודשים לפי הגיליון: : 24"
         },
         {
-          "item": "air_filter",
+          "item": "hybrid_battery_filter",
           "action": "clean"
         },
         {
@@ -609,7 +609,7 @@
           "note": "תדירות בחודשים לפי הגיליון: : 24"
         },
         {
-          "item": "air_filter",
+          "item": "hybrid_battery_filter",
           "action": "clean"
         },
         {
@@ -662,7 +662,7 @@
           "note": "תדירות בחודשים לפי הגיליון: : 24"
         },
         {
-          "item": "air_filter",
+          "item": "hybrid_battery_filter",
           "action": "clean"
         },
         {
@@ -741,6 +741,12 @@
       "first_km": 240000,
       "then_every_km": 90000,
       "note": "נוזל קירור מערכת היברידית/ממיר"
+    },
+    {
+      "item": "spark_plugs",
+      "action": "replace",
+      "every_km": 90000,
+      "note": "מצתי אירידיום"
     }
   ],
   "time_based": [],
@@ -760,14 +766,9 @@
   },
   "sources": [
     {
-      "url": "https://books.union-motors.co.il/app (fileId 316, connectionId ?)",
+      "url": "https://books.union-motors.co.il/app/api/files/984/download",
       "kind": "importer",
-      "note": "לוח אחזקה של יוניון מוטורס 'קורולה היבריד' (דגמים Corolla Excite, Corolla Sedan Hybrid, Corolla Space, שנים 2019-2025); דגם מנוע בגיליון: 2ZR-FXS"
-    },
-    {
-      "url": "https://books.union-motors.co.il/app (fileId 345, connectionId ?)",
-      "kind": "importer",
-      "note": "לוח אחזקה נוסף 'קורולה היברידית' (2023-2023), אותו מבנה"
+      "note": "לוח אחזקה של יוניון מוטורס 'קורולה היבריד' (דגמים Corolla Excite, Corolla Sedan Hybrid, Corolla Space, שנים 2019-2025; מסמך 316, קישור נבדק 2026-10-05); דגם מנוע בגיליון: 2ZR-FXS"
     },
     {
       "url": "https://www.toyota.co.il/owners/parts-and-accessories/owners-manuals",
@@ -776,5 +777,5 @@
     }
   ],
   "status": "reviewed",
-  "notes": "הועתק מלוח האחזקה הישראלי של יוניון מוטורס (10 עמודות של 15,000 ק\"מ). פעולות: I בדיקה, R החלפה, C ניקוי, T הידוק, L/G גירוז (נרשם כבדיקה). שורות 'מחמירה' בלבד: ( משולב דיפרנציאל ): בתנאים מחמירים בלבד (--I--R--I-); מגבים , מתיזים ונוזל מתזים: בתנאים מחמירים בלבד (IIIIIIIIII). מסנן אוויר סוללה היברידית: ניקוי בכל טיפול. נוזל קירור מערכת היברידית: החלפה ראשונה 240,000 ואז כל 90,000."
+  "notes": "הועתק מלוח האחזקה הישראלי של יוניון מוטורס (10 עמודות של 15,000 ק\"מ). פעולות: I בדיקה, R החלפה, C ניקוי, T הידוק, L/G גירוז (נרשם כבדיקה). שורות 'מחמירה' בלבד: ( משולב דיפרנציאל ): בתנאים מחמירים בלבד (--I--R--I-); מגבים , מתיזים ונוזל מתזים: בתנאים מחמירים בלבד (IIIIIIIIII). מסנן אוויר סוללה היברידית: ניקוי בכל טיפול. נוזל קירור מערכת היברידית: החלפה ראשונה 240,000 ואז כל 90,000. הפייסליפט ZWE219 (2023 ואילך) בלוח נפרד toyota-corolla-2023-2025-1.8-hybrid (גיליון 345), כי התוכנית שונה. שם הקובץ נשאר עם 2025 כדי לא לשבור קישורים קיימים."
 }

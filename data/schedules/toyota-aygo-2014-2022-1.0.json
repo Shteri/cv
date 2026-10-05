@@ -35,8 +35,23 @@
           "note": "תדירות בחודשים לפי הגיליון: 12 :"
         },
         {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: 48 : 24, :"
+        },
+        {
           "item": "pedals",
           "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: 12 :"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: 12 :"
         },
         {
           "item": "tires",
@@ -78,9 +93,18 @@
           "note": "תדירות בחודשים לפי הגיליון: 24 :"
         },
         {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
           "item": "exhaust",
           "action": "inspect",
           "note": "תדירות בחודשים לפי הגיליון: 24 :"
+        },
+        {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: 48 : 24, :"
         },
         {
           "item": "fuel_lines",
@@ -176,8 +200,23 @@
           "note": "תדירות בחודשים לפי הגיליון: 12 :"
         },
         {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: 48 : 24, :"
+        },
+        {
           "item": "pedals",
           "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: 12 :"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: 12 :"
         },
         {
           "item": "tires",
@@ -217,6 +256,10 @@
           "item": "cooling_system",
           "action": "inspect",
           "note": "תדירות בחודשים לפי הגיליון: 24 :"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect"
         },
         {
           "item": "exhaust",
@@ -332,8 +375,23 @@
           "note": "תדירות בחודשים לפי הגיליון: 12 :"
         },
         {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: 48 : 24, :"
+        },
+        {
           "item": "pedals",
           "action": "inspect"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: 12 :"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: 12 :"
         },
         {
           "item": "tires",
@@ -378,6 +436,10 @@
           "item": "cooling_system",
           "action": "inspect",
           "note": "תדירות בחודשים לפי הגיליון: 24 :"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect"
         },
         {
           "item": "exhaust",
@@ -491,6 +553,11 @@
           "note": "תדירות בחודשים לפי הגיליון: 12 :"
         },
         {
+          "item": "air_filter",
+          "action": "inspect",
+          "note": "תדירות בחודשים לפי הגיליון: 48 : 24, :"
+        },
+        {
           "item": "pedals",
           "action": "inspect"
         },
@@ -542,6 +609,10 @@
           "item": "cooling_system",
           "action": "inspect",
           "note": "תדירות בחודשים לפי הגיליון: 24 :"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect"
         },
         {
           "item": "exhaust",
@@ -720,6 +791,10 @@
           "note": "תדירות בחודשים לפי הגיליון: 24 :"
         },
         {
+          "item": "coolant",
+          "action": "inspect"
+        },
+        {
           "item": "exhaust",
           "action": "inspect",
           "note": "תדירות בחודשים לפי הגיליון: 24 :"
@@ -812,11 +887,24 @@
   ],
   "long_interval": [
     {
+      "item": "drive_belt",
+      "action": "inspect",
+      "first_km": 105000,
+      "first_months": 72,
+      "then_every_km": 15000,
+      "then_every_months": 12
+    },
+    {
       "item": "coolant",
       "action": "replace",
       "first_km": 150000,
       "then_every_km": 75000,
       "note": "נוזל קירור מנוע (SLLC)"
+    },
+    {
+      "item": "spark_plugs",
+      "action": "replace",
+      "every_km": 90000
     }
   ],
   "time_based": [],
@@ -835,14 +923,14 @@
   },
   "sources": [
     {
-      "url": "https://books.union-motors.co.il/app (fileId 284, connectionId ?)",
+      "url": "https://books.union-motors.co.il/app/api/files/572/download",
       "kind": "importer",
-      "note": "לוח אחזקה של יוניון מוטורס 'AYGO' (דגמים Aygo, שנים 2014-2019); דגם מנוע בגיליון: 1KR-FE"
+      "note": "לוח אחזקה של יוניון מוטורס 'AYGO' (דגמים Aygo, שנים 2014-2019; מסמך 284, קישור נבדק 2026-10-05); דגם מנוע בגיליון: 1KR-FE"
     },
     {
-      "url": "https://books.union-motors.co.il/app (fileId 318, connectionId ?)",
+      "url": "https://books.union-motors.co.il/app/api/files/874/download",
       "kind": "importer",
-      "note": "לוח אחזקה נוסף 'AYGO' (2020-2022), אותו מבנה"
+      "note": "לוח אחזקה נוסף 'AYGO' (2020-2022; מסמך 318, קישור נבדק 2026-10-05): אותה תוכנית"
     },
     {
       "url": "https://www.toyota.co.il/owners/parts-and-accessories/owners-manuals",

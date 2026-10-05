@@ -242,11 +242,6 @@
       "km": 45000,
       "items": [
         {
-          "item": "drive_belt",
-          "action": "inspect",
-          "note": "תדירות בחודשים לפי הגיליון: ק \" מ ( או 12 חודשים )"
-        },
-        {
           "item": "engine_oil",
           "action": "replace",
           "note": "תדירות בחודשים לפי הגיליון: : 12"
@@ -1129,11 +1124,30 @@
   ],
   "long_interval": [
     {
+      "item": "drive_belt",
+      "action": "inspect",
+      "first_km": 105000,
+      "first_months": 72,
+      "then_every_km": 15000,
+      "then_every_months": 12
+    },
+    {
       "item": "coolant",
       "action": "replace",
       "first_km": 150000,
       "then_every_km": 75000,
       "note": "נוזל קירור מנוע (SLLC)"
+    },
+    {
+      "item": "spark_plugs",
+      "action": "replace",
+      "every_km": 90000
+    },
+    {
+      "item": "fuel_filter",
+      "action": "replace",
+      "every_km": 120000,
+      "every_months": 144
     }
   ],
   "time_based": [],
@@ -1152,9 +1166,9 @@
   },
   "sources": [
     {
-      "url": "https://books.union-motors.co.il/app (fileId 281, connectionId ?)",
+      "url": "https://books.union-motors.co.il/app/api/files/561/download",
       "kind": "importer",
-      "note": "לוח אחזקה של יוניון מוטורס 'Auris' (דגמים Auris, שנים 2013-2019); דגם מנוע בגיליון: 1ZR-FAE"
+      "note": "לוח אחזקה של יוניון מוטורס 'Auris' (דגמים Auris, שנים 2013-2019; מסמך 281, קישור נבדק 2026-10-05); דגם מנוע בגיליון: 1ZR-FAE"
     },
     {
       "url": "https://www.toyota.co.il/owners/parts-and-accessories/owners-manuals",

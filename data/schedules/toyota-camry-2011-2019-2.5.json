@@ -1154,6 +1154,18 @@
       "first_km": 160000,
       "then_every_km": 80000,
       "note": "נוזל קירור מנוע (SLLC)"
+    },
+    {
+      "item": "spark_plugs",
+      "action": "replace",
+      "every_km": 90000,
+      "note": "מצתי אירידיום"
+    },
+    {
+      "item": "fuel_filter",
+      "action": "replace",
+      "every_km": 120000,
+      "every_months": 144
     }
   ],
   "time_based": [],
@@ -1169,9 +1181,9 @@
   },
   "sources": [
     {
-      "url": "https://books.union-motors.co.il/app (fileId 290, connectionId ?)",
+      "url": "https://books.union-motors.co.il/app/api/files/614/download",
       "kind": "importer",
-      "note": "לוח אחזקה של יוניון מוטורס 'Camry' (דגמים Camry, שנים 2011-2019); דגם מנוע בגיליון: 2AR-FE"
+      "note": "לוח אחזקה של יוניון מוטורס 'Camry' (דגמים Camry, שנים 2011-2019; מסמך 290, קישור נבדק 2026-10-05); דגם מנוע בגיליון: 2AR-FE"
     },
     {
       "url": "https://www.toyota.co.il/owners/parts-and-accessories/owners-manuals",

@@ -2,18 +2,18 @@
   "make": "Kia",
   "make_he": "קיה",
   "importer": "טלקאר",
-  "id": "kia-picanto-2017-2025",
+  "id": "kia-picanto-2021-2025",
   "model": "Picanto",
   "model_he": "פיקנטו",
-  "generation": "JA",
+  "generation": "JA facelift",
   "years": [
-    2017,
-    2021
+    2021,
+    2025
   ],
   "engines": [
-    "1.0 MPI (Kappa)",
-    "1.25 MPI (Kappa, G4LA)",
-    "1.0 T-GDI (Kappa)"
+    "1.0 MPI (Smartstream G1.0)",
+    "1.2 MPI (Smartstream G1.2, G4LF)",
+    "1.0 T-GDi (Smartstream G1.0)"
   ],
   "fuel": "petrol",
   "interval": {
@@ -673,12 +673,11 @@
     },
     {
       "item": "drive_belt",
-      "action": "replace",
+      "action": "inspect",
       "first_km": 90000,
       "first_months": 72,
       "then_every_km": 30000,
-      "then_every_months": 24,
-      "note": "לפי הספר: החלפה ראשונה ב-90,000, אחר כך כל 30,000; בפועל בדיקה והחלפה לפי מצב"
+      "then_every_months": 24
     },
     {
       "item": "spark_plugs",
@@ -712,14 +711,9 @@
   },
   "sources": [
     {
-      "url": "https://kia-israel.co.il/wp-content/uploads/2020/11/ספר-רכב-Picanto_OM_2017-.pdf",
+      "url": "https://cdnmedia.kia-israel.co.il/www/cars-book/Picanto-AMT-2021.pdf",
       "kind": "importer",
-      "note": "ספר רכב פיקנטו 2017+ של קיה ישראל, פרק 8 עמ' 11-17"
-    },
-    {
-      "url": "https://cdnmedia.kia-israel.co.il/www/cars-book/Picanto-JA-2017-2020.pdf",
-      "kind": "importer",
-      "note": "אותו ספר בספריית cars-book"
+      "note": "ספר רכב פיקנטו 2021+ של קיה ישראל, פרק 8 עמ' 15-17: תכנית תחזוקה רגילה, מנוע בנזין (רצועת ההנעה בעמ' 8-16)"
     },
     {
       "url": "https://kia-israel.co.il/קבל-ספר-רכב-למייל",
@@ -728,5 +722,5 @@
     }
   ],
   "status": "reviewed",
-  "notes": "מסנן תא נוסעים ונוזל בלמים כל 30,000 לפי הספר (מוסכים בישראל נוהגים להחליף מסנן מזגן בכל טיפול בגלל אבק). מסנן אוויר: בדיקה ב-30, החלפה ב-60. תוסף דלק כל 15,000 אם הבנזין בלי תוספים. מנועי Kappa (G4LA/G3LA), כולל רכבי 2021 עם מנוע G4LA. מנועי Smartstream (מ-2021) בלוח kia-picanto-2021-2025, כי בספר 2021 רצועת ההנעה נבדקת (לא מוחלפת) ב-90,000. שם הקובץ נשאר עם 2025 כדי לא לשבור קישורים קיימים."
+  "notes": "מסנן תא נוסעים ונוזל בלמים כל 30,000 לפי הספר (מוסכים בישראל נוהגים להחליף מסנן מזגן בכל טיפול בגלל אבק). מסנן אוויר: בדיקה ב-30, החלפה ב-60. תוסף דלק כל 15,000 אם הבנזין בלי תוספים. מנועי Smartstream מהפייסליפט של 2021. הטבלה זהה לספר 2017, חוץ מרצועת ההנעה: בדיקה ראשונה ב-90,000 ק\"מ או 72 חודשים, ואחר כך בדיקה כל 30,000 או 24 חודשים."
 }

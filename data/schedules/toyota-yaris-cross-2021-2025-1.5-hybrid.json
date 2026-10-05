@@ -1176,16 +1176,21 @@
     {
       "item": "coolant",
       "action": "replace",
+      "first_km": 150000,
+      "then_every_km": 75000,
+      "note": "נוזל קירור מנוע (SLLC)"
+    },
+    {
+      "item": "coolant",
+      "action": "replace",
       "first_km": 240000,
       "then_every_km": 75000,
       "note": "נוזל קירור מערכת היברידית/ממיר"
     },
     {
-      "item": "coolant",
+      "item": "spark_plugs",
       "action": "replace",
-      "first_km": 150000,
-      "then_every_km": 75000,
-      "note": "נוזל קירור מנוע (SLLC)"
+      "every_km": 90000
     }
   ],
   "time_based": [],
@@ -1204,14 +1209,14 @@
   },
   "sources": [
     {
-      "url": "https://books.union-motors.co.il/app (fileId 340, connectionId ?)",
+      "url": "https://books.union-motors.co.il/app/api/files/1059/download",
       "kind": "importer",
-      "note": "לוח אחזקה של יוניון מוטורס 'YARIS CROSS HV' (דגמים Yaris Cross Hybrid, שנים 2021-2023); דגם מנוע בגיליון: None"
+      "note": "לוח אחזקה של יוניון מוטורס 'YARIS CROSS HV' (דגמים Yaris Cross Hybrid, שנים 2021-2023; מסמך 340, קישור נבדק 2026-10-05); דגם מנוע בגיליון: None"
     },
     {
-      "url": "https://books.union-motors.co.il/app (fileId 354, connectionId ?)",
+      "url": "https://books.union-motors.co.il/app/api/files/1200/download",
       "kind": "importer",
-      "note": "לוח אחזקה נוסף 'יאריס קרוס היברידי' (2023-2025), אותו מבנה"
+      "note": "לוח אחזקה נוסף 'יאריס קרוס היברידי' (2023-2025; מסמך 354, קישור נבדק 2026-10-05): גיליון יולי 2023 בפורמט החדש: אותה תוכנית (מצתים ונוזל קירור מסומנים בטבלה)"
     },
     {
       "url": "https://www.toyota.co.il/owners/parts-and-accessories/owners-manuals",

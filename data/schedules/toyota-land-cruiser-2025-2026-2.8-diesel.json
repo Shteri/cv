@@ -1352,6 +1352,13 @@
   ],
   "long_interval": [
     {
+      "item": "coolant",
+      "action": "replace",
+      "first_km": 160000,
+      "then_every_km": 80000,
+      "note": "נוזל קירור מנוע: החלפה ראשונה ב-160,000 ק\"מ (בטבלה), אחר כך כל 80,000"
+    },
+    {
       "item": "engine_oil",
       "action": "replace",
       "every_km": 30000,
@@ -1378,9 +1385,9 @@
   },
   "sources": [
     {
-      "url": "https://books.union-motors.co.il/app (fileId 364, connectionId 1263)",
+      "url": "https://books.union-motors.co.il/app/api/files/1263/download",
       "kind": "importer",
-      "note": "לוח אחזקה של יוניון מוטורס 'לוח אחזקה לנד קרוזר -GDJ250-2025' (דגמים Land Cruiser, שנים 2025-2026); דגם מנוע בגיליון: 1GD-FTV"
+      "note": "לוח אחזקה של יוניון מוטורס 'לוח אחזקה לנד קרוזר -GDJ250-2025' (דגמים Land Cruiser, שנים 2025-2026; מסמך 364, קישור נבדק 2026-10-05); דגם מנוע בגיליון: 1GD-FTV"
     },
     {
       "url": "https://www.toyota.co.il/owners/parts-and-accessories/owners-manuals",

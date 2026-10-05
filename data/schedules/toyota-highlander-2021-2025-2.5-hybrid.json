@@ -8,7 +8,7 @@
   "generation": "XU70",
   "years": [
     2021,
-    2025
+    2022
   ],
   "engines": [
     "2.5 hybrid (A25A-FXS)"
@@ -50,7 +50,7 @@
           "note": "תדירות בחודשים לפי הגיליון: : 48 I, : 24"
         },
         {
-          "item": "air_filter",
+          "item": "hybrid_battery_filter",
           "action": "clean"
         },
         {
@@ -132,7 +132,7 @@
           "note": "תדירות בחודשים לפי הגיליון: : 24"
         },
         {
-          "item": "air_filter",
+          "item": "hybrid_battery_filter",
           "action": "clean"
         },
         {
@@ -235,7 +235,7 @@
           "note": "תדירות בחודשים לפי הגיליון: : 24"
         },
         {
-          "item": "air_filter",
+          "item": "hybrid_battery_filter",
           "action": "clean"
         },
         {
@@ -322,7 +322,7 @@
           "note": "תדירות בחודשים לפי הגיליון: : 24"
         },
         {
-          "item": "air_filter",
+          "item": "hybrid_battery_filter",
           "action": "clean"
         },
         {
@@ -420,7 +420,7 @@
           "note": "תדירות בחודשים לפי הגיליון: : 48 I, : 24"
         },
         {
-          "item": "air_filter",
+          "item": "hybrid_battery_filter",
           "action": "clean"
         },
         {
@@ -479,8 +479,7 @@
         },
         {
           "item": "coolant",
-          "action": "inspect",
-          "note": "תדירות בחודשים לפי הגיליון: ק \" מ"
+          "action": "inspect"
         },
         {
           "item": "exhaust",
@@ -508,7 +507,7 @@
           "note": "תדירות בחודשים לפי הגיליון: : 24"
         },
         {
-          "item": "air_filter",
+          "item": "hybrid_battery_filter",
           "action": "clean"
         },
         {
@@ -611,7 +610,7 @@
           "note": "תדירות בחודשים לפי הגיליון: : 48 I, : 24"
         },
         {
-          "item": "air_filter",
+          "item": "hybrid_battery_filter",
           "action": "clean"
         },
         {
@@ -693,7 +692,7 @@
           "note": "תדירות בחודשים לפי הגיליון: : 24"
         },
         {
-          "item": "air_filter",
+          "item": "hybrid_battery_filter",
           "action": "clean"
         },
         {
@@ -796,7 +795,7 @@
           "note": "תדירות בחודשים לפי הגיליון: : 24"
         },
         {
-          "item": "air_filter",
+          "item": "hybrid_battery_filter",
           "action": "clean"
         },
         {
@@ -883,7 +882,7 @@
           "note": "תדירות בחודשים לפי הגיליון: : 24"
         },
         {
-          "item": "air_filter",
+          "item": "hybrid_battery_filter",
           "action": "clean"
         },
         {
@@ -967,6 +966,17 @@
       "first_km": 240000,
       "then_every_km": 75000,
       "note": "נוזל קירור מערכת היברידית/ממיר"
+    },
+    {
+      "item": "spark_plugs",
+      "action": "replace",
+      "every_km": 90000
+    },
+    {
+      "item": "fuel_filter",
+      "action": "replace",
+      "every_km": 120000,
+      "every_months": 144
     }
   ],
   "time_based": [],
@@ -983,14 +993,9 @@
   },
   "sources": [
     {
-      "url": "https://books.union-motors.co.il/app (fileId 322, connectionId 1008)",
+      "url": "https://books.union-motors.co.il/app/api/files/1008/download",
       "kind": "importer",
-      "note": "לוח אחזקה של יוניון מוטורס 'HIGHLANDER' (דגמים Highlander, שנים 2020-2023); דגם מנוע בגיליון: None"
-    },
-    {
-      "url": "https://books.union-motors.co.il/app (fileId 347, connectionId 1165)",
-      "kind": "importer",
-      "note": "לוח אחזקה נוסף 'Highlander HV' (2023-2025), אותו מבנה"
+      "note": "לוח אחזקה של יוניון מוטורס 'HIGHLANDER' (דגמים Highlander, שנים 2020-2023; מסמך 322, קישור נבדק 2026-10-05); דגם מנוע בגיליון: None"
     },
     {
       "url": "https://www.toyota.co.il/owners/parts-and-accessories/owners-manuals",
@@ -999,5 +1004,5 @@
     }
   ],
   "status": "reviewed",
-  "notes": "הועתק מלוח האחזקה הישראלי של יוניון מוטורס (10 עמודות של 15,000 ק\"מ). פעולות: I בדיקה, R החלפה, C ניקוי, T הידוק, L/G גירוז (נרשם כבדיקה). שורות 'מחמירה' בלבד: ( משולב דיפרנציאל ): בתנאים מחמירים בלבד (-I-R-I-R-I)."
+  "notes": "הועתק מלוח האחזקה הישראלי של יוניון מוטורס (10 עמודות של 15,000 ק\"מ). פעולות: I בדיקה, R החלפה, C ניקוי, T הידוק, L/G גירוז (נרשם כבדיקה). שורות 'מחמירה' בלבד: ( משולב דיפרנציאל ): בתנאים מחמירים בלבד (-I-R-I-R-I). מ-2023 לוח נפרד toyota-highlander-2023-2025-2.5-hybrid (גיליון 347). שם הקובץ נשאר עם 2025 כדי לא לשבור קישורים קיימים."
 }

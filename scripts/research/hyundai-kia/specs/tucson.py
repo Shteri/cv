@@ -21,8 +21,8 @@ build(dict(HY, id="hyundai-tucson-2015-2020-1.6-2.0", model="Tucson", model_he="
   ("valve_clearance","..I..I..","מנוע 1.6 בלבד"),("exhaust",A8)],
  long_interval=[{"item":"drive_belt","action":"inspect","first_km":90000,"first_months":72,"then_every_km":30000,"then_every_months":24},
   {"item":"spark_plugs","action":"replace","every_km":150000,"note":"מנועי 1.6; במנוע 2.0 כל 165,000 ק\"מ"},
-  {"item":"coolant","action":"replace","first_km":210000,"first_months":120,"then_every_km":30000,"then_every_months":24}]+cool+
-  [{"item":"transmission_oil","action":"replace","every_km":100000,"note":"בתנאים רגילים ללא טיפול; בתנאי נהיגה קשים החלפה כל 100,000"}])
+  {"item":"coolant","action":"replace","first_km":210000,"first_months":120,"then_every_km":30000,"then_every_months":24}]+cool)
+# automatic gearbox fluid: no service in normal use; replace every 100,000 only in severe use (see notes), so no schedule entry
 
 # ---- Tucson NX4 2021+ (Colmobil Hebrew book, 2021)
 build(dict(HY, id="hyundai-tucson-2021-2026-1.6t-2.0", model="Tucson", model_he="טוסון", generation="NX4",

@@ -2,16 +2,16 @@
   "make": "Toyota",
   "make_he": "טויוטה",
   "importer": "יוניון מוטורס",
-  "id": "toyota-corolla-cross-2022-2025-1.8-hybrid",
-  "model": "Corolla Cross",
-  "model_he": "קורולה קרוס",
-  "generation": "XG10",
+  "id": "toyota-yaris-2023-2025-1.5-hybrid",
+  "model": "Yaris",
+  "model_he": "יאריס",
+  "generation": "XP210 hybrid (MXPH11)",
   "years": [
-    2022,
+    2023,
     2025
   ],
   "engines": [
-    "1.8 hybrid (2ZR-FXE)"
+    "1.5 hybrid (M15A-FXE)"
   ],
   "fuel": "hybrid",
   "interval": {
@@ -425,10 +425,6 @@
           "action": "replace"
         },
         {
-          "item": "fuel_filter",
-          "action": "replace"
-        },
-        {
           "item": "battery_12v",
           "action": "inspect"
         },
@@ -708,6 +704,10 @@
           "action": "replace"
         },
         {
+          "item": "fuel_filter",
+          "action": "replace"
+        },
+        {
           "item": "coolant",
           "action": "inspect"
         },
@@ -898,10 +898,6 @@
           "action": "replace"
         },
         {
-          "item": "fuel_filter",
-          "action": "replace"
-        },
-        {
           "item": "coolant",
           "action": "replace"
         },
@@ -1006,20 +1002,15 @@
     "timing": "שרשרת, ללא החלפה מתוכננת",
     "tire_pressure": "לפי המדבקה בעמוד הדלת",
     "warranty": "יוניון מוטורס: 3 שנים או 100,000 ק\"מ (ידע כללי, לאימות)",
-    "tires": "215/60 R17 או 225/50 R18",
+    "tires": "185/65 R15 או 205/45 R17",
     "spare": "ערכת תיקון",
     "battery": "מצבר עזר 12V קטן (לא מצבר רגיל) + סוללה היברידית; בדיקת סוללה שנתית תנאי לאחריות הסוללה"
   },
   "sources": [
     {
-      "url": "https://books.union-motors.co.il/app/api/files/1156/download",
+      "url": "https://books.union-motors.co.il/app/api/files/1205/download",
       "kind": "importer",
-      "note": "לוח אחזקה של יוניון מוטורס 'Corolla Cross HV' (דגמים Corolla Cross, שנים 2023-2025; מסמך 346, קישור נבדק 2026-10-05); דגם מנוע בגיליון: None"
-    },
-    {
-      "url": "https://books.union-motors.co.il/app/api/files/979/download",
-      "kind": "importer",
-      "note": "לוח אחזקה נוסף 'COROLLA CROSS' (2022-2023; מסמך 338, קישור נבדק 2026-10-05): גיליון ספטמבר 2022 בפורמט הקודם: אותה תוכנית (מצתים ונוזל קירור כתובים כטקסט ולא בטבלה)"
+      "note": "לוח אחזקה של יוניון מוטורס 'יאריס' (דגמים Yaris Hybrid, שנים 2023-2025; מסמך 356, קישור נבדק 2026-10-05); דגם מנוע בגיליון: None"
     },
     {
       "url": "https://www.toyota.co.il/owners/parts-and-accessories/owners-manuals",
@@ -1028,5 +1019,5 @@
     }
   ],
   "status": "reviewed",
-  "notes": "הועתק מלוח האחזקה הישראלי של יוניון מוטורס (10 עמודות של 15,000 ק\"מ). פעולות: I בדיקה, R החלפה, C ניקוי, T הידוק, L/G גירוז (נרשם כבדיקה)."
+  "notes": "הועתק מלוח האחזקה הישראלי של יוניון מוטורס (10 עמודות של 15,000 ק\"מ). פעולות: I בדיקה, R החלפה, C ניקוי, T הידוק, L/G גירוז (נרשם כבדיקה). גיליון יוני 2023. לעומת גיליון 2020: מסנן מזגן מוחלף בכל טיפול, צינורות פליטה נבדקים בכל טיפול, אין שורת תופי בלם, ומצתים ונוזל הקירור מסומנים בטבלה (אותם מרווחים)."
 }

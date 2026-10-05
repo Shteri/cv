@@ -480,21 +480,9 @@
           "note": "תדירות בחודשים לפי הגיליון: : 12"
         },
         {
-          "item": "cooling_system",
-          "action": "inspect"
-        },
-        {
-          "item": "coolant_hoses",
-          "action": "inspect"
-        },
-        {
           "item": "battery_12v",
           "action": "inspect",
           "note": "תדירות בחודשים לפי הגיליון: : 12"
-        },
-        {
-          "item": "fuel_lines",
-          "action": "inspect"
         },
         {
           "item": "pedals",
@@ -940,10 +928,6 @@
           "item": "oil_filter",
           "action": "inspect",
           "note": "תדירות בחודשים לפי הגיליון: : 12"
-        },
-        {
-          "item": "coolant",
-          "action": "inspect"
         },
         {
           "item": "battery_12v",
@@ -1830,11 +1814,52 @@
   ],
   "long_interval": [
     {
+      "item": "cooling_system",
+      "action": "inspect",
+      "first_km": 80000,
+      "first_months": 48,
+      "then_every_km": 20000,
+      "then_every_months": 12
+    },
+    {
       "item": "coolant",
       "action": "replace",
       "first_km": 160000,
       "then_every_km": 80000,
       "note": "נוזל קירור מנוע (SLLC)"
+    },
+    {
+      "item": "coolant_hoses",
+      "action": "inspect",
+      "first_km": 80000,
+      "first_months": 48,
+      "then_every_km": 20000,
+      "then_every_months": 12
+    },
+    {
+      "item": "spark_plugs",
+      "action": "replace",
+      "every_km": 100000
+    },
+    {
+      "item": "air_filter",
+      "action": "inspect",
+      "every_km": 20000,
+      "every_months": 24
+    },
+    {
+      "item": "air_filter",
+      "action": "replace",
+      "every_km": 40000,
+      "every_months": 48
+    },
+    {
+      "item": "fuel_lines",
+      "action": "inspect",
+      "first_km": 80000,
+      "first_months": 48,
+      "then_every_km": 20000,
+      "then_every_months": 12
     }
   ],
   "time_based": [],
@@ -1850,9 +1875,9 @@
   },
   "sources": [
     {
-      "url": "https://books.union-motors.co.il/app (fileId 300, connectionId 599)",
+      "url": "https://books.union-motors.co.il/app/api/files/599/download",
       "kind": "importer",
-      "note": "לוח אחזקה של יוניון מוטורס 'Land Criuser בנזין' (דגמים Land Cruiser, שנים 2009-2019); דגם מנוע בגיליון: 1GR-FE"
+      "note": "לוח אחזקה של יוניון מוטורס 'Land Criuser בנזין' (דגמים Land Cruiser, שנים 2009-2019; מסמך 300, קישור נבדק 2026-10-05); דגם מנוע בגיליון: 1GR-FE"
     },
     {
       "url": "https://www.toyota.co.il/owners/parts-and-accessories/owners-manuals",

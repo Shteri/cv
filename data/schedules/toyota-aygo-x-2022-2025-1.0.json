@@ -980,7 +980,21 @@
       ]
     }
   ],
-  "long_interval": [],
+  "long_interval": [
+    {
+      "item": "fuel_filter",
+      "action": "replace",
+      "every_km": 180000,
+      "every_months": 180
+    },
+    {
+      "item": "coolant",
+      "action": "replace",
+      "first_km": 150000,
+      "then_every_km": 75000,
+      "note": "נוזל קירור מנוע: החלפה ראשונה ב-150,000 ק\"מ (בטבלה), אחר כך כל 75,000"
+    }
+  ],
   "time_based": [],
   "specs": {
     "_note": "שמן, נוזל קירור ונוזל בלמים מהגיליון של היבואן; שאר הפריטים ידע כללי, לאימות",
@@ -997,14 +1011,14 @@
   },
   "sources": [
     {
-      "url": "https://books.union-motors.co.il/app (fileId 344, connectionId ?)",
+      "url": "https://books.union-motors.co.il/app/api/files/1145/download",
       "kind": "importer",
-      "note": "לוח אחזקה של יוניון מוטורס 'Aygo  x' (דגמים Aygo X, שנים 2023-2025); דגם מנוע בגיליון: None"
+      "note": "לוח אחזקה של יוניון מוטורס 'Aygo  x' (דגמים Aygo X, שנים 2023-2025; מסמך 344, קישור נבדק 2026-10-05); דגם מנוע בגיליון: None"
     },
     {
-      "url": "https://books.union-motors.co.il/app (fileId 339, connectionId ?)",
+      "url": "https://books.union-motors.co.il/app/api/files/965/download",
       "kind": "importer",
-      "note": "לוח אחזקה נוסף 'AYGO X' (2022-2023), אותו מבנה"
+      "note": "לוח אחזקה נוסף 'AYGO X' (2022-2023; מסמך 339, קישור נבדק 2026-10-05): גיליון ספטמבר 2022: אותה תוכנית, אבל מרווח השסתומים נבדק רק ב-90,000 (72 חודשים) ולא בכל טיפול"
     },
     {
       "url": "https://www.toyota.co.il/owners/parts-and-accessories/owners-manuals",

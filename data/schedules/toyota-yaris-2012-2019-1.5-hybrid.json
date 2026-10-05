@@ -30,6 +30,11 @@
           "note": "תדירות בחודשים לפי הגיליון: : 12"
         },
         {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
           "item": "exhaust",
           "action": "inspect",
           "note": "תדירות בחודשים לפי הגיליון: : 12"
@@ -120,6 +125,11 @@
       "items": [
         {
           "item": "engine_oil",
+          "action": "replace",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "oil_filter",
           "action": "replace",
           "note": "תדירות בחודשים לפי הגיליון: : 12"
         },
@@ -242,6 +252,11 @@
           "note": "תדירות בחודשים לפי הגיליון: : 12"
         },
         {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
           "item": "exhaust",
           "action": "inspect",
           "note": "תדירות בחודשים לפי הגיליון: : 12"
@@ -337,6 +352,11 @@
       "items": [
         {
           "item": "engine_oil",
+          "action": "replace",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "oil_filter",
           "action": "replace",
           "note": "תדירות בחודשים לפי הגיליון: : 12"
         },
@@ -459,6 +479,11 @@
           "note": "תדירות בחודשים לפי הגיליון: : 12"
         },
         {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
           "item": "exhaust",
           "action": "inspect",
           "note": "תדירות בחודשים לפי הגיליון: : 12"
@@ -554,6 +579,11 @@
         },
         {
           "item": "engine_oil",
+          "action": "replace",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "oil_filter",
           "action": "replace",
           "note": "תדירות בחודשים לפי הגיליון: : 12"
         },
@@ -681,6 +711,11 @@
           "note": "תדירות בחודשים לפי הגיליון: : 12"
         },
         {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
           "item": "exhaust",
           "action": "inspect",
           "note": "תדירות בחודשים לפי הגיליון: : 12"
@@ -771,6 +806,11 @@
       "items": [
         {
           "item": "engine_oil",
+          "action": "replace",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "oil_filter",
           "action": "replace",
           "note": "תדירות בחודשים לפי הגיליון: : 12"
         },
@@ -898,6 +938,11 @@
           "note": "תדירות בחודשים לפי הגיליון: : 12"
         },
         {
+          "item": "oil_filter",
+          "action": "replace",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
           "item": "exhaust",
           "action": "inspect",
           "note": "תדירות בחודשים לפי הגיליון: : 12"
@@ -993,6 +1038,11 @@
       "items": [
         {
           "item": "engine_oil",
+          "action": "replace",
+          "note": "תדירות בחודשים לפי הגיליון: : 12"
+        },
+        {
+          "item": "oil_filter",
           "action": "replace",
           "note": "תדירות בחודשים לפי הגיליון: : 12"
         },
@@ -1121,6 +1171,11 @@
       "first_km": 240000,
       "then_every_km": 75000,
       "note": "נוזל קירור מערכת היברידית/ממיר"
+    },
+    {
+      "item": "spark_plugs",
+      "action": "replace",
+      "every_km": 90000
     }
   ],
   "time_based": [],
@@ -1139,9 +1194,9 @@
   },
   "sources": [
     {
-      "url": "https://books.union-motors.co.il/app (fileId 312, connectionId ?)",
+      "url": "https://books.union-motors.co.il/app/api/files/592/download",
       "kind": "importer",
-      "note": "לוח אחזקה של יוניון מוטורס 'YARIS Hybrid' (דגמים Yaris Hybrid, שנים 2012-2019); דגם מנוע בגיליון: 1NZ-FXE"
+      "note": "לוח אחזקה של יוניון מוטורס 'YARIS Hybrid' (דגמים Yaris Hybrid, שנים 2012-2019; מסמך 312, קישור נבדק 2026-10-05); דגם מנוע בגיליון: 1NZ-FXE"
     },
     {
       "url": "https://www.toyota.co.il/owners/parts-and-accessories/owners-manuals",
