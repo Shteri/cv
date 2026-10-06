@@ -1,0 +1,22 @@
+import { chromium } from "playwright";
+const SITE = process.env.SITE_DIR || new URL("../../site", import.meta.url).pathname;
+import { createServer } from "node:http"; import { readFileSync, existsSync } from "node:fs";
+const root = SITE;
+const srv = createServer((q, r) => { let f = root + q.url.split("?")[0]; if (f.endsWith("/")) f += "index.html"; if (!existsSync(f)) { r.statusCode = 404; return r.end(); } r.setHeader("content-type", f.endsWith(".js") ? "text/javascript" : f.endsWith(".css") ? "text/css" : f.endsWith(".json") ? "application/json" : "text/html; charset=utf-8"); r.end(readFileSync(f)); }).listen(8131);
+const b = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium" });
+const p = await b.newPage({ viewport: { width: 400, height: 860 } });
+const errs = []; p.on("pageerror", e => errs.push(e.message));
+await p.goto("http://localhost:8131/"); await p.waitForTimeout(200);
+const hist = [{ id: "a", kind: "service", svcKm: 60000, km: 63000, date: "2026-05", items: [], receipts: [], share: false }];
+await p.evaluate(h => localStorage.setItem("tipulit", JSON.stringify({ onboarded: true, user: { name: "מקס", via: "guest" }, cars: [{ plate: "12-345-67", schedule: "byd-atto-2-2025-2026-ev", year: 2025, km: 64000, kmMonth: 1500, lastService: "2026-05", history: h }], active: 0 })), hist);
+await p.reload(); await p.waitForTimeout(500);
+console.log("hero:", (await p.locator("#home-body .hero").innerText()).replace(/\s+/g, " "));
+await p.screenshot({ path: (process.env.SHOTS || "/tmp") + "/range-home.png" });
+// garage demo: some rows should show a window
+const g = await b.newPage({ viewport: { width: 1300, height: 900 } }); g.on("pageerror", e => errs.push("garage: " + e.message));
+await g.goto("http://localhost:8131/garage/?demo"); await g.waitForTimeout(1200);
+const subs = await g.$$eval("td .sub.num", els => els.map(e => e.textContent).slice(0, 4));
+console.log("garage windows:", subs, "rows:", await g.$$eval("tbody tr", x => x.length));
+await g.screenshot({ path: (process.env.SHOTS || "/tmp") + "/range-garage.png" });
+console.log("errors:", errs);
+await b.close(); srv.close();

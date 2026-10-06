@@ -1,0 +1,9 @@
+{
+  "name": "tipulit-e2e",
+  "private": true,
+  "description": "Browser checks for the built site. Chromium comes from PLAYWRIGHT_BROWSERS_PATH; nothing is downloaded.",
+  "dependencies": {
+    "playwright": "1.54.1",
+    "xlsx": "0.18.5"
+  }
+}

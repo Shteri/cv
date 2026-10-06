@@ -1,0 +1,11 @@
+import { chromium } from "playwright";
+const SITE = process.env.SITE_DIR || new URL("../../site", import.meta.url).pathname;
+import { createServer } from "node:http"; import { readFileSync, existsSync } from "node:fs";
+const srv = createServer((q, r) => { const f = SITE + (q.url === "/" ? "/index.html" : q.url.split("?")[0]); if (!existsSync(f)) { r.statusCode = 404; return r.end(); } r.setHeader("content-type", f.endsWith(".js") ? "text/javascript" : f.endsWith(".html") ? "text/html; charset=utf-8" : f.endsWith(".webmanifest") ? "application/manifest+json" : "application/octet-stream"); r.end(readFileSync(f)); }).listen(8123);
+const b = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium" });
+const p = await b.newPage({ viewport: { width: 400, height: 820 }, deviceScaleFactor: 2 });
+const errs = []; p.on("pageerror", e => errs.push(e.message));
+await p.goto("http://localhost:8123/"); await p.waitForTimeout(800);
+await p.screenshot({ path: (process.env.SHOTS || "/tmp") + "/site-onb.png" });
+console.log("dir:", await p.evaluate(() => document.documentElement.dir), "sw:", await p.evaluate(() => !!navigator.serviceWorker), "errors:", errs);
+await b.close(); srv.close();

@@ -54,7 +54,7 @@ def load_specs(S, ns):
       reg=[(SK, ['FABIA', 'FABIA SPACE'])], codes=['CJZ'], reg_years=[2017, 2019], notes_pre=GEN_NOTE)
     S(id='skoda-fabia-2008-2015-1.2-1.4-1.6', make='Skoda', make_he='סקודה', model='Fabia', model_he='פאביה',
       generation='II (5J) ופייסליפט', engines=['1.2 TSI (CBZ)', '1.4 MPI (CGG/BXW)', '1.6 MPI (BTS)'],
-      template='FAC', opts={'drums': True, 'brand': 'skoda', 'belt': 'cond', 'belt_engines': '1.4 MPI CGG לפי ספר התיקון של מנוע CGGB; לא אומת ל-BTS/BXW', 'old_skoda': True, 'awd': False, 'srcs': ('RAPID', 'FAB3')},
+      template='FAC', opts={'drums': True, 'brand': 'skoda', 'belt': 'cond', 'belt_engines': '1.4 MPI CGG', 'old_skoda': True, 'awd': False, 'srcs': ('RAPID', 'FAB3')},
       reg=[(SK, ['FABIA', 'FABIA HATCH', 'FABIA SPACE'])], codes=['CBZ', 'CGG', 'BTS', 'BXW'], reg_years=[2007, 2015],
       notes_pre=GEN_NOTE + "לא נמצא מדריך שירות לפאביה II; הערכים לקוחים מפרק 'עד שנת דגם 2016' במדריכי סקודה לראפיד ולפאביה III (פלטפורמה ומנועים קרובים). ")
 
@@ -134,7 +134,7 @@ def load_specs(S, ns):
       notes_pre=GEN_NOTE + "מנועי EA211 עם רצועת תזמון. הקובץ משתמש בעמודת המדינות המאובקות משנת דגם 2017; עד 2016 היצרן קבע מסנן אוויר כל 90,000/6 שנים, מסנן מזגן כל שנתיים ונוזל בלמים ראשון אחרי 3 שנים. ")
     S(id='skoda-roomster-2008-2015-1.2-1.4-1.6', make='Skoda', make_he='סקודה', model='Roomster', model_he='רומסטר',
       generation='5J', engines=['1.2 TSI (CBZ)', '1.4 MPI (CGG)', '1.6 MPI (BTS)'],
-      template='FAC', opts={'drums': True, 'brand': 'skoda', 'belt': 'cond', 'belt_engines': '1.4 MPI CGG; לא אומת ל-BTS', 'old_skoda': True, 'awd': False, 'srcs': ('RAPID', 'FAB3')},
+      template='FAC', opts={'drums': True, 'brand': 'skoda', 'belt': 'cond', 'belt_engines': '1.4 MPI CGG', 'old_skoda': True, 'awd': False, 'srcs': ('RAPID', 'FAB3')},
       reg=[(SK, ['ROOMSTER'])], codes=['CBZ', 'CGG', 'BTS'], notes_pre=GEN_NOTE + "לא נמצא מדריך שירות לרומסטר; הערכים לפי פרק 'עד שנת דגם 2016' במדריכי ראפיד ופאביה III. ")
     S(id='skoda-citigo-2013-2018-1.0', make='Skoda', make_he='סקודה', model='Citigo', model_he='סיטיגו',
       generation='NF', engines=['1.0 MPI (CHY)'],
@@ -152,7 +152,7 @@ def load_specs(S, ns):
       template='CH_SMALL', reg=[(SE, ['IBIZA'])], codes=CH_ALL, notes_pre=GEN_NOTE)
     S(id='seat-ibiza-2008-2017-1.2-1.4-1.6', make='Seat', make_he='סיאט', model='Ibiza', model_he='איביזה',
       generation='6J ופייסליפט', engines=['1.2 TSI (CBZ/CJZ)', '1.4 MPI (CGG/BXW)', '1.6 MPI (BTS)'],
-      template='FAC', opts={'brand': 'vw', 'belt': 'cond', 'belt_engines': 'CJZ (EA211) ו-1.4 MPI CGG; לא אומת ל-BTS/BXW; CBZ עם שרשרת', 'awd': False, 'srcs': ('LEON3', 'GOLF7', 'POLO')},
+      template='FAC', opts={'brand': 'vw', 'belt': 'cond', 'belt_engines': 'CJZ (EA211) ו-1.4 MPI CGG/BXW; CBZ עם שרשרת', 'awd': False, 'srcs': ('LEON3', 'GOLF7', 'POLO')},
       reg=[(SE, ['IBIZA', 'IBIZA FLOW', 'IBIZA ST'])], codes=['CBZ', 'CJZ', 'CGG', 'BXW', 'BTS'],
       notes_pre=GEN_NOTE + "לא נמצא מדריך שירות לאיביזה 6J; הערכים לפי טבלאות סיאט לאון 3 ופולקסווגן (אותם מנועים ואותה שיטת שירות). ")
     S(id='seat-arona-2018-2026-1.0-1.5-tsi', make='Seat', make_he='סיאט', model='Arona', model_he='ארונה',
@@ -232,7 +232,7 @@ def load_specs(S, ns):
       template='CH_SMALL', opts={'has15': False}, reg=[(VW, ['POLO'])], codes=TSI10, notes_pre=GEN_NOTE)
     S(id='vw-polo-2005-2017-1.2-1.4-1.6', make='Volkswagen', make_he='פולקסווגן', model='Polo', model_he='פולו',
       generation='4 (9N) ו-5 (6R)', engines=['1.2 TSI (CBZ/CJZ)', '1.4 MPI (BUD/BKY/BBY/CGG)', '1.6 MPI (BTS)', '1.4 TSI (CTH/CAV)'],
-      template='FAC', opts={'brand': 'vw', 'belt': 'cond', 'belt_engines': 'CJZ (EA211) ו-1.4 MPI BUD/BKY/BBY/CGG לפי ספר התיקון (הנעת רצועה); לא אומת ל-BTS; CBZ/CTH/CAV עם שרשרת', 'awd': False, 'srcs': ('POLO', 'GOLF7', 'TIG1')},
+      template='FAC', opts={'brand': 'vw', 'belt': 'cond', 'belt_engines': 'CJZ (EA211) ו-1.4 MPI BUD/BKY/BBY/CGG; ב-CBZ/CTH/CAV יש שרשרת', 'awd': False, 'srcs': ('POLO', 'GOLF7', 'TIG1')},
       reg=[(VW, ['POLO'])], codes=['CBZ', 'CJZ', 'CGG', 'BUD', 'BKY', 'BBY', 'BTS', 'CTH', 'CAV'], reg_years=[2003, 2017],
       notes_pre=GEN_NOTE + "טבלאות פולקסווגן כוללות הערה נפרדת לפולו 6R: מסנן מזגן בתנאים רגילים כל 30,000 או שנתיים (במדינות מאובקות כמו בשאר הדגמים, שנה או 30,000). ")
     S(id='vw-jetta-2006-2018-1.2-1.4-1.6', make='Volkswagen', make_he='פולקסווגן', model='Jetta', model_he="ג'טה",

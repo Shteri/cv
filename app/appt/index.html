@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>התור שלך במוסך</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="../icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Hebrew:wght@400;500;600&family=Rubik:wght@500;600;700&family=Unbounded:wght@600&display=swap">
+<link rel="stylesheet" href="../styles/tokens.css">
+<link rel="stylesheet" href="../styles/brand.css">
+<link rel="stylesheet" href="../garage/garage.css">
+</head>
+<body>
+<main class="public" id="main">
+  <a class="brand" href="../" aria-label="Tipulit"><span class="brand-word" lang="en" dir="ltr">tipulit</span></a>
+  <section class="box" id="t-load"><p class="muted">טוען…</p></section>
+  <section class="stack-md" id="t-view" hidden>
+    <div><p class="muted small" id="t-garage"></p><h1>התור שלך</h1></div>
+    <div class="demo-note" id="t-demo" hidden>מצב הדגמה: התשובה חוזרת ללוח המוסך בהדגמה, בדפדפן הזה.</div>
+    <p class="big-line" id="t-when"></p>
+    <p class="muted" id="t-what"></p>
+    <div class="box" id="t-state"></div>
+    <div class="dlg-actions start" id="t-actions"></div>
+    <p class="muted small" id="t-policy"></p>
+    <div class="dlg-actions start" id="t-tools"><button class="btn" id="t-ics">הוספה ליומן</button><a class="btn" id="t-waze" target="_blank" rel="noopener">ניווט</a><a class="btn" id="t-call">התקשרות למוסך</a></div>
+  </section>
+  <section class="box stack-md" id="t-missing" hidden><h1>התור לא נמצא</h1><p class="muted">ייתכן שהקישור לא שלם. בקשו מהמוסך לשלוח אותו שוב.</p></section>
+</main>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script src="../config.js"></script>
+<script src="../cloud.js"></script>
+<script>
+(function () {
+  const Cloud = window.TipulitCloud || { enabled: false };
+  const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+  const esc = x => String(x ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
+  const q = new URLSearchParams(location.search), demo = q.has("demo"), token = q.get("t");
+  const KIND = { service: "טיפול", repair: "תיקון", test: "הכנה לטסט", other: "תור" };
+  const when = d => new Intl.DateTimeFormat("he-IL", { weekday: "long", day: "numeric", month: "long", hour: "2-digit", minute: "2-digit" }).format(d);
+  const show = s => { for (const x of ["t-load", "t-view", "t-missing"]) $("#" + x).hidden = x !== s; };
+  const toast = m => { const t = $("#toast"); t.textContent = m; t.classList.add("show"); clearTimeout(toast.t); toast.t = setTimeout(() => t.classList.remove("show"), 2600); };
+  let ap = null;
+
+  // The garage demo keeps its data in this browser; a reminder sent from it opens that appointment here.
+  const DEMO_KEY = "tipulit-garage-demo";
+  const demoStore = () => { try { return JSON.parse(localStorage.getItem(DEMO_KEY) || "null"); } catch (e) { return null; } };
+  function demoGet() {
+    const d = demoStore(), a = d && (d.appts || []).find(x => x.token === token); if (!a) return null;
+    const g = d.garage || {};
+    return { garage: g.name, garage_id: "demo", garage_phone: g.phone || null, address: g.address, city: g.city, booking_enabled: g.booking_enabled !== false, cancel_hours: g.cancel_hours ?? 12,
+      name: a.customer_name, plate: a.plate, kind: a.kind, starts_at: a.starts_at, minutes: a.minutes, status: a.status, confirmed_at: a.confirmed_at || null, needs_ok: !!a.needs_ok, cancelled_by: a.cancelled_by || null };
+  }
+  // the same rules as appt_respond in migration 0010
+  function demoRespond(action) {
+    const d = demoStore(), a = d && (d.appts || []).find(x => x.token === token); if (!a) throw new Error("not found");
+    const start = Date.parse(a.starts_at), hours = (d.garage || {}).cancel_hours ?? 12;
+    if (a.status === "booked" && start > Date.now()) {
+      if (action === "confirm") a.confirmed_at = a.confirmed_at || new Date().toISOString();
+      else Object.assign(a, { status: "cancelled", cancelled_by: "customer", cancelled_late: Date.now() > start - hours * 3600000 });
+      try { localStorage.setItem(DEMO_KEY, JSON.stringify(d)); } catch (e) {}
+    }
+    return demoGet();
+  }
+  const respond = action => demo ? Promise.resolve(demoRespond(action)) : Cloud.apptRespond(token, action);
+
+  function render() {
+    show("t-view");
+    const start = new Date(ap.starts_at), future = start.getTime() > Date.now(), open = ap.status === "booked" && future;
+    const deadline = new Date(start.getTime() - (ap.cancel_hours || 0) * 3600000), free = Date.now() < deadline.getTime();
+    $("#t-garage").textContent = ap.garage;
+    $("#t-when").textContent = when(start);
+    $("#t-what").textContent = [KIND[ap.kind] || "תור", ap.name, [ap.address, ap.city].filter(Boolean).join(", ")].filter(Boolean).join(" · ");
+    const bookUrl = demo ? "../book/?demo" : "../book/?g=" + encodeURIComponent(ap.garage_id);
+    const moveUrl = bookUrl + "&move=" + encodeURIComponent(token);
+    let state, acts = "";
+    if (ap.status === "cancelled") {
+      state = `<b>${ap.cancelled_by === "garage" ? "המוסך ביטל את התור." : "התור בוטל."}</b><p class="muted small">אפשר לקבוע תור אחר מתי שנוח.</p>`;
+      if (ap.booking_enabled) acts = `<a class="btn primary big" href="${esc(bookUrl)}">קביעת תור חדש</a>`;
+    } else if (!open) {
+      state = `<b>${ap.status === "no_show" ? "התור הזה עבר." : "התור הזה כבר עבר."}</b><p class="muted small">תודה שבחרתם ב${esc(ap.garage)}.</p>`;
+    } else {
+      state = ap.needs_ok ? `<span class="tag warn">ממתין לאישור המוסך</span><p class="muted small">המוסך יאשר את התור ויעדכן אתכם. אם יש שאלה, אפשר להתקשר.</p>`
+        : ap.confirmed_at ? `<span class="tag ok">אישרת הגעה</span><p class="muted small">המוסך יודע שאתם מגיעים. נתראה!</p>`
+        : `<b>מגיעים?</b><p class="muted small">אישור קצר עוזר למוסך להיערך, ומשחרר את השעה למישהו אחר אם לא.</p>`;
+      acts = (ap.confirmed_at || ap.needs_ok ? "" : `<button class="btn primary big" id="t-yes">אני מגיע/ה</button>`)
+        + (ap.booking_enabled ? `<a class="btn big" href="${esc(moveUrl)}">שינוי מועד</a>` : "")
+        + `<button class="btn big" id="t-cancel">ביטול התור</button>`;
+    }
+    $("#t-state").innerHTML = state;
+    $("#t-actions").innerHTML = acts; $("#t-actions").hidden = !acts;
+    $("#t-policy").textContent = !open || !ap.cancel_hours ? "" : free
+      ? `אפשר לבטל או לשנות עד ${when(deadline)}.`
+      : `פחות מ-${ap.cancel_hours} שעות לפני התור. עדיין אפשר לבטל כאן, והמוסך יראה שזה ביטול מאוחר.`;
+    $("#t-tools").hidden = !open;
+    const y = $("#t-yes"); if (y) y.onclick = () => act("confirm", "תודה! המוסך יודע שאתם מגיעים");
+    const c = $("#t-cancel"); if (c) c.onclick = () => { if (confirm(free ? "לבטל את התור?" : "לבטל את התור? פחות מ-" + ap.cancel_hours + " שעות לפני, הביטול נרשם כמאוחר.")) act("cancel", "התור בוטל"); };
+    const addr = [ap.address, ap.city].filter(Boolean).join(", ");
+    $("#t-waze").href = "https://waze.com/ul?q=" + encodeURIComponent(addr || ap.garage) + "&navigate=yes";
+    if (ap.garage_phone) $("#t-call").href = "tel:" + ap.garage_phone.replace(/[^\d+*#]/g, ""); else $("#t-call").hidden = true;
+    $("#t-ics").onclick = () => {
+      const f = d => d.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, ""), end = new Date(start.getTime() + (ap.minutes || 60) * 60000);
+      const ics = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Tipulit//HE", "BEGIN:VEVENT", "UID:" + token + "@tipulit", "DTSTAMP:" + f(new Date()), "DTSTART:" + f(start), "DTEND:" + f(end), "SUMMARY:תור במוסך " + ap.garage, "LOCATION:" + addr, "END:VEVENT", "END:VCALENDAR"].join("\r\n");
+      const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([ics], { type: "text/calendar" })); a.download = "tor.ics"; document.body.appendChild(a); a.click(); a.remove();
+    };
+  }
+  async function act(action, done) {
+    $$("#t-actions button").forEach(b => { b.disabled = true; });
+    try { ap = await respond(action) || ap; toast(done); }
+    catch (e) { alert("לא הצלחנו לשלוח. נסו שוב או התקשרו למוסך."); }
+    render();
+  }
+  (async () => {
+    if (!token) return show("t-missing");
+    if (demo) { ap = demoGet(); $("#t-demo").hidden = false; }
+    else {
+      if (!/^[0-9a-f-]{36}$/i.test(token) || !Cloud.enabled) return show("t-missing");
+      try { ap = await Cloud.apptGet(token); } catch (e) { ap = null; }
+    }
+    if (!ap) return show("t-missing");
+    render();
+  })();
+})();
+</script>
+</body>
+</html>

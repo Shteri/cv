@@ -1,0 +1,578 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tipulit למוסכים</title>
+<meta name="description" content="הלקוחות שלך, מי מגיע לטיפול ומתי, לפי לוח היבואן של כל רכב.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="../icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Hebrew:wght@400;500;600&family=Rubik:wght@500;600;700&family=Unbounded:wght@600&display=swap">
+<link rel="stylesheet" href="../styles/tokens.css">
+<link rel="stylesheet" href="../styles/brand.css">
+<link rel="stylesheet" href="garage.css">
+</head>
+<body>
+<header class="bar">
+  <div class="bar-in">
+    <a class="brand" href="./" aria-label="Tipulit"><span class="brand-word" lang="en" dir="ltr">tipulit</span></a>
+    <span class="bar-tag">למוסכים</span>
+    <div class="bar-garage" id="bar-garage"></div>
+    <div class="bar-user" id="bar-user"></div>
+  </div>
+</header>
+
+<main class="page" id="main">
+  <!-- signed out / no garage / loading -->
+  <section class="gate" id="gate" hidden>
+    <h1 id="gate-title">לוח הלקוחות של המוסך</h1>
+    <p class="muted" id="gate-text">מי מהלקוחות שלך מגיע לטיפול, למי פג הטסט ולמי יש ריקול פתוח. לפי לוח היבואן של כל רכב.</p>
+    <div class="gate-actions" id="gate-actions"></div>
+  </section>
+
+  <!-- dashboard -->
+  <section class="dash" id="dash" hidden>
+    <div class="demo-note" id="demo-note" hidden>מצב הדגמה: לקוחות לדוגמה, שום הודעה לא נשלחת. מה שתשנו נשמר בדפדפן הזה, וקישורי הלקוח (אישור עבודה, קביעת תור) נפתחים כמו אצל הלקוח. <button class="btn small" id="demo-reset">להתחיל מחדש</button> <a href="./">ליציאה</a></div>
+    <div class="head">
+      <div>
+        <h1 id="g-name">המוסך</h1>
+        <p class="muted" id="g-sub"></p>
+      </div>
+      <div class="head-actions">
+        <button class="btn" id="btn-import">ייבוא מאקסל</button>
+        <button class="btn" id="btn-csv">ייצוא לאקסל</button>
+        <button class="btn" id="btn-modules">התאמה למוסך</button>
+        <button class="btn" id="btn-invite">הזמנת לקוחות</button>
+        <button class="btn primary" id="btn-add">לקוח חדש</button>
+      </div>
+    </div>
+    <div class="tabs" role="tablist">
+      <button class="tab on" role="tab" data-tab="customers" aria-selected="true">לקוחות</button>
+      <button class="tab" role="tab" data-tab="calendar" aria-selected="false">יומן</button>
+      <button class="tab" role="tab" data-tab="order" data-module="service" aria-selected="false">מה להזמין</button>
+      <button class="tab" role="tab" data-tab="catalog" data-module="catalog" aria-selected="false">מחירון</button>
+      <button class="tab" role="tab" data-tab="stock" data-module="stock" aria-selected="false">מלאי</button>
+      <button class="tab" role="tab" data-tab="billing" data-module="billing" aria-selected="false">חשבוניות</button>
+    </div>
+
+    <div class="view" id="view-customers">
+    <div class="kpis" id="kpis"></div>
+
+    <div class="toolbar">
+      <div class="search"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><input id="q" type="search" autocomplete="off" placeholder="חיפוש לפי שם, דגם, לוחית או טלפון" aria-label="חיפוש לקוח"></div>
+      <div class="chips" id="filters"></div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="tbl" id="tbl">
+        <thead>
+          <tr>
+            <th><button class="sort" data-sort="name">לקוח</button></th>
+            <th>רכב</th>
+            <th class="num-col"><button class="sort" data-sort="km">ק"מ משוער</button></th>
+            <th><button class="sort" data-sort="due">טיפול הבא</button></th>
+            <th><button class="sort" data-sort="test">טסט</button></th>
+            <th>מצב</th>
+            <th class="act-col"><span class="sr">פעולות</span></th>
+          </tr>
+        </thead>
+        <tbody id="rows"></tbody>
+      </table>
+      <div class="empty" id="empty" hidden></div>
+    </div>
+    <p class="foot muted">ק"מ משוער = הק"מ האחרון שידוע, ועוד הקצב החודשי מאז. מועד הטיפול לפי לוח היבואן של הדגם, או לפי הזמן מהטיפול האחרון, המוקדם מביניהם.</p>
+    </div>
+
+    <div class="view" id="view-calendar" hidden>
+      <div class="toolbar">
+        <div class="day-nav"><button class="btn small" id="cal-prev" aria-label="יום קודם">‹</button><button class="btn small" id="cal-today">היום</button><button class="btn small" id="cal-next" aria-label="יום הבא">›</button></div>
+        <h2 id="cal-date"></h2>
+        <input type="date" id="cal-pick" aria-label="בחירת תאריך">
+        <div class="head-actions"><button class="btn" id="cal-remind" data-module="reminders">תזכורות</button><button class="btn" id="cal-settings" data-module="booking">תורים אונליין</button><button class="btn primary" id="cal-new">תור חדש</button></div>
+      </div>
+      <div class="kpis three" id="cal-kpis"></div>
+      <div class="cal-wrap"><div class="cal" id="cal"></div></div>
+      <p class="foot muted">לחיצה על משבצת ריקה פותחת תור חדש בשעה ובעמדה האלה. תורים שנקבעו אונליין מסומנים.</p>
+    </div>
+
+    <div class="view" id="view-order" hidden>
+      <div class="toolbar">
+        <div class="chips" id="fc-window"><button class="chip" data-d="14">שבועיים</button><button class="chip on" data-d="30">30 יום</button><button class="chip" data-d="60">60 יום</button></div>
+        <div class="head-actions"><button class="btn" id="fc-csv">ייצוא רשימת הזמנה</button><button class="btn primary" id="fc-po" data-module="stock">צור הזמנות רכש</button></div>
+      </div>
+      <p class="muted" id="fc-sub"></p>
+      <div class="table-wrap">
+        <table class="tbl fc">
+          <thead><tr><th>פריט</th><th class="num-col">רכבים</th><th class="num-col">במלאי</th><th class="num-col">להזמין</th><th>לפי דגם ומנוע</th></tr></thead>
+          <tbody id="fc-rows"></tbody>
+        </table>
+        <div class="empty" id="fc-empty" hidden></div>
+      </div>
+      <p class="foot muted">לפי הטיפול הבא של כל רכב בלוח היבואן. להזמין = מה שצריך לטיפולים, ועוד המינימום שהגדרתם, פחות מה שיש במלאי ומה שכבר הוזמן. כדי לחשב, קשרו כל חלק במלאי לפריט בטיפול (למשל מסנן שמן). שמן: לפי הקיבולת בספר, ו-4.5 ליטר כשהיא לא ידועה.</p>
+    </div>
+
+    <div class="view" id="view-catalog" hidden>
+      <div class="toolbar">
+        <div class="search"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><input id="cg-q" type="search" autocomplete="off" placeholder="חיפוש עבודה או חלק" aria-label="חיפוש במחירון"></div>
+        <label class="field"><span>₪ לשעת עבודה</span><input id="cg-rate" class="num" inputmode="decimal" autocomplete="off"></label>
+        <div class="head-actions"><button class="btn" id="cg-suggest">הוספה מרשימה מוכנה</button><button class="btn primary" id="cg-new">עבודה חדשה</button></div>
+      </div>
+      <div class="chips" id="cg-cats"></div>
+      <div class="table-wrap">
+        <table class="tbl"><thead><tr><th>עבודה</th><th>קטגוריה</th><th class="num-col">שעות</th><th>חלקים</th><th class="num-col">עבודה</th><th class="num-col">חלקים</th><th class="num-col">סה"כ משוער</th></tr></thead><tbody id="cg-rows"></tbody></table>
+        <div class="empty" id="cg-empty" hidden></div>
+      </div>
+      <p class="foot muted">עבודה = שעות כפול מחיר השעה, או מחיר קבוע אם הגדרתם. חלקים לפי המחיר ללקוח במלאי, ובכרטיס עבודה לפי החלק שמתאים לרכב. מכאן עבודה נכנסת לכרטיס עבודה, לבקשת אישור ולבדיקת רכב.</p>
+    </div>
+
+    <div class="view" id="view-stock" hidden>
+      <div class="kpis four" id="st-kpis"></div>
+      <div class="toolbar">
+        <div class="seg" id="st-seg"><button type="button" data-v="parts" class="on">חלקים</button><button type="button" data-v="pos">הזמנות רכש</button><button type="button" data-v="sups">ספקים</button></div>
+        <div class="search"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><input id="st-q" type="search" autocomplete="off" placeholder="חיפוש לפי מק&quot;ט, שם או דגם" aria-label="חיפוש במלאי"></div>
+        <div class="head-actions"><button class="btn" id="st-low">הזמן מה שחסר</button><button class="btn primary" id="st-new">חלק חדש</button></div>
+      </div>
+      <div class="table-wrap">
+        <table class="tbl" id="st-tbl"><thead id="st-head"></thead><tbody id="st-rows"></tbody></table>
+        <div class="empty" id="st-empty" hidden></div>
+      </div>
+      <p class="foot muted" id="st-foot"></p>
+    </div>
+
+    <div class="view" id="view-billing" hidden>
+      <div class="kpis three" id="bi-kpis"></div>
+      <div class="toolbar">
+        <input type="month" class="date-in" id="bi-month" aria-label="חודש">
+        <div class="head-actions"><button class="btn" id="bi-csv">ייצוא לרואה החשבון</button><button class="btn" id="bi-settings">חיבור למערכת חשבוניות</button></div>
+      </div>
+      <div class="box" id="bi-open-box" hidden><div class="row-between"><h3>עבודות בלי חשבונית</h3><span class="muted small">60 הימים האחרונים</span></div><div class="stack-sm" id="bi-open"></div></div>
+      <div class="table-wrap">
+        <table class="tbl"><thead><tr><th>תאריך</th><th>מספר</th><th>מסמך</th><th>לקוח</th><th class="num-col">סכום</th><th>תשלום</th><th class="act-col"><span class="sr">פעולות</span></th></tr></thead><tbody id="bi-rows"></tbody></table>
+        <div class="empty" id="bi-empty" hidden></div>
+      </div>
+      <p class="foot muted">החשבוניות מופקות בחשבון המורנינג של המוסך, עם המספור והדיווח שלו. אם אתם מפיקים חשבוניות במערכת אחרת, אפשר לרשום כאן את המספר כדי לדעת מה שולם.</p>
+    </div>
+  </section>
+</main>
+
+<!-- message preview (used in demo, and to edit before sending) -->
+<dialog class="dlg" id="dlg-msg">
+  <form method="dialog" class="dlg-in">
+    <div class="dlg-head"><h2>הודעה ל<span id="msg-to"></span></h2><button class="x" value="close" aria-label="סגור">×</button></div>
+    <textarea id="msg-text" rows="5"></textarea>
+    <p class="muted small" id="msg-note"></p>
+    <div class="dlg-actions"><button class="btn" value="close">ביטול</button><button class="btn" type="button" id="msg-copy">העתק</button><a class="btn primary" id="msg-send" target="_blank" rel="noopener">פתח בוואטסאפ</a></div>
+  </form>
+</dialog>
+
+<!-- customer card -->
+<dialog class="dlg xl" id="dlg-cust">
+  <form method="dialog" class="dlg-in">
+    <div class="dlg-head"><h2 id="cc-name">לקוח</h2><button class="x" value="close" aria-label="סגור">×</button></div>
+    <div class="cust-grid">
+      <div class="cust-side">
+        <div class="box">
+          <label class="field"><span>שם</span><input id="cc-in-name" autocomplete="off"></label>
+          <label class="field"><span>טלפון</span><input id="cc-in-phone" inputmode="tel" autocomplete="off"></label>
+          <label class="check"><input type="checkbox" id="cc-in-consent"> הלקוח הסכים לקבל ממני תזכורות</label>
+          <label class="field"><span>הערות</span><textarea id="cc-in-notes" rows="3"></textarea></label>
+          <p class="muted small" id="cc-src"></p>
+          <div class="dlg-actions start"><button class="btn" type="button" id="cc-save">שמור פרטים</button></div>
+        </div>
+        <div id="cc-cars"></div>
+      </div>
+      <div class="cust-main">
+        <div class="row-between"><h3>היסטוריה</h3><span class="muted small" id="cc-hist-note"></span></div>
+        <div class="timeline" id="cc-timeline"></div>
+      </div>
+    </div>
+  </form>
+</dialog>
+
+<!-- work order -->
+<dialog class="dlg wide" id="dlg-wo">
+  <form method="dialog" class="dlg-in">
+    <div class="dlg-head"><h2>כרטיס עבודה</h2><button class="x" value="close" aria-label="סגור">×</button></div>
+    <p class="muted" id="wo-who"></p>
+    <div class="seg" id="wo-kind"><button type="button" data-v="service" class="on">טיפול תקופתי</button><button type="button" data-v="repair">תיקון</button></div>
+    <div class="grid3">
+      <label class="field" id="wo-svc-row"><span>איזה טיפול</span><select id="wo-svc"></select></label>
+      <label class="field"><span>ק"מ</span><input id="wo-km" inputmode="numeric" class="num" autocomplete="off"></label>
+      <label class="field"><span>תאריך</span><input id="wo-date" type="date"></label>
+    </div>
+    <div class="ai-box" data-module="ai">
+      <label class="field"><span>תאר במילים, או הכתב לטלפון</span><textarea id="wo-ai" rows="2" placeholder="למשל: טיפול 60, החלפתי רפידות קדמיות ודיסקים, שעה וחצי עבודה"></textarea></label>
+      <div class="dlg-actions start"><button class="btn small" type="button" id="wo-ai-go">מלא מהתיאור</button><span class="muted small" id="wo-ai-msg"></span></div>
+    </div>
+    <div class="field"><span>מה הוחלף</span><div class="chips" id="wo-items"></div></div>
+    <div class="field"><span>שורות</span>
+      <table class="lines">
+        <thead><tr><th>סוג</th><th>תיאור (או מק"ט מהמלאי)</th><th class="num-col">כמות</th><th class="num-col">מחיר ליחידה</th><th class="num-col">סה"כ</th><th></th></tr></thead>
+        <tbody id="wo-lines"></tbody>
+      </table>
+      <datalist id="wo-parts"></datalist>
+      <div class="dlg-actions start"><button class="btn small" type="button" id="wo-add-part">+ חלק</button><button class="btn small" type="button" id="wo-add-labor">+ עבודה</button><button class="btn small" type="button" id="wo-add-job" data-module="catalog">+ מהמחירון</button></div>
+    </div>
+    <div class="row-between"><label class="field grow"><span>הערות</span><input id="wo-notes" autocomplete="off"></label><div class="total">סה"כ <b class="num" id="wo-total">₪0</b></div></div>
+    <div class="send" id="wo-send-row">
+      <label class="check"><input type="checkbox" id="wo-send" checked> לשלוח ללקוח לאישור, כדי שייכנס להיסטוריה שלו באפליקציה</label>
+      <div class="seg" id="wo-where"><button type="button" data-v="independent" class="on">מוסך פרטי</button><button type="button" data-v="importer">מוסך יבואן</button></div>
+    </div>
+    <p class="err" id="wo-err" hidden></p>
+    <div class="dlg-actions"><button class="btn" value="close">ביטול</button><button class="btn" type="button" id="wo-save-inv" data-module="billing">שמור והפק חשבונית</button><button class="btn primary" type="button" id="wo-save">שמור</button></div>
+  </form>
+</dialog>
+
+<!-- add customer -->
+<dialog class="dlg" id="dlg-add">
+  <form method="dialog" class="dlg-in">
+    <div class="dlg-head"><h2>לקוח חדש</h2><button class="x" value="close" aria-label="סגור">×</button></div>
+    <div class="row-between"><label class="field grow"><span>מספר רכב</span><input id="ad-plate" inputmode="numeric" autocomplete="off" class="num" placeholder="12-345-67"></label><button class="btn" type="button" id="ad-find">זהה</button></div>
+    <p class="muted small" id="ad-car"></p>
+    <div class="grid2">
+      <label class="field"><span>שם</span><input id="ad-name" autocomplete="off"></label>
+      <label class="field"><span>טלפון</span><input id="ad-phone" inputmode="tel" autocomplete="off"></label>
+      <label class="field"><span>ק"מ נוכחי</span><input id="ad-km" inputmode="numeric" class="num" autocomplete="off"></label>
+      <label class="field"><span>טיפול אחרון (חודש)</span><input id="ad-last" type="month"></label>
+    </div>
+    <label class="check"><input type="checkbox" id="ad-consent" checked> הלקוח הסכים לקבל ממני תזכורות</label>
+    <p class="err" id="ad-err" hidden></p>
+    <div class="dlg-actions"><button class="btn" value="close">ביטול</button><button class="btn primary" type="button" id="ad-save">הוסף</button></div>
+  </form>
+</dialog>
+
+<!-- appointment -->
+<dialog class="dlg wide" id="dlg-appt">
+  <form method="dialog" class="dlg-in">
+    <div class="dlg-head"><h2 id="ap-title">תור</h2><button class="x" value="close" aria-label="סגור">×</button></div>
+    <p class="muted" id="ap-sub"></p>
+    <div class="box" id="ap-ok" hidden></div>
+    <div class="field"><span>מצב</span><div class="chips" id="ap-status"></div></div>
+    <div class="ap-actions" id="ap-actions"></div>
+    <div class="field" id="ap-approvals-row" hidden><span>בקשות אישור</span><div class="stack-sm" id="ap-approvals"></div></div>
+    <p class="muted small" id="ap-note"></p>
+    <div class="dlg-actions"><button class="btn" type="button" id="ap-edit">שינוי מועד</button><button class="btn" value="close">סגור</button></div>
+  </form>
+</dialog>
+
+<!-- reminders and confirmations (module "reminders") -->
+<dialog class="dlg wide" id="dlg-remind" data-module="reminders">
+  <form method="dialog" class="dlg-in">
+    <div class="dlg-head"><h2 id="rm-title">תזכורות</h2><button class="x" value="close" aria-label="סגור">×</button></div>
+    <div class="seg" id="rm-day"><button type="button" data-v="0">היום</button><button type="button" data-v="1" class="on">מחר</button></div>
+    <p class="muted small" id="rm-sum"></p>
+    <div class="stack-sm" id="rm-list"></div>
+    <p class="muted small" id="rm-hint" hidden>לחלק מהתורים אין עדיין קישור אישור (השרת לפני מיגרציה 0010). ההודעה תבקש אישור בתשובה.</p>
+    <details class="fold">
+      <summary>מדיניות ביטול ואי-הגעה</summary>
+      <div class="grid2">
+        <label class="field"><span>ביטול בלי בעיה עד</span><select id="rm-cancel"><option value="0">בכל זמן</option><option value="2">שעתיים לפני</option><option value="6">6 שעות לפני</option><option value="12">12 שעות לפני</option><option value="24">יום לפני</option><option value="48">יומיים לפני</option></select></label>
+        <label class="field"><span>תור אונליין צריך אישור שלך אחרי</span><select id="rm-limit"><option value="0">אף פעם</option><option value="1">אי-הגעה אחת</option><option value="2">2 אי-הגעות</option><option value="3">3 אי-הגעות</option></select></label>
+      </div>
+      <p class="muted small">ביטול אחרי המועד, או אי-הגעה, נספרים לאותו מספר טלפון בשנה האחרונה.</p>
+      <p class="err" id="rm-err" hidden></p>
+      <div class="dlg-actions start"><button class="btn" type="button" id="rm-save">שמור מדיניות</button></div>
+    </details>
+    <div class="dlg-actions"><button class="btn" value="close">סגור</button></div>
+  </form>
+</dialog>
+
+<!-- new / edit appointment -->
+<dialog class="dlg" id="dlg-newappt">
+  <form method="dialog" class="dlg-in">
+    <div class="dlg-head"><h2 id="na-title">תור חדש</h2><button class="x" value="close" aria-label="סגור">×</button></div>
+    <label class="field"><span>לקוח</span><input id="na-find" list="na-dl" autocomplete="off" placeholder="חיפוש לפי שם או מספר רכב, או שם חדש"><datalist id="na-dl"></datalist></label>
+    <div class="grid2">
+      <label class="field"><span>טלפון</span><input id="na-phone" inputmode="tel" autocomplete="off"></label>
+      <label class="field"><span>מספר רכב</span><input id="na-plate" inputmode="numeric" class="num" autocomplete="off"></label>
+      <label class="field"><span>תאריך</span><input id="na-date" type="date"></label>
+      <label class="field"><span>שעה</span><input id="na-time" type="time" step="900"></label>
+      <label class="field"><span>משך</span><select id="na-min"><option value="30">חצי שעה</option><option value="60" selected>שעה</option><option value="90">שעה וחצי</option><option value="120">שעתיים</option><option value="180">3 שעות</option><option value="240">4 שעות</option><option value="480">יום עבודה</option></select></label>
+      <label class="field"><span>עמדה</span><select id="na-bay"></select></label>
+    </div>
+    <div class="seg" id="na-kind"><button type="button" data-v="service" class="on">טיפול</button><button type="button" data-v="repair">תיקון</button><button type="button" data-v="test">הכנה לטסט</button><button type="button" data-v="other">אחר</button></div>
+    <label class="field"><span>הערה</span><input id="na-note" autocomplete="off"></label>
+    <p class="err" id="na-err" hidden></p>
+    <div class="dlg-actions"><button class="btn" value="close">ביטול</button><button class="btn primary" type="button" id="na-save">קבע תור</button></div>
+  </form>
+</dialog>
+
+<!-- extra-work approval -->
+<dialog class="dlg wide" id="dlg-approval">
+  <form method="dialog" class="dlg-in">
+    <div class="dlg-head"><h2>אישור לעבודה נוספת</h2><button class="x" value="close" aria-label="סגור">×</button></div>
+    <p class="muted small">הלקוח מקבל קישור, רואה מה מצאתם וכמה זה עולה, ומאשר או דוחה. האישור נשמר עם התאריך והשעה.</p>
+    <label class="field"><span>מה מצאתם</span><input id="aw-msg" autocomplete="off" placeholder="למשל: רפידות הבלם הקדמיות שחוקות"></label>
+    <table class="lines">
+      <thead><tr><th>תיאור</th><th class="num-col">מחיר</th><th></th></tr></thead>
+      <tbody id="aw-lines"></tbody>
+    </table>
+    <div class="row-between"><div class="dlg-actions start"><button class="btn small" type="button" id="aw-add">+ שורה</button><button class="btn small" type="button" id="aw-add-job" data-module="catalog">+ מהמחירון</button></div><div class="total">סה"כ <b class="num" id="aw-total">₪0</b></div></div>
+    <p class="err" id="aw-err" hidden></p>
+    <div class="dlg-actions"><button class="btn" value="close">ביטול</button><button class="btn primary" type="button" id="aw-send">שלח ללקוח</button></div>
+  </form>
+</dialog>
+
+<!-- online booking settings -->
+<dialog class="dlg wide" id="dlg-settings">
+  <form method="dialog" class="dlg-in">
+    <div class="dlg-head"><h2>תורים אונליין</h2><button class="x" value="close" aria-label="סגור">×</button></div>
+    <div class="invite">
+      <div class="poster">
+        <p class="poster-kicker">סרקו וקבעו תור</p>
+        <p class="poster-title">תור למוסך<br>בלי לחכות על הקו</p>
+        <div class="qr" id="bk-qr"></div>
+        <p class="poster-garage" id="bk-garage"></p>
+        <span class="brand poster-brand" aria-label="Tipulit"><span class="brand-word" lang="en" dir="ltr">tipulit</span></span>
+      </div>
+      <div class="invite-side">
+        <label class="check"><input type="checkbox" id="bk-on"> לקבל תורים אונליין</label>
+        <div class="grid2">
+          <label class="field"><span>עמדות עבודה (מקביל)</span><input id="bk-bays" type="number" min="1" max="30" class="num"></label>
+          <label class="field"><span>אורך תור אונליין</span><select id="bk-slot"><option value="30">חצי שעה</option><option value="45">45 דקות</option><option value="60">שעה</option><option value="90">שעה וחצי</option><option value="120">שעתיים</option></select></label>
+        </div>
+        <p class="muted small">התורים נפתחים רק בשעות הפתיחה שבפרופיל המוסך, ורק כשיש עמדה פנויה. לקוח יכול להחזיק עד 3 תורים פתוחים.</p>
+        <label class="field"><span>קישור לקביעת תור</span><input id="bk-link" readonly dir="ltr"></label>
+        <div class="dlg-actions start"><button class="btn" type="button" id="bk-copy">העתק קישור</button><a class="btn" id="bk-wa" target="_blank" rel="noopener">שלח בוואטסאפ</a><button class="btn" type="button" id="bk-print">הדפס שלט</button></div>
+        <p class="err" id="bk-err" hidden></p>
+        <div class="dlg-actions"><button class="btn primary" type="button" id="bk-save">שמור</button></div>
+      </div>
+    </div>
+  </form>
+</dialog>
+
+<!-- import -->
+<dialog class="dlg wide" id="dlg-import">
+  <form method="dialog" class="dlg-in">
+    <div class="dlg-head"><h2>ייבוא לקוחות</h2><button class="x" value="close" aria-label="סגור">×</button></div>
+    <p class="muted small">קובץ אקסל או CSV מהמערכת הקיימת. צריך לפחות עמודה של שם ועמודה של מספר רכב. את הדגם, השנה והטסט נשלים לבד ממאגר הרכב.</p>
+    <label class="drop"><input type="file" id="im-file" accept=".csv,.xlsx,.xls,text/csv"><span id="im-file-lbl">בחרו קובץ</span></label>
+    <div class="grid2" id="im-map" hidden></div>
+    <label class="check" id="im-consent-row" hidden><input type="checkbox" id="im-consent"> ללקוחות ברשימה יש הסכמה לקבל ממני תזכורות</label>
+    <p class="muted small" id="im-status"></p>
+    <div class="progress" id="im-progress" hidden><span id="im-bar"></span></div>
+    <div class="dlg-actions"><button class="btn" value="close">סגור</button><button class="btn primary" type="button" id="im-go" disabled>ייבא</button></div>
+  </form>
+</dialog>
+
+<!-- invite: link + printable QR sign -->
+<dialog class="dlg wide" id="dlg-invite">
+  <form method="dialog" class="dlg-in">
+    <div class="dlg-head"><h2>הזמנת לקוחות</h2><button class="x" value="close" aria-label="סגור">×</button></div>
+    <div class="invite">
+      <div class="poster" id="poster">
+        <p class="poster-kicker">סרקו עם המצלמה</p>
+        <p class="poster-title">תזכורת לפני כל טיפול,<br>לפי ספר היבואן</p>
+        <div class="qr" id="qr"></div>
+        <p class="poster-garage" id="poster-garage"></p>
+        <span class="brand poster-brand" aria-label="Tipulit"><span class="brand-word" lang="en" dir="ltr">tipulit</span></span>
+      </div>
+      <div class="invite-side">
+        <label class="field"><span>קישור הצטרפות</span><input id="inv-link" readonly dir="ltr"></label>
+        <div class="dlg-actions start"><button class="btn" type="button" id="inv-copy">העתק קישור</button><a class="btn" id="inv-wa" target="_blank" rel="noopener">שלח בוואטסאפ</a><button class="btn primary" type="button" id="inv-print">הדפס שלט לדלפק</button></div>
+        <p class="muted small">לקוח שסורק מצטרף בשני צעדים: מאשר מה הוא משתף, ובוחר אם מותר לכם לפנות אליו. הוא מופיע כאן מיד.</p>
+      </div>
+    </div>
+  </form>
+</dialog>
+
+
+<!-- part -->
+<dialog class="dlg wide" id="dlg-part">
+  <form method="dialog" class="dlg-in">
+    <div class="dlg-head"><h2 id="pt-title">חלק חדש</h2><button class="x" value="close" aria-label="סגור">×</button></div>
+    <div class="grid3">
+      <label class="field"><span>מק"ט</span><input id="pt-sku" autocomplete="off" dir="ltr"></label>
+      <label class="field"><span>שם</span><input id="pt-name" autocomplete="off" placeholder="למשל מסנן שמן MANN W712"></label>
+      <label class="field"><span>פריט בטיפול</span><select id="pt-item"></select></label>
+      <label class="field"><span>מותג</span><input id="pt-brand" autocomplete="off"></label>
+      <label class="field"><span>מתאים ל</span><input id="pt-fits" autocomplete="off" placeholder="דגמים או מנועים, למשל קורולה, i10"></label>
+      <label class="field"><span>ספק</span><select id="pt-sup"></select></label>
+      <label class="field"><span>מחיר קנייה ליחידה</span><input id="pt-cost" inputmode="decimal" class="num" autocomplete="off" placeholder="₪"></label>
+      <label class="field"><span>מחיר ללקוח (כולל מע"מ)</span><input id="pt-price" inputmode="decimal" class="num" autocomplete="off" placeholder="₪"></label>
+      <label class="field"><span>מיקום במחסן</span><input id="pt-loc" autocomplete="off" placeholder="מדף 3"></label>
+      <label class="field"><span>מינימום במלאי</span><input id="pt-min" inputmode="decimal" class="num" autocomplete="off"></label>
+      <label class="field" id="pt-stock-row"><span>כמה יש עכשיו</span><input id="pt-stock" inputmode="decimal" class="num" autocomplete="off"></label>
+      <div class="field"><span>יחידה</span><div class="seg" id="pt-unit"><button type="button" data-v="unit" class="on">יחידות</button><button type="button" data-v="liter">ליטרים</button></div></div>
+    </div>
+    <div class="field" id="pt-moves-row" hidden><span>תנועות אחרונות</span><div class="stack-sm" id="pt-moves"></div></div>
+    <p class="err" id="pt-err" hidden></p>
+    <div class="dlg-actions"><button class="btn" type="button" id="pt-del">מחק</button><button class="btn" value="close">ביטול</button><button class="btn primary" type="button" id="pt-save">שמור</button></div>
+  </form>
+</dialog>
+
+<!-- stock count -->
+<dialog class="dlg" id="dlg-count">
+  <form method="dialog" class="dlg-in">
+    <div class="dlg-head"><h2>ספירה: <span id="ct-name"></span></h2><button class="x" value="close" aria-label="סגור">×</button></div>
+    <p class="muted small" id="ct-now"></p>
+    <label class="field"><span>כמה יש בפועל</span><input id="ct-qty" inputmode="decimal" class="num" autocomplete="off"></label>
+    <label class="field"><span>הערה</span><input id="ct-note" autocomplete="off" placeholder="ספירה, נשבר, החזרה לספק…"></label>
+    <p class="err" id="ct-err" hidden></p>
+    <div class="dlg-actions"><button class="btn" value="close">ביטול</button><button class="btn primary" type="button" id="ct-save">עדכן</button></div>
+  </form>
+</dialog>
+
+<!-- supplier -->
+<dialog class="dlg" id="dlg-sup">
+  <form method="dialog" class="dlg-in">
+    <div class="dlg-head"><h2 id="sp-title">ספק חדש</h2><button class="x" value="close" aria-label="סגור">×</button></div>
+    <div class="grid2">
+      <label class="field"><span>שם</span><input id="sp-name" autocomplete="off"></label>
+      <label class="field"><span>איש קשר</span><input id="sp-contact" autocomplete="off"></label>
+      <label class="field"><span>טלפון / וואטסאפ</span><input id="sp-phone" inputmode="tel" autocomplete="off"></label>
+      <label class="field"><span>מייל</span><input id="sp-email" type="email" autocomplete="off" dir="ltr"></label>
+    </div>
+    <label class="field"><span>הערות</span><input id="sp-notes" autocomplete="off" placeholder="ימי אספקה, תנאי תשלום"></label>
+    <p class="err" id="sp-err" hidden></p>
+    <div class="dlg-actions"><button class="btn" type="button" id="sp-del">מחק</button><button class="btn" value="close">ביטול</button><button class="btn primary" type="button" id="sp-save">שמור</button></div>
+  </form>
+</dialog>
+
+<!-- purchase order -->
+<dialog class="dlg wide" id="dlg-po">
+  <form method="dialog" class="dlg-in">
+    <div class="dlg-head"><h2 id="po-title">הזמנת רכש</h2><button class="x" value="close" aria-label="סגור">×</button></div>
+    <div class="row-between"><label class="field grow"><span>ספק</span><select id="po-sup"></select></label><span class="tag" id="po-status"></span></div>
+    <table class="lines">
+      <thead><tr><th>חלק</th><th class="num-col">כמות</th><th class="num-col" id="po-recv-h">התקבל</th><th class="num-col">מחיר ליחידה</th><th class="num-col">סה"כ</th><th></th></tr></thead>
+      <tbody id="po-lines"></tbody>
+    </table>
+    <datalist id="po-parts"></datalist>
+    <div class="row-between"><button class="btn small" type="button" id="po-add">+ שורה</button><div class="total">סה"כ <b class="num" id="po-total">₪0</b></div></div>
+    <label class="field"><span>הערה לספק</span><input id="po-note" autocomplete="off"></label>
+    <p class="muted small" id="po-hint"></p>
+    <p class="err" id="po-err" hidden></p>
+    <div class="dlg-actions" id="po-actions"></div>
+  </form>
+</dialog>
+
+<!-- invoice for a work order -->
+<dialog class="dlg wide" id="dlg-inv">
+  <form method="dialog" class="dlg-in">
+    <div class="dlg-head"><h2>חשבונית</h2><button class="x" value="close" aria-label="סגור">×</button></div>
+    <p class="muted" id="iv-who"></p>
+    <div class="row-between"><div class="seg" id="iv-kind"><button type="button" data-v="invoice_receipt" class="on">חשבונית מס קבלה</button><button type="button" data-v="tax_invoice">חשבונית מס</button><button type="button" data-v="receipt">קבלה</button></div><div class="total">סה"כ <b class="num" id="iv-total">₪0</b></div></div>
+    <div class="field" id="iv-pay-row"><span>אמצעי תשלום</span><div class="chips" id="iv-pay"><button type="button" class="chip on" data-v="card">אשראי</button><button type="button" class="chip" data-v="cash">מזומן</button><button type="button" class="chip" data-v="transfer">העברה</button><button type="button" class="chip" data-v="app">ביט / פייבוקס</button><button type="button" class="chip" data-v="check">צ'ק</button></div></div>
+    <div class="box" id="iv-morning">
+      <label class="field"><span>מייל ללקוח (לא חובה, מורנינג ישלח את המסמך)</span><input id="iv-email" type="email" autocomplete="off" dir="ltr"></label>
+      <p class="muted small" id="iv-morning-note"></p>
+      <div class="dlg-actions start"><button class="btn primary" type="button" id="iv-issue">הפק במורנינג</button></div>
+    </div>
+    <div class="box" id="iv-manual">
+      <p class="small" id="iv-manual-note"></p>
+      <div class="row-between"><label class="field grow"><span>מספר המסמך מהמערכת שלכם</span><input id="iv-number" autocomplete="off" class="num"></label><button class="btn" type="button" id="iv-record">רשום</button></div>
+    </div>
+    <p class="err" id="iv-err" hidden></p>
+    <div class="dlg-actions"><button class="btn" value="close">סגור</button></div>
+  </form>
+</dialog>
+
+<!-- invoicing provider -->
+<dialog class="dlg wide" id="dlg-billing">
+  <form method="dialog" class="dlg-in">
+    <div class="dlg-head"><h2>חיבור למורנינג (חשבונית ירוקה)</h2><button class="x" value="close" aria-label="סגור">×</button></div>
+    <p class="muted small">החשבוניות יוצאות מהחשבון של המוסך במורנינג, עם המספור, מספר ההקצאה והדיווח לרשויות. את המפתחות יוצרים במורנינג, בהגדרות באזור המפתחים (API). המפתח הסודי נשמר בשרת ולא מוצג שוב, גם לא לכם.</p>
+    <div class="grid2">
+      <label class="field"><span>מזהה (ID)</span><input id="bl-id" autocomplete="off" dir="ltr"></label>
+      <label class="field"><span>מפתח סודי (Secret)</span><input id="bl-secret" type="password" autocomplete="new-password" dir="ltr"></label>
+    </div>
+    <label class="check"><input type="checkbox" id="bl-exempt"> עוסק פטור (מפיקים קבלות בלבד)</label>
+    <label class="check"><input type="checkbox" id="bl-sandbox"> חשבון ניסיון של מורנינג (sandbox)</label>
+    <p class="muted small" id="bl-state"></p>
+    <p class="err" id="bl-err" hidden></p>
+    <div class="dlg-actions"><button class="btn" type="button" id="bl-del">נתק</button><button class="btn" type="button" id="bl-test">בדוק חיבור</button><button class="btn primary" type="button" id="bl-save">שמור</button></div>
+  </form>
+</dialog>
+
+<!-- job catalog: one job -->
+<dialog class="dlg wide" id="dlg-job">
+  <form method="dialog" class="dlg-in">
+    <div class="dlg-head"><h2 id="jb-title">עבודה חדשה</h2><button class="x" value="close" aria-label="סגור">×</button></div>
+    <div class="grid2">
+      <label class="field"><span>שם העבודה</span><input id="jb-name" autocomplete="off" placeholder="למשל רפידות בלם קדמיות"></label>
+      <label class="field"><span>קטגוריה</span><input id="jb-cat" list="jb-cats" autocomplete="off"><datalist id="jb-cats"></datalist></label>
+      <label class="field"><span>שעות עבודה</span><input id="jb-hours" class="num" inputmode="decimal" autocomplete="off"></label>
+      <label class="field"><span>מחיר עבודה קבוע (לא חובה)</span><input id="jb-price" class="num" inputmode="decimal" autocomplete="off" placeholder="אחרת שעות כפול מחיר השעה"></label>
+    </div>
+    <div class="field"><span>חלקים שהעבודה מחליפה</span><div class="chips" id="jb-items"></div></div>
+    <div class="grid3" id="jb-qty" hidden></div>
+    <p class="err" id="jb-err" hidden></p>
+    <div class="dlg-actions"><button class="btn" type="button" id="jb-del">מחק</button><button class="btn" value="close">ביטול</button><button class="btn primary" type="button" id="jb-save">שמור</button></div>
+  </form>
+</dialog>
+
+<!-- job catalog: ready-made list -->
+<dialog class="dlg wide" id="dlg-sug">
+  <form method="dialog" class="dlg-in">
+    <div class="dlg-head"><h2>רשימה מוכנה</h2><button class="x" value="close" aria-label="סגור">×</button></div>
+    <p class="muted small">עבודות נפוצות לפי סוג המוסך. השעות הן הערכה כללית: אחרי ההוספה עדכנו לפי הניסיון שלכם.</p>
+    <div class="stack-sm" id="sg-list"></div>
+    <div class="dlg-actions"><button class="btn" value="close">ביטול</button><button class="btn primary" type="button" id="sg-go">הוסף למחירון</button></div>
+  </form>
+</dialog>
+
+<!-- job catalog: pick a job for a work order or an approval -->
+<dialog class="dlg" id="dlg-pick">
+  <form method="dialog" class="dlg-in">
+    <div class="dlg-head"><h2>מהמחירון</h2><button class="x" value="close" aria-label="סגור">×</button></div>
+    <input id="pk-q" type="search" autocomplete="off" placeholder="חיפוש עבודה" aria-label="חיפוש עבודה">
+    <div class="stack-sm" id="pk-list"></div>
+  </form>
+</dialog>
+
+<!-- vehicle inspection -->
+<dialog class="dlg xl" id="dlg-insp">
+  <form method="dialog" class="dlg-in">
+    <div class="dlg-head"><h2>בדיקת רכב</h2><button class="x" value="close" aria-label="סגור">×</button></div>
+    <p class="muted" id="in-who"></p>
+    <div class="row-between"><label class="field"><span>ק"מ</span><input id="in-km" class="num" inputmode="numeric" autocomplete="off"></label><button class="btn small" type="button" id="in-allok">כל השאר תקין</button></div>
+    <div class="ai-box" data-module="ai">
+      <label class="field"><span>תאר במילים, או הכתב לטלפון</span><textarea id="in-ai" rows="2" placeholder="למשל: רפידות קדמיות 2 מ״מ, מגבים משאירים פסים, מצבר חלש, השאר תקין"></textarea></label>
+      <div class="dlg-actions start"><button class="btn small" type="button" id="in-ai-go">מלא מהתיאור</button><span class="muted small" id="in-ai-msg"></span></div>
+    </div>
+    <div class="insp" id="in-rows"></div>
+    <div class="row-between"><span class="muted small" id="in-sum"></span><div class="total">סה"כ מומלץ <b class="num" id="in-total">₪0</b></div></div>
+    <p class="muted small">הלקוח מקבל קישור עם מה שמצאתם, התמונות והמחירים, ומאשר כל עבודה בנפרד.</p>
+    <p class="err" id="in-err" hidden></p>
+    <div class="dlg-actions"><button class="btn" value="close">ביטול</button><button class="btn primary" type="button" id="in-send">שלח ללקוח</button></div>
+  </form>
+</dialog>
+
+<!-- which modules this garage uses -->
+<dialog class="dlg wide" id="dlg-modules">
+  <form method="dialog" class="dlg-in">
+    <div class="dlg-head"><h2>מה מופיע בלוח</h2><button class="x" value="close" aria-label="סגור">×</button></div>
+    <p class="muted small">הלקוחות, היומן וכרטיס העבודה תמיד פעילים. את השאר אפשר להדליק ולכבות לפי מה שהמוסך עושה.</p>
+    <p class="small" id="md-from"></p>
+    <div class="box"><p class="small"><b>עובדים עם תוכנה אחרת לחשבוניות ומלאי</b> (נשר, מוסכית וכו')? אין צורך בכפולים: מכבים כאן חשבוניות ומלאי, והתוכנה שלכם נשארת למשרד. טיפולית משמשת לקשר עם הלקוחות, ליומן ולתזכורות.</p><div class="dlg-actions start"><button class="btn small" type="button" id="md-other">כבו חשבוניות ומלאי</button></div></div>
+    <div class="stack-sm" id="md-list"></div>
+    <p class="err" id="md-err" hidden></p>
+    <div class="dlg-actions"><button class="btn" value="close">ביטול</button><button class="btn primary" type="button" id="md-save">שמור</button></div>
+  </form>
+</dialog>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="../data.js"></script>
+<script src="../lookup.js"></script>
+<script src="../engine.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script src="../config.js"></script>
+<script src="../cloud.js"></script>
+<script src="core.js"></script>
+<script src="modules/customers.js"></script>
+<script src="modules/workorder.js"></script>
+<script src="modules/calendar.js"></script>
+<script src="modules/booking.js"></script>
+<script src="modules/reminders.js"></script>
+<script src="modules/service.js"></script>
+<script src="modules/stock.js"></script>
+<script src="modules/billing.js"></script>
+<script src="modules/catalog.js"></script>
+<script src="modules/inspection.js"></script>
+<script src="modules/ai.js"></script>
+<script>Garage.boot();</script>
+</body>
+</html>

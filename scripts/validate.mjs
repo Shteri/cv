@@ -40,6 +40,11 @@ for (const file of readdirSync(dir).filter(f => f.endsWith(".json"))) {
     if (!actions.has(t.action)) fail(`bad action '${t.action}' in time_based ${t.item}`);
     if (!Number.isInteger(t.months) || t.months <= 0) fail(`time_based ${t.item} needs integer months`);
   }
+  // Item notes are shown to drivers. Transcriber remarks belong in `notes` / sources[].note, which the bundler strips.
+  const devWords = /לא אומת|לא נקרא|לא נמצא|חסומ|סביבת הענן|carbook|eLUM|לוודא מול|בשם הקובץ/;
+  const userNotes = [...(s.services ?? []).flatMap(x => x.items ?? []), ...(s.time_based ?? []), ...(s.long_interval ?? [])];
+  for (const it of userNotes) if (it.note && devWords.test(it.note)) fail(`item note for '${it.item}' reads like a transcriber remark, move it to notes: "${it.note}"`);
+  if (s.interval?.note && devWords.test(s.interval.note)) fail(`interval.note reads like a transcriber remark: "${s.interval.note}"`);
   for (const [k, v] of Object.entries(s.specs ?? {})) {
     if (!specKeys.has(k)) fail(`unknown specs key '${k}'`);
     if (typeof v !== "string" || !v.trim()) fail(`specs.${k} must be a non-empty string`);

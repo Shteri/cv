@@ -1,0 +1,10 @@
+/*
+  The Tipulit wordmark, shared by the app and the landing page so it is identical everywhere.
+  Lowercase "tipulit" in the brand face with a square full stop in plate yellow. No Hebrew, no letter mark.
+  Markup (the only form to use):
+    <… class="brand" aria-label="Tipulit"><span class="brand-word" lang="en" dir="ltr">tipulit</span></…>
+  Size it with --brand-size on the element (default 1.25rem); the full stop scales with it.
+*/
+.brand { --brand-size: 1.25rem; display: inline-flex; align-items: center; color: inherit; text-decoration: none; }
+.brand-word { font: 600 var(--brand-size)/1 var(--font-brand); letter-spacing: -.03em; color: var(--ink); white-space: nowrap; }
+.brand-word::after { content: ""; display: inline-block; width: .3em; height: .3em; margin-inline-start: .08em; border-radius: .07em; background: var(--accent); }

@@ -1,0 +1,120 @@
+/*
+  Tipulit design tokens, "night drive". THE ONLY FILE THAT MAY CONTAIN LITERAL COLOURS OR FONT NAMES.
+  Used by the app (styles/app.css) and the landing page (welcome/welcome.css).
+  Components derive alpha variants with color-mix() from these tokens instead of writing rgba().
+  Change the look here; `node scripts/check-design.mjs` fails the build if a literal leaks elsewhere.
+*/
+:root {
+  color-scheme: light;
+  interpolate-size: allow-keywords;
+
+  /* surfaces */
+  --ground: #F1F2F4; --ground-2: #E9EBEE;
+  --surface: #FFFFFF; --surface-2: #ECEEF1; --surface-3: #E2E5EA;
+  --line: #DDE0E5; --line-strong: #C6CAD1;
+  /* text */
+  --ink: #0C0F12; --muted: #555C66; --faint: #868D97;
+  /* accent: licence-plate yellow. --accent is a fill; accent-coloured text uses --accent-text */
+  --accent: #F7C948; --accent-2: #FFE08A; --accent-ink: #101214; --accent-soft: #FCEFC7; --accent-deep: #EDB92C; --accent-text: #7A5A00;
+  /* the plate never changes with the theme */
+  --plate: #F7C948; --plate-ink: #101214; --plate-tab: #1747A8; --plate-tab-ink: #FFFFFF;
+  /* status: meaning only, always paired with text */
+  --good: #148A55; --good-soft: #DDF3E7;
+  --warn: #9A6700; --warn-soft: #FBEFD2;
+  --crit: #C8352B; --crit-soft: #FBE4E1;
+  --unknown: #9AA1AB;
+  --focus: #0C0F12;
+  /* neutrals for derived light, shade and scrims */
+  --white: #FFFFFF; --shade: #0C0F12; --scrim: #040506; --mask: #000000;
+
+  /* the next-service hero card follows the theme: white with the yellow glow here, graphite in dark */
+  --hero-bg: #FFFFFF; --hero-ink: #0C0F12; --hero-good: #148A55; --hero-warn: #9A6700; --hero-crit: #C8352B;
+  --hero-line: color-mix(in srgb, var(--hero-ink) 9%, transparent); --hero-fill: color-mix(in srgb, var(--hero-ink) 5%, transparent);
+  --hero-shadow: 0 24px 48px -28px color-mix(in srgb, var(--accent-deep) 55%, transparent);
+  /* the phone frame looks the same in both themes */
+  --ring-good: #F7C948; --ring-warn: #F0B04A; --ring-crit: #FF6B5E;
+  --device: #050607; --device-edge: #2A2F37; --screen: #F3F5F8;
+  --brand-google: #EA4335;
+
+  /* derived */
+  --glass-bg: color-mix(in srgb, var(--surface) 72%, transparent);
+  --glass-line: color-mix(in srgb, var(--ink) 8%, transparent);
+  --edge: inset 0 1px 0 color-mix(in srgb, var(--white) 90%, transparent);
+  --shadow: 0 1px 2px color-mix(in srgb, var(--shade) 5%, transparent), 0 12px 32px -14px color-mix(in srgb, var(--shade) 18%, transparent);
+  --shadow-lg: 0 50px 100px -40px color-mix(in srgb, var(--shade) 35%, transparent), 0 12px 28px -14px color-mix(in srgb, var(--shade) 20%, transparent);
+  --glow: color-mix(in srgb, var(--accent) 25%, transparent);
+  --road: color-mix(in srgb, var(--ink) 10%, transparent);
+  --hl-color: var(--ink);
+  --hl-bg: linear-gradient(transparent 60%, var(--accent) 60%, var(--accent) 92%, transparent 92%);
+  --hover-ink: var(--ink);
+
+  /* type */
+  --font-text: "IBM Plex Sans Hebrew", "Segoe UI", Arial, sans-serif;
+  --font-display: "Rubik", "IBM Plex Sans Hebrew", Arial, sans-serif;
+  --font-brand: "Unbounded", "Rubik", Arial, sans-serif; /* the Latin "Tipulit" wordmark only */
+
+  /* shape */
+  --r-panel: 28px; --r-card: 22px; --r-tile: 16px; --r-control: 14px; --r-field: 12px; --r-plate: 8px; --r-pill: 999px;
+
+  /* motion */
+  --ease: cubic-bezier(.16, 1, .3, 1);
+  --spring: cubic-bezier(.34, 1.56, .64, 1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --ground: #08090B; --ground-2: #0D0F12;
+    --surface: #14171C; --surface-2: #1C2027; --surface-3: #252A32;
+    --line: #262B33; --line-strong: #333A45;
+    --ink: #F3F4F6; --muted: #9BA2AC; --faint: #626A75;
+    --accent-soft: #3A3014; --accent-deep: #FFD866; --accent-text: #F7C948;
+    --hero-bg: #111418; --hero-ink: #F3F4F6; --hero-good: #6FE3A8; --hero-warn: #F5C36E; --hero-crit: #FF9C92;
+    --hero-line: color-mix(in srgb, var(--white) 9%, transparent); --hero-fill: color-mix(in srgb, var(--white) 7%, transparent);
+    --hero-shadow: 0 30px 60px -30px color-mix(in srgb, var(--shade) 60%, transparent), inset 0 1px 0 color-mix(in srgb, var(--white) 7%, transparent);
+    --good: #3FD58B; --good-soft: #12301F;
+    --warn: #F0B04A; --warn-soft: #352A10;
+    --crit: #FF6B5E; --crit-soft: #3A1A18;
+    --unknown: #6B7380;
+    --focus: #F7C948;
+    --shade: #000000;
+    --glass-bg: color-mix(in srgb, var(--surface) 62%, transparent);
+    --glass-line: color-mix(in srgb, var(--white) 9%, transparent);
+    --edge: inset 0 1px 0 color-mix(in srgb, var(--white) 6%, transparent);
+    --shadow: 0 1px 0 color-mix(in srgb, var(--white) 3%, transparent), 0 20px 40px -20px color-mix(in srgb, var(--shade) 80%, transparent);
+    --shadow-lg: 0 50px 120px -40px color-mix(in srgb, var(--shade) 95%, transparent), 0 16px 40px -16px color-mix(in srgb, var(--shade) 70%, transparent);
+    --glow: color-mix(in srgb, var(--accent) 12%, transparent);
+    --road: color-mix(in srgb, var(--accent) 16%, transparent);
+    --hl-color: var(--accent);
+    --hl-bg: none;
+    --hover-ink: var(--accent);
+  }
+}
+/* explicit override, same values as the media query above */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --ground: #08090B; --ground-2: #0D0F12;
+  --surface: #14171C; --surface-2: #1C2027; --surface-3: #252A32;
+  --line: #262B33; --line-strong: #333A45;
+  --ink: #F3F4F6; --muted: #9BA2AC; --faint: #626A75;
+  --accent-soft: #3A3014; --accent-deep: #FFD866; --accent-text: #F7C948;
+  --hero-bg: #111418; --hero-ink: #F3F4F6; --hero-good: #6FE3A8; --hero-warn: #F5C36E; --hero-crit: #FF9C92;
+  --hero-line: color-mix(in srgb, var(--white) 9%, transparent); --hero-fill: color-mix(in srgb, var(--white) 7%, transparent);
+  --hero-shadow: 0 30px 60px -30px color-mix(in srgb, var(--shade) 60%, transparent), inset 0 1px 0 color-mix(in srgb, var(--white) 7%, transparent);
+  --good: #3FD58B; --good-soft: #12301F;
+  --warn: #F0B04A; --warn-soft: #352A10;
+  --crit: #FF6B5E; --crit-soft: #3A1A18;
+  --unknown: #6B7380;
+  --focus: #F7C948;
+  --shade: #000000;
+  --glass-bg: color-mix(in srgb, var(--surface) 62%, transparent);
+  --glass-line: color-mix(in srgb, var(--white) 9%, transparent);
+  --edge: inset 0 1px 0 color-mix(in srgb, var(--white) 6%, transparent);
+  --shadow: 0 1px 0 color-mix(in srgb, var(--white) 3%, transparent), 0 20px 40px -20px color-mix(in srgb, var(--shade) 80%, transparent);
+  --shadow-lg: 0 50px 120px -40px color-mix(in srgb, var(--shade) 95%, transparent), 0 16px 40px -16px color-mix(in srgb, var(--shade) 70%, transparent);
+  --glow: color-mix(in srgb, var(--accent) 12%, transparent);
+  --road: color-mix(in srgb, var(--accent) 16%, transparent);
+  --hl-color: var(--accent);
+  --hl-bg: none;
+  --hover-ink: var(--accent);
+}
