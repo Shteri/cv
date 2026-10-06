@@ -38,12 +38,19 @@ if (await p.$("#ap-ready")) { await p.click("#ap-ready"); await p.waitForTimeout
 else { console.log("no ready button (no phone)"); await p.evaluate(() => document.querySelectorAll("dialog[open]").forEach(d => d.close())); }
 await p.waitForTimeout(200);
 // new appointment via empty cell, then clash
-const cell = await p.$('#cal .cal-cell[data-slot="960"][data-bay="3"]');
-await cell.click({ force: true }); await p.waitForTimeout(300);
+// the demo day changes with the date: take the first free hour from 14:00 on
+const free = await p.evaluate(() => {
+  const v = (e, k) => +getComputedStyle(e).getPropertyValue(k) || 0;
+  const busy = [...document.querySelectorAll("#cal .appt:not(.off)")].map(a => ({ r: v(a, "--r"), s: v(a, "--s") || 1, c: v(a, "--c") }));
+  const c = [...document.querySelectorAll("#cal .cal-cell.hour")].find(e => +e.dataset.slot >= 840 && !busy.some(x => x.c === v(e, "--c") && v(e, "--r") >= x.r && v(e, "--r") < x.r + x.s));
+  return c ? { slot: +c.dataset.slot, bay: c.dataset.bay } : null;
+});
+const hhmm = free ? `${String(Math.floor(free.slot / 60)).padStart(2, "0")}:00` : "16:00";
+await p.$eval(`#cal .cal-cell[data-slot="${free ? free.slot : 960}"][data-bay="${free ? free.bay : 3}"]`, e => e.click()); await p.waitForTimeout(300);
 console.log("new appt prefill:", await p.inputValue("#na-date"), await p.inputValue("#na-time"), "bay", await p.inputValue("#na-bay"));
 await p.fill("#na-find", "דני בדיקה"); await p.fill("#na-phone", "0501234567"); await p.fill("#na-plate", "1234567"); await p.click("#na-save"); await p.waitForTimeout(500);
 console.log("new appt:", await p.textContent("#toast"), "| blocks:", await p.$$eval("#cal .appt", l => l.length));
-await p.click("#cal-new"); await p.fill("#na-time", "16:00"); await p.selectOption("#na-bay", "3");
+await p.click("#cal-new"); await p.fill("#na-time", hhmm); await p.selectOption("#na-bay", free ? free.bay : "3");
 await p.fill("#na-find", "התנגשות"); await p.click("#na-save"); await p.waitForTimeout(300);
 console.log("clash err:", await p.textContent("#na-err"), "hidden:", await p.$eval("#na-err", e => e.hidden));
 await p.keyboard.press("Escape"); await p.waitForTimeout(200);

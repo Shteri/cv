@@ -31,9 +31,9 @@ console.log("wo lines:", before, "->", await p.$$eval("#wo-lines tr", l => l.map
 await close();
 // appointment: inspection
 await p.click('.tab[data-tab="calendar"]'); await p.waitForTimeout(300);
-await p.click('#cal .appt[data-st="in_progress"]'); await p.waitForTimeout(200);
+await p.locator('#cal .appt[data-st="in_progress"], #cal .appt[data-st="booked"]').first().click(); await p.waitForTimeout(200); // which statuses the demo day has depends on the hour
 console.log("appt actions:", await p.$$eval("#ap-actions .btn", l => l.map(e => e.textContent.trim()).join(" | ")));
-await p.click('#ap-actions [data-act-appt]'); await p.waitForTimeout(300);
+await p.locator('#ap-actions [data-act-appt]', { hasText: "בדיקת רכב" }).click(); await p.waitForTimeout(300);
 console.log("insp rows:", await p.$$eval("#in-rows .insp-row", l => l.length));
 await p.click('#in-rows .insp-row[data-i="0"] .seg button[data-v="now"]'); await p.waitForTimeout(100);
 await p.fill('#in-rows .insp-row[data-i="0"] input[data-k="note"]', "נשארו 2 מ\"מ");

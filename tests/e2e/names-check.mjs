@@ -47,7 +47,7 @@ await p2.click("#to-garages"); await p2.waitForTimeout(800);
 const rows = await p2.$$eval("#gr-list .garage", l => l.map(e => e.innerText.replace(/\s+/g, " ")));
 const star = rows.find(t => t.includes("מוסך הכוכב")) || "";
 check("the sign's name shows, the registry name under it", /רשום במשרד התחבורה: אבו רמדאן איסמעיל מוסך/.test(star), star);
-check("a report under another name counts for the garage", /מומלץ/.test(star) && /היו חוזרים/.test(star), star);
+check("a report under another name counts for the garage", /דיווחת/.test(star) && /ביקרת כאן/.test(star) && !/מומלץ/.test(star), star);
 check("no separate row for the other name", !rows.some(t => t.startsWith("המוסך של איסמעיל")), rows.slice(0, 3));
 await p2.fill("#gr-q", "כוכב"); await p2.waitForTimeout(300);
 check("search finds the sign's name", (await p2.$$eval("#gr-list .garage", l => l.length)) === 1 && /מוסך הכוכב/.test(await p2.locator("#gr-list").innerText()));
