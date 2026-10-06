@@ -1514,9 +1514,15 @@
     const g = $("#me-google"); if (g) g.onclick = () => Cloud.enabled ? Cloud.signInWithGoogle().catch(e => toast("ההתחברות נכשלה: " + e.message)) : (S.user = { name: "מקס", email: "max@gmail.com", via: "google", demo: true }, save(), renderAll(), toast("התחברות לדוגמה. שרת עדיין לא מחובר"));
     const lo = $("#me-logout"); if (lo) lo.onclick = async () => { if (Cloud.enabled) { try { await Cloud.signOut(); } catch (e) {} } S.user = { name: "אורח", via: "guest" }; save(); renderAll(); };
     renderMyGarages(); renderMyLinks(); renderPlateRequests();
-    $("#me-cars").innerHTML = S.cars.map((c, i) => `<button class="row between row-btn" data-i="${i}">
-      <span><b>${carName(c)}</b><br><span class="small muted num">${fmt(c.km)} ק"מ</span></span>${i === S.active ? `<span class="status good">פעיל</span>` : `<span class="small muted">בחר</span>`}</button>`).join("");
-    $$("#me-cars button").forEach(b => b.onclick = () => { S.active = +b.dataset.i; save(); renderAll(); show("s-home"); });
+    $("#me-cars").innerHTML = S.cars.map((c, i) => `<div class="row g-8"><button class="row between row-btn" data-i="${i}">
+      <span><b>${carName(c)}</b><br><span class="small muted num">${fmt(c.km)} ק"מ</span></span>${i === S.active ? `<span class="status good">פעיל</span>` : `<span class="small muted">בחר</span>`}</button><button class="btn ghost danger fit compact" data-del="${i}" aria-label="הסר את ${esc(carName(c))}">הסר</button></div>`).join("");
+    $$("#me-cars [data-i]").forEach(b => b.onclick = () => { S.active = +b.dataset.i; save(); renderAll(); show("s-home"); });
+    // two taps: the first asks, and turns back after 5 seconds
+    $$("#me-cars [data-del]").forEach(b => b.onclick = () => {
+      const car = S.cars[+b.dataset.del];
+      if (!b.dataset.armed) { b.dataset.armed = "1"; b.textContent = "בטוח? הכל יימחק"; setTimeout(() => { if (b.isConnected) { delete b.dataset.armed; b.textContent = "הסר"; } }, 5000); return; }
+      removeCar(car, b, true);
+    });
     const s = schedById(S.cars[S.active].schedule);
     const st = { draft: ["טיוטה", "warn"], reviewed: ["נבדק", "good"], verified: ["מאומת", "good"] }[s.status];
     $("#me-sources").innerHTML = `<details class="fold"><summary><span>מקור הנתונים <span class="status ${st[1]} ms-6">${st[0]}</span></span></summary>
@@ -1861,7 +1867,7 @@
     const r = $("#pl-remove"); if (r) r.onclick = () => { if (!r.dataset.armed) { r.dataset.armed = "1"; r.textContent = "בטוח? לחיצה נוספת"; return; } removeCar(car, r); };
   }
   // Removes the car with its records and receipts, here and in the cloud. The plate is free for its next owner.
-  async function removeCar(car, btn) {
+  async function removeCar(car, btn, stay) {
     if (Cloud.enabled && car.cloudId) {
       btn.disabled = true; btn.classList.add("busy");
       try { await Cloud.deleteCar(car); }
@@ -1870,7 +1876,7 @@
     const i = S.cars.indexOf(car); if (i < 0) return;
     S.cars.splice(i, 1); S.active = Math.min(S.active > i ? S.active - 1 : S.active, Math.max(0, S.cars.length - 1)); save();
     toast(`${carName(car)} הוסר`);
-    if (S.cars.length) { renderAll(); show("s-home"); } else startAdd();
+    if (!S.cars.length) startAdd(); else { renderAll(); if (!stay) show("s-home"); }
   }
   let carDelArmed = null;
   $("#car-remove").onclick = () => {

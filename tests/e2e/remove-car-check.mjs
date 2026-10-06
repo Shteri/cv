@@ -12,6 +12,17 @@ const car = (plate, km) => ({ plate, schedule: "hyundai-i10-2014-2019", year: 20
 await p.evaluate(cs => localStorage.setItem("tipulit", JSON.stringify({ onboarded: true, user: { name: "מקס", via: "guest" }, cars: cs, active: 1 })), [car("11-111-11", 50000), car("22-222-22", 80000)]);
 await p.reload(); await p.waitForTimeout(400);
 const stored = () => p.evaluate(() => { const s = JSON.parse(localStorage.getItem("tipulit")); return { plates: s.cars.map(c => c.plate), active: s.active }; });
+// profile list: each car has its own remove, and the list stays open
+await p.click('#nav button[data-go="me"]'); await p.waitForTimeout(300);
+ok(await p.locator("#me-cars [data-del]").count() === 2, "profile list has a remove button per car");
+await p.screenshot({ path: (process.env.SHOTS || "/tmp") + "/remove-car-me.png" });
+await p.click('#me-cars [data-del="0"]'); await p.waitForTimeout(100);
+ok((await stored()).plates.length === 2, "profile: first tap only asks");
+await p.click('#me-cars [data-del="0"]'); await p.waitForTimeout(400);
+let m = await stored();
+ok(m.plates.join() === "22-222-22" && m.active === 0 && !(await p.locator("#s-me").isHidden()) && await p.locator("#me-cars [data-del]").count() === 1, "profile: removes that car, keeps the active one, stays on the profile: " + JSON.stringify(m));
+await p.evaluate(cs => { const s = JSON.parse(localStorage.getItem("tipulit")); s.cars.unshift(cs); s.active = 1; localStorage.setItem("tipulit", JSON.stringify(s)); }, car("11-111-11", 50000));
+await p.reload(); await p.waitForTimeout(400);
 await p.click('#nav button[data-go="car"]'); await p.waitForTimeout(300);
 ok(await p.locator("#car-remove").isVisible(), "car screen has a remove button");
 await p.click("#car-remove"); await p.waitForTimeout(100);
