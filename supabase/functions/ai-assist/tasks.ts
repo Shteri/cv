@@ -52,14 +52,15 @@ export const schemas = {
   receipt: z.object({
     kind: z.enum(["service", "repair", "other"]).describe("service = periodic maintenance; repair = a fault fixed or a part replaced outside the routine; other = anything else"),
     date: z.string().nullable().describe("Service date as YYYY-MM, or null if not on the document"),
-    km: z.number().int().nullable().describe("Odometer reading in km if printed on the document, else null"),
+    km: z.number().int().nullable().describe("Odometer at this visit: as printed or handwritten on the document; if missing, inferred from the date and HISTORY (see the rules); null only when there is no date either"),
+    km_estimated: z.boolean().describe("true when km is not on the document and you inferred it; false when it is printed or handwritten"),
     price: z.number().int().nullable().describe("Total paid in ILS including VAT, else null"),
     garage: z.string().nullable().describe("Garage or business name as printed, else null"),
     city: z.string().nullable().describe("City of the garage if printed, else null"),
     where: z.enum(["importer", "independent"]).nullable().describe("importer = an importer's own service center (e.g. יוניון מוטורס, כלמוביל, טלקאר, דלק מוטורס, צ'מפיון); independent = any other garage; null if unclear"),
-    svc_km: z.number().int().nullable().describe("For service: the interval named on the document, e.g. 'טיפול 60,000' = 60000; else null"),
+    svc_km: z.number().int().nullable().describe("For a periodic service: the km of the SCHEDULE_SERVICES entry this visit was (see the rules); else null"),
     items: z.array(z.string()).describe("Keys from ITEMS that were REPLACED or refilled according to the document (not just inspected)"),
-    text: z.string().nullable().describe("One short Hebrew line describing non-routine work, e.g. 'החלפת מצבר', else null"),
+    text: z.string().nullable().describe("One short Hebrew line naming the work beyond the routine service, e.g. 'החלפת מצבר' or 'החלפת צינור מזגן', else null"),
     confidence: z.enum(["high", "medium", "low"]).describe("How readable and complete the document was"),
     notes: z.string().nullable().describe("Anything the driver should double-check, in Hebrew, else null"),
   }),
@@ -84,8 +85,15 @@ export const SYSTEM: Record<Task, string> = {
 Use only ids and keys that appear in the context. When the note names a part that matches a stock part, set part_id and item and leave price null. Put labour as its own line: when it matches a catalog job set job_id; when the note gives hours put them in hours. Never make up a price the note doesn't state. Write desc in short Hebrew.`,
   insp: `You map an Israeli mechanic's short Hebrew inspection note onto a fixed CHECKLIST of keys. Return one entry per checklist item the note mentions, with status now/soon/ok and a short Hebrew note with any measurement. Do not return items the note doesn't mention; set rest_ok when the note says the rest is fine.`,
   record: `You turn an Israeli driver's short Hebrew description of a garage visit into a service record. Use only item keys from ITEMS. Leave a field null when the description doesn't give it; never guess numbers.`,
-  receipt: `You read an Israeli car service receipt or invoice (Hebrew, sometimes English; a photo or a PDF) and turn it into one structured record. The context gives the car and the maintenance ITEMS (keys with Hebrew names).
-Only report what the document shows. Never guess a km or a date; use null. Prices are in ILS; use the final total including VAT. Map replaced or refilled parts to ITEMS keys only; ignore inspections, checks and merchandise.`,
+  receipt: `You read an Israeli car service receipt or invoice (Hebrew, sometimes English; a photo or a PDF) and turn it into one structured record. The context gives the car (current km, km per month), TODAY, the car's HISTORY (earlier visits with date and km), the importer's SCHEDULE_SERVICES (km of each periodic service, repeating every CYCLE_KM) and the maintenance ITEMS (keys with Hebrew names).
+Read the document as a mechanic would and reason about it:
+- date: the visit date on the document, as YYYY-MM.
+- km: use the odometer printed in the km field, or written by hand anywhere on the page. Garages often leave the km field empty; then infer the odometer for the visit date from HISTORY (interpolate between the visits around it, or extrapolate from the nearest visit or from today's km at KM_PER_MONTH), round to the nearest 100 and set km_estimated. Never copy today's km for an older visit.
+- "טיפול 15000" and the like usually name the garage's service interval or the service type, not the odometer. For a periodic service, set svc_km to the SCHEDULE_SERVICES entry closest to the odometer at the visit (considering the cycle repeats), so "טיפול 15000" at about 147,000 km is the 150,000 service when the schedule has one there.
+- kind: "service" when the document includes a periodic service (oil, filters, "טיפול"), even if other work was done too; then put the other work in text. "repair" for fault fixes and part replacements without a periodic service.
+- items: parts replaced or refilled (oil, filters, plugs, fluids, pads, battery, AC gas after "ואקום ומילוי גז", etc.), mapped to ITEMS keys only; ignore inspections, cleaning additives and merchandise.
+- price: the final total paid including VAT, in ILS.
+Put anything uncertain the driver should check, in short Hebrew, in notes.`,
   quote: `You help an Israeli driver understand a garage's quote. For each line decide whether it is due, using ONLY the car's ITEM_STATE (when each item was last replaced and when it is next due) and its importer SCHEDULE. Judge the price ONLY against COMMUNITY_PRICES (what other drivers of this model paid for this service); if they don't cover the work, price_verdict is unknown. Never use outside price knowledge. Be neutral and practical, never accuse the garage, and remember the mechanic may have seen wear the schedule can't know about. Write in plain Hebrew.`,
 };
 
@@ -95,7 +103,7 @@ export function userMessage(task: Task, note: string, context: unknown): string 
   return `TODAY: ${today}\nCONTEXT:\n${JSON.stringify(context)}\n\nNOTE (${task}):\n${note}`;
 }
 
-export const EFFORT: Record<Task, "low" | "medium"> = { wo: "low", insp: "low", record: "low", quote: "medium", receipt: "medium" };
+export const EFFORT: Record<Task, "low" | "medium" | "high"> = { wo: "low", insp: "low", record: "low", quote: "medium", receipt: "high" };
 
 // Drop anything that points outside the context, so the client can trust ids and keys.
 export function clean<T extends Task>(task: T, out: Result<T>, context: any): Result<T> {

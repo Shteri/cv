@@ -813,7 +813,15 @@
   const readErr = m => /not configured/.test(m) ? "קריאת קבלות עוד לא הופעלה" : /not signed in|401/.test(m) && !/ai 401/.test(m) ? "קריאה אוטומטית זמינה אחרי התחברות עם Google"
     : /daily limit/.test(m) ? "הגעת למכסת הקריאות להיום" : /too long/.test(m) ? "הקובץ גדול מדי. נסה צילום" : /unreadable image/.test(m) ? "לא הצלחתי לפתוח את התמונה. נסה צילום מסך שלה או PDF"
     : /credit|billing/i.test(m) ? "השירות לא פעיל (אין קרדיט)" : /workspace|ai 401|authentication|api.key/i.test(m) ? "השירות לא פעיל (הגדרת מפתח)" : "לא הצלחתי לקרוא";
-  const readContext = (car, s) => ({ make: s.make_he, model: s.model_he, year: car.year, items: candidateItems(s).map(k => ({ key: k, he: itemName(k) })) });
+  // what the reader needs to reason like a mechanic: the car's visits so far (for a missing km), and the schedule (for "טיפול 15000")
+  function readContext(car, s) {
+    const shift = gridShift(s), top = car.km + s.cycle_km, services = [];
+    for (let lap = 0; lap * s.cycle_km + shift <= top; lap++) for (const svc of s.services) { const k = lap * s.cycle_km + svc.km; if (k <= top) services.push(k); }
+    const history = (car.history || []).filter(h => h.km && h.date && !isStateRec(h)).sort((a, b) => a.date.localeCompare(b.date)).slice(-30)
+      .map(h => ({ date: h.date, km: h.km, kind: h.kind || "service", svc_km: h.svcKm || null, garage: h.garage || null }));
+    return { today: new Date().toISOString().slice(0, 10), car: { make: s.make_he, model: s.model_he, year: car.year, km: car.km, km_per_month: car.kmMonth || 1500 },
+      history, cycle_km: s.cycle_km, schedule_services: [...new Set(services)].sort((a, b) => a - b), items: candidateItems(s).map(k => ({ key: k, he: itemName(k) })) };
+  }
   async function readReceipt(file) {
     if (!Cloud.enabled) throw new Error("not signed in");
     const car = S.cars[S.active], s = schedById(car.schedule);
@@ -870,10 +878,17 @@
   // fill the sheet from a structured record (receipt photo or a description in words); the driver reviews before saving
   function fillLog(r, s) {
       if (r.kind) setKind(r.kind);
-      if (r.svc_km && [...$("#log-svc").options].some(o => +o.value === r.svc_km)) $("#log-svc").value = String(r.svc_km);
+      if (r.svc_km) {
+        // the service list holds the services around today; an older visit's service is added so it can be chosen
+        if (![...$("#log-svc").options].some(o => +o.value === r.svc_km)) $("#log-svc").insertAdjacentHTML("afterbegin", `<option value="${r.svc_km}">טיפול ${fmt(r.svc_km)} ק"מ</option>`);
+        $("#log-svc").value = String(r.svc_km);
+      }
       if (r.date) $("#log-date").value = r.date;
-      if (r.km) $("#log-km").value = r.km;
-      else {
+      if (r.km) {
+        $("#log-km").value = r.km;
+        $("#log-km-est").textContent = r.km_estimated ? `הק"מ לא מופיע בקבלה. הערכה לפי ההיסטוריה: ${fmt(r.km)}. תקן אם אתה יודע.` : "";
+        $("#log-km-est").hidden = !r.km_estimated;
+      } else {
         const est = r.date ? estimateKm(S.cars[S.active], r.date) : null;
         $("#log-km").value = est || "";
         $("#log-km-est").textContent = est ? `הק"מ לא מופיע בקבלה. הערכנו ${fmt(est)} לפי קצב הנסיעה; תקן אם אתה יודע.` : `הק"מ לא מופיע בקבלה. מלא אותו.`;
