@@ -27,8 +27,11 @@
   /* neutrals for derived light, shade and scrims */
   --white: #FFFFFF; --shade: #0C0F12; --scrim: #040506; --mask: #000000;
 
-  /* the next-service hero card and the phone frame look the same in both themes */
-  --hero-bg: #111418; --hero-ink: #F3F4F6; --hero-good: #6FE3A8; --hero-warn: #F5C36E; --hero-crit: #FF9C92;
+  /* the next-service hero card follows the theme: white with the yellow glow here, graphite in dark */
+  --hero-bg: #FFFFFF; --hero-ink: #0C0F12; --hero-good: #148A55; --hero-warn: #9A6700; --hero-crit: #C8352B;
+  --hero-line: color-mix(in srgb, var(--hero-ink) 9%, transparent); --hero-fill: color-mix(in srgb, var(--hero-ink) 5%, transparent);
+  --hero-shadow: 0 24px 48px -28px color-mix(in srgb, var(--accent-deep) 55%, transparent);
+  /* the phone frame looks the same in both themes */
   --ring-good: #F7C948; --ring-warn: #F0B04A; --ring-crit: #FF6B5E;
   --device: #050607; --device-edge: #2A2F37; --screen: #F3F5F8;
   --brand-google: #EA4335;
@@ -66,6 +69,9 @@
     --line: #262B33; --line-strong: #333A45;
     --ink: #F3F4F6; --muted: #9BA2AC; --faint: #626A75;
     --accent-soft: #3A3014; --accent-deep: #FFD866; --accent-text: #F7C948;
+    --hero-bg: #111418; --hero-ink: #F3F4F6; --hero-good: #6FE3A8; --hero-warn: #F5C36E; --hero-crit: #FF9C92;
+    --hero-line: color-mix(in srgb, var(--white) 9%, transparent); --hero-fill: color-mix(in srgb, var(--white) 7%, transparent);
+    --hero-shadow: 0 30px 60px -30px color-mix(in srgb, var(--shade) 60%, transparent), inset 0 1px 0 color-mix(in srgb, var(--white) 7%, transparent);
     --good: #3FD58B; --good-soft: #12301F;
     --warn: #F0B04A; --warn-soft: #352A10;
     --crit: #FF6B5E; --crit-soft: #3A1A18;
@@ -92,6 +98,9 @@
   --line: #262B33; --line-strong: #333A45;
   --ink: #F3F4F6; --muted: #9BA2AC; --faint: #626A75;
   --accent-soft: #3A3014; --accent-deep: #FFD866; --accent-text: #F7C948;
+  --hero-bg: #111418; --hero-ink: #F3F4F6; --hero-good: #6FE3A8; --hero-warn: #F5C36E; --hero-crit: #FF9C92;
+  --hero-line: color-mix(in srgb, var(--white) 9%, transparent); --hero-fill: color-mix(in srgb, var(--white) 7%, transparent);
+  --hero-shadow: 0 30px 60px -30px color-mix(in srgb, var(--shade) 60%, transparent), inset 0 1px 0 color-mix(in srgb, var(--white) 7%, transparent);
   --good: #3FD58B; --good-soft: #12301F;
   --warn: #F0B04A; --warn-soft: #352A10;
   --crit: #FF6B5E; --crit-soft: #3A1A18;

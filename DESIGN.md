@@ -14,7 +14,7 @@ The look is a night drive: graphite surfaces, light as the material (soft glows,
 - The licence plate is a first-class element: yellow, 2–3px near-black border, blue "IL" tab, Rubik 700, always LTR.
 - Semantic colours (good / warn / crit / unknown) only mark state and are always paired with text.
 - Typography: IBM Plex Sans Hebrew for text, Rubik for display and numbers. Numbers are always tabular.
-- The next-service card is the one graphite hero card, identical in both themes.
+- The next-service card is the one hero card: white with a soft yellow glow in light, graphite in dark (it follows the theme, like everything else).
 
 ## Colors
 
@@ -30,7 +30,7 @@ The look is a night drive: graphite surfaces, light as the material (soft glows,
 - **Surface 2** `{colors.surface-2}` #ECEEF1 / #1C2027: inset panels, count tiles inside cards, segmented control track.
 - **Surface 3** `{colors.surface-3}` #E2E5EA / #252A32: toggle track, pressed rows.
 - **Line** `{colors.line}` #DDE0E5 / #262B33: 1px dividers, 1.5px borders.
-- **Hero card** #111418 with a soft yellow glow in the corner, text #F3F4F6, in both themes.
+- **Hero card** in light: #FFFFFF with a soft yellow glow in the corner, text #0C0F12, a yellow-tinted shadow; in dark: #111418 with the glow, text #F3F4F6. Tokens `--hero-*` in tokens.css.
 
 ### Text (light / dark)
 - **Ink** `{colors.ink}` #0C0F12 / #F3F4F6. **Muted** `{colors.muted}` #555C66 / #9BA2AC. **Faint** `{colors.faint}` #868D97 / #626A75 (unknown values, secondary meta only).
@@ -90,7 +90,7 @@ Numbers use `font-variant-numeric: tabular-nums` and `Intl.NumberFormat("he-IL")
 - **Bottom nav**: a floating glass bar 12px from the edges; four tabs (בית, הרכב, ציר טיפולים, אני); the active tab gets a surface-2 pill and its icon sits on a yellow rounded square.
 - **Condition summary** (home, above the next-service card): four count tiles (באיחור, מתקרב, בסדר, לא ידוע) and up to three rows that need attention. The overdue tile turns crit-soft when above zero.
 - **Condition row**: 10px status dot, item name with category, one-line history, due km or month on the left in Rubik.
-- **Next-service hero card**: graphite, status pill ("בזמן" / "מתקרב" / "הגיע הזמן לטיפול"), big km, a 112px ring filled in yellow (warn / crit colours when late), what the service includes, price tiles, a yellow primary action.
+- **Next-service hero card**: white in light / graphite in dark, status pill ("בזמן" / "מתקרב" / "הגיע הזמן לטיפול"), big km, a 112px ring filled in yellow (warn / crit colours when late), what the service includes, price tiles, a yellow primary action.
 - **Primary button**: yellow fill, dark text, light sweep on hover, springy press (`scale(.97)`); busy state pulses its label.
 - **Secondary button**: surface fill, 1.5px line border. **Ghost button**: muted text.
 - **Chip**: pill, 1.5px border; selected = yellow fill.
