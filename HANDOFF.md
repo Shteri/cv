@@ -836,3 +836,10 @@ toyota-yaris-2011-2020, hyundai-i25-2011-2018, skoda-octavia-2013-2025.
 - כל רשומה שומרת `docs: [{ id, type, path? }]`: תמונה ב-1600px (JPEG 0.82) או ה-PDF כמו שהוא. הקובץ נשמר במכשיר ב-IndexedDB (`app/docs.js`, `TipulitDocs`), כי localStorage קטן מדי; מחובר: עולה ל-`receipts/<uid>/<car>/<docId>.jpg|pdf` ו-`path` נרשם. העלאה שנכשלה משאירה את הרשומה לא מסונכרנת, והשמירה הבאה מנסה שוב.
 - התמונה הממוזערת (320px) נשארת רק לתצוגה. "המסמכים שלך": משבצת לכל קובץ (PDF כמשבצת PDF), לחיצה פותחת את הקובץ (`openDoc`: מהענן בקישור חתום ל-10 דקות, אחרת מהמכשיר). גם בטופס של רשומה קיימת.
 - מחיקת רשומה / רכב מוחקת את הקבצים גם מהמכשיר (`dropDocs`). בדיקה: `tests/e2e/docs-check.mjs`.
+
+## 44. פרטיות לפי החוק הישראלי (6.10.2026)
+- דפים: `/privacy/` (מדיניות פרטיות לפי חוק הגנת הפרטיות ותיקון 13: אין חובה למסור, מה נאסף, מקורות, מטרות, למי מועבר כולל Supabase/Netlify/Anthropic, אבטחה, שמירה, זכויות עיון/תיקון/מחיקה) ו-`/terms/` (תנאי שימוש). בלי GDPR. נבנים ב-`build-site.mjs` כמו שאר הדפים הציבוריים; עיצוב `.public.legal` ב-garage.css.
+- קישור בהתחברות ("בהמשך אתה מסכים…") וכרטיס "פרטיות" במסך "אני": "הורד את המידע שלי" (JSON בלי תמונות) ו"מחק את החשבון שלי".
+- מחיקת חשבון: edge function `delete-account` (verify_jwt, `{confirm:"delete"}`): מוחקת את הקבצים בתיקיות המשתמש (receipts, plate-proofs, garage-photos, inspection-photos של המוסכים שלו) ואז `auth.admin.deleteUser`; כל הטבלאות מתייחסות ל-auth.users עם on delete cascade (נבדק). האזהרה מציינת מוסכים בבעלותו. אחר כך המכשיר מתנקה (localStorage ו-IndexedDB).
+- `PRIVACY_EMAIL` ב-config.js: כתובת לפניות פרטיות. ריקה עד שמקס ייתן כתובת.
+- בדיקה: `tests/e2e/privacy-check.mjs`.

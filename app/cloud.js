@@ -107,6 +107,13 @@
       if (!rErr) { rec.cloudId = saved.id; rec.receiptPaths = paths; rec.synced = !upFailed; }
     }
   }
+  // the whole account (edge function delete-account): files, then the user; the data goes with it (on delete cascade)
+  async function deleteAccount() {
+    const { data, error } = await sb.functions.invoke("delete-account", { body: { confirm: "delete" } });
+    if (error) { let m = error.message; try { const j = await error.context.json(); m = j.error || m; } catch (e) {} throw new Error(m); }
+    if (data && data.error) throw new Error(data.error);
+    return data;
+  }
   // a short-lived link to open a receipt file
   async function docUrl(path) { const { data, error } = await sb.storage.from("receipts").createSignedUrl(path, 600); if (error) throw error; return data.signedUrl; }
   // one record, with its receipt files
@@ -351,5 +358,5 @@
     return data.result;
   }
 
-  g.TipulitCloud = { enabled, authError, hasAuthParams, currentUser, onAuth, signInWithGoogle, signOut, handleRedirect, loadCars, saveCar, deleteCar, deleteRecord, docUrl, communityPrices, communityGarages, extractReceipt, myGarageProfiles, garageProfiles, saveGarageProfile, deleteGarageProfile, photoUrl, startPhoneVerify, confirmPhoneVerify, claimGarage, pendingGarageClaims, setGarageStatus, garagePublic, joinGarage, myGarageLinks, updateGarageLink, leaveGarage, pendingGarageEntries, decideGarageEntry, garageCustomers, garageAddEntry, plateStatus, claimPlate, requestPlate, pendingPlateRequests, decidePlateRequest, garageBook, garageCarHistory, workOrders, addCustomer, updateCustomer, deleteCustomer, addGarageCar, updateGarageCar, saveWorkOrder, sendWorkOrder, importCustomers, appointments, saveAppointment, approvalsFor, createApproval, updateGarageSettings, bookingInfo, bookAppointment, bookSlot, apptGet, apptRespond, apptStrikes, approvalGet, approvalDecide, parts, suppliers, purchaseOrders, invoices, savePart, deletePart, saveSupplier, deleteSupplier, savePurchaseOrder, deletePurchaseOrder, receivePurchaseOrder, addStockMove, partMoves, woConsume, recordInvoice, deleteInvoice, billing, billingSave, billingDelete, issueDocument, jobTemplates, saveJob, deleteJob, approvalChoose, uploadInspectionPhoto, aiAssist };
+  g.TipulitCloud = { enabled, authError, hasAuthParams, currentUser, onAuth, signInWithGoogle, signOut, handleRedirect, loadCars, saveCar, deleteCar, deleteRecord, docUrl, deleteAccount, communityPrices, communityGarages, extractReceipt, myGarageProfiles, garageProfiles, saveGarageProfile, deleteGarageProfile, photoUrl, startPhoneVerify, confirmPhoneVerify, claimGarage, pendingGarageClaims, setGarageStatus, garagePublic, joinGarage, myGarageLinks, updateGarageLink, leaveGarage, pendingGarageEntries, decideGarageEntry, garageCustomers, garageAddEntry, plateStatus, claimPlate, requestPlate, pendingPlateRequests, decidePlateRequest, garageBook, garageCarHistory, workOrders, addCustomer, updateCustomer, deleteCustomer, addGarageCar, updateGarageCar, saveWorkOrder, sendWorkOrder, importCustomers, appointments, saveAppointment, approvalsFor, createApproval, updateGarageSettings, bookingInfo, bookAppointment, bookSlot, apptGet, apptRespond, apptStrikes, approvalGet, approvalDecide, parts, suppliers, purchaseOrders, invoices, savePart, deletePart, saveSupplier, deleteSupplier, savePurchaseOrder, deletePurchaseOrder, receivePurchaseOrder, addStockMove, partMoves, woConsume, recordInvoice, deleteInvoice, billing, billingSave, billingDelete, issueDocument, jobTemplates, saveJob, deleteJob, approvalChoose, uploadInspectionPhoto, aiAssist };
 })(window);

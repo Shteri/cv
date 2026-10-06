@@ -251,6 +251,10 @@ h3 { font: 700 1.05rem/1.3 var(--font-display); margin: 0; }
 .tbl tfoot td { border-top: 1px solid var(--line); padding: 12px 14px; }
 .public h1 { font-size: 1.6rem; }
 .public p { margin: 0; }
+/* privacy policy and terms */
+.public.legal { gap: 12px; line-height: 1.6; }
+.public.legal h2 { font-size: 1.1rem; margin: 10px 0 0; }
+.public.legal ul { margin: 0; padding-inline-start: 20px; display: flex; flex-direction: column; gap: 6px; }
 
 /* ---------- job catalog ---------- */
 .pick { width: 100%; text-align: start; cursor: pointer; background: var(--surface); }
