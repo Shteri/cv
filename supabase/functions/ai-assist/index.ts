@@ -56,7 +56,7 @@ Deno.serve(async (req) => {
     // a key that isn't scoped to a workspace needs the workspace id (secret ANTHROPIC_WORKSPACE_ID, or any secret holding a wrkspc_ value)
     const ws = Deno.env.get("ANTHROPIC_WORKSPACE_ID") || Object.values(Deno.env.toObject()).find(v => typeof v === "string" && v.trim().startsWith("wrkspc_"))?.trim();
     const client = new Anthropic({ apiKey: key, defaultHeaders: ws ? { "anthropic-workspace-id": ws } : undefined });
-    const t = task as Task;
+    const t = task as Task, t0 = Date.now();
     const response = await client.beta.messages.parse({
       model: "claude-opus-5-5",
       max_tokens: 16000,  // thinking is always on and counts toward this; a dense receipt needs room
@@ -71,6 +71,8 @@ Deno.serve(async (req) => {
            { type: "text" as const, text: userMessage(t, text, context) }]
         : userMessage(t, text, context) }],
     });
+    // tokens and time per call (public.ai_calls, migration 0015)
+    try { await db.from("ai_calls").insert({ user_id: userId, task: t, model: response.model, input_tokens: response.usage?.input_tokens ?? null, output_tokens: response.usage?.output_tokens ?? null, ms: Date.now() - t0, ok: !!response.parsed_output }); } catch (_) { /* table missing */ }
     if (response.stop_reason === "refusal") { await report(userId, t, 422, "refused " + JSON.stringify(response.stop_details)); return json({ error: "refused" }, 422); }
     if (!response.parsed_output) { await report(userId, t, 502, `no result: ${response.stop_reason} ${JSON.stringify(response.usage)}`); return json({ error: "no result", stop: response.stop_reason }, 502); }
     return json({ result: clean(t, response.parsed_output as any, context) });
