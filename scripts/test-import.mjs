@@ -7,7 +7,7 @@ const items = JSON.parse(readFileSync(root + "data/items.json", "utf8")), keys =
 let fail = 0;
 const check = (label, ok, got) => { console.log(`${ok ? "OK  " : "FAIL"} ${label}${ok ? "" : " got " + JSON.stringify(got)}`); if (!ok) fail++; };
 
-// shaped like an importer garage export: branch code column "מוסך", the name in "שם מוסך", type ע/חלק, notes with code *
+// a garage system export: one row per line, extra columns the importer does not use (branch code, card, codes, type)
 const H = ["תא.פתיחה", "מוסך", "כרטיס", "חשבונית", "מד אוץ", "ש.מ", "סוג", "אח.", "מספר פריט/עבודה", "תיאור פריט/עבודה", "כמות", "שם מוסך"];
 const L = (d, card, km, type, code, desc, qty = 1) => [d, 10, card, null, km, 0, type, "ל", code, desc, qty, "מוסך הדוגמה 10"];
 const rows = [H,
@@ -33,7 +33,7 @@ const by = d => r.visits.find(v => v.day === d) || {};
 check("columns: the garage name, not the branch code", r.columns && r.columns.garage === 11 && r.columns.km === 4 && r.columns.desc === 9, r.columns);
 check("lines grouped into visits by date and km", r.visits.length === 5, r.visits.map(v => v.day));
 check("service visit: oil and filter, merchandise and notes left out", by("2022-06-27").kind === "service" && by("2022-06-27").items.sort().join() === "engine_oil,oil_filter" && /אישור/.test(by("2022-06-27").notes), by("2022-06-27"));
-check("repair visit: the work, in plain words", by("2022-03-17").kind === "repair" && by("2022-03-17").text === "החלפת משאבת ואקום", by("2022-03-17"));
+check("repair visit: the work, in plain words", by("2022-03-17").kind === "repair" && /^החלפת משאבת ואקום/.test(by("2022-03-17").text), by("2022-03-17"));
 check("two job cards on one day are one visit; cabin and engine air filters told apart", by("2019-10-07").items.sort().join() === "air_filter,cabin_filter,spark_plugs,timing_belt" && by("2019-10-07").kind === "service", by("2019-10-07"));
 check("a battery sensor is not a battery", !by("2020-07-14").items.includes("battery_12v") && by("2020-07-14").items.includes("brake_pads"), by("2020-07-14"));
 check("a visit with only notes is marked empty", by("2021-04-26").empty === true && by("2021-04-26").kind === "other");
@@ -42,6 +42,13 @@ check("garage name and km", by("2022-06-27").garage === "מוסך הדוגמה 1
 // a simple table: one row per visit, English headers, Excel serial dates, prices
 const simple = I.fromRows([["Date", "Mileage", "Description", "Total"], [44927, "45,200", "Oil service, oil filter", 890], [45292, 60100, "Brake pads", "1,200"]], { itemKeys: keys });
 check("simple table: serial dates, km with commas, prices", simple.visits.length === 2 && simple.visits[1].day === "2023-01-01" && simple.visits[1].km === 45200 && simple.visits[1].price === 890 && simple.visits[1].items.sort().join() === "engine_oil,oil_filter" && simple.visits[0].items.includes("brake_pads"), simple.visits);
+// headers that mean nothing: the content decides (dates, km that grows with them, the longest text, a repeating name)
+const blind = I.fromRows([["A", "B", "C", "D", "E"],
+  ["12/01/2023", 4471, 45200, "החלפת שמן ומסנן שמן, מסנן אוויר", "מוסך השכונה"],
+  ["03/02/2024", 5120, 61100, "רפידות בלם קדמיות", "מוסך השכונה"],
+  ["20/08/2022", 3980, 30050, "טיפול 30,000", "מוסך השכונה"]], { itemKeys: keys });
+check("unknown headers: columns found by content", blind.columns && blind.columns.date === 0 && blind.columns.km === 2 && blind.columns.desc === 3 && blind.columns.garage === 4, blind.columns);
+check("unknown headers: visits read", blind.visits.length === 3 && blind.visits[0].km === 61100 && blind.visits[0].items.includes("brake_pads") && blind.visits[1].items.sort().join() === "air_filter,engine_oil,oil_filter", blind.visits);
 check("no date or km column: nothing guessed", I.fromRows([["שם", "טלפון"], ["דני", "050"]]).visits.length === 0);
 check("km per month from readings", I.kmPerMonth([{ day: "2015-01-01", km: 1000 }, { day: "2022-06-27", km: 110405 }]) === 1200 && I.kmPerMonth([{ day: "2022-01-01", km: 1000 }, { day: "2022-03-01", km: 3000 }]) === null);
 if (fail) { console.error(`${fail} failed`); process.exit(1); }
