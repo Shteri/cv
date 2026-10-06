@@ -259,7 +259,7 @@
   // issues through the garage's Morning account (edge function issue-document); the reply carries the provider's error text
   async function issueDocument(body) {
     const { data, error } = await sb.functions.invoke("issue-document", { body });
-    if (error) { let m = error.message; try { const j = await error.context.json(); m = j.error || m; } catch (e) {} throw new Error(m); }
+    if (error) { let m = error.message; try { const j = await error.context.json(); m = [j.error || m, j.detail || j.stop].filter(Boolean).join(": "); } catch (e) {} throw new Error(m); }
     if (data && data.error) throw new Error(data.error);
     return data;
   }
@@ -268,7 +268,7 @@
   // ---------- AI assist (edge function ai-assist): a short note becomes structured data, shown for review ----------
   async function aiAssist(task, note, context) {
     const { data, error } = await sb.functions.invoke("ai-assist", { body: { task, note, context } });
-    if (error) { let m = error.message; try { const j = await error.context.json(); m = j.error || m; } catch (e) {} throw new Error(m); }
+    if (error) { let m = error.message; try { const j = await error.context.json(); m = [j.error || m, j.detail || j.stop].filter(Boolean).join(": "); } catch (e) {} throw new Error(m); }
     if (data && data.error) throw new Error(data.error);
     return data.result;
   }
@@ -324,7 +324,7 @@
   // ---------- receipt reading: a photo (shrunk on the device) or a PDF, through ai-assist (signed in, daily limit) ----------
   async function extractReceipt(dataUrl, context) {
     const { data, error } = await sb.functions.invoke("ai-assist", { body: { task: "receipt", file: { data: dataUrlToBase64(dataUrl), media_type: mediaOf(dataUrl) }, context } });
-    if (error) { let m = error.message; try { const j = await error.context.json(); m = j.error || m; } catch (e) {} throw new Error(m); }
+    if (error) { let m = error.message; try { const j = await error.context.json(); m = [j.error || m, j.detail || j.stop].filter(Boolean).join(": "); } catch (e) {} throw new Error(m); }
     if (data && data.error) throw new Error(data.error);
     return data.result;
   }

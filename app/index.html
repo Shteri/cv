@@ -806,7 +806,8 @@
       if (r.notes) $("#log-extra").value = r.notes;
     } catch (e) {
       const m = String(e.message || e);
-      toast(/not configured/.test(m) ? "קריאת חשבוניות עוד לא הופעלה. מלא ידנית" : /not signed in|401/.test(m) ? "כדי לקרוא חשבוניות צריך להתחבר עם Google" : /daily limit/.test(m) ? "הגעת למכסת הקריאות להיום. מלא ידנית" : /too long/.test(m) ? "הקובץ גדול מדי. נסה צילום" : "לא הצלחתי לקרוא את החשבונית. מלא ידנית");
+      toast(/not configured/.test(m) ? "קריאת חשבוניות עוד לא הופעלה. מלא ידנית" : /not signed in|401/.test(m) ? "כדי לקרוא חשבוניות צריך להתחבר עם Google" : /daily limit/.test(m) ? "הגעת למכסת הקריאות להיום. מלא ידנית" : /too long/.test(m) ? "הקובץ גדול מדי. נסה צילום" : /credit|billing/i.test(m) ? "שירות ה-AI לא פעיל: אין קרדיט בחשבון Anthropic" : /ai 401|authentication|api.key/i.test(m) ? "מפתח ה-AI לא תקין" : "לא הצלחתי לקרוא את החשבונית. מלא ידנית");
+      console.warn("receipt reading failed:", m);
     }
     btn.disabled = false; btn.classList.remove("busy"); btn.dataset.busy = "";
   }
@@ -826,7 +827,7 @@
   }
   // ---------- AI: a description in words, a quote check (edge function ai-assist; signed-in drivers) ----------
   const AI_ERR = { "ai not configured": "השירות עוד לא פעיל.", "daily limit": "הגעת למכסה היומית. נסה שוב מחר.", "not signed in": "צריך להתחבר כדי להשתמש בזה." };
-  const aiErr = e => AI_ERR[e.message] || "לא הצלחנו לעבד את זה כרגע. נסה שוב.";
+  const aiErr = e => AI_ERR[e.message] || (/credit|billing/i.test(e.message) ? "שירות ה-AI לא פעיל: אין קרדיט בחשבון Anthropic." : "לא הצלחנו לעבד את זה כרגע. נסה שוב.");
   $("#log-ai-go").onclick = async () => {
     const note = $("#log-ai").value.trim(); if (!note) return $("#log-ai").focus();
     if (!signedIn()) return toast(AI_ERR["not signed in"]);
