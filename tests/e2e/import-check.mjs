@@ -44,7 +44,8 @@ check("service records get a schedule service km", imp.filter(h => h.kind === "s
 check("car km follows the file", car.km === 110405, car.km);
 check("km per month from the history", car.kmMonth >= 1000 && car.kmMonth <= 1300, car.kmMonth);
 check("last service from the file", car.lastService === "2022-06", car.lastService);
-check("the timing belt shows in the car's state", /רצועת תזמון[\s\S]*הוחלף ב-69,777/.test(await p.locator("#car-state").innerText()) || /רצועת תזמון/.test(await p.locator("#car-history").innerText()));
+// the records list is one line per record; the parts show in the car's state (folded rows included)
+check("the timing belt shows in the car's state", /רצועת תזמון[\s\S]*הוחלף ב-69,777/.test(await p.locator("#car-state").textContent()));
 console.log("errors:", errs);
 await b.close(); srv.close();
 process.exit(fail ? 1 : 0);

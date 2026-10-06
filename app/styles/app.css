@@ -228,6 +228,11 @@ input, select, textarea { font: inherit; color: var(--ink); }
 .state.tap { cursor: pointer; border-radius: var(--r-field); grid-template-columns: 10px 1fr auto 16px; }
 .state .edit { width: 14px; height: 14px; color: var(--faint); }
 .hist.tap { cursor: pointer; }
+.hist-main { display: grid; gap: 2px; min-width: 0; }
+.clip { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.hist .edit { width: 14px; height: 14px; color: var(--faint); flex: none; }
+.hist .pick { width: 20px; height: 20px; border-radius: 50%; border: 1.5px solid var(--line-strong); flex: none; }
+.hist.picked .pick { background: var(--accent); border-color: var(--accent); }
 .state.tap:active, .state.tap:focus-visible { background: var(--surface-2); }
 .state .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--faint); }
 .state.ok .dot { background: var(--good); } .state.soon .dot { background: var(--warn); } .state.unknown .dot { background: var(--faint); }

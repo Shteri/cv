@@ -1125,9 +1125,23 @@
     $("#car-docs-n").textContent = docs.length ? `${docs.length} מסמכים` : "";
     $("#car-docs").innerHTML = docs.map(d => `<button title="${d.r.kind === "service" ? "טיפול " + fmt(d.r.svcKm || d.r.km) : d.r.text}"><img src="${d.t}" alt="חשבונית"><span class="lb num">${d.r.date || fmt(d.r.km)}</span></button>`).join("");
     $("#car-history").innerHTML = historyHTML(car);
-    $("#car-add-repair").onclick = () => openLog(null, { kind: "repair" });
-    wireItems($("#car-history"));
-    $$("#car-history [data-rec]").forEach(el => { el.onclick = () => openRecord(el.dataset.rec); el.onkeydown = ev => { if (ev.key === "Enter") openRecord(el.dataset.rec); }; });
+    const ar = $("#car-add-repair"); if (ar) ar.onclick = () => openLog(null, { kind: "repair" });
+    wireItems($("#car-history")); wireHistory();
+  }
+  function wireHistory() {
+    const tap = (sel, fn) => $$("#car-history " + sel).forEach(el => { el.onclick = () => fn(el); el.onkeydown = ev => { if (ev.key === "Enter") fn(el); }; });
+    const redraw = () => { $("#car-history").innerHTML = historyHTML(S.cars[S.active]); const ar = $("#car-add-repair"); if (ar) ar.onclick = () => openLog(null, { kind: "repair" }); wireItems($("#car-history")); wireHistory(); };
+    tap("[data-rec]", el => openRecord(el.dataset.rec));
+    tap("[data-pick]", el => { const id = el.dataset.pick; histSel.has(id) ? histSel.delete(id) : histSel.add(id); redraw(); });
+    const on = (id, fn) => { const b = $(id); if (b) b.onclick = fn; };
+    on("#hist-more", () => { histAll = !histAll; redraw(); });
+    on("#hist-select", () => { histSel = new Set(); redraw(); });
+    on("#hist-cancel", () => { histSel = null; redraw(); });
+    on("#hist-del", async () => {
+      const car = S.cars[S.active], recs = (car.history || []).filter(h => histSel.has(h.id)); if (!recs.length || !confirm(`למחוק ${recs.length} רשומות?`)) return;
+      if (Cloud.enabled) { try { for (const r of recs) await Cloud.deleteRecord(r); } catch (e) { toast("המחיקה נכשלה. בדוק חיבור ונסה שוב"); return; } }
+      car.history = car.history.filter(h => !histSel.has(h.id)); histSel = null; save(); renderAll(); toast(`נמחקו ${recs.length} רשומות`);
+    });
   }
   const startCardHTML = () => `<div class="card start stack g-12">
       <h3>מצב הרכב מתחיל מהטיפול האחרון</h3>
@@ -1142,14 +1156,26 @@
       ${attn.length ? `<div class="attn">${attn.slice(0, 3).map(stateRow).join("")}</div>` : ""}
     </div>`; };
 
-  const historyHTML = car => { const h = (car.history || []).filter(e => !isStateRec(e) || (e.items || []).length).sort((a, b) => b.km - a.km || b.at - a.at); return `
-    <div class="card stack"><div class="row between"><h3>כל הרשומות</h3><button class="btn ghost fit bare add" id="car-add-repair">הוסף תיקון</button></div>
-      ${h.length ? "" : `<p class="small muted">עוד אין רשומות.</p>`}
-      ${h.map(e => isStateRec(e) ? `<div class="hist tap" role="button" tabindex="0" data-item="${e.items[0]}"><div><b>${recItemName(e, e.items[0])}: עדכנת</b> <span class="small muted num">· הוחלף ב-${fmt(e.km)} ק"מ${e.date ? " · " + monthName(new Date(e.date + "-01")) : ""}</span></div></div>` : `<div class="hist tap" role="button" tabindex="0" data-rec="${esc(e.id)}" aria-label="עריכת הרשומה">
-        <div><b class="num">${e.kind === "service" || !e.kind ? "טיפול " + fmt(e.svcKm || e.km) : e.text || kindName[e.kind]}</b> <span class="small muted num">· ${fmt(e.km)} ק"מ${e.date ? " · " + monthName(new Date(e.date + "-01")) : ""}</span>${e.source === "garage" ? ` <span class="tag ver" title="נרשם על ידי המוסך ואושר על ידך">מאומת</span>` : ""}<br>
-          <span class="small muted">${whereName[e.where] || ""}${e.garage ? " · " + e.garage : ""}${e.city ? " · " + e.city : ""}${(e.items || []).length ? " · " + recItems(e) : ""}${e.extra ? " · " + e.extra : ""}</span></div>
-        <div class="row g-8">${(e.receipts && e.receipts[0]) || e.receipt ? `<img class="hist-thumb" src="${(e.receipts && e.receipts[0]) || e.receipt}" alt="חשבונית">` : ""}<span class="amt num">${e.price ? "₪" + fmt(e.price) : ""}</span></div>
-      </div>`).join("")}
+  // All records: newest first, one short line each (what, when, km, price, garage). Everything else is in the
+  // record itself (tap to open). "בחירה" deletes several at once.
+  const HIST_SHOW = 6;
+  let histAll = false, histSel = null;
+  const pencil = `<svg class="edit" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20h4L19 9l-4-4L4 16v4z"/><path d="M14 6l4 4"/></svg>`;
+  const histRows = car => (car.history || []).filter(e => !isStateRec(e) || (e.items || []).length)
+    .sort((a, b) => (b.date || "").localeCompare(a.date || "") || b.km - a.km || b.at - a.at);
+  const historyHTML = car => { const all = histRows(car), h = histAll || histSel ? all : all.slice(0, HIST_SHOW); return `
+    <div class="card stack"><div class="row between"><h3>כל הרשומות${all.length ? ` <span class="small muted num">(${all.length})</span>` : ""}</h3>
+      ${histSel ? `<button class="btn ghost fit bare" id="hist-cancel">ביטול</button>` : `<div class="row g-12">${all.length > 1 ? `<button class="btn ghost fit bare" id="hist-select">בחירה</button>` : ""}<button class="btn ghost fit bare add" id="car-add-repair">הוסף תיקון</button></div>`}</div>
+      ${all.length ? "" : `<p class="small muted">עוד אין רשומות.</p>`}
+      <div class="list">${h.map(e => { const state = isStateRec(e);
+        const title = state ? `${recItemName(e, e.items[0])}: עדכנת` : e.kind === "service" || !e.kind ? "טיפול " + fmt(e.svcKm || e.km) : e.text || kindName[e.kind];
+        const when = [e.date ? monthName(new Date(e.date + "-01")) : "", e.km ? fmt(e.km) + ' ק"מ' : "", state ? "" : e.garage].filter(Boolean).join(" · ");
+        const attrs = histSel ? `data-pick="${esc(e.id)}"` : state ? `data-item="${e.items[0]}"` : `data-rec="${esc(e.id)}"`;
+        return `<div class="hist tap ${histSel && histSel.has(e.id) ? "picked" : ""}" role="button" tabindex="0" ${attrs} aria-label="${histSel ? "בחירת" : "עריכת"} ${esc(title)}">
+          <div class="hist-main"><b class="clip">${esc(title)}</b>${e.source === "garage" ? ` <span class="tag ver">מאומת</span>` : ""}<span class="small muted num clip">${esc(when)}</span></div>
+          <div class="row g-8">${e.price ? `<span class="amt num">₪${fmt(e.price)}</span>` : ""}${histSel ? `<span class="pick" aria-hidden="true"></span>` : pencil}</div></div>`; }).join("")}</div>
+      ${!histSel && all.length > HIST_SHOW ? `<button class="btn ghost compact" id="hist-more">${histAll ? "הצג פחות" : `הצג את כל ${all.length}`}</button>` : ""}
+      ${histSel ? `<button class="btn primary" id="hist-del" ${histSel.size ? "" : "disabled"}>מחק ${histSel.size || ""} רשומות</button>` : ""}
     </div>`; };
 
   // ---------- useful specs from the owner's book ----------
@@ -1170,6 +1196,21 @@
     recallsInFlight.add(digits);
     TipulitLookup.fetchRecalls(digits).then(list => { car.recalls = { plate: digits, at: Date.now(), list }; save(); renderHome(); if (!$("#s-car").hidden) renderCar(); })
       .catch(() => {}).finally(() => recallsInFlight.delete(digits));
+  }
+  // The registry record (test date, owner type) is read once when the car is added; refresh it every few days,
+  // daily once the test date has passed, so a renewed test shows up.
+  const GOV_TTL = 3 * 24 * 3600 * 1000, govInFlight = new Set();
+  function ensureGov(car) {
+    const digits = (car.plate || "").replace(/\D/g, "");
+    if (!digits || car.plateHold || !window.TipulitLookup || !TipulitLookup.fetchVehicle || govInFlight.has(digits)) return;
+    const expired = car.gov && car.gov.test_expiry && Date.parse(car.gov.test_expiry) < Date.now();
+    if (car.govAt && Date.now() - car.govAt < (expired ? 24 * 3600 * 1000 : GOV_TTL)) return;
+    govInFlight.add(digits);
+    TipulitLookup.fetchVehicle(digits).then(v => {
+      car.govAt = Date.now(); if (!v) return save();
+      const was = car.gov && car.gov.test_expiry; car.gov = { ...(car.gov || {}), ...v }; save();
+      if (v.test_expiry !== was) { renderHome(); if (!$("#s-car").hidden) renderCar(); }
+    }).catch(() => {}).finally(() => govInFlight.delete(digits));
   }
   const openRecalls = car => car.recalls ? car.recalls.list.filter(r => !(car.recallsDone || []).includes(r.id)) : [];
   const recallsHTML = car => { const list = openRecalls(car); if (!list.length) return ""; return `
@@ -1244,7 +1285,7 @@
     $("#to-garage").onclick = () => { show("s-tl"); const el = $(".tl-item.next"); if (el) el.scrollIntoView({ block: "start" }); };
     $("#done-svc").onclick = () => openLog();
     wirePlateNotice(car); recheckHold(car);
-    wireRecalls($("#home-body")); ensureRecalls(car); wireEntries($("#home-body")); loadGarageEntries(); wireItems($("#home-body"));
+    wireRecalls($("#home-body")); ensureRecalls(car); ensureGov(car); wireEntries($("#home-body")); loadGarageEntries(); wireItems($("#home-body"));
     $$("[data-go]", $("#home-body")).forEach(b => b.onclick = () => show("s-" + b.dataset.go));
   }
 
