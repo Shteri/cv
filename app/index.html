@@ -336,6 +336,7 @@
     <div class="panel stack g-10">
       <div class="row between"><h2>קריאת קבלות</h2><button class="btn ghost fit" id="scan-close">סגור</button></div>
       <p class="small muted" id="scan-sum"></p>
+      <button class="btn primary" id="scan-attach-all" hidden></button>
       <div class="list" id="scan-list"></div>
     </div>
   </div>
@@ -1052,24 +1053,37 @@
     renderScan(); readNext();
   }
   const showScan = () => { renderScan(); $("#scan").classList.add("show"); };
-  const SCAN_STATE = { waiting: "ממתין", reading: "קורא…", read: "נקרא", failed: "לא נקרא", saved: "נשמר ✓", dup: "כבר קיים", skipped: "דולג" };
+  const SCAN_STATE = { waiting: "ממתין", reading: "קורא…", read: "נקרא", failed: "לא נקרא", saved: "נשמר ✓", dup: "כבר קיים", skipped: "דולג", attached: "צורף לרשומה ✓" };
   const fileHash = async f => { try { const b = await crypto.subtle.digest("SHA-256", await f.arrayBuffer()); return [...new Uint8Array(b)].map(x => x.toString(16).padStart(2, "0")).join(""); } catch (e) { return null; } };
   const recLabel = h => [h.kind === "service" || !h.kind ? "טיפול" : h.text || kindName[h.kind], h.date ? monthName(new Date(h.date + "-01")) : "", h.price ? "₪" + fmt(h.price) : ""].filter(Boolean).join(" · ");
   function renderScan() {
     const n = k => scanItems.filter(x => x.status === k).length;
-    $("#scan-sum").textContent = scanItems.length > 1 ? `${n("saved")} מתוך ${scanItems.length} נשמרו` : "";
+    $("#scan-sum").textContent = scanItems.length > 1 ? `${n("saved") + n("attached")} מתוך ${scanItems.length} נשמרו` : "";
     $("#scan-sum").hidden = scanItems.length < 2;
+    const att = scanItems.filter(canAttach);
+    $("#scan-attach-all").hidden = att.length < 2; $("#scan-attach-all").textContent = `צרף את ${att.length} הקבלות לרשומות הקיימות`;
+    $("#scan-attach-all").onclick = async () => { for (const x of scanItems.filter(canAttach)) await attachScanned(x); renderScan(); toast("הקבלות צורפו"); };
     $("#scan-list").innerHTML = scanItems.map((x, i) => {
       const r = x.result, sum = r ? [r.date ? monthName(new Date(r.date + "-01")) : "", r.km ? fmt(r.km) + ' ק"מ' : "", r.price ? "₪" + fmt(r.price) : "", r.garage || ""].filter(Boolean).join(" · ") : "";
       return `<div class="scan-row">${x.thumb ? `<img src="${x.thumb}" alt="">` : `<span class="scan-doc">${x.pdf ? "PDF" : "?"}</span>`}
         <div><b class="${x.status === "failed" ? "crit-text" : x.status === "saved" ? "good-text" : x.status === "dup" ? "warn-text" : ""}">${SCAN_STATE[x.status]}</b><br><span class="small muted">${esc(x.status === "failed" || x.status === "skipped" ? x.err : x.status === "dup" ? recLabel(x.dup) : sum || x.file.name || "")}</span></div>
         <div class="scan-acts">${x.status === "read" ? `<button class="btn primary compact fit" data-scan-open="${i}">בדוק ושמור</button>`
           : x.status === "failed" ? `<button class="btn primary compact fit" data-scan-open="${i}">מלא ידנית</button><button class="btn ghost compact fit" data-scan-retry="${i}">נסה שוב</button>`
-          : x.status === "dup" ? `<button class="btn primary compact fit" data-scan-skip="${i}">דלג</button><button class="btn ghost compact fit" data-scan-open="${i}">שמור בכל זאת</button>` : ""}</div></div>`;
+          : x.status === "dup" ? (canAttach(x) ? `<button class="btn primary compact fit" data-scan-attach="${i}">צרף לרשומה</button><button class="btn ghost compact fit" data-scan-skip="${i}">דלג</button>` : `<button class="btn primary compact fit" data-scan-skip="${i}">דלג</button>`) + `<button class="btn ghost compact fit" data-scan-open="${i}">רשומה חדשה</button>` : ""}</div></div>`;
     }).join("");
     $$("#scan-list [data-scan-open]").forEach(b => b.onclick = () => openScanned(+b.dataset.scanOpen));
+    $$("#scan-list [data-scan-attach]").forEach(b => b.onclick = async () => { b.disabled = true; await attachScanned(scanItems[+b.dataset.scanAttach]); renderScan(); toast("הקבלה צורפה לרשומה"); });
     $$("#scan-list [data-scan-skip]").forEach(b => b.onclick = () => { const x = scanItems[+b.dataset.scanSkip]; x.status = "skipped"; x.err = "כבר קיים"; renderScan(); });
     $$("#scan-list [data-scan-retry]").forEach(b => b.onclick = () => { scanItems[+b.dataset.scanRetry].status = "waiting"; readNext(); });
+  }
+  // A receipt that is already a record: keep its file with that record instead of saving the visit twice.
+  const canAttach = x => x.status === "dup" && x.dup && (S.cars[S.active].history || []).includes(x.dup);
+  async function attachScanned(x) {
+    const rec = x.dup, d = await makeDoc(x.file, rec.id, (rec.docs || []).length); if (!d) return;
+    rec.docs = [...(rec.docs || []), d];
+    if (x.thumb) { rec.receipts = [...(rec.receipts || []), x.thumb]; rec.receipt = rec.receipt || x.thumb; }
+    if (x.hash && !rec.docHash) rec.docHash = x.hash;
+    rec.synced = false; x.status = "attached"; save(); renderAll();
   }
   function openScanned(i) {
     const it = scanItems[i], car = S.cars[S.active], s = schedById(car.schedule);

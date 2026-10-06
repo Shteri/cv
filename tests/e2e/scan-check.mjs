@@ -62,10 +62,16 @@ await p.screenshot({ path: (process.env.SHOTS || "/tmp") + "/scan.png" });
 const callsBefore = await p.evaluate(() => window.__calls || 0);
 await p.setInputFiles("#car-upload", [{ name: "r1-again.png", mimeType: "image/png", buffer: png }]); await p.waitForTimeout(500);
 r = await rows(); console.log("rows after re-upload:", r);
-ok(/כבר קיים/.test(r[r.length - 1]) && /דלג/.test(r[r.length - 1]) && /שמור בכל זאת/.test(r[r.length - 1]), "same file again: 'already here', skip or save anyway");
+ok(/כבר קיים/.test(r[r.length - 1]) && /צרף לרשומה/.test(r[r.length - 1]) && /דלג/.test(r[r.length - 1]) && /רשומה חדשה/.test(r[r.length - 1]), "same file again: attach to the record, skip, or a new record");
 ok(await p.evaluate(() => window.__calls || 0) === callsBefore, "it was not read again");
 await p.click(`[data-scan-skip="${r.length - 1}"]`); await p.waitForTimeout(150);
 ok(/דולג/.test((await rows()).slice(-1)[0]), "skip marks it");
+// attaching keeps the file with the existing record, no second record
+const nBefore = await p.evaluate(() => JSON.parse(localStorage.getItem("tipulit")).cars[0].history.length);
+await p.setInputFiles("#car-upload", [{ name: "r1-third.png", mimeType: "image/png", buffer: png }]); await p.waitForTimeout(500);
+r = await rows(); await p.click(`[data-scan-attach="${r.length - 1}"]`); await p.waitForTimeout(600);
+const after = await p.evaluate(() => JSON.parse(localStorage.getItem("tipulit")).cars[0].history);
+ok(after.length === nBefore && (after.find(h => h.price === 1552).docs || []).length === 2 && /צורף/.test((await rows()).slice(-1)[0]), "attach: the file joins the record, no new record");
 // another photo of a receipt that is already saved (same month and total): read, then flagged
 await p.setInputFiles("#car-upload", [{ name: "r1-photo2.png", mimeType: "image/png", buffer: Buffer.concat([png, Buffer.from([0])]) }]); await p.waitForTimeout(600);
 r = await rows(); ok(/כבר קיים/.test(r.slice(-1)[0]) && /ינואר 2025/.test(r.slice(-1)[0]), "another photo of a saved receipt is flagged: " + r.slice(-1)[0]);
