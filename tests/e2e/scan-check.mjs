@@ -73,6 +73,9 @@ r = await rows(); ok(/כבר קיים/.test(r.slice(-1)[0]) && /ינואר 2025/
 await p.click("#scan-close"); await p.waitForTimeout(200);
 await p.evaluate(() => document.querySelector("#car-history [data-rec]").click()); await p.waitForTimeout(300);
 ok(await p.inputValue("#log-km") === "157000" && await p.isVisible("#log-del"), "tapping a record opens it with its values and a delete button");
+// switching the type keeps the parts
+await p.click('#log-kind button[data-v="repair"]'); await p.click('#log-kind button[data-v="service"]'); await p.waitForTimeout(100);
+ok(await p.$$eval("#log-items .chip.on", l => l.length) === 4, "switching the type of a saved record keeps its parts");
 await p.fill("#log-km", "156500"); await p.click("#log-save"); await p.waitForTimeout(300);
 let h2 = await p.evaluate(() => JSON.parse(localStorage.getItem("tipulit")).cars[0].history.map(h => `${h.km}:${h.garage}`));
 ok(h2.length === 1 && h2[0] === "156500:מוסך התלתן", "editing updates the record in place: " + h2.join());

@@ -769,17 +769,18 @@
   const logPlanItems = (s, km) => { const svc = svcOfKm(s, km); return svc ? planFor(S.cars[S.active], s, svc, km).replace : []; };
   const svcOfKm = (s, km) => s.services.find(x => x.km === ((km - gridShift(s)) % s.cycle_km) + gridShift(s) || x.km === km);
   const svcReplaceItems = (s, km) => { const svc = s.services.find(x => x.km === ((km - gridShift(s)) % s.cycle_km) + gridShift(s) || x.km === km); return svc ? svc.items.filter(i => i.action === "replace").map(i => i.item) : []; };
-  function setKind(k) {
+  // keep: changing the type of a saved record or a read receipt keeps its parts; a new form proposes the service's parts
+  function setKind(k, keep) {
     logKind = k; $$("#log-kind button").forEach(x => x.classList.toggle("on", x.dataset.v === k));
     // a service visit can include a repair too (one receipt): the repair goes in the same record's description
     $("#log-svc-row").hidden = k !== "service"; $("#log-text-row").hidden = false;
     $("#log-text-lbl").textContent = k === "service" ? "תיקון נוסף באותו ביקור (לא חובה)" : "מה נעשה";
     $("#log-title").textContent = k === "service" ? "עשיתי טיפול" : k === "repair" ? "תיקון או תקלה" : "רשומה אחרת";
     const s = schedById(S.cars[S.active].schedule);
-    if (k === "service") logSel = new Set(logPlanItems(s, +$("#log-svc").value)); else logSel = new Set();
+    if (!keep) logSel = k === "service" ? new Set(logPlanItems(s, +$("#log-svc").value)) : new Set();
     renderItemChips(s);
   }
-  $$("#log-kind button").forEach(b => b.onclick = () => setKind(b.dataset.v));
+  $$("#log-kind button").forEach(b => b.onclick = () => setKind(b.dataset.v, !!logEdit || scanFor !== null));
   $("#log-svc").onchange = () => { const s = schedById(S.cars[S.active].schedule); logSel = new Set(logPlanItems(s, +$("#log-svc").value)); renderItemChips(s); };
   function openLog(preKm, opts = {}) {
     const car = S.cars[S.active], s = schedById(car.schedule), n = computeNext(car);
