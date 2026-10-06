@@ -16,7 +16,7 @@ const cases = [
   [rec({ tozeret_nm: "מזדה יפן", kinuy_mishari: "MAZDA 3", shnat_yitzur: 2015 }), "mazda-3-2013-2019"],
   [rec({ tozeret_nm: "סקודה צ'כיה", kinuy_mishari: "OCTAVIA", degem_manoa: "DKR", nefach_manoa: 999, shnat_yitzur: 2019 }), "skoda-octavia-2017-2026-1.0-1.5-tsi"],
   [rec({ tozeret_nm: "סקודה צ'כיה", kinuy_mishari: "OCTAVIA", degem_manoa: "CRM", sug_delek_nm: "דיזל", nefach_manoa: 1968, shnat_yitzur: 2018 }), "skoda-octavia-2015-2024-2.0-tdi"],
-  [rec({ tozeret_nm: "ב.מ.וו גרמניה", kinuy_mishari: "320I", shnat_yitzur: 2019 }), "unsupported_make"],
+  [rec({ tozeret_nm: "מקסוס סין", kinuy_mishari: "MIFA 9", shnat_yitzur: 2024 }), "unsupported_make"],
   [rec({ tozeret_nm: "טויוטה יפן", kinuy_mishari: "LAND CRUISER", degem_manoa: "1GD", sug_delek_nm: "דיזל", nefach_manoa: 2755, shnat_yitzur: 2019 }), "toyota-land-cruiser-2016-2019-2.8-diesel"],
   [rec({ tozeret_nm: "טויוטה יפן", kinuy_mishari: "SUPRA", shnat_yitzur: 2021 }), "unsupported_model"],
   [rec({ tozeret_nm: "טסלה ארה\"ב", kinuy_mishari: "MODEL 3", shnat_yitzur: 2022, sug_delek_nm: "חשמל" }), "electric"],

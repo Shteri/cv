@@ -11,8 +11,7 @@
   // ---------- calendar: one column per bay, one row per slot ----------
   const STATUS = { booked: "נקבע", arrived: "הגיע", in_progress: "בעבודה", waiting_approval: "ממתין לאישור", ready: "מוכן לאיסוף", done: "נמסר", cancelled: "בוטל", no_show: "לא הגיע" };
   const KIND = { service: "טיפול", repair: "תיקון", test: "הכנה לטסט", other: "אחר" };
-  const DEFAULT_HOURS = { 0: { open: "08:00", close: "17:00" }, 1: { open: "08:00", close: "17:00" }, 2: { open: "08:00", close: "17:00" }, 3: { open: "08:00", close: "17:00" }, 4: { open: "08:00", close: "17:00" }, 5: { open: "08:00", close: "13:00" }, 6: null };
-  const hoursOf = g => (g.hours && Object.keys(g.hours).length ? g.hours : DEFAULT_HOURS);
+  const hoursOf = g => G.hoursOf(g);  // the garage's week, shared with the booking page (core.js)
   const ymd = d => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
   const hm = d => `${String(d.getHours()).padStart(2, "0")}:${String(d.getMinutes()).padStart(2, "0")}`;
   const toMin = t => { const [h, m] = t.split(":").map(Number); return h * 60 + m; };
@@ -245,5 +244,5 @@
   const addApproval = x => { (demo ? G.DEMO.approvals : cal.approvals).unshift(x); };
   const markAwaiting = async a => { apFor = a; await setApptStatus("waiting_approval"); };
   const awAddLines = lines => { awLines = awLines.filter(l => l.desc.trim() || l.price !== ""); awLines.push(...lines.map(l => ({ desc: l.desc, price: String(l.price || "") }))); renderAwLines(); };
-  Object.assign(G, { renderCalendar, loadDay, sendApprovalLink, addApproval, markAwaiting, awAddLines, apCar, patchAppt, hoursOf });
+  Object.assign(G, { renderCalendar, loadDay, sendApprovalLink, addApproval, markAwaiting, awAddLines, apCar, patchAppt });
 })(window.Garage);
