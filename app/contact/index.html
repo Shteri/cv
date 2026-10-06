@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>צור קשר · Tipulit</title>
+<link rel="icon" href="../icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Hebrew:wght@400;500;600&family=Rubik:wght@500;600;700&family=Unbounded:wght@600&display=swap">
+<link rel="stylesheet" href="../styles/tokens.css">
+<link rel="stylesheet" href="../styles/brand.css">
+<link rel="stylesheet" href="../garage/garage.css">
+</head>
+<body>
+<main class="public" id="main">
+  <a class="brand" href="../" aria-label="Tipulit"><span class="brand-word" lang="en" dir="ltr">tipulit</span></a>
+  <section class="stack-md" id="c-form">
+    <div><h1>צור קשר</h1><p class="muted">שאלה, בעיה, בקשה בנושא פרטיות או מוסך? כתבו לנו ונחזור אליכם.</p></div>
+    <div class="field"><span>נושא</span><div class="seg" id="c-topic"><button type="button" data-v="support" class="on">תמיכה</button><button type="button" data-v="privacy">פרטיות ומידע</button><button type="button" data-v="garage">מוסכים</button><button type="button" data-v="other">אחר</button></div></div>
+    <label class="field"><span>שם</span><input id="c-name" autocomplete="name"></label>
+    <label class="field"><span>מייל</span><input id="c-email" type="email" autocomplete="email" dir="ltr"></label>
+    <label class="field"><span>טלפון <span class="muted">(אם אין מייל)</span></span><input id="c-phone" inputmode="tel" autocomplete="tel" dir="ltr"></label>
+    <label class="field"><span>הודעה</span><textarea id="c-msg" rows="5"></textarea></label>
+    <p class="muted small" id="c-privacy-hint" hidden>לבקשה לעיין במידע, לתקן או למחוק אותו: כתבו מה אתם מבקשים ואת המייל שאיתו נכנסתם לאפליקציה. ייתכן שנבקש לאמת את זהותכם.</p>
+    <p class="err" id="c-err" hidden></p>
+    <button class="btn primary big" id="c-go">שליחה</button>
+    <p class="muted small"><a href="../privacy/">מדיניות הפרטיות</a> · <a href="../terms/">תנאי השימוש</a> · <a href="../">חזרה לאפליקציה</a></p>
+  </section>
+  <section class="box stack-md" id="c-done" hidden><h1>הפנייה נשלחה</h1><p class="muted">תודה. נחזור אליכם בהקדם.</p><a class="btn big" href="../">חזרה לאפליקציה</a></section>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script src="../config.js"></script>
+<script src="../cloud.js"></script>
+<script>
+(function () {
+  const $ = s => document.querySelector(s), Cloud = window.TipulitCloud || { enabled: false };
+  let topic = new URLSearchParams(location.search).get("topic") || "support";
+  const setTopic = v => { topic = v; document.querySelectorAll("#c-topic button").forEach(b => b.classList.toggle("on", b.dataset.v === v)); $("#c-privacy-hint").hidden = v !== "privacy"; };
+  document.querySelectorAll("#c-topic button").forEach(b => b.onclick = () => setTopic(b.dataset.v));
+  setTopic(["support", "privacy", "garage", "other"].includes(topic) ? topic : "support");
+  // a signed-in visitor's email fills in
+  if (Cloud.enabled) Cloud.currentUser().then(u => { if (u && u.email && !$("#c-email").value) $("#c-email").value = u.email; }).catch(() => {});
+  const err = m => { $("#c-err").textContent = m; $("#c-err").hidden = false; };
+  $("#c-go").onclick = async () => {
+    $("#c-err").hidden = true;
+    const email = $("#c-email").value.trim(), phone = $("#c-phone").value.trim(), msg = $("#c-msg").value.trim();
+    if (!msg) return err("כתבו מה תרצו לשאול או לבקש.");
+    if (!email && phone.replace(/\D/g, "").length < 9) return err("צריך מייל או טלפון כדי שנוכל לחזור אליכם.");
+    if (email && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return err("כתובת המייל לא נראית תקינה.");
+    if (!Cloud.enabled) return err("השליחה לא זמינה כרגע. נסו שוב מאוחר יותר.");
+    const b = $("#c-go"); b.disabled = true;
+    try { await Cloud.contactSend({ name: $("#c-name").value, email, phone, topic, message: msg }); $("#c-form").hidden = true; $("#c-done").hidden = false; }
+    catch (e) { err(/too many/.test(e.message) ? "נשלחו כבר כמה פניות בשעה האחרונה. נסו שוב מאוחר יותר." : "השליחה נכשלה. נסו שוב."); }
+    b.disabled = false;
+  };
+})();
+</script>
+</body>
+</html>

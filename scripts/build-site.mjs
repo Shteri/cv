@@ -99,7 +99,7 @@ for (const f of ["index.html", "garage.css", "core.js"]) copyFileSync(root + "ap
 mkdirSync(out + "garage/modules", { recursive: true });
 for (const f of readdirSync(root + "app/garage/modules").filter(f => f.endsWith(".js"))) copyFileSync(root + "app/garage/modules/" + f, out + "garage/modules/" + f);
 // Public pages for garage customers (no sign-in): online booking and extra-work approval.
-for (const d of ["book", "approve", "appt", "privacy", "terms"]) { mkdirSync(out + d, { recursive: true }); copyFileSync(root + "app/" + d + "/index.html", out + d + "/index.html"); }
+for (const d of ["book", "approve", "appt", "privacy", "terms", "contact"]) { mkdirSync(out + d, { recursive: true }); copyFileSync(root + "app/" + d + "/index.html", out + d + "/index.html"); }
 writeFileSync(out + "manifest.webmanifest", JSON.stringify({
   name: "Tipulit", short_name: "Tipulit", lang: "he", dir: "rtl", start_url: "./", scope: "./", display: "standalone",
   background_color: "#111418", theme_color: "#111418",

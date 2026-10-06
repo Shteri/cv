@@ -252,11 +252,10 @@
       </div>
     </div>
     <div class="card stack" id="me-sources"></div>
-    <!-- PRIVACY: Israeli Privacy Protection Law: see your data (§13), correct it (in place), delete the account -->
+    <!-- PRIVACY: the policy, the terms, the contact page (requests to see or correct data go there), delete the account -->
     <div class="card stack g-8">
       <h3>פרטיות</h3>
-      <div class="row g-12"><a class="btn ghost fit bare go" href="privacy/" target="_blank" rel="noopener">מדיניות הפרטיות</a><a class="btn ghost fit bare go" href="terms/" target="_blank" rel="noopener">תנאי השימוש</a></div>
-      <button class="btn secondary" id="me-export">הורד את המידע שלי</button>
+      <div class="row g-12 wrap"><a class="btn ghost fit bare go" href="privacy/" target="_blank" rel="noopener">מדיניות הפרטיות</a><a class="btn ghost fit bare go" href="terms/" target="_blank" rel="noopener">תנאי השימוש</a><a class="btn ghost fit bare go" href="contact/" target="_blank" rel="noopener">צור קשר</a></div>
       <button class="btn ghost danger" id="me-delete">מחק את החשבון שלי</button>
     </div>
     <button class="btn ghost danger" id="me-reset">איפוס האפליקציה</button>
@@ -1930,14 +1929,6 @@
   $("#me-add").onclick = startAdd;
   $$(".toggle").forEach(t => t.onclick = () => { t.classList.toggle("on"); toast(t.classList.contains("on") ? "התראה הופעלה" : "התראה כבויה"); });
   let resetArmed = null;
-  // §13: everything the app holds about the driver, as one file (the receipt files themselves stay in the app)
-  $("#me-export").onclick = () => {
-    const strip = h => { const { receipts, receipt, ...rest } = h; return { ...rest, files: (h.docs || []).length || (receipts || []).length }; };
-    const data = { exported_at: new Date().toISOString(), app: "Tipulit", user: S.user ? { name: S.user.name, email: S.user.email || null, account: S.user.via } : null,
-      city: S.city || null, cars: S.cars.map(c => ({ plate: c.plate, schedule: c.schedule, year: c.year, km: c.km, km_per_month: c.kmMonth, last_service: c.lastService, registry: c.gov || null, records: (c.history || []).map(strip) })) };
-    const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([JSON.stringify(data, null, 2)], { type: "application/json" }));
-    a.download = `tipulit-${new Date().toISOString().slice(0, 10)}.json`; document.body.appendChild(a); a.click(); a.remove();
-  };
   // Deleting the account removes the cloud copy (delete-account), then this device's copy. Garages the driver owns go too.
   $("#me-delete").onclick = async () => {
     const cloud = Cloud.enabled && S.user && S.user.via === "google";
