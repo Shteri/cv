@@ -52,7 +52,7 @@
   // Row -> app car (records attached separately)
   const rowCar = r => ({ cloudId: r.id, plate: r.plate ? fmtPlate(r.plate) : "", plateReleased: r.released_plate ? fmtPlate(r.released_plate) : null, schedule: r.schedule_id, year: r.year, km: r.km, kmMonth: r.km_month, lastService: r.last_service, gov: r.gov, history: [], added: Date.parse(r.created_at) });
   const fmtPlate = d => d.length <= 7 ? d.replace(/(\d{2})(\d{3})(\d{2})/, "$1-$2-$3") : d.replace(/(\d{3})(\d{2})(\d{3})/, "$1-$2-$3");
-  const rowRecord = (r, urls) => ({ id: r.client_id || r.id, cloudId: r.id, kind: r.kind, svcKm: r.svc_km, text: r.text || "", items: r.items || [], date: r.date, km: r.km, where: r.where, garage: r.garage || "", city: r.city || "", price: r.price, back: r.back, extra: r.extra || "", receiptPaths: r.receipt_paths || [], receipts: urls || [], receipt: (urls || [])[0] || null, share: r.share, source: r.source, at: Date.parse(r.created_at), synced: true });
+  const rowRecord = (r, urls) => ({ id: r.client_id || r.id, cloudId: r.id, kind: r.kind, svcKm: r.svc_km, text: r.text || "", items: r.items || [], date: r.date, km: r.km, where: r.where, garage: r.garage || "", city: r.city || "", price: r.price, back: r.back, extra: r.extra || "", tires: r.tires || null, receiptPaths: r.receipt_paths || [], receipts: urls || [], receipt: (urls || [])[0] || null, share: r.share, source: r.source, at: Date.parse(r.created_at), synced: true });
 
   async function loadCars() {
     const uid = (await currentUser())?.id; if (!uid) return [];
@@ -90,7 +90,7 @@
         const { error: upErr } = await sb.storage.from("receipts").upload(path, await dataUrlToBlob(d), { contentType: "image/jpeg", upsert: true });
         if (!upErr && !paths.includes(path)) paths.push(path);
       }
-      const { data: saved, error: rErr } = await sb.from("records").upsert({ car_id: car.cloudId, user_id: uid, kind: rec.kind || "service", svc_km: rec.svcKm || null, text: rec.text || null, items: rec.items || [], date: rec.date || null, km: rec.km, where: rec.where || null, garage: rec.garage || null, city: rec.city || null, price: rec.price || null, back: rec.back || null, extra: rec.extra || null, receipt_paths: paths, share: !!rec.share, source: rec.source || "log", client_id: rec.id }, { onConflict: "car_id,client_id" }).select("id").single();
+      const { data: saved, error: rErr } = await sb.from("records").upsert({ car_id: car.cloudId, user_id: uid, kind: rec.kind || "service", svc_km: rec.svcKm || null, text: rec.text || null, items: rec.items || [], date: rec.date || null, km: rec.km, where: rec.where || null, garage: rec.garage || null, city: rec.city || null, price: rec.price || null, back: rec.back || null, extra: rec.extra || null, receipt_paths: paths, tires: rec.tires && rec.tires.length ? rec.tires : null, share: !!rec.share, source: rec.source || "log", client_id: rec.id }, { onConflict: "car_id,client_id" }).select("id").single();
       if (!rErr) { rec.cloudId = saved.id; rec.receiptPaths = paths; rec.synced = true; }
     }
   }
