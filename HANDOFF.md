@@ -845,3 +845,4 @@ toyota-yaris-2011-2020, hyundai-i25-2011-2018, skoda-octavia-2013-2025.
 - מחיקת חשבון: edge function `delete-account` (verify_jwt, `{confirm:"delete"}`): מוחקת את הקבצים בתיקיות המשתמש (receipts, plate-proofs, garage-photos, inspection-photos של המוסכים שלו) ואז `auth.admin.deleteUser`; כל הטבלאות מתייחסות ל-auth.users עם on delete cascade (נבדק). האזהרה מציינת מוסכים בבעלותו. אחר כך המכשיר מתנקה (localStorage ו-IndexedDB).
 - `PRIVACY_EMAIL` ב-config.js: כתובת לפניות פרטיות. ריקה עד שמקס ייתן כתובת.
 - בדיקה: `tests/e2e/privacy-check.mjs`.
+- ציר טיפולים, טיפול שעבר: מציג מה נעשה בפועל ובלשון עבר (`recordOfService`: רשומה עם אותו svcKm, אחרת ביקור טיפול הקרוב לק"מ שלו). "בוצע · חודש · מוסך", "הוחלף" לכל חלק ברשומה, "לא נרשם" לחלק שהספר דורש והרשומה לא מסמנת, "פתח את הרשומה". טיפול שעבר בלי רשומה: נקודה "?", "לא נרשם טיפול" ו"עשיתי את הטיפול הזה". בדיקה: `tests/e2e/tlpast-check.mjs`.

@@ -1472,6 +1472,24 @@
   }
 
   // ---------- timeline ----------
+  // The record of a past scheduled service: one logged for that service, else the service visit nearest its km.
+  function recordOfService(car, s, km) {
+    const recs = (car.history || []).filter(h => !isStateRec(h) && (h.kind === "service" || !h.kind));
+    return recs.find(h => h.svcKm === km) || recs.filter(h => Math.abs(h.km - km) <= s.cycle_km / 8).sort((a, b) => Math.abs(a.km - km) - Math.abs(b.km - km))[0] || null;
+  }
+  const pastSummary = rec => rec ? ["בוצע", rec.date ? monthName(new Date(rec.date + "-01")) : "", rec.garage].filter(Boolean).join(" · ") : "לא נרשם טיפול";
+  // in the past tense: what the record says was replaced, what the book called for and wasn't recorded
+  function pastHTML(rec, svc, km) {
+    const book = svc.items.filter(it => it.action === "replace").map(it => it.item), checks = svc.items.filter(it => it.action !== "replace").length;
+    if (!rec) return `<p class="small muted">אין רשומה לטיפול הזה. לפי הספר הוא כולל ${book.map(itemName).join(", ")}${checks ? ` ועוד ${checks} בדיקות` : ""}.</p>
+      <button class="btn secondary compact" data-log="${km}">עשיתי את הטיפול הזה</button>`;
+    const done = rec.items || [], missing = book.filter(k => !done.includes(k));
+    return `<p class="small muted">${[rec.km ? fmt(rec.km) + ' ק"מ' : "", rec.price ? "₪" + fmt(rec.price) : "", rec.text].filter(Boolean).map(esc).join(" · ")}</p>
+      <div class="items">${done.map(k => `<div class="item"><span class="act replace">הוחלף</span><div><div>${recItemName(rec, k)}</div></div></div>`).join("")}
+      ${missing.map(k => `<div class="item"><span class="act wait">לא נרשם</span><div><div>${itemName(k)}</div><div class="note">בספר יש החלפה בטיפול הזה</div></div></div>`).join("")}</div>
+      ${checks ? `<p class="small muted">הטיפול כולל לפי הספר גם ${checks} בדיקות.</p>` : ""}
+      <button class="btn ghost compact fit" data-rec-open="${esc(rec.id)}">פתח את הרשומה</button>`;
+  }
   function renderTL() {
     const car = S.cars[S.active]; if (!car) return;
     const n = computeNext(car); const s = n.s;
@@ -1487,16 +1505,19 @@
     }
     const list = rows.filter(r => r.state !== "done").slice(0, 8);
     const done = rows.filter(r => r.state === "done").slice(-2);
+    // a past service shows what was actually done: the record of that visit, or that none was recorded
+    for (const r of done) { r.rec = recordOfService(car, s, r.km); if (!r.rec) r.state = "done missed"; }
     $("#tl-body").innerHTML = [...done, ...list].map((r, i) => `
       <div class="tl-item ${r.state} ${r.state === "next" ? "open" : ""}">
-        <div class="tl-dot">${r.state === "done" ? "✓" : ""}</div>
+        <div class="tl-dot">${r.state === "done" ? "✓" : r.state === "done missed" ? "?" : ""}</div>
         <div class="tl-card">
-          <button class="tl-head"><span><span class="km num">${fmt(r.km)} ק"מ</span>${r.state === "next" ? ` <span class="status good ms-6">הבא</span>` : ""}<br><span class="summary">${summarize(r.svc.items)}</span></span><span class="chev" aria-hidden="true">⌄</span></button>
-          <div class="tl-body stack">${r.state === "done" ? itemsHTML(r.svc.items) : checklistHTML(s, r.svc, r.km)}</div>
+          <button class="tl-head"><span><span class="km num">${fmt(r.km)} ק"מ</span>${r.state === "next" ? ` <span class="status good ms-6">הבא</span>` : ""}<br><span class="summary">${r.state.startsWith("done") ? pastSummary(r.rec) : summarize(r.svc.items)}</span></span><span class="chev" aria-hidden="true">⌄</span></button>
+          <div class="tl-body stack">${r.state.startsWith("done") ? pastHTML(r.rec, r.svc, r.km) : checklistHTML(s, r.svc, r.km)}</div>
         </div>
       </div>`).join("");
     $$(".tl-head").forEach(b => b.onclick = () => b.closest(".tl-item").classList.toggle("open"));
     $$("[data-log]").forEach(b => b.onclick = () => openLog(+b.dataset.log));
+    $$("#tl-body [data-rec-open]").forEach(b => b.onclick = () => openRecord(b.dataset.recOpen));
     $$("[data-copy]").forEach(b => b.onclick = () => copyChecklist(s, s.services.find(x => x.km === +b.dataset.svc), +b.dataset.copy));
     const tb = s.time_based || [], li = s.long_interval || [];
     const liRows = li.map(l => { const n = longNextFor(car, l); const soon = n && n - car.km <= 15000; return `<div class="item"><span class="act ${l.action}">${actName[l.action]}</span><div><div>${itemName(l.item)}${n ? ` · <b class="num" class="${soon ? "is-soon" : ""}">בסביבות ${fmt(n)} ק"מ</b>` : ""}</div><div class="note">${longText(l)}${l.note ? " · " + l.note : ""}</div></div></div>`; }).join("");

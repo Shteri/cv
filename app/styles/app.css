@@ -144,6 +144,7 @@ input, select, textarea { font: inherit; color: var(--ink); }
 .tl-item:last-child::before { display: none; }
 .tl-dot { width: 28px; height: 28px; border-radius: 50%; border: 2px solid var(--line); background: var(--surface); display: grid; place-items: center; font-size: .75rem; font-weight: 700; z-index: 1; }
 .tl-item.done .tl-dot { background: var(--good); border-color: var(--good); color: var(--white); }
+.tl-item.done.missed .tl-dot { background: var(--surface-2); border-color: var(--line-strong); color: var(--muted); } /* past service with no record */
 .tl-item.next .tl-dot { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); box-shadow: 0 0 0 6px var(--accent-soft); animation: halo 2.4s ease-in-out infinite; }
 @keyframes halo { 50% { box-shadow: 0 0 0 10px transparent; } }
 .tl-card { background: var(--surface); border-radius: 16px; padding: 12px 14px; border: 1.5px solid var(--line); box-shadow: var(--edge); transition: border-color .2s ease, box-shadow .3s ease; }
