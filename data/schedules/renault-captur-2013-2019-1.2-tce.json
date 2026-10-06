@@ -1,8 +1,7 @@
 {
+  "id": "renault-captur-2013-2019-1.2-tce",
   "make": "Renault",
   "make_he": "רנו",
-  "importer": "פריסבי (קרסו)",
-  "id": "renault-captur-2013-2019-1.2-tce",
   "model": "Captur",
   "model_he": "קפצ'ור",
   "generation": "J87",
@@ -14,15 +13,16 @@
     "1.2 TCe (H5F)"
   ],
   "fuel": "petrol",
+  "importer": "פריסבי (קרסו)",
   "interval": {
-    "km": 15000,
+    "km": 20000,
     "months": 12,
-    "note": "לפי טבלת רנו אוסטרליה לקנגו 1.2 בנזין: טיפולים כל 15,000 ק\"מ; מסננים כל 30,000 או שנתיים"
+    "note": "טיפול כל 20,000 ק\"מ או שנה, המוקדם (מרווח היבואן הישראלי). בתוכנית רנו אוקראינה שממנה נלקחו הפריטים: כל 15,000 ק\"מ"
   },
   "cycle_km": 120000,
   "services": [
     {
-      "km": 15000,
+      "km": 20000,
       "items": [
         {
           "item": "engine_oil",
@@ -31,99 +31,19 @@
         {
           "item": "oil_filter",
           "action": "replace"
-        },
-        {
-          "item": "tires",
-          "action": "inspect"
-        },
-        {
-          "item": "lights",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_discs",
-          "action": "inspect"
-        },
-        {
-          "item": "coolant",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "brake_fluid",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "diagnostics",
-          "action": "inspect"
-        }
-      ]
-    },
-    {
-      "km": 30000,
-      "items": [
-        {
-          "item": "engine_oil",
-          "action": "replace"
-        },
-        {
-          "item": "oil_filter",
-          "action": "replace"
-        },
-        {
-          "item": "tires",
-          "action": "inspect"
-        },
-        {
-          "item": "lights",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_discs",
-          "action": "inspect"
-        },
-        {
-          "item": "coolant",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "brake_fluid",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "diagnostics",
-          "action": "inspect"
         },
         {
           "item": "air_filter",
-          "action": "replace",
-          "note": "או כל שנתיים"
+          "action": "replace"
         },
         {
           "item": "cabin_filter",
-          "action": "replace",
-          "note": "או כל שנתיים"
-        },
-        {
-          "item": "fuel_filter",
-          "action": "replace",
-          "note": "או כל שנתיים"
+          "action": "replace"
         }
       ]
     },
     {
-      "km": 45000,
+      "km": 40000,
       "items": [
         {
           "item": "engine_oil",
@@ -134,34 +54,12 @@
           "action": "replace"
         },
         {
-          "item": "tires",
-          "action": "inspect"
+          "item": "air_filter",
+          "action": "replace"
         },
         {
-          "item": "lights",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_discs",
-          "action": "inspect"
-        },
-        {
-          "item": "coolant",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "brake_fluid",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "diagnostics",
-          "action": "inspect"
+          "item": "cabin_filter",
+          "action": "replace"
         }
       ]
     },
@@ -177,59 +75,17 @@
           "action": "replace"
         },
         {
-          "item": "tires",
-          "action": "inspect"
-        },
-        {
-          "item": "lights",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_discs",
-          "action": "inspect"
-        },
-        {
-          "item": "coolant",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "brake_fluid",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "diagnostics",
-          "action": "inspect"
-        },
-        {
           "item": "air_filter",
-          "action": "replace",
-          "note": "או כל שנתיים"
+          "action": "replace"
         },
         {
           "item": "cabin_filter",
-          "action": "replace",
-          "note": "או כל שנתיים"
-        },
-        {
-          "item": "fuel_filter",
-          "action": "replace",
-          "note": "או כל שנתיים"
-        },
-        {
-          "item": "spark_plugs",
-          "action": "replace",
-          "note": "או כל 4 שנים"
+          "action": "replace"
         }
       ]
     },
     {
-      "km": 75000,
+      "km": 80000,
       "items": [
         {
           "item": "engine_oil",
@@ -238,99 +94,19 @@
         {
           "item": "oil_filter",
           "action": "replace"
-        },
-        {
-          "item": "tires",
-          "action": "inspect"
-        },
-        {
-          "item": "lights",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_discs",
-          "action": "inspect"
-        },
-        {
-          "item": "coolant",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "brake_fluid",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "diagnostics",
-          "action": "inspect"
-        }
-      ]
-    },
-    {
-      "km": 90000,
-      "items": [
-        {
-          "item": "engine_oil",
-          "action": "replace"
-        },
-        {
-          "item": "oil_filter",
-          "action": "replace"
-        },
-        {
-          "item": "tires",
-          "action": "inspect"
-        },
-        {
-          "item": "lights",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_discs",
-          "action": "inspect"
-        },
-        {
-          "item": "coolant",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "brake_fluid",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "diagnostics",
-          "action": "inspect"
         },
         {
           "item": "air_filter",
-          "action": "replace",
-          "note": "או כל שנתיים"
+          "action": "replace"
         },
         {
           "item": "cabin_filter",
-          "action": "replace",
-          "note": "או כל שנתיים"
-        },
-        {
-          "item": "fuel_filter",
-          "action": "replace",
-          "note": "או כל שנתיים"
+          "action": "replace"
         }
       ]
     },
     {
-      "km": 105000,
+      "km": 100000,
       "items": [
         {
           "item": "engine_oil",
@@ -341,34 +117,12 @@
           "action": "replace"
         },
         {
-          "item": "tires",
-          "action": "inspect"
+          "item": "air_filter",
+          "action": "replace"
         },
         {
-          "item": "lights",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_discs",
-          "action": "inspect"
-        },
-        {
-          "item": "coolant",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "brake_fluid",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "diagnostics",
-          "action": "inspect"
+          "item": "cabin_filter",
+          "action": "replace"
         }
       ]
     },
@@ -384,95 +138,66 @@
           "action": "replace"
         },
         {
-          "item": "tires",
-          "action": "inspect"
-        },
-        {
-          "item": "lights",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_discs",
-          "action": "inspect"
-        },
-        {
-          "item": "coolant",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "brake_fluid",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "diagnostics",
-          "action": "inspect"
-        },
-        {
           "item": "air_filter",
-          "action": "replace",
-          "note": "או כל שנתיים"
+          "action": "replace"
         },
         {
           "item": "cabin_filter",
-          "action": "replace",
-          "note": "או כל שנתיים"
-        },
-        {
-          "item": "fuel_filter",
-          "action": "replace",
-          "note": "או כל שנתיים"
-        },
-        {
-          "item": "spark_plugs",
-          "action": "replace",
-          "note": "או כל 4 שנים"
+          "action": "replace"
         }
       ]
     }
   ],
   "long_interval": [
     {
-      "item": "drive_belt",
+      "item": "spark_plugs",
       "action": "replace",
-      "every_km": 90000,
-      "every_months": 48,
-      "note": "ערכת רצועת אביזרים"
+      "every_km": 30000
     },
     {
-      "item": "coolant",
-      "action": "replace",
-      "every_km": 120000,
-      "every_months": 48
+      "item": "brake_drums",
+      "action": "clean",
+      "every_km": 60000,
+      "note": "ניקוי בלמי התוף האחוריים"
     },
     {
       "item": "brake_fluid",
       "action": "replace",
-      "every_km": 120000,
-      "every_months": 48
+      "every_km": 90000
+    },
+    {
+      "item": "coolant",
+      "action": "replace",
+      "every_km": 90000
+    },
+    {
+      "item": "drive_belt",
+      "action": "replace",
+      "every_km": 90000,
+      "note": "ערכת רצועת אביזרים עם גלגלות"
     }
   ],
-  "time_based": [],
   "specs": {
-    "timing": "שרשרת תזמון (מנוע H5F), אין החלפה בטבלה"
+    "oil_capacity": "כ-4.6 ליטר (כמות השמן בהזמנת החלקים של תוכנית רנו אוקראינה)"
   },
   "sources": [
     {
-      "url": "https://www.renault.com.au/capped-price-servicing/",
+      "url": "https://to.renault.ua/",
       "kind": "manufacturer",
-      "note": "Renault Australia, Capped Price Servicing: טבלת \"Renault Kangoo 1.2 Petrol\" (מנוע 1.2 TCe H5F)"
+      "note": "רנו אוקראינה, מחשבון הטיפולים הרשמי (https://www.renault.ua/maintenance/maintenance-calc.html, נתונים מ-API ציבורי של האתר https://to.renault.ua/api/v1/services, גרסאות Captur 1,2 2016-2020 (4008)): תוכנית ל-120,000 ק\"מ. לכל ק\"מ מוצגת רשימת פעולות \"Регламентне ТО\" (טיפול לפי תוכנית רנו) עם קודי פעולה וחלקים"
     },
     {
-      "url": "https://www.renault.co.il/",
+      "url": "https://www.dacia.co.il/about-dacia/faq.html",
       "kind": "importer",
-      "note": "אתרי renault.co.il ו-dacia.co.il חסומים מסביבת הענן (Incapsula 403, גם בדפדפן Playwright); ספר עברי או לוח טיפולים של היבואן לא נמצאו"
+      "note": "דף השאלות הנפוצות של דאצ'יה ישראל (קרסו/פריסבי, נקרא ב-r.jina.ai בסבב 5): טיפול תקופתי לרכבי בנזין ודיזל כל 20,000 ק\"מ או שנה; מונית ורכב לימוד כל 15,000 ק\"מ או חצי שנה. זה המקור היחיד של היבואן למרווח; לוח הפריטים של היבואן לא פורסם"
+    },
+    {
+      "url": "https://www.renault.co.il/cars/clio/specifications.html",
+      "kind": "importer",
+      "note": "עמודי המפרט של רנו ישראל מפנים ל\"ספר הרכב ולחוברת אחריות ושירות\" לתוכנית התחזוקה; החוברת לא פורסמה ברשת (נבדק ב-r.jina.ai, מפת האתר ו-sitemap.xml)"
     }
   ],
   "status": "draft",
-  "notes": "לוח היבואן בישראל לא נמצא. המרווחים לקוחים מטבלת רנו אוסטרליה לקנגו עם מנוע 1.2 TCe (H5F), אותו מנוע שבדגם זה. טיפול כל 15,000 ק\"מ: שמן ומסנן. כל 30,000 או שנתיים: מסנני אוויר, מזגן ודלק. מצתים כל 60,000 או 4 שנים. ערכת רצועת אביזרים כל 90,000 או 4 שנים. נוזל קירור ונוזל בלמים כל 120,000 או 4 שנים. רשימת הבדיקות הכלליות בכל טיפול (צמיגים, תאורה, בלמים, מפלסים, קריאת מחשב) איננה מפורטת בעמוד המקור ונוספה כבדיקות שגרה; ההחלפות והמרווחים לקוחים מהמקור. "
+  "notes": "לוח הפריטים של היבואן בישראל לא פורסם. המרווח (20,000 ק\"מ או שנה) הוא של היבואן (דף דאצ'יה ישראל, שחל על בנזין ודיזל). הפריטים לקוחים מתוכנית הטיפולים הרשמית של רנו אוקראינה לאותו דגם ומנוע (מחשבון הטיפולים באתר היצרן, מבוסס על קודי הפעולה של רנו). באוקראינה הטיפול הוא כל 15,000 ק\"מ, ובכל טיפול מוחלפים שמן ומסנן שמן, מסנן אוויר, מסנן מזגן, יחד עם \"טיפול בסיסי\" שכולל לפי רנו 29 פעולות ובדיקות (הרשימה המפורטת לא מוצגת); כאן הם מוצגים בכל טיפול של 20,000. פריטים ארוכי טווח לפי ק\"מ (התוכנית לא נותנת להם מגבלת זמן): מצתים כל 30,000 ק\"מ; ניקוי בלמי התוף האחוריים כל 60,000 ק\"מ; נוזל בלמים כל 90,000 ק\"מ; נוזל קירור כל 90,000 ק\"מ; ערכת רצועת אביזרים כל 90,000 ק\"מ. התוכנית האוקראינית תכופה יותר מספרי רנו קוריאה שבשאר לוחות רנו (שם, למשל, מסנן האוויר מוחלף פעם בטיפול של 15,000-20,000 ק\"מ והמצתים כל 60,000). הגרסה הקודמת של לוח זה נבנתה מטבלת רנו אוסטרליה לקנגו 1.2 (טיפול כל 15,000; מסננים כל 30,000 או שנתיים; מצתים כל 60,000 או 4 שנים; רצועת אביזרים כל 90,000; נוזל קירור ובלמים כל 120,000 או 4 שנים). התוכנית האוקראינית הוחלפה בה כי היא מפרטת את אותם דגמים בדיוק.",
+  "time_based": []
 }

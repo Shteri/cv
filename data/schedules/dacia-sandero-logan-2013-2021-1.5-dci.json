@@ -1,8 +1,7 @@
 {
+  "id": "dacia-sandero-logan-2013-2021-1.5-dci",
   "make": "Dacia",
   "make_he": "דאצ'יה",
-  "importer": "פריסבי (קרסו)",
-  "id": "dacia-sandero-logan-2013-2021-1.5-dci",
   "model": "Sandero / Logan",
   "model_he": "סנדרו / לוגאן",
   "generation": "II",
@@ -14,15 +13,16 @@
     "1.5 dCi (K9K)"
   ],
   "fuel": "diesel",
+  "importer": "פריסבי (קרסו)",
   "interval": {
-    "km": 15000,
+    "km": 20000,
     "months": 12,
-    "note": "לפי טבלת רנו אוסטרליה לקנגו 1.5 דיזל: טיפולים ב-15,000, 30,000, 45,000... ק\"מ; מסננים כל 30,000 או שנתיים. משך הזמן בין טיפולים (שנה) לפי מדיניות השירות הכללית בעמוד; היבואן הישראלי: 20,000 ק\"מ או שנה"
+    "note": "טיפול כל 20,000 ק\"מ או שנה, המוקדם. אותו מרווח בטבלת רנו לדיזל 1.5 dCi (ספר הרכב של רנו קוריאה) ובהודעת היבואן הישראלי"
   },
-  "cycle_km": 120000,
+  "cycle_km": 240000,
   "services": [
     {
-      "km": 15000,
+      "km": 20000,
       "items": [
         {
           "item": "engine_oil",
@@ -33,12 +33,64 @@
           "action": "replace"
         },
         {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס, ריכוז ודליפות; השלמה לפי הצורך"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
           "item": "tires",
+          "action": "inspect",
+          "note": "לחץ אוויר ובלאי"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "בלאי, סדקים ומתיחה"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תיבת היגוי ומוטות"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "סרנים ומתלים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גלי הנעה"
+        },
+        {
+          "item": "exhaust",
           "action": "inspect"
         },
         {
           "item": "lights",
-          "action": "inspect"
+          "action": "adjust",
+          "note": "כיוון גובה הפנסים"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect",
+          "note": "מערכת הבלמים"
         },
         {
           "item": "brake_pads",
@@ -49,23 +101,33 @@
           "action": "inspect"
         },
         {
-          "item": "coolant",
+          "item": "pedals",
           "action": "inspect",
-          "note": "מפלס"
+          "note": "דוושת הבלם"
         },
         {
-          "item": "brake_fluid",
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "vacuum_hose",
           "action": "inspect",
-          "note": "מפלס"
+          "note": "צינור הוואקום של מגבר הבלם ושסתום החזרה"
         },
         {
           "item": "diagnostics",
-          "action": "inspect"
+          "action": "inspect",
+          "note": "בדיקה כוללת במחשב האבחון של רנו (CLIP)"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect",
+          "note": "כיוון פרונט לפי הצורך"
         }
       ]
     },
     {
-      "km": 30000,
+      "km": 40000,
       "items": [
         {
           "item": "engine_oil",
@@ -76,12 +138,64 @@
           "action": "replace"
         },
         {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס, ריכוז ודליפות; השלמה לפי הצורך"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
           "item": "tires",
+          "action": "inspect",
+          "note": "לחץ אוויר ובלאי"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "בלאי, סדקים ומתיחה"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תיבת היגוי ומוטות"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "סרנים ומתלים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גלי הנעה"
+        },
+        {
+          "item": "exhaust",
           "action": "inspect"
         },
         {
           "item": "lights",
-          "action": "inspect"
+          "action": "adjust",
+          "note": "כיוון גובה הפנסים"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect",
+          "note": "מערכת הבלמים"
         },
         {
           "item": "brake_pads",
@@ -92,76 +206,33 @@
           "action": "inspect"
         },
         {
-          "item": "coolant",
+          "item": "pedals",
           "action": "inspect",
-          "note": "מפלס"
+          "note": "דוושת הבלם"
         },
         {
-          "item": "brake_fluid",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "diagnostics",
+          "item": "parking_brake",
           "action": "inspect"
         },
         {
-          "item": "air_filter",
-          "action": "replace",
-          "note": "או כל שנתיים"
+          "item": "vacuum_hose",
+          "action": "inspect",
+          "note": "צינור הוואקום של מגבר הבלם ושסתום החזרה"
         },
         {
-          "item": "cabin_filter",
-          "action": "replace",
-          "note": "או כל שנתיים"
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "בדיקה כוללת במחשב האבחון של רנו (CLIP)"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect",
+          "note": "כיוון פרונט לפי הצורך"
         },
         {
           "item": "fuel_filter",
           "action": "replace",
-          "note": "או כל שנתיים"
-        }
-      ]
-    },
-    {
-      "km": 45000,
-      "items": [
-        {
-          "item": "engine_oil",
-          "action": "replace"
-        },
-        {
-          "item": "oil_filter",
-          "action": "replace"
-        },
-        {
-          "item": "tires",
-          "action": "inspect"
-        },
-        {
-          "item": "lights",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_discs",
-          "action": "inspect"
-        },
-        {
-          "item": "coolant",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "brake_fluid",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "diagnostics",
-          "action": "inspect"
+          "note": "מסנן סולר; יש להחליף מוקדם יותר אם מופיעים איבוד כוח או התנעה קשה"
         }
       ]
     },
@@ -177,12 +248,64 @@
           "action": "replace"
         },
         {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס, ריכוז ודליפות; השלמה לפי הצורך"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
           "item": "tires",
+          "action": "inspect",
+          "note": "לחץ אוויר ובלאי"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "בלאי, סדקים ומתיחה"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תיבת היגוי ומוטות"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "סרנים ומתלים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גלי הנעה"
+        },
+        {
+          "item": "exhaust",
           "action": "inspect"
         },
         {
           "item": "lights",
-          "action": "inspect"
+          "action": "adjust",
+          "note": "כיוון גובה הפנסים"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect",
+          "note": "מערכת הבלמים"
         },
         {
           "item": "brake_pads",
@@ -193,38 +316,146 @@
           "action": "inspect"
         },
         {
-          "item": "coolant",
+          "item": "pedals",
           "action": "inspect",
-          "note": "מפלס"
+          "note": "דוושת הבלם"
         },
         {
-          "item": "brake_fluid",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "diagnostics",
+          "item": "parking_brake",
           "action": "inspect"
         },
         {
-          "item": "air_filter",
-          "action": "replace",
-          "note": "או כל שנתיים"
+          "item": "vacuum_hose",
+          "action": "inspect",
+          "note": "צינור הוואקום של מגבר הבלם ושסתום החזרה"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "בדיקה כוללת במחשב האבחון של רנו (CLIP)"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect",
+          "note": "כיוון פרונט לפי הצורך"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 80000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
         },
         {
           "item": "cabin_filter",
-          "action": "replace",
-          "note": "או כל שנתיים"
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "לחץ אוויר ובלאי"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "בלאי, סדקים ומתיחה"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תיבת היגוי ומוטות"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "סרנים ומתלים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גלי הנעה"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "adjust",
+          "note": "כיוון גובה הפנסים"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect",
+          "note": "מערכת הבלמים"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת הבלם"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect",
+          "note": "צינור הוואקום של מגבר הבלם ושסתום החזרה"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "בדיקה כוללת במחשב האבחון של רנו (CLIP)"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect",
+          "note": "כיוון פרונט לפי הצורך"
         },
         {
           "item": "fuel_filter",
           "action": "replace",
-          "note": "או כל שנתיים"
+          "note": "מסנן סולר; יש להחליף מוקדם יותר אם מופיעים איבוד כוח או התנעה קשה"
+        },
+        {
+          "item": "coolant",
+          "action": "replace"
         }
       ]
     },
     {
-      "km": 75000,
+      "km": 100000,
       "items": [
         {
           "item": "engine_oil",
@@ -233,115 +464,61 @@
         {
           "item": "oil_filter",
           "action": "replace"
-        },
-        {
-          "item": "tires",
-          "action": "inspect"
-        },
-        {
-          "item": "lights",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_discs",
-          "action": "inspect"
-        },
-        {
-          "item": "coolant",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "brake_fluid",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "diagnostics",
-          "action": "inspect"
-        }
-      ]
-    },
-    {
-      "km": 90000,
-      "items": [
-        {
-          "item": "engine_oil",
-          "action": "replace"
-        },
-        {
-          "item": "oil_filter",
-          "action": "replace"
-        },
-        {
-          "item": "tires",
-          "action": "inspect"
-        },
-        {
-          "item": "lights",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_pads",
-          "action": "inspect"
-        },
-        {
-          "item": "brake_discs",
-          "action": "inspect"
-        },
-        {
-          "item": "coolant",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "brake_fluid",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "diagnostics",
-          "action": "inspect"
-        },
-        {
-          "item": "air_filter",
-          "action": "replace",
-          "note": "או כל שנתיים"
         },
         {
           "item": "cabin_filter",
-          "action": "replace",
-          "note": "או כל שנתיים"
-        },
-        {
-          "item": "fuel_filter",
-          "action": "replace",
-          "note": "או כל שנתיים"
-        }
-      ]
-    },
-    {
-      "km": 105000,
-      "items": [
-        {
-          "item": "engine_oil",
           "action": "replace"
         },
         {
-          "item": "oil_filter",
+          "item": "air_filter",
           "action": "replace"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס, ריכוז ודליפות; השלמה לפי הצורך"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
         },
         {
           "item": "tires",
+          "action": "inspect",
+          "note": "לחץ אוויר ובלאי"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תיבת היגוי ומוטות"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "סרנים ומתלים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גלי הנעה"
+        },
+        {
+          "item": "exhaust",
           "action": "inspect"
         },
         {
           "item": "lights",
-          "action": "inspect"
+          "action": "adjust",
+          "note": "כיוון גובה הפנסים"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect",
+          "note": "מערכת הבלמים"
         },
         {
           "item": "brake_pads",
@@ -352,18 +529,38 @@
           "action": "inspect"
         },
         {
-          "item": "coolant",
+          "item": "pedals",
           "action": "inspect",
-          "note": "מפלס"
+          "note": "דוושת הבלם"
         },
         {
-          "item": "brake_fluid",
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "vacuum_hose",
           "action": "inspect",
-          "note": "מפלס"
+          "note": "צינור הוואקום של מגבר הבלם ושסתום החזרה"
         },
         {
           "item": "diagnostics",
-          "action": "inspect"
+          "action": "inspect",
+          "note": "בדיקה כוללת במחשב האבחון של רנו (CLIP)"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect",
+          "note": "כיוון פרונט לפי הצורך"
+        },
+        {
+          "item": "drive_belt",
+          "action": "replace",
+          "note": "ערכת רצועת אביזרים עם מותחן אוטומטי וגלגלת מובילה"
+        },
+        {
+          "item": "timing_belt",
+          "action": "replace",
+          "note": "רצועת תזמון"
         }
       ]
     },
@@ -379,12 +576,64 @@
           "action": "replace"
         },
         {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס, ריכוז ודליפות; השלמה לפי הצורך"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
           "item": "tires",
+          "action": "inspect",
+          "note": "לחץ אוויר ובלאי"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "בלאי, סדקים ומתיחה"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תיבת היגוי ומוטות"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "סרנים ומתלים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גלי הנעה"
+        },
+        {
+          "item": "exhaust",
           "action": "inspect"
         },
         {
           "item": "lights",
-          "action": "inspect"
+          "action": "adjust",
+          "note": "כיוון גובה הפנסים"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect",
+          "note": "מערכת הבלמים"
         },
         {
           "item": "brake_pads",
@@ -395,85 +644,732 @@
           "action": "inspect"
         },
         {
-          "item": "coolant",
+          "item": "pedals",
           "action": "inspect",
-          "note": "מפלס"
+          "note": "דוושת הבלם"
         },
         {
-          "item": "brake_fluid",
-          "action": "inspect",
-          "note": "מפלס"
-        },
-        {
-          "item": "diagnostics",
+          "item": "parking_brake",
           "action": "inspect"
         },
         {
-          "item": "air_filter",
-          "action": "replace",
-          "note": "או כל שנתיים"
+          "item": "vacuum_hose",
+          "action": "inspect",
+          "note": "צינור הוואקום של מגבר הבלם ושסתום החזרה"
         },
         {
-          "item": "cabin_filter",
-          "action": "replace",
-          "note": "או כל שנתיים"
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "בדיקה כוללת במחשב האבחון של רנו (CLIP)"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect",
+          "note": "כיוון פרונט לפי הצורך"
         },
         {
           "item": "fuel_filter",
           "action": "replace",
-          "note": "או כל שנתיים"
+          "note": "מסנן סולר; יש להחליף מוקדם יותר אם מופיעים איבוד כוח או התנעה קשה"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 140000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס, ריכוז ודליפות; השלמה לפי הצורך"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "לחץ אוויר ובלאי"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "בלאי, סדקים ומתיחה"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תיבת היגוי ומוטות"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "סרנים ומתלים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גלי הנעה"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "adjust",
+          "note": "כיוון גובה הפנסים"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect",
+          "note": "מערכת הבלמים"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת הבלם"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect",
+          "note": "צינור הוואקום של מגבר הבלם ושסתום החזרה"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "בדיקה כוללת במחשב האבחון של רנו (CLIP)"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect",
+          "note": "כיוון פרונט לפי הצורך"
+        }
+      ]
+    },
+    {
+      "km": 160000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "לחץ אוויר ובלאי"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "בלאי, סדקים ומתיחה"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תיבת היגוי ומוטות"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "סרנים ומתלים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גלי הנעה"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "adjust",
+          "note": "כיוון גובה הפנסים"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect",
+          "note": "מערכת הבלמים"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת הבלם"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect",
+          "note": "צינור הוואקום של מגבר הבלם ושסתום החזרה"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "בדיקה כוללת במחשב האבחון של רנו (CLIP)"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect",
+          "note": "כיוון פרונט לפי הצורך"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace",
+          "note": "מסנן סולר; יש להחליף מוקדם יותר אם מופיעים איבוד כוח או התנעה קשה"
+        },
+        {
+          "item": "coolant",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 180000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס, ריכוז ודליפות; השלמה לפי הצורך"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "לחץ אוויר ובלאי"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "בלאי, סדקים ומתיחה"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תיבת היגוי ומוטות"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "סרנים ומתלים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גלי הנעה"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "adjust",
+          "note": "כיוון גובה הפנסים"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect",
+          "note": "מערכת הבלמים"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת הבלם"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect",
+          "note": "צינור הוואקום של מגבר הבלם ושסתום החזרה"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "בדיקה כוללת במחשב האבחון של רנו (CLIP)"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect",
+          "note": "כיוון פרונט לפי הצורך"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        }
+      ]
+    },
+    {
+      "km": 200000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס, ריכוז ודליפות; השלמה לפי הצורך"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "לחץ אוויר ובלאי"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תיבת היגוי ומוטות"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "סרנים ומתלים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גלי הנעה"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "adjust",
+          "note": "כיוון גובה הפנסים"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect",
+          "note": "מערכת הבלמים"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת הבלם"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect",
+          "note": "צינור הוואקום של מגבר הבלם ושסתום החזרה"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "בדיקה כוללת במחשב האבחון של רנו (CLIP)"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect",
+          "note": "כיוון פרונט לפי הצורך"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace",
+          "note": "מסנן סולר; יש להחליף מוקדם יותר אם מופיעים איבוד כוח או התנעה קשה"
+        },
+        {
+          "item": "drive_belt",
+          "action": "replace",
+          "note": "ערכת רצועת אביזרים עם מותחן אוטומטי וגלגלת מובילה"
+        },
+        {
+          "item": "timing_belt",
+          "action": "replace",
+          "note": "רצועת תזמון"
+        }
+      ]
+    },
+    {
+      "km": 220000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "coolant",
+          "action": "inspect",
+          "note": "מפלס, ריכוז ודליפות; השלמה לפי הצורך"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "לחץ אוויר ובלאי"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "בלאי, סדקים ומתיחה"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תיבת היגוי ומוטות"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "סרנים ומתלים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גלי הנעה"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "adjust",
+          "note": "כיוון גובה הפנסים"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect",
+          "note": "מערכת הבלמים"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת הבלם"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect",
+          "note": "צינור הוואקום של מגבר הבלם ושסתום החזרה"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "בדיקה כוללת במחשב האבחון של רנו (CLIP)"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect",
+          "note": "כיוון פרונט לפי הצורך"
+        }
+      ]
+    },
+    {
+      "km": 240000,
+      "items": [
+        {
+          "item": "engine_oil",
+          "action": "replace"
+        },
+        {
+          "item": "oil_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cabin_filter",
+          "action": "replace"
+        },
+        {
+          "item": "air_filter",
+          "action": "replace"
+        },
+        {
+          "item": "cooling_system",
+          "action": "inspect"
+        },
+        {
+          "item": "tires",
+          "action": "inspect",
+          "note": "לחץ אוויר ובלאי"
+        },
+        {
+          "item": "drive_belt",
+          "action": "inspect",
+          "note": "בלאי, סדקים ומתיחה"
+        },
+        {
+          "item": "fuel_lines",
+          "action": "inspect"
+        },
+        {
+          "item": "steering",
+          "action": "inspect",
+          "note": "תיבת היגוי ומוטות"
+        },
+        {
+          "item": "suspension",
+          "action": "inspect",
+          "note": "סרנים ומתלים"
+        },
+        {
+          "item": "cv_boots",
+          "action": "inspect",
+          "note": "גלי הנעה"
+        },
+        {
+          "item": "exhaust",
+          "action": "inspect"
+        },
+        {
+          "item": "lights",
+          "action": "adjust",
+          "note": "כיוון גובה הפנסים"
+        },
+        {
+          "item": "brake_lines",
+          "action": "inspect",
+          "note": "מערכת הבלמים"
+        },
+        {
+          "item": "brake_pads",
+          "action": "inspect"
+        },
+        {
+          "item": "brake_discs",
+          "action": "inspect"
+        },
+        {
+          "item": "pedals",
+          "action": "inspect",
+          "note": "דוושת הבלם"
+        },
+        {
+          "item": "parking_brake",
+          "action": "inspect"
+        },
+        {
+          "item": "vacuum_hose",
+          "action": "inspect",
+          "note": "צינור הוואקום של מגבר הבלם ושסתום החזרה"
+        },
+        {
+          "item": "diagnostics",
+          "action": "inspect",
+          "note": "בדיקה כוללת במחשב האבחון של רנו (CLIP)"
+        },
+        {
+          "item": "wheel_alignment",
+          "action": "inspect",
+          "note": "כיוון פרונט לפי הצורך"
+        },
+        {
+          "item": "fuel_filter",
+          "action": "replace",
+          "note": "מסנן סולר; יש להחליף מוקדם יותר אם מופיעים איבוד כוח או התנעה קשה"
+        },
+        {
+          "item": "brake_fluid",
+          "action": "replace"
+        },
+        {
+          "item": "coolant",
+          "action": "replace"
         }
       ]
     }
   ],
   "long_interval": [
     {
-      "item": "timing_belt",
-      "action": "replace",
-      "every_km": 120000,
-      "every_months": 48,
-      "note": "ערכת רצועת תזמון וערכת רצועת אביזרים"
-    },
-    {
-      "item": "drive_belt",
-      "action": "replace",
-      "every_km": 120000,
-      "every_months": 48
-    },
-    {
-      "item": "coolant",
-      "action": "replace",
-      "every_km": 120000,
-      "every_months": 48
-    },
-    {
-      "item": "brake_fluid",
-      "action": "replace",
-      "every_km": 120000,
-      "every_months": 48
+      "item": "tire_rotation",
+      "action": "rotate",
+      "every_km": 10000,
+      "every_months": 12,
+      "note": "סבב צמיגים כל 10,000 ק\"מ או שנה"
     }
   ],
   "time_based": [],
   "specs": {
-    "timing": "רצועת תזמון: 120,000 ק\"מ או 4 שנים (טבלת רנו אוסטרליה, קנגו 1.5 דיזל)"
+    "timing": "רצועת תזמון: החלפה כל 100,000 ק\"מ או 5 שנים (טבלת רנו קוריאה)"
   },
   "sources": [
     {
-      "url": "https://www.renault.com.au/capped-price-servicing/",
+      "url": "https://www.renault.co.kr/upload/asset/manual/CLIO_2019_34_UserManualFull_Period1.pdf",
       "kind": "manufacturer",
-      "note": "Renault Australia, Capped Price Servicing: טבלת \"Renault Kangoo 1.5 Diesel\" (מנוע K9K) - מרווחי מסננים, רצועות, נוזל קירור ונוזל בלמים"
+      "note": "רנו קוריאה, ספר הרכב הקוריאני, פרק 4 \"정기점검\" (בדיקות תקופתיות), עמודים 4.7-4.9: טבלת הדיזל של קליאו 4 (תוצרת טורקיה, 1.5 dCi), רשימת הבדיקה הכללית ותנאים קשים. הקובץ מתקבל דרך דף ההורדות https://www.renault.co.kr/ko/service/svc_download.jsp"
+    },
+    {
+      "url": "https://www.renault.co.kr/ko/service/svc_auto01_11.jsp",
+      "kind": "manufacturer",
+      "note": "רנו קוריאה, דף \"차량 점검 주기\" (מחזורי בדיקה) באתר הרשמי: טבלת קליאו בגרסת האתר (20,000 ק\"מ/שנה, אותן החלפות)"
     },
     {
       "url": "https://www.dacia.co.il/about-dacia/faq.html",
       "kind": "importer",
-      "note": "דף השאלות הנפוצות של דאצ'יה ישראל (קרסו/פריסבי), נקרא דרך r.jina.ai כי האתר חסום ל-curl: מרווח הטיפולים לרכבי דאצ'יה בבנזין ובדיזל הוא 20,000 ק\"מ או שנה, ולמונית/רכב לימוד 15,000 ק\"מ או חצי שנה. ספר הרכב וחוברת הטיפולים מסופקים רק דרך מוקד שירות הלקוחות"
+      "note": "דף השאלות הנפוצות של דאצ'יה ישראל (קרסו/פריסבי, נקרא ב-r.jina.ai בסבב 5): טיפול תקופתי לרכבי בנזין ודיזל כל 20,000 ק\"מ או שנה; מונית ורכב לימוד כל 15,000 ק\"מ או חצי שנה. זה המקור היחיד של היבואן למרווח; לוח הפריטים של היבואן לא פורסם"
     },
     {
-      "url": "https://www.renault.co.il/",
+      "url": "https://www.renault.co.il/cars/clio/specifications.html",
       "kind": "importer",
-      "note": "אתרי renault.co.il ו-dacia.co.il חסומים מסביבת הענן (Incapsula 403, גם בדפדפן Playwright); ספר עברי או לוח טיפולים של היבואן לא נמצאו"
+      "note": "עמודי המפרט של רנו ישראל מפנים ל\"ספר הרכב ולחוברת אחריות ושירות\" לתוכנית התחזוקה; החוברת לא פורסמה ברשת (נבדק ב-r.jina.ai, מפת האתר ו-sitemap.xml)"
     }
   ],
   "status": "draft",
-  "notes": "לוח היבואן בישראל לא נמצא. המרווחים לקוחים מטבלת השירות הרשמית של רנו אוסטרליה לקנגו עם מנוע 1.5 dCi (K9K), אותו מנוע שבדגם זה. טיפול כל 15,000 ק\"מ: שמן ומסנן. כל 30,000 ק\"מ או שנתיים: מסנני אוויר, מזגן וסולר. ערכת רצועת תזמון ורצועת אביזרים, נוזל קירור ונוזל בלמים: כל 120,000 ק\"מ או 4 שנים. רשימת הבדיקות הכלליות בכל טיפול (צמיגים, תאורה, בלמים, מפלסים, קריאת מחשב) איננה מפורטת בעמוד המקור ונוספה כבדיקות שגרה; ההחלפות והמרווחים לקוחים מהמקור. בדגמים החדשים יותר (מגאן IV, קדג'אר) יש חיישן מצב שמן שעשוי להקדים טיפול. לפי דף השאלות הנפוצות של דאצ'יה ישראל, היבואן קובע טיפול תקופתי כל 20,000 ק\"מ או שנה (בנזין ודיזל; מונית ורכב לימוד כל 15,000 ק\"מ או חצי שנה). חוברת הטיפולים הישראלית עצמה לא פורסמה ברשת, ולכן פירוט הפריטים בלוח נשאר מהמקור הבינלאומי; המרווח הישראלי שונה ממרווח הלוח."
+  "notes": "לוח הפריטים של היבואן בישראל לא פורסם. המרווח (20,000 ק\"מ או שנה) הוא של היבואן; פירוט הפריטים לקוח מספר הרכב הרשמי של רנו קוריאה, שוק שבו נמכר אותו מנוע עם אותו מרווח. לפי טבלת רנו קוריאה לדיזל 1.5 dCi (K9K): בכל טיפול (20,000 ק\"מ או שנה) שמן ומסנן שמן, מסנן אוויר ומסנן מזגן ובדיקה כללית. מסנן סולר כל 40,000; נוזל בלמים כל 60,000 (3 שנים); נוזל קירור כל 80,000 (4 שנים); ערכת רצועת אביזרים ורצועת תזמון כל 100,000 ק\"מ או 5 שנים. בדיקה כללית לפי הספר: מפלס וריכוז נוזל קירור, צמיגים, רצועת אביזרים, מערכת קירור, צנרת דלק, היגוי, מתלים, גלי הנעה, פליטה, גובה פנסים, בלמים (רפידות, דיסקים, צנרת, דוושה, בלם חניה, צינור ואקום), בדיקת מחשב CLIP, כיוון פרונט, וכן בדיקת בית המצערת ואיפוס מחוון הטיפול (אין להם פריט נפרד בלוח). בתנאי שימוש קשים (אבק, נסיעות קצרות חוזרות, סרק ממושך, אזורים הרריים ולחים, מלח, דרכים משובשות, בלימות תכופות, מונית/השכרה/רכב מסחרי) הספר הקוריאני מקצר: שמן ומסנן כל 10,000 ק\"מ או חצי שנה; בדיקת בלמים, הידוק ברגי שלדה ומרכב ובדיקת צנרת בלמים כל 10,000 ק\"מ או חצי שנה; מסנן מזגן כל 10,000 ק\"מ או חצי שנה; בדיקת היגוי, מתלים וגלי הנעה כל 20,000 ק\"מ או שנה. הדגם עצמו לא נמכר בקוריאה; הטבלה היא של קליאו/קפצ'ור עם אותו מנוע 1.5 dCi (K9K), ולכן זה לוח של דגם אח. דאצ'יה לא נמכרת בקוריאה; המנוע זהה. מרווח 20,000 ק\"מ או שנה הוא בדיוק מה שדאצ'יה ישראל מפרסמת."
 }
