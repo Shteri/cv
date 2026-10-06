@@ -1589,6 +1589,9 @@
   const gCat = { mech: [10, 15, 20, 22, 23], elec: [30, 142], ac: [205], body: [70, 100, 175, 177, 80], tires: [130, 135], test: [181, 180] };
   const gCatName = { mech: "מכונאות", elec: "חשמל", ac: "מיזוג", body: "פחחות וצבע", tires: "צמיגים", test: "טסט ובדיקות" };
   const gCats = codes => Object.keys(gCat).filter(c => gCat[c].some(k => codes.includes(k)));
+  // A garage profile outside the registry (a test garage) gets a registry-shaped row from its profile.
+  const profRow = p => [p.garage_id, p.name, p.city, p.address || "", p.phone || "", 6, [10]];
+  const regRowOf = id => (GD && GD.garages.find(x => x[0] === id)) || Object.values(cloudProfiles).flatMap(m => Object.values(m)).filter(p => p.garage_id === id).map(profRow)[0] || null;
   const dirRow = r => ({ id: r[0], name: r[1], city: r[2], addr: r[3], phone: r[4], type: r[5], cats: gCats(r[6]), hybrid: r[6].includes(23) });
   const normName = x => (x || "").replace(/בע["'\s]*מ/g, "").replace(/[\s"'.\-]+/g, "").toLowerCase();
   const cityNorm = x => (x || "").replace(/[\s\-"'.]+/g, "").replace(/יפו$/, "");
@@ -1606,7 +1609,7 @@
   // other drivers recommend; my own visits are just mine
   const commLine = (g, s) => `<div class="comm">${g.others ? `${g.n} ${g.n === 1 ? "נהג" : "נהגי"} ${s.model_he}${g.mine ? " (כולל אותך)" : ""}` : `ביקרת כאן ${g.visits === 1 ? "פעם אחת" : g.visits + " פעמים"}`}${g.others && g.backPct !== null ? ` · ${g.backPct}% היו חוזרים` : ""}${g.avg ? ` · ממוצע ₪${fmt(g.avg)}` : ""}</div>`;
   const garageRow = (g, comm, s, prof) => { const hn = prof ? hoursNow(prof.hours) : null, phone = (prof && prof.phone) || g.phone; return `<div class="garage tap" role="button" tabindex="0" data-gview="${g.id}" aria-label="פרטי ${esc((prof && prof.name) || g.name)}">
-      <div><div class="nm">${esc((prof && prof.name) || g.name)}${comm && comm.others ? ` <span class="tag rec">מומלץ</span>` : ""}${prof ? ` <span class="tag ver">מאומת</span>` : ""}${comm && comm.mine ? ` <span class="tag mine">דיווחת</span>` : ""}</div>
+      <div><div class="nm">${esc((prof && prof.name) || g.name)}${comm && comm.others ? ` <span class="tag rec">מומלץ</span>` : ""}${prof && prof.hidden ? ` <span class="tag mine">בדיקה · רק לך</span>` : prof ? ` <span class="tag ver">מאומת</span>` : ""}${comm && comm.mine ? ` <span class="tag mine">דיווחת</span>` : ""}</div>
         ${prof && prof.name && normName(prof.name) !== normName(g.name) ? `<div class="meta"><span>רשום במשרד התחבורה: ${esc(g.name)}</span></div>` : ""}
         <div class="meta">${g.addr ? `<span>${esc(g.addr)}${g.city && g.city !== (S.city || "") ? ", " + g.city : ""}</span>` : ""}${(prof && prof.services && prof.services.length ? prof.services : g.cats).map(c => `<span>${gCatName[c] || c}</span>`).join("")}</div>
         ${hn ? `<div class="hrs ${hn.open ? "open" : ""}">${hn.text}</div>` : ""}
@@ -1640,6 +1643,8 @@
     }
     const ids = new Set(GD.garages.filter(r => r[2] === city).map(r => r[0]));
     const regRows = GD.garages.filter(r => r[2] === city).concat([...byReg.values()].map(x => x.r).filter(r => !ids.has(r[0])));
+    // profiles with no registry row in this city (a test garage)
+    for (const p of Object.values(profilesFor(city))) if (!ids.has(p.garage_id) && !GD.garages.some(r => r[0] === p.garage_id)) { regRows.push(profRow(p)); ids.add(p.garage_id); }
     const rows = regRows.map(dirRow).map(g => {
       const prof = profilesFor(g.city)[g.id] || null, list = (byReg.get(g.id) || {}).list || [];
       let comm = null;
@@ -1690,7 +1695,7 @@
     });
   }
   function openGarageView(id) {
-    const r = GD && GD.garages.find(x => x[0] === id); if (!r) return;
+    const r = regRowOf(id); if (!r) return;
     const car = S.cars[S.active], g = dirRow(r), prof = profilesFor(g.city)[id] || null, s = car ? schedById(car.schedule) : null;
     const comm = car && s ? (cityGarages(car, g.city).rows.find(x => x.g.id === id) || {}).comm : null;
     const shown = (prof && prof.name) || g.name, phone = (prof && prof.phone) || g.phone, hn = prof ? hoursNow(prof.hours) : null;
