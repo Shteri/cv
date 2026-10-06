@@ -17,7 +17,8 @@ const json = (b: unknown, s = 200) => new Response(JSON.stringify(b), { status: 
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response("ok", { headers: cors });
   try {
-    const key = Deno.env.get("ANTHROPIC_API_KEY");
+    // the secret is ANTHROPIC_API_KEY; a key saved under another name (e.g. SCAN_KEY) is found by its sk-ant- prefix
+    const key = Deno.env.get("ANTHROPIC_API_KEY") || Object.values(Deno.env.toObject()).find(v => typeof v === "string" && v.trim().startsWith("sk-ant-"))?.trim();
     if (!key) return json({ error: "ai not configured" }, 503);
     const user = createClient(Deno.env.get("SUPABASE_URL")!, Deno.env.get("SUPABASE_ANON_KEY")!, { global: { headers: { Authorization: req.headers.get("Authorization") || "" } } });
     const { data: me } = await user.auth.getUser();
