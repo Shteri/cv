@@ -25,10 +25,10 @@ filled in, every feature below switches on.
    supabase login
    supabase link --project-ref <project-ref>
    supabase secrets set ANTHROPIC_API_KEY=sk-ant-...
-   supabase functions deploy extract-receipt
+   supabase functions deploy ai-assist
    ```
-   The Anthropic key comes from https://platform.claude.com. The function uses
-   `claude-opus-5`; a receipt costs a fraction of a cent to a few cents.
+   The Anthropic key comes from https://platform.claude.com. Receipt reading is the `receipt` task of `ai-assist`
+   (step 12): signed-in users only, within the daily AI limit; it reads a photo or a PDF.
 5. **Garage profiles** (owners claim a licensed garage): run `migrations/0002_garage_profiles.sql`
    in the SQL editor. Then make yourself admin so pending claims show up on your profile screen:
    `update public.profiles set is_admin = true where id = '<your auth user id>';`
@@ -87,5 +87,5 @@ filled in, every feature below switches on.
 ```
 supabase start            # local Postgres + auth + storage
 supabase db reset         # applies migrations/
-supabase functions serve extract-receipt --env-file .env.local
+supabase functions serve ai-assist --env-file .env.local
 ```

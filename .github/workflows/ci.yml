@@ -17,4 +17,5 @@ jobs:
       - run: node scripts/build-app-data.mjs
       - run: node scripts/test-lookup.mjs
       - run: node scripts/test-engine.mjs
+      - run: node scripts/test-import.mjs
       - run: node scripts/build-site.mjs

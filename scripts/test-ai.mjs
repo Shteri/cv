@@ -23,6 +23,9 @@ const insp = t.clean("insp", { rest_ok: true, checks: [{ key: "brakes_front", st
 assert.deepEqual(insp.checks.map(c => c.key), ["brakes_front"]);
 const rec = t.clean("record", { kind: "service", date: "2026-09", km: 60000, price: 950, garage: null, city: null, where: "independent", svc_km: 60000, items: ["engine_oil", "nope"], text: null }, ctx);
 assert.deepEqual(rec.items, ["engine_oil"]);
+const rcpt = t.clean("receipt", { kind: "service", date: "2021-07", km: 96229, price: 1450, garage: "מוסך אמיר", city: null, where: null, svc_km: null, items: ["engine_oil", "invented"], text: null, confidence: "high", notes: null }, ctx);
+assert.deepEqual(rcpt.items, ["engine_oil"]);
+assert.ok(t.FILE_TYPES.includes("application/pdf") && t.MAX_FILE > 1e6);
 const q = t.clean("quote", { lines: [{ desc: "רפידות", price: 400, item: "brake_pads", due: "due", note: null }, { desc: "x", price: 1, item: "zzz", due: "unknown", note: null }], total: 401, price_verdict: "unknown", summary: "s", questions: ["a", "b", "c", "d"] }, ctx);
 assert.equal(q.lines[1].item, null); assert.equal(q.questions.length, 3);
 assert.match(t.userMessage("wo", "החלפתי רפידות", ctx), /CONTEXT:[\s\S]*NOTE \(wo\):\nהחלפתי רפידות$/);

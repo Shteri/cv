@@ -314,12 +314,12 @@
   }
   async function decidePlateRequest(id, approve) { const { error } = await sb.rpc("decide_plate_request", { p_id: id, p_approve: !!approve }); if (error) throw error; }
 
-  // ---------- receipt extraction (Edge Function -> Claude vision) ----------
+  // ---------- receipt reading: a photo (shrunk on the device) or a PDF, through ai-assist (signed in, daily limit) ----------
   async function extractReceipt(dataUrl, context) {
-    const { data, error } = await sb.functions.invoke("extract-receipt", { body: { image_base64: dataUrlToBase64(dataUrl), media_type: mediaOf(dataUrl), context } });
-    if (error) throw error;
+    const { data, error } = await sb.functions.invoke("ai-assist", { body: { task: "receipt", file: { data: dataUrlToBase64(dataUrl), media_type: mediaOf(dataUrl) }, context } });
+    if (error) { let m = error.message; try { const j = await error.context.json(); m = j.error || m; } catch (e) {} throw new Error(m); }
     if (data && data.error) throw new Error(data.error);
-    return data;
+    return data.result;
   }
 
   g.TipulitCloud = { enabled, authError, hasAuthParams, currentUser, onAuth, signInWithGoogle, signOut, handleRedirect, loadCars, saveCar, deleteCar, communityPrices, communityGarages, extractReceipt, myGarageProfiles, garageProfiles, saveGarageProfile, deleteGarageProfile, photoUrl, startPhoneVerify, confirmPhoneVerify, claimGarage, pendingGarageClaims, setGarageStatus, garagePublic, joinGarage, myGarageLinks, updateGarageLink, leaveGarage, pendingGarageEntries, decideGarageEntry, garageCustomers, garageAddEntry, plateStatus, claimPlate, requestPlate, pendingPlateRequests, decidePlateRequest, garageBook, garageCarHistory, workOrders, addCustomer, updateCustomer, deleteCustomer, addGarageCar, updateGarageCar, saveWorkOrder, sendWorkOrder, importCustomers, appointments, saveAppointment, approvalsFor, createApproval, updateGarageSettings, bookingInfo, bookAppointment, bookSlot, apptGet, apptRespond, apptStrikes, approvalGet, approvalDecide, parts, suppliers, purchaseOrders, invoices, savePart, deletePart, saveSupplier, deleteSupplier, savePurchaseOrder, deletePurchaseOrder, receivePurchaseOrder, addStockMove, partMoves, woConsume, recordInvoice, deleteInvoice, billing, billingSave, billingDelete, issueDocument, jobTemplates, saveJob, deleteJob, approvalChoose, uploadInspectionPhoto, aiAssist };

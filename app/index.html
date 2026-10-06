@@ -134,8 +134,10 @@
     <div class="card stack g-8">
       <div class="row between"><h3>המסמכים שלך</h3><span class="small muted" id="car-docs-n"></span></div>
       <div class="docs" id="car-docs"></div>
-      <label class="btn secondary" for="car-upload">העלה חשבוניות</label>
-      <input id="car-upload" type="file" accept="image/*" multiple hidden>
+      <label class="btn secondary" for="car-upload">העלה חשבוניות (צילום או PDF)</label>
+      <input id="car-upload" type="file" accept="image/*,application/pdf" multiple hidden>
+      <label class="btn secondary" for="car-xls">ייבוא היסטוריה מאקסל</label>
+      <input id="car-xls" type="file" accept=".xlsx,.xls,.csv,text/csv" hidden>
     </div>
     <div id="car-history"></div>
   </section>
@@ -299,7 +301,7 @@
       </div>
       <div class="field"><label for="log-extra">הערות <span class="muted">(לא חובה)</span></label><textarea id="log-extra" name="extras" rows="2" autocomplete="off" placeholder="למשל הוחלפו גם רפידות קדמיות"></textarea></div>
       <div class="field"><label>צילום חשבונית <span class="muted">(לא חובה)</span></label>
-        <div class="receipt"><img id="log-thumb" alt="" hidden><label for="log-file" id="log-file-lbl">הוסף צילום</label><input id="log-file" type="file" accept="image/*" multiple></div>
+        <div class="receipt"><img id="log-thumb" alt="" hidden><label for="log-file" id="log-file-lbl">הוסף צילום</label><input id="log-file" type="file" accept="image/*,application/pdf" multiple></div>
       </div>
       <div class="row between"><span class="small">שתף מחיר ומוסך אנונימית<br><span class="muted">בלי שם ובלי מספר רכב.</span></span><button class="toggle on" id="log-share" aria-label="שיתוף מחיר"></button></div>
       <button class="btn primary" id="log-save">שמור</button>
@@ -312,6 +314,16 @@
       <div class="field"><label for="sheet-km">מה על השעון עכשיו?</label><input id="sheet-km" name="odometer" inputmode="numeric" autocomplete="off" class="num"></div>
       <button class="btn primary" id="sheet-save">שמור</button>
       <button class="btn ghost" id="sheet-close">ביטול</button>
+    </div>
+  </div>
+
+  <div class="sheet" id="xls">
+    <div class="panel stack g-10">
+      <div class="row between"><h2>ייבוא היסטוריה</h2><button class="btn ghost fit" id="xls-close">סגור</button></div>
+      <p class="small muted" id="xls-sum"></p>
+      <div class="list" id="xls-list"></div>
+      <p class="err" id="xls-err" hidden></p>
+      <button class="btn primary" id="xls-go">ייבא</button>
     </div>
   </div>
 
@@ -402,6 +414,7 @@
 <script src="data.js"></script>
 <script src="lookup.js"></script>
 <script src="engine.js"></script>
+<script src="history-import.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
 <script src="config.js"></script>
 <script src="cloud.js"></script>
@@ -759,19 +772,24 @@
   $("#log").onclick = e => { if (e.target.id === "log") { $("#log").classList.remove("show"); uploadQueue = []; } };
   $$("#log-where button").forEach(b => b.onclick = () => { $$("#log-where button").forEach(x => x.classList.remove("on")); b.classList.add("on"); logWhere = b.dataset.v; $("#log-garage-row").hidden = logWhere === "self"; });
   // Shrink a photo to a small JPEG thumbnail (kept on device; the full image is what a future server would OCR).
-  const shrink = (file, max = 320) => new Promise(res => { const r = new FileReader(); r.onload = () => { const img = new Image(); img.onload = () => { const c = document.createElement("canvas"); const k = Math.min(1, max / Math.max(img.width, img.height)); c.width = img.width * k; c.height = img.height * k; c.getContext("2d").drawImage(img, 0, 0, c.width, c.height); res(c.toDataURL("image/jpeg", .7)); }; img.src = r.result; }; r.readAsDataURL(file); });
+  const readDataUrl = file => new Promise((res, rej) => { const r = new FileReader(); r.onload = () => res(r.result); r.onerror = rej; r.readAsDataURL(file); });
+  const isPdf = f => f && (f.type === "application/pdf" || /\.pdf$/i.test(f.name || ""));
+  const shrink = (file, max = 320) => isPdf(file) ? Promise.resolve(null) : new Promise(res => { const r = new FileReader(); r.onload = () => { const img = new Image(); img.onload = () => { const c = document.createElement("canvas"); const k = Math.min(1, max / Math.max(img.width, img.height)); c.width = img.width * k; c.height = img.height * k; c.getContext("2d").drawImage(img, 0, 0, c.width, c.height); res(c.toDataURL("image/jpeg", .7)); }; img.src = r.result; }; r.readAsDataURL(file); });
   // Ask the server to read the document and prefill the form. The driver reviews before saving.
   async function prefillFromReceipt(file) {
     if (!Cloud.enabled || !file) return;
     const car = S.cars[S.active], s = schedById(car.schedule);
     const btn = $("#log-save"); btn.disabled = true; btn.dataset.busy = "קורא את החשבונית…"; btn.classList.add("busy");
     try {
-      const big = await shrink(file, 1600);
+      const big = isPdf(file) ? await readDataUrl(file) : await shrink(file, 1600);
       const r = await Cloud.extractReceipt(big, { make: s.make_he, model: s.model_he, year: car.year, items: candidateItems(s).map(k => ({ key: k, he: itemName(k) })) });
       fillLog(r, s);
       toast(r.confidence === "low" ? "קראתי חלקית. בדוק את הפרטים לפני שמירה" : "מולא מהחשבונית. בדוק ושמור");
       if (r.notes) $("#log-extra").value = r.notes;
-    } catch (e) { toast("לא הצלחתי לקרוא את החשבונית. מלא ידנית"); }
+    } catch (e) {
+      const m = String(e.message || e);
+      toast(/not configured/.test(m) ? "קריאת חשבוניות עוד לא הופעלה. מלא ידנית" : /not signed in|401/.test(m) ? "כדי לקרוא חשבוניות צריך להתחבר עם Google" : /daily limit/.test(m) ? "הגעת למכסת הקריאות להיום. מלא ידנית" : /too long/.test(m) ? "הקובץ גדול מדי. נסה צילום" : "לא הצלחתי לקרוא את החשבונית. מלא ידנית");
+    }
     btn.disabled = false; btn.classList.remove("busy"); btn.dataset.busy = "";
   }
   // fill the sheet from a structured record (receipt photo or a description in words); the driver reviews before saving
@@ -835,7 +853,7 @@
     b.disabled = false; b.textContent = "בדוק";
   };
   let pendingFiles = [];
-  $("#log-file").onchange = async e => { const files = [...e.target.files]; for (const f of files) logThumbs.push(await shrink(f)); renderThumbs(); if (files[0]) prefillFromReceipt(files[0]); };
+  $("#log-file").onchange = async e => { const files = [...e.target.files]; for (const f of files) { const t = await shrink(f); if (t) logThumbs.push(t); } renderThumbs(); if (files[0]) prefillFromReceipt(files[0]); };
   $("#log-share").onclick = () => $("#log-share").classList.toggle("on");
   $("#log-save").onclick = () => {
     const car = S.cars[S.active];
@@ -860,8 +878,61 @@
     const files = [...e.target.files]; if (!files.length) return; e.target.value = "";
     const thumbs = []; for (const f of files) thumbs.push(await shrink(f));
     uploadQueue = thumbs.slice(1); pendingFiles = files.slice(1);
-    openLog(null, { thumbs: [thumbs[0]], kind: "service" });
+    openLog(null, { thumbs: thumbs[0] ? [thumbs[0]] : [], kind: "service" });
     prefillFromReceipt(files[0]);
+  };
+
+  // ---------- service history from a spreadsheet (a garage system export, or a table of visits) ----------
+  let xlsVisits = [], xlsLib = null;
+  const loadXlsx = () => window.XLSX ? Promise.resolve(window.XLSX) : xlsLib || (xlsLib = new Promise((res, rej) => { const sc = document.createElement("script"); sc.src = "https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"; sc.onload = () => res(window.XLSX); sc.onerror = () => { xlsLib = null; rej(new Error("xlsx")); }; document.head.appendChild(sc); }));
+  $("#car-xls").onchange = async e => {
+    const f = e.target.files[0]; e.target.value = ""; if (!f) return;
+    let rows;
+    try {
+      const X = await loadXlsx(), wb = X.read(await f.arrayBuffer(), { type: "array", cellDates: true });
+      const sheets = wb.SheetNames.map(n => X.utils.sheet_to_json(wb.Sheets[n], { header: 1, raw: true, defval: null }));
+      rows = sheets.sort((a, b) => b.length - a.length)[0] || [];
+    } catch (err) { return toast("לא הצלחתי לפתוח את הקובץ. נסה לשמור אותו כ-xlsx או csv"); }
+    const car = S.cars[S.active], r = TipulitImport.fromRows(rows, { itemKeys: Object.keys(D.items) });
+    if (!r.visits.length) return toast("לא מצאתי בקובץ עמודות של תאריך וק\"מ");
+    // a visit already in the history (same month, km within 300) is shown but not imported again
+    const have = (car.history || []).filter(h => !isStateRec(h));
+    xlsVisits = r.visits.map(v => ({ ...v, dup: have.some(h => h.date === v.date && Math.abs((h.km || 0) - (v.km || 0)) < 300) }));
+    xlsVisits.forEach(v => { v.on = !v.dup && !v.empty; });
+    renderXls(); $("#xls").classList.add("show"); $("#xls .panel").scrollTop = 0;
+  };
+  const KIND_LABEL = { service: "טיפול", repair: "תיקון", other: "הערה" };
+  function renderXls() {
+    const n = xlsVisits.filter(v => v.on).length;
+    $("#xls-sum").textContent = `נמצאו ${xlsVisits.length} ביקורים. סמנו מה לייבא; כל ביקור יהפוך לרשומה, והחלקים שהוחלפו יעדכנו את מצב הרכב.`;
+    $("#xls-list").innerHTML = xlsVisits.map((v, i) => `<label class="xls-row"><input type="checkbox" data-xi="${i}" ${v.on ? "checked" : ""}>
+      <span><b class="num">${v.day ? fmtDate(v.day) : "בלי תאריך"}${v.km ? " · " + fmt(v.km) + ' ק"מ' : ""}</b> <span class="tag">${KIND_LABEL[v.kind]}</span>${v.dup ? ` <span class="tag">כבר קיים</span>` : ""}
+        <br><span class="small muted">${[v.items.map(itemName).join(", "), v.text || (v.kind === "other" ? v.notes : ""), v.garage].filter(Boolean).map(esc).join(" · ")}</span></span></label>`).join("");
+    $$("#xls-list [data-xi]").forEach(x => x.onchange = () => { xlsVisits[+x.dataset.xi].on = x.checked; renderXls(); });
+    $("#xls-go").textContent = n ? `ייבא ${n} ${n === 1 ? "ביקור" : "ביקורים"}` : "בחרו ביקורים";
+    $("#xls-go").disabled = !n; $("#xls-err").hidden = true;
+  }
+  $("#xls-close").onclick = () => $("#xls").classList.remove("show");
+  $("#xls").onclick = e => { if (e.target.id === "xls") $("#xls").classList.remove("show"); };
+  $("#xls-go").onclick = () => {
+    const car = S.cars[S.active], s = schedById(car.schedule), list = xlsVisits.filter(v => v.on);
+    car.history = car.history || [];
+    for (const v of list) {
+      const svcKm = v.kind === "service" && v.km && s ? TipulitEngine.gridAfter(s, v.km - s.interval.km / 2).km : null;
+      car.history.push({ id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6), kind: v.kind, svcKm, km: v.km || 0, date: v.date, items: v.items,
+        text: v.kind === "service" ? "" : (v.text || v.notes || ""), extra: [v.kind === "service" ? v.text : "", v.notes].filter(Boolean).join(" · "),
+        where: null, garage: v.garage || "", city: "", price: v.price, back: null, receipts: [], receipt: null, share: false, source: "import", at: Date.now() });
+    }
+    // what the file says about the car: the highest odometer reading, the last service, and how much it is driven
+    const recs = car.history.filter(h => h.km > 0 && h.date);
+    const top = Math.max(0, ...recs.map(h => h.km));
+    if (top > car.km) car.km = top;
+    const lastSvc = recs.filter(h => h.kind === "service").map(h => h.date).sort().pop();
+    if (lastSvc && (!car.lastService || lastSvc > car.lastService)) car.lastService = lastSvc;
+    const pace = TipulitImport.kmPerMonth(recs.map(h => ({ km: h.km, day: h.date + "-15" })));
+    if (pace) car.kmMonth = pace;
+    save(); $("#xls").classList.remove("show"); renderAll();
+    toast(`יובאו ${list.length} ביקורים${pace ? ` · לפי ההיסטוריה כ-${fmt(pace)} ק"מ בחודש` : ""}`);
   };
 
   // ---------- car condition: what was replaced when, and when it is due again ----------

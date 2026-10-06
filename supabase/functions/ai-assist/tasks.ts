@@ -3,10 +3,13 @@
 // Claude returns structured data that the client shows for review before anything is saved.
 import { z } from "zod";
 
-export type Task = "wo" | "insp" | "record" | "quote";
+export type Task = "wo" | "insp" | "record" | "quote" | "receipt";
 export const GARAGE_TASKS: Task[] = ["wo", "insp"];
 export const LIMITS = { garage: 300, driver: 40 };   // requests per user per day
 export const MAX_NOTE = 2000, MAX_CONTEXT = 40000;  // characters
+// receipt: one photo (JPEG/PNG/WebP, shrunk on the device) or a PDF, base64
+export const FILE_TYPES = ["image/jpeg", "image/png", "image/webp", "application/pdf"];
+export const MAX_FILE = 6_000_000;  // base64 characters, about 4.5 MB
 
 const WoLine = z.object({
   type: z.enum(["part", "labor"]),
@@ -46,6 +49,20 @@ export const schemas = {
     items: z.array(z.string()).describe("Keys from ITEMS that were replaced"),
     text: z.string().nullable().describe("For repair/other: one short Hebrew line, else null"),
   }),
+  receipt: z.object({
+    kind: z.enum(["service", "repair", "other"]).describe("service = periodic maintenance; repair = a fault fixed or a part replaced outside the routine; other = anything else"),
+    date: z.string().nullable().describe("Service date as YYYY-MM, or null if not on the document"),
+    km: z.number().int().nullable().describe("Odometer reading in km if printed on the document, else null"),
+    price: z.number().int().nullable().describe("Total paid in ILS including VAT, else null"),
+    garage: z.string().nullable().describe("Garage or business name as printed, else null"),
+    city: z.string().nullable().describe("City of the garage if printed, else null"),
+    where: z.enum(["importer", "independent"]).nullable().describe("importer = an importer's own service center (e.g. יוניון מוטורס, כלמוביל, טלקאר, דלק מוטורס, צ'מפיון); independent = any other garage; null if unclear"),
+    svc_km: z.number().int().nullable().describe("For service: the interval named on the document, e.g. 'טיפול 60,000' = 60000; else null"),
+    items: z.array(z.string()).describe("Keys from ITEMS that were REPLACED or refilled according to the document (not just inspected)"),
+    text: z.string().nullable().describe("One short Hebrew line describing non-routine work, e.g. 'החלפת מצבר', else null"),
+    confidence: z.enum(["high", "medium", "low"]).describe("How readable and complete the document was"),
+    notes: z.string().nullable().describe("Anything the driver should double-check, in Hebrew, else null"),
+  }),
   quote: z.object({
     lines: z.array(z.object({
       desc: z.string().describe("Short Hebrew name of the work or part"),
@@ -67,6 +84,8 @@ export const SYSTEM: Record<Task, string> = {
 Use only ids and keys that appear in the context. When the note names a part that matches a stock part, set part_id and item and leave price null. Put labour as its own line: when it matches a catalog job set job_id; when the note gives hours put them in hours. Never make up a price the note doesn't state. Write desc in short Hebrew.`,
   insp: `You map an Israeli mechanic's short Hebrew inspection note onto a fixed CHECKLIST of keys. Return one entry per checklist item the note mentions, with status now/soon/ok and a short Hebrew note with any measurement. Do not return items the note doesn't mention; set rest_ok when the note says the rest is fine.`,
   record: `You turn an Israeli driver's short Hebrew description of a garage visit into a service record. Use only item keys from ITEMS. Leave a field null when the description doesn't give it; never guess numbers.`,
+  receipt: `You read an Israeli car service receipt or invoice (Hebrew, sometimes English; a photo or a PDF) and turn it into one structured record. The context gives the car and the maintenance ITEMS (keys with Hebrew names).
+Only report what the document shows. Never guess a km or a date; use null. Prices are in ILS; use the final total including VAT. Map replaced or refilled parts to ITEMS keys only; ignore inspections, checks and merchandise.`,
   quote: `You help an Israeli driver understand a garage's quote. For each line decide whether it is due, using ONLY the car's ITEM_STATE (when each item was last replaced and when it is next due) and its importer SCHEDULE. Judge the price ONLY against COMMUNITY_PRICES (what other drivers of this model paid for this service); if they don't cover the work, price_verdict is unknown. Never use outside price knowledge. Be neutral and practical, never accuse the garage, and remember the mechanic may have seen wear the schedule can't know about. Write in plain Hebrew.`,
 };
 
@@ -76,7 +95,7 @@ export function userMessage(task: Task, note: string, context: unknown): string 
   return `TODAY: ${today}\nCONTEXT:\n${JSON.stringify(context)}\n\nNOTE (${task}):\n${note}`;
 }
 
-export const EFFORT: Record<Task, "low" | "medium"> = { wo: "low", insp: "low", record: "low", quote: "medium" };
+export const EFFORT: Record<Task, "low" | "medium"> = { wo: "low", insp: "low", record: "low", quote: "medium", receipt: "medium" };
 
 // Drop anything that points outside the context, so the client can trust ids and keys.
 export function clean<T extends Task>(task: T, out: Result<T>, context: any): Result<T> {
@@ -90,7 +109,7 @@ export function clean<T extends Task>(task: T, out: Result<T>, context: any): Re
     const keys = new Set((context?.checklist || []).map((c: any) => c.key));
     const o = out as Result<"insp">; o.checks = o.checks.filter(c => keys.has(c.key));
   }
-  if (task === "record") { const o = out as Result<"record">; o.items = o.items.filter(k => items.has(k)); }
+  if (task === "record" || task === "receipt") { const o = out as Result<"record">; o.items = o.items.filter(k => items.has(k)); }
   if (task === "quote") {
     const st = new Set((context?.item_state || []).map((i: any) => i.item));
     const o = out as Result<"quote">; o.lines = o.lines.map(l => ({ ...l, item: l.item && st.has(l.item) ? l.item : null })); o.questions = o.questions.slice(0, 3);

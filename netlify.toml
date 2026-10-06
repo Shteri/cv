@@ -1,6 +1,6 @@
 # Netlify build settings. The site is static: data and app files are built into site/ on every deploy.
 [build]
-  command = "(node scripts/fetch-garages.mjs || echo using committed data/garages.json) && node scripts/check-design.mjs && node scripts/validate.mjs && node scripts/build-app-data.mjs && node scripts/test-lookup.mjs && node scripts/test-engine.mjs && SITE_OUT=site/ node scripts/build-site.mjs"
+  command = "(node scripts/fetch-garages.mjs || echo using committed data/garages.json) && node scripts/check-design.mjs && node scripts/validate.mjs && node scripts/build-app-data.mjs && node scripts/test-lookup.mjs && node scripts/test-engine.mjs && node scripts/test-import.mjs && SITE_OUT=site/ node scripts/build-site.mjs"
   publish = "site"
 
 [build.environment]

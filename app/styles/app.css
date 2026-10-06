@@ -391,3 +391,5 @@ label.btn { cursor: pointer; }
 .go-mark { color: var(--accent-text); font-size: 1.2em; }
 .gv-act, #gv-body a.btn { text-decoration: none; }
 .gv-act svg { width: 18px; height: 18px; flex: none; }
+.xls-row { display: grid; grid-template-columns: 22px 1fr; gap: 10px; align-items: start; cursor: pointer; }
+.xls-row input { margin-top: 3px; width: 18px; height: 18px; accent-color: var(--accent-deep); }
