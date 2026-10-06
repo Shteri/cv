@@ -94,7 +94,14 @@
       if (!rErr) { rec.cloudId = saved.id; rec.receiptPaths = paths; rec.synced = true; }
     }
   }
-  async function deleteCar(car) { if (car.cloudId) await sb.from("cars").delete().eq("id", car.cloudId); }
+  // records and garage links go with the row (on delete cascade); receipts are files, removed first
+  async function deleteCar(car) {
+    if (!car.cloudId) return;
+    const paths = (car.history || []).flatMap(r => r.receiptPaths || []);
+    if (paths.length) await sb.storage.from("receipts").remove(paths);
+    const { error } = await sb.from("cars").delete().eq("id", car.cloudId);
+    if (error) throw error;
+  }
 
   // ---------- community ----------
   async function communityPrices(scheduleId, svcKm) {

@@ -140,6 +140,7 @@
       <input id="car-xls" type="file" accept=".xlsx,.xls,.csv,text/csv" hidden>
     </div>
     <div id="car-history"></div>
+    <button class="btn ghost danger" id="car-remove">הסר את הרכב מהחשבון</button>
   </section>
 
   <!-- TIMELINE -->
@@ -1857,8 +1858,27 @@
   function wirePlateNotice(car) {
     const o = $("#pl-open"); if (o) o.onclick = () => openPlateSheet(car, false);
     const s = $("#pl-seen"); if (s) s.onclick = () => { car.plateReleasedSeen = true; save(); renderHome(); };
-    const r = $("#pl-remove"); if (r) r.onclick = async () => { if (!r.dataset.armed) { r.dataset.armed = "1"; r.textContent = "בטוח? לחיצה נוספת"; return; } if (Cloud.enabled && car.cloudId) { try { await Cloud.deleteCar(car); } catch (e) {} } S.cars.splice(S.cars.indexOf(car), 1); S.active = 0; save(); if (S.cars.length) { renderAll(); show("s-home"); } else startAdd(); };
+    const r = $("#pl-remove"); if (r) r.onclick = () => { if (!r.dataset.armed) { r.dataset.armed = "1"; r.textContent = "בטוח? לחיצה נוספת"; return; } removeCar(car, r); };
   }
+  // Removes the car with its records and receipts, here and in the cloud. The plate is free for its next owner.
+  async function removeCar(car, btn) {
+    if (Cloud.enabled && car.cloudId) {
+      btn.disabled = true; btn.classList.add("busy");
+      try { await Cloud.deleteCar(car); }
+      catch (e) { btn.disabled = false; btn.classList.remove("busy"); toast("ההסרה נכשלה. בדוק חיבור ונסה שוב"); return; }
+    }
+    const i = S.cars.indexOf(car); if (i < 0) return;
+    S.cars.splice(i, 1); S.active = Math.min(S.active > i ? S.active - 1 : S.active, Math.max(0, S.cars.length - 1)); save();
+    toast(`${carName(car)} הוסר`);
+    if (S.cars.length) { renderAll(); show("s-home"); } else startAdd();
+  }
+  let carDelArmed = null;
+  $("#car-remove").onclick = () => {
+    const b = $("#car-remove"), car = S.cars[S.active]; if (!car) return;
+    if (!carDelArmed) { b.textContent = "בטוח? ההיסטוריה והקבלות יימחקו. לחיצה נוספת"; carDelArmed = setTimeout(() => { carDelArmed = null; b.textContent = "הסר את הרכב מהחשבון"; }, 5000); return; }
+    clearTimeout(carDelArmed); carDelArmed = null; b.textContent = "הסר את הרכב מהחשבון";
+    removeCar(car, b);
+  };
   // A hold clears itself once the plate is free (the admin approved, or the other account removed the car).
   const holdChecked = new Set();
   function recheckHold(car) {
