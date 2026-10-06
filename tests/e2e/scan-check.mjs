@@ -34,7 +34,7 @@ ok(await p.$eval("#scan", e => e.classList.contains("show")) && !(await p.$eval(
 await p.waitForTimeout(800);
 const rows = () => p.$$eval("#scan-list .scan-row", l => l.map(e => e.textContent.replace(/\s+/g, " ").trim()));
 let r = await rows(); console.log("rows:", r);
-ok(/נקרא\. בדוק ושמור/.test(r[0]) && /157,000/.test(r[0]), "first: read, with what was read");
+ok(/נקרא/.test(r[0]) && /בדוק ושמור/.test(r[0]) && /157,000/.test(r[0]), "first: read, with what was read");
 ok(/לא נקרא/.test(r[1]) && /אין קרדיט/.test(r[1]) && /מלא ידנית/.test(r[1]) && /נסה שוב/.test(r[1]), "second: says why, offers manual and retry");
 // review the read one: the form opens filled, saving goes back to the sheet
 await p.click('[data-scan-open="0"]'); await p.waitForTimeout(300);
@@ -44,7 +44,7 @@ r = await rows();
 ok(await p.$eval("#scan", e => e.classList.contains("show")) && /נשמר/.test(r[0]), "saving returns to the sheet, marked saved");
 // retry the failed one: now it reads
 await p.click('[data-scan-retry="1"]'); await p.waitForTimeout(600);
-r = await rows(); ok(/נקרא\. בדוק ושמור/.test(r[1]), "retry reads it");
+r = await rows(); ok(/^(?!.*לא נקרא).*בדוק ושמור/.test(r[1]), "retry reads it");
 // a failed document can be filled by hand: closing the form returns to the sheet
 await p.click('[data-scan-open="1"]'); await p.waitForTimeout(300);
 ok(await p.$eval("#log", e => e.classList.contains("show")), "manual / review opens the form");

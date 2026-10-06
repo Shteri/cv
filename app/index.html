@@ -808,7 +808,7 @@
   // what to tell the driver when a document could not be read
   const readErr = m => /not configured/.test(m) ? "קריאת קבלות עוד לא הופעלה" : /not signed in|401/.test(m) && !/ai 401/.test(m) ? "קריאה אוטומטית זמינה אחרי התחברות עם Google"
     : /daily limit/.test(m) ? "הגעת למכסת הקריאות להיום" : /too long/.test(m) ? "הקובץ גדול מדי. נסה צילום" : /unreadable image/.test(m) ? "לא הצלחתי לפתוח את התמונה. נסה צילום מסך שלה או PDF"
-    : /credit|billing/i.test(m) ? "שירות הקריאה לא פעיל כרגע (אין קרדיט)" : /ai 401|authentication|api.key/i.test(m) ? "שירות הקריאה לא פעיל כרגע (מפתח לא תקין)" : "לא הצלחתי לקרוא את המסמך";
+    : /credit|billing/i.test(m) ? "השירות לא פעיל (אין קרדיט)" : /workspace|ai 401|authentication|api.key/i.test(m) ? "השירות לא פעיל (הגדרת מפתח)" : "לא הצלחתי לקרוא";
   const readContext = (car, s) => ({ make: s.make_he, model: s.model_he, year: car.year, items: candidateItems(s).map(k => ({ key: k, he: itemName(k) })) });
   async function readReceipt(file) {
     if (!Cloud.enabled) throw new Error("not signed in");
@@ -932,17 +932,17 @@
     renderScan(); readNext();
   }
   const showScan = () => { renderScan(); $("#scan").classList.add("show"); };
-  const SCAN_STATE = { waiting: "ממתין", reading: "קורא…", read: "נקרא. בדוק ושמור", failed: "לא נקרא", saved: "נשמר ✓" };
+  const SCAN_STATE = { waiting: "ממתין", reading: "קורא…", read: "נקרא", failed: "לא נקרא", saved: "נשמר ✓" };
   function renderScan() {
     const n = k => scanItems.filter(x => x.status === k).length;
-    $("#scan-sum").textContent = scanItems.length === 1 ? "כל קבלה נקראת אוטומטית. בודקים את הפרטים ושומרים; מה שלא נקרא אפשר למלא ידנית."
-      : `${scanItems.length} מסמכים · ${n("saved")} נשמרו${n("failed") ? ` · ${n("failed")} לא נקראו` : ""}`;
+    $("#scan-sum").textContent = scanItems.length > 1 ? `${n("saved")} מתוך ${scanItems.length} נשמרו` : "";
+    $("#scan-sum").hidden = scanItems.length < 2;
     $("#scan-list").innerHTML = scanItems.map((x, i) => {
       const r = x.result, sum = r ? [r.date ? monthName(new Date(r.date + "-01")) : "", r.km ? fmt(r.km) + ' ק"מ' : "", r.price ? "₪" + fmt(r.price) : "", r.garage || ""].filter(Boolean).join(" · ") : "";
       return `<div class="scan-row">${x.thumb ? `<img src="${x.thumb}" alt="">` : `<span class="scan-doc">${x.pdf ? "PDF" : "?"}</span>`}
         <div><b class="${x.status === "failed" ? "crit-text" : x.status === "saved" ? "good-text" : ""}">${SCAN_STATE[x.status]}</b><br><span class="small muted">${esc(x.status === "failed" ? x.err : sum || x.file.name || "")}</span></div>
-        <div class="scan-acts">${x.status === "read" ? `<button class="btn primary compact" data-scan-open="${i}">בדוק ושמור</button>`
-          : x.status === "failed" ? `<button class="btn primary compact" data-scan-open="${i}">מלא ידנית</button><button class="btn ghost compact" data-scan-retry="${i}">נסה שוב</button>` : ""}</div></div>`;
+        <div class="scan-acts">${x.status === "read" ? `<button class="btn primary compact fit" data-scan-open="${i}">בדוק ושמור</button>`
+          : x.status === "failed" ? `<button class="btn primary compact fit" data-scan-open="${i}">מלא ידנית</button><button class="btn ghost compact fit" data-scan-retry="${i}">נסה שוב</button>` : ""}</div></div>`;
     }).join("");
     $$("#scan-list [data-scan-open]").forEach(b => b.onclick = () => openScanned(+b.dataset.scanOpen));
     $$("#scan-list [data-scan-retry]").forEach(b => b.onclick = () => { scanItems[+b.dataset.scanRetry].status = "waiting"; readNext(); });

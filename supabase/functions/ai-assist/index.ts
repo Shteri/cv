@@ -53,7 +53,9 @@ Deno.serve(async (req) => {
     if (bumpErr) return json({ error: "usage: " + bumpErr.message }, 500);
     if (used > (garage ? LIMITS.garage : LIMITS.driver)) return json({ error: "daily limit" }, 429);
 
-    const client = new Anthropic({ apiKey: key });
+    // a key that isn't scoped to a workspace needs the workspace id (secret ANTHROPIC_WORKSPACE_ID, or any secret holding a wrkspc_ value)
+    const ws = Deno.env.get("ANTHROPIC_WORKSPACE_ID") || Object.values(Deno.env.toObject()).find(v => typeof v === "string" && v.trim().startsWith("wrkspc_"))?.trim();
+    const client = new Anthropic({ apiKey: key, defaultHeaders: ws ? { "anthropic-workspace-id": ws } : undefined });
     const t = task as Task;
     const response = await client.beta.messages.parse({
       model: "claude-opus-5-5",

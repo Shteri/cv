@@ -817,5 +817,5 @@ toyota-yaris-2011-2020, hyundai-i25-2011-2018, skoda-octavia-2013-2025.
   - שמירה או סגירה של הטופס חוזרות לגיליון. שום דבר לא נשמר בלי שהנהג אישר.
 - "הוסף טיפול ידנית" הוא כפתור נפרד (`#car-manual`).
 - תמונה שהדפדפן לא מצליח לפתוח לא תוקעת יותר את ההעלאה (`shrink` מחזיר null).
-- ai-assist (גרסה 8): כל כישלון נרשם בטבלה `ai_errors` (מיגרציה 0014, RLS בלי מדיניות, רק service role) וגם בלוג. `max_tokens` 16000 (החשיבה תמיד פעילה ונספרת). לבדיקה: `select * from ai_errors order by at desc limit 5`.
+- ai-assist (גרסה 9): מפתח שלא משויך ל-workspace צריך את הסוד `ANTHROPIC_WORKSPACE_ID` (או כל סוד שערכו מתחיל ב-`wrkspc_`); הוא נשלח בכותרת `anthropic-workspace-id`. כל כישלון נרשם בטבלה `ai_errors` (מיגרציה 0014, RLS בלי מדיניות, רק service role) וגם בלוג. `max_tokens` 16000 (החשיבה תמיד פעילה ונספרת). לבדיקה: `select * from ai_errors order by at desc limit 5`.
 - בדיקה: `tests/e2e/scan-check.mjs`.
