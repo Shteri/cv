@@ -50,7 +50,8 @@ check("the sign's name shows, the registry name under it", /רשום במשרד 
 check("a report under another name counts for the garage", /דיווחת/.test(star) && /ביקרת כאן/.test(star) && !/מומלץ/.test(star), star);
 check("no separate row for the other name", !rows.some(t => t.startsWith("המוסך של איסמעיל")), rows.slice(0, 3));
 await p2.fill("#gr-q", "כוכב"); await p2.waitForTimeout(300);
-check("search finds the sign's name", (await p2.$$eval("#gr-list .garage", l => l.length)) === 1 && /מוסך הכוכב/.test(await p2.locator("#gr-list").innerText()));
+// the home city's match comes first; garages elsewhere with the word follow under "בערים אחרות"
+check("search finds the sign's name", /מוסך הכוכב/.test(await p2.$eval("#gr-list .garage", e => e.textContent)));
 await p2.fill("#gr-q", "רמדאן"); await p2.waitForTimeout(300);
 check("search finds the registry name", /מוסך הכוכב/.test(await p2.locator("#gr-list").innerText()));
 console.log("errors:", errs);

@@ -1455,19 +1455,36 @@
   const commOnlyRow = (g, s) => `<div class="garage"><div><div class="nm">${g.name}${g.others ? ` <span class="tag rec">מומלץ</span>` : ""}${g.mine ? ` <span class="tag mine">דיווחת</span>` : ""}</div>
       <div class="meta"><span>${whereName[g.type] || ""}</span>${g.city ? `<span>${g.city}</span>` : ""}</div>${commLine(g, s)}</div><div class="acts"></div></div>`;
   // Rows for a city: registry garages with community data attached, recommended first.
+  // A report names the garage the way the driver knows it ("מוסך התלתן"), the registry by its licence holder
+  // ("אברהם סחייק מוסך התלתן"): match any of the garage's names, else one registry garage in that city whose name
+  // contains the reported one. The driver's own garages show even when they are in another city.
+  const coreName = n => normName(n).replace(/^מוסך/, "");
+  function regFor(g, profsOf) {
+    const city = GD.garages.filter(r => cityNorm(r[2]) === cityNorm(g.city)), name = normName(g.name), core = coreName(g.name);
+    const exact = city.find(r => namesOf(dirRow(r), profsOf(r[2])[r[0]]).some(n => normName(n) === name));
+    if (exact) return exact;
+    if (core.length < 4) return null;
+    const near = city.filter(r => namesOf(dirRow(r), profsOf(r[2])[r[0]]).some(n => normName(n).includes(core)));
+    return near.length === 1 ? near[0] : null;
+  }
   function cityGarages(car, city) {
     if (!GD) return { rows: [], extra: [] };
-    const s = schedById(car.schedule), cm = communityMap(car), used = new Set();
-    const profs = profilesFor(city);
-    // drivers' reports name the garage however they know it: match any of its names
-    const rows = GD.garages.filter(r => r[2] === city).map(dirRow).map(g => {
-      const prof = profs[g.id] || null, keys = namesOf(g, prof).map(n => normName(n) + "|" + cityNorm(g.city)).filter(k => cm.has(k));
+    const s = schedById(car.schedule), cm = communityMap(car), byReg = new Map(), extra = [];
+    for (const [k, g] of cm) {
+      const inCity = !city || !g.city || cityNorm(g.city) === cityNorm(city);
+      if (!inCity && !g.mine) continue;
+      const r = g.city ? regFor(g, profilesFor) : null;
+      if (r) (byReg.get(r[0]) || byReg.set(r[0], { r, list: [] }).get(r[0])).list.push(g); else if (inCity) extra.push(g);
+    }
+    const ids = new Set(GD.garages.filter(r => r[2] === city).map(r => r[0]));
+    const regRows = GD.garages.filter(r => r[2] === city).concat([...byReg.values()].map(x => x.r).filter(r => !ids.has(r[0])));
+    const rows = regRows.map(dirRow).map(g => {
+      const prof = profilesFor(g.city)[g.id] || null, list = (byReg.get(g.id) || {}).list || [];
       let comm = null;
-      for (const k of keys) { used.add(k); const c = cm.get(k); comm = !comm ? { ...c } : { ...comm, others: comm.others + c.others, visits: comm.visits + c.visits, prices: [...comm.prices, ...c.prices], back: [...comm.back, ...c.back], mine: comm.mine || c.mine }; comm.n = comm.others + (comm.mine ? 1 : 0); }
-      if (comm && keys.length > 1) { comm.avg = comm.prices.length ? comm.prices.reduce((a, b) => a + b, 0) / comm.prices.length : null; comm.backPct = comm.back.length ? Math.round(100 * comm.back.filter(Boolean).length / comm.back.length) : null; }
+      for (const c of list) { comm = !comm ? { ...c } : { ...comm, others: comm.others + c.others, visits: comm.visits + c.visits, prices: [...comm.prices, ...c.prices], back: [...comm.back, ...c.back], mine: comm.mine || c.mine }; comm.n = comm.others + (comm.mine ? 1 : 0); }
+      if (comm && list.length > 1) { comm.avg = comm.prices.length ? comm.prices.reduce((a, b) => a + b, 0) / comm.prices.length : null; comm.backPct = comm.back.length ? Math.round(100 * comm.back.filter(Boolean).length / comm.back.length) : null; }
       return { g, comm, prof };
     });
-    const extra = [...cm.entries()].filter(([k, g]) => !used.has(k) && (!city || cityNorm(g.city) === cityNorm(city) || !g.city)).map(([, g]) => g);
     rows.sort((a, b) => (b.comm ? 1 : 0) - (a.comm ? 1 : 0) || ((b.comm?.backPct ?? -1) - (a.comm?.backPct ?? -1)) || (b.prof ? 1 : 0) - (a.prof ? 1 : 0) || (b.g.cats.includes("mech") ? 1 : 0) - (a.g.cats.includes("mech") ? 1 : 0) || a.g.name.localeCompare(b.g.name, "he"));
     return { rows, extra, s };
   }
@@ -1491,11 +1508,16 @@
     const { rows, extra, s } = cityGarages(car, S.city);
     const q = normName($("#gr-q").value);
     let list = rows.filter(r => grFilter === "all" ? r.g.type !== 2 || r.comm : grFilter === "rec" ? r.comm && r.comm.others : r.g.cats.includes(grFilter));
-    if (q) list = list.filter(r => namesOf(r.g, r.prof).some(n => normName(n).includes(q)) || normName(r.g.addr).includes(q));
+    if (q) list = list.filter(r => namesOf(r.g, r.prof).some(n => normName(n).includes(q)) || normName(r.g.addr).includes(q) || String(r.g.id) === q);
+    // a search also finds garages in other cities (a driver's garage isn't always near home)
+    const shown = new Set(list.map(r => r.g.id));
+    const far = q && q.length >= 3 && grFilter === "all" ? GD.garages.filter(r => r[2] !== S.city && !shown.has(r[0]) && (normName(r[1]).includes(q) || String(r[0]) === q)).slice(0, 15).map(dirRow) : [];
     const ex = grFilter === "all" || grFilter === "rec" ? extra.filter(g => (grFilter !== "rec" || g.others) && (!q || normName(g.name).includes(q))) : [];
     const recN = rows.filter(r => r.comm && r.comm.others).length + extra.filter(g => g.others).length;
     $("#gr-sub").textContent = `${rows.length} מוסכים מורשים ב${S.city}${recN ? ` · ${recN} עם המלצות לדגם שלך` : ""}`;
-    $("#gr-list").innerHTML = ex.map(g => commOnlyRow(g, s)).join("") + list.map(r => garageRow(r.g, r.comm, s, r.prof)).join("") || (grFilter === "rec" ? garagesEmptyHTML() : `<p class="small muted">לא נמצא מוסך מתאים ב${S.city}.</p>`);
+    $("#gr-list").innerHTML = (ex.map(g => commOnlyRow(g, s)).join("") + list.map(r => garageRow(r.g, r.comm, s, r.prof)).join("")
+      + (far.length ? `<p class="small muted gr-far">בערים אחרות</p>` + far.map(g => garageRow(g, null, s, profilesFor(g.city)[g.id] || null)).join("") : ""))
+      || (grFilter === "rec" ? garagesEmptyHTML() : `<p class="small muted">לא נמצא מוסך מתאים${q ? "" : " ב" + S.city}.</p>`);
     wireGarageRows($("#gr-list"));
   }
   // tapping a garage (but not its call / WhatsApp / navigate icons) opens everything it published
@@ -1584,8 +1606,9 @@
     }, () => { done(); toast("אין הרשאת מיקום. בחר עיר ידנית"); openCitySheet(); }, { timeout: 8000, maximumAge: 300000 });
   };
   // Garage suggestions in the log sheet come from the registry (so reports match the directory).
-  const fillGarageDL = () => { if (!GD) return; const q = normName($("#log-garage").value), city = findCity($("#log-city").value) || S.city; if (!q || q.length < 2) return;
-    const hits = GD.garages.filter(r => (!city || r[2] === city) && normName(r[1]).includes(q)).slice(0, 12);
+  const fillGarageDL = () => { if (!GD) return; const q = normName($("#log-garage").value), typed = findCity($("#log-city").value), city = typed || S.city; if (!q || q.length < 2) return;
+    const match = r => normName(r[1]).includes(q);
+    const hits = GD.garages.filter(r => r[2] === city && match(r)).concat(typed ? [] : GD.garages.filter(r => r[2] !== city && match(r))).slice(0, 12);
     const profs = city && cloudProfiles[city] ? Object.values(cloudProfiles[city]) : [];
     const known = profs.flatMap(p => [p.name, ...(p.aka || [])].filter(n => n && normName(n).includes(q) && !hits.some(r => r[1] === n)).map(n => ({ n, official: officialName(p.garage_id), city: p.city }))).slice(0, 6);
     $("#garage-dl").innerHTML = known.map(k => `<option value="${esc(k.n)}">${esc(k.official ? "רשום כ" + k.official + ", " : "")}${esc(k.city)}</option>`).join("")

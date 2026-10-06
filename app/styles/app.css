@@ -400,6 +400,7 @@ label.btn { cursor: pointer; }
 .scan-doc { display: grid; place-items: center; font-size: .75rem; font-weight: 600; color: var(--muted); }
 .scan-acts { grid-column: 2; display: flex; gap: 8px; flex-wrap: wrap; }
 .scan-acts:empty { display: none; }
+.gr-far { padding: 14px 0 4px; } /* garages list: matches outside the home city */
 .go-mark { color: var(--accent-text); font-size: 1.2em; }
 .gv-act, #gv-body a.btn { text-decoration: none; }
 .gv-act svg { width: 18px; height: 18px; flex: none; }

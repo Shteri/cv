@@ -18,5 +18,16 @@ ok(row && /ביקרת כאן 16 פעמים/.test(row), "my visits are counted as
 ok(row && !/נהגי/.test(row) && !/מומלץ/.test(row) && /דיווחת/.test(row), "no drivers count, no recommended tag, marked as mine");
 const sub = await p.locator("#gr-sub").textContent();
 ok(!/עם המלצות/.test(sub), "my own garage is not counted as a recommendation: " + sub);
+// the driver's garage in another city, known by its sign name: found in the registry and shown at the top
+await p.evaluate(() => { const st = JSON.parse(localStorage.getItem("tipulit")); st.cars[0].history.push({ id: "pt1", kind: "service", svcKm: 150000, km: 150000, date: "2024-06", items: [], garage: "מוסך התלתן", city: "פתח תקווה", where: "independent", price: 1030, receipts: [], share: false }); localStorage.setItem("tipulit", JSON.stringify(st)); });
+await p.reload(); await p.waitForTimeout(600);
+await p.evaluate(() => document.querySelector("#to-garages").click()); await p.waitForTimeout(800);
+const tl = await p.evaluate(() => { const e = [...document.querySelectorAll("#gr-list .garage")].find(x => x.textContent.includes("התלתן")); return e ? e.textContent.replace(/\s+/g, " ") : null; });
+console.log("tiltan:", tl);
+ok(tl && /סחייק/.test(tl) && /ביקרת כאן/.test(tl) && /פתח תקווה/.test(tl), "the sign name matches the registry garage in another city, shown as mine");
+// search finds garages outside the home city
+await p.fill("#gr-q", "רמדאן"); await p.waitForTimeout(300);
+const far = await p.textContent("#gr-list");
+ok(/בערים אחרות/.test(far), "search lists matches in other cities");
 console.log("errors:", errs);
 await b.close(); srv.close();
