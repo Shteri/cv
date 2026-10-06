@@ -17,7 +17,7 @@ await ctx.addInitScript(() => {
       if (calls === 2) throw new Error("ai 400: Your credit balance is too low to access the Anthropic API");
       // the retry: a receipt with no km printed
       if (calls === 3) return { kind: "repair", date: "2026-08", km: null, price: 2800, garage: "מוסך התלתן", city: "פתח תקווה", where: "independent", svc_km: null, items: ["engine_oil", "ac_refrigerant"], text: "החלפת צינור מזגן", confidence: "high", notes: null };
-      return { kind: "service", date: "2025-01", km: 157000, price: 1552, garage: "מוסך התלתן", city: "פתח תקווה", where: "independent", svc_km: null, items: ["engine_oil", "oil_filter", "air_filter", "brake_pads"], text: null, confidence: "high", notes: null }; } };
+      return { kind: "service", date: "2025-01", km: 157000, price: 1552, garage: "מוסך התלתן", city: "פתח תקווה", where: "independent", svc_km: null, items: ["engine_oil", "oil_filter", "air_filter", "brake_pads"], text: "החלפת רפידות אחוריות", confidence: "high", notes: null }; } };
   Object.defineProperty(window, "TipulitCloud", { configurable: true, set() {}, get() { return stub; } });
 });
 const p = await ctx.newPage(); const errs = []; p.on("pageerror", e => errs.push(e.message));
@@ -41,6 +41,7 @@ ok(/לא נקרא/.test(r[1]) && /אין קרדיט/.test(r[1]) && /מלא יד�
 // review the read one: the form opens filled, saving goes back to the sheet
 await p.click('[data-scan-open="0"]'); await p.waitForTimeout(300);
 ok(await p.inputValue("#log-km") === "157000" && await p.inputValue("#log-garage") === "מוסך התלתן", "the form opens filled from the receipt");
+ok(await p.isVisible("#log-text") && await p.inputValue("#log-text") === "החלפת רפידות אחוריות", "a service with a repair: the repair shows in the same record");
 await p.click("#log-save"); await p.waitForTimeout(300);
 r = await rows();
 ok(await p.$eval("#scan", e => e.classList.contains("show")) && /נשמר/.test(r[0]), "saving returns to the sheet, marked saved");
@@ -75,6 +76,7 @@ ok(await p.inputValue("#log-km") === "157000" && await p.isVisible("#log-del"), 
 await p.fill("#log-km", "156500"); await p.click("#log-save"); await p.waitForTimeout(300);
 let h2 = await p.evaluate(() => JSON.parse(localStorage.getItem("tipulit")).cars[0].history.map(h => `${h.km}:${h.garage}`));
 ok(h2.length === 1 && h2[0] === "156500:מוסך התלתן", "editing updates the record in place: " + h2.join());
+ok(/טיפול .* \+ החלפת רפידות אחוריות/.test(await p.textContent("#car-history")), "the list says service + repair");
 await p.evaluate(() => document.querySelector("#car-history [data-rec]").click()); await p.waitForTimeout(300);
 p.once("dialog", d => d.accept()); await p.click("#log-del"); await p.waitForTimeout(300);
 h2 = await p.evaluate(() => JSON.parse(localStorage.getItem("tipulit")).cars[0].history.length);

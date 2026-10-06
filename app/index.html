@@ -282,7 +282,7 @@
         <div class="seg" id="log-kind"><button data-v="service" class="on">טיפול תקופתי</button><button data-v="repair">תיקון או תקלה</button><button data-v="other">אחר</button></div>
       </div>
       <div class="field" id="log-svc-row"><label for="log-svc">איזה טיפול</label><select id="log-svc"></select></div>
-      <div class="field" id="log-text-row" hidden><label for="log-text">מה נעשה</label><input id="log-text" name="what" autocomplete="off" placeholder="למשל החלפת מצבר, תיקון מזגן"><p class="err" id="log-text-err" hidden>כתוב בקצרה מה נעשה.</p></div>
+      <div class="field" id="log-text-row" hidden><label for="log-text" id="log-text-lbl">מה נעשה</label><input id="log-text" name="what" autocomplete="off" placeholder="למשל החלפת מצבר, תיקון מזגן"><p class="err" id="log-text-err" hidden>כתוב בקצרה מה נעשה.</p></div>
       <div class="field"><label>מה הוחלף <span class="muted">(מעדכן את מצב הרכב)</span></label><div class="items-pick" id="log-items"></div></div>
       <div class="row g-10">
         <div class="field grow"><label for="log-date">מתי</label><input id="log-date" name="service-date" type="month" autocomplete="off"></div>
@@ -771,7 +771,9 @@
   const svcReplaceItems = (s, km) => { const svc = s.services.find(x => x.km === ((km - gridShift(s)) % s.cycle_km) + gridShift(s) || x.km === km); return svc ? svc.items.filter(i => i.action === "replace").map(i => i.item) : []; };
   function setKind(k) {
     logKind = k; $$("#log-kind button").forEach(x => x.classList.toggle("on", x.dataset.v === k));
-    $("#log-svc-row").hidden = k !== "service"; $("#log-text-row").hidden = k === "service";
+    // a service visit can include a repair too (one receipt): the repair goes in the same record's description
+    $("#log-svc-row").hidden = k !== "service"; $("#log-text-row").hidden = false;
+    $("#log-text-lbl").textContent = k === "service" ? "תיקון נוסף באותו ביקור (לא חובה)" : "מה נעשה";
     $("#log-title").textContent = k === "service" ? "עשיתי טיפול" : k === "repair" ? "תיקון או תקלה" : "רשומה אחרת";
     const s = schedById(S.cars[S.active].schedule);
     if (k === "service") logSel = new Set(logPlanItems(s, +$("#log-svc").value)); else logSel = new Set();
@@ -1205,7 +1207,7 @@
       ${histSel ? `<button class="btn ghost fit bare" id="hist-cancel">ביטול</button>` : `<div class="row g-12">${all.length > 1 ? `<button class="btn ghost fit bare" id="hist-select">בחירה</button>` : ""}<button class="btn ghost fit bare add" id="car-add-repair">הוסף תיקון</button></div>`}</div>
       ${all.length ? "" : `<p class="small muted">עוד אין רשומות.</p>`}
       <div class="list">${h.map(e => { const state = isStateRec(e);
-        const title = state ? `${recItemName(e, e.items[0])}: עדכנת` : e.kind === "service" || !e.kind ? "טיפול " + fmt(e.svcKm || e.km) : e.text || kindName[e.kind];
+        const title = state ? `${recItemName(e, e.items[0])}: עדכנת` : e.kind === "service" || !e.kind ? "טיפול " + fmt(e.svcKm || e.km) + (e.text ? " + " + e.text : "") : e.text || kindName[e.kind];
         const when = [e.date ? monthName(new Date(e.date + "-01")) : "", e.km ? fmt(e.km) + ' ק"מ' : "", state ? "" : e.garage].filter(Boolean).join(" · ");
         const attrs = histSel ? `data-pick="${esc(e.id)}"` : state ? `data-item="${e.items[0]}"` : `data-rec="${esc(e.id)}"`;
         return `<div class="hist tap ${histSel && histSel.has(e.id) ? "picked" : ""}" role="button" tabindex="0" ${attrs} aria-label="${histSel ? "בחירת" : "עריכת"} ${esc(title)}">
