@@ -388,7 +388,7 @@ label.btn { cursor: pointer; }
 .garage.tap:active { background: var(--surface-2); }
 .gv-photos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
 .gv-photos img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--r-field); }
-.good-text { color: var(--good); } .crit-text { color: var(--crit); }
+.good-text { color: var(--good); } .crit-text { color: var(--crit); } .warn-text { color: var(--warn); }
 /* receipt reading sheet: thumbnail, state, actions */
 .scan-row { display: grid; grid-template-columns: 48px 1fr; gap: 10px; align-items: center; }
 .scan-row img, .scan-doc { width: 48px; height: 48px; border-radius: var(--r-field); object-fit: cover; background: var(--surface-2); }

@@ -15,6 +15,8 @@ await ctx.addInitScript(() => {
     // the first document reads, the second fails the first time (no AI credit) and reads on retry
     extractReceipt: async () => { calls++; await new Promise(r => setTimeout(r, 150));
       if (calls === 2) throw new Error("ai 400: Your credit balance is too low to access the Anthropic API");
+      // the retry: a receipt with no km printed
+      if (calls === 3) return { kind: "repair", date: "2026-08", km: null, price: 2800, garage: "מוסך התלתן", city: "פתח תקווה", where: "independent", svc_km: null, items: ["engine_oil", "ac_refrigerant"], text: "החלפת צינור מזגן", confidence: "high", notes: null };
       return { kind: "service", date: "2025-01", km: 157000, price: 1552, garage: "מוסך התלתן", city: "פתח תקווה", where: "independent", svc_km: null, items: ["engine_oil", "oil_filter", "air_filter", "brake_pads"], text: null, confidence: "high", notes: null }; } };
   Object.defineProperty(window, "TipulitCloud", { configurable: true, set() {}, get() { return stub; } });
 });
@@ -48,10 +50,23 @@ r = await rows(); ok(/^(?!.*לא נקרא).*בדוק ושמור/.test(r[1]), "re
 // a failed document can be filled by hand: closing the form returns to the sheet
 await p.click('[data-scan-open="1"]'); await p.waitForTimeout(300);
 ok(await p.$eval("#log", e => e.classList.contains("show")), "manual / review opens the form");
+const estKm = await p.inputValue("#log-km"); console.log("estimated km:", estKm, "|", await p.textContent("#log-km-est"));
+ok(estKm && +estKm < 160000 && +estKm > 157000 && await p.isVisible("#log-km-est"), "no km on the receipt: estimated for its month, not today's odometer, and said so");
 await p.click("#log-close"); await p.waitForTimeout(200);
 ok(await p.$eval("#scan", e => e.classList.contains("show")), "closing the form goes back to the sheet");
 const hist = await p.evaluate(() => JSON.parse(localStorage.getItem("tipulit")).cars[0].history.map(h => `${h.km}:${h.source}:${h.items.join("+")}`));
 ok(hist.length === 1 && hist[0].startsWith("157000:upload:"), "one record saved: " + hist.join());
 await p.screenshot({ path: (process.env.SHOTS || "/tmp") + "/scan.png" });
+// a saved record opens for editing: fix the km, then delete it
+await p.click("#scan-close"); await p.waitForTimeout(200);
+await p.evaluate(() => document.querySelector("#car-history [data-rec]").click()); await p.waitForTimeout(300);
+ok(await p.inputValue("#log-km") === "157000" && await p.isVisible("#log-del"), "tapping a record opens it with its values and a delete button");
+await p.fill("#log-km", "156500"); await p.click("#log-save"); await p.waitForTimeout(300);
+let h2 = await p.evaluate(() => JSON.parse(localStorage.getItem("tipulit")).cars[0].history.map(h => `${h.km}:${h.garage}`));
+ok(h2.length === 1 && h2[0] === "156500:מוסך התלתן", "editing updates the record in place: " + h2.join());
+await p.evaluate(() => document.querySelector("#car-history [data-rec]").click()); await p.waitForTimeout(300);
+p.once("dialog", d => d.accept()); await p.click("#log-del"); await p.waitForTimeout(300);
+h2 = await p.evaluate(() => JSON.parse(localStorage.getItem("tipulit")).cars[0].history.length);
+ok(h2 === 0, "delete removes it");
 console.log("errors:", errs);
 await b.close(); srv.close();

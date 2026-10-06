@@ -94,6 +94,13 @@
       if (!rErr) { rec.cloudId = saved.id; rec.receiptPaths = paths; rec.synced = true; }
     }
   }
+  // one record, with its receipt files
+  async function deleteRecord(rec) {
+    if (!rec.cloudId) return;
+    if ((rec.receiptPaths || []).length) await sb.storage.from("receipts").remove(rec.receiptPaths);
+    const { error } = await sb.from("records").delete().eq("id", rec.cloudId);
+    if (error) throw error;
+  }
   // records and garage links go with the row (on delete cascade); receipts are files, removed first
   async function deleteCar(car) {
     if (!car.cloudId) return;
@@ -329,5 +336,5 @@
     return data.result;
   }
 
-  g.TipulitCloud = { enabled, authError, hasAuthParams, currentUser, onAuth, signInWithGoogle, signOut, handleRedirect, loadCars, saveCar, deleteCar, communityPrices, communityGarages, extractReceipt, myGarageProfiles, garageProfiles, saveGarageProfile, deleteGarageProfile, photoUrl, startPhoneVerify, confirmPhoneVerify, claimGarage, pendingGarageClaims, setGarageStatus, garagePublic, joinGarage, myGarageLinks, updateGarageLink, leaveGarage, pendingGarageEntries, decideGarageEntry, garageCustomers, garageAddEntry, plateStatus, claimPlate, requestPlate, pendingPlateRequests, decidePlateRequest, garageBook, garageCarHistory, workOrders, addCustomer, updateCustomer, deleteCustomer, addGarageCar, updateGarageCar, saveWorkOrder, sendWorkOrder, importCustomers, appointments, saveAppointment, approvalsFor, createApproval, updateGarageSettings, bookingInfo, bookAppointment, bookSlot, apptGet, apptRespond, apptStrikes, approvalGet, approvalDecide, parts, suppliers, purchaseOrders, invoices, savePart, deletePart, saveSupplier, deleteSupplier, savePurchaseOrder, deletePurchaseOrder, receivePurchaseOrder, addStockMove, partMoves, woConsume, recordInvoice, deleteInvoice, billing, billingSave, billingDelete, issueDocument, jobTemplates, saveJob, deleteJob, approvalChoose, uploadInspectionPhoto, aiAssist };
+  g.TipulitCloud = { enabled, authError, hasAuthParams, currentUser, onAuth, signInWithGoogle, signOut, handleRedirect, loadCars, saveCar, deleteCar, deleteRecord, communityPrices, communityGarages, extractReceipt, myGarageProfiles, garageProfiles, saveGarageProfile, deleteGarageProfile, photoUrl, startPhoneVerify, confirmPhoneVerify, claimGarage, pendingGarageClaims, setGarageStatus, garagePublic, joinGarage, myGarageLinks, updateGarageLink, leaveGarage, pendingGarageEntries, decideGarageEntry, garageCustomers, garageAddEntry, plateStatus, claimPlate, requestPlate, pendingPlateRequests, decidePlateRequest, garageBook, garageCarHistory, workOrders, addCustomer, updateCustomer, deleteCustomer, addGarageCar, updateGarageCar, saveWorkOrder, sendWorkOrder, importCustomers, appointments, saveAppointment, approvalsFor, createApproval, updateGarageSettings, bookingInfo, bookAppointment, bookSlot, apptGet, apptRespond, apptStrikes, approvalGet, approvalDecide, parts, suppliers, purchaseOrders, invoices, savePart, deletePart, saveSupplier, deleteSupplier, savePurchaseOrder, deletePurchaseOrder, receivePurchaseOrder, addStockMove, partMoves, woConsume, recordInvoice, deleteInvoice, billing, billingSave, billingDelete, issueDocument, jobTemplates, saveJob, deleteJob, approvalChoose, uploadInspectionPhoto, aiAssist };
 })(window);

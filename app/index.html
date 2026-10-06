@@ -288,6 +288,8 @@
         <div class="field grow"><label for="log-date">מתי</label><input id="log-date" name="service-date" type="month" autocomplete="off"></div>
         <div class="field grow"><label for="log-km">ק"מ בטיפול</label><input id="log-km" name="service-km" inputmode="numeric" autocomplete="off" class="num"></div>
       </div>
+      <p class="small warn-text" id="log-km-est" hidden></p>
+      <p class="err" id="log-km-err" hidden>צריך את הק"מ בזמן הטיפול.</p>
       <div class="field"><label>איפה</label>
         <div class="seg" id="log-where">
           <button data-v="importer" class="on">מוסך יבואן</button><button data-v="independent">מוסך פרטי</button><button data-v="self">בעצמי</button>
@@ -307,6 +309,7 @@
       </div>
       <div class="row between"><span class="small">שתף מחיר ומוסך אנונימית<br><span class="muted">בלי שם ובלי מספר רכב.</span></span><button class="toggle on" id="log-share" aria-label="שיתוף מחיר"></button></div>
       <button class="btn primary" id="log-save">שמור</button>
+      <button class="btn ghost danger" id="log-del" hidden>מחק רשומה</button>
     </div>
   </div>
 
@@ -747,7 +750,7 @@
   // ---------- log a service, a repair, or a document ----------
   const whereName = { importer: "מוסך יבואן", independent: "מוסך פרטי", self: "בעצמי" };
   const kindName = { service: "טיפול תקופתי", repair: "תיקון", other: "אחר" };
-  let logWhere = "importer", logThumbs = [], logBack = "", logKind = "service", logSel = new Set();
+  let logWhere = "importer", logThumbs = [], logBack = "", logKind = "service", logSel = new Set(), logEdit = null;
   $$("#log-back button").forEach(b => b.onclick = () => { $$("#log-back button").forEach(x => x.classList.remove("on")); b.classList.add("on"); logBack = b.dataset.v; });
   // Items a driver can mark as replaced: everything the schedule ever replaces, long-interval items, and common wear parts.
   function candidateItems(s) {
@@ -784,7 +787,8 @@
     $("#log-svc").innerHTML = list.filter(k => k <= n.nextKm).map(k => `<option value="${k}" ${k === nearest ? "selected" : ""}>טיפול ${fmt(k)} ק"מ</option>`).join("");
     const d = new Date(); $("#log-date").value = opts.date || `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}`;
     $("#log-km").value = opts.km || car.km; $("#log-price").value = ""; $("#log-garage").value = ""; $("#log-city").value = ""; $("#log-extra").value = ""; $("#log-text").value = "";
-    $("#log-price-err").hidden = true; $("#log-text-err").hidden = true;
+    $("#log-price-err").hidden = true; $("#log-text-err").hidden = true; $("#log-km-est").hidden = true; $("#log-km-err").hidden = true;
+    logEdit = null; $("#log-del").hidden = true;
     logBack = ""; $$("#log-back button").forEach(x => x.classList.toggle("on", x.dataset.v === ""));
     logThumbs = opts.thumbs ? opts.thumbs.slice() : []; renderThumbs(); $("#log-file").value = "";
     setKind(opts.kind || "service");
@@ -834,12 +838,47 @@
     }
     btn.disabled = false; btn.classList.remove("busy"); btn.dataset.busy = "";
   }
+  // A saved record opens in the same form: fix any field, or delete it.
+  function openRecord(id) {
+    const car = S.cars[S.active], rec = (car.history || []).find(h => h.id === id); if (!rec) return;
+    const s = schedById(car.schedule);
+    openLog(rec.svcKm || null, { thumbs: (rec.receipts || []).filter(Boolean), kind: rec.kind || "service", km: rec.km, date: rec.date });
+    fillLog({ kind: rec.kind || "service", svc_km: rec.svcKm, date: rec.date, km: rec.km, price: rec.price, garage: rec.garage, city: rec.city, where: rec.where, text: rec.text, items: rec.items || [] }, s);
+    logSel = new Set(rec.items || []); renderItemChips(s);
+    $("#log-extra").value = rec.extra || "";
+    logBack = rec.back || ""; $$("#log-back button").forEach(x => x.classList.toggle("on", x.dataset.v === logBack));
+    $("#log-share").classList.toggle("on", !!rec.share);
+    logEdit = rec; $("#log-del").hidden = false;
+  }
+  $("#log-del").onclick = async () => {
+    const car = S.cars[S.active], rec = logEdit; if (!rec || !confirm("למחוק את הרשומה?")) return;
+    if (Cloud.enabled && rec.cloudId) { try { await Cloud.deleteRecord(rec); } catch (e) { toast("המחיקה נכשלה. בדוק חיבור ונסה שוב"); return; } }
+    car.history = (car.history || []).filter(h => h !== rec);
+    logEdit = null; save(); closeLog(); renderAll(); toast("הרשומה נמחקה");
+  };
+  // The odometer in a given month: between the records around it, else back from today at the car's pace. Rounded to 100.
+  function estimateKm(car, ym) {
+    const t = d => Date.parse((d.length === 7 ? d + "-15" : d)), at = t(ym), now = Date.now();
+    if (!(at < now)) return car.km;
+    const pts = (car.history || []).filter(h => h.km && h.date && !isStateRec(h)).map(h => ({ t: t(h.date), km: h.km })).concat([{ t: now, km: car.km }]).sort((a, b) => a.t - b.t);
+    const after = pts.find(p => p.t >= at), before = [...pts].reverse().find(p => p.t <= at);
+    let km;
+    if (before && after && after.t > before.t) km = before.km + (after.km - before.km) * (at - before.t) / (after.t - before.t);
+    else km = (after || pts[pts.length - 1]).km - (car.kmMonth || 1500) * ((after || pts[pts.length - 1]).t - at) / (30.44 * 86400000);
+    return Math.max(0, Math.round(km / 100) * 100);
+  }
   // fill the sheet from a structured record (receipt photo or a description in words); the driver reviews before saving
   function fillLog(r, s) {
       if (r.kind) setKind(r.kind);
       if (r.svc_km && [...$("#log-svc").options].some(o => +o.value === r.svc_km)) $("#log-svc").value = String(r.svc_km);
       if (r.date) $("#log-date").value = r.date;
       if (r.km) $("#log-km").value = r.km;
+      else {
+        const est = r.date ? estimateKm(S.cars[S.active], r.date) : null;
+        $("#log-km").value = est || "";
+        $("#log-km-est").textContent = est ? `הק"מ לא מופיע בקבלה. הערכנו ${fmt(est)} לפי קצב הנסיעה; תקן אם אתה יודע.` : `הק"מ לא מופיע בקבלה. מלא אותו.`;
+        $("#log-km-est").hidden = false;
+      }
       if (r.price) $("#log-price").value = r.price;
       if (r.garage) $("#log-garage").value = r.garage;
       if (r.city) $("#log-city").value = r.city;
@@ -901,12 +940,16 @@
     const priceVal = +$("#log-price").value.replace(/\D/g, "");
     if (logKind !== "service" && !$("#log-text").value.trim()) { $("#log-text-err").hidden = false; $("#log-text").focus(); return; }
     if ($("#log-share").classList.contains("on") && !priceVal) { $("#log-price-err").hidden = false; $("#log-price").focus(); return; }
+    if (!+$("#log-km").value.replace(/\D/g, "")) { $("#log-km-err").hidden = false; $("#log-km").focus(); return; }
     const e = { id: Date.now().toString(36), kind: logKind, svcKm: logKind === "service" ? +$("#log-svc").value : null, text: $("#log-text").value.trim(),
-      items: [...logSel], date: $("#log-date").value, km: +$("#log-km").value.replace(/\D/g, "") || car.km, where: logWhere,
+      items: [...logSel], date: $("#log-date").value, km: +$("#log-km").value.replace(/\D/g, ""), where: logWhere,
       garage: $("#log-garage").value.trim(), city: $("#log-city").value.trim(), price: priceVal || null,
       extra: $("#log-extra").value.trim(), receipts: logThumbs.slice(), receipt: logThumbs[0] || null, share: $("#log-share").classList.contains("on"), back: logBack || null,
       source: logThumbs.length ? "upload" : "log", at: Date.now() };
-    car.history = car.history || []; car.history.push(e);
+    car.history = car.history || [];
+    if (logEdit) Object.assign(logEdit, { ...e, id: logEdit.id, at: logEdit.at, source: logEdit.source || e.source, cloudId: logEdit.cloudId, receiptPaths: logEdit.receiptPaths, synced: false });
+    else car.history.push(e);
+    logEdit = null;
     if (e.kind === "service" && e.date && (!car.lastService || e.date > car.lastService)) car.lastService = e.date;
     if (e.km > car.km) car.km = e.km;
     save(); renderAll();
@@ -1084,6 +1127,7 @@
     $("#car-history").innerHTML = historyHTML(car);
     $("#car-add-repair").onclick = () => openLog(null, { kind: "repair" });
     wireItems($("#car-history"));
+    $$("#car-history [data-rec]").forEach(el => { el.onclick = () => openRecord(el.dataset.rec); el.onkeydown = ev => { if (ev.key === "Enter") openRecord(el.dataset.rec); }; });
   }
   const startCardHTML = () => `<div class="card start stack g-12">
       <h3>מצב הרכב מתחיל מהטיפול האחרון</h3>
@@ -1101,7 +1145,7 @@
   const historyHTML = car => { const h = (car.history || []).filter(e => !isStateRec(e) || (e.items || []).length).sort((a, b) => b.km - a.km || b.at - a.at); return `
     <div class="card stack"><div class="row between"><h3>כל הרשומות</h3><button class="btn ghost fit bare add" id="car-add-repair">הוסף תיקון</button></div>
       ${h.length ? "" : `<p class="small muted">עוד אין רשומות.</p>`}
-      ${h.map(e => isStateRec(e) ? `<div class="hist tap" role="button" tabindex="0" data-item="${e.items[0]}"><div><b>${recItemName(e, e.items[0])}: עדכנת</b> <span class="small muted num">· הוחלף ב-${fmt(e.km)} ק"מ${e.date ? " · " + monthName(new Date(e.date + "-01")) : ""}</span></div></div>` : `<div class="hist">
+      ${h.map(e => isStateRec(e) ? `<div class="hist tap" role="button" tabindex="0" data-item="${e.items[0]}"><div><b>${recItemName(e, e.items[0])}: עדכנת</b> <span class="small muted num">· הוחלף ב-${fmt(e.km)} ק"מ${e.date ? " · " + monthName(new Date(e.date + "-01")) : ""}</span></div></div>` : `<div class="hist tap" role="button" tabindex="0" data-rec="${esc(e.id)}" aria-label="עריכת הרשומה">
         <div><b class="num">${e.kind === "service" || !e.kind ? "טיפול " + fmt(e.svcKm || e.km) : e.text || kindName[e.kind]}</b> <span class="small muted num">· ${fmt(e.km)} ק"מ${e.date ? " · " + monthName(new Date(e.date + "-01")) : ""}</span>${e.source === "garage" ? ` <span class="tag ver" title="נרשם על ידי המוסך ואושר על ידך">מאומת</span>` : ""}<br>
           <span class="small muted">${whereName[e.where] || ""}${e.garage ? " · " + e.garage : ""}${e.city ? " · " + e.city : ""}${(e.items || []).length ? " · " + recItems(e) : ""}${e.extra ? " · " + e.extra : ""}</span></div>
         <div class="row g-8">${(e.receipts && e.receipts[0]) || e.receipt ? `<img class="hist-thumb" src="${(e.receipts && e.receipts[0]) || e.receipt}" alt="חשבונית">` : ""}<span class="amt num">${e.price ? "₪" + fmt(e.price) : ""}</span></div>
