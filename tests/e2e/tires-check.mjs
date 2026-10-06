@@ -8,13 +8,15 @@ const p = await b.newPage({ viewport: { width: 400, height: 900 } });
 const errs = []; p.on("pageerror", e => errs.push(e.message)); p.on("dialog", d => d.accept());
 const ok = (c, m) => console.log((c ? "OK   " : "FAIL ") + m);
 await p.goto("http://localhost:8142/"); await p.waitForTimeout(200);
-const hist = [{ id: "a", kind: "service", svcKm: 30000, km: 30000, date: "2022-01", items: ["engine_oil", "tires"], receipts: [], share: false, garage: "מוסך אמיר" },
+const hist = [{ id: "c", kind: "repair", km: 40000, date: "2022-06", items: ["brake_discs"], text: "החלפת דיסקיות", receipts: [], share: false },
+  { id: "a", kind: "service", svcKm: 30000, km: 30000, date: "2022-01", items: ["engine_oil", "tires"], receipts: [], share: false, garage: "מוסך אמיר" },
   { id: "b", kind: "service", svcKm: 45000, km: 45000, date: "2023-01", items: ["engine_oil"], receipts: [], share: false }];
 await p.evaluate(h => localStorage.setItem("tipulit", JSON.stringify({ onboarded: true, user: { name: "מקס", via: "guest" }, cars: [{ plate: "12-345-67", schedule: "hyundai-i10-2014-2019", year: 2017, km: 70000, kmMonth: 1500, lastService: "2025-01", history: h }], active: 0 })), hist);
 await p.reload(); await p.waitForTimeout(400);
 await p.click('#nav button[data-go="car"]'); await p.waitForTimeout(300);
 const row = () => p.evaluate(() => document.querySelector('#car-state [data-item="tires"]').textContent.replace(/\s+/g, " "));
 ok(/30,000/.test(await row()) && !/זוג/.test(await row()), "all four from one record: one line: " + await row());
+ok(await p.locator('#car-state [data-item="brake_discs"]').count() === 1, "a part the book doesn't time gets a row once replaced");
 // the engine oil sheet lists both services
 await p.evaluate(() => document.querySelector('#car-state [data-item="engine_oil"]').click()); await p.waitForTimeout(200);
 ok(await p.locator("#it-hist > div").count() === 2 && await p.locator("#it-tires").isHidden(), "oil sheet: two replacements, no wheel picker");

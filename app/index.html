@@ -967,6 +967,8 @@
   }
   function carState(car) {
     const s = schedById(car.schedule), per = itemPeriods(s), recs = car.history || [];
+    // a part the book doesn't time (brake discs from a receipt, a clutch) still gets a row once it was replaced
+    for (const r of recs) for (const k of r.items || []) if (!per[k] && D.items[k]) per[k] = { km: null, months: null, grid: false, wear: true };
     const rows = [];
     for (const [k, p] of Object.entries(per)) {
       let done = recs.filter(r => (r.items || []).includes(k)).sort((a, b) => b.km - a.km)[0], wheels = null;
