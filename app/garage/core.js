@@ -234,6 +234,10 @@
   const DEMO_KEY = "tipulit-garage-demo", DEMO_V = 2;
   const newToken = () => (crypto.randomUUID ? crypto.randomUUID() : "t" + Date.now().toString(36) + Math.random().toString(36).slice(2));
   const PRICE = { engine_oil: 52, oil_filter: 55, air_filter: 95, cabin_filter: 90, brake_fluid: 70, spark_plugs: 75, coolant: 140, transmission_oil: 320, brake_pads: 340, brake_discs: 520, battery_12v: 520, wipers: 110, timing_belt: 1400, drive_belt: 240, fuel_filter: 160 };
+  // opening hours: the garage's own week, or the same default the server uses (garage_hours(), migration 0006)
+  const DEFAULT_HOURS = { 0: { open: "08:00", close: "17:00" }, 1: { open: "08:00", close: "17:00" }, 2: { open: "08:00", close: "17:00" }, 3: { open: "08:00", close: "17:00" }, 4: { open: "08:00", close: "17:00" }, 5: { open: "08:00", close: "13:00" }, 6: null };
+  const hoursOf = g => (g && g.hours && Object.keys(g.hours).length ? g.hours : DEFAULT_HOURS);
+  const hmToMin = t => { const [h, m] = String(t).split(":").map(Number); return h * 60 + (m || 0); };
   function genDemo() {
     let seed = 11; const rnd = () => (seed = (seed * 9301 + 49297) % 233280) / 233280, rint = (a, b) => a + Math.floor(rnd() * (b - a + 1)), chance = p => rnd() < p;
     const DAY = 86400000, now = Date.now(), dateAt = t => new Date(t).toISOString().slice(0, 10), iso = days => new Date(now + days * DAY).toISOString(), rate = 280;
@@ -359,25 +363,27 @@
       rows, wos, history, recalls, appts, approvals, parts, sups, pos, moves: [], invoices, billing: { api_id: "demo", has_secret: true, sandbox: false, vat_exempt: false }, jobs: null, modules: null };
   }
   // today and the next two working days, with statuses that match the time of day
-  function genAppts(rows, due, rnd) {
+  function genAppts(rows, due, rnd, hours = DEFAULT_HOURS) {
     const appts = [], kinds = ["service", "service", "service", "repair", "service", "test"], notes = { repair: ["רעש מהבלמים בנסיעה", "נורת מנוע דולקת", "המזגן לא מקרר", "רעידות בהגה"], test: ["הכנה לטסט"] };
     let n = 0, nr = 0;
     for (let d = 0, made = 0; made < 3 && d < 6; d++) {
       const day = new Date(); day.setHours(0, 0, 0, 0); day.setDate(day.getDate() + d);
-      if (day.getDay() === 6) continue; made++;
-      const close = day.getDay() === 5 ? 13 : 17;
+      const oh = hours[day.getDay()]; if (!oh) continue; made++;
+      const open = Math.ceil(hmToMin(oh.open) / 60), closeMin = hmToMin(oh.close), close = Math.floor(closeMin / 60);
       // the demo's "now" is always inside a working day, so every status is visible: outside opening hours it is a
       // working morning, and late in the day it stops a few hours before closing
-      const hr = new Date().getHours(), clock = d > 0 ? Date.now() : hr < 8 || hr >= close ? new Date(day).setHours(10, 45) : Math.min(Date.now(), new Date(day).setHours(close - 3, 15));
-      for (let k = 0, h = 8; h < close - 1 && k < 14; k++) {
+      const hr = new Date().getHours(), clock = d > 0 ? Date.now() : hr < open || hr >= close ? new Date(day).setHours(Math.min(open + 2, close - 1), 45) : Math.min(Date.now(), new Date(day).setHours(close - 3, 15));
+      for (let k = 0, h = open; h < close - 1 && k < 14; k++) {
         const kind = kinds[k % kinds.length], r = kind === "service" && due.length ? due[n++ % due.length] : rows[(7 + nr++ * 5) % rows.length];
         const start = new Date(day); start.setHours(h, rnd() < .5 ? 0 : 30);
-        const minutes = kind === "test" ? 60 : [60, 90, 120][Math.floor(rnd() * 3)], bay = 1 + (k % 3);
+        const want = kind === "test" ? 60 : [60, 90, 120][Math.floor(rnd() * 3)], bay = 1 + (k % 3);
+        // never past closing time
+        const minutes = Math.max(30, Math.min(want, closeMin - (start.getHours() * 60 + start.getMinutes())));
         const past = start.getTime() + minutes * 60000 < clock, nowish = start.getTime() < clock && !past;
         const status = past ? (rnd() < .9 ? "done" : "no_show") : nowish ? ["in_progress", "waiting_approval", "arrived"][k % 3] : "booked";
         // tomorrow some customers already answered the reminder, some got it and did not answer yet
         const answer = d === 0 ? {} : rnd() < .4 ? { reminded_at: new Date(Date.now() - 3 * 3600000).toISOString(), confirmed_at: new Date(Date.now() - 2 * 3600000).toISOString() } : rnd() < .5 ? { reminded_at: new Date(Date.now() - 3 * 3600000).toISOString() } : {};
-        const nl = notes[kind]; appts.push({ id: `dap-${day.getTime()}-${k}`, garage_id: "demo", garage_car_id: r.car_id, customer_name: r.name, phone: r.phone, plate: r.plate, kind, note: nl ? nl[k % nl.length] : null, starts_at: start.toISOString(), minutes, bay, status, source: k % 3 === 2 ? "online" : "garage", work_order_id: null, token: newToken(), ...answer });
+        const nl = notes[kind]; appts.push({ id: `dap-${day.getTime()}-${k}`, garage_id: "demo", garage_car_id: r.car_id, customer_name: r.name, phone: r.phone, plate: r.plate, kind, note: nl ? nl[k % nl.length] : null, starts_at: start.toISOString(), minutes, bay, status, source: k % 3 === 2 ? "online" : "garage", work_order_id: null, token: newToken(), sample: true, ...answer });
         if (k % 3 !== 0) h += 1;
       }
     }
@@ -394,7 +400,7 @@
     for (const a of x.appts) if (!a.token) a.token = newToken();
     if (x.garage.cancel_hours === undefined) Object.assign(x.garage, { cancel_hours: 12, noshow_limit: 2 });
     const midnight = new Date().setHours(0, 0, 0, 0);
-    if (!x.appts.some(a => Date.parse(a.starts_at) >= midnight)) { let sd = Date.now() % 233280; x.appts.push(...genAppts(x.rows, x.rows.slice(0, 12), () => (sd = (sd * 9301 + 49297) % 233280) / 233280)); }
+    if (!x.noSample && !x.appts.some(a => Date.parse(a.starts_at) >= midnight)) { let sd = Date.now() % 233280; x.appts.push(...genAppts(x.rows, x.rows.slice(0, 12), () => (sd = (sd * 9301 + 49297) % 233280) / 233280, hoursOf(x.garage))); }
     return x;
   }
   const DEMO = demo ? loadDemo() : null;
@@ -411,7 +417,7 @@
   function demoMerge(saved) {
     let changed = false;
     for (const x of saved.approvals || []) { const m = DEMO.approvals.find(a => a.id === x.id); if (m && m.status === "pending" && x.status !== "pending") { Object.assign(m, { status: x.status, approved_lines: x.approved_lines, decided_at: x.decided_at }); changed = true; } }
-    for (const a of saved.appts || []) if (a.source === "online" && !DEMO.appts.some(b => b.id === a.id)) { DEMO.appts.push(a); changed = true; }
+    for (const a of saved.appts || []) if (a.source === "online" && !isSample(a) && !DEMO.appts.some(b => b.id === a.id)) { DEMO.appts.push(a); changed = true; }
     // the customer's answers from the appointment page: confirmed, or cancelled (also when rescheduling)
     for (const x of saved.appts || []) {
       const m = DEMO.appts.find(a => a.id === x.id); if (!m) continue;
@@ -428,8 +434,22 @@
     addEventListener("storage", e => { if (e.key === DEMO_KEY) demoRefresh(); });
     addEventListener("focus", demoRefresh);
   }
+  // The demo's invented appointments (sample customers, not bookings anyone made). Cleared for a clean test of the
+  // booking page, or redrawn inside new opening hours so the calendar and the booking page show the same week.
+  const isSample = a => !!a.sample || /^dap-(\d+-\d+|ns-)/.test(a.id || "");
+  function demoSamples(clear) {
+    if (!demo) return 0;
+    const gone = new Set(DEMO.appts.filter(isSample).map(a => a.id));
+    DEMO.appts = DEMO.appts.filter(a => !gone.has(a.id));
+    DEMO.approvals = (DEMO.approvals || []).filter(x => !gone.has(x.appointment_id));
+    if (clear) DEMO.noSample = true;
+    else if (!DEMO.noSample) { let sd = Date.now() % 233280; DEMO.appts.push(...genAppts(DEMO.rows, DEMO.rows.slice(0, 12), () => (sd = (sd * 9301 + 49297) % 233280) / 233280, hoursOf(st.garage))); }
+    try { localStorage.setItem(DEMO_KEY, JSON.stringify(DEMO)); } catch (e) {}
+    demoSave();
+    return gone.size;
+  }
   const demoReset = () => { try { localStorage.removeItem(DEMO_KEY); } catch (e) {} location.reload(); };
 
-  Object.assign(G, { addAction, renderActions, addTimeline, timelineFor, D, Cloud, E, L, $, $$, fmt, esc, fmtDate, monthName, fmtPlate, digits, schedById, itemName, today, toast, why, telHref, waHref, theModel, ico, demo, api, st, monthsSince, view, recordsOf, recallsOf, isDue, isOver, isTest, FILTERS, match, message, openMsg, copy, showTab, setSeg, openMsgText, loadQr, download, numIn, nf, money, qtyOf, oilLiters, register, on, call, loadRecalls, reload, openGarage, DEMO, demoReset });
+  Object.assign(G, { DEFAULT_HOURS, hoursOf, isSample, demoSamples, demoSave, addAction, renderActions, addTimeline, timelineFor, D, Cloud, E, L, $, $$, fmt, esc, fmtDate, monthName, fmtPlate, digits, schedById, itemName, today, toast, why, telHref, waHref, theModel, ico, demo, api, st, monthsSince, view, recordsOf, recallsOf, isDue, isOver, isTest, FILTERS, match, message, openMsg, copy, showTab, setSeg, openMsgText, loadQr, download, numIn, nf, money, qtyOf, oilLiters, register, on, call, loadRecalls, reload, openGarage, DEMO, demoReset });
   G.boot = () => start().catch(e => showGate("משהו השתבש", why(e), `<a class="btn" href="./">נסה שוב</a>`));
 })();

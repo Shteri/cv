@@ -373,6 +373,7 @@
   // A short, user-safe reason for a failure. Details go to the console only, never to the screen.
   function why(e) {
     try { console.warn(e); } catch (x) {}
+    if (e && e.userMessage) return e.userMessage;  // our own validation, already written for people
     const m = String((e && (e.message || e.error_description || e.error)) || e || "");
     if (/Failed to fetch|NetworkError|Load failed|FunctionsFetchError|FunctionsRelayError|network/i.test(m) || (typeof navigator !== "undefined" && navigator.onLine === false)) return "אין חיבור לשרת. בדקו את האינטרנט ונסו שוב.";
     if (/too many|daily limit|rate limit/i.test(m)) return "יותר מדי ניסיונות. נסו שוב מאוחר יותר.";

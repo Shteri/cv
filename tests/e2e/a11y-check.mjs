@@ -4,7 +4,7 @@ import { chromium } from "playwright";
 const SITE = process.env.SITE_DIR || new URL("../../site", import.meta.url).pathname;
 import { createServer } from "node:http"; import { readFileSync, existsSync } from "node:fs";
 const AXE = readFileSync(new URL("node_modules/axe-core/axe.min.js", import.meta.url), "utf8");
-const srv = createServer((q, r) => { let f = SITE + q.url.split("?")[0]; if (f.endsWith("/")) f += "index.html"; if (!existsSync(f)) { r.statusCode = 404; return r.end(); } r.setHeader("content-type", f.endsWith(".js") ? "text/javascript" : f.endsWith(".css") ? "text/css" : f.endsWith(".json") ? "application/json" : f.endsWith(".svg") ? "image/svg+xml" : "text/html; charset=utf-8"); r.end(readFileSync(f)); }).listen(8160);
+const srv = createServer((q, r) => { let f = SITE + q.url.split("?")[0]; if (f.endsWith("/")) f += "index.html"; if (!existsSync(f)) { r.statusCode = 404; return r.end(); } r.setHeader("content-type", f.endsWith(".js") ? "text/javascript" : f.endsWith(".css") ? "text/css" : f.endsWith(".json") ? "application/json" : f.endsWith(".svg") ? "image/svg+xml" : "text/html; charset=utf-8"); r.end(readFileSync(f)); }).listen(8162);
 const b = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium" });
 const ok = (c, m) => console.log((c ? "OK   " : "FAIL ") + m);
 const errs = [];
@@ -20,9 +20,9 @@ for (const scheme of ["light", "dark"]) {
   const p = await ctx.newPage(); p.on("pageerror", e => errs.push(e.message));
   await p.route("https://**", r => r.abort());
   for (const path of ["welcome/", "privacy/", "terms/", "contact/", "accessibility/", "licenses/", "book/?demo", "garage/?demo"]) {
-    await p.goto("http://localhost:8160/" + path); await p.waitForTimeout(500); await scan(p, `${scheme} ${path}`);
+    await p.goto("http://localhost:8162/" + path); await p.waitForTimeout(500); await scan(p, `${scheme} ${path}`);
   }
-  await p.goto("http://localhost:8160/"); await p.waitForTimeout(200); await scan(p, `${scheme} sign-in`);
+  await p.goto("http://localhost:8162/"); await p.waitForTimeout(200); await scan(p, `${scheme} sign-in`);
   await p.evaluate(s => localStorage.setItem("tipulit", JSON.stringify(s)), STATE);
   await p.reload(); await p.waitForTimeout(600);
   for (const tab of ["home", "car", "tl", "garages", "me"]) {

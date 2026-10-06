@@ -33,7 +33,7 @@
 
   <!-- dashboard -->
   <section class="dash" id="dash" hidden>
-    <div class="demo-note" id="demo-note" hidden>מצב הדגמה: לקוחות לדוגמה, שום הודעה לא נשלחת. מה שתשנו נשמר בדפדפן הזה, וקישורי הלקוח (אישור עבודה, קביעת תור) נפתחים כמו אצל הלקוח. <button class="btn small" id="demo-reset">להתחיל מחדש</button> <a href="./">ליציאה</a></div>
+    <div class="demo-note" id="demo-note" hidden>מצב הדגמה: מוסך לדוגמה עם לקוחות ותורים מומצאים, לא המוסך שלך. שום הודעה לא נשלחת. מה שתשנו נשמר בדפדפן הזה, וקישורי הלקוח (אישור עבודה, קביעת תור) נפתחים כמו אצל הלקוח. <button class="btn small" id="demo-reset">להתחיל מחדש</button> <a href="./">ללוח של המוסך שלך</a></div>
     <div class="head">
       <div>
         <h1 id="g-name">המוסך</h1>
@@ -332,7 +332,14 @@
           <label class="field"><span>עמדות עבודה (מקביל)</span><input id="bk-bays" type="number" min="1" max="30" class="num"></label>
           <label class="field"><span>אורך תור אונליין</span><select id="bk-slot"><option value="30">חצי שעה</option><option value="45">45 דקות</option><option value="60">שעה</option><option value="90">שעה וחצי</option><option value="120">שעתיים</option></select></label>
         </div>
-        <p class="muted small">התורים נפתחים רק בשעות הפתיחה שבפרופיל המוסך, ורק כשיש עמדה פנויה. לקוח יכול להחזיק עד 3 תורים פתוחים.</p>
+        <div class="field"><span>שעות פתיחה</span>
+          <table class="tbl"><tbody id="bk-hours"></tbody></table>
+        </div>
+        <p class="muted small">לקוחות רואים בדף קביעת התור בדיוק את השעות האלה, ורק זמנים שיש בהם עמדה פנויה ביומן. לקוח יכול להחזיק עד 3 תורים פתוחים.</p>
+        <div class="stack-sm" id="bk-demo" hidden>
+          <p class="muted small">בהדגמה היומן מלא בתורים לדוגמה של לקוחות מומצאים, והם תופסים עמדות גם בדף קביעת התור. לבדיקה נקייה אפשר לנקות אותם.</p>
+          <div class="dlg-actions start"><button class="btn" type="button" id="bk-clear">נקה תורים לדוגמה</button><button class="btn" type="button" id="bk-sample">החזר תורים לדוגמה</button></div>
+        </div>
         <label class="field"><span>קישור לקביעת תור</span><input id="bk-link" readonly dir="ltr"></label>
         <div class="dlg-actions start"><button class="btn" type="button" id="bk-copy">העתק קישור</button><a class="btn" id="bk-wa" target="_blank" rel="noopener">שלח בוואטסאפ</a><button class="btn" type="button" id="bk-print">הדפס שלט</button></div>
         <p class="err" id="bk-err" hidden></p>

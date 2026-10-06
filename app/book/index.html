@@ -164,9 +164,10 @@
   }
   async function start() {
     if (demo) {
-      const h = { open: "08:00", close: "17:00" };
+      // the demo garage's own week (set in its booking settings), else the server's default (garage_hours(), migration 0006)
+      const h = { open: "08:00", close: "17:00" }, week = { 0: h, 1: h, 2: h, 3: h, 4: h, 5: { open: "08:00", close: "13:00" }, 6: null };
       const d = demoStore(), g = (d && d.garage) || {};
-      info = { id: "demo", name: g.name || "מוסך הדגמה", city: g.city || "חולון", address: g.address || "הפלד 40", phone: g.phone || "03-0000000", hours: { 0: h, 1: h, 2: h, 3: h, 4: h, 5: { open: "08:00", close: "13:00" }, 6: null }, bays: g.bays || 2, slot_minutes: g.slot_minutes || 60, enabled: true,
+      info = { id: "demo", name: g.name || "מוסך הדגמה", city: g.city || "חולון", address: g.address || "הפלד 40", phone: g.phone || "03-0000000", hours: g.hours && Object.keys(g.hours).length ? g.hours : week, bays: g.bays || 3, slot_minutes: g.slot_minutes || 60, enabled: true,
         busy: d ? (d.appts || []).filter(a => a.status !== "cancelled" && a.status !== "no_show").map(a => [a.starts_at, a.minutes]) : [] };
       $("#b-demo").hidden = false;
     } else {
