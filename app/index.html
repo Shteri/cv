@@ -160,7 +160,7 @@
   <section class="screen" id="s-garages" hidden>
     <div class="topbar">
       <div class="stack g-2"><p class="eyebrow">מוסכים מורשים</p><h1>מוסך ליד הבית</h1></div>
-      <button class="btn ghost fit" id="gr-back">חזרה</button>
+      <button class="btn ghost fit" id="gr-back" hidden>חזרה</button>
     </div>
     <div class="row g-8">
       <button class="chip loc" id="gr-city"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-7.1 7-12a7 7 0 0 0-14 0c0 4.9 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg><span id="gr-city-name">בחר עיר</span></button>
@@ -267,6 +267,7 @@
       <button data-go="home" class="on"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>בית</button>
       <button data-go="car"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l1.5-5h11L19 13M5 13h14v5H5zM7 18v2M17 18v2"/><circle cx="8" cy="15.5" r="1"/><circle cx="16" cy="15.5" r="1"/></svg>הרכב</button>
       <button data-go="tl"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M12 6a2 2 0 1 0 0 .01M12 12a2 2 0 1 0 0 .01M12 18a2 2 0 1 0 0 .01"/></svg>ציר טיפולים</button>
+      <button data-go="garages"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.6 2.6-2.4-.6-.6-2.4z"/></svg>מוסכים</button>
       <button data-go="me"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>אני</button>
     </div>
   </nav>
@@ -2043,7 +2044,7 @@
     show(id, true);
   });
   // ---------- nav / boot ----------
-  $$("#nav button").forEach(b => b.onclick = () => { show("s-" + b.dataset.go); if (b.dataset.go === "tl") { const el = $(".tl-item.next"); if (el) el.scrollIntoView({ block: "start" }); } });
+  $$("#nav button").forEach(b => b.onclick = () => { if (b.dataset.go === "garages") { renderGarages(); if (!S.city) openCitySheet(); } show("s-" + b.dataset.go); if (b.dataset.go === "tl") { const el = $(".tl-item.next"); if (el) el.scrollIntoView({ block: "start" }); } });
   $("#home-avatar").onclick = () => show("s-me");
   // ---------- garage customers ----------
   // A driver links a car to a verified garage (consent sheet, opened from an invite link ?join=<profile id>).
