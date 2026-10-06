@@ -10,12 +10,20 @@
   const authError = (() => { const q = new URLSearchParams(location.search), h = new URLSearchParams(location.hash.replace(/^#/, "")); return q.get("error_description") || h.get("error_description") || q.get("error") || h.get("error") || null; })();
   const hasAuthParams = /[?&#](code|access_token|error)=/.test(location.href);
 
+  // Session timeout: a session left unused for IDLE_DAYS is signed out on this device (never right after a sign-in redirect).
+  const IDLE_DAYS = cfg.IDLE_DAYS || 30, IDLE_KEY = "tipulit-active";
+  const touch = () => { try { localStorage.setItem(IDLE_KEY, String(Date.now())); } catch (e) {} };
+  const lastActive = (() => { try { return +localStorage.getItem(IDLE_KEY) || 0; } catch (e) { return 0; } })();
+  const idle = (sb && !hasAuthParams && lastActive && Date.now() - lastActive > IDLE_DAYS * 864e5 ? sb.auth.signOut({ scope: "local" }).catch(() => {}) : Promise.resolve()).then(touch);
+  let touchedAt = Date.now();
+  for (const ev of ["pointerdown", "keydown"]) g.addEventListener(ev, () => { if (Date.now() - touchedAt > 6e4) { touchedAt = Date.now(); touch(); } }, { passive: true });
+
   const dataUrlToBlob = async d => (await fetch(d)).blob();
   const dataUrlToBase64 = d => d.split(",")[1];
   const mediaOf = d => (d.match(/^data:([^;]+);/) || [, "image/jpeg"])[1];
 
   // getSession reads the stored session (no network) and is safe to call from anywhere.
-  async function currentUser() { if (!sb) return null; const { data } = await sb.auth.getSession(); return data.session ? data.session.user : null; }
+  async function currentUser() { if (!sb) return null; await idle; const { data } = await sb.auth.getSession(); return data.session ? data.session.user : null; }
   // supabase-js deadlocks if other auth calls run inside the onAuthStateChange callback, so defer the app's handler.
   function onAuth(cb) { if (!sb) return; sb.auth.onAuthStateChange((event, session) => { if (event === "TOKEN_REFRESHED") return; setTimeout(() => cb(session ? session.user : null, event), 0); }); }
   async function signInWithGoogle() {
@@ -362,5 +370,21 @@
     return data.result;
   }
 
-  g.TipulitCloud = { enabled, authError, hasAuthParams, currentUser, onAuth, signInWithGoogle, signOut, handleRedirect, loadCars, saveCar, deleteCar, deleteRecord, docUrl, deleteAccount, contactSend, communityPrices, communityGarages, extractReceipt, myGarageProfiles, garageProfiles, saveGarageProfile, deleteGarageProfile, photoUrl, startPhoneVerify, confirmPhoneVerify, claimGarage, pendingGarageClaims, setGarageStatus, garagePublic, joinGarage, myGarageLinks, updateGarageLink, leaveGarage, pendingGarageEntries, decideGarageEntry, garageCustomers, garageAddEntry, plateStatus, claimPlate, requestPlate, pendingPlateRequests, decidePlateRequest, garageBook, garageCarHistory, workOrders, addCustomer, updateCustomer, deleteCustomer, addGarageCar, updateGarageCar, saveWorkOrder, sendWorkOrder, importCustomers, appointments, saveAppointment, approvalsFor, createApproval, updateGarageSettings, bookingInfo, bookAppointment, bookSlot, apptGet, apptRespond, apptStrikes, approvalGet, approvalDecide, parts, suppliers, purchaseOrders, invoices, savePart, deletePart, saveSupplier, deleteSupplier, savePurchaseOrder, deletePurchaseOrder, receivePurchaseOrder, addStockMove, partMoves, woConsume, recordInvoice, deleteInvoice, billing, billingSave, billingDelete, issueDocument, jobTemplates, saveJob, deleteJob, approvalChoose, uploadInspectionPhoto, aiAssist };
+  // A short, user-safe reason for a failure. Details go to the console only, never to the screen.
+  function why(e) {
+    try { console.warn(e); } catch (x) {}
+    const m = String((e && (e.message || e.error_description || e.error)) || e || "");
+    if (/Failed to fetch|NetworkError|Load failed|FunctionsFetchError|FunctionsRelayError|network/i.test(m) || (typeof navigator !== "undefined" && navigator.onLine === false)) return "אין חיבור לשרת. בדקו את האינטרנט ונסו שוב.";
+    if (/too many|daily limit|rate limit/i.test(m)) return "יותר מדי ניסיונות. נסו שוב מאוחר יותר.";
+    if (/slot taken/i.test(m)) return "השעה הזו כבר נתפסה. בחרו שעה אחרת.";
+    if (/booking closed/i.test(m)) return "קביעת תורים סגורה כרגע.";
+    if (/outside opening hours|time out of range/i.test(m)) return "השעה מחוץ לשעות הפעילות.";
+    if (/duplicate|unique/i.test(m)) return "הפריט הזה כבר קיים.";
+    if (/not allowed|permission|row-level|JWT|not signed in|401|403/i.test(m)) return "אין הרשאה לפעולה הזו. נסו להתחבר מחדש.";
+    if (/not found/i.test(m)) return "הפריט לא נמצא. רעננו ונסו שוב.";
+    if (/busy|overloaded|529|503/i.test(m)) return "השירות עמוס. נסו שוב בעוד רגע.";
+    return "נסו שוב בעוד רגע.";
+  }
+
+  g.TipulitCloud = { why, enabled, authError, hasAuthParams, currentUser, onAuth, signInWithGoogle, signOut, handleRedirect, loadCars, saveCar, deleteCar, deleteRecord, docUrl, deleteAccount, contactSend, communityPrices, communityGarages, extractReceipt, myGarageProfiles, garageProfiles, saveGarageProfile, deleteGarageProfile, photoUrl, startPhoneVerify, confirmPhoneVerify, claimGarage, pendingGarageClaims, setGarageStatus, garagePublic, joinGarage, myGarageLinks, updateGarageLink, leaveGarage, pendingGarageEntries, decideGarageEntry, garageCustomers, garageAddEntry, plateStatus, claimPlate, requestPlate, pendingPlateRequests, decidePlateRequest, garageBook, garageCarHistory, workOrders, addCustomer, updateCustomer, deleteCustomer, addGarageCar, updateGarageCar, saveWorkOrder, sendWorkOrder, importCustomers, appointments, saveAppointment, approvalsFor, createApproval, updateGarageSettings, bookingInfo, bookAppointment, bookSlot, apptGet, apptRespond, apptStrikes, approvalGet, approvalDecide, parts, suppliers, purchaseOrders, invoices, savePart, deletePart, saveSupplier, deleteSupplier, savePurchaseOrder, deletePurchaseOrder, receivePurchaseOrder, addStockMove, partMoves, woConsume, recordInvoice, deleteInvoice, billing, billingSave, billingDelete, issueDocument, jobTemplates, saveJob, deleteJob, approvalChoose, uploadInspectionPhoto, aiAssist };
 })(window);

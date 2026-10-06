@@ -1,6 +1,6 @@
 // Customers: the book of cars, reminders by the importer schedule, customer card with one history, add by plate, import, export, invite.
 (function (G) {
-  const { $, $$, D, DEMO, FILTERS, L, api, call, copy, demo, digits, download, esc, fmt, fmtDate, fmtPlate, ico, isDue, isOver, isTest, itemName, loadQr, loadRecalls, match, monthName, on, openMsg, recallsOf, reload, schedById, st, telHref, toast, today, view } = G;
+  const { $, $$, D, DEMO, FILTERS, L, api, call, copy, demo, digits, download, esc, fmt, fmtDate, fmtPlate, ico, isDue, isOver, isTest, itemName, loadQr, loadRecalls, match, monthName, on, openMsg, recallsOf, reload, schedById, st, telHref, toast, today, view, why } = G;
   // other modules, looked up when called
   const invOf = (...a) => G.invOf(...a);
   const openInvoice = (...a) => G.openInvoice(...a);
@@ -98,7 +98,7 @@
       if (!demo) await api.updateCustomer(ccId, patch);
       for (const c of st.rows.filter(x => x.customer_id === ccId)) { c.name = patch.name; c.notes = patch.notes; if (!c.linked) { c.own_phone = patch.phone; c.can_contact = patch.contact_consent; c.phone = patch.contact_consent ? patch.phone : null; } }
       $("#cc-name").textContent = patch.name; renderRows(); toast("נשמר");
-    } catch (e) { toast("השמירה נכשלה: " + (e.message || e)); }
+    } catch (e) { toast("השמירה נכשלה: " + why(e)); }
   };
 
   // ---------- add a customer by plate (registry fills model, year, test) ----------
@@ -127,7 +127,7 @@
       const gc = demo ? { id: "dg-" + Date.now() } : await api.addGarageCar(carRow);
       st.rows.push(view({ car_id: gc.id, customer_id: cust.id, name, phone: consent ? phone : null, own_phone: phone, can_contact: consent, source: "manual", ...carRow, km_at: new Date().toISOString(), linked: false, share_history: false, visits: 0, pending: 0, created_at: new Date().toISOString() }));
       $("#dlg-add").close(); toast("הלקוח נוסף"); renderRows(); loadRecalls([adCar.plate]);
-    } catch (e) { err(/duplicate|unique/i.test(e.message || "") ? "הרכב הזה כבר ברשימה שלך." : "ההוספה נכשלה: " + (e.message || e)); }
+    } catch (e) { err(/duplicate|unique/i.test(e.message || "") ? "הרכב הזה כבר ברשימה שלך." : "ההוספה נכשלה: " + why(e)); }
     b.disabled = false;
   };
   $("#btn-add").onclick = () => openAdd();
@@ -180,7 +180,7 @@
       if (demo) { res = { added: rows.length, skipped: 0 }; for (const r of rows) st.rows.push(view({ car_id: "di-" + r.plate, customer_id: "dci-" + r.plate, name: r.name, phone: consent ? r.phone : null, own_phone: r.phone, can_contact: consent, source: "import", plate: r.plate, schedule_id: r.schedule_id, year: r.year, km: r.km, km_month: 1500, km_at: new Date().toISOString(), test_expiry: r.test_expiry, linked: false, visits: 0, pending: 0, created_at: new Date().toISOString() })); }
       else { res = await api.importCustomers(st.garage.id, rows); await reload(); }
       $("#im-status").textContent = `יובאו ${res.added} לקוחות${res.skipped ? `, ${res.skipped} דולגו` : ""}.`; toast(`יובאו ${res.added} לקוחות`); renderRows();
-    } catch (e) { $("#im-status").textContent = "הייבוא נכשל: " + (e.message || e); }
+    } catch (e) { $("#im-status").textContent = "הייבוא נכשל: " + why(e); }
     b.disabled = false;
   };
 

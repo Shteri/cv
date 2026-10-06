@@ -50,7 +50,7 @@ Deno.serve(async (req) => {
       if (!g?.length) return json({ error: "not allowed" }, 403);
     }
     const { data: used, error: bumpErr } = await db.rpc("ai_bump", { p_user: me.user.id });
-    if (bumpErr) return json({ error: "usage: " + bumpErr.message }, 500);
+    if (bumpErr) { console.error("usage", bumpErr); return json({ error: "server error" }, 500); }
     if (used > (garage ? LIMITS.garage : LIMITS.driver)) return json({ error: "daily limit" }, 429);
 
     // a key that isn't scoped to a workspace needs the workspace id (secret ANTHROPIC_WORKSPACE_ID, or any secret holding a wrkspc_ value)
@@ -74,12 +74,12 @@ Deno.serve(async (req) => {
     // tokens and time per call (public.ai_calls, migration 0015)
     try { await db.from("ai_calls").insert({ user_id: userId, task: t, model: response.model, input_tokens: response.usage?.input_tokens ?? null, output_tokens: response.usage?.output_tokens ?? null, ms: Date.now() - t0, ok: !!response.parsed_output }); } catch (_) { /* table missing */ }
     if (response.stop_reason === "refusal") { await report(userId, t, 422, "refused " + JSON.stringify(response.stop_details)); return json({ error: "refused" }, 422); }
-    if (!response.parsed_output) { await report(userId, t, 502, `no result: ${response.stop_reason} ${JSON.stringify(response.usage)}`); return json({ error: "no result", stop: response.stop_reason }, 502); }
+    if (!response.parsed_output) { await report(userId, t, 502, `no result: ${response.stop_reason} ${JSON.stringify(response.usage)}`); return json({ error: "no result" }, 502); }
     return json({ result: clean(t, response.parsed_output as any, context) });
   } catch (e) {
     await report(userId, task, e instanceof Anthropic.APIError ? (e.status ?? 0) : 500, e instanceof Anthropic.APIError ? String(e.message) : String((e as Error)?.stack || e));
     if (e instanceof Anthropic.RateLimitError) return json({ error: "busy" }, 503);
-    if (e instanceof Anthropic.APIError) return json({ error: `ai ${e.status}`, detail: String(e.message).slice(0, 300) }, 502);
-    return json({ error: String((e as Error).message || e) }, 500);
+    if (e instanceof Anthropic.APIError) return json({ error: `ai ${e.status}` }, 502);
+    return json({ error: "server error" }, 500);
   }
 });

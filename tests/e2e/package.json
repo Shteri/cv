@@ -3,6 +3,7 @@
   "private": true,
   "description": "Browser checks for the built site. Chromium comes from PLAYWRIGHT_BROWSERS_PATH; nothing is downloaded.",
   "dependencies": {
+    "axe-core": "4.10.3",
     "playwright": "1.54.1",
     "xlsx": "0.18.5"
   }

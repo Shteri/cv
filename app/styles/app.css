@@ -149,7 +149,7 @@ input, select, textarea { font: inherit; color: var(--ink); }
 @keyframes halo { 50% { box-shadow: 0 0 0 10px transparent; } }
 .tl-card { background: var(--surface); border-radius: 16px; padding: 12px 14px; border: 1.5px solid var(--line); box-shadow: var(--edge); transition: border-color .2s ease, box-shadow .3s ease; }
 .tl-item.next .tl-card { border-color: var(--accent); box-shadow: 0 16px 34px -20px color-mix(in srgb, var(--accent) 60%, transparent), var(--edge); }
-.tl-item.done .tl-card { opacity: .72; }
+.tl-item.done .tl-card { opacity: .86; }
 .tl-head { display: flex; justify-content: space-between; align-items: center; width: 100%; text-align: right; }
 .tl-head .km { font-family: var(--font-display); font-weight: 700; font-size: 1.08rem; transition: color .2s ease; }
 .tl-head .chev { transition: transform .4s var(--spring); color: var(--muted); }
@@ -217,6 +217,7 @@ input, select, textarea { font: inherit; color: var(--ink); }
 .garage { display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; padding: 12px 0; border-top: 1px solid var(--line); align-items: start; }
 .garage:first-child { border-top: 0; padding-top: 0; }
 .garage .nm { font-weight: 600; }
+.garage .open { appearance: none; background: none; border: 0; padding: 0; margin: 0; font: inherit; color: inherit; text-align: start; cursor: pointer; }
 .garage .meta { font-size: .8rem; color: var(--muted); display: flex; flex-wrap: wrap; gap: 4px 10px; }
 .garage .amt { font-family: var(--font-display); font-weight: 700; text-align: left; }
 .tag { display: inline-block; font-size: .72rem; font-weight: 600; padding: 3px 9px; border-radius: 999px; background: var(--surface-2); color: var(--muted); }

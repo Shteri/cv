@@ -13,6 +13,7 @@
   const schedById = id => D.schedules.find(s => s.id === id);
   const itemName = k => (D.items[k] && D.items[k].he) || k;
   const today = () => new Date().toISOString().slice(0, 10);
+  const why = e => window.TipulitCloud && TipulitCloud.why ? TipulitCloud.why(e) : "נסו שוב בעוד רגע.";
   const toastEl = $("#toast"); let toastT;
   const toast = m => { toastEl.textContent = m; toastEl.classList.add("show"); clearTimeout(toastT); toastT = setTimeout(() => toastEl.classList.remove("show"), 2600); };
   const telHref = p => "tel:" + p.replace(/[^\d+*#]/g, "");
@@ -159,7 +160,7 @@
       st.garage.modules = list; $("#dlg-modules").close();
       if (demo) { enabled = new Set(list); applyModules(); call("renderRows"); } else await openGarage(st.garage);
       toast("נשמר");
-    } catch (e) { $("#md-err").textContent = "השמירה נכשלה: " + (e.message || e); $("#md-err").hidden = false; }
+    } catch (e) { $("#md-err").textContent = "השמירה נכשלה: " + why(e); $("#md-err").hidden = false; }
   };
 
   // ---------- recalls ----------
@@ -208,12 +209,12 @@
     const so = $("#sign-out"); if (so) so.onclick = async () => { try { await Cloud.signOut(); } catch (e) {} location.reload(); };
   }
   const signInBtn = `<button class="btn primary" id="sign-in">התחברות עם Google</button>`;
-  function wireSignIn() { const b = $("#sign-in"); if (b) b.onclick = () => { try { sessionStorage.setItem("tipulit-return", location.pathname); } catch (e) {} Cloud.signInWithGoogle().catch(e => toast("ההתחברות נכשלה: " + e.message)); }; }
+  function wireSignIn() { const b = $("#sign-in"); if (b) b.onclick = () => { try { sessionStorage.setItem("tipulit-return", location.pathname); } catch (e) {} Cloud.signInWithGoogle().catch(e => toast("ההתחברות נכשלה: " + why(e))); }; }
 
   async function start() {
     if (demo) { st.garages = [st.garage = DEMO.garage]; st.wos = DEMO.wos; st.rows = DEMO.rows.map(view); st.recalls = DEMO.recalls; resetModules(); for (const m of modules) if (m.demo) m.demo(DEMO); enabled = DEMO.modules ? new Set(DEMO.modules) : null; renderUser(null); showDash(); return; }
     if (!Cloud.enabled) { showGate("השרת לא מחובר", "אפשר לראות איך זה נראה בהדגמה.", `<a class="btn primary" href="?demo">הדגמה</a>`); return; }
-    if (Cloud.hasAuthParams) { const r = await Cloud.handleRedirect(); if (r.error) toast("ההתחברות נכשלה: " + (r.error.message || r.error)); try { history.replaceState(null, "", location.pathname); } catch (e) {} }
+    if (Cloud.hasAuthParams) { const r = await Cloud.handleRedirect(); if (r.error) toast("ההתחברות נכשלה: " + why(r.error)); try { history.replaceState(null, "", location.pathname); } catch (e) {} }
     const u = await Cloud.currentUser(); renderUser(u);
     if (!u) { showGate("ניהול הלקוחות של המוסך", "מי מגיע לטיפול, מה להזמין, וההיסטוריה של כל רכב. לפי לוח היבואן של כל דגם.", signInBtn + `<a class="btn" href="?demo">הדגמה בלי התחברות</a>`); wireSignIn(); return; }
     let mine = []; try { mine = await Cloud.myGarageProfiles(); } catch (e) {}
@@ -429,6 +430,6 @@
   }
   const demoReset = () => { try { localStorage.removeItem(DEMO_KEY); } catch (e) {} location.reload(); };
 
-  Object.assign(G, { addAction, renderActions, addTimeline, timelineFor, D, Cloud, E, L, $, $$, fmt, esc, fmtDate, monthName, fmtPlate, digits, schedById, itemName, today, toast, telHref, waHref, theModel, ico, demo, api, st, monthsSince, view, recordsOf, recallsOf, isDue, isOver, isTest, FILTERS, match, message, openMsg, copy, showTab, setSeg, openMsgText, loadQr, download, numIn, nf, money, qtyOf, oilLiters, register, on, call, loadRecalls, reload, openGarage, DEMO, demoReset });
-  G.boot = () => start().catch(e => showGate("משהו השתבש", e.message || String(e), `<a class="btn" href="./">נסה שוב</a>`));
+  Object.assign(G, { addAction, renderActions, addTimeline, timelineFor, D, Cloud, E, L, $, $$, fmt, esc, fmtDate, monthName, fmtPlate, digits, schedById, itemName, today, toast, why, telHref, waHref, theModel, ico, demo, api, st, monthsSince, view, recordsOf, recallsOf, isDue, isOver, isTest, FILTERS, match, message, openMsg, copy, showTab, setSeg, openMsgText, loadQr, download, numIn, nf, money, qtyOf, oilLiters, register, on, call, loadRecalls, reload, openGarage, DEMO, demoReset });
+  G.boot = () => start().catch(e => showGate("משהו השתבש", why(e), `<a class="btn" href="./">נסה שוב</a>`));
 })();

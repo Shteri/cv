@@ -16,15 +16,16 @@
   <a class="brand" href="../" aria-label="Tipulit"><span class="brand-word" lang="en" dir="ltr">tipulit</span></a>
   <section class="stack-md" id="c-form">
     <div><h1>צור קשר</h1><p class="muted">שאלה, בעיה, בקשה בנושא פרטיות או מוסך? כתבו לנו ונחזור אליכם.</p></div>
-    <div class="field"><span>נושא</span><div class="seg" id="c-topic"><button type="button" data-v="support" class="on">תמיכה</button><button type="button" data-v="privacy">פרטיות ומידע</button><button type="button" data-v="garage">מוסכים</button><button type="button" data-v="other">אחר</button></div></div>
+    <div class="field"><span>נושא</span><div class="seg" id="c-topic"><button type="button" data-v="support" class="on">תמיכה</button><button type="button" data-v="privacy">פרטיות ומידע</button><button type="button" data-v="garage">מוסכים</button><button type="button" data-v="accessibility">נגישות</button><button type="button" data-v="other">אחר</button></div></div>
     <label class="field"><span>שם</span><input id="c-name" autocomplete="name"></label>
     <label class="field"><span>מייל</span><input id="c-email" type="email" autocomplete="email" dir="ltr"></label>
     <label class="field"><span>טלפון <span class="muted">(אם אין מייל)</span></span><input id="c-phone" inputmode="tel" autocomplete="tel" dir="ltr"></label>
+    <label class="hp" aria-hidden="true">אתר אינטרנט<input id="c-web" tabindex="-1" autocomplete="off"></label>
     <label class="field"><span>הודעה</span><textarea id="c-msg" rows="5"></textarea></label>
     <p class="muted small" id="c-privacy-hint" hidden>לבקשה לעיין במידע, לתקן או למחוק אותו: כתבו מה אתם מבקשים ואת המייל שאיתו נכנסתם לאפליקציה. ייתכן שנבקש לאמת את זהותכם.</p>
     <p class="err" id="c-err" hidden></p>
     <button class="btn primary big" id="c-go">שליחה</button>
-    <p class="muted small"><a href="../privacy/">מדיניות הפרטיות</a> · <a href="../terms/">תנאי השימוש</a> · <a href="../">חזרה לאפליקציה</a></p>
+    <p class="muted small"><a href="../privacy/">מדיניות הפרטיות</a> · <a href="../terms/">תנאי השימוש</a> · <a href="../accessibility/">הצהרת נגישות</a> · <a href="../licenses/">רישיונות</a> · <a href="../">חזרה לאפליקציה</a></p>
   </section>
   <section class="box stack-md" id="c-done" hidden><h1>הפנייה נשלחה</h1><p class="muted">תודה. נחזור אליכם בהקדם.</p><a class="btn big" href="../">חזרה לאפליקציה</a></section>
 </main>
@@ -37,7 +38,7 @@
   let topic = new URLSearchParams(location.search).get("topic") || "support";
   const setTopic = v => { topic = v; document.querySelectorAll("#c-topic button").forEach(b => b.classList.toggle("on", b.dataset.v === v)); $("#c-privacy-hint").hidden = v !== "privacy"; };
   document.querySelectorAll("#c-topic button").forEach(b => b.onclick = () => setTopic(b.dataset.v));
-  setTopic(["support", "privacy", "garage", "other"].includes(topic) ? topic : "support");
+  setTopic(["support", "privacy", "garage", "accessibility", "other"].includes(topic) ? topic : "support");
   // a signed-in visitor's email fills in
   if (Cloud.enabled) Cloud.currentUser().then(u => { if (u && u.email && !$("#c-email").value) $("#c-email").value = u.email; }).catch(() => {});
   const err = m => { $("#c-err").textContent = m; $("#c-err").hidden = false; };
@@ -45,6 +46,7 @@
     $("#c-err").hidden = true;
     const email = $("#c-email").value.trim(), phone = $("#c-phone").value.trim(), msg = $("#c-msg").value.trim();
     if (!msg) return err("כתבו מה תרצו לשאול או לבקש.");
+    if ($("#c-web").value) { $("#c-form").hidden = true; $("#c-done").hidden = false; return; }
     if (!email && phone.replace(/\D/g, "").length < 9) return err("צריך מייל או טלפון כדי שנוכל לחזור אליכם.");
     if (email && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return err("כתובת המייל לא נראית תקינה.");
     if (!Cloud.enabled) return err("השליחה לא זמינה כרגע. נסו שוב מאוחר יותר.");

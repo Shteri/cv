@@ -1,6 +1,6 @@
 // Invoices: issued in the garage's own Morning account (edge function issue-document) or recorded by hand.
 (function (G) {
-  const { $, $$, api, demo, download, esc, fmt, fmtDate, money, setSeg, st, toast } = G;
+  const { $, $$, api, demo, download, esc, fmt, fmtDate, money, setSeg, st, toast, why } = G;
   // other modules, looked up when called
   const car = (...a) => G.car(...a);
   // ---------- invoices ----------
@@ -39,14 +39,14 @@
       if (demo) x = { id: "div-" + Date.now(), garage_id: "demo", work_order_id: w.id, kind: ivKind, provider: "morning", number: String(20000 + st.invoices.length + 1), url: null, customer_name: c && c.name, total: w.total, payment: ivKind === "tax_invoice" ? "unpaid" : ivPay, issued_at: new Date().toISOString() };
       else { const r = await api.issueDocument({ work_order_id: w.id, kind: ivKind, payment: ivPay, email: $("#iv-email").value.trim() || null, label: c ? `${c.model} ${c.year || ""}`.trim() : null }); x = r.invoice; if (r.warning) toast(r.warning); }
       invoiceIssued(x); toast(`הופקה ${DOC[x.kind]} ${x.number || ""}`);
-    } catch (e) { b.disabled = false; ivErr(/no invoicing account/.test(e.message) ? "אין חיבור למורנינג." : /Failed to send|not found|FunctionsFetchError|FunctionsRelayError/i.test(e.message) ? "שירות החשבוניות לא זמין כרגע. נסו שוב בעוד רגע." : "ההפקה נכשלה: " + e.message); }
+    } catch (e) { b.disabled = false; ivErr(/no invoicing account/.test(e.message) ? "אין חיבור למורנינג." : /Failed to send|not found|FunctionsFetchError|FunctionsRelayError/i.test(e.message) ? "שירות החשבוניות לא זמין כרגע. נסו שוב בעוד רגע." : "ההפקה נכשלה: " + why(e)); }
   };
   $("#iv-record").onclick = async () => {
     const number = $("#iv-number").value.trim(); if (!number) return ivErr("צריך מספר מסמך.");
     const w = ivFor, c = car(w.garage_car_id);
     const row = { garage_id: st.garage.id, work_order_id: w.id, kind: ivKind, provider: "manual", number, customer_name: (c && c.name) || null, total: w.total, payment: ivKind === "tax_invoice" ? "unpaid" : ivPay };
     try { const x = demo ? { ...row, id: "div-" + Date.now(), issued_at: new Date().toISOString() } : await api.recordInvoice(row); invoiceIssued(x); toast("נרשם"); }
-    catch (e) { ivErr("הרישום נכשל: " + (e.message || e)); }
+    catch (e) { ivErr("הרישום נכשל: " + why(e)); }
   };
 
   // ---------- billing tab ----------
@@ -62,7 +62,7 @@
     $("#bi-rows").innerHTML = list.map(x => `<tr><td class="num">${fmtDate(x.issued_at)}</td><td class="num">${esc(x.number || "")}</td><td>${DOC[x.kind]}${x.provider === "manual" ? ` <span class="tag">נרשם ידנית</span>` : ""}</td><td>${esc(x.customer_name || "")}</td><td class="num-col num">${money(x.total)}</td><td>${PAY[x.payment] || ""}</td>
       <td class="act-col"><div class="acts">${x.url ? `<a class="btn small" href="${esc(x.url)}" target="_blank" rel="noopener">פתח</a>` : ""}${x.provider === "manual" ? `<button type="button" class="btn small" data-unrec="${x.id}">מחק</button>` : ""}</div></td></tr>`).join("");
     $("#bi-empty").hidden = !!list.length; $("#bi-empty").innerHTML = `<p class="muted">אין מסמכים בחודש הזה.</p>`;
-    $$("#bi-rows [data-unrec]").forEach(b => b.onclick = async () => { if (!b.dataset.armed) { b.dataset.armed = "1"; b.textContent = "בטוח?"; return; } try { if (!demo) await api.deleteInvoice(b.dataset.unrec); st.invoices = st.invoices.filter(x => x.id !== b.dataset.unrec); renderBilling(); } catch (e) { toast("נכשל: " + (e.message || e)); } });
+    $$("#bi-rows [data-unrec]").forEach(b => b.onclick = async () => { if (!b.dataset.armed) { b.dataset.armed = "1"; b.textContent = "בטוח?"; return; } try { if (!demo) await api.deleteInvoice(b.dataset.unrec); st.invoices = st.invoices.filter(x => x.id !== b.dataset.unrec); renderBilling(); } catch (e) { toast("נכשל: " + why(e)); } });
     $("#bi-settings").textContent = st.billing && st.billing.has_secret ? "מחובר למורנינג" : "חיבור למורנינג";
   }
   $("#bi-month").onchange = renderBilling;
@@ -89,18 +89,18 @@
       if (demo) st.billing = { api_id: v.api_id, has_secret: true, sandbox: v.sandbox, vat_exempt: v.vat_exempt };
       else { await api.billingSave(st.garage.id, v); st.billing = await api.billing(st.garage.id); }
       $("#bl-secret").value = ""; openBillingSettings(); toast("נשמר"); renderBilling();
-    } catch (e) { blErr("השמירה נכשלה: " + (e.message || e)); }
+    } catch (e) { blErr("השמירה נכשלה: " + why(e)); }
   };
   $("#bl-test").onclick = async () => {
     const b = $("#bl-test"); b.disabled = true; $("#bl-err").hidden = true;
     try { if (!demo) await api.issueDocument({ garage_id: st.garage.id, test: true }); $("#bl-state").textContent = "החיבור עובד."; }
-    catch (e) { blErr(/auth/.test(e.message) ? "מורנינג דחה את המפתחות. בדקו את המזהה והמפתח הסודי." : "הבדיקה נכשלה: " + e.message); }
+    catch (e) { blErr(/auth/.test(e.message) ? "מורנינג דחה את המפתחות. בדקו את המזהה והמפתח הסודי." : "הבדיקה נכשלה: " + why(e)); }
     b.disabled = false;
   };
   $("#bl-del").onclick = async () => {
     const b = $("#bl-del"); if (!b.dataset.armed) { b.dataset.armed = "1"; b.textContent = "בטוח? לחיצה נוספת"; return; }
     delete b.dataset.armed; b.textContent = "נתק";
-    try { if (!demo) await api.billingDelete(st.garage.id); st.billing = null; openBillingSettings(); renderBilling(); toast("החיבור נותק"); } catch (e) { blErr("נכשל: " + (e.message || e)); }
+    try { if (!demo) await api.billingDelete(st.garage.id); st.billing = null; openBillingSettings(); renderBilling(); toast("החיבור נותק"); } catch (e) { blErr("נכשל: " + why(e)); }
   };
 
   G.register({ id: "billing", name: "חשבוניות", desc: "הפקת חשבונית מכרטיס העבודה דרך מורנינג, או רישום של מספר ממערכת אחרת. סיכום חודשי לרואה החשבון.", groups: "all", tab: "billing", show: renderBilling,

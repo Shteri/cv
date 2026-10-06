@@ -1,6 +1,6 @@
 // Work order: what was done, parts and labour lines, sent to the driver for approval.
 (function (G) {
-  const { $, $$, D, E, api, demo, digits, esc, fmt, itemName, qtyOf, setSeg, st, toast, today, view, on } = G;
+  const { $, $$, D, E, api, demo, digits, esc, fmt, itemName, qtyOf, setSeg, st, toast, today, view, on, why } = G;
   // other modules, looked up when called
   const itemQty = (...a) => G.itemQty(...a);
   const moveStock = (...a) => G.moveStock(...a);
@@ -110,7 +110,7 @@
       if (G.woAppt) { const ap = G.woAppt; G.woAppt = null; ap.work_order_id = saved.id; try { if (!demo) await api.saveAppointment({ id: ap.id, garage_id: ap.garage_id, work_order_id: saved.id }); } catch (e) {} }
       $("#dlg-wo").close(); toast(sent ? (demo ? "נשמר. בהדגמה: היה נשלח ללקוח לאישור" : "נשמר ונשלח ללקוח לאישור") : "כרטיס העבודה נשמר"); renderRows();
       if (invoice) openInvoice(saved);
-    } catch (e) { err("השמירה נכשלה: " + (e.message || e)); }
+    } catch (e) { err("השמירה נכשלה: " + why(e)); }
     b.disabled = b2.disabled = false;
   }
 

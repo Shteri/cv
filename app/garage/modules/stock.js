@@ -1,6 +1,6 @@
 // Inventory: parts, counts, suppliers and purchase orders (the stock itself is a ledger on the server).
 (function (G) {
-  const { $, $$, D, api, copy, demo, esc, fmtDate, ico, itemName, money, nf, numIn, oilLiters, openMsgText, qtyOf, setSeg, st, telHref, toast, waHref } = G;
+  const { $, $$, D, api, copy, demo, esc, fmtDate, ico, itemName, money, nf, numIn, oilLiters, openMsgText, qtyOf, setSeg, st, telHref, toast, waHref, why } = G;
   // other modules, looked up when called
   const renderForecast = (...a) => G.renderForecast(...a);
   // ---------- inventory: parts, suppliers, purchase orders (stock is a ledger on the server) ----------
@@ -134,13 +134,13 @@
       if (!ptEdit) st.parts.push(saved); else Object.assign(ptEdit, saved);
       if (opening) await moveStock(saved, opening, "adjust", "מלאי פתיחה");
       $("#dlg-part").close(); toast(ptEdit ? "החלק עודכן" : "החלק נוסף"); renderStock();
-    } catch (e) { err(/duplicate|unique/i.test(e.message || "") ? 'המק"ט הזה כבר קיים במלאי.' : "השמירה נכשלה: " + (e.message || e)); }
+    } catch (e) { err(/duplicate|unique/i.test(e.message || "") ? 'המק"ט הזה כבר קיים במלאי.' : "השמירה נכשלה: " + why(e)); }
     b.disabled = false;
   };
   $("#pt-del").onclick = async () => {
     const b = $("#pt-del"); if (!b.dataset.armed) { b.dataset.armed = "1"; b.textContent = "בטוח? לחיצה נוספת"; return; }
     try { if (!demo) await api.deletePart(ptEdit.id); st.parts = st.parts.filter(p => p !== ptEdit); $("#dlg-part").close(); toast("החלק נמחק"); renderStock(); }
-    catch (e) { $("#pt-err").textContent = "המחיקה נכשלה: " + (e.message || e); $("#pt-err").hidden = false; }
+    catch (e) { $("#pt-err").textContent = "המחיקה נכשלה: " + why(e); $("#pt-err").hidden = false; }
   };
   async function moveStock(p, qty, reason, note, extra = {}) {
     if (!qty) return;
@@ -155,7 +155,7 @@
   $("#ct-save").onclick = async () => {
     const actual = numIn($("#ct-qty").value); if (actual === null || actual < 0) { $("#ct-err").textContent = "צריך כמות."; $("#ct-err").hidden = false; return; }
     try { await moveStock(ctFor, Math.round((actual - (+ctFor.stock || 0)) * 100) / 100, "adjust", $("#ct-note").value.trim()); $("#dlg-count").close(); toast("המלאי עודכן"); renderStock(); }
-    catch (e) { $("#ct-err").textContent = "העדכון נכשל: " + (e.message || e); $("#ct-err").hidden = false; }
+    catch (e) { $("#ct-err").textContent = "העדכון נכשל: " + why(e); $("#ct-err").hidden = false; }
   };
 
   // ---------- supplier ----------
@@ -174,12 +174,12 @@
       const saved = demo ? (spEdit ? Object.assign(spEdit, row) : { ...row, id: "dsp-" + Date.now() }) : await api.saveSupplier(spEdit ? { id: spEdit.id, ...row } : { garage_id: st.garage.id, ...row });
       if (!spEdit) st.sups.push(saved); else Object.assign(spEdit, saved);
       $("#dlg-sup").close(); toast("נשמר"); renderStock();
-    } catch (e) { $("#sp-err").textContent = "השמירה נכשלה: " + (e.message || e); $("#sp-err").hidden = false; }
+    } catch (e) { $("#sp-err").textContent = "השמירה נכשלה: " + why(e); $("#sp-err").hidden = false; }
   };
   $("#sp-del").onclick = async () => {
     const b = $("#sp-del"); if (!b.dataset.armed) { b.dataset.armed = "1"; b.textContent = "בטוח? לחיצה נוספת"; return; }
     try { if (!demo) await api.deleteSupplier(spEdit.id); st.sups = st.sups.filter(x => x !== spEdit); for (const p of st.parts) if (p.supplier_id === spEdit.id) p.supplier_id = null; $("#dlg-sup").close(); toast("הספק נמחק"); renderStock(); }
-    catch (e) { $("#sp-err").textContent = "המחיקה נכשלה: " + (e.message || e); $("#sp-err").hidden = false; }
+    catch (e) { $("#sp-err").textContent = "המחיקה נכשלה: " + why(e); $("#sp-err").hidden = false; }
   };
 
   // ---------- purchase order ----------
@@ -229,7 +229,7 @@
     on("#po-x", async () => { try { if (!demo) await api.deletePurchaseOrder(poEdit.id); st.pos = st.pos.filter(x => x !== poEdit); $("#dlg-po").close(); renderStock(); toast("הטיוטה נמחקה"); } catch (e) { poErr(e); } });
     on("#po-confirm", receivePo);
   }
-  const poErr = e => { $("#po-err").textContent = "נכשל: " + (e.message || e); $("#po-err").hidden = false; };
+  const poErr = e => { $("#po-err").textContent = "נכשל: " + why(e); $("#po-err").hidden = false; };
   async function poPersist(status) {
     const lines = poLines.filter(l => (l.name || "").trim() && +l.qty > 0).map(l => ({ part_id: l.part_id || null, sku: l.sku || null, name: l.name.trim(), qty: +l.qty, cost: l.cost == null || l.cost === "" ? null : +l.cost }));
     if (!lines.length) throw new Error("אין שורות");

@@ -36,9 +36,9 @@ The look is a night drive: graphite surfaces, light as the material (soft glows,
 - **Ink** `{colors.ink}` #0C0F12 / #F3F4F6. **Muted** `{colors.muted}` #555C66 / #9BA2AC. **Faint** `{colors.faint}` #868D97 / #626A75 (unknown values, secondary meta only).
 
 ### Semantic (light / dark, with soft backgrounds)
-- **Good** #148A55 / #3FD58B: done, fine, remaining life.
-- **Warn** #9A6700 / #F0B04A: approaching (≤3,000 km or ≤45 days), data caveats.
-- **Crit** #C8352B / #FF6B5E: overdue, inline errors. An overdue dot gets a slow pulsing halo.
+- **Good** #117A4B / #3FD58B: done, fine, remaining life.
+- **Warn** #8F6000 / #F0B04A: approaching (≤3,000 km or ≤45 days), data caveats.
+- **Crit** #BD3127 / #FF6B5E: overdue, inline errors. An overdue dot gets a slow pulsing halo.
 - **Unknown**: faint grey dot and "?".
 
 ## Logo

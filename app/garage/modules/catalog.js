@@ -1,7 +1,7 @@
 // Job catalog: the garage's standard jobs (hours, labour price, the maintenance items they replace) and the
 // hourly labour rate. A job becomes work-order lines or approval lines in one click; parts are priced from stock per car.
 (function (G) {
-  const { $, $$, D, api, demo, esc, itemName, money, nf, numIn, on, st, toast } = G;
+  const { $, $$, D, api, demo, esc, itemName, money, nf, numIn, on, st, toast, why } = G;
   const partFor = (...a) => on("stock") ? G.partFor(...a) : null;
   const itemQty = (...a) => G.itemQty(...a);
 
@@ -64,7 +64,7 @@
   $("#cg-rate").onchange = async () => {
     const v = numIn($("#cg-rate").value);
     try { if (!demo) await api.updateGarageSettings(st.garage.id, { labor_rate: v }); st.garage.labor_rate = v; renderCatalog(); toast("מחיר השעה נשמר"); }
-    catch (e) { toast("השמירה נכשלה: " + (e.message || e)); }
+    catch (e) { toast("השמירה נכשלה: " + why(e)); }
   };
 
   // ---------- one job ----------
@@ -94,12 +94,12 @@
       const saved = demo ? (jbEdit ? Object.assign(jbEdit, row) : { ...row, id: "djb-" + Date.now(), active: true }) : await api.saveJob(jbEdit ? { id: jbEdit.id, ...row } : { garage_id: st.garage.id, ...row });
       if (!jbEdit) st.jobs.push(saved); else Object.assign(jbEdit, saved);
       $("#dlg-job").close(); toast("נשמר"); renderCatalog();
-    } catch (e) { $("#jb-err").textContent = "השמירה נכשלה: " + (e.message || e); $("#jb-err").hidden = false; }
+    } catch (e) { $("#jb-err").textContent = "השמירה נכשלה: " + why(e); $("#jb-err").hidden = false; }
   };
   $("#jb-del").onclick = async () => {
     const b = $("#jb-del"); if (!b.dataset.armed) { b.dataset.armed = "1"; b.textContent = "בטוח? לחיצה נוספת"; return; }
     try { if (!demo) await api.deleteJob(jbEdit.id); st.jobs = st.jobs.filter(j => j !== jbEdit); $("#dlg-job").close(); renderCatalog(); }
-    catch (e) { $("#jb-err").textContent = "המחיקה נכשלה: " + (e.message || e); $("#jb-err").hidden = false; }
+    catch (e) { $("#jb-err").textContent = "המחיקה נכשלה: " + why(e); $("#jb-err").hidden = false; }
   };
   $("#cg-new").onclick = () => openJob(null);
 
@@ -112,7 +112,7 @@
       try {
         for (const j of pick) { const row = { name: j.name, category: j.category, hours: j.hours, price: null, parts: j.parts }; st.jobs.push(demo ? { ...row, id: "djb-" + Math.random().toString(36).slice(2), active: true } : await api.saveJob({ garage_id: st.garage.id, ...row })); }
         $("#dlg-sug").close(); renderCatalog(); toast(`נוספו ${pick.length} עבודות. עדכנו שעות ומחירים לפי הניסיון שלכם.`);
-      } catch (e) { toast("ההוספה נכשלה: " + (e.message || e)); }
+      } catch (e) { toast("ההוספה נכשלה: " + why(e)); }
     };
     $("#dlg-sug").showModal();
   }

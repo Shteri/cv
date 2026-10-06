@@ -35,7 +35,7 @@
       </button>
       <p class="err" id="auth-err" hidden></p>
       <button class="btn primary" id="auth-guest">המשך כאורח</button>
-      <p class="small muted center">בהמשך אתה מסכים ל<a href="terms/" target="_blank" rel="noopener">תנאי השימוש</a> ול<a href="privacy/" target="_blank" rel="noopener">מדיניות הפרטיות</a>.</p>
+      <p class="small muted center">בהמשך אתה מאשר שמלאו לך 18 (או שיש לך הסכמת הורה) ומסכים ל<a href="terms/" target="_blank" rel="noopener">תנאי השימוש</a> ול<a href="privacy/" target="_blank" rel="noopener">מדיניות הפרטיות</a>.</p>
     </div>
   </section>
 
@@ -255,7 +255,7 @@
     <!-- PRIVACY: the policy, the terms, the contact page (requests to see or correct data go there), delete the account -->
     <div class="card stack g-8">
       <h3>פרטיות</h3>
-      <div class="row g-12 wrap"><a class="btn ghost fit bare go" href="privacy/" target="_blank" rel="noopener">מדיניות הפרטיות</a><a class="btn ghost fit bare go" href="terms/" target="_blank" rel="noopener">תנאי השימוש</a><a class="btn ghost fit bare go" href="contact/" target="_blank" rel="noopener">צור קשר</a></div>
+      <div class="row g-12 wrap"><a class="btn ghost fit bare go" href="privacy/" target="_blank" rel="noopener">מדיניות הפרטיות</a><a class="btn ghost fit bare go" href="terms/" target="_blank" rel="noopener">תנאי השימוש</a><a class="btn ghost fit bare go" href="contact/" target="_blank" rel="noopener">צור קשר</a><a class="btn ghost fit bare go" href="accessibility/" target="_blank" rel="noopener">נגישות</a><a class="btn ghost fit bare go" href="licenses/" target="_blank" rel="noopener">רישיונות</a></div>
       <button class="btn ghost danger" id="me-delete">מחק את החשבון שלי</button>
     </div>
     <button class="btn ghost danger" id="me-reset">איפוס האפליקציה</button>
@@ -519,6 +519,7 @@
     window.scrollTo(0, 0);
   };
   let toastT;
+  const whyFail = e => window.TipulitCloud && TipulitCloud.why ? TipulitCloud.why(e) : "נסו שוב בעוד רגע.";
   const toast = msg => { const t = $("#toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove("show"), 2200); };
 
   // Maintenance engine: given a schedule and a car, compute the next service.
@@ -592,7 +593,7 @@
   //   google.accounts.id.initialize({ client_id: "<CLIENT_ID>", callback: onCredential });
   // Needs a client ID and an allowed origin. In this prototype the button simulates a signed-in user.
   const demoGoogle = () => { S.user = { name: "מקס", email: "max@gmail.com", via: "google", demo: true }; save(); afterAuth(); toast("התחברות לדוגמה. שרת עדיין לא מחובר"); };
-  $("#auth-google").onclick = () => Cloud.enabled ? Cloud.signInWithGoogle().catch(e => toast("ההתחברות נכשלה: " + e.message)) : demoGoogle();
+  $("#auth-google").onclick = () => Cloud.enabled ? Cloud.signInWithGoogle().catch(e => toast("ההתחברות נכשלה: " + whyFail(e))) : demoGoogle();
   if (!Cloud.enabled) $("#auth-google").insertAdjacentHTML("beforeend", ` <span class="small muted">(דמו)</span>`);
   // Real sign-in: when Supabase reports a session, adopt the user and merge cloud cars with local ones.
   let lastAuthUid = null;
@@ -621,7 +622,7 @@
     } catch (e) { console.warn("cloud load failed", e); toast("לא הצלחתי לסנכרן מהענן. עובדים מקומית"); }
     S.onboarded = true; save(); migrateCars();
     try { if (S.cars.length) { renderAll(); show("s-home"); maybeJoin(); } else startAdd(); }
-    catch (e) { console.error(e); toast("שגיאה אחרי ההתחברות: " + e.message); }
+    catch (e) { console.error(e); toast("שגיאה אחרי ההתחברות: " + whyFail(e)); }
   }
   if (Cloud.enabled) Cloud.onAuth(onSignedIn);
   $("#auth-guest").onclick = () => { S.user = { name: "אורח", via: "guest" }; save(); afterAuth(); };
@@ -1609,8 +1610,8 @@
   const communityMap = car => { const m = new Map(); for (const g of garagesFor(car)) m.set(normName(g.name) + "|" + cityNorm(g.city), g); return m; };
   // other drivers recommend; my own visits are just mine
   const commLine = (g, s) => `<div class="comm">${g.others ? `${g.n} ${g.n === 1 ? "נהג" : "נהגי"} ${s.model_he}${g.mine ? " (כולל אותך)" : ""}` : `ביקרת כאן ${g.visits === 1 ? "פעם אחת" : g.visits + " פעמים"}`}${g.others && g.backPct !== null ? ` · ${g.backPct}% היו חוזרים` : ""}${g.avg ? ` · ממוצע ₪${fmt(g.avg)}` : ""}</div>`;
-  const garageRow = (g, comm, s, prof) => { const hn = prof ? hoursNow(prof.hours) : null, phone = (prof && prof.phone) || g.phone; return `<div class="garage tap" role="button" tabindex="0" data-gview="${g.id}" aria-label="פרטי ${esc((prof && prof.name) || g.name)}">
-      <div><div class="nm">${esc((prof && prof.name) || g.name)}${comm && comm.others ? ` <span class="tag rec">מומלץ</span>` : ""}${prof && prof.hidden ? ` <span class="tag mine">בדיקה · רק לך</span>` : prof ? ` <span class="tag ver">מאומת</span>` : ""}${comm && comm.mine ? ` <span class="tag mine">דיווחת</span>` : ""}</div>
+  const garageRow = (g, comm, s, prof) => { const hn = prof ? hoursNow(prof.hours) : null, phone = (prof && prof.phone) || g.phone; return `<div class="garage tap" data-gview="${g.id}">
+      <div><div class="nm"><button type="button" class="open" data-gopen aria-label="פרטי ${esc((prof && prof.name) || g.name)}">${esc((prof && prof.name) || g.name)}</button>${comm && comm.others ? ` <span class="tag rec">מומלץ</span>` : ""}${prof && prof.hidden ? ` <span class="tag mine">בדיקה · רק לך</span>` : prof ? ` <span class="tag ver">מאומת</span>` : ""}${comm && comm.mine ? ` <span class="tag mine">דיווחת</span>` : ""}</div>
         ${prof && prof.name && normName(prof.name) !== normName(g.name) ? `<div class="meta"><span>רשום במשרד התחבורה: ${esc(g.name)}</span></div>` : ""}
         <div class="meta">${g.addr ? `<span>${esc(g.addr)}${g.city && g.city !== (S.city || "") ? ", " + g.city : ""}</span>` : ""}${(prof && prof.services && prof.services.length ? prof.services : g.cats).map(c => `<span>${gCatName[c] || c}</span>`).join("")}</div>
         ${hn ? `<div class="hrs ${hn.open ? "open" : ""}">${hn.text}</div>` : ""}
@@ -1691,8 +1692,8 @@
   // tapping a garage (but not its call / WhatsApp / navigate icons) opens everything it published
   function wireGarageRows(root) {
     $$("[data-gview]", root).forEach(el => {
-      el.onclick = e => { if (e.target.closest("a, button")) return; openGarageView(+el.dataset.gview); };
-      el.onkeydown = e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openGarageView(+el.dataset.gview); } };
+      // the name is the button (keyboard, screen readers); a tap anywhere else on the row opens it too
+      el.onclick = e => { if (e.target.closest("a, button:not([data-gopen])")) return; openGarageView(+el.dataset.gview); };
     });
   }
   function openGarageView(id) {
@@ -1835,7 +1836,7 @@
         $("#ge-confirm").onclick = async () => {
           const c = $("#ge-confirm"); c.disabled = true; c.classList.add("busy");
           try { await Cloud.confirmPhoneVerify(ge.registry_phone, $("#ge-code").value.trim()); const r = await Cloud.claimGarage(ge.id); if (r && r.verified) { ge.status = "verified"; myProfiles = null; toast("המוסך אומת"); renderGeStatus(); } else toast("הקוד אושר אבל המספר לא תואם למאגר"); }
-          catch (e) { toast("האימות נכשל: " + (e.message || e)); }
+          catch (e) { toast("האימות נכשל: " + whyFail(e)); }
           c.disabled = false; c.classList.remove("busy");
         };
       } catch (e) {
@@ -1877,14 +1878,14 @@
     if (ge.booking_url && !/^https?:\/\//.test(ge.booking_url)) { $("#ge-err").textContent = "קישור לקביעת תור צריך להתחיל ב-https://"; $("#ge-err").hidden = false; return; }
     b.disabled = true; b.classList.add("busy");
     try { const saved = await Cloud.saveGarageProfile(ge); ge = { ...ge, ...saved }; myProfiles = null; delete cloudProfiles[ge.city]; $("#ge-delete").hidden = false; renderGeStatus(); renderGePhotos(); toast("נשמר"); window.scrollTo(0, 0); }
-    catch (e) { $("#ge-err").textContent = /relation|schema cache|does not exist/i.test(e.message || "") ? "השרת עדיין לא מוכן לפרופילי מוסכים (צריך להריץ את המיגרציה 0002)." : "השמירה נכשלה: " + (e.message || e); $("#ge-err").hidden = false; }
+    catch (e) { $("#ge-err").textContent = /relation|schema cache|does not exist/i.test(e.message || "") ? "השרת עדיין לא מוכן לפרופילי מוסכים (צריך להריץ את המיגרציה 0002)." : "השמירה נכשלה: " + whyFail(e); $("#ge-err").hidden = false; }
     b.disabled = false; b.classList.remove("busy");
   };
   let geDelArmed = null;
   $("#ge-delete").onclick = async () => {
     if (!geDelArmed) { geDelArmed = setTimeout(() => { geDelArmed = null; $("#ge-delete").textContent = "הסר את המוסך מהחשבון שלי"; }, 5000); $("#ge-delete").textContent = "בטוח? לחיצה נוספת מסירה"; return; }
     clearTimeout(geDelArmed); geDelArmed = null; $("#ge-delete").textContent = "הסר את המוסך מהחשבון שלי";
-    try { await Cloud.deleteGarageProfile(ge.id); myProfiles = null; delete cloudProfiles[ge.city]; toast("הוסר"); show("s-me"); } catch (e) { toast("ההסרה נכשלה: " + e.message); }
+    try { await Cloud.deleteGarageProfile(ge.id); myProfiles = null; delete cloudProfiles[ge.city]; toast("הוסר"); show("s-me"); } catch (e) { toast("ההסרה נכשלה: " + whyFail(e)); }
   };
   $("#ge-back").onclick = () => { if (geFromClaim) { geFromClaim = false; renderMe(); show("s-me"); } else if (history.length > 1) history.back(); else show("s-garages"); };
   // profile screen: my garages + (admin) pending claims
@@ -1914,7 +1915,7 @@
     const u = S.user || { name: "אורח", via: "guest" };
     $("#me-body").innerHTML = `<div class="row"><span class="avatar">${u.name[0]}</span><div><b>${u.name}</b><br><span class="small muted">${u.via === "google" ? u.email : "לא מחובר. נשמר במכשיר הזה בלבד."}</span></div></div>
       ${u.via === "guest" ? `<button class="btn secondary" id="me-google">התחבר עם Google${Cloud.enabled ? "" : " (דמו)"}</button>` : `<button class="btn ghost" id="me-logout">התנתק</button>`}${Cloud.enabled ? "" : `<p class="small muted">ללא שרת: דיווחי הקהילה הם נתוני דוגמה.</p>`}`;
-    const g = $("#me-google"); if (g) g.onclick = () => Cloud.enabled ? Cloud.signInWithGoogle().catch(e => toast("ההתחברות נכשלה: " + e.message)) : (S.user = { name: "מקס", email: "max@gmail.com", via: "google", demo: true }, save(), renderAll(), toast("התחברות לדוגמה. שרת עדיין לא מחובר"));
+    const g = $("#me-google"); if (g) g.onclick = () => Cloud.enabled ? Cloud.signInWithGoogle().catch(e => toast("ההתחברות נכשלה: " + whyFail(e))) : (S.user = { name: "מקס", email: "max@gmail.com", via: "google", demo: true }, save(), renderAll(), toast("התחברות לדוגמה. שרת עדיין לא מחובר"));
     const lo = $("#me-logout"); if (lo) lo.onclick = async () => { if (Cloud.enabled) { try { await Cloud.signOut(); } catch (e) {} } S.user = { name: "אורח", via: "guest" }; save(); renderAll(); };
     renderMyGarages(); renderMyLinks(); renderPlateRequests();
     $("#me-cars").innerHTML = S.cars.map((c, i) => `<div class="row g-8"><button class="row between row-btn" data-i="${i}">
@@ -1943,7 +1944,7 @@
       + (owned.length ? `\nגם ${owned.length === 1 ? "המוסך " + owned[0].name : owned.length + " מוסכים"} וכל הנתונים שלו יימחקו.` : "") + "\nאי אפשר לשחזר.";
     if (!confirm(msg) || !confirm("בטוח? זו מחיקה סופית.")) return;
     const b = $("#me-delete"); b.disabled = true; b.classList.add("busy");
-    if (cloud) { try { await Cloud.deleteAccount(); } catch (e) { b.disabled = false; b.classList.remove("busy"); return toast("המחיקה נכשלה: " + (e.message || e)); } }
+    if (cloud) { try { await Cloud.deleteAccount(); } catch (e) { b.disabled = false; b.classList.remove("busy"); return toast("המחיקה נכשלה: " + whyFail(e)); } }
     for (const c of S.cars) (c.history || []).forEach(dropDocs);
     try { indexedDB.deleteDatabase("tipulit-docs"); } catch (e) {}
     if (cloud) { try { await Cloud.signOut(); } catch (e) {} }
@@ -2084,7 +2085,7 @@
       if (phone) S.phone = phone;
       save(); clearJoin(); myLinks = null;
       $("#joinsheet").classList.remove("show"); toast("הצטרפת ל" + joinRow.name); renderMyLinks();
-    } catch (e) { err(/schema cache|does not exist/i.test(e.message || "") ? "השרת עדיין לא מוכן לזה (צריך להריץ את מיגרציה 0003)." : "ההצטרפות נכשלה: " + (e.message || e)); }
+    } catch (e) { err(/schema cache|does not exist/i.test(e.message || "") ? "השרת עדיין לא מוכן לזה (צריך להריץ את מיגרציה 0003)." : "ההצטרפות נכשלה: " + whyFail(e)); }
     b.disabled = false; b.classList.remove("busy");
   };
 
@@ -2099,11 +2100,11 @@
         <div><b>${esc(g.name || "מוסך")}</b><br><span class="small muted">${esc(g.city || "")}${car ? " · " + esc(carName(car)) : ""}</span></div>
         <span class="small muted">${l.allow_contact ? "יכול לפנות אליך" : "בלי פניות"} · ${l.share_history ? `רואה את כל ההיסטוריה${l.show_garage_names ? ", כולל שמות מוסכים" : ""}` : "רואה רק את מה שעשה בעצמו"}</span>
         <div class="row g-8 wrap">${g.booking_enabled && g.id ? `<a class="btn" href="book/?g=${encodeURIComponent(g.id)}&name=${encodeURIComponent(l.first_name || (S.user && S.user.name) || "")}&phone=${encodeURIComponent(l.phone || "")}&plate=${encodeURIComponent(car && car.plate || "")}" target="_blank" rel="noopener">קבע תור</a>` : ""}${l.phone ? `<button class="btn secondary" data-lk-contact="${l.id}">${l.allow_contact ? "בלי פניות" : "אפשר פניות"}</button>` : ""}<button class="btn secondary" data-lk-hist="${l.id}">${l.share_history ? "הסתר היסטוריה" : "שתף היסטוריה"}</button>${l.share_history ? `<button class="btn secondary" data-lk-names="${l.id}">${l.show_garage_names ? "הסתר שמות מוסכים" : "הצג שמות מוסכים"}</button>` : ""}<button class="btn ghost" data-lk-leave="${l.id}">הפסק שיתוף</button></div></div>`; }).join("")}</div>`;
-    $$("[data-lk-contact]", el).forEach(b => b.onclick = async () => { const l = myLinks.find(x => x.id === b.dataset.lkContact); try { await Cloud.updateGarageLink(l.id, { allow_contact: !l.allow_contact }); l.allow_contact = !l.allow_contact; renderMyLinks(); toast(l.allow_contact ? "המוסך יכול לפנות אליך" : "המוסך לא יפנה אליך"); } catch (e) { toast("נכשל: " + e.message); } });
-    const flip = (attr, key, on, off) => $$(`[${attr}]`, el).forEach(b => b.onclick = async () => { const l = myLinks.find(x => x.id === b.getAttribute(attr)); try { await Cloud.updateGarageLink(l.id, { [key]: !l[key] }); l[key] = !l[key]; renderMyLinks(); toast(l[key] ? on : off); } catch (e) { toast("נכשל: " + e.message); } });
+    $$("[data-lk-contact]", el).forEach(b => b.onclick = async () => { const l = myLinks.find(x => x.id === b.dataset.lkContact); try { await Cloud.updateGarageLink(l.id, { allow_contact: !l.allow_contact }); l.allow_contact = !l.allow_contact; renderMyLinks(); toast(l.allow_contact ? "המוסך יכול לפנות אליך" : "המוסך לא יפנה אליך"); } catch (e) { toast("נכשל: " + whyFail(e)); } });
+    const flip = (attr, key, on, off) => $$(`[${attr}]`, el).forEach(b => b.onclick = async () => { const l = myLinks.find(x => x.id === b.getAttribute(attr)); try { await Cloud.updateGarageLink(l.id, { [key]: !l[key] }); l[key] = !l[key]; renderMyLinks(); toast(l[key] ? on : off); } catch (e) { toast("נכשל: " + whyFail(e)); } });
     flip("data-lk-hist", "share_history", "המוסך יראה את כל ההיסטוריה", "המוסך יראה רק את מה שעשה בעצמו");
     flip("data-lk-names", "show_garage_names", "שמות המוסכים יוצגו", "שמות המוסכים מוסתרים");
-    $$("[data-lk-leave]", el).forEach(b => b.onclick = async () => { if (!b.dataset.armed) { b.dataset.armed = "1"; b.textContent = "בטוח? לחיצה נוספת"; return; } try { await Cloud.leaveGarage(b.dataset.lkLeave); myLinks = null; toast("השיתוף הופסק"); renderMyLinks(); } catch (e) { toast("נכשל: " + e.message); } });
+    $$("[data-lk-leave]", el).forEach(b => b.onclick = async () => { if (!b.dataset.armed) { b.dataset.armed = "1"; b.textContent = "בטוח? לחיצה נוספת"; return; } try { await Cloud.leaveGarage(b.dataset.lkLeave); myLinks = null; toast("השיתוף הופסק"); renderMyLinks(); } catch (e) { toast("נכשל: " + whyFail(e)); } });
   }
 
   // Driver: visits a garage logged, waiting for approval (home screen).
@@ -2138,7 +2139,7 @@
       gEntries = gEntries.filter(x => x.id !== id);
       toast(accept ? "נוסף להיסטוריה" : "סומן כלא נכון");
       renderHome(); if (!$("#s-car").hidden) renderCar();
-    } catch (err) { toast("נכשל: " + (err.message || err)); }
+    } catch (err) { toast("נכשל: " + whyFail(err)); }
   }
 
   // Garage: customer list.
@@ -2179,7 +2180,7 @@
     $("#gc-name").textContent = profile.name; $("#gc-q").value = "";
     show("s-gcust"); renderGCust();
     try { gc.rows = (await Cloud.garageCustomers(profile.id)).map(custView); }
-    catch (e) { gc.error = /schema cache|does not exist/i.test(e.message || "") ? "השרת עדיין לא מוכן לזה (צריך להריץ את מיגרציה 0003)." : "הטעינה נכשלה: " + (e.message || e); }
+    catch (e) { gc.error = /schema cache|does not exist/i.test(e.message || "") ? "השרת עדיין לא מוכן לזה (צריך להריץ את מיגרציה 0003)." : "הטעינה נכשלה: " + whyFail(e); }
     gc.loading = false; renderGCust(); loadCustRecalls(gc);
   }
   async function loadCustRecalls(ctx) {
@@ -2242,7 +2243,7 @@
       try { localStorage.setItem("tipulit-gx-where-" + gc.garage.id, gxWhere); } catch (e) {}
       gxFor.pending = (gxFor.pending || 0) + 1;
       $("#gentry").classList.remove("show"); toast("נשלח ללקוח לאישור"); renderGCust();
-    } catch (e) { err("השמירה נכשלה: " + (e.message || e)); }
+    } catch (e) { err("השמירה נכשלה: " + whyFail(e)); }
     b.disabled = false; b.classList.remove("busy");
   };
 
@@ -2294,7 +2295,7 @@
     if (!plPhoto) { $("#pl-err").textContent = "צריך צילום של רישיון הרכב."; $("#pl-err").hidden = false; return; }
     const b = $("#pl-send"); b.disabled = true; b.classList.add("busy");
     try { await Cloud.requestPlate(plFor.car.plate, plPhoto); toast("נשלח. נאשר תוך יום עבודה"); plFor.car.plateRequested = true; plateDone(plFor.car, plFor.adding, true); }
-    catch (e) { $("#pl-err").textContent = "השליחה נכשלה: " + (e.message || e); $("#pl-err").hidden = false; }
+    catch (e) { $("#pl-err").textContent = "השליחה נכשלה: " + whyFail(e); $("#pl-err").hidden = false; }
     b.disabled = false; b.classList.remove("busy");
   };
   // Home: plate held by another account, or released to the car's new owner.
@@ -2351,8 +2352,8 @@
     el.innerHTML = `<h3>בקשות על מספרי רכב (מנהל)</h3><div class="list">${list.map(r => `<div class="stack g-6"><div><b class="num">${esc(fmtPlate(r.plate))}</b><br><span class="small muted">${esc(r.requester_email || "")} · רשום אצל מישהו אחר מ-${r.holder_since ? fmtDate(r.holder_since) : "לא ידוע"}</span></div>
       ${r.photo_url ? `<a href="${esc(r.photo_url)}" target="_blank" rel="noopener"><img class="hist-thumb" src="${esc(r.photo_url)}" alt="רישיון רכב"></a>` : ""}
       <div class="row g-8"><button class="btn primary" data-pr-ok="${r.id}">אשר העברה</button><button class="btn ghost" data-pr-no="${r.id}">דחה</button></div></div>`).join("")}</div>`;
-    $$("[data-pr-ok]", el).forEach(b => b.onclick = async () => { try { await Cloud.decidePlateRequest(b.dataset.prOk, true); toast("המספר שוחרר"); } catch (e) { toast("נכשל: " + e.message); } renderPlateRequests(); });
-    $$("[data-pr-no]", el).forEach(b => b.onclick = async () => { try { await Cloud.decidePlateRequest(b.dataset.prNo, false); } catch (e) { toast("נכשל: " + e.message); } renderPlateRequests(); });
+    $$("[data-pr-ok]", el).forEach(b => b.onclick = async () => { try { await Cloud.decidePlateRequest(b.dataset.prOk, true); toast("המספר שוחרר"); } catch (e) { toast("נכשל: " + whyFail(e)); } renderPlateRequests(); });
+    $$("[data-pr-no]", el).forEach(b => b.onclick = async () => { try { await Cloud.decidePlateRequest(b.dataset.prNo, false); } catch (e) { toast("נכשל: " + whyFail(e)); } renderPlateRequests(); });
   }
 
   function renderAll() { if (S.city && !GD) loadGarageDir().then(() => renderHome()).catch(() => {}); renderHome(); renderTL(); renderMe(); if (!$("#s-car").hidden) renderCar(); if (!$("#s-garages").hidden) renderGarages(); }
@@ -2389,9 +2390,9 @@
     const gb = $("#auth-google"); gb.disabled = true; gb.classList.add("busy"); gb.dataset.busy = "מסיים התחברות…";
     Cloud.handleRedirect().then(r => {
       gb.disabled = false; gb.classList.remove("busy");
-      if (r.error) { const msg = (r.error.hint || r.error.message || String(r.error)); toast("ההתחברות נכשלה: " + msg); $("#auth-err").textContent = "ההתחברות נכשלה: " + msg; $("#auth-err").hidden = false; }
+      if (r.error) { const msg = whyFail(r.error); toast("ההתחברות נכשלה: " + msg); $("#auth-err").textContent = "ההתחברות נכשלה: " + msg; $("#auth-err").hidden = false; }
       else if (r.user && !lastAuthUid) { onSignedIn(r.user, "SIGNED_IN"); } // in case the event fired before the handler was attached
-    }).catch(e => { gb.disabled = false; gb.classList.remove("busy"); toast("ההתחברות נכשלה: " + e.message); $("#auth-err").textContent = "ההתחברות נכשלה: " + e.message; $("#auth-err").hidden = false; });
+    }).catch(e => { gb.disabled = false; gb.classList.remove("busy"); toast("ההתחברות נכשלה: " + whyFail(e)); $("#auth-err").textContent = "ההתחברות נכשלה: " + whyFail(e); $("#auth-err").hidden = false; });
   } else {
     const first = boot();
     try { history.replaceState({ screen: first }, "", "#" + first.replace(/^s-/, "")); } catch (e) {}

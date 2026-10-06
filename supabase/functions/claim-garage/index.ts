@@ -31,9 +31,10 @@ Deno.serve(async (req) => {
     const phone = await registryPhone(gp.garage_id);
     if (!phone) return json({ verified: false, reason: "garage not in registry" });
     const { data: ok, error } = await admin.rpc("verify_garage_by_phone", { p_id: gp.id, p_registry_phone: phone });
-    if (error) return json({ error: error.message }, 500);
+    if (error) { console.error(error); return json({ error: "server error" }, 500); }
     return json({ verified: !!ok, reason: ok ? null : "phone does not match the registry" });
   } catch (e) {
-    return json({ error: String(e) }, 500);
+    console.error(e);
+    return json({ error: "server error" }, 500);
   }
 });

@@ -1,6 +1,6 @@
 // Online booking: settings, booking link and printable QR sign (the public page is /book/).
 (function (G) {
-  const { $, api, copy, demo, loadQr, st, toast } = G;
+  const { $, api, copy, demo, loadQr, st, toast, why } = G;
   // other modules, looked up when called
   const renderCalendar = (...a) => G.renderCalendar(...a);
   // ---------- online booking settings ----------
@@ -20,7 +20,7 @@
   $("#bk-save").onclick = async () => {
     const patch = { booking_enabled: $("#bk-on").checked, bays: Math.max(1, Math.min(30, +$("#bk-bays").value || 2)), slot_minutes: +$("#bk-slot").value || 60 };
     try { if (!demo) await api.updateGarageSettings(st.garage.id, patch); Object.assign(st.garage, patch); $("#dlg-settings").close(); toast(patch.booking_enabled ? "התורים האונליין פתוחים" : "נשמר"); renderCalendar(); }
-    catch (e) { $("#bk-err").textContent = "השמירה נכשלה: " + (e.message || e); $("#bk-err").hidden = false; }
+    catch (e) { $("#bk-err").textContent = "השמירה נכשלה: " + why(e); $("#bk-err").hidden = false; }
   };
 
   G.register({ id: "booking", name: "תורים אונליין", desc: "קישור ושלט QR שבהם לקוחות קובעים תור לבד, לפי שעות הפתיחה והעמדות הפנויות.", groups: "all" });

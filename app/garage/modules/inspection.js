@@ -1,7 +1,7 @@
 // Vehicle inspection: a checklist per visit (ok / soon / now, note, photos from the phone), recommended jobs priced
 // from the catalog, sent to the customer on the approval link where each job is approved on its own.
 (function (G) {
-  const { $, $$, D, api, demo, esc, fmt, fmtDate, money, numIn, on, st, toast } = G;
+  const { $, $$, D, api, demo, esc, fmt, fmtDate, money, numIn, on, st, toast, why } = G;
 
   // what is checked, which maintenance items a fix replaces (to suggest a job), and which kinds of garage check it
   const CHECKS = [
@@ -81,7 +81,7 @@
     uploads += files.length; $("#in-send").disabled = true;
     for (const f of files) {
       try { const blob = await shrink(f); r.photos.push(demo ? await new Promise(res => { const fr = new FileReader(); fr.onload = () => res(fr.result); fr.readAsDataURL(blob); }) : await api.uploadInspectionPhoto(st.garage.id, blob)); }
-      catch (e) { toast("התמונה לא עלתה: " + (e.message || e)); }
+      catch (e) { toast("התמונה לא עלתה: " + why(e)); }
       uploads--;
     }
     $("#in-send").disabled = uploads > 0; renderInspection();
@@ -102,7 +102,7 @@
       if (a && lines.length) await G.markAwaiting(a);
       $("#dlg-insp").close();
       G.sendApprovalLink(a || { customer_name: (c && c.name) || "לקוח", phone: c && c.phone, garage_car_id: c && c.car_id }, x);
-    } catch (e) { err("השליחה נכשלה: " + (e.message || e)); }
+    } catch (e) { err("השליחה נכשלה: " + why(e)); }
     b.disabled = false;
   };
 

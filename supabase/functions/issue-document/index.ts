@@ -58,9 +58,14 @@ Deno.serve(async (req) => {
     const row = { garage_id: g.id, work_order_id: wo!.id, kind, provider: "morning", number: d.number != null ? String(d.number) : null, provider_id: String(d.id),
       url: pickUrl(d.url), customer_name: cust.name || null, total, payment: kind === "tax_invoice" ? "unpaid" : payment };
     const { data: inv, error } = await admin.from("invoices").insert(row).select("*").single();
-    if (error) return json({ invoice: row, warning: "issued but not recorded: " + error.message });
+    if (error) { console.error(error); return json({ invoice: row, warning: "issued but not recorded" }); }
     return json({ invoice: inv });
   } catch (e) {
-    return json({ error: String((e as Error).message || e) }, 500);
+    console.error(e);
+    // the garage's own keys or an empty order are the garage's to fix; anything else stays in the log
+    const m = String((e as Error)?.message || e);
+    if (/^auth/.test(m)) return json({ error: "auth failed" }, 502);
+    if (/nothing to bill/.test(m)) return json({ error: "nothing to bill" }, 400);
+    return json({ error: "server error" }, 500);
   }
 });

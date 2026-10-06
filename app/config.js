@@ -7,5 +7,7 @@ window.TIPULIT_CONFIG = {
   // Minimum reports before a community price bucket is shown (mirrors the SQL function).
   MIN_REPORTS: 3,
   // Where privacy requests go (the privacy policy and the "פרטיות" card show it). Empty: the in-app tools only.
-  PRIVACY_EMAIL: ""
+  PRIVACY_EMAIL: "",
+  // Days without use before a signed-in session ends on that device.
+  IDLE_DAYS: 30
 };

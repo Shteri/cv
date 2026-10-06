@@ -1,6 +1,6 @@
 // Scheduled service: what the coming services need, from each car's importer schedule.
 (function (G) {
-  const { $, $$, download, esc, fmt, itemName, nf, oilLiters, qtyOf, showTab, st, toast, today, on } = G;
+  const { $, $$, download, esc, fmt, itemName, nf, oilLiters, qtyOf, showTab, st, toast, today, on, why } = G;
   // other modules, looked up when called
   const createDrafts = (...a) => G.createDrafts(...a);
   const itemQty = (...a) => G.itemQty(...a);
@@ -41,7 +41,7 @@
     const unlinked = f.items.filter(e => !e.linked).length;
     if (!lines.length) return toast(unlinked ? `אין מה להזמין לפי המלאי. ${unlinked} פריטים לא מקושרים לחלק במלאי.` : "יש במלאי את כל מה שצריך");
     try { const n = await createDrafts(lines, `לטיפולים ב-${st.fcDays} הימים הקרובים`); showTab("stock"); setStockSeg("pos"); toast(`${n} טיוטות הזמנה נוצרו${unlinked ? `. ${unlinked} פריטים לא מקושרים למלאי` : ""}`); }
-    catch (e) { toast("יצירת ההזמנה נכשלה: " + (e.message || e)); }
+    catch (e) { toast("יצירת ההזמנה נכשלה: " + why(e)); }
   };
   $("#fc-csv").onclick = () => { const f = forecast(st.fcDays), q = v => `"${String(v ?? "").replace(/"/g, '""')}"`; download(`הזמנה-${st.fcDays}-יום-${today()}.csv`, [["פריט", "רכבים", "במלאי", "להזמין", "פירוט"].map(q).join(","), ...f.items.map(e => [itemName(e.item), e.n, e.linked ? nf(e.stock) : "", e.linked ? nf(e.short) : "", [...e.models].map(([m, n]) => `${m} ×${n}`).join(" / ")].map(q).join(","))]); toast("רשימת ההזמנה יוצאה"); };
 

@@ -19,16 +19,16 @@
   /* the plate never changes with the theme */
   --plate: #F7C948; --plate-ink: #101214; --plate-tab: #1747A8; --plate-tab-ink: #FFFFFF;
   /* status: meaning only, always paired with text */
-  --good: #148A55; --good-soft: #DDF3E7;
-  --warn: #9A6700; --warn-soft: #FBEFD2;
-  --crit: #C8352B; --crit-soft: #FBE4E1;
+  --good: #117A4B; --good-soft: #DDF3E7;
+  --warn: #8F6000; --warn-soft: #FBEFD2;
+  --crit: #BD3127; --crit-soft: #FBE4E1;
   --unknown: #9AA1AB;
   --focus: #0C0F12;
   /* neutrals for derived light, shade and scrims */
   --white: #FFFFFF; --shade: #0C0F12; --scrim: #040506; --mask: #000000;
 
   /* the next-service hero card follows the theme: white with the yellow glow here, graphite in dark */
-  --hero-bg: #FFFFFF; --hero-ink: #0C0F12; --hero-good: #148A55; --hero-warn: #9A6700; --hero-crit: #C8352B;
+  --hero-bg: #FFFFFF; --hero-ink: #0C0F12; --hero-good: #117A4B; --hero-warn: #8F6000; --hero-crit: #BD3127;
   --hero-line: color-mix(in srgb, var(--hero-ink) 9%, transparent); --hero-fill: color-mix(in srgb, var(--hero-ink) 5%, transparent);
   --hero-shadow: 0 24px 48px -28px color-mix(in srgb, var(--accent-deep) 55%, transparent);
   /* the phone frame looks the same in both themes */

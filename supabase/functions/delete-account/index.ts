@@ -36,9 +36,10 @@ Deno.serve(async (req) => {
       for (let i = 0; i < list.length; i += 100) { const { error } = await admin.storage.from(bucket).remove(list.slice(i, i + 100)); if (!error) removed += Math.min(100, list.length - i); }
     }
     const { error } = await admin.auth.admin.deleteUser(uid);
-    if (error) return json({ error: "delete failed: " + error.message }, 500);
+    if (error) { console.error("deleteUser", error); return json({ error: "delete failed" }, 500); }
     return json({ ok: true, files: removed, garages: (garages || []).length });
   } catch (e) {
-    return json({ error: String((e as Error).message || e) }, 500);
+    console.error(e);
+    return json({ error: "server error" }, 500);
   }
 });

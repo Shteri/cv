@@ -1,6 +1,6 @@
 // Calendar: appointments per bay, appointment card, extra-work approval by link, car-ready message.
 (function (G) {
-  const { $, $$, DEMO, api, copy, demo, digits, esc, fmt, fmtDate, fmtPlate, ico, on, openMsgText, setSeg, st, telHref, toast } = G;
+  const { $, $$, DEMO, api, copy, demo, digits, esc, fmt, fmtDate, fmtPlate, ico, on, openMsgText, setSeg, st, telHref, toast, why } = G;
   // other modules, looked up when called
   const car = (...a) => G.car(...a);
   const invOf = (...a) => G.invOf(...a);
@@ -155,7 +155,7 @@
     const who = status === "cancelled" && "cancelled_by" in a && !a.cancelled_by ? { cancelled_by: "garage" } : {};
     Object.assign(a, who);
     try { if (!demo) Object.assign(a, await api.saveAppointment({ id: a.id, garage_id: a.garage_id, status, ...who })); renderAppt(); renderCalendar(); toast(STATUS[status]); }
-    catch (e) { a.status = prev; toast("העדכון נכשל: " + (e.message || e)); }
+    catch (e) { a.status = prev; toast("העדכון נכשל: " + why(e)); }
   }
 
   // ---------- new / moved appointment ----------
@@ -195,7 +195,7 @@
       $("#dlg-newappt").close(); toast(naEdit ? "המועד עודכן" : "התור נקבע");
       cal.day = new Date(starts); cal.day.setHours(0, 0, 0, 0); await loadDay();
       if (naEdit) { apFor = cal.appts.find(x => x.id === saved.id); if (apFor) { renderAppt(); } }
-    } catch (e) { err("השמירה נכשלה: " + (e.message || e)); }
+    } catch (e) { err("השמירה נכשלה: " + why(e)); }
     b.disabled = false;
   };
   $("#cal-new").onclick = () => openNewAppt({});
@@ -236,7 +236,7 @@
       const x = demo ? { ...row, id: "daw-" + Date.now(), status: "pending", created_at: new Date().toISOString() } : await api.createApproval(row);
       if (demo) DEMO.approvals.unshift(x); else cal.approvals.unshift(x);
       $("#dlg-approval").close(); apFor = a; await setApptStatus("waiting_approval"); sendApprovalLink(a, x);
-    } catch (e) { err("השליחה נכשלה: " + (e.message || e)); }
+    } catch (e) { err("השליחה נכשלה: " + why(e)); }
     b.disabled = false;
   };
 

@@ -1,7 +1,7 @@
 // Reminders and confirmations: a list of tomorrow's (or today's) appointments with a ready WhatsApp reminder that
 // carries the customer's link (/appt/?t=token): confirm, reschedule or cancel. Also the garage's no-show policy.
 (function (G) {
-  const { $, $$, DEMO, api, demo, esc, fmtPlate, openMsgText, setSeg, st, toast } = G;
+  const { $, $$, DEMO, api, demo, esc, fmtPlate, openMsgText, setSeg, st, toast, why } = G;
   const hm = d => `${String(d.getHours()).padStart(2, "0")}:${String(d.getMinutes()).padStart(2, "0")}`;
   const KIND = { service: "טיפול", repair: "תיקון", test: "הכנה לטסט", other: "תור" };
   const apptUrl = token => location.origin + location.pathname.replace(/garage\/[^/]*$/, "") + "appt/?" + (demo ? "demo&" : "") + "t=" + token;
@@ -64,7 +64,7 @@
   $("#rm-save").onclick = async () => {
     const patch = { cancel_hours: +$("#rm-cancel").value, noshow_limit: +$("#rm-limit").value };
     try { if (!demo) await api.updateGarageSettings(st.garage.id, patch); Object.assign(st.garage, patch); toast("המדיניות נשמרה"); $("#rm-err").hidden = true; }
-    catch (e) { $("#rm-err").textContent = /cancel_hours|noshow_limit|schema cache/i.test(e.message || "") ? "השרת עוד לא מוכן (צריך להריץ את מיגרציה 0010)." : "השמירה נכשלה: " + (e.message || e); $("#rm-err").hidden = false; }
+    catch (e) { $("#rm-err").textContent = /cancel_hours|noshow_limit|schema cache/i.test(e.message || "") ? "השרת עוד לא מוכן (צריך להריץ את מיגרציה 0010)." : "השמירה נכשלה: " + why(e); $("#rm-err").hidden = false; }
   };
 
   G.addAction("appt", { module: "reminders", label: "שלח תזכורת", when: ctx => ctx.appt.status === "booked" && !!ctx.appt.phone && Date.parse(ctx.appt.starts_at) > Date.now(), run: ctx => remind(ctx.appt) });

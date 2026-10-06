@@ -26,6 +26,7 @@
       <label class="field"><span>שם</span><input id="b-cust" autocomplete="name"></label>
       <label class="field"><span>טלפון</span><input id="b-phone" inputmode="tel" autocomplete="tel"></label>
       <label class="field"><span>מספר רכב <span class="muted">(לא חובה)</span></span><input id="b-plate" inputmode="numeric" class="num" autocomplete="off"></label>
+      <label class="hp" aria-hidden="true">אתר אינטרנט<input id="b-web" tabindex="-1" autocomplete="off"></label>
       <label class="field"><span>הערה <span class="muted">(לא חובה)</span></span><input id="b-note" autocomplete="off" placeholder="למשל רעש מהבלמים"></label>
     </div>
     <p class="err" id="b-err" hidden></p>
@@ -99,6 +100,7 @@
     if (!slot) return err("בחרו יום ושעה.");
     if (!name) return err("צריך שם.");
     if (phone.replace(/\D/g, "").length < 9) return err("צריך מספר טלפון.");
+    if ($("#b-web").value) { booked = { token: null, needs_ok: true }; return done(); }
     const b = $("#b-go"); b.disabled = true;
     try {
       if (!demo) booked = await (Cloud.bookSlot || Cloud.bookAppointment)({ garageId: info.id, startsAt: slot.toISOString(), name, phone, plate: $("#b-plate").value, kind, note: $("#b-note").value });
