@@ -46,7 +46,7 @@ Deno.serve(async (req) => {
     const t = task as Task;
     const response = await client.beta.messages.parse({
       model: "claude-opus-5-5",
-      max_tokens: 4000,
+      max_tokens: 16000,  // thinking is always on and counts toward this; a dense receipt needs room
       betas: ["server-side-fallback-2026-07-01"],
       fallbacks: "default",
       system: SYSTEM[t],
@@ -58,12 +58,14 @@ Deno.serve(async (req) => {
            { type: "text" as const, text: userMessage(t, text, context) }]
         : userMessage(t, text, context) }],
     });
-    if (response.stop_reason === "refusal") return json({ error: "refused" }, 422);
-    if (!response.parsed_output) return json({ error: "no result" }, 502);
+    if (response.stop_reason === "refusal") { console.error("ai refused", t, JSON.stringify(response.stop_details)); return json({ error: "refused" }, 422); }
+    if (!response.parsed_output) { console.error("ai no result", t, response.stop_reason, JSON.stringify(response.usage)); return json({ error: "no result", stop: response.stop_reason }, 502); }
     return json({ result: clean(t, response.parsed_output as any, context) });
   } catch (e) {
+    // logged so the cause shows in the function logs (never the key or the document)
+    console.error("ai-assist failed", e instanceof Anthropic.APIError ? `${e.status} ${e.message}` : String((e as Error)?.stack || e));
     if (e instanceof Anthropic.RateLimitError) return json({ error: "busy" }, 503);
-    if (e instanceof Anthropic.APIError) return json({ error: `ai ${e.status}` }, 502);
+    if (e instanceof Anthropic.APIError) return json({ error: `ai ${e.status}`, detail: String(e.message).slice(0, 300) }, 502);
     return json({ error: String((e as Error).message || e) }, 500);
   }
 });
