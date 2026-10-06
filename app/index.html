@@ -760,7 +760,7 @@
   // ---------- log a service, a repair, or a document ----------
   const whereName = { importer: "מוסך יבואן", independent: "מוסך פרטי", self: "בעצמי" };
   const kindName = { service: "טיפול תקופתי", repair: "תיקון", other: "אחר" };
-  let logWhere = "importer", logThumbs = [], logFiles = [], logBack = "", logKind = "service", logSel = new Set(), logEdit = null;
+  let logKmEst = false, logWhere = "importer", logThumbs = [], logFiles = [], logBack = "", logKind = "service", logSel = new Set(), logEdit = null;
   $$("#log-back button").forEach(b => b.onclick = () => { $$("#log-back button").forEach(x => x.classList.remove("on")); b.classList.add("on"); logBack = b.dataset.v; });
   // Items a driver can mark as replaced: everything the schedule ever replaces, long-interval items, and common wear parts.
   function candidateItems(s) {
@@ -801,7 +801,7 @@
     const d = new Date(); $("#log-date").value = opts.date || `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}`;
     $("#log-km").value = opts.km || car.km; $("#log-price").value = ""; $("#log-garage").value = ""; $("#log-city").value = ""; $("#log-extra").value = ""; $("#log-text").value = "";
     $("#log-price-err").hidden = true; $("#log-text-err").hidden = true; $("#log-km-est").hidden = true; $("#log-km-err").hidden = true;
-    logEdit = null; $("#log-del").hidden = true; $("#log-thumbs").onclick = null;
+    logEdit = null; $("#log-del").hidden = true; $("#log-thumbs").onclick = null; logKmEst = false;
     logBack = ""; $$("#log-back button").forEach(x => x.classList.toggle("on", x.dataset.v === ""));
     logThumbs = opts.thumbs ? opts.thumbs.slice() : []; logFiles = opts.files ? opts.files.slice() : []; renderThumbs(); $("#log-file").value = "";
     setKind(opts.kind || "service");
@@ -883,6 +883,8 @@
     }
     btn.disabled = false; btn.classList.remove("busy"); btn.dataset.busy = "";
   }
+  // a km the driver typed is no longer an estimate
+  $("#log-km").addEventListener("input", () => { logKmEst = false; $("#log-km-est").hidden = true; });
   // A saved record opens in the same form: fix any field, or delete it.
   function openRecord(id) {
     const car = S.cars[S.active], rec = (car.history || []).find(h => h.id === id); if (!rec) return;
@@ -893,7 +895,7 @@
     $("#log-extra").value = rec.extra || "";
     logBack = rec.back || ""; $$("#log-back button").forEach(x => x.classList.toggle("on", x.dataset.v === logBack));
     $("#log-share").classList.toggle("on", !!rec.share);
-    logEdit = rec; $("#log-del").hidden = false; renderThumbs();
+    logEdit = rec; logKmEst = !!rec.kmEst; $("#log-del").hidden = false; renderThumbs();
     // the record's files open from the form too
     $("#log-thumbs").onclick = () => { const d = (rec.docs || [])[0]; if (d || rec.receipt) openDoc(d, (rec.receipts || [])[0]); };
   }
@@ -926,10 +928,10 @@
       if (r.km) {
         $("#log-km").value = r.km;
         $("#log-km-est").textContent = r.km_estimated ? `הק"מ לא מופיע בקבלה. הערכה לפי ההיסטוריה: ${fmt(r.km)}. תקן אם אתה יודע.` : "";
-        $("#log-km-est").hidden = !r.km_estimated;
+        $("#log-km-est").hidden = !r.km_estimated; logKmEst = !!r.km_estimated;
       } else {
         const est = r.date ? estimateKm(S.cars[S.active], r.date) : null;
-        $("#log-km").value = est || "";
+        $("#log-km").value = est || ""; logKmEst = !!est;
         $("#log-km-est").textContent = est ? `הק"מ לא מופיע בקבלה. הערכנו ${fmt(est)} לפי קצב הנסיעה; תקן אם אתה יודע.` : `הק"מ לא מופיע בקבלה. מלא אותו.`;
         $("#log-km-est").hidden = false;
       }
@@ -999,7 +1001,7 @@
       items: [...logSel], date: $("#log-date").value, km: +$("#log-km").value.replace(/\D/g, ""), where: logWhere,
       garage: $("#log-garage").value.trim(), city: $("#log-city").value.trim(), price: priceVal || null,
       extra: $("#log-extra").value.trim(), receipts: logThumbs.slice(), receipt: logThumbs[0] || null, share: $("#log-share").classList.contains("on"), back: logBack || null,
-      source: logThumbs.length || logFiles.length ? "upload" : "log", at: Date.now() };
+      source: logThumbs.length || logFiles.length ? "upload" : "log", kmEst: logKmEst || undefined, at: Date.now() };
     const sb = $("#log-save"); sb.disabled = true;
     const fresh = []; for (let i = 0; i < logFiles.length; i++) { const d = await makeDoc(logFiles[i], logEdit ? logEdit.id : e.id, i); if (d) fresh.push(d); }
     sb.disabled = false;
@@ -1277,51 +1279,77 @@
     cabin_filter: /מסנן (מזגן|אבקה|תא|פולן)/, coolant: /נוזל קירור|אנטיפריז/, brake_fluid: /נוזל בלמים/, ac_refrigerant: /גז (ל)?מזגן|מילוי גז/,
     clutch: /מצמד|קלאץ/, suspension: /בולמ/, transmission_oil: /שמן גיר/ };
   const tirePosFrom = t => { const f = /קדמ/.test(t), r = /אחור/.test(t); return f && !r ? ["fl", "fr"] : r && !f ? ["rl", "rr"] : null; };
+  // a km that came from an estimate (the reader's or ours), not from the document or the driver
+  const kmIsEstimate = h => !!h.kmEst || /הוערך|הוערכו|הערכה לפי/.test(h.extra || "");
+  const recTitle = h => h.kind === "service" || !h.kind ? "טיפול" + (h.text ? " + " + h.text : "") : h.text || kindName[h.kind];
+  const monthsBetween = (a, b) => { const [y1, m1] = a.split("-").map(Number), [y2, m2] = b.split("-").map(Number); return (y2 - y1) * 12 + (m2 - m1); };
+  // the odometer a record most likely had: between the trusted records around its month, else from the one before at the car's pace
+  function suggestKm(car, rec) {
+    const pts = (car.history || []).filter(h => h !== rec && h.date && h.km && !isStateRec(h) && !kmIsEstimate(h)).sort((a, b) => a.date.localeCompare(b.date));
+    const before = [...pts].reverse().find(h => h.date <= rec.date), after = pts.find(h => h.date > rec.date && (!before || h.km >= before.km));
+    let km = null;
+    if (before && after) { const span = monthsBetween(before.date, after.date) || 1; km = before.km + (after.km - before.km) * monthsBetween(before.date, rec.date) / span; }
+    else if (before) km = before.km + (car.kmMonth || 1500) * monthsBetween(before.date, rec.date);
+    else if (after) km = after.km - (car.kmMonth || 1500) * monthsBetween(rec.date, after.date);
+    return km === null ? null : Math.max(0, Math.round(km / 100) * 100);
+  }
   function carIssues(car) {
     const all = car.history || [], recs = all.filter(h => !isStateRec(h)), states = all.filter(h => isStateRec(h) && (h.items || []).length);
-    const out = [], when = h => h.date ? monthName(new Date(h.date + "-01")) : "";
+    const out = [], when = h => h.date ? monthName(new Date(h.date + "-01")) : "", name = h => `${recTitle(h)} (${when(h)})`;
+    const edit = (label, h) => ({ label, run: () => openRecord(h.id) });
     for (const r of recs) {
       const t = r.text || ""; if (!t) continue;
       for (const [k, re] of Object.entries(PART_WORDS)) {
         if (!D.items[k] || (r.items || []).includes(k) || !re.test(t)) continue;
         const pos = k === "tires" ? tirePosFrom(t) : null, what = pos ? `צמיגים (${posName(pos)})` : itemName(k);
         const twins = states.filter(x => x.items.includes(k) && Math.abs(x.km - r.km) <= 10000 && (!pos || tiresOf(x).some(p => pos.includes(p))));
-        out.push({ id: `link:${r.id}:${k}`, kind: "link", rec: r, item: k, pos, twins,
-          text: twins.length ? `"${t}" (${when(r)}) ו${what} שעדכנת ידנית הם כנראה אותה החלפה.` : `"${t}" (${when(r)}) מזכיר ${what}, אבל זה לא מסומן כהחלפה.`,
-          fix: twins.length ? "חבר לרשומה אחת" : "סמן כהוחלף" });
+        const link = { label: twins.length ? "חבר לרשומה אחת" : "סמן כהוחלף", run: () => linkPart(r, k, pos, twins) };
+        out.push(twins.length
+          ? { id: `link:${r.id}:${k}`, kind: "link", item: k, twins, title: "אותה החלפה רשומה פעמיים", text: `${name(r)} ועדכון ידני של ${what} הם כנראה אותה החלפה. חיבור משאיר רשומה אחת עם המחיר והתאריך.`, acts: [link] }
+          : { id: `link:${r.id}:${k}`, kind: "link", item: k, twins, title: `${what} לא מסומן כהוחלף`, text: `ב${name(r)} כתוב "${t}", אבל ${what} לא מסומן ברשומה, ולכן מצב הרכב לא יודע עליו.`, acts: [link] });
       }
     }
     const dated = recs.filter(h => h.date && h.km).sort((a, b) => a.date.localeCompare(b.date) || a.km - b.km);
     for (let i = 1; i < dated.length; i++) { const a = dated[i - 1], b = dated[i];
-      if (b.date > a.date && b.km + 1000 < a.km) out.push({ id: `km:${a.id}:${b.id}`, kind: "open", rec: b, text: `הק"מ יורד: ${when(a)} ${fmt(a.km)}, ואחריו ${when(b)} ${fmt(b.km)}.`, fix: "פתח לתיקון" }); }
+      if (!(b.date > a.date && b.km + 1000 < a.km)) continue;
+      // which one is off: an estimated km, else the later one
+      const bad = kmIsEstimate(b) || !kmIsEstimate(a) ? b : a, good = bad === b ? a : b, sug = suggestKm(car, bad);
+      const est = kmIsEstimate(bad);
+      out.push({ id: `km:${a.id}:${b.id}`, kind: "km", title: "הק\"מ לא מסתדר",
+        text: `ב${name(a)} נרשמו ${fmt(a.km)} ק"מ, וב${name(b)} רק ${fmt(b.km)}. ${est ? `הק"מ של ${recTitle(bad)} הוא הערכה` : "אחד מהם כנראה שגוי"}${sug ? `; סביר שהיה בערך ${fmt(sug)}.` : "."}`,
+        acts: [sug ? { label: `עדכן ל-${fmt(sug)}`, run: () => { bad.km = sug; bad.kmEst = true; bad.synced = false; save(); renderAll(); toast("הק\"מ עודכן"); } } : null,
+          est ? edit("ערוך", bad) : edit(`ערוך את ${when(a)}`, a), est ? null : edit(`ערוך את ${when(b)}`, b)].filter(Boolean) });
+    }
     for (let i = 0; i < recs.length; i++) for (let j = i + 1; j < recs.length; j++) { const a = recs[i], b = recs[j];
-      if (a.date && a.price && a.date === b.date && a.price === b.price) out.push({ id: `dup:${a.id}:${b.id}`, kind: "open", rec: b, text: `שתי רשומות של ${when(a)} באותו סכום (₪${fmt(a.price)}). אולי אותו ביקור פעמיים.`, fix: "פתח את השנייה" }); }
+      if (!(a.date && a.price && a.date === b.date && a.price === b.price)) continue;
+      out.push({ id: `dup:${a.id}:${b.id}`, kind: "dup", title: "אותו ביקור פעמיים?", text: `שתי רשומות של ${when(a)} באותו סכום (₪${fmt(a.price)}): ${recTitle(a)}, ${recTitle(b)}.`,
+        acts: [{ label: "מחק את הכפולה", run: async () => { if (!confirm(`למחוק את "${recTitle(b)}" (${when(b)})?`)) return; if (Cloud.enabled && b.cloudId) { try { await Cloud.deleteRecord(b); } catch (e) { return toast("המחיקה נכשלה"); } } car.history = car.history.filter(h => h !== b); dropDocs(b); save(); renderAll(); toast("נמחק"); } }, edit("פתח", b)] });
+    }
     const nowYm = new Date().toISOString().slice(0, 7);
-    for (const r of recs) if (r.date && r.date > nowYm) out.push({ id: `future:${r.id}`, kind: "open", rec: r, text: `רשומה עם תאריך עתידי (${when(r)}).`, fix: "פתח לתיקון" });
+    for (const r of recs) if (r.date && r.date > nowYm) out.push({ id: `future:${r.id}`, kind: "future", title: "תאריך עתידי", text: `${recTitle(r)} רשום ל${when(r)}, שעוד לא הגיע.`, acts: [edit("ערוך", r)] });
     const off = new Set(car.dismissed || []);
     return out.filter(x => !off.has(x.id));
   }
   const issuesHTML = car => { const list = carIssues(car); if (!list.length) return ""; return `
     <div class="card stack g-8"><div class="row between"><h3>דברים לבדוק</h3><span class="status warn">${list.length}</span></div>
-      <div class="list">${list.map((x, i) => `<div class="stack g-6"><span class="small">${esc(x.text)}</span>
-        <div class="row g-8"><button class="btn primary compact fit" data-issue-fix="${i}">${x.fix}</button><button class="btn ghost compact fit" data-issue-off="${i}">התעלם</button></div></div>`).join("")}</div>
+      <div class="list">${list.map((x, i) => `<div class="stack g-6"><b>${esc(x.title)}</b><span class="small muted">${esc(x.text)}</span>
+        <div class="row g-8 wrap">${x.acts.map((a, j) => `<button class="btn ${j ? "secondary" : "primary"} compact fit" data-issue="${i}" data-act="${j}">${esc(a.label)}</button>`).join("")}<button class="btn ghost compact fit" data-issue-off="${i}">התעלם</button></div></div>`).join("")}</div>
     </div>`; };
-  function fixIssue(car, x) {
-    if (x.kind !== "link") return openRecord(x.rec.id);
-    const r = x.rec; r.items = [...new Set([...(r.items || []), x.item])];
-    if (x.item === "tires") r.tires = x.pos && x.pos.length < 4 ? x.pos.slice() : null;
+  function linkPart(r, item, pos, twins) {
+    r.items = [...new Set([...(r.items || []), item])];
+    if (item === "tires") r.tires = pos && pos.length < 4 ? pos.slice() : null;
     r.synced = false;
     // the manual update was the same replacement: it gives way to the record
-    for (const tw of x.twins) {
-      if (x.item === "tires" && x.pos) { const left = tiresOf(tw).filter(p => !x.pos.includes(p)); if (left.length) tw.tires = left; else { tw.items = tw.items.filter(k => k !== "tires"); delete tw.tires; } }
-      else tw.items = tw.items.filter(k => k !== x.item);
+    for (const tw of twins) {
+      if (item === "tires" && pos) { const left = tiresOf(tw).filter(p => !pos.includes(p)); if (left.length) tw.tires = left; else { tw.items = tw.items.filter(k => k !== "tires"); delete tw.tires; } }
+      else tw.items = tw.items.filter(k => k !== item);
       tw.synced = false;
     }
     save(); renderAll(); toast("חובר");
   }
   function wireIssues() {
     const car = S.cars[S.active], list = carIssues(car);
-    $$("#car-issues [data-issue-fix]").forEach(b => b.onclick = () => fixIssue(car, list[+b.dataset.issueFix]));
+    $$("#car-issues [data-issue]").forEach(b => b.onclick = () => list[+b.dataset.issue].acts[+b.dataset.act].run());
     $$("#car-issues [data-issue-off]").forEach(b => b.onclick = () => { car.dismissed = [...new Set([...(car.dismissed || []), list[+b.dataset.issueOff].id])]; save(); renderCar(); });
   }
 

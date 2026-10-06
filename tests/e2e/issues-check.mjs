@@ -13,7 +13,7 @@ await p.goto("http://localhost:8146/"); await p.waitForTimeout(200);
 const R = (id, o) => ({ id, receipts: [], share: false, items: [], ...o });
 const hist = [
   R("s1", { kind: "service", svcKm: 150000, km: 147000, date: "2024-06", items: ["engine_oil"], price: 1030 }),
-  R("s2", { kind: "service", svcKm: 150000, km: 140000, date: "2024-09", items: ["engine_oil"], price: 900 }),         // km back
+  R("s2", { kind: "repair", km: 140000, date: "2024-09", text: "החלפת מדחס", price: 900, extra: "הקילומטראז' לא מופיע בחשבונית והוערך לפי ההיסטוריה." }),  // km back, an estimate
   R("t1", { kind: "repair", km: 175943, date: "2026-09", text: "צמיגים קדמיים הוחלפו", price: 950 }),
   R("m1", { kind: "other", source: "state", text: "עדכון מצב: צמיגים", km: 175000, date: null, items: ["tires"], tires: ["fl", "fr"] }),
   R("d1", { kind: "repair", km: 160000, date: "2025-03", text: "מצבר", price: 600, items: ["battery_12v"] }),
@@ -25,14 +25,19 @@ await p.click('#nav button[data-go="car"]'); await p.waitForTimeout(300);
 const box = () => p.textContent("#car-issues");
 let t = await box(); console.log("issues:", t.replace(/\s+/g, " "));
 ok(/צמיגים קדמיים הוחלפו/.test(t) && /אותה החלפה/.test(t) && /חבר לרשומה אחת/.test(t), "the repair and the manual tire update are offered as one");
-ok(/הק"מ יורד/.test(t), "km going back is flagged");
-ok(/אותו ביקור/.test(t), "two records of one visit are flagged");
+ok(/הק"מ לא מסתדר/.test(t) && /הוא הערכה/.test(t) && /עדכן ל-/.test(t), "km going back: says which is the estimate and offers a value: " + (t.match(/עדכן ל-[\d,]+/) || [""])[0]);
+ok(/אותו ביקור פעמיים/.test(t) && /מחק את הכפולה/.test(t), "two records of one visit: offers to delete the copy");
 // connect: the repair now marks the front tires, the manual update is gone
-await p.click('#car-issues [data-issue-fix="0"]'); await p.waitForTimeout(300);
+await p.click('#car-issues [data-issue="0"][data-act="0"]'); await p.waitForTimeout(300);
 const car = await p.evaluate(() => JSON.parse(localStorage.getItem("tipulit")).cars[0]);
 const t1 = car.history.find(h => h.id === "t1"), m1 = car.history.find(h => h.id === "m1");
 ok(t1.items.includes("tires") && t1.tires.join() === "fl,fr" && !m1.items.includes("tires"), "connected: the record marks the front tires, the manual one gives way");
 ok(/זוג קדמי: 175,943/.test(await p.textContent('#car-state [data-item="tires"]')), "the tires row now counts from the record");
+// the km fix applies the suggested value
+const kmBtn = p.locator("#car-issues button", { hasText: "עדכן ל-" }); const want = +(await kmBtn.textContent()).replace(/\D/g, "");
+await kmBtn.click(); await p.waitForTimeout(300);
+const s2 = await p.evaluate(() => JSON.parse(localStorage.getItem("tipulit")).cars[0].history.find(h => h.id === "s2"));
+ok(s2.km === want && want > 147000 && want < 176000 && !/הק"מ לא מסתדר/.test(await box()), "km fixed to the suggestion (" + want + "), the item is gone");
 // dismiss one
 const before = await p.$$eval("#car-issues [data-issue-off]", l => l.length);
 await p.click('#car-issues [data-issue-off="0"]'); await p.waitForTimeout(200);
