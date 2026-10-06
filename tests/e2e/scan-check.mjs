@@ -13,7 +13,7 @@ await ctx.addInitScript(() => {
     loadCars: async () => [], saveCar: async () => {}, deleteCar: async () => {}, communityPrices: async () => null, communityGarages: async () => [],
     myGarageProfiles: async () => [], garageProfiles: async () => [], myGarageLinks: async () => [], pendingGarageEntries: async () => [], pendingPlateRequests: async () => [], plateStatus: async () => "mine",
     // the first document reads, the second fails the first time (no AI credit) and reads on retry
-    extractReceipt: async () => { calls++; await new Promise(r => setTimeout(r, 150));
+    extractReceipt: async () => { calls++; window.__calls = calls; await new Promise(r => setTimeout(r, 150));
       if (calls === 2) throw new Error("ai 400: Your credit balance is too low to access the Anthropic API");
       // the retry: a receipt with no km printed
       if (calls === 3) return { kind: "repair", date: "2026-08", km: null, price: 2800, garage: "מוסך התלתן", city: "פתח תקווה", where: "independent", svc_km: null, items: ["engine_oil", "ac_refrigerant"], text: "החלפת צינור מזגן", confidence: "high", notes: null };
@@ -57,6 +57,17 @@ ok(await p.$eval("#scan", e => e.classList.contains("show")), "closing the form 
 const hist = await p.evaluate(() => JSON.parse(localStorage.getItem("tipulit")).cars[0].history.map(h => `${h.km}:${h.source}:${h.items.join("+")}`));
 ok(hist.length === 1 && hist[0].startsWith("157000:upload:"), "one record saved: " + hist.join());
 await p.screenshot({ path: (process.env.SHOTS || "/tmp") + "/scan.png" });
+// the same file again: recognised without reading it (no AI call)
+const callsBefore = await p.evaluate(() => window.__calls || 0);
+await p.setInputFiles("#car-upload", [{ name: "r1-again.png", mimeType: "image/png", buffer: png }]); await p.waitForTimeout(500);
+r = await rows(); console.log("rows after re-upload:", r);
+ok(/כבר קיים/.test(r[r.length - 1]) && /דלג/.test(r[r.length - 1]) && /שמור בכל זאת/.test(r[r.length - 1]), "same file again: 'already here', skip or save anyway");
+ok(await p.evaluate(() => window.__calls || 0) === callsBefore, "it was not read again");
+await p.click(`[data-scan-skip="${r.length - 1}"]`); await p.waitForTimeout(150);
+ok(/דולג/.test((await rows()).slice(-1)[0]), "skip marks it");
+// another photo of a receipt that is already saved (same month and total): read, then flagged
+await p.setInputFiles("#car-upload", [{ name: "r1-photo2.png", mimeType: "image/png", buffer: Buffer.concat([png, Buffer.from([0])]) }]); await p.waitForTimeout(600);
+r = await rows(); ok(/כבר קיים/.test(r.slice(-1)[0]) && /ינואר 2025/.test(r.slice(-1)[0]), "another photo of a saved receipt is flagged: " + r.slice(-1)[0]);
 // a saved record opens for editing: fix the km, then delete it
 await p.click("#scan-close"); await p.waitForTimeout(200);
 await p.evaluate(() => document.querySelector("#car-history [data-rec]").click()); await p.waitForTimeout(300);

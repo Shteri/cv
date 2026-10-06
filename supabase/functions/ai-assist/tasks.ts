@@ -62,6 +62,7 @@ export const schemas = {
     items: z.array(z.string()).describe("Keys from ITEMS that were REPLACED or refilled according to the document (not just inspected)"),
     text: z.string().nullable().describe("One short Hebrew line naming the work beyond the routine service, e.g. 'החלפת מצבר' or 'החלפת צינור מזגן', else null"),
     confidence: z.enum(["high", "medium", "low"]).describe("How readable and complete the document was"),
+    duplicate_of: z.string().nullable().describe("id of the HISTORY record that is this same visit (see the rules), else null"),
     notes: z.string().nullable().describe("Anything the driver should double-check, in Hebrew, else null"),
   }),
   quote: z.object({
@@ -85,7 +86,7 @@ export const SYSTEM: Record<Task, string> = {
 Use only ids and keys that appear in the context. When the note names a part that matches a stock part, set part_id and item and leave price null. Put labour as its own line: when it matches a catalog job set job_id; when the note gives hours put them in hours. Never make up a price the note doesn't state. Write desc in short Hebrew.`,
   insp: `You map an Israeli mechanic's short Hebrew inspection note onto a fixed CHECKLIST of keys. Return one entry per checklist item the note mentions, with status now/soon/ok and a short Hebrew note with any measurement. Do not return items the note doesn't mention; set rest_ok when the note says the rest is fine.`,
   record: `You turn an Israeli driver's short Hebrew description of a garage visit into a service record. Use only item keys from ITEMS. Leave a field null when the description doesn't give it; never guess numbers.`,
-  receipt: `You read an Israeli car service receipt or invoice (Hebrew, sometimes English; a photo or a PDF) and turn it into one structured record. The context gives the car (current km, km per month), TODAY, the car's HISTORY (earlier visits with date and km), the importer's SCHEDULE_SERVICES (km of each periodic service, repeating every CYCLE_KM) and the maintenance ITEMS (keys with Hebrew names).
+  receipt: `You read an Israeli car service receipt or invoice (Hebrew, sometimes English; a photo or a PDF) and turn it into one structured record. The context gives the car (current km, km per month), TODAY, the car's HISTORY (every record so far: id, date, km, kind, service, garage, price, parts, description), the importer's SCHEDULE_SERVICES (km of each periodic service, repeating every CYCLE_KM) and the maintenance ITEMS (keys with Hebrew names).
 Read the document as a mechanic would and reason about it:
 - date: the visit date on the document, as YYYY-MM.
 - km: use the odometer printed in the km field, or written by hand anywhere on the page. Garages often leave the km field empty; then infer the odometer for the visit date from HISTORY (interpolate between the visits around it, or extrapolate from the nearest visit or from today's km at KM_PER_MONTH), round to the nearest 100 and set km_estimated. Never copy today's km for an older visit.
@@ -93,6 +94,8 @@ Read the document as a mechanic would and reason about it:
 - kind: "service" when the document includes a periodic service (oil, filters, "טיפול"), even if other work was done too; then put the other work in text. "repair" for fault fixes and part replacements without a periodic service.
 - items: parts replaced or refilled (oil, filters, plugs, fluids, pads, battery, AC gas after "ואקום ומילוי גז", etc.), mapped to ITEMS keys only; ignore inspections, cleaning additives and merchandise.
 - price: the final total paid including VAT, in ILS.
+- duplicate_of: drivers upload the same receipt twice, or another photo of it. If a HISTORY record is this same visit (same month and the same total, or the same garage and the same work within a few weeks), return its id; a different visit to the same garage is not a duplicate.
+Use HISTORY as the car's story: the km between visits, which services were done, what was replaced when.
 Put anything uncertain the driver should check, in short Hebrew, in notes.`,
   quote: `You help an Israeli driver understand a garage's quote. For each line decide whether it is due, using ONLY the car's ITEM_STATE (when each item was last replaced and when it is next due) and its importer SCHEDULE. Judge the price ONLY against COMMUNITY_PRICES (what other drivers of this model paid for this service); if they don't cover the work, price_verdict is unknown. Never use outside price knowledge. Be neutral and practical, never accuse the garage, and remember the mechanic may have seen wear the schedule can't know about. Write in plain Hebrew.`,
 };
@@ -118,6 +121,7 @@ export function clean<T extends Task>(task: T, out: Result<T>, context: any): Re
     const o = out as Result<"insp">; o.checks = o.checks.filter(c => keys.has(c.key));
   }
   if (task === "record" || task === "receipt") { const o = out as Result<"record">; o.items = o.items.filter(k => items.has(k)); }
+  if (task === "receipt") { const o = out as Result<"receipt">, ids = new Set((context?.history || []).map((h: any) => String(h.id))); if (o.duplicate_of && !ids.has(o.duplicate_of)) o.duplicate_of = null; }
   if (task === "quote") {
     const st = new Set((context?.item_state || []).map((i: any) => i.item));
     const o = out as Result<"quote">; o.lines = o.lines.map(l => ({ ...l, item: l.item && st.has(l.item) ? l.item : null })); o.questions = o.questions.slice(0, 3);

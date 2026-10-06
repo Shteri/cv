@@ -817,8 +817,9 @@
   function readContext(car, s) {
     const shift = gridShift(s), top = car.km + s.cycle_km, services = [];
     for (let lap = 0; lap * s.cycle_km + shift <= top; lap++) for (const svc of s.services) { const k = lap * s.cycle_km + svc.km; if (k <= top) services.push(k); }
-    const history = (car.history || []).filter(h => h.km && h.date && !isStateRec(h)).sort((a, b) => a.date.localeCompare(b.date)).slice(-30)
-      .map(h => ({ date: h.date, km: h.km, kind: h.kind || "service", svc_km: h.svcKm || null, garage: h.garage || null }));
+    // every record (the newest 80), so the reader sees the car's story and can tell a receipt that is already here
+    const history = (car.history || []).filter(h => h.km && !isStateRec(h)).sort((a, b) => (a.date || "").localeCompare(b.date || "")).slice(-80)
+      .map(h => ({ id: h.id, date: h.date || null, km: h.km, kind: h.kind || "service", svc_km: h.svcKm || null, garage: h.garage || null, price: h.price || null, parts: (h.items || []).map(itemName), text: h.text || null }));
     return { today: new Date().toISOString().slice(0, 10), car: { make: s.make_he, model: s.model_he, year: car.year, km: car.km, km_per_month: car.kmMonth || 1500 },
       history, cycle_km: s.cycle_km, schedule_services: [...new Set(services)].sort((a, b) => a - b), items: candidateItems(s).map(k => ({ key: k, he: itemName(k) })) };
   }
@@ -969,7 +970,7 @@
     if (e.km > car.km) car.km = e.km;
     save(); renderAll();
     $("#log").classList.remove("show");
-    if (scanFor !== null) { scanItems[scanFor].status = "saved"; scanFor = null; showScan(); toast("נשמר"); return; }
+    if (scanFor !== null) { const it = scanItems[scanFor]; if (it.hash) { const saved = logEdit || car.history[car.history.length - 1]; if (saved) saved.docHash = it.hash; save(); } it.status = "saved"; scanFor = null; showScan(); toast("נשמר"); return; }
     toast(e.share && e.price ? "נשמר. תודה שעזרת לנהגים אחרים" : "נשמר. מצב הרכב עודכן");
   };
   // Upload: every document is read in the reading sheet, one after another. Each becomes one record once the
@@ -977,20 +978,39 @@
   let scanItems = [], scanFor = null;
   $("#car-upload").onchange = async e => {
     const files = [...e.target.files]; if (!files.length) return; e.target.value = "";
-    const fresh = []; for (const f of files) fresh.push({ file: f, thumb: await shrink(f), pdf: isPdf(f), status: "waiting", result: null, err: "" });
-    scanItems = scanItems.filter(x => x.status !== "saved").concat(fresh); showScan(); readNext();
+    scanItems = scanItems.filter(x => !["saved", "skipped"].includes(x.status));
+    const car = S.cars[S.active];
+    for (const f of files) {
+      const hash = await fileHash(f), it = { file: f, hash, thumb: await shrink(f), pdf: isPdf(f), status: "waiting", result: null, err: "", dup: null };
+      // the same file again: no need to read it (and pay for it) twice
+      const rec = hash && (car.history || []).find(h => h.docHash === hash);
+      if (rec) Object.assign(it, { status: "dup", dup: rec });
+      else if (hash && scanItems.some(x => x.hash === hash)) Object.assign(it, { status: "skipped", err: "הקובץ הזה כבר ברשימה" });
+      scanItems.push(it);
+    }
+    showScan(); readNext();
   };
   $("#car-manual").onclick = () => openLog();
   async function readNext() {
     if (scanItems.some(x => x.status === "reading")) return;
     const it = scanItems.find(x => x.status === "waiting"); if (!it) return;
     it.status = "reading"; renderScan();
-    try { it.result = await readReceipt(it.file); it.status = "read"; }
+    try {
+      it.result = await readReceipt(it.file); it.status = "read";
+      const car = S.cars[S.active], r = it.result;
+      // the reader's verdict, or the same month and total as a record or as another document in this upload
+      const same = h => h && r.date && r.price && h.date === r.date && h.price === r.price;
+      const dup = (r.duplicate_of && (car.history || []).find(h => h.id === r.duplicate_of)) || (car.history || []).find(h => !isStateRec(h) && same(h))
+        || scanItems.filter(x => x !== it && x.result && ["read", "saved", "dup"].includes(x.status)).map(x => ({ ...x.result, svcKm: x.result.svc_km })).find(same);
+      if (dup) Object.assign(it, { status: "dup", dup });
+    }
     catch (e) { it.err = readErr(String(e.message || e)); it.status = "failed"; console.warn("receipt reading failed:", e.message || e); }
     renderScan(); readNext();
   }
   const showScan = () => { renderScan(); $("#scan").classList.add("show"); };
-  const SCAN_STATE = { waiting: "ממתין", reading: "קורא…", read: "נקרא", failed: "לא נקרא", saved: "נשמר ✓" };
+  const SCAN_STATE = { waiting: "ממתין", reading: "קורא…", read: "נקרא", failed: "לא נקרא", saved: "נשמר ✓", dup: "כבר קיים", skipped: "דולג" };
+  const fileHash = async f => { try { const b = await crypto.subtle.digest("SHA-256", await f.arrayBuffer()); return [...new Uint8Array(b)].map(x => x.toString(16).padStart(2, "0")).join(""); } catch (e) { return null; } };
+  const recLabel = h => [h.kind === "service" || !h.kind ? "טיפול" : h.text || kindName[h.kind], h.date ? monthName(new Date(h.date + "-01")) : "", h.price ? "₪" + fmt(h.price) : ""].filter(Boolean).join(" · ");
   function renderScan() {
     const n = k => scanItems.filter(x => x.status === k).length;
     $("#scan-sum").textContent = scanItems.length > 1 ? `${n("saved")} מתוך ${scanItems.length} נשמרו` : "";
@@ -998,11 +1018,13 @@
     $("#scan-list").innerHTML = scanItems.map((x, i) => {
       const r = x.result, sum = r ? [r.date ? monthName(new Date(r.date + "-01")) : "", r.km ? fmt(r.km) + ' ק"מ' : "", r.price ? "₪" + fmt(r.price) : "", r.garage || ""].filter(Boolean).join(" · ") : "";
       return `<div class="scan-row">${x.thumb ? `<img src="${x.thumb}" alt="">` : `<span class="scan-doc">${x.pdf ? "PDF" : "?"}</span>`}
-        <div><b class="${x.status === "failed" ? "crit-text" : x.status === "saved" ? "good-text" : ""}">${SCAN_STATE[x.status]}</b><br><span class="small muted">${esc(x.status === "failed" ? x.err : sum || x.file.name || "")}</span></div>
+        <div><b class="${x.status === "failed" ? "crit-text" : x.status === "saved" ? "good-text" : x.status === "dup" ? "warn-text" : ""}">${SCAN_STATE[x.status]}</b><br><span class="small muted">${esc(x.status === "failed" || x.status === "skipped" ? x.err : x.status === "dup" ? recLabel(x.dup) : sum || x.file.name || "")}</span></div>
         <div class="scan-acts">${x.status === "read" ? `<button class="btn primary compact fit" data-scan-open="${i}">בדוק ושמור</button>`
-          : x.status === "failed" ? `<button class="btn primary compact fit" data-scan-open="${i}">מלא ידנית</button><button class="btn ghost compact fit" data-scan-retry="${i}">נסה שוב</button>` : ""}</div></div>`;
+          : x.status === "failed" ? `<button class="btn primary compact fit" data-scan-open="${i}">מלא ידנית</button><button class="btn ghost compact fit" data-scan-retry="${i}">נסה שוב</button>`
+          : x.status === "dup" ? `<button class="btn primary compact fit" data-scan-skip="${i}">דלג</button><button class="btn ghost compact fit" data-scan-open="${i}">שמור בכל זאת</button>` : ""}</div></div>`;
     }).join("");
     $$("#scan-list [data-scan-open]").forEach(b => b.onclick = () => openScanned(+b.dataset.scanOpen));
+    $$("#scan-list [data-scan-skip]").forEach(b => b.onclick = () => { const x = scanItems[+b.dataset.scanSkip]; x.status = "skipped"; x.err = "כבר קיים"; renderScan(); });
     $$("#scan-list [data-scan-retry]").forEach(b => b.onclick = () => { scanItems[+b.dataset.scanRetry].status = "waiting"; readNext(); });
   }
   function openScanned(i) {
