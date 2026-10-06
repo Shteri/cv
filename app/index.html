@@ -792,7 +792,8 @@
   // Shrink a photo to a small JPEG thumbnail (kept on device; the full image is what a future server would OCR).
   const readDataUrl = file => new Promise((res, rej) => { const r = new FileReader(); r.onload = () => res(r.result); r.onerror = rej; r.readAsDataURL(file); });
   const isPdf = f => f && (f.type === "application/pdf" || /\.pdf$/i.test(f.name || ""));
-  const shrink = (file, max = 320) => isPdf(file) ? Promise.resolve(null) : new Promise(res => { const r = new FileReader(); r.onload = () => { const img = new Image(); img.onload = () => { const c = document.createElement("canvas"); const k = Math.min(1, max / Math.max(img.width, img.height)); c.width = img.width * k; c.height = img.height * k; c.getContext("2d").drawImage(img, 0, 0, c.width, c.height); res(c.toDataURL("image/jpeg", .7)); }; img.src = r.result; }; r.readAsDataURL(file); });
+  // a photo the browser can't open resolves to null instead of hanging the upload
+  const shrink = (file, max = 320) => isPdf(file) ? Promise.resolve(null) : new Promise(res => { const r = new FileReader(); r.onerror = () => res(null); r.onload = () => { const img = new Image(); img.onerror = () => res(null); img.onload = () => { try { const c = document.createElement("canvas"); const k = Math.min(1, max / Math.max(img.width, img.height)); c.width = Math.round(img.width * k); c.height = Math.round(img.height * k); c.getContext("2d").drawImage(img, 0, 0, c.width, c.height); res(c.toDataURL("image/jpeg", .7)); } catch (e) { res(null); } }; img.src = r.result; }; r.readAsDataURL(file); });
   // Ask the server to read the document and prefill the form. The driver reviews before saving.
   async function prefillFromReceipt(file) {
     if (!Cloud.enabled || !file) return;
@@ -800,13 +801,14 @@
     const btn = $("#log-save"); btn.disabled = true; btn.dataset.busy = "קורא את החשבונית…"; btn.classList.add("busy");
     try {
       const big = isPdf(file) ? await readDataUrl(file) : await shrink(file, 1600);
+      if (!big) throw new Error("unreadable image");
       const r = await Cloud.extractReceipt(big, { make: s.make_he, model: s.model_he, year: car.year, items: candidateItems(s).map(k => ({ key: k, he: itemName(k) })) });
       fillLog(r, s);
       toast(r.confidence === "low" ? "קראתי חלקית. בדוק את הפרטים לפני שמירה" : "מולא מהחשבונית. בדוק ושמור");
       if (r.notes) $("#log-extra").value = r.notes;
     } catch (e) {
       const m = String(e.message || e);
-      toast(/not configured/.test(m) ? "קריאת חשבוניות עוד לא הופעלה. מלא ידנית" : /not signed in|401/.test(m) ? "כדי לקרוא חשבוניות צריך להתחבר עם Google" : /daily limit/.test(m) ? "הגעת למכסת הקריאות להיום. מלא ידנית" : /too long/.test(m) ? "הקובץ גדול מדי. נסה צילום" : /credit|billing/i.test(m) ? "שירות ה-AI לא פעיל: אין קרדיט בחשבון Anthropic" : /ai 401|authentication|api.key/i.test(m) ? "מפתח ה-AI לא תקין" : "לא הצלחתי לקרוא את החשבונית. מלא ידנית");
+      toast(/not configured/.test(m) ? "קריאת חשבוניות עוד לא הופעלה. מלא ידנית" : /not signed in|401/.test(m) ? "כדי לקרוא חשבוניות צריך להתחבר עם Google" : /daily limit/.test(m) ? "הגעת למכסת הקריאות להיום. מלא ידנית" : /too long/.test(m) ? "הקובץ גדול מדי. נסה צילום" : /unreadable image/.test(m) ? "לא הצלחתי לפתוח את התמונה. נסה צילום מסך שלה או PDF" : /credit|billing/i.test(m) ? "שירות ה-AI לא פעיל: אין קרדיט בחשבון Anthropic" : /ai 401|authentication|api.key/i.test(m) ? "מפתח ה-AI לא תקין" : "לא הצלחתי לקרוא את החשבונית. מלא ידנית");
       console.warn("receipt reading failed:", m);
     }
     btn.disabled = false; btn.classList.remove("busy"); btn.dataset.busy = "";
