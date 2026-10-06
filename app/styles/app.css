@@ -388,7 +388,13 @@ label.btn { cursor: pointer; }
 .garage.tap:active { background: var(--surface-2); }
 .gv-photos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
 .gv-photos img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--r-field); }
-.good-text { color: var(--good); }
+.good-text { color: var(--good); } .crit-text { color: var(--crit); }
+/* receipt reading sheet: thumbnail, state, actions */
+.scan-row { display: grid; grid-template-columns: 48px 1fr; gap: 10px; align-items: center; }
+.scan-row img, .scan-doc { width: 48px; height: 48px; border-radius: var(--r-field); object-fit: cover; background: var(--surface-2); }
+.scan-doc { display: grid; place-items: center; font-size: .75rem; font-weight: 600; color: var(--muted); }
+.scan-acts { grid-column: 2; display: flex; gap: 8px; flex-wrap: wrap; }
+.scan-acts:empty { display: none; }
 .go-mark { color: var(--accent-text); font-size: 1.2em; }
 .gv-act, #gv-body a.btn { text-decoration: none; }
 .gv-act svg { width: 18px; height: 18px; flex: none; }
