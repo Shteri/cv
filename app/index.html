@@ -436,6 +436,7 @@
 <script src="lookup.js"></script>
 <script src="engine.js"></script>
 <script src="history-import.js"></script>
+<script src="docs.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
 <script src="config.js"></script>
 <script src="cloud.js"></script>
@@ -751,7 +752,7 @@
   // ---------- log a service, a repair, or a document ----------
   const whereName = { importer: "מוסך יבואן", independent: "מוסך פרטי", self: "בעצמי" };
   const kindName = { service: "טיפול תקופתי", repair: "תיקון", other: "אחר" };
-  let logWhere = "importer", logThumbs = [], logBack = "", logKind = "service", logSel = new Set(), logEdit = null;
+  let logWhere = "importer", logThumbs = [], logFiles = [], logBack = "", logKind = "service", logSel = new Set(), logEdit = null;
   $$("#log-back button").forEach(b => b.onclick = () => { $$("#log-back button").forEach(x => x.classList.remove("on")); b.classList.add("on"); logBack = b.dataset.v; });
   // Items a driver can mark as replaced: everything the schedule ever replaces, long-interval items, and common wear parts.
   function candidateItems(s) {
@@ -792,17 +793,40 @@
     const d = new Date(); $("#log-date").value = opts.date || `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}`;
     $("#log-km").value = opts.km || car.km; $("#log-price").value = ""; $("#log-garage").value = ""; $("#log-city").value = ""; $("#log-extra").value = ""; $("#log-text").value = "";
     $("#log-price-err").hidden = true; $("#log-text-err").hidden = true; $("#log-km-est").hidden = true; $("#log-km-err").hidden = true;
-    logEdit = null; $("#log-del").hidden = true;
+    logEdit = null; $("#log-del").hidden = true; $("#log-thumbs").onclick = null;
     logBack = ""; $$("#log-back button").forEach(x => x.classList.toggle("on", x.dataset.v === ""));
-    logThumbs = opts.thumbs ? opts.thumbs.slice() : []; renderThumbs(); $("#log-file").value = "";
+    logThumbs = opts.thumbs ? opts.thumbs.slice() : []; logFiles = opts.files ? opts.files.slice() : []; renderThumbs(); $("#log-file").value = "";
     setKind(opts.kind || "service");
     $("#garage-dl").innerHTML = ""; loadGarageDir().catch(() => {});
     $("#log-ai-row").hidden = !Cloud.enabled; $("#log-ai").value = "";
     $("#log").classList.add("show"); $("#log .panel").scrollTop = 0;
   }
   function renderThumbs() {
-    $("#log-thumbs").hidden = !logThumbs.length; $("#log-thumbs").innerHTML = logThumbs.map(t => `<img src="${t}" alt="חשבונית">`).join("");
-    $("#log-thumb").hidden = true; $("#log-file-lbl").textContent = logThumbs.length ? `יש ${logThumbs.length} צילומים, הוסף עוד` : "הוסף צילום";
+    const pdfs = logFiles.filter(isPdf).length + ((logEdit && logEdit.docs) || []).filter(d => d.type === "application/pdf").length, n = logThumbs.length + pdfs;
+    $("#log-thumbs").hidden = !n; $("#log-thumbs").innerHTML = logThumbs.map(t => `<img src="${t}" alt="חשבונית">`).join("") + `<span class="scan-doc">PDF</span>`.repeat(pdfs);
+    $("#log-thumb").hidden = true; $("#log-file-lbl").textContent = n ? `יש ${n} מסמכים, הוסף עוד` : "הוסף צילום או PDF";
+  }
+  // The readable copy kept with a record: the photo at 1600px, or the PDF as it is (up to 10 MB).
+  async function makeDoc(file, recId, n) {
+    let blob, type;
+    if (isPdf(file)) { if (file.size > 10 * 1024 * 1024) { toast("PDF מעל 10MB לא נשמר"); return null; } blob = file; type = "application/pdf"; }
+    else { const d = await shrink(file, 1600, .82); if (!d) return null; blob = await (await fetch(d)).blob(); type = "image/jpeg"; }
+    const id = `${recId}-${Date.now().toString(36)}${n}`;
+    await TipulitDocs.put(id, blob);
+    return { id, type };
+  }
+  const dropDocs = rec => { for (const d of rec.docs || []) if (d.id) TipulitDocs.del(d.id); };
+  // Open a record's file: from the cloud when uploaded, else from this device. The tab opens first (pop-up rules).
+  async function openDoc(d, thumb) {
+    const w = window.open("", "_blank");
+    try {
+      let url = null;
+      if (d && d.path && Cloud.enabled) url = await Cloud.docUrl(d.path);
+      else if (d && d.id) { const blob = await TipulitDocs.get(d.id); if (blob) url = URL.createObjectURL(blob); }
+      url = url || thumb;
+      if (!url) throw new Error("missing");
+      if (w) w.location.href = url; else location.href = url;
+    } catch (e) { if (w) w.close(); toast("המסמך לא נמצא במכשיר הזה"); }
   }
   const closeLog = () => { $("#log").classList.remove("show"); if (scanFor !== null) { scanFor = null; showScan(); } };
   $("#log-close").onclick = closeLog;
@@ -812,7 +836,7 @@
   const readDataUrl = file => new Promise((res, rej) => { const r = new FileReader(); r.onload = () => res(r.result); r.onerror = rej; r.readAsDataURL(file); });
   const isPdf = f => f && (f.type === "application/pdf" || /\.pdf$/i.test(f.name || ""));
   // a photo the browser can't open resolves to null instead of hanging the upload
-  const shrink = (file, max = 320) => isPdf(file) ? Promise.resolve(null) : new Promise(res => { const r = new FileReader(); r.onerror = () => res(null); r.onload = () => { const img = new Image(); img.onerror = () => res(null); img.onload = () => { try { const c = document.createElement("canvas"); const k = Math.min(1, max / Math.max(img.width, img.height)); c.width = Math.round(img.width * k); c.height = Math.round(img.height * k); c.getContext("2d").drawImage(img, 0, 0, c.width, c.height); res(c.toDataURL("image/jpeg", .7)); } catch (e) { res(null); } }; img.src = r.result; }; r.readAsDataURL(file); });
+  const shrink = (file, max = 320, q = .7) => isPdf(file) ? Promise.resolve(null) : new Promise(res => { const r = new FileReader(); r.onerror = () => res(null); r.onload = () => { const img = new Image(); img.onerror = () => res(null); img.onload = () => { try { const c = document.createElement("canvas"); const k = Math.min(1, max / Math.max(img.width, img.height)); c.width = Math.round(img.width * k); c.height = Math.round(img.height * k); c.getContext("2d").drawImage(img, 0, 0, c.width, c.height); res(c.toDataURL("image/jpeg", q)); } catch (e) { res(null); } }; img.src = r.result; }; r.readAsDataURL(file); });
   // what to tell the driver when a document could not be read
   const readErr = m => /not configured/.test(m) ? "קריאת קבלות עוד לא הופעלה" : /not signed in|401/.test(m) && !/ai 401/.test(m) ? "קריאה אוטומטית זמינה אחרי התחברות עם Google"
     : /daily limit/.test(m) ? "הגעת למכסת הקריאות להיום" : /too long/.test(m) ? "הקובץ גדול מדי. נסה צילום" : /unreadable image/.test(m) ? "לא הצלחתי לפתוח את התמונה. נסה צילום מסך שלה או PDF"
@@ -861,12 +885,14 @@
     $("#log-extra").value = rec.extra || "";
     logBack = rec.back || ""; $$("#log-back button").forEach(x => x.classList.toggle("on", x.dataset.v === logBack));
     $("#log-share").classList.toggle("on", !!rec.share);
-    logEdit = rec; $("#log-del").hidden = false;
+    logEdit = rec; $("#log-del").hidden = false; renderThumbs();
+    // the record's files open from the form too
+    $("#log-thumbs").onclick = () => { const d = (rec.docs || [])[0]; if (d || rec.receipt) openDoc(d, (rec.receipts || [])[0]); };
   }
   $("#log-del").onclick = async () => {
     const car = S.cars[S.active], rec = logEdit; if (!rec || !confirm("למחוק את הרשומה?")) return;
     if (Cloud.enabled && rec.cloudId) { try { await Cloud.deleteRecord(rec); } catch (e) { toast("המחיקה נכשלה. בדוק חיבור ונסה שוב"); return; } }
-    car.history = (car.history || []).filter(h => h !== rec);
+    car.history = (car.history || []).filter(h => h !== rec); dropDocs(rec);
     logEdit = null; save(); closeLog(); renderAll(); toast("הרשומה נמחקה");
   };
   // The odometer in a given month: between the records around it, else back from today at the car's pace. Rounded to 100.
@@ -953,9 +979,9 @@
     catch (e) { toast(aiErr(e)); }
     b.disabled = false; b.textContent = "בדוק";
   };
-  $("#log-file").onchange = async e => { const files = [...e.target.files]; for (const f of files) { const t = await shrink(f); if (t) logThumbs.push(t); } renderThumbs(); if (files[0]) prefillFromReceipt(files[0]); };
+  $("#log-file").onchange = async e => { const files = [...e.target.files]; for (const f of files) { logFiles.push(f); const t = await shrink(f); if (t) logThumbs.push(t); } renderThumbs(); if (files[0]) prefillFromReceipt(files[0]); };
   $("#log-share").onclick = () => $("#log-share").classList.toggle("on");
-  $("#log-save").onclick = () => {
+  $("#log-save").onclick = async () => {
     const car = S.cars[S.active];
     const priceVal = +$("#log-price").value.replace(/\D/g, "");
     if (logKind !== "service" && !$("#log-text").value.trim()) { $("#log-text-err").hidden = false; $("#log-text").focus(); return; }
@@ -965,7 +991,11 @@
       items: [...logSel], date: $("#log-date").value, km: +$("#log-km").value.replace(/\D/g, ""), where: logWhere,
       garage: $("#log-garage").value.trim(), city: $("#log-city").value.trim(), price: priceVal || null,
       extra: $("#log-extra").value.trim(), receipts: logThumbs.slice(), receipt: logThumbs[0] || null, share: $("#log-share").classList.contains("on"), back: logBack || null,
-      source: logThumbs.length ? "upload" : "log", at: Date.now() };
+      source: logThumbs.length || logFiles.length ? "upload" : "log", at: Date.now() };
+    const sb = $("#log-save"); sb.disabled = true;
+    const fresh = []; for (let i = 0; i < logFiles.length; i++) { const d = await makeDoc(logFiles[i], logEdit ? logEdit.id : e.id, i); if (d) fresh.push(d); }
+    sb.disabled = false;
+    e.docs = [...((logEdit && logEdit.docs) || []), ...fresh];
     car.history = car.history || [];
     if (logEdit) Object.assign(logEdit, { ...e, id: logEdit.id, at: logEdit.at, source: logEdit.source || e.source, cloudId: logEdit.cloudId, receiptPaths: logEdit.receiptPaths, synced: false });
     else car.history.push(e);
@@ -1034,7 +1064,7 @@
   function openScanned(i) {
     const it = scanItems[i], car = S.cars[S.active], s = schedById(car.schedule);
     scanFor = i; $("#scan").classList.remove("show");
-    openLog(null, { thumbs: it.thumb ? [it.thumb] : [], kind: (it.result && it.result.kind) || "service" });
+    openLog(null, { thumbs: it.thumb ? [it.thumb] : [], files: [it.file], kind: (it.result && it.result.kind) || "service" });
     if (it.result) { fillLog(it.result, s); if (it.result.notes) $("#log-extra").value = it.result.notes; }
   }
   $("#scan-close").onclick = () => $("#scan").classList.remove("show");
@@ -1163,9 +1193,13 @@
       "";
     }
     wireItems($("#car-state"));
-    const docs = recs.flatMap(r => (r.receipts || (r.receipt ? [r.receipt] : [])).map(t => ({ t, r })));
+    // one tile per file: the k-th image file shows the k-th thumbnail; a PDF shows a PDF tile
+    const docs = recs.flatMap(r => { const th = r.receipts || (r.receipt ? [r.receipt] : []);
+      if (!r.docs || !r.docs.length) return th.map(t => ({ t, r, d: null }));
+      let k = 0; return r.docs.map(d => ({ r, d, t: d.type === "application/pdf" ? null : th[k++] || null })); });
     $("#car-docs-n").textContent = docs.length ? `${docs.length} מסמכים` : "";
-    $("#car-docs").innerHTML = docs.map(d => `<button title="${d.r.kind === "service" ? "טיפול " + fmt(d.r.svcKm || d.r.km) : d.r.text}"><img src="${d.t}" alt="חשבונית"><span class="lb num">${d.r.date || fmt(d.r.km)}</span></button>`).join("");
+    $("#car-docs").innerHTML = docs.map((d, i) => `<button data-doc="${i}" title="${esc(d.r.kind === "service" ? "טיפול " + fmt(d.r.svcKm || d.r.km) : d.r.text || "")}">${d.t ? `<img src="${d.t}" alt="קבלה">` : `<span class="scan-doc">${d.d && d.d.type === "application/pdf" ? "PDF" : "קבלה"}</span>`}<span class="lb num">${d.r.date || fmt(d.r.km)}</span></button>`).join("");
+    $$("#car-docs [data-doc]").forEach(b => b.onclick = () => { const x = docs[+b.dataset.doc]; openDoc(x.d, x.t); });
     $("#car-history").innerHTML = historyHTML(car);
     const ar = $("#car-add-repair"); if (ar) ar.onclick = () => openLog(null, { kind: "repair" });
     wireItems($("#car-history")); wireHistory();
@@ -1182,7 +1216,7 @@
     on("#hist-del", async () => {
       const car = S.cars[S.active], recs = (car.history || []).filter(h => histSel.has(h.id)); if (!recs.length || !confirm(`למחוק ${recs.length} רשומות?`)) return;
       if (Cloud.enabled) { try { for (const r of recs) await Cloud.deleteRecord(r); } catch (e) { toast("המחיקה נכשלה. בדוק חיבור ונסה שוב"); return; } }
-      car.history = car.history.filter(h => !histSel.has(h.id)); histSel = null; save(); renderAll(); toast(`נמחקו ${recs.length} רשומות`);
+      recs.forEach(dropDocs); car.history = car.history.filter(h => !histSel.has(h.id)); histSel = null; save(); renderAll(); toast(`נמחקו ${recs.length} רשומות`);
     });
   }
   const startCardHTML = () => `<div class="card start stack g-12">
@@ -2198,6 +2232,7 @@
       catch (e) { btn.disabled = false; btn.classList.remove("busy"); toast("ההסרה נכשלה. בדוק חיבור ונסה שוב"); return; }
     }
     const i = S.cars.indexOf(car); if (i < 0) return;
+    (car.history || []).forEach(dropDocs);
     S.cars.splice(i, 1); S.active = Math.min(S.active > i ? S.active - 1 : S.active, Math.max(0, S.cars.length - 1)); save();
     toast(`${carName(car)} הוסר`);
     if (!S.cars.length) startAdd(); else { renderAll(); if (!stay) show("s-home"); }

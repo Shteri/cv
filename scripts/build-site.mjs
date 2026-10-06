@@ -53,6 +53,7 @@ copyFileSync(root + "app/data.js", out + "data.js");
 copyFileSync(root + "app/lookup.js", out + "lookup.js");
 copyFileSync(root + "app/engine.js", out + "engine.js");
 copyFileSync(root + "app/history-import.js", out + "history-import.js");
+copyFileSync(root + "app/docs.js", out + "docs.js");
 copyFileSync(root + "app/config.js", out + "config.js");
 copyFileSync(root + "app/cloud.js", out + "cloud.js");
 mkdirSync(out + "styles", { recursive: true });
@@ -109,7 +110,7 @@ writeFileSync(out + "manifest.webmanifest", JSON.stringify({
 const version = createHash("sha1").update(html).update(readFileSync(root + "app/data.js")).update(readFileSync(root + "app/lookup.js")).update(readFileSync(root + "app/engine.js")).update(readFileSync(root + "app/history-import.js")).update(readFileSync(root + "app/cloud.js")).update(readFileSync(root + "app/config.js")).update(readFileSync(root + "app/styles/tokens.css")).update(readFileSync(root + "app/styles/brand.css")).update(readFileSync(root + "app/styles/app.css")).digest("hex").slice(0, 10);
 writeFileSync(out + "sw.js", `// Minimal offline cache for the app shell. Version: ${version}
 const CACHE = "tipulit-${version}";
-const ASSETS = ["./", "./index.html", "./styles/tokens.css", "./styles/brand.css", "./styles/app.css", "./data.js", "./lookup.js", "./engine.js", "./history-import.js", "./config.js", "./cloud.js", "./manifest.webmanifest", "./icon.svg", "./icon-192.png", "./icon-512.png"];
+const ASSETS = ["./", "./index.html", "./styles/tokens.css", "./styles/brand.css", "./styles/app.css", "./data.js", "./lookup.js", "./engine.js", "./history-import.js", "./docs.js", "./config.js", "./cloud.js", "./manifest.webmanifest", "./icon.svg", "./icon-192.png", "./icon-512.png"];
 self.addEventListener("install", e => { e.waitUntil(caches.open(CACHE).then(c => c.addAll(ASSETS)).then(() => self.skipWaiting())); });
 self.addEventListener("activate", e => { e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k !== CACHE).map(k => caches.delete(k)))).then(() => self.clients.claim())); });
 self.addEventListener("fetch", e => {

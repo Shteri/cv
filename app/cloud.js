@@ -52,7 +52,7 @@
   // Row -> app car (records attached separately)
   const rowCar = r => ({ cloudId: r.id, plate: r.plate ? fmtPlate(r.plate) : "", plateReleased: r.released_plate ? fmtPlate(r.released_plate) : null, schedule: r.schedule_id, year: r.year, km: r.km, kmMonth: r.km_month, lastService: r.last_service, gov: r.gov, history: [], added: Date.parse(r.created_at) });
   const fmtPlate = d => d.length <= 7 ? d.replace(/(\d{2})(\d{3})(\d{2})/, "$1-$2-$3") : d.replace(/(\d{3})(\d{2})(\d{3})/, "$1-$2-$3");
-  const rowRecord = (r, urls) => ({ id: r.client_id || r.id, cloudId: r.id, kind: r.kind, svcKm: r.svc_km, text: r.text || "", items: r.items || [], date: r.date, km: r.km, where: r.where, garage: r.garage || "", city: r.city || "", price: r.price, back: r.back, extra: r.extra || "", tires: r.tires || null, docHash: r.doc_hash || null, receiptPaths: r.receipt_paths || [], receipts: urls || [], receipt: (urls || [])[0] || null, share: r.share, source: r.source, at: Date.parse(r.created_at), synced: true });
+  const rowRecord = (r, urls) => ({ id: r.client_id || r.id, cloudId: r.id, kind: r.kind, svcKm: r.svc_km, text: r.text || "", items: r.items || [], date: r.date, km: r.km, where: r.where, garage: r.garage || "", city: r.city || "", price: r.price, back: r.back, extra: r.extra || "", tires: r.tires || null, docHash: r.doc_hash || null, receiptPaths: r.receipt_paths || [], docs: (r.receipt_paths || []).map(p => ({ path: p, type: /\.pdf$/i.test(p) ? "application/pdf" : "image/jpeg" })), receipts: urls || [], receipt: (urls || [])[0] || null, share: r.share, source: r.source, at: Date.parse(r.created_at), synced: true });
 
   async function loadCars() {
     const uid = (await currentUser())?.id; if (!uid) return [];
@@ -62,7 +62,8 @@
     const paths = (recs || []).flatMap(r => r.receipt_paths || []);
     let urlByPath = {};
     if (paths.length) { const { data } = await sb.storage.from("receipts").createSignedUrls(paths, 3600); for (const u of data || []) if (u.signedUrl) urlByPath[u.path] = u.signedUrl; }
-    return (cars || []).map(c => { const car = rowCar(c); car.history = (recs || []).filter(r => r.car_id === c.id).map(r => rowRecord(r, (r.receipt_paths || []).map(p => urlByPath[p]).filter(Boolean))); return car; });
+    // images show as thumbnails; a PDF opens from the documents list
+    return (cars || []).map(c => { const car = rowCar(c); car.history = (recs || []).filter(r => r.car_id === c.id).map(r => rowRecord(r, (r.receipt_paths || []).filter(p => !/\.pdf$/i.test(p)).map(p => urlByPath[p]).filter(Boolean))); return car; });
   }
 
   // Saves for the same car run one after another. Sign-in saves every car while the debounced auto-sync may
@@ -84,16 +85,30 @@
       if (rec.synced) continue;
       // a record saved again (edited) keeps the receipts it already uploaded
       const paths = (rec.receiptPaths || []).slice();
-      for (let i = 0; i < (rec.receipts || []).length; i++) {
+      let upFailed = false;
+      if (rec.docs) {
+        // the readable file (image or PDF) kept on the device by docs.js
+        for (const d of rec.docs) {
+          if (d.path) { if (!paths.includes(d.path)) paths.push(d.path); continue; }
+          const blob = g.TipulitDocs && d.id ? await g.TipulitDocs.get(d.id) : null; if (!blob) continue;
+          const path = `${uid}/${car.cloudId}/${d.id}.${d.type === "application/pdf" ? "pdf" : "jpg"}`;
+          const { error: upErr } = await sb.storage.from("receipts").upload(path, blob, { contentType: d.type, upsert: true });
+          if (upErr) { upFailed = true; continue; }
+          d.path = path; paths.push(path);
+        }
+      } else for (let i = 0; i < (rec.receipts || []).length; i++) {
         const d = rec.receipts[i]; if (!d || !d.startsWith("data:")) continue;
         const path = `${uid}/${car.cloudId}/${rec.id}-${i}.jpg`;
         const { error: upErr } = await sb.storage.from("receipts").upload(path, await dataUrlToBlob(d), { contentType: "image/jpeg", upsert: true });
-        if (!upErr && !paths.includes(path)) paths.push(path);
+        if (upErr) upFailed = true; else if (!paths.includes(path)) paths.push(path);
       }
       const { data: saved, error: rErr } = await sb.from("records").upsert({ car_id: car.cloudId, user_id: uid, kind: rec.kind || "service", svc_km: rec.svcKm || null, text: rec.text || null, items: rec.items || [], date: rec.date || null, km: rec.km, where: rec.where || null, garage: rec.garage || null, city: rec.city || null, price: rec.price || null, back: rec.back || null, extra: rec.extra || null, receipt_paths: paths, tires: rec.tires && rec.tires.length ? rec.tires : null, doc_hash: rec.docHash || null, share: !!rec.share, source: rec.source || "log", client_id: rec.id }, { onConflict: "car_id,client_id" }).select("id").single();
-      if (!rErr) { rec.cloudId = saved.id; rec.receiptPaths = paths; rec.synced = true; }
+      // a file that did not upload keeps the record unsynced, so the next save tries again
+      if (!rErr) { rec.cloudId = saved.id; rec.receiptPaths = paths; rec.synced = !upFailed; }
     }
   }
+  // a short-lived link to open a receipt file
+  async function docUrl(path) { const { data, error } = await sb.storage.from("receipts").createSignedUrl(path, 600); if (error) throw error; return data.signedUrl; }
   // one record, with its receipt files
   async function deleteRecord(rec) {
     if (!rec.cloudId) return;
@@ -336,5 +351,5 @@
     return data.result;
   }
 
-  g.TipulitCloud = { enabled, authError, hasAuthParams, currentUser, onAuth, signInWithGoogle, signOut, handleRedirect, loadCars, saveCar, deleteCar, deleteRecord, communityPrices, communityGarages, extractReceipt, myGarageProfiles, garageProfiles, saveGarageProfile, deleteGarageProfile, photoUrl, startPhoneVerify, confirmPhoneVerify, claimGarage, pendingGarageClaims, setGarageStatus, garagePublic, joinGarage, myGarageLinks, updateGarageLink, leaveGarage, pendingGarageEntries, decideGarageEntry, garageCustomers, garageAddEntry, plateStatus, claimPlate, requestPlate, pendingPlateRequests, decidePlateRequest, garageBook, garageCarHistory, workOrders, addCustomer, updateCustomer, deleteCustomer, addGarageCar, updateGarageCar, saveWorkOrder, sendWorkOrder, importCustomers, appointments, saveAppointment, approvalsFor, createApproval, updateGarageSettings, bookingInfo, bookAppointment, bookSlot, apptGet, apptRespond, apptStrikes, approvalGet, approvalDecide, parts, suppliers, purchaseOrders, invoices, savePart, deletePart, saveSupplier, deleteSupplier, savePurchaseOrder, deletePurchaseOrder, receivePurchaseOrder, addStockMove, partMoves, woConsume, recordInvoice, deleteInvoice, billing, billingSave, billingDelete, issueDocument, jobTemplates, saveJob, deleteJob, approvalChoose, uploadInspectionPhoto, aiAssist };
+  g.TipulitCloud = { enabled, authError, hasAuthParams, currentUser, onAuth, signInWithGoogle, signOut, handleRedirect, loadCars, saveCar, deleteCar, deleteRecord, docUrl, communityPrices, communityGarages, extractReceipt, myGarageProfiles, garageProfiles, saveGarageProfile, deleteGarageProfile, photoUrl, startPhoneVerify, confirmPhoneVerify, claimGarage, pendingGarageClaims, setGarageStatus, garagePublic, joinGarage, myGarageLinks, updateGarageLink, leaveGarage, pendingGarageEntries, decideGarageEntry, garageCustomers, garageAddEntry, plateStatus, claimPlate, requestPlate, pendingPlateRequests, decidePlateRequest, garageBook, garageCarHistory, workOrders, addCustomer, updateCustomer, deleteCustomer, addGarageCar, updateGarageCar, saveWorkOrder, sendWorkOrder, importCustomers, appointments, saveAppointment, approvalsFor, createApproval, updateGarageSettings, bookingInfo, bookAppointment, bookSlot, apptGet, apptRespond, apptStrikes, approvalGet, approvalDecide, parts, suppliers, purchaseOrders, invoices, savePart, deletePart, saveSupplier, deleteSupplier, savePurchaseOrder, deletePurchaseOrder, receivePurchaseOrder, addStockMove, partMoves, woConsume, recordInvoice, deleteInvoice, billing, billingSave, billingDelete, issueDocument, jobTemplates, saveJob, deleteJob, approvalChoose, uploadInspectionPhoto, aiAssist };
 })(window);

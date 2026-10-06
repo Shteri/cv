@@ -253,6 +253,7 @@ input, select, textarea { font: inherit; color: var(--ink); }
 .docs button { position: relative; aspect-ratio: 1; border-radius: 12px; overflow: hidden; border: 1px solid var(--line); background: var(--surface-2); transition: transform .3s var(--spring); }
 .docs button:active { transform: scale(.95); }
 .docs img { width: 100%; height: 100%; object-fit: cover; }
+.docs .scan-doc { width: 100%; height: 100%; border-radius: 0; }
 .docs .lb { position: absolute; bottom: 0; left: 0; right: 0; font-size: .65rem; background: color-mix(in srgb, var(--shade) 72%, transparent); color: var(--white); padding: 2px 4px; text-align: center; }
 .items-pick { display: flex; flex-wrap: wrap; gap: 6px; max-height: 190px; overflow-y: auto; padding: 4px 0; }
 .items-pick .chip { font-size: .82rem; padding: 6px 12px; min-height: 34px; }
