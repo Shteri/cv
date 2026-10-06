@@ -905,7 +905,7 @@
   const KIND_LABEL = { service: "טיפול", repair: "תיקון", other: "הערה" };
   function renderXls() {
     const n = xlsVisits.filter(v => v.on).length;
-    $("#xls-sum").textContent = `נמצאו ${xlsVisits.length} ביקורים. סמנו מה לייבא; כל ביקור יהפוך לרשומה, והחלקים שהוחלפו יעדכנו את מצב הרכב.`;
+    $("#xls-sum").textContent = `נמצאו ${xlsVisits.length} ביקורים. סמנו מה לייבא; כל ביקור יהפוך לרשומה, והחלקים שהוחלפו יעדכנו את מצב הרכב.${xlsVisits.some(v => v.empty && !v.dup) ? " ביקורים בלי החלפת חלקים (\"הערה\") לא מסומנים, כי הם לא משנים את מצב הרכב. אפשר לסמן אותם כדי לשמור בהיסטוריה." : ""}`;
     $("#xls-list").innerHTML = xlsVisits.map((v, i) => `<label class="xls-row"><input type="checkbox" data-xi="${i}" ${v.on ? "checked" : ""}>
       <span><b class="num">${v.day ? fmtDate(v.day) : "בלי תאריך"}${v.km ? " · " + fmt(v.km) + ' ק"מ' : ""}</b> <span class="tag">${KIND_LABEL[v.kind]}</span>${v.dup ? ` <span class="tag">כבר קיים</span>` : ""}
         <br><span class="small muted">${[v.items.map(itemName).join(", "), v.text || (v.kind === "other" ? v.notes : ""), v.garage].filter(Boolean).map(esc).join(" · ")}</span></span></label>`).join("");
