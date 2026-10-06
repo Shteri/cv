@@ -1230,10 +1230,12 @@
     const byKey = new Map();
     for (const h of mine) {
       const key = (h.garage + "|" + (h.city || "")).toLowerCase();
-      const g = byKey.get(key) || { name: h.garage, city: h.city || "", type: h.where, n: 0, prices: [], back: [], mine: true };
-      g.n++; if (h.price) g.prices.push(h.price); if (h.back) g.back.push(h.back === "yes"); byKey.set(key, g);
+      const g = byKey.get(key) || { name: h.garage, city: h.city || "", type: h.where, n: 1, others: 0, visits: 0, prices: [], back: [], mine: true, myBack: null };
+      g.visits++; if (h.price) g.prices.push(h.price); if (h.back && (!g.backAt || h.km >= g.backAt)) { g.myBack = h.back === "yes"; g.backAt = h.km; } byKey.set(key, g);
     }
-    for (const g of communityGarages(s.id)) { const key = (g.name + "|" + (g.city || "")).toLowerCase(); const m = byKey.get(key); if (m) { m.n += g.n; m.prices.push(...g.prices); m.back.push(...g.back); } else byKey.set(key, { ...g, mine: false }); }
+    // my opinion counts once (the latest visit), like any other driver's
+    for (const g of byKey.values()) { if (g.myBack !== null) g.back.push(g.myBack); delete g.myBack; delete g.backAt; }
+    for (const g of communityGarages(s.id)) { const key = (g.name + "|" + (g.city || "")).toLowerCase(); const m = byKey.get(key); if (m) { m.others += g.n; m.n += g.n; m.prices.push(...g.prices); m.back.push(...g.back); } else byKey.set(key, { ...g, others: g.n, visits: 0, mine: false }); }
     return [...byKey.values()].map(g => ({ ...g, avg: g.prices.length ? g.prices.reduce((a, b) => a + b, 0) / g.prices.length : null, backPct: g.back.length ? Math.round(100 * g.back.filter(Boolean).length / g.back.length) : null }))
       .sort((a, b) => (b.backPct ?? -1) - (a.backPct ?? -1) || b.n - a.n);
   }
@@ -1258,9 +1260,10 @@
   const icoNav = `<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l18-8-8 18-2-8z"/></svg>`;
   // Community reports (this device + other drivers of the same model) keyed by normalized name|city.
   const communityMap = car => { const m = new Map(); for (const g of garagesFor(car)) m.set(normName(g.name) + "|" + cityNorm(g.city), g); return m; };
-  const commLine = (g, s) => `<div class="comm">${g.n} ${g.n === 1 ? "נהג" : "נהגי"} ${s.model_he}${g.backPct !== null ? ` · ${g.backPct}% היו חוזרים` : ""}${g.avg ? ` · ממוצע ₪${fmt(g.avg)}` : ""}</div>`;
+  // other drivers recommend; my own visits are just mine
+  const commLine = (g, s) => `<div class="comm">${g.others ? `${g.n} ${g.n === 1 ? "נהג" : "נהגי"} ${s.model_he}${g.mine ? " (כולל אותך)" : ""}` : `ביקרת כאן ${g.visits === 1 ? "פעם אחת" : g.visits + " פעמים"}`}${g.others && g.backPct !== null ? ` · ${g.backPct}% היו חוזרים` : ""}${g.avg ? ` · ממוצע ₪${fmt(g.avg)}` : ""}</div>`;
   const garageRow = (g, comm, s, prof) => { const hn = prof ? hoursNow(prof.hours) : null, phone = (prof && prof.phone) || g.phone; return `<div class="garage tap" role="button" tabindex="0" data-gview="${g.id}" aria-label="פרטי ${esc((prof && prof.name) || g.name)}">
-      <div><div class="nm">${esc((prof && prof.name) || g.name)}${comm ? ` <span class="tag rec">מומלץ</span>` : ""}${prof ? ` <span class="tag ver">מאומת</span>` : ""}${comm && comm.mine ? ` <span class="tag mine">דיווחת</span>` : ""}</div>
+      <div><div class="nm">${esc((prof && prof.name) || g.name)}${comm && comm.others ? ` <span class="tag rec">מומלץ</span>` : ""}${prof ? ` <span class="tag ver">מאומת</span>` : ""}${comm && comm.mine ? ` <span class="tag mine">דיווחת</span>` : ""}</div>
         ${prof && prof.name && normName(prof.name) !== normName(g.name) ? `<div class="meta"><span>רשום במשרד התחבורה: ${esc(g.name)}</span></div>` : ""}
         <div class="meta">${g.addr ? `<span>${esc(g.addr)}${g.city && g.city !== (S.city || "") ? ", " + g.city : ""}</span>` : ""}${(prof && prof.services && prof.services.length ? prof.services : g.cats).map(c => `<span>${gCatName[c] || c}</span>`).join("")}</div>
         ${hn ? `<div class="hrs ${hn.open ? "open" : ""}">${hn.text}</div>` : ""}
@@ -1268,7 +1271,7 @@
       <div class="acts">${phone ? `<a class="ib" href="${telHref(phone)}" aria-label="התקשר">${icoPhone}</a>` : ""}${prof && prof.whatsapp ? `<a class="ib" href="${waHref(prof.whatsapp)}" target="_blank" rel="noopener" aria-label="וואטסאפ">${icoWa}</a>` : ""}${g.addr ? `<a class="ib" href="${wazeHref(g)}" target="_blank" rel="noopener" aria-label="ניווט">${icoNav}</a>` : ""}</div>
       </div>`; };
   // A community report that isn't in the registry (free-text name) still gets a row.
-  const commOnlyRow = (g, s) => `<div class="garage"><div><div class="nm">${g.name} <span class="tag rec">מומלץ</span>${g.mine ? ` <span class="tag mine">דיווחת</span>` : ""}</div>
+  const commOnlyRow = (g, s) => `<div class="garage"><div><div class="nm">${g.name}${g.others ? ` <span class="tag rec">מומלץ</span>` : ""}${g.mine ? ` <span class="tag mine">דיווחת</span>` : ""}</div>
       <div class="meta"><span>${whereName[g.type] || ""}</span>${g.city ? `<span>${g.city}</span>` : ""}</div>${commLine(g, s)}</div><div class="acts"></div></div>`;
   // Rows for a city: registry garages with community data attached, recommended first.
   function cityGarages(car, city) {
@@ -1279,7 +1282,7 @@
     const rows = GD.garages.filter(r => r[2] === city).map(dirRow).map(g => {
       const prof = profs[g.id] || null, keys = namesOf(g, prof).map(n => normName(n) + "|" + cityNorm(g.city)).filter(k => cm.has(k));
       let comm = null;
-      for (const k of keys) { used.add(k); const c = cm.get(k); comm = !comm ? { ...c } : { ...comm, n: comm.n + c.n, prices: [...comm.prices, ...c.prices], back: [...comm.back, ...c.back], mine: comm.mine || c.mine }; }
+      for (const k of keys) { used.add(k); const c = cm.get(k); comm = !comm ? { ...c } : { ...comm, others: comm.others + c.others, visits: comm.visits + c.visits, prices: [...comm.prices, ...c.prices], back: [...comm.back, ...c.back], mine: comm.mine || c.mine }; comm.n = comm.others + (comm.mine ? 1 : 0); }
       if (comm && keys.length > 1) { comm.avg = comm.prices.length ? comm.prices.reduce((a, b) => a + b, 0) / comm.prices.length : null; comm.backPct = comm.back.length ? Math.round(100 * comm.back.filter(Boolean).length / comm.back.length) : null; }
       return { g, comm, prof };
     });
@@ -1306,10 +1309,10 @@
     if (!S.city) { $("#gr-sub").textContent = ""; $("#gr-list").innerHTML = `<div class="empty"><b>באיזו עיר לחפש?</b><p class="small muted">${GD.garages.length.toLocaleString("he")} מוסכים מורשים ב-${GD.cities.length} יישובים.</p><button class="btn secondary compact" id="gr-pick2">בחר עיר</button></div>`; $("#gr-pick2").onclick = openCitySheet; return; }
     const { rows, extra, s } = cityGarages(car, S.city);
     const q = normName($("#gr-q").value);
-    let list = rows.filter(r => grFilter === "all" ? r.g.type !== 2 || r.comm : grFilter === "rec" ? r.comm : r.g.cats.includes(grFilter));
+    let list = rows.filter(r => grFilter === "all" ? r.g.type !== 2 || r.comm : grFilter === "rec" ? r.comm && r.comm.others : r.g.cats.includes(grFilter));
     if (q) list = list.filter(r => namesOf(r.g, r.prof).some(n => normName(n).includes(q)) || normName(r.g.addr).includes(q));
-    const ex = grFilter === "all" || grFilter === "rec" ? extra.filter(g => !q || normName(g.name).includes(q)) : [];
-    const recN = rows.filter(r => r.comm).length + extra.length;
+    const ex = grFilter === "all" || grFilter === "rec" ? extra.filter(g => (grFilter !== "rec" || g.others) && (!q || normName(g.name).includes(q))) : [];
+    const recN = rows.filter(r => r.comm && r.comm.others).length + extra.filter(g => g.others).length;
     $("#gr-sub").textContent = `${rows.length} מוסכים מורשים ב${S.city}${recN ? ` · ${recN} עם המלצות לדגם שלך` : ""}`;
     $("#gr-list").innerHTML = ex.map(g => commOnlyRow(g, s)).join("") + list.map(r => garageRow(r.g, r.comm, s, r.prof)).join("") || (grFilter === "rec" ? garagesEmptyHTML() : `<p class="small muted">לא נמצא מוסך מתאים ב${S.city}.</p>`);
     wireGarageRows($("#gr-list"));

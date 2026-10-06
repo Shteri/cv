@@ -1,0 +1,22 @@
+// My own visits to a garage are mine, not a recommendation: one driver, "ביקרת כאן N פעמים", no "מומלץ" tag.
+import { chromium } from "playwright";
+const SITE = process.env.SITE_DIR || new URL("../../site", import.meta.url).pathname;
+import { createServer } from "node:http"; import { readFileSync, existsSync } from "node:fs";
+const srv = createServer((q, r) => { let f = SITE + q.url.split("?")[0]; if (f.endsWith("/")) f += "index.html"; if (!existsSync(f)) { r.statusCode = 404; return r.end(); } r.setHeader("content-type", f.endsWith(".js") ? "text/javascript" : f.endsWith(".css") ? "text/css" : f.endsWith(".json") ? "application/json" : "text/html; charset=utf-8"); r.end(readFileSync(f)); }).listen(8143);
+const b = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium" });
+const p = await b.newPage({ viewport: { width: 400, height: 900 } });
+const errs = []; p.on("pageerror", e => errs.push(e.message));
+const ok = (c, m) => console.log((c ? "OK   " : "FAIL ") + m);
+await p.goto("http://localhost:8143/"); await p.waitForTimeout(200);
+const hist = Array.from({ length: 16 }, (_, i) => ({ id: "v" + i, kind: "service", svcKm: 15000 * (i + 1), km: 15000 * (i + 1), date: `20${10 + Math.floor(i / 2)}-0${1 + (i % 2) * 5}`, items: ["engine_oil"], garage: "מוסך אמיר 10", city: "נתניה", where: "independent", price: 900, back: i === 15 ? "no" : "yes", receipts: [], share: false }));
+await p.evaluate(h => localStorage.setItem("tipulit", JSON.stringify({ onboarded: true, city: "נתניה", user: { name: "מקס", via: "guest" }, cars: [{ plate: "12-345-67", schedule: "hyundai-i10-2014-2019", year: 2017, km: 250000, kmMonth: 1500, lastService: "2025-01", history: h }], active: 0 })), hist);
+await p.reload(); await p.waitForTimeout(600);
+await p.evaluate(() => document.querySelector("#to-garages").click()); await p.waitForTimeout(800);
+const row = await p.evaluate(() => { const e = [...document.querySelectorAll("#gr-list .garage")].find(x => x.textContent.includes("מוסך אמיר 10")); return e ? e.textContent.replace(/\s+/g, " ") : null; });
+console.log("row:", row);
+ok(row && /ביקרת כאן 16 פעמים/.test(row), "my visits are counted as visits");
+ok(row && !/נהגי/.test(row) && !/מומלץ/.test(row) && /דיווחת/.test(row), "no drivers count, no recommended tag, marked as mine");
+const sub = await p.locator("#gr-sub").textContent();
+ok(!/עם המלצות/.test(sub), "my own garage is not counted as a recommendation: " + sub);
+console.log("errors:", errs);
+await b.close(); srv.close();
